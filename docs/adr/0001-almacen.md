@@ -1,6 +1,6 @@
-# D1 — Almacén: DuckDB, BigQuery sandbox o ambos
+# D1 — DuckDB como almacén y BigQuery como espejo semanal de los marts
 
-- **Estado:** propuesta (2026-11-09, Fase 0, spike S2). **Pendiente de la decisión de Aday.**
+- **Estado:** aceptada (2026-11-09, Fase 0, spike S2): opción C, decidida por Aday
 - **Relacionadas:** [SCOPE §8 D1](../../SCOPE.md#8-decisiones) · ADR D2 y D3 de Paleo Atlas (DuckDB; el estado vive en git y el almacén se reconstruye entero)
 
 ## Contexto
@@ -26,6 +26,9 @@ El patrón del motor, reconstruir todo cada día, **gasta el cupo de por vida en
 
 No he podido medir el consumo real del cupo: la API no lo expone, y la cifra de 120 días es una estimación a partir del tamaño de Paleo, no una medida.
 
+## Decisión
+**Opción C.** El almacén de trabajo es **DuckDB**, reconstruido cada día desde el crudo de git, como en Paleo. Una vez por semana, GitHub Actions sube **solo los marts publicados** a BigQuery sandbox con load jobs, autenticándose con Workload Identity Federation (sin clave guardada). El paso del espejo se implementa en la Fase 1, junto con los primeros marts, y su consumo de cupo se mide desde la primera ejecución.
+
 ## Opciones
 
 ### A. BigQuery como almacén principal, reconstruido cada día
@@ -37,7 +40,7 @@ No he podido medir el consumo real del cupo: la API no lo expone, y la cifra de 
 - **A favor:** probado, rápido, sin red ni cupos; CI y local idénticos.
 - **En contra:** no añade nada nuevo al CV.
 
-### C. DuckDB como almacén principal y BigQuery como espejo de los marts publicados (recomendada)
+### C. DuckDB como almacén principal y BigQuery como espejo de los marts publicados (elegida)
 - El pipeline diario sigue siendo el de Paleo, sobre DuckDB.
 - Una vez por semana, Actions sube a BigQuery **solo las tablas finales** (marts) con load jobs, que el sandbox sí admite, usando la misma autenticación sin clave de S2. Allí quedan para consultas y análisis, por ejemplo un panel en Looker Studio, que es gratuito.
 - **Consumo estimado:** el tamaño de los marts por 52 semanas al año. Con marts de 10–20 MiB serían 0,5–1 GiB al año, de 10 a 20 años de cupo. Es una estimación: hay que medirla con los marts reales de la Fase 1.
@@ -48,7 +51,7 @@ No he podido medir el consumo real del cupo: la API no lo expone, y la cifra de 
 - **Idea:** el crudo se carga con load jobs y todos los modelos son vistas, que no ocupan almacenamiento.
 - **En contra:** las tablas de crudo caducan a los 60 días y hay que recargarlas enteras, así que el cupo también se gasta, aunque más despacio. Además, cada consulta y cada test recalcula desde el crudo, y todo dbt queda limitado a vistas. Es mucha complejidad para esquivar un límite.
 
-## Consecuencias si se elige C
+## Consecuencias
 - dbt mantiene un solo proyecto con dos *targets*. Los modelos que se suben a BigQuery tienen que ser SQL portable; se usan las macros multi-base de dbt, como `dbt.type_string()` en S2.
 - Ni modelos incrementales ni snapshots de dbt, que en BigQuery usarían MERGE. No afecta, porque el almacén se reconstruye entero (como en Paleo).
 - Lo que falta medir en la Fase 1: el tamaño real de los marts y su consumo semanal en BigQuery.

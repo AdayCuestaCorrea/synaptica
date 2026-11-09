@@ -53,7 +53,8 @@ Documentos de referencia:
 ## Stack
 
 - **Decidido:** Python 3.14 con uv · ruff · pytest · typer (CLI `syn`) · httpx · pydantic · dbt · Jinja2 + JavaScript sin framework · GitHub Actions (ejecución diaria) · GitHub Pages.
-- **Pendiente** (ver `SCOPE.md`, decisiones abiertas): almacén (DuckDB o BigQuery), visor 3D, modelos LLM y flujo de revisión de Sofía.
+- **Almacén (D1):** DuckDB reconstruido cada día; espejo semanal de los marts en BigQuery sandbox (load jobs con Workload Identity Federation). Sin incrementales ni snapshots de dbt.
+- **Pendiente** (ver `SCOPE.md`, decisiones abiertas): visor 3D, modelos LLM y flujo de revisión de Sofía.
 - **No se usa:** Airflow ni Docker (ya demostrados en Paleo Atlas), Snowflake, ni frameworks de frontend salvo que un ADR lo justifique.
 
 ## Relación con Paleo Atlas

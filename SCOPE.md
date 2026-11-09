@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 7** · 2026-11-09 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 8** · 2026-11-09 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -89,7 +89,7 @@ En la Fase 0 se verifica el acceso, los límites, si hace falta clave y la licen
 
 ## 6. Arquitectura (propuesta)
 
-Se confirma en la Fase 0 con D1–D4. Sigue el diseño de Paleo Atlas.
+Se confirma en la Fase 0 con D1–D4 (D1 cerrada: DuckDB + espejo en BigQuery). Sigue el diseño de Paleo Atlas.
 
 ```mermaid
 flowchart LR
@@ -121,7 +121,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 - [x] `docs/adr/README.md` con plantilla y `docs/fases/README.md`
 - [x] `docs/propuesta.md`, exportada del documento aprobado
 - [ ] **S1 Fuentes:** script mínimo por fuente que descarga unos 10 elementos, guardados como fixtures, y `docs/fuentes.md` con acceso, límites, clave y licencia
-- [x] **S2 Almacén:** prueba de BigQuery sandbox desde GitHub Actions con dbt-bigquery → ADR de D1 (propuesta; D1 sigue abierta)
+- [x] **S2 Almacén:** prueba de BigQuery sandbox desde GitHub Actions con dbt-bigquery → ADR de D1
 - [ ] **S3 Visor 3D:** prototipo con una región clicable del atlas humano y otra del de rata en GitHub Pages → ADR de D3
 - [ ] **S4 Revisión:** prototipo del flujo de revisión probado con Sofía → ADR de D5
 - [ ] **S5 LLM:** límites actuales del plan gratuito de Groq y de Ollama local, y elección de un juez de otra familia de modelos para el contenido de salud → ADR de D4
@@ -141,6 +141,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 - [ ] Resumen semanal
 - [ ] Web: portada y diseño, aviso médico, dato curioso del día, Cómo evaluamos, Estado de los datos, Fuentes y licencias, Acerca de; bilingüe y con `syn site --check`
 - [ ] `pipeline.yml`: ejecución diaria con detección de cambios, respaldo e informe
+- [ ] Espejo semanal de los marts en BigQuery sandbox (D1), con su consumo de cupo medido en el informe
 
 **Cierre:** 14 días seguidos de ejecución autónoma sin intervención, visto bueno de Sofía y `fase-1.md`.
 
@@ -188,12 +189,12 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 | Sin Airflow, Docker ni Snowflake | Los dos primeros ya están demostrados; Snowflake no es gratis |
 | Licencias: código AGPL-3.0; textos propios CC BY-SA 4.0; material de terceros con la suya (NC incluidas) | El código comparte motor con Paleo Atlas (AGPL), y una licencia más abierta anularía esa protección. Los textos parten de Wikipedia (CC BY-SA) y así pueden reutilizarse e incluso volver a ella. Los textos nunca incorporan material de los atlas NC. |
 | Repositorio público en GitHub; Sofía no es colaboradora por ahora | Por el portfolio, y en público Actions no tiene límite de minutos y Pages es gratis. Sofía entra como colaboradora solo si el flujo de revisión (D5) lo necesita |
+| D1 · Almacén: DuckDB reconstruido cada día; espejo semanal de los marts en BigQuery sandbox (load jobs, WIF) | S2: el sandbox funciona sin tarjeta, pero su cupo de 10 GiB es de por vida y no se recupera al borrar, así que no aguanta una reconstrucción diaria. El espejo suma BigQuery al CV sin poner en riesgo el pipeline ([ADR D1](docs/adr/0001-almacen.md)) |
 
 ### Abiertas
 
 | ID | Decisión | Opciones | Recomendación inicial |
 |---|---|---|---|
-| D1 | Almacén | DuckDB (como Paleo) · BigQuery sandbox con dbt-bigquery | BigQuery si S2 confirma que funciona sin tarjeta desde Actions: añade GCP al CV. Sus tablas caducan a los 60 días y no admite DML (sin modelos incrementales), lo que no afecta porque el almacén se reconstruye cada día. Si falla, DuckDB |
 | D2 | Motor común con Paleo Atlas | Copiar y adaptar · extraer un paquete compartido | Copiar y adaptar ahora; extraer el paquete solo cuando ambos sean estables |
 | D3 | Visor 3D | siibra-explorer embebido o autohospedado · three.js con mallas de BrainGlobe · otro | Lo decide S3: tiene que funcionar en GitHub Pages sin backend propio, con regiones clicables por ID, licencias compatibles y un peso razonable en móvil |
 | D4 | LLM | Groq gratuito en Actions + Ollama local (Qwen) por lotes, como Paleo · otros | Como Paleo, con un juez de otra familia de modelos para el contenido de salud. Verificar los límites actuales del plan gratuito |
@@ -231,3 +232,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 5 | 2026-11-09 | S1 en curso: `docs/fuentes.md` con 15 fuentes medidas y fixtures sin texto de editores; los RSS de Nature, Science y Cell funcionan; pendientes SINC (caído), algunos límites y los atlas (en S3) |
 | 6 | 2026-11-09 | §9: riesgo «Nature, Science o Cell sin canal público» mitigado según S1 |
 | 7 | 2026-11-09 | S2 hecho: BigQuery sandbox funciona desde Actions sin tarjeta ni clave (WIF), pero tiene un cupo de almacenamiento de 10 GiB de por vida que no se recupera al borrar, incompatible con reconstruir el almacén cada día. ADR D1 en propuesta (recomendación: DuckDB + espejo semanal de los marts en BigQuery) |
+| 8 | 2026-11-09 | D1 cerrada (opción C): DuckDB como almacén y espejo semanal de los marts en BigQuery; tarea del espejo añadida a la Fase 1 |

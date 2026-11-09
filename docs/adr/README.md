@@ -14,7 +14,7 @@ Nombre de archivo: `000N-titulo-corto.md`, donde N es el número de la decisión
 
 | ADR | Decisión | Estado |
 |---|---|---|
-| [D1](0001-almacen.md) | Almacén: DuckDB, BigQuery sandbox o ambos | Propuesta (S2), pendiente de decisión |
+| [D1](0001-almacen.md) | DuckDB como almacén y BigQuery como espejo semanal de los marts | Aceptada |
 
 Restricciones comunes a todas:
 - **0 €** al mes;
