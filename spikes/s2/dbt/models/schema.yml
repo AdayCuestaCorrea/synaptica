@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_pubmed__articles
+    columns:
+      - name: pmid
+        data_tests: [unique, not_null]
+      - name: title
+        data_tests: [not_null]
+      - name: pub_date
+        data_tests: [not_null]
+  - name: articles
+    columns:
+      - name: pmid
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_pubmed__articles')
+                field: pmid
+      - name: is_review
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [true, false]
+                quote: false

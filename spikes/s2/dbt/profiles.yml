@@ -1,0 +1,16 @@
+synaptica_s2:
+  target: duckdb
+  outputs:
+    duckdb:
+      type: duckdb
+      path: "{{ env_var('S2_DUCKDB_PATH', 's2.duckdb') }}"
+      threads: 1
+    bigquery:
+      type: bigquery
+      method: oauth # Application Default Credentials, written by google-github-actions/auth
+      project: "{{ env_var('GCP_PROJECT') }}"
+      dataset: "{{ env_var('BQ_DATASET', 'synaptica_s2') }}"
+      location: EU
+      threads: 4
+      job_execution_timeout_seconds: 300
+      job_retries: 1

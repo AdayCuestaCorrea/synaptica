@@ -1,0 +1,56 @@
+name: Spike S2 (BigQuery sandbox)
+
+# Spike S2 (SCOPE.md §7, decision D1): can the daily dbt build run on the BigQuery sandbox
+# from GitHub Actions, with no card and no stored key? Manual runs only.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write # OIDC token for Workload Identity Federation (no JSON key stored)
+
+jobs:
+  bigquery:
+    runs-on: ubuntu-latest
+    env:
+      GCP_PROJECT: ${{ vars.GCP_PROJECT }}
+      BQ_DATASET: synaptica_s2
+      DBT: uv run dbt --no-use-colors
+      DIRS: --project-dir spikes/s2/dbt --profiles-dir spikes/s2/dbt
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          enable-cache: true
+
+      - name: Install
+        run: uv sync --locked --group spike-s2
+
+      - uses: google-github-actions/auth@v3.0.0
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_SA_EMAIL }}
+
+      - name: dbt build on BigQuery
+        run: |
+          start=$(date +%s)
+          $DBT build $DIRS --target bigquery
+          echo "- dbt build on BigQuery: $(( $(date +%s) - start )) s" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Probe an incremental model (MERGE is DML; expected to fail in the sandbox)
+        continue-on-error: true
+        run: |
+          $DBT run $DIRS --target bigquery -s articles_incremental --vars '{probe_incremental: true}'
+          $DBT run $DIRS --target bigquery -s articles_incremental --vars '{probe_incremental: true}'
+
+      - name: Expiration set by the sandbox
+        run: uv run python spikes/s2/inspect_bq.py
+
+      - name: Same project on DuckDB, for comparison
+        env:
+          S2_DUCKDB_PATH: ${{ runner.temp }}/s2.duckdb
+        run: |
+          start=$(date +%s)
+          $DBT build $DIRS --target duckdb
+          echo "- dbt build on DuckDB: $(( $(date +%s) - start )) s" >> "$GITHUB_STEP_SUMMARY"

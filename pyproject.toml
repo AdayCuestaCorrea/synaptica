@@ -26,6 +26,12 @@ dev = [
     "ruff",
     "pytest",
 ]
+# Spike S2 (decision D1): the same dbt project on BigQuery sandbox and on DuckDB.
+# Only `uv sync --group spike-s2`; the regular CI does not install it.
+spike-s2 = [
+    "dbt-bigquery>=1.12.2",
+    "dbt-duckdb>=1.11.1",
+]
 
 [tool.uv]
 # CachyOS is a rolling distro: use a uv-managed interpreter so a system

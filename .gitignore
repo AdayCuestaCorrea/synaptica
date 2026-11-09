@@ -9,7 +9,7 @@
 dbt/target/
 dbt/logs/
 dbt/dbt_packages/
-dbt/.user.yml
+.user.yml
 logs/
 
 # Python
@@ -26,3 +26,6 @@ site/_build/
 .env
 .env.*
 .ci-data/
+
+# Spike S2 dbt project
+spikes/s2/dbt/target/

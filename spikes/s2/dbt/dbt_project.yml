@@ -1,0 +1,33 @@
+# Spike S2 (decision D1): one small dbt project run on BigQuery sandbox and on DuckDB.
+name: synaptica_s2
+version: "0.1.0"
+profile: synaptica_s2
+config-version: 2
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+target-path: target
+clean-targets: [target, logs]
+
+seeds:
+  synaptica_s2:
+    pubmed_articles:
+      +column_types:
+        pmid: string
+        title: string
+        journal: string
+        pub_date: date
+        pub_types: string
+        lang: string
+        doi: string
+
+models:
+  synaptica_s2:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
+    probe:
+      # Not part of `dbt build`: run on purpose to see whether incremental models (MERGE,
+      # a DML statement) work in the sandbox.
+      +enabled: "{{ var('probe_incremental', false) }}"
