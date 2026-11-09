@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "SYNAPTICA, your Neuroscience hub: a bilingual (ES/EN) neuroscience website that updates itself every day from open sources."
 license = "AGPL-3.0-only"
 authors = [{ name = "Aday Cuesta Correa" }]
+readme = "README.md"
 requires-python = ">=3.14,<3.15"
 dependencies = [
     # CLI framework for the `syn` commands (same as Paleo Atlas).
