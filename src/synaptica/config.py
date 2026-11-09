@@ -11,6 +11,17 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
+import httpx
+
+from synaptica import __version__
+
+REPO_URL = "https://github.com/AdayCuestaCorrea/synaptica"
+CONTACT_EMAIL = "adaycuestacorrea@gmail.com"
+
+# Every request identifies us with a contact (CLAUDE.md, "Red y fuentes"); Wikimedia also
+# asks automated clients to include the word "bot".
+USER_AGENT = f"synaptica-bot/{__version__} ({REPO_URL}; {CONTACT_EMAIL}) httpx/{httpx.__version__}"
+
 
 def project_root() -> Path:
     """Repository root (two levels above ``src/synaptica``)."""
@@ -45,4 +56,7 @@ class EnvVar:
 
 # Variables checked by `syn doctor`. Keys are added only when a source or model needs them
 # (spike S1 and decision D4), never in advance.
-ENV_VARS: tuple[EnvVar, ...] = (EnvVar("SYN_DATA_DIR", "Data directory (default: ./data)"),)
+ENV_VARS: tuple[EnvVar, ...] = (
+    EnvVar("SYN_DATA_DIR", "Data directory (default: ./data)"),
+    EnvVar("NCBI_API_KEY", "PubMed E-utilities: 10 requests/s instead of 3"),
+)
