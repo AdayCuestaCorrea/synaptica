@@ -14,7 +14,7 @@ Nombre de archivo: `000N-titulo-corto.md`, donde N es el número de la decisión
 
 | ADR | Decisión | Estado |
 |---|---|---|
-| — | Todavía no hay ninguno: D1, D3, D4 y D5 se cierran en la Fase 0 con los spikes S2–S4 | — |
+| [D1](0001-almacen.md) | Almacén: DuckDB, BigQuery sandbox o ambos | Propuesta (S2), pendiente de decisión |
 
 Restricciones comunes a todas:
 - **0 €** al mes;
