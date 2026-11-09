@@ -1,0 +1,2342 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 5,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              9
+            ]
+          ],
+          "date-time": "2026-11-09T16:28:35Z",
+          "timestamp": 1794241715156,
+          "version": "4.9.0"
+        },
+        "reference-count": 84,
+        "publisher": "Elsevier BV",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/legal/tdmrep-license"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  16
+                ]
+              ],
+              "date-time": "2026-10-16T00:00:00Z",
+              "timestamp": 1792108800000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "funder": [
+          {
+            "DOI": "10.13039/100014989",
+            "name": "The Chan Zuckerberg Initiative",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/100014989",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100004325",
+            "name": "AstraZeneca PLC",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/100004325",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100000781",
+            "name": "European Research Council",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/501100000781",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100000268",
+            "name": "Biotechnology and Biological Sciences Research Council",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/501100000268",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100000320",
+            "name": "Alzheimer's Society",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/501100000320",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100017510",
+            "name": "UK Dementia Research Institute",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/501100017510",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100014013",
+            "name": "UKRI",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/100014013",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100010269",
+            "name": "Wellcome Trust",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/100010269",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100000957",
+            "name": "Alzheimer's Association",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/100000957",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100000002",
+            "name": "National Institutes of Health",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/100000002",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100000265",
+            "name": "UK Research and Innovation Medical Research Council",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/501100000265",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "cell.com",
+            "elsevier.com",
+            "sciencedirect.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Neuron"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "DOI": "10.1016/j.neuron.2026.10.011",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              9
+            ]
+          ],
+          "date-time": "2026-11-09T16:04:13Z",
+          "timestamp": 1794240253000
+        },
+        "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "An astrocyte-microglia MFG-E8 axis promotes synapse engulfment in early amyloid pathology"
+        ],
+        "prefix": "10.1016",
+        "author": [
+          {
+            "given": "Dimitra",
+            "family": "Sokolova",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Francesca",
+            "family": "Puletti",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Shari",
+            "family": "Addington Ghansah",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Tatiana",
+            "family": "Georgiades",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yongjing",
+            "family": "Zheng",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Ling",
+            "family": "Wu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Sebastiaan",
+            "family": "De Schepper",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Jenny",
+            "family": "Lange",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Laís S.S.",
+            "family": "Ferreira",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Annerieke",
+            "family": "Sierksma",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Julie",
+            "family": "Rebejac",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Gerard",
+            "family": "Crowley",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Javier",
+            "family": "Rueda-Carrasco",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Bethany",
+            "family": "Geary",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Raja",
+            "family": "Nirujogi",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Angeliki",
+            "family": "Koutsiouroumpa",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Philip",
+            "family": "Muckett",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Josef",
+            "family": "Kittler",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Matthew",
+            "family": "Gentry",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Mathieu",
+            "family": "Bourdenx",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Oliver J.",
+            "family": "Freeman",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Jemima J.",
+            "family": "Burden",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Baljit S.",
+            "family": "Khakh",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-5744-4871",
+            "authenticated-orcid": false,
+            "given": "Soyon",
+            "family": "Hong",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": "[84 items dropped in fixture]",
+        "container-title": [
+          "Neuron"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S089662732600807X?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S089662732600807X?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              9
+            ]
+          ],
+          "date-time": "2026-11-09T16:04:26Z",
+          "timestamp": 1794240266000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://linkinghub.elsevier.com/retrieve/pii/S089662732600807X"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "references-count": 84,
+        "alternative-id": [
+          "S089662732600807X"
+        ],
+        "URL": "https://doi.org/10.1016/j.neuron.2026.10.011",
+        "ISSN": [
+          "0896-6273"
+        ],
+        "issn-type": [
+          {
+            "value": "0896-6273",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "Elsevier",
+            "name": "publisher",
+            "label": "This article is maintained by"
+          },
+          {
+            "value": "An astrocyte-microglia MFG-E8 axis promotes synapse engulfment in early amyloid pathology",
+            "name": "articletitle",
+            "label": "Article Title"
+          },
+          {
+            "value": "Neuron",
+            "name": "journaltitle",
+            "label": "Journal Title"
+          },
+          {
+            "value": "https://doi.org/10.1016/j.neuron.2026.10.011",
+            "name": "articlelink",
+            "label": "CrossRef DOI link to publisher maintained version"
+          },
+          {
+            "value": "article",
+            "name": "content_type",
+            "label": "Content Type"
+          },
+          {
+            "value": "© 2026 The Authors. Published by Elsevier Inc.",
+            "name": "copyright",
+            "label": "Copyright"
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T16:26:49Z",
+          "timestamp": 1793809609723,
+          "version": "4.6.1"
+        },
+        "reference-count": 100,
+        "publisher": "Elsevier BV",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/legal/tdmrep-license"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  14
+                ]
+              ],
+              "date-time": "2026-10-14T00:00:00Z",
+              "timestamp": 1791936000000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "http://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "funder": [
+          {
+            "DOI": "10.13039/100000049",
+            "name": "National Institute on Aging",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/100000049",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100007625",
+            "name": "Cure Alzheimer's Fund",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/100007625",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100000957",
+            "name": "Alzheimer's Association",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/100000957",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "cell.com",
+            "elsevier.com",
+            "sciencedirect.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Neuron"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "DOI": "10.1016/j.neuron.2026.10.007",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T15:57:09Z",
+          "timestamp": 1793807829000
+        },
+        "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "P2RX7 drives inflammatory microglia and pathogenic extracellular vesicle secretion in tauopathy"
+        ],
+        "prefix": "10.1016",
+        "author": [
+          {
+            "given": "Victor",
+            "family": "Bodart-Santos",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Arun Reddy",
+            "family": "Ravula",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yang",
+            "family": "You",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Mohammad",
+            "family": "Abdullah",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Zhi",
+            "family": "Ruan",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Justice G.",
+            "family": "Ellison",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Stephanie",
+            "family": "Radhakishun",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Nibedita",
+            "family": "Basu Ray",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Bridgette C.",
+            "family": "Melvin",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Aishe",
+            "family": "Kurti",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Zhewei",
+            "family": "Liang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yuta",
+            "family": "Sakai",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Daniel R.",
+            "family": "O’Brien",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Son N.",
+            "family": "Nguyen",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Scott A.",
+            "family": "Shaffer",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Lindsey",
+            "family": "Fiddes",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Oleg",
+            "family": "Butovsky",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Wolfdieter",
+            "family": "Springer",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Seiko",
+            "family": "Ikezu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-3979-8596",
+            "authenticated-orcid": false,
+            "given": "Tsuneya",
+            "family": "Ikezu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": "[100 items dropped in fixture]",
+        "container-title": [
+          "Neuron"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0896627326007774?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0896627326007774?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T15:57:22Z",
+          "timestamp": 1793807842000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0896627326007774"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "references-count": 100,
+        "alternative-id": [
+          "S0896627326007774"
+        ],
+        "URL": "https://doi.org/10.1016/j.neuron.2026.10.007",
+        "ISSN": [
+          "0896-6273"
+        ],
+        "issn-type": [
+          {
+            "value": "0896-6273",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "Elsevier",
+            "name": "publisher",
+            "label": "This article is maintained by"
+          },
+          {
+            "value": "P2RX7 drives inflammatory microglia and pathogenic extracellular vesicle secretion in tauopathy",
+            "name": "articletitle",
+            "label": "Article Title"
+          },
+          {
+            "value": "Neuron",
+            "name": "journaltitle",
+            "label": "Journal Title"
+          },
+          {
+            "value": "https://doi.org/10.1016/j.neuron.2026.10.007",
+            "name": "articlelink",
+            "label": "CrossRef DOI link to publisher maintained version"
+          },
+          {
+            "value": "article",
+            "name": "content_type",
+            "label": "Content Type"
+          },
+          {
+            "value": "© 2026 The Authors. Published by Elsevier Inc.",
+            "name": "copyright",
+            "label": "Copyright"
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T16:26:12Z",
+          "timestamp": 1793895972388,
+          "version": "4.8.0"
+        },
+        "reference-count": 50,
+        "publisher": "Elsevier BV",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/legal/tdmrep-license"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-017"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-012"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-004"
+          }
+        ],
+        "funder": [
+          {
+            "DOI": "10.13039/501100002367",
+            "name": "Chinese Academy of Sciences",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/501100002367",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100008871",
+            "name": "Yunnan Provincial Science and Technology Department",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/501100008871",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100001809",
+            "name": "National Natural Science Foundation of China",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/501100001809",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100002855",
+            "name": "Ministry of Science and Technology of the People's Republic of China",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/501100002855",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "cell.com",
+            "elsevier.com",
+            "sciencedirect.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Neuron"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "DOI": "10.1016/j.neuron.2026.10.008",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T15:47:35Z",
+          "timestamp": 1793893655000
+        },
+        "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Opposing excitatory and inhibitory synaptic pathologies drive ZC4H2-associated intellectual disability"
+        ],
+        "prefix": "10.1016",
+        "author": [
+          {
+            "given": "Pengcheng",
+            "family": "Ma",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-8661-0659",
+            "authenticated-orcid": false,
+            "given": "Li Pear",
+            "family": "Wan",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yuwei",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yufei",
+            "family": "Bu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Deyuan",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Shiping",
+            "family": "Zhao",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Haijun",
+            "family": "Zhang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Shuhua",
+            "family": "Zhao",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Kai-Ming",
+            "family": "Yuan",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yu-Qiang",
+            "family": "Ding",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Ming",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Wucheng",
+            "family": "Tao",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Jinwei",
+            "family": "Zhu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Ai-Hui",
+            "family": "Tang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Ge",
+            "family": "Bai",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Bingyu",
+            "family": "Mao",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-3086-3950",
+            "authenticated-orcid": false,
+            "given": "Nengyin",
+            "family": "Sheng",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": "[50 items dropped in fixture]",
+        "container-title": [
+          "Neuron"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0896627326007786?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0896627326007786?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T15:47:41Z",
+          "timestamp": 1793893661000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0896627326007786"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "references-count": 50,
+        "alternative-id": [
+          "S0896627326007786"
+        ],
+        "URL": "https://doi.org/10.1016/j.neuron.2026.10.008",
+        "ISSN": [
+          "0896-6273"
+        ],
+        "issn-type": [
+          {
+            "value": "0896-6273",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "Elsevier",
+            "name": "publisher",
+            "label": "This article is maintained by"
+          },
+          {
+            "value": "Opposing excitatory and inhibitory synaptic pathologies drive ZC4H2-associated intellectual disability",
+            "name": "articletitle",
+            "label": "Article Title"
+          },
+          {
+            "value": "Neuron",
+            "name": "journaltitle",
+            "label": "Journal Title"
+          },
+          {
+            "value": "https://doi.org/10.1016/j.neuron.2026.10.008",
+            "name": "articlelink",
+            "label": "CrossRef DOI link to publisher maintained version"
+          },
+          {
+            "value": "article",
+            "name": "content_type",
+            "label": "Content Type"
+          },
+          {
+            "value": "© 2026 Elsevier Inc. All rights are reserved, including those for text and data mining, AI training, and similar technologies.",
+            "name": "copyright",
+            "label": "Copyright"
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              3
+            ]
+          ],
+          "date-time": "2026-11-03T16:31:30Z",
+          "timestamp": 1793723490097,
+          "version": "4.6.1"
+        },
+        "reference-count": 168,
+        "publisher": "Elsevier BV",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/legal/tdmrep-license"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-017"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-012"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-004"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "cell.com",
+            "elsevier.com",
+            "sciencedirect.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Neuron"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "DOI": "10.1016/j.neuron.2026.09.028",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              3
+            ]
+          ],
+          "date-time": "2026-11-03T16:11:53Z",
+          "timestamp": 1793722313000
+        },
+        "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Hypothalamus-driven brain health through metabolic flexibility"
+        ],
+        "prefix": "10.1016",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-7522-4602",
+            "authenticated-orcid": false,
+            "given": "Tamas L.",
+            "family": "Horvath",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Roman",
+            "family": "Romanov",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-9429-0616",
+            "authenticated-orcid": false,
+            "given": "Giuseppe",
+            "family": "Matarese",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-6909-2156",
+            "authenticated-orcid": false,
+            "given": "Daniela",
+            "family": "Cota",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": "[168 items dropped in fixture]",
+        "container-title": [
+          "Neuron"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0896627326007385?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0896627326007385?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              3
+            ]
+          ],
+          "date-time": "2026-11-03T16:12:10Z",
+          "timestamp": 1793722330000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0896627326007385"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "references-count": 168,
+        "alternative-id": [
+          "S0896627326007385"
+        ],
+        "URL": "https://doi.org/10.1016/j.neuron.2026.09.028",
+        "ISSN": [
+          "0896-6273"
+        ],
+        "issn-type": [
+          {
+            "value": "0896-6273",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "Elsevier",
+            "name": "publisher",
+            "label": "This article is maintained by"
+          },
+          {
+            "value": "Hypothalamus-driven brain health through metabolic flexibility",
+            "name": "articletitle",
+            "label": "Article Title"
+          },
+          {
+            "value": "Neuron",
+            "name": "journaltitle",
+            "label": "Journal Title"
+          },
+          {
+            "value": "https://doi.org/10.1016/j.neuron.2026.09.028",
+            "name": "articlelink",
+            "label": "CrossRef DOI link to publisher maintained version"
+          },
+          {
+            "value": "article",
+            "name": "content_type",
+            "label": "Content Type"
+          },
+          {
+            "value": "© 2026 Elsevier Inc. All rights are reserved, including those for text and data mining, AI training, and similar technologies.",
+            "name": "copyright",
+            "label": "Copyright"
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              3
+            ]
+          ],
+          "date-time": "2026-11-03T16:34:37Z",
+          "timestamp": 1793723677079,
+          "version": "4.6.1"
+        },
+        "reference-count": 108,
+        "publisher": "Elsevier BV",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/legal/tdmrep-license"
+          }
+        ],
+        "funder": [
+          {
+            "DOI": "10.13039/100000065",
+            "name": "National Institute of Neurological Disorders and Stroke",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/100000065",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "cell.com",
+            "elsevier.com",
+            "sciencedirect.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Neuron"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "DOI": "10.1016/j.neuron.2026.10.003",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              3
+            ]
+          ],
+          "date-time": "2026-11-03T16:21:43Z",
+          "timestamp": 1793722903000
+        },
+        "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Redox-dependent remodeling of mitochondrial nucleoids contributes to bioenergetic decline during neuronal aging"
+        ],
+        "prefix": "10.1016",
+        "author": [
+          {
+            "given": "Xiu-Tang",
+            "family": "Cheng",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yifei",
+            "family": "Gao",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Chung Yu",
+            "family": "Chan",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yuxiang",
+            "family": "Xie",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0006-0661-4902",
+            "authenticated-orcid": false,
+            "given": "Yuanyi",
+            "family": "Dai",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-3663-1034",
+            "authenticated-orcid": false,
+            "given": "Gui-Jing",
+            "family": "Xiong",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Alexandre R.",
+            "family": "Sathler",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Joseph C.",
+            "family": "Roney",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Sunan",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-3820-5960",
+            "authenticated-orcid": false,
+            "given": "Yan",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-4261-7079",
+            "authenticated-orcid": false,
+            "given": "Ling-Gang",
+            "family": "Wu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-4586-4753",
+            "authenticated-orcid": false,
+            "given": "Zu-Hang",
+            "family": "Sheng",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": "[108 items dropped in fixture]",
+        "container-title": [
+          "Neuron"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0896627326007737?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0896627326007737?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              3
+            ]
+          ],
+          "date-time": "2026-11-03T16:21:56Z",
+          "timestamp": 1793722916000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0896627326007737"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "references-count": 108,
+        "alternative-id": [
+          "S0896627326007737"
+        ],
+        "URL": "https://doi.org/10.1016/j.neuron.2026.10.003",
+        "ISSN": [
+          "0896-6273"
+        ],
+        "issn-type": [
+          {
+            "value": "0896-6273",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "Elsevier",
+            "name": "publisher",
+            "label": "This article is maintained by"
+          },
+          {
+            "value": "Redox-dependent remodeling of mitochondrial nucleoids contributes to bioenergetic decline during neuronal aging",
+            "name": "articletitle",
+            "label": "Article Title"
+          },
+          {
+            "value": "Neuron",
+            "name": "journaltitle",
+            "label": "Journal Title"
+          },
+          {
+            "value": "https://doi.org/10.1016/j.neuron.2026.10.003",
+            "name": "articlelink",
+            "label": "CrossRef DOI link to publisher maintained version"
+          },
+          {
+            "value": "article",
+            "name": "content_type",
+            "label": "Content Type"
+          },
+          {
+            "value": "Published by Elsevier Inc.",
+            "name": "copyright",
+            "label": "Copyright"
+          }
+        ]
+      }
+    ],
+    "items-per-page": 10,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}

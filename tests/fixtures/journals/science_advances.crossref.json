@@ -1,0 +1,4511 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 162,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T19:28:47Z",
+          "timestamp": 1793820527931,
+          "version": "4.6.1"
+        },
+        "reference-count": 63,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "45",
+        "funder": [
+          {
+            "name": "National Science & Engineering Research Council of Canada",
+            "id": [
+              {
+                "id": "https://ror.org/04mte1k06",
+                "id-type": "ROR",
+                "asserted-by": "crossref"
+              }
+            ]
+          },
+          {
+            "name": "National Science & Engineering Research Council of Canada",
+            "id": [
+              {
+                "id": "https://ror.org/04mte1k06",
+                "id-type": "ROR",
+                "asserted-by": "crossref"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Sci. Adv."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/sciadv.aei5129",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T18:59:38Z",
+          "timestamp": 1793818778000
+        },
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Effector-triggered stomatal immunity prevents leaf invasion by bacterial pathogens"
+        ],
+        "prefix": "10.1126",
+        "volume": "12",
+        "author": [
+          {
+            "given": "Tamar V.",
+            "family": "Av-Shalom",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Department of Cell and Systems Biology, University of Toronto, Toronto, ON M5S 3G5, Canada."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yan",
+            "family": "Lai",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Cell and Systems Biology, University of Toronto, Toronto, ON M5S 3G5, Canada."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0007-5648-1287",
+            "authenticated-orcid": true,
+            "given": "Racquel A.",
+            "family": "Singh",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Cell and Systems Biology, University of Toronto, Toronto, ON M5S 3G5, Canada."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0000-5095-0387",
+            "authenticated-orcid": true,
+            "given": "Dora Yuping",
+            "family": "Wang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Cell and Systems Biology, University of Toronto, Toronto, ON M5S 3G5, Canada."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-8652-1074",
+            "authenticated-orcid": true,
+            "given": "Reid",
+            "family": "Gohmann",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Horticulture and Crop Science; and Molecular, Cellular, and Developmental Biology Program, The Ohio State University, Columbus, OH 43210, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-0891-3061",
+            "authenticated-orcid": true,
+            "given": "David",
+            "family": "Mackey",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Horticulture and Crop Science; and Molecular, Cellular, and Developmental Biology Program, The Ohio State University, Columbus, OH 43210, USA."
+              },
+              {
+                "name": "Department of Molecular Genetics, The Ohio State University, Columbus, OH 43210, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-4270-2791",
+            "authenticated-orcid": true,
+            "given": "Darrell",
+            "family": "Desveaux",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Cell and Systems Biology, University of Toronto, Toronto, ON M5S 3G5, Canada."
+              },
+              {
+                "name": "Centre for the Analysis of Genome Evolution and Function, University of Toronto, Toronto, ON M5S 3B2, Canada."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-8479-3869",
+            "authenticated-orcid": true,
+            "given": "David S.",
+            "family": "Guttman",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Cell and Systems Biology, University of Toronto, Toronto, ON M5S 3G5, Canada."
+              },
+              {
+                "name": "Centre for the Analysis of Genome Evolution and Function, University of Toronto, Toronto, ON M5S 3B2, Canada."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "reference": "[63 items dropped in fixture]",
+        "container-title": [
+          "Science Advances"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/sciadv.aei5129",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T19:01:03Z",
+          "timestamp": 1793818863000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/sciadv.aei5129"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "references-count": 63,
+        "journal-issue": {
+          "issue": "45",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                6
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/sciadv.aei5129"
+        ],
+        "URL": "https://doi.org/10.1126/sciadv.aei5129",
+        "ISSN": [
+          "2375-2548"
+        ],
+        "issn-type": [
+          {
+            "value": "2375-2548",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-04-30",
+            "order": 0,
+            "name": "received",
+            "label": "Received",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-09-30",
+            "order": 2,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-11-04",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ],
+        "article-number": "eaei5129"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T19:28:45Z",
+          "timestamp": 1793820525391,
+          "version": "4.6.1"
+        },
+        "reference-count": 54,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "45",
+        "funder": [
+          {
+            "DOI": "10.13039/100000155",
+            "name": "Division of Environmental Biology",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "1941568"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "1941568"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100000155",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Sci. Adv."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/sciadv.aeh3280",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T18:59:38Z",
+          "timestamp": 1793818778000
+        },
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Toxic mercury, aquatic ecosystem collapse, and the ancient Lowland Maya"
+        ],
+        "prefix": "10.1126",
+        "volume": "12",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0003-1702-3973",
+            "authenticated-orcid": true,
+            "given": "Matthew Neal",
+            "family": "Waters",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Department of Crop, Soil, and Environmental Sciences, Auburn University, Auburn, AL, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0003-3284-5665",
+            "authenticated-orcid": true,
+            "given": "Savanna Lee",
+            "family": "Wooten",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Crop, Soil, and Environmental Sciences, Auburn University, Auburn, AL, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-2645-5535",
+            "authenticated-orcid": true,
+            "given": "Ashley Mark",
+            "family": "Abrook",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "School of Geography and Environmental Science, University of Southampton, Southampton, UK."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-9837-012X",
+            "authenticated-orcid": true,
+            "given": "Mark",
+            "family": "Brenner",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Geological Sciences, and Land Use and Environmental Change Institute, University of Florida, Gainesville, FL, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-0884-9941",
+            "authenticated-orcid": true,
+            "given": "Jason Hilleary",
+            "family": "Curtis",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Geological Sciences, and Land Use and Environmental Change Institute, University of Florida, Gainesville, FL, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-2724-2643",
+            "authenticated-orcid": true,
+            "given": "Peter Guy",
+            "family": "Langdon",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "School of Geography and Environmental Science, University of Southampton, Southampton, UK."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-7794-143X",
+            "authenticated-orcid": true,
+            "given": "Roger Manuel",
+            "family": "Medina-Gonzalez",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Universidad Autónoma de Yucatán, Mérida, México."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0007-7009-2501",
+            "authenticated-orcid": true,
+            "given": "Savvas",
+            "family": "Paradeisis-Stathis",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Crop, Soil, and Environmental Sciences, Auburn University, Auburn, AL, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-5559-6540",
+            "authenticated-orcid": true,
+            "given": "Richard Scott",
+            "family": "Vachula",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Geosciences, Auburn University, Auburn, AL, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "reference": "[54 items dropped in fixture]",
+        "container-title": [
+          "Science Advances"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/sciadv.aeh3280",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T19:01:09Z",
+          "timestamp": 1793818869000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/sciadv.aeh3280"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "references-count": 54,
+        "journal-issue": {
+          "issue": "45",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                6
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/sciadv.aeh3280"
+        ],
+        "URL": "https://doi.org/10.1126/sciadv.aeh3280",
+        "ISSN": [
+          "2375-2548"
+        ],
+        "issn-type": [
+          {
+            "value": "2375-2548",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-03-18",
+            "order": 0,
+            "name": "received",
+            "label": "Received",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-09-29",
+            "order": 2,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-11-04",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ],
+        "article-number": "eaeh3280"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T19:28:51Z",
+          "timestamp": 1793820531577,
+          "version": "4.6.1"
+        },
+        "reference-count": 71,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "45",
+        "funder": [
+          {
+            "DOI": "10.13039/100000001",
+            "name": "National Science Foundation",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "2019035"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "2019035"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100000001",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100000002",
+            "name": "National Institutes of Health",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "R21AG080425"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "R21AG080425"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100000002",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100000002",
+            "name": "National Institutes of Health",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "R01MH129694"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "R01MH129694"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100000002",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100000002",
+            "name": "National Institutes of Health",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "R01AG081768"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "R01AG081768"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100000002",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100000002",
+            "name": "National Institutes of Health",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "R01MH132784"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "R01MH132784"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100000002",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100000874",
+            "name": "Brain and Behavior Research Foundation",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/100000874",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "name": "Alzheimer’s Association",
+            "award": [
+              "AARG-22-972541"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "AARG-22-972541"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "https://ror.org/0375f4d26",
+                "id-type": "ROR",
+                "asserted-by": "crossref"
+              }
+            ]
+          },
+          {
+            "name": "Stanford Knight Initiative for Brain Resilience and the Rosenkranz Foundation grant",
+            "award": [
+              "RAR1-03"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "RAR1-03"
+                ]
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100008234",
+            "name": "Lehigh University",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "CORE grant"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "CORE grant"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100008234",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "name": "One Mind - Baszucki Brain Research Fund",
+            "id": [
+              {
+                "id": "https://ror.org/02prz6q96",
+                "id-type": "ROR",
+                "asserted-by": "crossref"
+              }
+            ]
+          },
+          {
+            "name": "SEAL Future Fund"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Sci. Adv."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/sciadv.aed9351",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T18:59:38Z",
+          "timestamp": 1793818778000
+        },
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "A functional connectome identifies vulnerability to cognitive decline and Alzheimer’s disease progression"
+        ],
+        "prefix": "10.1126",
+        "volume": "12",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-2955-0917",
+            "authenticated-orcid": true,
+            "given": "Kanhao",
+            "family": "Zhao",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Department of Psychiatry and Behavioral Sciences, Stanford University School of Medicine, Stanford, CA, USA."
+              },
+              {
+                "name": "Department of Bioengineering, Lehigh University, Bethlehem, PA, USA."
+              },
+              {
+                "name": "Goodman-Luskin Microbiome Center, Vache and Tamar Manoukian Division of Digestive Diseases, David Geffen School of Medicine, University of California, Los Angeles, Los Angeles, CA, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-3462-0147",
+            "authenticated-orcid": true,
+            "given": "Hua",
+            "family": "Xie",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Center for Neuroscience Research, Children’s National Hospital, Washington, DC, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-0213-1034",
+            "authenticated-orcid": true,
+            "given": "Gregory A.",
+            "family": "Fonzo",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Center for Psychedelic Research and Therapy, Department of Psychiatry and Behavioral Sciences, Dell Medical School, The University of Texas at Austin, Austin, TX, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-9161-8556",
+            "authenticated-orcid": true,
+            "given": "Nancy B.",
+            "family": "Carlisle",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Psychology, Lehigh University, Bethlehem, PA, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Tovia",
+            "family": "Jacobs",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Penn State College of Medicine, Hershey, PA, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Ricardo S.",
+            "family": "Osorio",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Psychiatry, New York University Grossman School of Medicine, New York, NY, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-1669-9624",
+            "authenticated-orcid": true,
+            "given": "Arpana",
+            "family": "Church",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Goodman-Luskin Microbiome Center, Vache and Tamar Manoukian Division of Digestive Diseases, David Geffen School of Medicine, University of California, Los Angeles, Los Angeles, CA, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-1945-0362",
+            "authenticated-orcid": true,
+            "given": "Feng Vankee",
+            "family": "Lin",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Psychiatry and Behavioral Sciences, Stanford University School of Medicine, Stanford, CA, USA."
+              },
+              {
+                "name": "Wu Tsai Neurosciences Institute, Stanford University, Stanford, CA, USA."
+              },
+              {
+                "name": "Stanford Institute for Human-Centered Artificial Intelligence, Stanford, CA, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-4087-6544",
+            "authenticated-orcid": true,
+            "given": "Yu",
+            "family": "Zhang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Psychiatry and Behavioral Sciences, Stanford University School of Medicine, Stanford, CA, USA."
+              },
+              {
+                "name": "Wu Tsai Neurosciences Institute, Stanford University, Stanford, CA, USA."
+              },
+              {
+                "name": "Stanford Institute for Human-Centered Artificial Intelligence, Stanford, CA, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "name": "Alzheimer’s Disease Neuroimaging Initiative",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "reference": "[71 items dropped in fixture]",
+        "container-title": [
+          "Science Advances"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/sciadv.aed9351",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T19:01:15Z",
+          "timestamp": 1793818875000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/sciadv.aed9351"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "references-count": 71,
+        "journal-issue": {
+          "issue": "45",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                6
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/sciadv.aed9351"
+        ],
+        "URL": "https://doi.org/10.1126/sciadv.aed9351",
+        "ISSN": [
+          "2375-2548"
+        ],
+        "issn-type": [
+          {
+            "value": "2375-2548",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2025-11-15",
+            "order": 0,
+            "name": "received",
+            "label": "Received",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-10-02",
+            "order": 2,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-11-04",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ],
+        "article-number": "eaed9351"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T19:28:54Z",
+          "timestamp": 1793820534520,
+          "version": "4.6.1"
+        },
+        "reference-count": 64,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "45",
+        "funder": [
+          {
+            "DOI": "10.13039/501100002858",
+            "name": "China Postdoctoral Science Foundation",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "2024M750095"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "2024M750095"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100002858",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100002858",
+            "name": "China Postdoctoral Science Foundation",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "2026M790008"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "2026M790008"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100002858",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100014219",
+            "name": "National Science Fund for Distinguished Young Scholars",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "52025133"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "52025133"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100014219",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "name": "National key R&D program of China",
+            "award": [
+              "2022YFE0128500"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "2022YFE0128500"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Beijing Outstanding Young Scientist Program",
+            "award": [
+              "JWZQ20240102004"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "JWZQ20240102004"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "the Shanghai Synchrotron Radiation Facility",
+            "award": [
+              "BL20U"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "BL20U"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "https://ror.org/02ys41z83",
+                "id-type": "ROR",
+                "asserted-by": "crossref"
+              }
+            ]
+          },
+          {
+            "name": "China National Petroleum Corporation-Peking University Strategic Cooperation Project of Fundamental Research, the Beijing Natural Science Foundation",
+            "award": [
+              "Z220020"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "Z220020"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "https://ror.org/02v51f717",
+                "id-type": "ROR",
+                "asserted-by": "crossref"
+              }
+            ]
+          },
+          {
+            "name": "Fundamental and Interdisciplinary Disciplines Breakthrough Plan of the Ministry of Education of China",
+            "award": [
+              "JYB2025XDXM404"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "JYB2025XDXM404"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "https://ror.org/03m01yf64",
+                "id-type": "ROR",
+                "asserted-by": "crossref"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Sci. Adv."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/sciadv.aei5545",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T18:59:38Z",
+          "timestamp": 1793818778000
+        },
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Dynamic redox reactivation of platinum sites for long-term glycolate electrosynthesis from polyethylene terephthalate wastes"
+        ],
+        "prefix": "10.1126",
+        "volume": "12",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0006-6286-8739",
+            "authenticated-orcid": true,
+            "given": "Zehao",
+            "family": "Xiao",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "School of Materials Science and Engineering, Peking University, Beijing 100871, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0005-4301-5805",
+            "authenticated-orcid": true,
+            "given": "Hongyu",
+            "family": "Guo",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "School of Materials Science and Engineering, Peking University, Beijing 100871, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-5273-7261",
+            "authenticated-orcid": true,
+            "given": "Yu",
+            "family": "Gu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "School of Materials Science and Engineering, Peking University, Beijing 100871, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Changze",
+            "family": "Wei",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "School of Materials Science and Engineering, Peking University, Beijing 100871, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-4188-7894",
+            "authenticated-orcid": true,
+            "given": "Zheng",
+            "family": "Lin",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "School of Materials Science and Engineering, Peking University, Beijing 100871, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-9772-2154",
+            "authenticated-orcid": true,
+            "given": "Mingchuan",
+            "family": "Luo",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "School of Materials Science and Engineering, Peking University, Beijing 100871, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-5941-414X",
+            "authenticated-orcid": true,
+            "given": "Shaojun",
+            "family": "Guo",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "School of Materials Science and Engineering, Peking University, Beijing 100871, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "reference": "[64 items dropped in fixture]",
+        "container-title": [
+          "Science Advances"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/sciadv.aei5545",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T19:01:38Z",
+          "timestamp": 1793818898000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/sciadv.aei5545"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "references-count": 64,
+        "journal-issue": {
+          "issue": "45",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                6
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/sciadv.aei5545"
+        ],
+        "URL": "https://doi.org/10.1126/sciadv.aei5545",
+        "ISSN": [
+          "2375-2548"
+        ],
+        "issn-type": [
+          {
+            "value": "2375-2548",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-05-02",
+            "order": 0,
+            "name": "received",
+            "label": "Received",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-10-02",
+            "order": 2,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-11-04",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ],
+        "article-number": "eaei5545"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T19:28:58Z",
+          "timestamp": 1793820538026,
+          "version": "4.6.1"
+        },
+        "reference-count": 75,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "45",
+        "funder": [
+          {
+            "DOI": "10.13039/501100001862",
+            "name": "Swedish Research Council Formas",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "2017-01636, 2022-01322"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "2017-01636, 2022-01322"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100001862",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100016756",
+            "name": "Kempe Foundation",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "SMK-1766, JCK-1723.1, JCK-2150"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "SMK-1766, JCK-1723.1, JCK-2150"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100016756",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100002794",
+            "name": "Cancerfonden",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "190337 Pj, 222455 Pj"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "190337 Pj, 222455 Pj"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100002794",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100002704",
+            "name": "Fundación Científica Asociación Española Contra el Cáncer",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "PID2023-147310OB-I00"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "PID2023-147310OB-I00"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100002704",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100002704",
+            "name": "Fundación Científica Asociación Española Contra el Cáncer",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "PRYGN234881CELI"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "PRYGN234881CELI"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100002704",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100002704",
+            "name": "Fundación Científica Asociación Española Contra el Cáncer",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "SGR-22 00037"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "SGR-22 00037"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100002704",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100004886",
+            "name": "Cancer Research Foundation in Northern Sweden",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "AMP 21-1030"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "AMP 21-1030"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100004886",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "name": "Knut and Alice Wallenberg foundation",
+            "id": [
+              {
+                "id": "https://ror.org/004hzzk67",
+                "id-type": "ROR",
+                "asserted-by": "crossref"
+              }
+            ]
+          },
+          {
+            "name": "Umeå University",
+            "id": [
+              {
+                "id": "https://ror.org/05kb8h459",
+                "id-type": "ROR",
+                "asserted-by": "crossref"
+              }
+            ]
+          },
+          {
+            "name": "Västerbotten County Council",
+            "id": [
+              {
+                "id": "https://ror.org/04xvhsp09",
+                "id-type": "ROR",
+                "asserted-by": "crossref"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Sci. Adv."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/sciadv.aec2297",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T18:59:38Z",
+          "timestamp": 1793818778000
+        },
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "METTL3-mediated m\n                    <sup>6</sup>\n                    A modification of DNMT1 enhances ovarian cancer progression"
+        ],
+        "prefix": "10.1126",
+        "volume": "12",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0001-7546-4174",
+            "authenticated-orcid": true,
+            "given": "Kanchan",
+            "family": "Kumari",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Department of Molecular Biology, Umeå University, SE-901 85 Umeå, Sweden."
+              },
+              {
+                "name": "Wallenberg Centre for Molecular Medicine, Umeå University, SE-901 85 Umeå, Sweden."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-2907-1991",
+            "authenticated-orcid": true,
+            "given": "Iván",
+            "family": "Pérez-Núñez",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Cancer Research Program, Hospital del Mar Medical Research Institute (HMRI), Barcelona, Spain."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-7436-6513",
+            "authenticated-orcid": true,
+            "given": "Aleix",
+            "family": "Noguera Castells",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Cancer Epigenetics Group, Josep Carreras Leukaemia Research Institute (IJC), Badalona, Barcelona, Catalonia, Spain."
+              },
+              {
+                "name": "Department of Biosciences, Faculty of Science, Technology and Engineering, University of Vic-Central University of Catalonia (UVic-UCC), Vic, Barcelona, Catalonia, Spain."
+              },
+              {
+                "name": "Centro de Investigacion Biomedica en Red Cancer (CIBERONC), Madrid, Spain."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-4955-8238",
+            "authenticated-orcid": true,
+            "given": "Raquel",
+            "family": "Pluvinet",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Genomics Unit, Josep Carreras Leukaemia Research Institute (IJC), Badalona, Barcelona, Catalonia, Spain."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0005-4991-6372",
+            "authenticated-orcid": true,
+            "given": "Carlos",
+            "family": "Peula",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Cellular, Computational and Integrative Biology (CIBIO), University of Trento, 38123 Trento, Italy."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Annika",
+            "family": "Patthey",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Medical Biosciences, Umeå University, SE-901 85 Umeå, Sweden."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Ghazala Naz",
+            "family": "Khan",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Wallenberg Centre for Molecular Medicine, Umeå University, SE-901 85 Umeå, Sweden."
+              },
+              {
+                "name": "Department of Medical Biosciences, Umeå University, SE-901 85 Umeå, Sweden."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Kinga",
+            "family": "Pajdzik",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Chemistry, The University of Chicago, Chicago, IL 60637, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Ángel-Carlos",
+            "family": "Román",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Molecular Biology and Genetics, University of Extremadura, 06071 Badajoz, Spain."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-4487-0449",
+            "authenticated-orcid": true,
+            "given": "Erik",
+            "family": "Dassi",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Genomics Unit, Josep Carreras Leukaemia Research Institute (IJC), Badalona, Barcelona, Catalonia, Spain."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-4319-7424",
+            "authenticated-orcid": true,
+            "given": "Chuan",
+            "family": "He",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Chemistry, The University of Chicago, Chicago, IL 60637, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0005-4461-3719",
+            "authenticated-orcid": true,
+            "given": "Eva",
+            "family": "Lundin",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Medical Biosciences, Umeå University, SE-901 85 Umeå, Sweden."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-4490-6093",
+            "authenticated-orcid": true,
+            "given": "Manel",
+            "family": "Esteller",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Centro de Investigacion Biomedica en Red Cancer (CIBERONC), Madrid, Spain."
+              },
+              {
+                "name": "Cancer Epigenetics Group, Sant Pau Research Institute (IRSantPau), Barcelona, Catalonia, Spain."
+              },
+              {
+                "name": "Institucio Catalana de Recerca i Estudis Avançats (ICREA), Barcelona, Catalonia, Spain."
+              },
+              {
+                "name": "Physiological Sciences Department, School of Medicine and Health Sciences, University of Barcelona (UB), Barcelona, Catalonia, Spain."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-0615-8744",
+            "authenticated-orcid": true,
+            "given": "Toni",
+            "family": "Celià-Terrassa",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Cancer Research Program, Hospital del Mar Medical Research Institute (HMRI), Barcelona, Spain."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-2374-2045",
+            "authenticated-orcid": true,
+            "given": "Francesca",
+            "family": "Aguilo",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Molecular Biology, Umeå University, SE-901 85 Umeå, Sweden."
+              },
+              {
+                "name": "Wallenberg Centre for Molecular Medicine, Umeå University, SE-901 85 Umeå, Sweden."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "reference": "[75 items dropped in fixture]",
+        "container-title": [
+          "Science Advances"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/sciadv.aec2297",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T19:01:01Z",
+          "timestamp": 1793818861000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/sciadv.aec2297"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "references-count": 75,
+        "journal-issue": {
+          "issue": "45",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                6
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/sciadv.aec2297"
+        ],
+        "URL": "https://doi.org/10.1126/sciadv.aec2297",
+        "ISSN": [
+          "2375-2548"
+        ],
+        "issn-type": [
+          {
+            "value": "2375-2548",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2025-09-18",
+            "order": 0,
+            "name": "received",
+            "label": "Received",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-09-30",
+            "order": 2,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-11-04",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ],
+        "article-number": "eaec2297"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T19:28:37Z",
+          "timestamp": 1793820517753,
+          "version": "4.6.1"
+        },
+        "reference-count": 40,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "45",
+        "funder": [
+          {
+            "DOI": "10.13039/501100001809",
+            "name": "National Natural Science Foundation of China",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "82470800"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "82470800"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100001809",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100001809",
+            "name": "National Natural Science Foundation of China",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "82472894"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "82472894"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100001809",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "name": "Sichuan Science and Technology Program",
+            "award": [
+              "2024NSFSC0749"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "2024NSFSC0749"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Anhui Province Higher Education Science Research Project Outstanding Youth Research Project",
+            "award": [
+              "2024AH030029"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "2024AH030029"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Strategic Cooperation Project of Southwest Medical University",
+            "award": [
+              "2024RSXNYD01"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "2024RSXNYD01"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "https://ror.org/00g2rqs52",
+                "id-type": "ROR",
+                "asserted-by": "crossref"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Sci. Adv."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/sciadv.aeg8317",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T18:59:38Z",
+          "timestamp": 1793818778000
+        },
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "<i>N</i>\n                    6-methyladenosine–dependent ARv7 translation couples lactate metabolism with enzalutamide resistance in prostate cancer"
+        ],
+        "prefix": "10.1126",
+        "volume": "12",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0003-4935-4005",
+            "authenticated-orcid": true,
+            "given": "Meng",
+            "family": "Zhang",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Department of Urology, Anhui Province Key Laboratory of Genitourinary Diseases, The First Affiliated Hospital of Anhui Medical University, Anhui Medical University, Hefei, Anhui 230022, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0008-7095-2791",
+            "authenticated-orcid": true,
+            "given": "Bo",
+            "family": "Cheng",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Urology, The Affiliated Hospital of Southwest Medical University, Southwest Medical University, Luzhou, Sichuan 646000, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Man",
+            "family": "Jia",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Biochemistry and Molecular Biology, School of Basic Medical Sciences, Southwest Medical University, Luzhou, Sichuan 646000, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-0535-3759",
+            "authenticated-orcid": true,
+            "given": "Xiang",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Biochemistry and Molecular Biology, School of Basic Medical Sciences, Southwest Medical University, Luzhou, Sichuan 646000, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yingying",
+            "family": "Huang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Biochemistry and Molecular Biology, School of Basic Medical Sciences, Southwest Medical University, Luzhou, Sichuan 646000, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Boyang",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Urology, Anhui Province Key Laboratory of Genitourinary Diseases, The First Affiliated Hospital of Anhui Medical University, Anhui Medical University, Hefei, Anhui 230022, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Xulin",
+            "family": "Wang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Biochemistry and Molecular Biology, School of Basic Medical Sciences, Southwest Medical University, Luzhou, Sichuan 646000, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Jiawei",
+            "family": "Shao",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Biochemistry and Molecular Biology, School of Basic Medical Sciences, Southwest Medical University, Luzhou, Sichuan 646000, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Qinyue",
+            "family": "Deng",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Biochemistry and Molecular Biology, School of Basic Medical Sciences, Southwest Medical University, Luzhou, Sichuan 646000, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Wenjun",
+            "family": "Yu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Biochemistry and Molecular Biology, School of Basic Medical Sciences, Southwest Medical University, Luzhou, Sichuan 646000, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Mingyu",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Biochemistry and Molecular Biology, School of Basic Medical Sciences, Southwest Medical University, Luzhou, Sichuan 646000, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Zhao",
+            "family": "Yang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Urology, The First Affiliated Hospital of Xi’an Jiaotong University, Xi’an Jiaotong University, Xi’an, Shaanxi 710061, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-2317-1323",
+            "authenticated-orcid": true,
+            "given": "Chaozhao",
+            "family": "Liang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Urology, Anhui Province Key Laboratory of Genitourinary Diseases, The First Affiliated Hospital of Anhui Medical University, Anhui Medical University, Hefei, Anhui 230022, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8281-4459",
+            "authenticated-orcid": true,
+            "given": "Tian",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Tianjin Medical University, Tianjin 300000, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-7126-1713",
+            "authenticated-orcid": true,
+            "given": "Rongyang",
+            "family": "Dai",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Biochemistry and Molecular Biology, Institute of Basic Medicine, North Sichuan Medical College, Nanchong, Sichuan 637000, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-9154-5388",
+            "authenticated-orcid": true,
+            "given": "Ronghao",
+            "family": "Wang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Biochemistry and Molecular Biology, School of Basic Medical Sciences, Southwest Medical University, Luzhou, Sichuan 646000, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "reference": "[40 items dropped in fixture]",
+        "container-title": [
+          "Science Advances"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/sciadv.aeg8317",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T19:00:08Z",
+          "timestamp": 1793818808000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/sciadv.aeg8317"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "references-count": 40,
+        "journal-issue": {
+          "issue": "45",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                6
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/sciadv.aeg8317"
+        ],
+        "URL": "https://doi.org/10.1126/sciadv.aeg8317",
+        "ISSN": [
+          "2375-2548"
+        ],
+        "issn-type": [
+          {
+            "value": "2375-2548",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-02-28",
+            "order": 0,
+            "name": "received",
+            "label": "Received",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-09-30",
+            "order": 2,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-11-04",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ],
+        "article-number": "eaeg8317"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ],
+          "date-time": "2026-11-06T19:26:56Z",
+          "timestamp": 1793993216663,
+          "version": "4.8.0"
+        },
+        "reference-count": 68,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "45",
+        "funder": [
+          {
+            "DOI": "10.13039/100010663",
+            "name": "H2020 European Research Council",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "ERC CU18-3746"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "ERC CU18-3746"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100010663",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "name": "The HORIZON-RIA project PREVENT",
+            "award": [
+              "101081276"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "101081276"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "German Federal Ministry for Education and Research (BMBF) via ClimXtreme project",
+            "award": [
+              "01LP2322D"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "01LP2322D"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "NSF Science and Technology Center (STC) Learning the Earth with Artificial Intelligence and Physics",
+            "award": [
+              "2019625"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "2019625"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Carl Zeiss Foundation, Carl Zeiss Stiftung, Independent Research Group on High-End Climate Risks",
+            "id": [
+              {
+                "id": "https://ror.org/03ng4kg22",
+                "id-type": "ROR",
+                "asserted-by": "crossref"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Sci. Adv."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/sciadv.aeh9111",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ],
+          "date-time": "2026-11-06T19:02:19Z",
+          "timestamp": 1793991739000
+        },
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Three-way circulation–soil moisture–temperature feedbacks amplify the most extreme mid-latitudinal heat waves"
+        ],
+        "prefix": "10.1126",
+        "volume": "12",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0003-4134-1234",
+            "authenticated-orcid": true,
+            "given": "Yinglin",
+            "family": "Tian",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Potsdam Institute for Climate Impact Research (PIK), Member of the Leibniz Association, P.O. Box 6012 03, D-14412 Potsdam, Germany."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-4148-9522",
+            "authenticated-orcid": true,
+            "given": "Jiangong",
+            "family": "Liu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Earth and Environmental Engineering, Columbia University, New York, NY 10027, USA."
+              },
+              {
+                "name": "Carbon Neutrality and Climate Change Thrust, Society Hub, The Hong Kong University of Science and Technology (Guangzhou), Guangzhou 511453, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yu",
+            "family": "Huang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Earth and Environmental Engineering, Columbia University, New York, NY 10027, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-0845-8345",
+            "authenticated-orcid": true,
+            "given": "Pierre",
+            "family": "Gentine",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Earth and Environmental Engineering, Columbia University, New York, NY 10027, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-5466-2059",
+            "authenticated-orcid": true,
+            "given": "Kai",
+            "family": "Kornhuber",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Max Planck Institute of Geoanthropology, Integrative Earth System Science, 07745 Jena, Germany."
+              },
+              {
+                "name": "International Institute for Applied Systems Analysis, Laxenburg 2361, Austria."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "reference": "[68 items dropped in fixture]",
+        "container-title": [
+          "Science Advances"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/sciadv.aeh9111",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ],
+          "date-time": "2026-11-06T19:02:36Z",
+          "timestamp": 1793991756000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/sciadv.aeh9111"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "references-count": 68,
+        "journal-issue": {
+          "issue": "45",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                6
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/sciadv.aeh9111"
+        ],
+        "URL": "https://doi.org/10.1126/sciadv.aeh9111",
+        "ISSN": [
+          "2375-2548"
+        ],
+        "issn-type": [
+          {
+            "value": "2375-2548",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-04-09",
+            "order": 0,
+            "name": "received",
+            "label": "Received",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-10-01",
+            "order": 2,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-11-06",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ],
+        "article-number": "eaeh9111"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T19:28:42Z",
+          "timestamp": 1793820522060,
+          "version": "4.6.1"
+        },
+        "reference-count": 59,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "45",
+        "funder": [
+          {
+            "DOI": "10.13039/100009950",
+            "name": "Ministry of Education",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "RS-2020-NR049599"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "RS-2020-NR049599"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100009950",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100003725",
+            "name": "National Research Foundation of Korea",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "RS-2023-NR077260, RS-2023-00210682, RS-2026-25522080"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "RS-2023-NR077260, RS-2023-00210682, RS-2026-25522080"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100003725",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100003725",
+            "name": "National Research Foundation of Korea",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "BK21 FOUR"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "BK21 FOUR"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100003725",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100003725",
+            "name": "National Research Foundation of Korea",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "Glocal 30 University Projects"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "Glocal 30 University Projects"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100003725",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100014188",
+            "name": "Ministry of Science and ICT, South Korea",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "RS-2025-02304660"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "RS-2025-02304660"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100014188",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100014188",
+            "name": "Ministry of Science and ICT, South Korea",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "RS-2025-17492968"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "RS-2025-17492968"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100014188",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "name": "ANCHOR program through the Gyeongbuk ANCHOR CENTER funded by the Ministry of Education (MOE) and the Gyeongsangbuk-do",
+            "award": [
+              "2026-ANCHOR-15-118"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "2026-ANCHOR-15-118"
+                ]
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Sci. Adv."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/sciadv.aei7948",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T18:59:38Z",
+          "timestamp": 1793818778000
+        },
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Human carotid plaque risk imaging using multiparametric photoacoustic and ultrasound fusion (hCAPRI)"
+        ],
+        "prefix": "10.1126",
+        "volume": "12",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0008-1615-5177",
+            "authenticated-orcid": true,
+            "given": "Minsik",
+            "family": "Sung",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Departments of Mechanical Engineering, Electrical Engineering, Convergence IT Engineering, Medical Science and Engineering, Industrial and Management Engineering, and Medical Device and Innovation Center, Pohang University of Science and Technology, Pohang, Republic of Korea."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0009-1641-202X",
+            "authenticated-orcid": true,
+            "given": "Sunghun",
+            "family": "Nam",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Departments of Mechanical Engineering, Electrical Engineering, Convergence IT Engineering, Medical Science and Engineering, Industrial and Management Engineering, and Medical Device and Innovation Center, Pohang University of Science and Technology, Pohang, Republic of Korea."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-2851-7813",
+            "authenticated-orcid": true,
+            "given": "Sun Oh",
+            "family": "Kim",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Division of Cardiology, Department of Internal Medicine, Yeungnam University Medical Center, Yeungnam University College of Medicine, Daegu, Republic of Korea."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-4337-4550",
+            "authenticated-orcid": true,
+            "given": "Jong-il",
+            "family": "Park",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Division of Cardiology, Department of Internal Medicine, Yeungnam University Medical Center, Yeungnam University College of Medicine, Daegu, Republic of Korea."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-3006-0982",
+            "authenticated-orcid": true,
+            "given": "Dong Young",
+            "family": "Jeong",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Departments of Mechanical Engineering, Electrical Engineering, Convergence IT Engineering, Medical Science and Engineering, Industrial and Management Engineering, and Medical Device and Innovation Center, Pohang University of Science and Technology, Pohang, Republic of Korea."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0006-7903-4220",
+            "authenticated-orcid": true,
+            "given": "Yujung",
+            "family": "Jung",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Division of Cardiology, Department of Internal Medicine, Yeungnam University Medical Center, Yeungnam University College of Medicine, Daegu, Republic of Korea."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Changyeop",
+            "family": "Lee",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Departments of Mechanical Engineering, Electrical Engineering, Convergence IT Engineering, Medical Science and Engineering, Industrial and Management Engineering, and Medical Device and Innovation Center, Pohang University of Science and Technology, Pohang, Republic of Korea."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-9566-0962",
+            "authenticated-orcid": true,
+            "given": "Moongyu",
+            "family": "Han",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Departments of Mechanical Engineering, Electrical Engineering, Convergence IT Engineering, Medical Science and Engineering, Industrial and Management Engineering, and Medical Device and Innovation Center, Pohang University of Science and Technology, Pohang, Republic of Korea."
+              },
+              {
+                "name": "Opticho Inc., Pohang, Republic of Korea."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-3510-3774",
+            "authenticated-orcid": true,
+            "given": "Hong-Ju",
+            "family": "Kim",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Division of Cardiology, Department of Internal Medicine, Yeungnam University Medical Center, Yeungnam University College of Medicine, Daegu, Republic of Korea."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0002-6778-6151",
+            "authenticated-orcid": true,
+            "given": "Jun-Chang",
+            "family": "Jeong",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Division of Cardiology, Department of Internal Medicine, Yeungnam University Medical Center, Yeungnam University College of Medicine, Daegu, Republic of Korea."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0000-4043-0353",
+            "authenticated-orcid": true,
+            "given": "Kwanju",
+            "family": "Song",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Neurology, Asan Medical Center, University of Ulsan College of Medicine, Seoul, Republic of Korea."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-4992-1065",
+            "authenticated-orcid": true,
+            "given": "Jeong Yoon",
+            "family": "Song",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Neurology, Asan Medical Center, University of Ulsan College of Medicine, Seoul, Republic of Korea."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-8641-3786",
+            "authenticated-orcid": true,
+            "given": "Jae Young",
+            "family": "Park",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Neurology, Asan Medical Center, University of Ulsan College of Medicine, Seoul, Republic of Korea."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-2049-8224",
+            "authenticated-orcid": true,
+            "given": "Hyeseon",
+            "family": "Lee",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Departments of Mechanical Engineering, Electrical Engineering, Convergence IT Engineering, Medical Science and Engineering, Industrial and Management Engineering, and Medical Device and Innovation Center, Pohang University of Science and Technology, Pohang, Republic of Korea."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Bum Joon",
+            "family": "Kim",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Neurology, Asan Medical Center, University of Ulsan College of Medicine, Seoul, Republic of Korea."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-2949-1419",
+            "authenticated-orcid": true,
+            "given": "Byullee",
+            "family": "Park",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Biophysics, Institute of Quantum Biophysics, Sungkyunkwan University, Suwon, Republic of Korea."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-6009-1843",
+            "authenticated-orcid": true,
+            "given": "Ung",
+            "family": "Kim",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Division of Cardiology, Department of Internal Medicine, Yeungnam University Medical Center, Yeungnam University College of Medicine, Daegu, Republic of Korea."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-7249-1257",
+            "authenticated-orcid": true,
+            "given": "Chulhong",
+            "family": "Kim",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Departments of Mechanical Engineering, Electrical Engineering, Convergence IT Engineering, Medical Science and Engineering, Industrial and Management Engineering, and Medical Device and Innovation Center, Pohang University of Science and Technology, Pohang, Republic of Korea."
+              },
+              {
+                "name": "Opticho Inc., Pohang, Republic of Korea."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "reference": "[59 items dropped in fixture]",
+        "container-title": [
+          "Science Advances"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/sciadv.aei7948",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T19:01:06Z",
+          "timestamp": 1793818866000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/sciadv.aei7948"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "references-count": 59,
+        "journal-issue": {
+          "issue": "45",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                6
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/sciadv.aei7948"
+        ],
+        "URL": "https://doi.org/10.1126/sciadv.aei7948",
+        "ISSN": [
+          "2375-2548"
+        ],
+        "issn-type": [
+          {
+            "value": "2375-2548",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-05-12",
+            "order": 0,
+            "name": "received",
+            "label": "Received",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-09-29",
+            "order": 2,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-11-04",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ],
+        "article-number": "eaei7948"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T19:28:53Z",
+          "timestamp": 1793820533431,
+          "version": "4.6.1"
+        },
+        "reference-count": 99,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "45",
+        "funder": [
+          {
+            "DOI": "10.13039/100000002",
+            "name": "National Institutes of Health",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "1S10OD016398-01A1"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "1S10OD016398-01A1"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100000002",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100000181",
+            "name": "Air Force Office of Scientific Research",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "FA9550-22-1-0218"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "FA9550-22-1-0218"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100000181",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100017796",
+            "name": "Materials Research Science and Engineering Center, Northwestern University",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "NSF DMR-2308691"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "NSF DMR-2308691"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100017796",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Sci. Adv."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/sciadv.aei1146",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T18:59:38Z",
+          "timestamp": 1793818778000
+        },
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Rapid, voxel-based 3D printing with yield-stress fluid inks"
+        ],
+        "prefix": "10.1126",
+        "volume": "12",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0003-1661-2311",
+            "authenticated-orcid": true,
+            "given": "Pranav",
+            "family": "Kaarthik",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Department of Mechanical Engineering, Northwestern University, Evanston, IL 60208, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Michael E.",
+            "family": "Bayer",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Mechanical Engineering, Northwestern University, Evanston, IL 60208, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-9467-9135",
+            "authenticated-orcid": true,
+            "given": "EunBi",
+            "family": "Oh",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Materials Science and Engineering, Northwestern University, Evanston, IL 60208, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-5796-8333",
+            "authenticated-orcid": true,
+            "given": "Alexander Q.",
+            "family": "Kane",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Materials Science and Engineering, Northwestern University, Evanston, IL 60208, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-1313-6463",
+            "authenticated-orcid": true,
+            "given": "Ryan L.",
+            "family": "Truby",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Mechanical Engineering, Northwestern University, Evanston, IL 60208, USA."
+              },
+              {
+                "name": "Department of Materials Science and Engineering, Northwestern University, Evanston, IL 60208, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "reference": "[99 items dropped in fixture]",
+        "container-title": [
+          "Science Advances"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/sciadv.aei1146",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T19:01:49Z",
+          "timestamp": 1793818909000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/sciadv.aei1146"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "references-count": 99,
+        "journal-issue": {
+          "issue": "45",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                6
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/sciadv.aei1146"
+        ],
+        "URL": "https://doi.org/10.1126/sciadv.aei1146",
+        "ISSN": [
+          "2375-2548"
+        ],
+        "issn-type": [
+          {
+            "value": "2375-2548",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-04-16",
+            "order": 0,
+            "name": "received",
+            "label": "Received",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-09-29",
+            "order": 2,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-11-04",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ],
+        "article-number": "eaei1146"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T19:28:53Z",
+          "timestamp": 1793820533399,
+          "version": "4.6.1"
+        },
+        "reference-count": 111,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "45",
+        "funder": [
+          {
+            "DOI": "10.13039/100000001",
+            "name": "National Science Foundation",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "OA-1416889"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "OA-1416889"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100000001",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100000001",
+            "name": "National Science Foundation",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "BioOCE-1924604"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "BioOCE-1924604"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100000001",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100000952",
+            "name": "Paul G. Allen Family Foundation",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/100000952",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100002322",
+            "name": "Coordenação de Aperfeiçoamento de Pessoal de Nível Superior",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/501100002322",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Sci. Adv."
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/sciadv.aed4599",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T18:59:38Z",
+          "timestamp": 1793818778000
+        },
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Stony coral symbioses show variable responses to future ocean conditions"
+        ],
+        "prefix": "10.1126",
+        "volume": "12",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-3591-1846",
+            "authenticated-orcid": true,
+            "given": "Mariana Rocha",
+            "family": "de Souza",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Hawaiʻi Institute of Marine Biology, School of Ocean and Earth Science and Technology, University of Hawaiʻi at Mānoa, Honolulu, HI 96744, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0006-7277-7996",
+            "authenticated-orcid": true,
+            "given": "Janaya",
+            "family": "Bruce",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "University of California, Santa Cruz, CA 95064, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0002-1078-4059",
+            "authenticated-orcid": true,
+            "given": "Annick",
+            "family": "Cros",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "The Nature Conservancy, CA, 95811, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-9926-5038",
+            "authenticated-orcid": true,
+            "given": "Christopher P.",
+            "family": "Jury",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Hawaiʻi Institute of Marine Biology, School of Ocean and Earth Science and Technology, University of Hawaiʻi at Mānoa, Honolulu, HI 96744, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-8853-416X",
+            "authenticated-orcid": true,
+            "given": "Crawford",
+            "family": "Drury",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Hawaiʻi Institute of Marine Biology, School of Ocean and Earth Science and Technology, University of Hawaiʻi at Mānoa, Honolulu, HI 96744, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-6339-4340",
+            "authenticated-orcid": true,
+            "given": "Robert J.",
+            "family": "Toonen",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Hawaiʻi Institute of Marine Biology, School of Ocean and Earth Science and Technology, University of Hawaiʻi at Mānoa, Honolulu, HI 96744, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "reference": "[111 items dropped in fixture]",
+        "container-title": [
+          "Science Advances"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/sciadv.aed4599",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T19:01:46Z",
+          "timestamp": 1793818906000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/sciadv.aed4599"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "references-count": 111,
+        "journal-issue": {
+          "issue": "45",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                6
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/sciadv.aed4599"
+        ],
+        "URL": "https://doi.org/10.1126/sciadv.aed4599",
+        "ISSN": [
+          "2375-2548"
+        ],
+        "issn-type": [
+          {
+            "value": "2375-2548",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2025-11-06",
+            "order": 0,
+            "name": "received",
+            "label": "Received",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-10-02",
+            "order": 2,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-11-04",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ],
+        "article-number": "eaed4599"
+      }
+    ],
+    "items-per-page": 10,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}

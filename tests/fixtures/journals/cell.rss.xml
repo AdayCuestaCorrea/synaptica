@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns="http://purl.org/rss/1.0/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+         xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.w3.org/1999/02/22-rdf-syntax-ns# uri:atypon.com:cms:schema:rdf.xsd">
+   <channel rdf:about="https://www.cell.com/cell/current?publicationCode=cell&amp;rss=yes">
+      <title>Cell</title>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <link>https://www.cell.com/cell/current?publicationCode=cell&amp;rss=yes</link>
+      <dc:publisher>Elsevier Inc.</dc:publisher>
+      <dc:language>en</dc:language>
+      <dc:rights>© 2026 Published by Elsevier Inc. All rights reserved.</dc:rights>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:issn>0092-8674</prism:issn>
+      <prism:publicationDate>2026-11-05-08:00</prism:publicationDate>
+      <prism:copyright>© 2026 Published by Elsevier Inc. All rights reserved.</prism:copyright>
+      <prism:rightsAgent>permissionshelpdesk@elsevier.com</prism:rightsAgent>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <items>
+         <rdf:Seq>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)01120-7?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)01140-2?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)01198-0?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)01121-9?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)00940-2?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)00924-4?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)01003-2?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)01073-1?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)00929-3?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)00875-5?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)00877-9?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)00945-1?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)00944-X?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)00920-7?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)00870-6?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)00947-5?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)01203-1?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)01196-7?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)00871-8?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)00997-9?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)00937-2?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)00934-7?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)01217-1?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)01211-0?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/cell/fulltext/S0092-8674(26)01188-8?rss=yes"/>
+         </rdf:Seq>
+      </items>
+   </channel>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)01120-7?rss=yes">
+      <title>Roads not taken: The mismatch between safety and regulation of plant breeding innovation</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)01120-7?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Roads not taken: The mismatch between safety and regulation of plant breeding innovation</dc:title>
+      <dc:creator>Jonathan D.G. Jones, Caixia Gao</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.09.018</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-10-29</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-10-29</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Commentary</prism:section>
+      <prism:startingPage>6899</prism:startingPage>
+      <prism:endingPage>6901</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)01140-2?rss=yes">
+      <title>Calorie restriction uncouples mutation rate from lifespan</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)01140-2?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Calorie restriction uncouples mutation rate from lifespan</dc:title>
+      <dc:creator>Björn Schumacher</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.09.038</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-10-29</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-10-29</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Preview</prism:section>
+      <prism:startingPage>6902</prism:startingPage>
+      <prism:endingPage>6903</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)01198-0?rss=yes">
+      <title>Guardians at the gate: cMAF keeps the brain’s vasculature in check</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)01198-0?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Guardians at the gate: cMAF keeps the brain’s vasculature in check</dc:title>
+      <dc:creator>Lena Alexopoulou, Rejane Rua</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.09.056</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-10-29</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-10-29</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Preview</prism:section>
+      <prism:startingPage>6904</prism:startingPage>
+      <prism:endingPage>6906</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)01121-9?rss=yes">
+      <title>Toward planetary microbial systems biology</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)01121-9?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Toward planetary microbial systems biology</dc:title>
+      <dc:creator>Peer Bork, Chris Bowler, Leho Tedersoo, Michael Kuhn, TREC Consortium Coordinators, Samuel Abiven, Colomban de Vargas, Paola Y. Bertucci</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.09.019</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-10-29</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-10-29</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Perspective</prism:section>
+      <prism:startingPage>6907</prism:startingPage>
+      <prism:endingPage>6921</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)00940-2?rss=yes">
+      <title>Caloric restriction modulates genome-wide somatic mutation in mice</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)00940-2?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Caloric restriction modulates genome-wide somatic mutation in mice</dc:title>
+      <dc:creator>Marta Grońska-Pęski, Victoria Acosta-Rodríguez, Amoolya Srinivasa, Amanda Garrido, Shany Picciotto, Carla B. Green, Joseph S. Takahashi, Jonathan E. Shoag, Gilad D. Evrony</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.08.013</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-09-09</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-09-09</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Short article</prism:section>
+      <prism:startingPage>6922</prism:startingPage>
+      <prism:endingPage>6932.e11</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)00924-4?rss=yes">
+      <title>Gut microbiota generate dinitrosyl iron complexes with cardiometabolic benefits</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)00924-4?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Gut microbiota generate dinitrosyl iron complexes with cardiometabolic benefits</dc:title>
+      <dc:creator>Andrei L. Kleschyov, Miho Shimari, Ariela Maína Boeder, Tomas A. Schiffer, Sander van Riet, Gianluigi Pironti, Nadja I. Bork, Alexander Rotmann, Zhengbing Zhuge, Drielle D. Guimarães, Gaia Picozzi, Chiara H. Moretti, Lucas R.R.A. Carvalho, Carina Nihlén, Ellen I. Closs, Viacheslav O. Nikolaev, Magnus Ingelman-Sundberg, Eddie Weitzberg, Jon O. Lundberg, Mattias Carlström</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.07.055</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-08-19</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-08-19</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>6933</prism:startingPage>
+      <prism:endingPage>6950.e10</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)01003-2?rss=yes">
+      <title>Copper ion-induced MYH9 polymerization executes cuproptosis</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)01003-2?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Copper ion-induced MYH9 polymerization executes cuproptosis</dc:title>
+      <dc:creator>Liu-zheng Wu, Xiang-yu Mi, Zai-jun Liu, Yang Ding, Wen-bin Hong, Chen-xi Cai, Hai-jing Hu, Yuan-li Ai, Bi-Xing Zhao, Duo-duo Qiu, Jing-song Ma, Xue-qin Chen, Han You, Tianwei Lin, Fu-nan Li, Xue-hui Hong, Hang-zi Chen, Qiao Wu</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.08.030</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-09-14</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-09-14</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>6951</prism:startingPage>
+      <prism:endingPage>6967.e12</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)01073-1?rss=yes">
+      <title>Opposing functions of gut immunomodulatory metabolites on CAR-T therapy</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)01073-1?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Opposing functions of gut immunomodulatory metabolites on CAR-T therapy</dc:title>
+      <dc:creator>Markus Perl, Severin Guetter, Dhyani Shah, Simon Holzinger, Luisa Becker, Misbah Tariq, Philipp Menauer, Simon Delahais, Gloria Lutzny-Geier, Julian N. Scherer, Sascha Göttert, Konstantin Herfeld, Paul Heinrich, Klaus Georg Kreitmeier, Claudia Gebhard, Wolfgang Herr, Marcel P. Trefny, Janina Doerr, Saba Sameri, Dennis C. Harrer, Kai Ziegler-Martin, Sarah Staudt, Leo Hansmann, Matthias Edinger, Daniel Wolff, Daniela Weber, Elisabeth Meedt, Alexander Denk, Andre Gessner, Ernst Holler, Tobias Wertheimer, Klaus Neuhaus, Tingting Zheng, David M. Cordas Dos Santos, Sebastian Theurich, Melanie Schirmer, Karin Kleigrewe, Jonas Schluter, Marcel van den Brink, Michael Schmitt, Markus Feuerer, Christoph Heuser-Loy, Jeremy Baldwin, Luca Gattinoni, Michael Rehli, Michael Hudecek, Camille Bigenwald, Laurence Zitvogel, Marion Subklewe, Viktoria Blumenberg, Maria-Luisa Schubert, Christoph Stein-Thoeringer, Maik Luu, Sebastian Kobold, Matthias A. Fante, Erik Thiele Orberg, Hendrik Poeck</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.09.004</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-09-28</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-09-28</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>6968</prism:startingPage>
+      <prism:endingPage>6987.e14</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)00929-3?rss=yes">
+      <title>Genome-scale perturb-seq in primary human CD4+ T cells maps context-specific regulators of T cell programs and human immune traits</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)00929-3?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Genome-scale perturb-seq in primary human CD4+ T cells maps context-specific regulators of T cell programs and human immune traits</dc:title>
+      <dc:creator>Ronghui Zhu, Emma Dann, Jun Yan, Justine Reyes Retana, Ryunosuke Goto, Reese C. Guitche, Lillian Brixi, Mineto Ota, Austin Hartman, Theodore L. Roth, Ansuman T. Satpathy, Jonathan K. Pritchard, Alexander Marson</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.08.002</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-08-28</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-08-28</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>6988</prism:startingPage>
+      <prism:endingPage>7012.e17</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)00875-5?rss=yes">
+      <title>Brain perivascular macrophages regulate endothelial cell function via a cMAF-dependent transcriptional program in mouse and human</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)00875-5?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Brain perivascular macrophages regulate endothelial cell function via a cMAF-dependent transcriptional program in mouse and human</dc:title>
+      <dc:creator>Simone Brioschi, Julia A. Belk, Steffen E. Storck, Yue Wu, Zhuoying Wang, Ziang Feng, Lynn van Olst, Josie L. Emery, Raki Sudan, Junjie Wu, Siling Du, Marco Genua, Federica La Terza, Alex J. Edwards, Khai M. Nguyen, Jessie Sanford, Daniel D. Lee, Mattia Bugatti, Arnold J. Federico, Yun Chen, Zuoxu Wang, Silvia Penati, Patrick Fernandes Rodrigues, Alina Ulezko Antonova, Hui Qi Loo, Igor Smirnov, Susan Gilfillan, Carmen M. Halabi, Jennifer Ponce, Jun Yan, Howard Y. Chang, Gwendalyn J. Randolph, William Vermi, Marina Cella, Michael Meers, Renato Ostuni, David Gate, Aivi T. Nguyen, Carlos Cruchaga, Song Hu, Jonathan Kipnis, Marco Colonna</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.07.043</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-08-14</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-08-14</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>7013</prism:startingPage>
+      <prism:endingPage>7033.e12</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)00877-9?rss=yes">
+      <title>Multimodal brain cell atlas across the adult macaque lifespan</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)00877-9?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Multimodal brain cell atlas across the adult macaque lifespan</dc:title>
+      <dc:creator>Xiao Zhang, Guangyao Lai, Xiangyu Guo, Wen Ma, Yue Yuan, Han Zhang, Bo Zhang, Peng Fan, Xingyuan Liu, Pengcheng Guo, Juan An, Jinxiu Li, Keke Huang, Xiaoyan Li, Jing Zuo, Liang Wu, Shuncheng Shangguan, Feng Yu, Yuchen Xiang, Yuebei Hu, Yuxuan Liu, Yunting Huang, Yiting Lin, Dajian He, Mingtian Pan, Laiqiang Chen, Bang Li, Jiawei Zhang, Qintian Guo, Weili Yang, Peng Yin, Shihua Li, Xiaolan Zhang, Tao Yang, Xiaofeng Wei, Yuan Lv, Baoming Qin, Xiaobing Qing, Qiuting Deng, Yaling Huang, Chang Liu, Lei Han, Shiping Liu, Dajiang Qin, Zhen Liu, Yi Zhou, Liang Qiao, Chengyu Li, Yanxiao Zhang, Zunpeng Liu, Yan Li, Paulina Carriba, Mara Dierssen, Giacomo Volpe, Simon Graf, Ian Ferenc Diks, Matthias Flotho, Rafal P. Krol, Jan Mulder, Chaiyaboot Ariyachet, Nattiya Hirankarn, Andrew P. Hutchins, Andreas Keller, Patrick H. Maxwell, David C. Rubinsztein, Pura Muñoz-Cánoves, Xiaolei Liu, Hung-Fat Tse, Muming Poo, Bo Wang, Longqi Liu, Ying Gu, Jun Xie, Xun Xu, Xiaojiang Li, Chuanyu Liu, Yiwei Lai, Miguel A. Esteban, Mingyuan Liu</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.07.045</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-08-18</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-08-18</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>7034</prism:startingPage>
+      <prism:endingPage>7057.e8</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)00945-1?rss=yes">
+      <title>Identification of the tendon/ligament stem cell in mice and humans</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)00945-1?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Identification of the tendon/ligament stem cell in mice and humans</dc:title>
+      <dc:creator>Lingling Hu, Jun Sun, Kyle W. Morse, Seoyeon Bok, Yimin Zheng, Un In Chan, Han Choi, Eugenie Macfarlane, Alisha R. Yallowitz, Michelle Cung, Ting Cong, Peyton Lee Carpen, Federico La Manna, Shawon Debnath, Haiyin Li, Tim Xu, Lipeng Wang, Yangkang Zheng, Takeshi Hirose, Ryan N. Serio, Billy Lu, Ryan J. Chaffee, Armin Scheben, Ling J. Zheng, Jason McCormick, Daniel Shinn, Anthony Pajak, Kasra Araghi, Eric Zhao, Anna Yemelyanova, Chike Cao, Geoffrey S. Pitt, Scott A. Rodeo, Dawid G. Nowak, Sravisht Iyer, Matthew B. Greenblatt</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.08.018</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-09-07</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-09-07</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>7058</prism:startingPage>
+      <prism:endingPage>7074.e5</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)00944-X?rss=yes">
+      <title>Glycocalyx-edited mesenchymal stem/stromal cell therapy in advanced osteoporosis</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)00944-X?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Glycocalyx-edited mesenchymal stem/stromal cell therapy in advanced osteoporosis</dc:title>
+      <dc:creator>Jose M. Moraleda, Luis F. Linares, David García-Bernal, Nuria Lozano-Rivas, Jenifer Ruiz-Sará, Miguel Blanquer, M. Dolores López-Lucas, Darío Sánchez-Salinas, M. Carmen Algueró, M. Mar Molina-Molina, Francisco Ruiz-Espejo, José L. Peris-Serra, Pilar M. Arrabal, José Becerra, Jonathan Kiwitt-Cárdenas, Carlos Marras, Ana M. García-Hernández, Robert Sackstein</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.08.017</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-09-11</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-09-11</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>7075</prism:startingPage>
+      <prism:endingPage>7089.e5</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)00920-7?rss=yes">
+      <title>RNA structures regulate norovirus life cycle and enable rational attenuation in vivo</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)00920-7?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>RNA structures regulate norovirus life cycle and enable rational attenuation in vivo</dc:title>
+      <dc:creator>Tanja Hann, Arya B. Ökten, Renata B. Filler, Craig B. Wilen, Anna Marie Pyle</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.07.051</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-08-19</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-08-19</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>7090</prism:startingPage>
+      <prism:endingPage>7104.e8</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)00870-6?rss=yes">
+      <title>Functional atlas of vertebrate viral RNA elements that stabilize RNA and enhance translation</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)00870-6?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Functional atlas of vertebrate viral RNA elements that stabilize RNA and enhance translation</dc:title>
+      <dc:creator>Jenny J. Seo, Chemin Lee, Dongbin Lim, Minseok Jeong, Soo-Jin Jung, V. Narry Kim</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.07.038</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-08-13</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-08-13</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>7105</prism:startingPage>
+      <prism:endingPage>7120.e12</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)00947-5?rss=yes">
+      <title>Structural basis of a SWI/SNF-associated transcription pre-initiation complex</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)00947-5?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Structural basis of a SWI/SNF-associated transcription pre-initiation complex</dc:title>
+      <dc:creator>Shigeki Nagai, Chun Yang, Dong-Hua Chen, Michael J. Trnka, David A. Bushnell, Alma L. Burlingame, Kenji Murakami, Roger D. Kornberg</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.08.020</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-09-08</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-09-08</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>7121</prism:startingPage>
+      <prism:endingPage>7138.e13</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)01203-1?rss=yes">
+      <title>A fluctuation test for gastruloid heterogeneity</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)01203-1?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>A fluctuation test for gastruloid heterogeneity</dc:title>
+      <dc:creator>Samuel G. Regalado, Chengxiang Qiu, Sanjay Kottapalli, Chau Huynh, Riza M. Daza, Aidan Keith, Jihye Park, Beth K. Martin, Wei Chen, Hanna Liao, Haedong Kim, Xiaoyi Li, Jean-Benoît Lalanne, Nobuhiko Hamazaki, Silvia Domcke, Junhong Choi, Jay Shendure</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.09.057</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-10-08</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-10-08</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>7139</prism:startingPage>
+      <prism:endingPage>7153.e12</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)01196-7?rss=yes">
+      <title>Comprehensive lineage tracing maps the landscape of cell fate decisions in mouse embryogenesis</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)01196-7?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Comprehensive lineage tracing maps the landscape of cell fate decisions in mouse embryogenesis</dc:title>
+      <dc:creator>William N. Colgan, Luke W. Koblan, JoAnne Villagrana, Tien-Chi Jason Hou, Minming Wang, Gokul Gowri, Whitney Chandler, Leonardo A. Sepúlveda, Didar Ciftci, Karina Smolyar, Kathryn E. Yost, Alicia Young, Lars Wittler, Styliani Markoulaki, Kyle M. Loh, Xiaowei Zhuang, Nir Yosef, Zachary D. Smith, Jonathan S. Weissman</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.09.050</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-10-08</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-10-08</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Resource</prism:section>
+      <prism:startingPage>7154</prism:startingPage>
+      <prism:endingPage>7176.e20</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)00871-8?rss=yes">
+      <title>Integrative spatial profiling of 3D genome organization and gene expression in tissue</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)00871-8?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Integrative spatial profiling of 3D genome organization and gene expression in tissue</dc:title>
+      <dc:creator>Pengfei Guo, Yan Cui, Jincan He, Abraham J. Waldman, Jiaxin Zhu, Yufan Chen, Zhi Huang, Jingtian Zhou, Jennifer E. Phillips-Cremins, Yanxiang Deng</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.07.039</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-08-25</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-08-25</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Resource</prism:section>
+      <prism:startingPage>7177</prism:startingPage>
+      <prism:endingPage>7195.e11</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)00997-9?rss=yes">
+      <title>Metax enables accurate cross-domain taxonomic profiling of metagenomes</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)00997-9?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Metax enables accurate cross-domain taxonomic profiling of metagenomes</dc:title>
+      <dc:creator>Zhi-Luo Deng, Nasim Safaei, Alice Carolyn McHardy</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.08.024</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-09-11</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-09-11</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Resource</prism:section>
+      <prism:startingPage>7196</prism:startingPage>
+      <prism:endingPage>7211.e7</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)00937-2?rss=yes">
+      <title>Tabula Sapiens 2.0: A comprehensive transcriptomic atlas of human cell types</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)00937-2?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Tabula Sapiens 2.0: A comprehensive transcriptomic atlas of human cell types</dc:title>
+      <dc:creator>The Tabula Sapiens Consortium</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.08.010</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-09-02</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-09-02</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Resource</prism:section>
+      <prism:startingPage>7212</prism:startingPage>
+      <prism:endingPage>7227.e8</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)00934-7?rss=yes">
+      <title>De novo pan-rhodamine binders for fluorescence microscopy from mammalian cells to extremophiles</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)00934-7?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>De novo pan-rhodamine binders for fluorescence microscopy from mammalian cells to extremophiles</dc:title>
+      <dc:creator>Yuda Chen, Klaus Yserentant, Kibeom Hong, Kehan Chen, Yiming Kuang, Robert S. Picardo, Arghya Bhowmick, Arthur Charles-Orszag, Samuel J. Lord, Lei Lu, Kaipeng Hou, Samuel I. Mann, Sagar Bhattacharya, Maggie Horst, Jonathan B. Grimm, Luke D. Lavis, R. Dyche Mullins, William F. DeGrado, Bo Huang</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.08.007</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-09-01</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-09-01</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Resource</prism:section>
+      <prism:startingPage>7228</prism:startingPage>
+      <prism:endingPage>7242.e10</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)01217-1?rss=yes">
+      <title>Root microbiota regulates tiller number in rice</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)01217-1?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Root microbiota regulates tiller number in rice</dc:title>
+      <dc:creator>Jingying Zhang, Bing Wang, Haoran Xu, Weidong Liu, Jingwei Yu, Qiuxia Wang, Hong Yu, Jin-Wei Wei, Rui Dai, Jinghang Zhou, Yuhang He, Di Zou, Jinhua Yang, Xinwei Ban, Qingliang Hu, Xiangbing Meng, Yong-Xin Liu, Binglei Wang, Bin Hu, Mingyu Wang, Peiyong Xin, Jinfang Chu, Changsheng Li, Ruben Garrido-Oter, Peng Yu, Aalt Dirk Jan van Dijk, Lemeng Dong, Harro Bouwmeester, Song Gao, Ancheng Huang, Chengcai Chu, Jiayang Li, Yang Bai</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.10.006</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-10-21</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-10-21</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Correction</prism:section>
+      <prism:startingPage>7243</prism:startingPage>
+      <prism:endingPage>7245</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)01211-0?rss=yes">
+      <title>Sensing endoplasmic reticulum redox state by ethylene receptors</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)01211-0?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Sensing endoplasmic reticulum redox state by ethylene receptors</dc:title>
+      <dc:creator>Dongdong Hao, Zhina Xiao, Wei Yan, Chenliang Pan, Yanting Yang, Wen Song, Zhiren Chen, Ying Xing, Lian Jin, Yang Peng, Yuping Qiu, Kai Jiang, Xing Wen, Kai Huang, Shi Xiao, Haodong Chen, Hongwei Guo</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.09.065</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-10-14</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-10-14</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Correction</prism:section>
+      <prism:startingPage>7246</prism:startingPage>
+      <prism:endingPage>7252</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/cell/fulltext/S0092-8674(26)01188-8?rss=yes">
+      <title>Global, site-resolved analysis of ubiquitylation occupancy and turnover rate reveals systems properties</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)01188-8?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Global, site-resolved analysis of ubiquitylation occupancy and turnover rate reveals systems properties</dc:title>
+      <dc:creator>Gabriela Prus, Shankha Satpathy, Brian T. Weinert, Takeo Narita, Chunaram Choudhary</dc:creator>
+      <dc:identifier>10.1016/j.cell.2026.09.047</dc:identifier>
+      <dc:source>Cell 189, 22 (2026)</dc:source>
+      <dc:date>2026-09-30</dc:date>
+      <prism:publicationName>Cell</prism:publicationName>
+      <prism:publicationDate>2026-09-30</prism:publicationDate>
+      <prism:volume>189</prism:volume>
+      <prism:number>22</prism:number>
+      <prism:issueIdentifier>S0092-8674(25)X0023-4</prism:issueIdentifier>
+      <prism:section>Correction</prism:section>
+      <prism:startingPage>7253</prism:startingPage>
+      <prism:endingPage>7254</prism:endingPage>
+   </item>
+</rdf:RDF>

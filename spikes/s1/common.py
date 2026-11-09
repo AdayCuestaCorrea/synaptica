@@ -54,12 +54,21 @@ def get(c: httpx.Client, url: str, pause: float = 0.5, **kwargs: Any) -> httpx.R
     return r
 
 
+# Bulky lists the parsers do not need (Crossref reference lists): kept as a count.
+DROP_KEYS = {"reference"}
+
+
 def redact_json(value: Any) -> Any:
     if isinstance(value, dict):
-        return {
-            k: (REDACTED if k.lower() in TEXT_KEYS and v else redact_json(v))
-            for k, v in value.items()
-        }
+        out = {}
+        for k, v in value.items():
+            if k.lower() in TEXT_KEYS and v:
+                out[k] = REDACTED
+            elif k in DROP_KEYS and isinstance(v, list):
+                out[k] = f"[{len(v)} items dropped in fixture]"
+            else:
+                out[k] = redact_json(v)
+        return out
     if isinstance(value, list):
         return [redact_json(v) for v in value]
     return value

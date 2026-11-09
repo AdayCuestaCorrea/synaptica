@@ -1,0 +1,158 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/" xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/" xmlns:admin="http://webns.net/mvcb/">
+    <channel rdf:about="http://feeds.nature.com/nrn/rss/current">
+        <title>Nature Reviews Neuroscience</title>
+        <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+        <link>http://feeds.nature.com/nrn/rss/current</link>
+        <admin:generatorAgent rdf:resource="https://www.nature.com/"/>
+        <admin:errorReportsTo rdf:resource="mailto:feedback@nature.com"/>
+        <dc:publisher>Nature Publishing Group</dc:publisher>
+        <dc:language>en</dc:language>
+        <dc:rights>© 2026 Macmillan Publishers Limited, part of Springer Nature. All rights reserved.</dc:rights>
+        <prism:publicationName>Nature Reviews Neuroscience</prism:publicationName>
+        
+        
+        <prism:copyright>© 2026 Macmillan Publishers Limited, part of Springer Nature. All rights reserved.</prism:copyright>
+        <prism:rightsAgent>permissions@nature.com</prism:rightsAgent>
+        <image rdf:resource="https://www.nature.com/uploads/product/nrn/rss.gif"/>
+        <items>
+            <rdf:Seq>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s41583-026-01096-4"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s41583-026-01101-w"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s41583-026-01098-2"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s41583-026-01088-4"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s41583-026-01085-7"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s41583-026-01095-5"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s41583-026-01089-3"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s41583-026-01091-9"/>
+                
+            </rdf:Seq>
+        </items>
+    </channel>
+    <image rdf:about="https://www.nature.com/uploads/product/nrn/rss.gif">
+        <title>Nature Reviews Neuroscience</title>
+        <url>https://www.nature.com/uploads/product/nrn/rss.gif</url>
+        <link>http://feeds.nature.com/nrn/rss/current</link>
+    </image>
+    
+        <item rdf:about="https://www.nature.com/articles/s41583-026-01096-4">
+            <title><![CDATA[Single-cell and spatial transcriptomics of cellular heterogeneity in Alzheimer disease]]></title>
+            <link>https://www.nature.com/articles/s41583-026-01096-4</link>
+            <content:encoded>[REDACTED in fixture: publisher text, not redistributed]</content:encoded>
+            <dc:title><![CDATA[Single-cell and spatial transcriptomics of cellular heterogeneity in Alzheimer disease]]></dc:title>
+            <dc:creator>Nora Emerson</dc:creator><dc:creator>Kristen Vallejo</dc:creator><dc:creator>Negin Rahimzadeh</dc:creator><dc:creator>Nellie E. Kwang</dc:creator><dc:creator>Vivek Swarup</dc:creator>
+            <dc:identifier>doi:10.1038/s41583-026-01096-4</dc:identifier>
+            <dc:source>Nature Reviews Neuroscience, Published online: 2026-11-06; | doi:10.1038/s41583-026-01096-4</dc:source>
+            <dc:date>2026-11-06</dc:date>
+            <prism:publicationName>Nature Reviews Neuroscience</prism:publicationName>
+            <prism:doi>10.1038/s41583-026-01096-4</prism:doi>
+            <prism:url>https://www.nature.com/articles/s41583-026-01096-4</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s41583-026-01101-w">
+            <title><![CDATA[Sleep-sensitive neurons mediate consolidation]]></title>
+            <link>https://www.nature.com/articles/s41583-026-01101-w</link>
+            <content:encoded>[REDACTED in fixture: publisher text, not redistributed]</content:encoded>
+            <dc:title><![CDATA[Sleep-sensitive neurons mediate consolidation]]></dc:title>
+            <dc:creator>Katherine Whalley</dc:creator>
+            <dc:identifier>doi:10.1038/s41583-026-01101-w</dc:identifier>
+            <dc:source>Nature Reviews Neuroscience, Published online: 2026-11-02; | doi:10.1038/s41583-026-01101-w</dc:source>
+            <dc:date>2026-11-02</dc:date>
+            <prism:publicationName>Nature Reviews Neuroscience</prism:publicationName>
+            <prism:doi>10.1038/s41583-026-01101-w</prism:doi>
+            <prism:url>https://www.nature.com/articles/s41583-026-01101-w</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s41583-026-01098-2">
+            <title><![CDATA[The nanotubular network as a new dimension of intercellular communication in the nervous system]]></title>
+            <link>https://www.nature.com/articles/s41583-026-01098-2</link>
+            <content:encoded>[REDACTED in fixture: publisher text, not redistributed]</content:encoded>
+            <dc:title><![CDATA[The nanotubular network as a new dimension of intercellular communication in the nervous system]]></dc:title>
+            <dc:creator>Minhyeok Chang</dc:creator><dc:creator>Seungjun Ryu</dc:creator><dc:creator>Hyung-Bae Kwon</dc:creator>
+            <dc:identifier>doi:10.1038/s41583-026-01098-2</dc:identifier>
+            <dc:source>Nature Reviews Neuroscience, Published online: 2026-11-02; | doi:10.1038/s41583-026-01098-2</dc:source>
+            <dc:date>2026-11-02</dc:date>
+            <prism:publicationName>Nature Reviews Neuroscience</prism:publicationName>
+            <prism:doi>10.1038/s41583-026-01098-2</prism:doi>
+            <prism:url>https://www.nature.com/articles/s41583-026-01098-2</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s41583-026-01088-4">
+            <title><![CDATA[Interneurons and network activity in the cerebral cortex: a developmental dialogue]]></title>
+            <link>https://www.nature.com/articles/s41583-026-01088-4</link>
+            <content:encoded>[REDACTED in fixture: publisher text, not redistributed]</content:encoded>
+            <dc:title><![CDATA[Interneurons and network activity in the cerebral cortex: a developmental dialogue]]></dc:title>
+            <dc:creator>Monika Moissidis</dc:creator><dc:creator>Oscar Marín</dc:creator>
+            <dc:identifier>doi:10.1038/s41583-026-01088-4</dc:identifier>
+            <dc:source>Nature Reviews Neuroscience, Published online: 2026-10-23; | doi:10.1038/s41583-026-01088-4</dc:source>
+            <dc:date>2026-10-23</dc:date>
+            <prism:publicationName>Nature Reviews Neuroscience</prism:publicationName>
+            <prism:doi>10.1038/s41583-026-01088-4</prism:doi>
+            <prism:url>https://www.nature.com/articles/s41583-026-01088-4</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s41583-026-01085-7">
+            <title><![CDATA[The endocannabinoid system and the ageing brain]]></title>
+            <link>https://www.nature.com/articles/s41583-026-01085-7</link>
+            <content:encoded>[REDACTED in fixture: publisher text, not redistributed]</content:encoded>
+            <dc:title><![CDATA[The endocannabinoid system and the ageing brain]]></dc:title>
+            <dc:creator>Andreas Zimmer</dc:creator>
+            <dc:identifier>doi:10.1038/s41583-026-01085-7</dc:identifier>
+            <dc:source>Nature Reviews Neuroscience, Published online: 2026-10-16; | doi:10.1038/s41583-026-01085-7</dc:source>
+            <dc:date>2026-10-16</dc:date>
+            <prism:publicationName>Nature Reviews Neuroscience</prism:publicationName>
+            <prism:doi>10.1038/s41583-026-01085-7</prism:doi>
+            <prism:url>https://www.nature.com/articles/s41583-026-01085-7</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s41583-026-01095-5">
+            <title><![CDATA[A defined brainstem circuit for cardiac control]]></title>
+            <link>https://www.nature.com/articles/s41583-026-01095-5</link>
+            <content:encoded>[REDACTED in fixture: publisher text, not redistributed]</content:encoded>
+            <dc:title><![CDATA[A defined brainstem circuit for cardiac control]]></dc:title>
+            <dc:creator>Sian Lewis</dc:creator>
+            <dc:identifier>doi:10.1038/s41583-026-01095-5</dc:identifier>
+            <dc:source>Nature Reviews Neuroscience, Published online: 2026-10-15; | doi:10.1038/s41583-026-01095-5</dc:source>
+            <dc:date>2026-10-15</dc:date>
+            <prism:publicationName>Nature Reviews Neuroscience</prism:publicationName>
+            <prism:doi>10.1038/s41583-026-01095-5</prism:doi>
+            <prism:url>https://www.nature.com/articles/s41583-026-01095-5</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s41583-026-01089-3">
+            <title><![CDATA[Brain regulation of bile acids]]></title>
+            <link>https://www.nature.com/articles/s41583-026-01089-3</link>
+            <content:encoded>[REDACTED in fixture: publisher text, not redistributed]</content:encoded>
+            <dc:title><![CDATA[Brain regulation of bile acids]]></dc:title>
+            <dc:creator>Darran Yates</dc:creator>
+            <dc:identifier>doi:10.1038/s41583-026-01089-3</dc:identifier>
+            <dc:source>Nature Reviews Neuroscience, Published online: 2026-10-08; | doi:10.1038/s41583-026-01089-3</dc:source>
+            <dc:date>2026-10-08</dc:date>
+            <prism:publicationName>Nature Reviews Neuroscience</prism:publicationName>
+            <prism:doi>10.1038/s41583-026-01089-3</prism:doi>
+            <prism:url>https://www.nature.com/articles/s41583-026-01089-3</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s41583-026-01091-9">
+            <title><![CDATA[In situ capture of combinatorial neuromodulatory codes]]></title>
+            <link>https://www.nature.com/articles/s41583-026-01091-9</link>
+            <content:encoded>[REDACTED in fixture: publisher text, not redistributed]</content:encoded>
+            <dc:title><![CDATA[In situ capture of combinatorial neuromodulatory codes]]></dc:title>
+            <dc:creator>Peter N. Kalugin</dc:creator>
+            <dc:identifier>doi:10.1038/s41583-026-01091-9</dc:identifier>
+            <dc:source>Nature Reviews Neuroscience, Published online: 2026-10-07; | doi:10.1038/s41583-026-01091-9</dc:source>
+            <dc:date>2026-10-07</dc:date>
+            <prism:publicationName>Nature Reviews Neuroscience</prism:publicationName>
+            <prism:doi>10.1038/s41583-026-01091-9</prism:doi>
+            <prism:url>https://www.nature.com/articles/s41583-026-01091-9</prism:url>
+        </item>
+    
+</rdf:RDF>

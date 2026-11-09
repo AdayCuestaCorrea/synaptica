@@ -1,0 +1,2583 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 92,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              9
+            ]
+          ],
+          "date-time": "2026-11-09T01:22:17Z",
+          "timestamp": 1794187337630,
+          "version": "4.8.0"
+        },
+        "reference-count": 104,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "funder": [
+          {
+            "DOI": "10.13039/100000001",
+            "name": "National Science Foundation",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "2125954"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "2125954"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100000001",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100016662",
+            "name": "Carnegie Institution for Science",
+            "doi-asserted-by": "publisher",
+            "id": [
+              {
+                "id": "10.13039/100016662",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Science"
+        ],
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/science.aeh5267",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              9
+            ]
+          ],
+          "date-time": "2026-11-09T00:58:13Z",
+          "timestamp": 1794185893000
+        },
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Melting and resistivity of iron at Earth core conditions using pulsed Joule heating"
+        ],
+        "prefix": "10.1126",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-6107-0497",
+            "authenticated-orcid": true,
+            "given": "Zachary M.",
+            "family": "Geballe",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Earth and Planets Laboratory, Carnegie Institution for Science, Washington, DC, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-8572-4048",
+            "authenticated-orcid": true,
+            "given": "Jing",
+            "family": "Yang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Earth and Planets Laboratory, Carnegie Institution for Science, Washington, DC, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-3710-2188",
+            "authenticated-orcid": true,
+            "given": "Vasilije V.",
+            "family": "Dobrosavljevic",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Earth and Planets Laboratory, Carnegie Institution for Science, Washington, DC, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-8926-4122",
+            "authenticated-orcid": true,
+            "given": "Francesca",
+            "family": "Miozzi",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Earth and Planets Laboratory, Carnegie Institution for Science, Washington, DC, USA."
+              },
+              {
+                "name": "Department of Earth and Planetary Sciences, ETH Zürich, Zürich, Switzerland."
+              },
+              {
+                "name": "Department of Earth and Environmental Sciences, University of Pavia, Pavia, Italy."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-2319-048X",
+            "authenticated-orcid": true,
+            "given": "Nathan",
+            "family": "Sime",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Earth and Planets Laboratory, Carnegie Institution for Science, Washington, DC, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-4036-6619",
+            "authenticated-orcid": true,
+            "given": "Suzy M.",
+            "family": "Vitale",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Earth and Planets Laboratory, Carnegie Institution for Science, Washington, DC, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-6241-3925",
+            "authenticated-orcid": true,
+            "given": "Peter E.",
+            "family": "Driscoll",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Earth and Planets Laboratory, Carnegie Institution for Science, Washington, DC, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-0377-8830",
+            "authenticated-orcid": true,
+            "given": "Peter E.",
+            "family": "van Keken",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Earth and Planets Laboratory, Carnegie Institution for Science, Washington, DC, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-3560-2461",
+            "authenticated-orcid": true,
+            "given": "Ryan",
+            "family": "Tappero",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "National Synchrotron Light Source II, Brookhaven National Laboratory, Upton, NY, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-9072-5379",
+            "authenticated-orcid": true,
+            "given": "Wenjun",
+            "family": "Liu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "X-ray Science Division, Advanced Photon Source, Argonne National Laboratory, Lemont, IL, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-5522-0498",
+            "authenticated-orcid": true,
+            "given": "Stella",
+            "family": "Chariton",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Center for Advanced Radiation Sources, University of Chicago, Chicago, IL, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-9270-2330",
+            "authenticated-orcid": true,
+            "given": "Vitali B.",
+            "family": "Prakapenka",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Center for Advanced Radiation Sources, University of Chicago, Chicago, IL, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-3080-1701",
+            "authenticated-orcid": true,
+            "given": "Yue",
+            "family": "Meng",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "HPCAT, X-ray Science Division, Advanced Photon Source, Argonne National Laboratory, Lemont, IL, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-1703-9994",
+            "authenticated-orcid": true,
+            "given": "Michael J.",
+            "family": "Walter",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Earth and Planets Laboratory, Carnegie Institution for Science, Washington, DC, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              8
+            ]
+          ]
+        },
+        "reference": "[104 items dropped in fixture]",
+        "container-title": [
+          "Science"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/science.aeh5267",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              9
+            ]
+          ],
+          "date-time": "2026-11-09T00:58:15Z",
+          "timestamp": 1794185895000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/science.aeh5267"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              8
+            ]
+          ]
+        },
+        "references-count": 104,
+        "alternative-id": [
+          "10.1126/science.aeh5267"
+        ],
+        "URL": "https://doi.org/10.1126/science.aeh5267",
+        "ISSN": [
+          "0036-8075",
+          "1095-9203"
+        ],
+        "issn-type": [
+          {
+            "value": "0036-8075",
+            "type": "print"
+          },
+          {
+            "value": "1095-9203",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              8
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-03-27",
+            "order": 0,
+            "name": "received",
+            "label": "Received",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-10-30",
+            "order": 2,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-11-08",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ],
+        "article-number": "eaeh5267"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:28:13Z",
+          "timestamp": 1793906893804,
+          "version": "4.8.0"
+        },
+        "reference-count": 15,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "6824",
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Science"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/science.aei1490",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:02:22Z",
+          "timestamp": 1793905342000
+        },
+        "page": "612-613",
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "GLP-1 therapies and cancer risk"
+        ],
+        "prefix": "10.1126",
+        "volume": "394",
+        "author": [
+          {
+            "given": "Blánaid",
+            "family": "Hicks",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Centre for Public Health, Queen’s University Belfast, Belfast, UK."
+              },
+              {
+                "name": "Clinical Pharmacology, Pharmacy, and Environmental Medicine, Department of Public Health, University of Southern Denmark, Odense, Denmark."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Anton",
+            "family": "Pottegård",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Clinical Pharmacology, Pharmacy, and Environmental Medicine, Department of Public Health, University of Southern Denmark, Odense, Denmark."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "reference": "[15 items dropped in fixture]",
+        "container-title": [
+          "Science"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/science.aei1490",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:02:37Z",
+          "timestamp": 1793905357000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/science.aei1490"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "references-count": 15,
+        "journal-issue": {
+          "issue": "6824",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                5
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/science.aei1490"
+        ],
+        "URL": "https://doi.org/10.1126/science.aei1490",
+        "ISSN": [
+          "0036-8075",
+          "1095-9203"
+        ],
+        "issn-type": [
+          {
+            "value": "0036-8075",
+            "type": "print"
+          },
+          {
+            "value": "1095-9203",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-11-05",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:28:14Z",
+          "timestamp": 1793906894916,
+          "version": "4.8.0"
+        },
+        "reference-count": 0,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "6824",
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Science"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/science.aen8500",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:02:22Z",
+          "timestamp": 1793905342000
+        },
+        "page": "576-577",
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "U.S. archaeology faces ‘apocalyptic’ threat"
+        ],
+        "prefix": "10.1126",
+        "volume": "394",
+        "author": [
+          {
+            "given": "Taylor Mitchell",
+            "family": "Brown",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "container-title": [
+          "Science"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/science.aen8500",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:02:38Z",
+          "timestamp": 1793905358000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/science.aen8500"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "6824",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                5
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/science.aen8500"
+        ],
+        "URL": "https://doi.org/10.1126/science.aen8500",
+        "ISSN": [
+          "0036-8075",
+          "1095-9203"
+        ],
+        "issn-type": [
+          {
+            "value": "0036-8075",
+            "type": "print"
+          },
+          {
+            "value": "1095-9203",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-11-05",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:28:28Z",
+          "timestamp": 1793906908972,
+          "version": "4.8.0"
+        },
+        "reference-count": 9,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "6824",
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Science"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/science.aem6802",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:02:22Z",
+          "timestamp": 1793905342000
+        },
+        "page": "594-595",
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "How do faults recover after giant earthquakes?"
+        ],
+        "prefix": "10.1126",
+        "volume": "394",
+        "author": [
+          {
+            "given": "Kaj M.",
+            "family": "Johnson",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Department of Earth and Atmospheric Sciences, Indiana University, Bloomington, IN, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "reference": "[9 items dropped in fixture]",
+        "container-title": [
+          "Science"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/science.aem6802",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:03:37Z",
+          "timestamp": 1793905417000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/science.aem6802"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "references-count": 9,
+        "journal-issue": {
+          "issue": "6824",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                5
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/science.aem6802"
+        ],
+        "URL": "https://doi.org/10.1126/science.aem6802",
+        "ISSN": [
+          "0036-8075",
+          "1095-9203"
+        ],
+        "issn-type": [
+          {
+            "value": "0036-8075",
+            "type": "print"
+          },
+          {
+            "value": "1095-9203",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-11-05",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:28:21Z",
+          "timestamp": 1793906901896,
+          "version": "4.8.0"
+        },
+        "reference-count": 0,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "6824",
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Science"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/science.aen6314",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:02:22Z",
+          "timestamp": 1793905342000
+        },
+        "page": "575-575",
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Can artificial intelligence align with Indigenous science?"
+        ],
+        "prefix": "10.1126",
+        "volume": "394",
+        "author": [
+          {
+            "given": "Yvette",
+            "family": "Running Horse Collin",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Yvette Running Horse Collin is the executive director and principal science officer for Taku Škan Škan Wasakliyapi: Global Institute for Traditional Sciences (GIFTS), He’Sapa, SD, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "container-title": [
+          "Science"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/science.aen6314",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:03:06Z",
+          "timestamp": 1793905386000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/science.aen6314"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "6824",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                5
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/science.aen6314"
+        ],
+        "URL": "https://doi.org/10.1126/science.aen6314",
+        "ISSN": [
+          "0036-8075",
+          "1095-9203"
+        ],
+        "issn-type": [
+          {
+            "value": "0036-8075",
+            "type": "print"
+          },
+          {
+            "value": "1095-9203",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-11-05",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:28:28Z",
+          "timestamp": 1793906908607,
+          "version": "4.8.0"
+        },
+        "reference-count": 15,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "6824",
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Science"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/science.aem3978",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:02:22Z",
+          "timestamp": 1793905342000
+        },
+        "page": "597-598",
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Modeling word learning, child by child"
+        ],
+        "prefix": "10.1126",
+        "volume": "394",
+        "author": [
+          {
+            "given": "Zara",
+            "family": "Harmon",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Max Planck Institute for Psycholinguistics, Nijmegen, Netherlands."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Caroline F.",
+            "family": "Rowland",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Max Planck Institute for Psycholinguistics, Nijmegen, Netherlands."
+              },
+              {
+                "name": "Donders Institute for Brain, Cognition, and Behaviour, Radboud University, Nijmegen, Netherlands."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "reference": "[15 items dropped in fixture]",
+        "container-title": [
+          "Science"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/science.aem3978",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:03:37Z",
+          "timestamp": 1793905417000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/science.aem3978"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "references-count": 15,
+        "journal-issue": {
+          "issue": "6824",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                5
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/science.aem3978"
+        ],
+        "URL": "https://doi.org/10.1126/science.aem3978",
+        "ISSN": [
+          "0036-8075",
+          "1095-9203"
+        ],
+        "issn-type": [
+          {
+            "value": "0036-8075",
+            "type": "print"
+          },
+          {
+            "value": "1095-9203",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-11-05",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:28:21Z",
+          "timestamp": 1793906901287,
+          "version": "4.8.0"
+        },
+        "reference-count": 79,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "6824",
+        "funder": [
+          {
+            "DOI": "10.13039/501100001809",
+            "name": "National Natural Science Foundation of China",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "82425103"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "82425103"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100001809",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100001809",
+            "name": "National Natural Science Foundation of China",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "82203495"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "82203495"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100001809",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100001809",
+            "name": "National Natural Science Foundation of China",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "82341012"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "82341012"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100001809",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100001809",
+            "name": "National Natural Science Foundation of China",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "81825018"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "81825018"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100001809",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100001809",
+            "name": "National Natural Science Foundation of China",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "82130085"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "82130085"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100001809",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/501100001809",
+            "name": "National Natural Science Foundation of China",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "32330036"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "32330036"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100001809",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Science"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/science.aea3046",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:02:22Z",
+          "timestamp": 1793905342000
+        },
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Tumor metastasis co-opts liver hematopoiesis to promote immunosuppression"
+        ],
+        "prefix": "10.1126",
+        "volume": "394",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0008-0337-0185",
+            "authenticated-orcid": true,
+            "given": "Qiang",
+            "family": "Pan",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Shanghai Institute of Nutrition and Health, University of Chinese Academy of Sciences, Chinese Academy of Sciences, Shanghai, China."
+              },
+              {
+                "name": "Jinfeng Laboratory, Chongqing, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0008-4466-4665",
+            "authenticated-orcid": true,
+            "given": "Xuege",
+            "family": "Wang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Shanghai Institute of Nutrition and Health, University of Chinese Academy of Sciences, Chinese Academy of Sciences, Shanghai, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-5555-4711",
+            "authenticated-orcid": true,
+            "given": "Yaqi",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Colorectal Surgery, Fudan University Shanghai Cancer Center; Department of Oncology, Shanghai Medical College, Fudan University, Shanghai, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Ni",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Shanghai Institute of Nutrition and Health, University of Chinese Academy of Sciences, Chinese Academy of Sciences, Shanghai, China."
+              },
+              {
+                "name": "Jinfeng Laboratory, Chongqing, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Ying",
+            "family": "Han",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Shanghai Institute of Nutrition and Health, University of Chinese Academy of Sciences, Chinese Academy of Sciences, Shanghai, China."
+              },
+              {
+                "name": "Jinfeng Laboratory, Chongqing, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Guoying",
+            "family": "Zhang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Shanghai Institute of Nutrition and Health, University of Chinese Academy of Sciences, Chinese Academy of Sciences, Shanghai, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Jiacheng",
+            "family": "Guo",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Shanghai Institute of Nutrition and Health, University of Chinese Academy of Sciences, Chinese Academy of Sciences, Shanghai, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Le",
+            "family": "Zhang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Immunology, School of Basic Medical Sciences, Nanjing Medical University, Nanjing, Jiangsu, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Aoyuan",
+            "family": "Cui",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Shanghai Institute of Nutrition and Health, University of Chinese Academy of Sciences, Chinese Academy of Sciences, Shanghai, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yongqiang",
+            "family": "Gu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Shanghai Institute of Nutrition and Health, University of Chinese Academy of Sciences, Chinese Academy of Sciences, Shanghai, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0006-4238-565X",
+            "authenticated-orcid": true,
+            "given": "Yannan",
+            "family": "Lian",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Shanghai Institute of Nutrition and Health, University of Chinese Academy of Sciences, Chinese Academy of Sciences, Shanghai, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0004-7839-0771",
+            "authenticated-orcid": true,
+            "given": "Wei",
+            "family": "Zhang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Shanghai Institute of Nutrition and Health, University of Chinese Academy of Sciences, Chinese Academy of Sciences, Shanghai, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Naiheng",
+            "family": "Lin",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Shanghai Institute of Nutrition and Health, University of Chinese Academy of Sciences, Chinese Academy of Sciences, Shanghai, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Beitao",
+            "family": "Xu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Shanghai Institute of Nutrition and Health, University of Chinese Academy of Sciences, Chinese Academy of Sciences, Shanghai, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Zige",
+            "family": "Jin",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Shanghai Institute of Nutrition and Health, University of Chinese Academy of Sciences, Chinese Academy of Sciences, Shanghai, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Xin",
+            "family": "Zeng",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Shanghai Institute of Nutrition and Health, University of Chinese Academy of Sciences, Chinese Academy of Sciences, Shanghai, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-3545-5059",
+            "authenticated-orcid": true,
+            "given": "Lan",
+            "family": "Wang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Shanghai Institute of Nutrition and Health, University of Chinese Academy of Sciences, Chinese Academy of Sciences, Shanghai, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yu",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Shanghai Institute of Nutrition and Health, University of Chinese Academy of Sciences, Chinese Academy of Sciences, Shanghai, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-6508-1399",
+            "authenticated-orcid": true,
+            "given": "Junjie",
+            "family": "Peng",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Colorectal Surgery, Fudan University Shanghai Cancer Center; Department of Oncology, Shanghai Medical College, Fudan University, Shanghai, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-0679-9768",
+            "authenticated-orcid": true,
+            "given": "Xiaoming",
+            "family": "Wang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Department of Immunology, School of Basic Medical Sciences, Nanjing Medical University, Nanjing, Jiangsu, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-8696-2013",
+            "authenticated-orcid": true,
+            "given": "Zhengquan",
+            "family": "Yu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "State Key Laboratory of Metabolic Dysregulation, Prevention and Treatment of Esophageal Cancer, School of Life Sciences, Zhengzhou University, Zhengzhou, Henan, China."
+              },
+              {
+                "name": "Department of Biochemistry and Molecular Biology, College of Biological Sciences, China Agricultural University, Beijing, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-5423-9357",
+            "authenticated-orcid": true,
+            "given": "Gui-Hua",
+            "family": "Wang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "GI Cancer Research Institute, Tongji Hospital, State Key Laboratory for Diagnosis and Treatment of Severe Zoonotic Infectious Diseases, Huazhong University of Science and Technology, Wuhan, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-2391-5444",
+            "authenticated-orcid": true,
+            "given": "Wei",
+            "family": "Lu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Shanghai Institute of Nutrition and Health, University of Chinese Academy of Sciences, Chinese Academy of Sciences, Shanghai, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-2263-128X",
+            "authenticated-orcid": true,
+            "given": "Jun",
+            "family": "Qin",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Shanghai Institute of Nutrition and Health, University of Chinese Academy of Sciences, Chinese Academy of Sciences, Shanghai, China."
+              },
+              {
+                "name": "Jinfeng Laboratory, Chongqing, China."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "reference": "[79 items dropped in fixture]",
+        "container-title": [
+          "Science"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/science.aea3046",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:03:03Z",
+          "timestamp": 1793905383000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/science.aea3046"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "references-count": 79,
+        "journal-issue": {
+          "issue": "6824",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                5
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/science.aea3046"
+        ],
+        "URL": "https://doi.org/10.1126/science.aea3046",
+        "ISSN": [
+          "0036-8075",
+          "1095-9203"
+        ],
+        "issn-type": [
+          {
+            "value": "0036-8075",
+            "type": "print"
+          },
+          {
+            "value": "1095-9203",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2025-07-06",
+            "order": 0,
+            "name": "received",
+            "label": "Received",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-03-12",
+            "order": 1,
+            "name": "revised",
+            "label": "Revised",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-09-23",
+            "order": 2,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-11-05",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ],
+        "article-number": "eaea3046"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:28:28Z",
+          "timestamp": 1793906908968,
+          "version": "4.8.0"
+        },
+        "reference-count": 7,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "6824",
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Science"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/science.aem6487",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:02:22Z",
+          "timestamp": 1793905342000
+        },
+        "page": "596-596",
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Privacy, accuracy, and objectivity of census data"
+        ],
+        "prefix": "10.1126",
+        "volume": "394",
+        "author": [
+          {
+            "given": "Jerome P.",
+            "family": "Reiter",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Department of Statistical Science, Duke University, Durham, NC, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "reference": "[7 items dropped in fixture]",
+        "container-title": [
+          "Science"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/science.aem6487",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:03:36Z",
+          "timestamp": 1793905416000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/science.aem6487"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "references-count": 7,
+        "journal-issue": {
+          "issue": "6824",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                5
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/science.aem6487"
+        ],
+        "URL": "https://doi.org/10.1126/science.aem6487",
+        "ISSN": [
+          "0036-8075",
+          "1095-9203"
+        ],
+        "issn-type": [
+          {
+            "value": "0036-8075",
+            "type": "print"
+          },
+          {
+            "value": "1095-9203",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-11-05",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:28:08Z",
+          "timestamp": 1793906888785,
+          "version": "4.8.0"
+        },
+        "reference-count": 9,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "6824",
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Science"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1126/science.ael2415",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:02:22Z",
+          "timestamp": 1793905342000
+        },
+        "page": "606-606",
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "The science of the individual"
+        ],
+        "prefix": "10.1126",
+        "volume": "394",
+        "author": [
+          {
+            "given": "Peter",
+            "family": "Soyster",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Real-world Assessment, Prediction, and Treatment Section, Translational Addiction Medicine Branch, National Institute on Drug Abuse, Baltimore, MD, USA."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "reference": "[9 items dropped in fixture]",
+        "container-title": [
+          "Science"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/pdf/10.1126/science.ael2415",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:02:23Z",
+          "timestamp": 1793905343000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/science.ael2415"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "references-count": 9,
+        "journal-issue": {
+          "issue": "6824",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                5
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/science.ael2415"
+        ],
+        "URL": "https://doi.org/10.1126/science.ael2415",
+        "ISSN": [
+          "0036-8075",
+          "1095-9203"
+        ],
+        "issn-type": [
+          {
+            "value": "0036-8075",
+            "type": "print"
+          },
+          {
+            "value": "1095-9203",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-11-05",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:28:28Z",
+          "timestamp": 1793906908975,
+          "version": "4.8.0"
+        },
+        "reference-count": 0,
+        "publisher": "American Association for the Advancement of Science (AAAS)",
+        "issue": "6824",
+        "content-domain": {
+          "domain": [
+            "www.science.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Science"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "DOI": "10.1126/science.aem2407",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:02:22Z",
+          "timestamp": 1793905342000
+        },
+        "update-policy": "https://doi.org/10.34133/aaas_crossmark",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Zero-sum mindsets and economic policy preferences"
+        ],
+        "prefix": "10.1126",
+        "volume": "394",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0001-7652-0705",
+            "authenticated-orcid": true,
+            "given": "Imran",
+            "family": "Rasul",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Imran Rasul is a professor of economics at University College London, London, UK, and research director at the Institute for Fiscal Studies, London, UK."
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "221",
+        "container-title": [
+          "Science"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.science.org/doi/full/10.1126/science.aem2407",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T19:03:36Z",
+          "timestamp": 1793905416000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.science.org/doi/10.1126/science.aem2407"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "6824",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11,
+                5
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1126/science.aem2407"
+        ],
+        "URL": "https://doi.org/10.1126/science.aem2407",
+        "ISSN": [
+          "0036-8075",
+          "1095-9203"
+        ],
+        "issn-type": [
+          {
+            "value": "0036-8075",
+            "type": "print"
+          },
+          {
+            "value": "1095-9203",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-11-05",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ],
+        "article-number": "eaem2407"
+      }
+    ],
+    "items-per-page": 10,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}

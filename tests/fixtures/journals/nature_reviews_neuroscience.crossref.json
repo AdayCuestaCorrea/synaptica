@@ -1,0 +1,724 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 3,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ],
+          "date-time": "2026-11-06T17:26:14Z",
+          "timestamp": 1793985974858,
+          "version": "4.8.0"
+        },
+        "reference-count": 176,
+        "publisher": "Springer Science and Business Media LLC",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  6
+                ]
+              ],
+              "date-time": "2026-11-06T00:00:00Z",
+              "timestamp": 1793923200000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  6
+                ]
+              ],
+              "date-time": "2026-11-06T00:00:00Z",
+              "timestamp": 1793923200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Nat. Rev. Neurosci."
+        ],
+        "DOI": "10.1038/s41583-026-01096-4",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ],
+          "date-time": "2026-11-06T16:55:52Z",
+          "timestamp": 1793984152000
+        },
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Single-cell and spatial transcriptomics of cellular heterogeneity in Alzheimer disease"
+        ],
+        "prefix": "10.1038",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0001-7344-4487",
+            "authenticated-orcid": false,
+            "given": "Nora",
+            "family": "Emerson",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0005-1418-7931",
+            "authenticated-orcid": false,
+            "given": "Kristen",
+            "family": "Vallejo",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-7797-620X",
+            "authenticated-orcid": false,
+            "given": "Negin",
+            "family": "Rahimzadeh",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-8890-4976",
+            "authenticated-orcid": false,
+            "given": "Nellie E.",
+            "family": "Kwang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-3762-2746",
+            "authenticated-orcid": false,
+            "given": "Vivek",
+            "family": "Swarup",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "reference": "[176 items dropped in fixture]",
+        "container-title": [
+          "Nature Reviews Neuroscience"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.nature.com/articles/s41583-026-01096-4.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41583-026-01096-4",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41583-026-01096-4.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ],
+          "date-time": "2026-11-06T16:55:54Z",
+          "timestamp": 1793984154000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.nature.com/articles/s41583-026-01096-4"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "references-count": 176,
+        "alternative-id": [
+          "1096"
+        ],
+        "URL": "https://doi.org/10.1038/s41583-026-01096-4",
+        "ISSN": [
+          "1471-003X",
+          "1471-0048"
+        ],
+        "issn-type": [
+          {
+            "value": "1471-003X",
+            "type": "print"
+          },
+          {
+            "value": "1471-0048",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "7 October 2026",
+            "order": 1,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          },
+          {
+            "value": "6 November 2026",
+            "order": 2,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          },
+          {
+            "value": "The authors declare no competing interests.",
+            "order": 1,
+            "name": "Ethics",
+            "label": "Competing interests",
+            "group": {
+              "name": "EthicsHeading",
+              "label": "Ethics"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T14:27:44Z",
+          "timestamp": 1793629664820,
+          "version": "4.5.1"
+        },
+        "reference-count": 1,
+        "publisher": "Springer Science and Business Media LLC",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  2
+                ]
+              ],
+              "date-time": "2026-11-02T00:00:00Z",
+              "timestamp": 1793577600000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  2
+                ]
+              ],
+              "date-time": "2026-11-02T00:00:00Z",
+              "timestamp": 1793577600000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Nat. Rev. Neurosci."
+        ],
+        "DOI": "10.1038/s41583-026-01101-w",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T13:45:15Z",
+          "timestamp": 1793627115000
+        },
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Sleep-sensitive neurons mediate consolidation"
+        ],
+        "prefix": "10.1038",
+        "author": [
+          {
+            "given": "Katherine",
+            "family": "Whalley",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ]
+        },
+        "reference": "[1 items dropped in fixture]",
+        "container-title": [
+          "Nature Reviews Neuroscience"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.nature.com/articles/s41583-026-01101-w.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41583-026-01101-w",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41583-026-01101-w.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T13:45:16Z",
+          "timestamp": 1793627116000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.nature.com/articles/s41583-026-01101-w"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ]
+        },
+        "references-count": 1,
+        "alternative-id": [
+          "1101"
+        ],
+        "URL": "https://doi.org/10.1038/s41583-026-01101-w",
+        "ISSN": [
+          "1471-003X",
+          "1471-0048"
+        ],
+        "issn-type": [
+          {
+            "value": "1471-003X",
+            "type": "print"
+          },
+          {
+            "value": "1471-0048",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2 November 2026",
+            "order": 1,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T18:30:00Z",
+          "timestamp": 1793644200733,
+          "version": "4.5.1"
+        },
+        "reference-count": 172,
+        "publisher": "Springer Science and Business Media LLC",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  2
+                ]
+              ],
+              "date-time": "2026-11-02T00:00:00Z",
+              "timestamp": 1793577600000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  2
+                ]
+              ],
+              "date-time": "2026-11-02T00:00:00Z",
+              "timestamp": 1793577600000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Nat. Rev. Neurosci."
+        ],
+        "DOI": "10.1038/s41583-026-01098-2",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T16:40:21Z",
+          "timestamp": 1793637621000
+        },
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "The nanotubular network as a new dimension of intercellular communication in the nervous system"
+        ],
+        "prefix": "10.1038",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-3785-4400",
+            "authenticated-orcid": false,
+            "given": "Minhyeok",
+            "family": "Chang",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Seungjun",
+            "family": "Ryu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-5683-3720",
+            "authenticated-orcid": false,
+            "given": "Hyung-Bae",
+            "family": "Kwon",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ]
+        },
+        "reference": "[172 items dropped in fixture]",
+        "container-title": [
+          "Nature Reviews Neuroscience"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.nature.com/articles/s41583-026-01098-2.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41583-026-01098-2",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41583-026-01098-2.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T18:02:31Z",
+          "timestamp": 1793642551000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.nature.com/articles/s41583-026-01098-2"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ]
+        },
+        "references-count": 172,
+        "alternative-id": [
+          "1098"
+        ],
+        "URL": "https://doi.org/10.1038/s41583-026-01098-2",
+        "ISSN": [
+          "1471-003X",
+          "1471-0048"
+        ],
+        "issn-type": [
+          {
+            "value": "1471-003X",
+            "type": "print"
+          },
+          {
+            "value": "1471-0048",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "15 October 2026",
+            "order": 1,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          },
+          {
+            "value": "2 November 2026",
+            "order": 2,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          },
+          {
+            "value": "The authors declare no competing interests.",
+            "order": 1,
+            "name": "Ethics",
+            "label": "Competing interests",
+            "group": {
+              "name": "EthicsHeading",
+              "label": "Ethics"
+            }
+          }
+        ]
+      }
+    ],
+    "items-per-page": 10,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns="http://purl.org/rss/1.0/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+         xmlns:prism="http://prismstandard.org/namespaces/1.2/basic/"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.w3.org/1999/02/22-rdf-syntax-ns# uri:atypon.com:cms:schema:rdf.xsd">
+   <channel rdf:about="https://www.cell.com/neuron/current?publicationCode=neuron&amp;rss=yes">
+      <title>Neuron</title>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <link>https://www.cell.com/neuron/current?publicationCode=neuron&amp;rss=yes</link>
+      <dc:publisher>Elsevier Inc.</dc:publisher>
+      <dc:language>en</dc:language>
+      <dc:rights>© 2026 Published by Elsevier Inc. All rights reserved.</dc:rights>
+      <prism:publicationName>Neuron</prism:publicationName>
+      <prism:issn>0896-6273</prism:issn>
+      <prism:publicationDate>2026-10-21-07:00</prism:publicationDate>
+      <prism:copyright>© 2026 Published by Elsevier Inc. All rights reserved.</prism:copyright>
+      <prism:rightsAgent>permissionshelpdesk@elsevier.com</prism:rightsAgent>
+      <prism:volume>114</prism:volume>
+      <prism:number>20</prism:number>
+      <items>
+         <rdf:Seq>
+            <rdf:li rdf:resource="https://www.cell.com/neuron/fulltext/S0896-6273(26)00693-8?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/neuron/fulltext/S0896-6273(26)00733-6?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/neuron/fulltext/S0896-6273(26)00539-8?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/neuron/fulltext/S0896-6273(26)00446-0?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/neuron/fulltext/S0896-6273(26)00376-4?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/neuron/fulltext/S0896-6273(26)00375-2?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/neuron/fulltext/S0896-6273(26)00541-6?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/neuron/fulltext/S0896-6273(26)00372-7?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/neuron/fulltext/S0896-6273(26)00384-3?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/neuron/fulltext/S0896-6273(26)00383-1?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/neuron/fulltext/S0896-6273(26)00379-X?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/neuron/fulltext/S0896-6273(26)00373-9?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/neuron/fulltext/S0896-6273(26)00380-6?rss=yes"/>
+            <rdf:li rdf:resource="https://www.cell.com/neuron/fulltext/S0896-6273(26)00533-7?rss=yes"/>
+         </rdf:Seq>
+      </items>
+   </channel>
+   <item rdf:about="https://www.cell.com/neuron/fulltext/S0896-6273(26)00693-8?rss=yes">
+      <title>Running in reverse: Tau redirects mitochondrial electron flow toward neurodegeneration</title>
+      <link>https://www.cell.com/neuron/fulltext/S0896-6273(26)00693-8?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Running in reverse: Tau redirects mitochondrial electron flow toward neurodegeneration</dc:title>
+      <dc:creator>Ahmed Atwa, Marco A. Perez, Nicholas M. Kanaan</dc:creator>
+      <dc:identifier>10.1016/j.neuron.2026.09.010</dc:identifier>
+      <dc:source>Neuron 114, 20 (2026)</dc:source>
+      <dc:date>2026-10-21</dc:date>
+      <prism:publicationName>Neuron</prism:publicationName>
+      <prism:publicationDate>2026-10-21</prism:publicationDate>
+      <prism:volume>114</prism:volume>
+      <prism:number>20</prism:number>
+      <prism:issueIdentifier>S0896-6273(25)X0021-0</prism:issueIdentifier>
+      <prism:section>Preview</prism:section>
+      <prism:startingPage>3731</prism:startingPage>
+      <prism:endingPage>3733</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/neuron/fulltext/S0896-6273(26)00733-6?rss=yes">
+      <title>Optimizing learning for control of human-machine interfaces</title>
+      <link>https://www.cell.com/neuron/fulltext/S0896-6273(26)00733-6?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Optimizing learning for control of human-machine interfaces</dc:title>
+      <dc:creator>Srikantan S. Nagarajan, Preeya Khanna</dc:creator>
+      <dc:identifier>10.1016/j.neuron.2026.09.023</dc:identifier>
+      <dc:source>Neuron 114, 20 (2026)</dc:source>
+      <dc:date>2026-10-21</dc:date>
+      <prism:publicationName>Neuron</prism:publicationName>
+      <prism:publicationDate>2026-10-21</prism:publicationDate>
+      <prism:volume>114</prism:volume>
+      <prism:number>20</prism:number>
+      <prism:issueIdentifier>S0896-6273(25)X0021-0</prism:issueIdentifier>
+      <prism:section>Preview</prism:section>
+      <prism:startingPage>3734</prism:startingPage>
+      <prism:endingPage>3735</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/neuron/fulltext/S0896-6273(26)00539-8?rss=yes">
+      <title>Tunneling nanotubes in the nervous system: The fourth pillar of brain connectivity</title>
+      <link>https://www.cell.com/neuron/fulltext/S0896-6273(26)00539-8?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Tunneling nanotubes in the nervous system: The fourth pillar of brain connectivity</dc:title>
+      <dc:creator>Dimitri Budinger, Michael T. Heneka</dc:creator>
+      <dc:identifier>10.1016/j.neuron.2026.07.010</dc:identifier>
+      <dc:source>Neuron 114, 20 (2026)</dc:source>
+      <dc:date>2026-08-03</dc:date>
+      <prism:publicationName>Neuron</prism:publicationName>
+      <prism:publicationDate>2026-08-03</prism:publicationDate>
+      <prism:volume>114</prism:volume>
+      <prism:number>20</prism:number>
+      <prism:issueIdentifier>S0896-6273(25)X0021-0</prism:issueIdentifier>
+      <prism:section>Review</prism:section>
+      <prism:startingPage>3736</prism:startingPage>
+      <prism:endingPage>3750</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/neuron/fulltext/S0896-6273(26)00446-0?rss=yes">
+      <title>From first impressions to bonds: The neural dynamics of social relationships</title>
+      <link>https://www.cell.com/neuron/fulltext/S0896-6273(26)00446-0?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>From first impressions to bonds: The neural dynamics of social relationships</dc:title>
+      <dc:creator>Parul Jain, Daniela Schiller</dc:creator>
+      <dc:identifier>10.1016/j.neuron.2026.05.031</dc:identifier>
+      <dc:source>Neuron 114, 20 (2026)</dc:source>
+      <dc:date>2026-06-24</dc:date>
+      <prism:publicationName>Neuron</prism:publicationName>
+      <prism:publicationDate>2026-06-24</prism:publicationDate>
+      <prism:volume>114</prism:volume>
+      <prism:number>20</prism:number>
+      <prism:issueIdentifier>S0896-6273(25)X0021-0</prism:issueIdentifier>
+      <prism:section>Review</prism:section>
+      <prism:startingPage>3751</prism:startingPage>
+      <prism:endingPage>3764</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/neuron/fulltext/S0896-6273(26)00376-4?rss=yes">
+      <title>POINTseq: Cell-type-specific barcoding reveals single-cell projection architecture of the mouse dopaminergic system</title>
+      <link>https://www.cell.com/neuron/fulltext/S0896-6273(26)00376-4?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>POINTseq: Cell-type-specific barcoding reveals single-cell projection architecture of the mouse dopaminergic system</dc:title>
+      <dc:creator>Hyopil Kim, Cheng Xu, Craig Washington, Caleb Shi, Maggie Lowman, Justus M. Kebschull</dc:creator>
+      <dc:identifier>10.1016/j.neuron.2026.05.005</dc:identifier>
+      <dc:source>Neuron 114, 20 (2026)</dc:source>
+      <dc:date>2026-06-04</dc:date>
+      <prism:publicationName>Neuron</prism:publicationName>
+      <prism:publicationDate>2026-06-04</prism:publicationDate>
+      <prism:volume>114</prism:volume>
+      <prism:number>20</prism:number>
+      <prism:issueIdentifier>S0896-6273(25)X0021-0</prism:issueIdentifier>
+      <prism:section>NeuroResource</prism:section>
+      <prism:startingPage>3765</prism:startingPage>
+      <prism:endingPage>3785.e9</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/neuron/fulltext/S0896-6273(26)00375-2?rss=yes">
+      <title>A learning-evoked slow-oscillatory architecture paces population activity for offline reactivation across the human medial temporal lobe</title>
+      <link>https://www.cell.com/neuron/fulltext/S0896-6273(26)00375-2?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>A learning-evoked slow-oscillatory architecture paces population activity for offline reactivation across the human medial temporal lobe</dc:title>
+      <dc:creator>Adrien A. Causse, Jonathan Curot, Vítor Lopes-dos-Santos, Raphaël Nunes-da-Silva, Helen C. Barron, Vincent Dornier, Marie Denuelle, Amaury De Barros, Jean-Christophe Sol, Jean-Albert Lotterie, Katia Lehongre, Sara Fernandez-Vidal, Valerio Frazzini, Vincent Navarro, Luc Valton, Emmanuel J. Barbeau, Tim Denison, Leila Reddy, David Dupret</dc:creator>
+      <dc:identifier>10.1016/j.neuron.2026.05.004</dc:identifier>
+      <dc:source>Neuron 114, 20 (2026)</dc:source>
+      <dc:date>2026-06-01</dc:date>
+      <prism:publicationName>Neuron</prism:publicationName>
+      <prism:publicationDate>2026-06-01</prism:publicationDate>
+      <prism:volume>114</prism:volume>
+      <prism:number>20</prism:number>
+      <prism:issueIdentifier>S0896-6273(25)X0021-0</prism:issueIdentifier>
+      <prism:section>Report</prism:section>
+      <prism:startingPage>3786</prism:startingPage>
+      <prism:endingPage>3798.e11</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/neuron/fulltext/S0896-6273(26)00541-6?rss=yes">
+      <title>Tau-induced mitochondrial reverse electron transport drives neurodegeneration</title>
+      <link>https://www.cell.com/neuron/fulltext/S0896-6273(26)00541-6?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Tau-induced mitochondrial reverse electron transport drives neurodegeneration</dc:title>
+      <dc:creator>Wen Li, Suman Rimal, Sunil Bhurtel, Lucas Yeung, Benjamin G. Lu, Lea T. Grinberg, Salvatore Spina, Maria Inmaculada Cobos Sillero, William W. Seeley, Su Guo, Bingwei Lu</dc:creator>
+      <dc:identifier>10.1016/j.neuron.2026.07.012</dc:identifier>
+      <dc:source>Neuron 114, 20 (2026)</dc:source>
+      <dc:date>2026-08-06</dc:date>
+      <prism:publicationName>Neuron</prism:publicationName>
+      <prism:publicationDate>2026-08-06</prism:publicationDate>
+      <prism:volume>114</prism:volume>
+      <prism:number>20</prism:number>
+      <prism:issueIdentifier>S0896-6273(25)X0021-0</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>3799</prism:startingPage>
+      <prism:endingPage>3817.e13</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/neuron/fulltext/S0896-6273(26)00372-7?rss=yes">
+      <title>Early visual experience elicits cellular and functional plasticity in the retina and alters behavior</title>
+      <link>https://www.cell.com/neuron/fulltext/S0896-6273(26)00372-7?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Early visual experience elicits cellular and functional plasticity in the retina and alters behavior</dc:title>
+      <dc:creator>Phoebe Reynolds, Davide Marchi, Yan To Ling, Katja Slangewal, Max Capelle, Zhaklin Chalakova, Armin Bahl, Robert Hindges</dc:creator>
+      <dc:identifier>10.1016/j.neuron.2026.05.001</dc:identifier>
+      <dc:source>Neuron 114, 20 (2026)</dc:source>
+      <dc:date>2026-06-23</dc:date>
+      <prism:publicationName>Neuron</prism:publicationName>
+      <prism:publicationDate>2026-06-23</prism:publicationDate>
+      <prism:volume>114</prism:volume>
+      <prism:number>20</prism:number>
+      <prism:issueIdentifier>S0896-6273(25)X0021-0</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>3818</prism:startingPage>
+      <prism:endingPage>3832.e5</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/neuron/fulltext/S0896-6273(26)00384-3?rss=yes">
+      <title>Attenuated hypothalamic response to fructose via a dedicated gut-brain pathway</title>
+      <link>https://www.cell.com/neuron/fulltext/S0896-6273(26)00384-3?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Attenuated hypothalamic response to fructose via a dedicated gut-brain pathway</dc:title>
+      <dc:creator>Aaron D. McKnight, Alan de Araujo, Fang-Yu Hsu, Alexandra G. Vargas-Elvira, Alisha A. Acosta, Miliani M. Smith, Wisdom Iwueze, Guillaume de Lartigue, Amber L. Alhadeff</dc:creator>
+      <dc:identifier>10.1016/j.neuron.2026.05.013</dc:identifier>
+      <dc:source>Neuron 114, 20 (2026)</dc:source>
+      <dc:date>2026-06-10</dc:date>
+      <prism:publicationName>Neuron</prism:publicationName>
+      <prism:publicationDate>2026-06-10</prism:publicationDate>
+      <prism:volume>114</prism:volume>
+      <prism:number>20</prism:number>
+      <prism:issueIdentifier>S0896-6273(25)X0021-0</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>3833</prism:startingPage>
+      <prism:endingPage>3846.e8</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/neuron/fulltext/S0896-6273(26)00383-1?rss=yes">
+      <title>Receptor and cell-type-specific mechanisms in mesocortical dopamine circuits gate chronic pain and comorbid anxiodepression</title>
+      <link>https://www.cell.com/neuron/fulltext/S0896-6273(26)00383-1?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Receptor and cell-type-specific mechanisms in mesocortical dopamine circuits gate chronic pain and comorbid anxiodepression</dc:title>
+      <dc:creator>Ya-Qi Cai, Xin-Yu Hou, Guo-Hong Wang, Yue Chang, Zhi-Zhe Zhang, Tian-Le Shi, Ben-Long Liu, Yu-Qiu Zhang</dc:creator>
+      <dc:identifier>10.1016/j.neuron.2026.05.012</dc:identifier>
+      <dc:source>Neuron 114, 20 (2026)</dc:source>
+      <dc:date>2026-06-11</dc:date>
+      <prism:publicationName>Neuron</prism:publicationName>
+      <prism:publicationDate>2026-06-11</prism:publicationDate>
+      <prism:volume>114</prism:volume>
+      <prism:number>20</prism:number>
+      <prism:issueIdentifier>S0896-6273(25)X0021-0</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>3847</prism:startingPage>
+      <prism:endingPage>3863.e7</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/neuron/fulltext/S0896-6273(26)00379-X?rss=yes">
+      <title>Methamphetamine potentiates the use of outcome-specific associations via a hypothalamic-dopamine circuit</title>
+      <link>https://www.cell.com/neuron/fulltext/S0896-6273(26)00379-X?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Methamphetamine potentiates the use of outcome-specific associations via a hypothalamic-dopamine circuit</dc:title>
+      <dc:creator>Ivy B. Hoang, Joseph J. Munier, Anna Verghese, Masakazu Taira, Arvie R. Abiero, Jessica Leake, Adrian Dawson, Mirari Wilcher, Kiruthika Ganesan, Miriam E. Ortega, Vanessa Reyes, Zara Greer, Samuel J. Millard, Lauren E. DiFazio, Courtney Sercander, Elena Bagley, Bryony Winters, Alicia Izquierdo, Melissa J. Sharpe</dc:creator>
+      <dc:identifier>10.1016/j.neuron.2026.05.008</dc:identifier>
+      <dc:source>Neuron 114, 20 (2026)</dc:source>
+      <dc:date>2026-06-08</dc:date>
+      <prism:publicationName>Neuron</prism:publicationName>
+      <prism:publicationDate>2026-06-08</prism:publicationDate>
+      <prism:volume>114</prism:volume>
+      <prism:number>20</prism:number>
+      <prism:issueIdentifier>S0896-6273(25)X0021-0</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>3864</prism:startingPage>
+      <prism:endingPage>3885.e9</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/neuron/fulltext/S0896-6273(26)00373-9?rss=yes">
+      <title>Prefrontal gamma oscillations engage dynamic cell-type-specific configurations to support flexible behavior</title>
+      <link>https://www.cell.com/neuron/fulltext/S0896-6273(26)00373-9?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Prefrontal gamma oscillations engage dynamic cell-type-specific configurations to support flexible behavior</dc:title>
+      <dc:creator>Aarron Justin Phensy, Lara Louise Hagopian, Caitriona Min-Yi Costello, Simon Haziza, Omkar Ghenand, Jingcheng Shi, Yanping Zhang, Mark J. Schnitzer, Vikaas Singh Sohal</dc:creator>
+      <dc:identifier>10.1016/j.neuron.2026.05.002</dc:identifier>
+      <dc:source>Neuron 114, 20 (2026)</dc:source>
+      <dc:date>2026-06-08</dc:date>
+      <prism:publicationName>Neuron</prism:publicationName>
+      <prism:publicationDate>2026-06-08</prism:publicationDate>
+      <prism:volume>114</prism:volume>
+      <prism:number>20</prism:number>
+      <prism:issueIdentifier>S0896-6273(25)X0021-0</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>3886</prism:startingPage>
+      <prism:endingPage>3900.e6</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/neuron/fulltext/S0896-6273(26)00380-6?rss=yes">
+      <title>Real-time reinforcement for human-machine interface control</title>
+      <link>https://www.cell.com/neuron/fulltext/S0896-6273(26)00380-6?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Real-time reinforcement for human-machine interface control</dc:title>
+      <dc:creator>Pierre Vassiliadis, Daniel Leal Pinheiro, Lisa Fleury, Alexandre Zenon, Martín Esparza-Iaizzo, Abigaïl Ingster, Silvestro Micera, Solaiman Shokur, Friedhelm C. Hummel</dc:creator>
+      <dc:identifier>10.1016/j.neuron.2026.05.009</dc:identifier>
+      <dc:source>Neuron 114, 20 (2026)</dc:source>
+      <dc:date>2026-06-15</dc:date>
+      <prism:publicationName>Neuron</prism:publicationName>
+      <prism:publicationDate>2026-06-15</prism:publicationDate>
+      <prism:volume>114</prism:volume>
+      <prism:number>20</prism:number>
+      <prism:issueIdentifier>S0896-6273(25)X0021-0</prism:issueIdentifier>
+      <prism:section>Article</prism:section>
+      <prism:startingPage>3901</prism:startingPage>
+      <prism:endingPage>3917.e8</prism:endingPage>
+   </item>
+   <item rdf:about="https://www.cell.com/neuron/fulltext/S0896-6273(26)00533-7?rss=yes">
+      <title>Receptor and cell-type-specific mechanisms in mesocortical dopamine circuits gate chronic pain and comorbid anxiodepression</title>
+      <link>https://www.cell.com/neuron/fulltext/S0896-6273(26)00533-7?rss=yes</link>
+      <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+      <dc:title>Receptor and cell-type-specific mechanisms in mesocortical dopamine circuits gate chronic pain and comorbid anxiodepression</dc:title>
+      <dc:creator>Ya-Qi Cai, Xin-Yu Hou, Guo-Hong Wang, Yue Chang, Zhi-Zhe Zhang, Tian-Le Shi, Ben-Long Liu, Yu-Qiu Zhang</dc:creator>
+      <dc:identifier>10.1016/j.neuron.2026.07.004</dc:identifier>
+      <dc:source>Neuron 114, 20 (2026)</dc:source>
+      <dc:date>2026-07-10</dc:date>
+      <prism:publicationName>Neuron</prism:publicationName>
+      <prism:publicationDate>2026-07-10</prism:publicationDate>
+      <prism:volume>114</prism:volume>
+      <prism:number>20</prism:number>
+      <prism:issueIdentifier>S0896-6273(25)X0021-0</prism:issueIdentifier>
+      <prism:section>Correction</prism:section>
+      <prism:startingPage>3918</prism:startingPage>
+   </item>
+</rdf:RDF>

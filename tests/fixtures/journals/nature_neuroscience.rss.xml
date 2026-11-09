@@ -1,0 +1,158 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:prism="http://prismstandard.org/namespaces/basic/2.0/" xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns="http://purl.org/rss/1.0/" xmlns:admin="http://webns.net/mvcb/">
+    <channel rdf:about="http://feeds.nature.com/neuro/rss/current">
+        <title>Nature Neuroscience</title>
+        <description>[REDACTED in fixture: publisher text, not redistributed]</description>
+        <link>http://feeds.nature.com/neuro/rss/current</link>
+        <admin:generatorAgent rdf:resource="https://www.nature.com/"/>
+        <admin:errorReportsTo rdf:resource="mailto:feedback@nature.com"/>
+        <dc:publisher>Nature Publishing Group</dc:publisher>
+        <dc:language>en</dc:language>
+        <dc:rights>© 2026 Macmillan Publishers Limited, part of Springer Nature. All rights reserved.</dc:rights>
+        <prism:publicationName>Nature Neuroscience</prism:publicationName>
+        
+        
+        <prism:copyright>© 2026 Macmillan Publishers Limited, part of Springer Nature. All rights reserved.</prism:copyright>
+        <prism:rightsAgent>permissions@nature.com</prism:rightsAgent>
+        <image rdf:resource="https://www.nature.com/uploads/product/neuro/rss.gif"/>
+        <items>
+            <rdf:Seq>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s41593-026-02536-1"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s41593-026-02534-3"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s41593-026-02471-1"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s41593-026-02496-6"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s41593-026-02535-2"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s41593-026-02530-7"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s41593-026-02512-9"/>
+                
+                    <rdf:li rdf:resource="https://www.nature.com/articles/s41593-026-02510-x"/>
+                
+            </rdf:Seq>
+        </items>
+    </channel>
+    <image rdf:about="https://www.nature.com/uploads/product/neuro/rss.gif">
+        <title>Nature Neuroscience</title>
+        <url>https://www.nature.com/uploads/product/neuro/rss.gif</url>
+        <link>http://feeds.nature.com/neuro/rss/current</link>
+    </image>
+    
+        <item rdf:about="https://www.nature.com/articles/s41593-026-02536-1">
+            <title><![CDATA[Author Correction: A genome-wide analysis of the shared genetic risk architecture of complex neurological and psychiatric disorders]]></title>
+            <link>https://www.nature.com/articles/s41593-026-02536-1</link>
+            <content:encoded>[REDACTED in fixture: publisher text, not redistributed]</content:encoded>
+            <dc:title><![CDATA[Author Correction: A genome-wide analysis of the shared genetic risk architecture of complex neurological and psychiatric disorders]]></dc:title>
+            <dc:creator>Olav B. Smeland</dc:creator><dc:creator>Gleda Kutrolli</dc:creator><dc:creator>Shahram Bahrami</dc:creator><dc:creator>Vera Fominykh</dc:creator><dc:creator>Nadine Parker</dc:creator><dc:creator>Julian Fuhrer</dc:creator><dc:creator>Guy F. L. Hindley</dc:creator><dc:creator>Linn Rødevand</dc:creator><dc:creator>Piotr Jaholkowski</dc:creator><dc:creator>Markos Tesfaye</dc:creator><dc:creator>Pravesh Parekh</dc:creator><dc:creator>Torbjørn Elvsåshagen</dc:creator><dc:creator>Andrew D. Grotzinger</dc:creator><dc:creator>Nils Eiel Steen</dc:creator><dc:creator>Dennis van der Meer</dc:creator><dc:creator>Kevin S. O’Connell</dc:creator><dc:creator>Srdjan Djurovic</dc:creator><dc:creator>Anders M. Dale</dc:creator><dc:creator>Alexey A. Shadrin</dc:creator><dc:creator>Oleksandr Frei</dc:creator><dc:creator>Ole A. Andreassen</dc:creator>
+            <dc:identifier>doi:10.1038/s41593-026-02536-1</dc:identifier>
+            <dc:source>Nature Neuroscience, Published online: 2026-11-06; | doi:10.1038/s41593-026-02536-1</dc:source>
+            <dc:date>2026-11-06</dc:date>
+            <prism:publicationName>Nature Neuroscience</prism:publicationName>
+            <prism:doi>10.1038/s41593-026-02536-1</prism:doi>
+            <prism:url>https://www.nature.com/articles/s41593-026-02536-1</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s41593-026-02534-3">
+            <title><![CDATA[Editorial Expression of Concern: NgR1 and NgR3 are receptors for chondroitin sulfate proteoglycans]]></title>
+            <link>https://www.nature.com/articles/s41593-026-02534-3</link>
+            <content:encoded>[REDACTED in fixture: publisher text, not redistributed]</content:encoded>
+            <dc:title><![CDATA[Editorial Expression of Concern: NgR1 and NgR3 are receptors for chondroitin sulfate proteoglycans]]></dc:title>
+            <dc:creator>Travis L. Dickendesher</dc:creator><dc:creator>Katherine T. Baldwin</dc:creator><dc:creator>Yevgeniya A. Mironova</dc:creator><dc:creator>Yoshiki Koriyama</dc:creator><dc:creator>Stephen J. Raiker</dc:creator><dc:creator>Kim L. Askew</dc:creator><dc:creator>Andrew Wood</dc:creator><dc:creator>Cédric G. Geoffroy</dc:creator><dc:creator>Binhai Zheng</dc:creator><dc:creator>Claire D. Liepmann</dc:creator><dc:creator>Yasuhiro Katagiri</dc:creator><dc:creator>Larry I. Benowitz</dc:creator><dc:creator>Herbert M. Geller</dc:creator><dc:creator>Roman J. Giger</dc:creator>
+            <dc:identifier>doi:10.1038/s41593-026-02534-3</dc:identifier>
+            <dc:source>Nature Neuroscience, Published online: 2026-11-05; | doi:10.1038/s41593-026-02534-3</dc:source>
+            <dc:date>2026-11-05</dc:date>
+            <prism:publicationName>Nature Neuroscience</prism:publicationName>
+            <prism:doi>10.1038/s41593-026-02534-3</prism:doi>
+            <prism:url>https://www.nature.com/articles/s41593-026-02534-3</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s41593-026-02471-1">
+            <title><![CDATA[The human claustrum tracks uncertainty and prediction error]]></title>
+            <link>https://www.nature.com/articles/s41593-026-02471-1</link>
+            <content:encoded>[REDACTED in fixture: publisher text, not redistributed]</content:encoded>
+            <dc:title><![CDATA[The human claustrum tracks uncertainty and prediction error]]></dc:title>
+            
+            <dc:identifier>doi:10.1038/s41593-026-02471-1</dc:identifier>
+            <dc:source>Nature Neuroscience, Published online: 2026-11-04; | doi:10.1038/s41593-026-02471-1</dc:source>
+            <dc:date>2026-11-04</dc:date>
+            <prism:publicationName>Nature Neuroscience</prism:publicationName>
+            <prism:doi>10.1038/s41593-026-02471-1</prism:doi>
+            <prism:url>https://www.nature.com/articles/s41593-026-02471-1</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s41593-026-02496-6">
+            <title><![CDATA[Single-neuron encoding of rapidly learned visual information reshapes human perception]]></title>
+            <link>https://www.nature.com/articles/s41593-026-02496-6</link>
+            <content:encoded>[REDACTED in fixture: publisher text, not redistributed]</content:encoded>
+            <dc:title><![CDATA[Single-neuron encoding of rapidly learned visual information reshapes human perception]]></dc:title>
+            <dc:creator>Marcelo Armendariz</dc:creator><dc:creator>Julie Blumberg</dc:creator><dc:creator>Jed Singer</dc:creator><dc:creator>Franz Aiple</dc:creator><dc:creator>Jiye Kim</dc:creator><dc:creator>Nuria Domínguez-Iturza</dc:creator><dc:creator>Armin Brandt</dc:creator><dc:creator>Peter Reinacher</dc:creator><dc:creator>Andreas Schulze-Bonhage</dc:creator><dc:creator>Gabriel Kreiman</dc:creator>
+            <dc:identifier>doi:10.1038/s41593-026-02496-6</dc:identifier>
+            <dc:source>Nature Neuroscience, Published online: 2026-11-04; | doi:10.1038/s41593-026-02496-6</dc:source>
+            <dc:date>2026-11-04</dc:date>
+            <prism:publicationName>Nature Neuroscience</prism:publicationName>
+            <prism:doi>10.1038/s41593-026-02496-6</prism:doi>
+            <prism:url>https://www.nature.com/articles/s41593-026-02496-6</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s41593-026-02535-2">
+            <title><![CDATA[Author Correction: Social rank modulates methamphetamine-seeking in dominant and subordinate male rodents via distinct dopaminergic pathways]]></title>
+            <link>https://www.nature.com/articles/s41593-026-02535-2</link>
+            <content:encoded>[REDACTED in fixture: publisher text, not redistributed]</content:encoded>
+            <dc:title><![CDATA[Author Correction: Social rank modulates methamphetamine-seeking in dominant and subordinate male rodents via distinct dopaminergic pathways]]></dc:title>
+            <dc:creator>Xiaofei Deng</dc:creator><dc:creator>Wei Xu</dc:creator><dc:creator>Yutong Liu</dc:creator><dc:creator>Haiyang Jing</dc:creator><dc:creator>Jiafeng Zhong</dc:creator><dc:creator>Kaige Sun</dc:creator><dc:creator>Ruiyi Zhou</dc:creator><dc:creator>Liang Xu</dc:creator><dc:creator>Xiaocong Wu</dc:creator><dc:creator>Baofang Zhang</dc:creator><dc:creator>Wanqi Chen</dc:creator><dc:creator>Shaolei Jiang</dc:creator><dc:creator>Gaowei Chen</dc:creator><dc:creator>Yingjie Zhu</dc:creator>
+            <dc:identifier>doi:10.1038/s41593-026-02535-2</dc:identifier>
+            <dc:source>Nature Neuroscience, Published online: 2026-11-03; | doi:10.1038/s41593-026-02535-2</dc:source>
+            <dc:date>2026-11-03</dc:date>
+            <prism:publicationName>Nature Neuroscience</prism:publicationName>
+            <prism:doi>10.1038/s41593-026-02535-2</prism:doi>
+            <prism:url>https://www.nature.com/articles/s41593-026-02535-2</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s41593-026-02530-7">
+            <title><![CDATA[Publisher Correction: Network geometry shapes the transformation of task representations across the human cortex]]></title>
+            <link>https://www.nature.com/articles/s41593-026-02530-7</link>
+            <content:encoded>[REDACTED in fixture: publisher text, not redistributed]</content:encoded>
+            <dc:title><![CDATA[Publisher Correction: Network geometry shapes the transformation of task representations across the human cortex]]></dc:title>
+            <dc:creator>Lakshman N. C. Chakravarthula</dc:creator><dc:creator>Takuya Ito</dc:creator><dc:creator>Alexandros Tzalavras</dc:creator><dc:creator>Michael W. Cole</dc:creator>
+            <dc:identifier>doi:10.1038/s41593-026-02530-7</dc:identifier>
+            <dc:source>Nature Neuroscience, Published online: 2026-11-02; | doi:10.1038/s41593-026-02530-7</dc:source>
+            <dc:date>2026-11-02</dc:date>
+            <prism:publicationName>Nature Neuroscience</prism:publicationName>
+            <prism:doi>10.1038/s41593-026-02530-7</prism:doi>
+            <prism:url>https://www.nature.com/articles/s41593-026-02530-7</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s41593-026-02512-9">
+            <title><![CDATA[Misfolded tau propagates via templated seeding]]></title>
+            <link>https://www.nature.com/articles/s41593-026-02512-9</link>
+            <content:encoded>[REDACTED in fixture: publisher text, not redistributed]</content:encoded>
+            <dc:title><![CDATA[Misfolded tau propagates via templated seeding]]></dc:title>
+            <dc:creator>Qingzhong Ren</dc:creator>
+            <dc:identifier>doi:10.1038/s41593-026-02512-9</dc:identifier>
+            <dc:source>Nature Neuroscience, Published online: 2026-11-02; | doi:10.1038/s41593-026-02512-9</dc:source>
+            <dc:date>2026-11-02</dc:date>
+            <prism:publicationName>Nature Neuroscience</prism:publicationName>
+            <prism:doi>10.1038/s41593-026-02512-9</prism:doi>
+            <prism:url>https://www.nature.com/articles/s41593-026-02512-9</prism:url>
+        </item>
+    
+        <item rdf:about="https://www.nature.com/articles/s41593-026-02510-x">
+            <title><![CDATA[Correcting automatic decisions]]></title>
+            <link>https://www.nature.com/articles/s41593-026-02510-x</link>
+            <content:encoded>[REDACTED in fixture: publisher text, not redistributed]</content:encoded>
+            <dc:title><![CDATA[Correcting automatic decisions]]></dc:title>
+            <dc:creator>Luis A. Mejia</dc:creator>
+            <dc:identifier>doi:10.1038/s41593-026-02510-x</dc:identifier>
+            <dc:source>Nature Neuroscience, Published online: 2026-11-02; | doi:10.1038/s41593-026-02510-x</dc:source>
+            <dc:date>2026-11-02</dc:date>
+            <prism:publicationName>Nature Neuroscience</prism:publicationName>
+            <prism:doi>10.1038/s41593-026-02510-x</prism:doi>
+            <prism:url>https://www.nature.com/articles/s41593-026-02510-x</prism:url>
+        </item>
+    
+</rdf:RDF>

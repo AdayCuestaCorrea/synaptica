@@ -1,0 +1,3402 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 16,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ],
+          "date-time": "2026-11-06T11:27:46Z",
+          "timestamp": 1793964466778,
+          "version": "4.8.0"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1038/s41593-025-02090-2",
+            "type": "correction",
+            "label": "Correction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  6
+                ]
+              ],
+              "date-time": "2026-11-06T00:00:00Z",
+              "timestamp": 1793923200000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Springer Science and Business Media LLC",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  6
+                ]
+              ],
+              "date-time": "2026-11-06T00:00:00Z",
+              "timestamp": 1793923200000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  6
+                ]
+              ],
+              "date-time": "2026-11-06T00:00:00Z",
+              "timestamp": 1793923200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Nat Neurosci"
+        ],
+        "DOI": "10.1038/s41593-026-02536-1",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ],
+          "date-time": "2026-11-06T11:03:11Z",
+          "timestamp": 1793962991000
+        },
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Author Correction: A genome-wide analysis of the shared genetic risk architecture of complex neurological and psychiatric disorders"
+        ],
+        "prefix": "10.1038",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-3761-5215",
+            "authenticated-orcid": false,
+            "given": "Olav B.",
+            "family": "Smeland",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-6602-2622",
+            "authenticated-orcid": false,
+            "given": "Gleda",
+            "family": "Kutrolli",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8179-2788",
+            "authenticated-orcid": false,
+            "given": "Shahram",
+            "family": "Bahrami",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-5490-2390",
+            "authenticated-orcid": false,
+            "given": "Vera",
+            "family": "Fominykh",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8369-0152",
+            "authenticated-orcid": false,
+            "given": "Nadine",
+            "family": "Parker",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-6286-5614",
+            "authenticated-orcid": false,
+            "given": "Julian",
+            "family": "Fuhrer",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-1666-4701",
+            "authenticated-orcid": false,
+            "given": "Guy F. L.",
+            "family": "Hindley",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-5967-6601",
+            "authenticated-orcid": false,
+            "given": "Linn",
+            "family": "Rødevand",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-9408-3107",
+            "authenticated-orcid": false,
+            "given": "Piotr",
+            "family": "Jaholkowski",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-3351-701X",
+            "authenticated-orcid": false,
+            "given": "Markos",
+            "family": "Tesfaye",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-1930-1167",
+            "authenticated-orcid": false,
+            "given": "Pravesh",
+            "family": "Parekh",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-9991-1610",
+            "authenticated-orcid": false,
+            "given": "Torbjørn",
+            "family": "Elvsåshagen",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-7852-9244",
+            "authenticated-orcid": false,
+            "given": "Andrew D.",
+            "family": "Grotzinger",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-6442-1179",
+            "authenticated-orcid": false,
+            "given": "Nils Eiel",
+            "family": "Steen",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Dennis",
+            "family": "van der Meer",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Kevin S.",
+            "family": "O’Connell",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8140-8061",
+            "authenticated-orcid": false,
+            "given": "Srdjan",
+            "family": "Djurovic",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-6126-2966",
+            "authenticated-orcid": false,
+            "given": "Anders M.",
+            "family": "Dale",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Alexey A.",
+            "family": "Shadrin",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-6427-2625",
+            "authenticated-orcid": false,
+            "given": "Oleksandr",
+            "family": "Frei",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-4461-3568",
+            "authenticated-orcid": false,
+            "given": "Ole A.",
+            "family": "Andreassen",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "container-title": [
+          "Nature Neuroscience"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02536-1.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02536-1",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02536-1.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ],
+          "date-time": "2026-11-06T11:03:12Z",
+          "timestamp": 1793962992000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.nature.com/articles/s41593-026-02536-1"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "references-count": 0,
+        "alternative-id": [
+          "2536"
+        ],
+        "URL": "https://doi.org/10.1038/s41593-026-02536-1",
+        "ISSN": [
+          "1097-6256",
+          "1546-1726"
+        ],
+        "issn-type": [
+          {
+            "value": "1097-6256",
+            "type": "print"
+          },
+          {
+            "value": "1546-1726",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              6
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "6 November 2026",
+            "order": 1,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          },
+          {
+            "value": "This content has been made available to all.",
+            "name": "free",
+            "label": "Free to read"
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T11:30:19Z",
+          "timestamp": 1793878219196,
+          "version": "4.7.0"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1038/nn.3070",
+            "type": "expression_of_concern",
+            "label": "Expression of concern",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  5
+                ]
+              ],
+              "date-time": "2026-11-05T00:00:00Z",
+              "timestamp": 1793836800000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Springer Science and Business Media LLC",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  5
+                ]
+              ],
+              "date-time": "2026-11-05T00:00:00Z",
+              "timestamp": 1793836800000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  5
+                ]
+              ],
+              "date-time": "2026-11-05T00:00:00Z",
+              "timestamp": 1793836800000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Nat Neurosci"
+        ],
+        "DOI": "10.1038/s41593-026-02534-3",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T11:01:44Z",
+          "timestamp": 1793876504000
+        },
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Editorial Expression of Concern: NgR1 and NgR3 are receptors for chondroitin sulfate proteoglycans"
+        ],
+        "prefix": "10.1038",
+        "author": [
+          {
+            "given": "Travis L.",
+            "family": "Dickendesher",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Katherine T.",
+            "family": "Baldwin",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yevgeniya A.",
+            "family": "Mironova",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yoshiki",
+            "family": "Koriyama",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Stephen J.",
+            "family": "Raiker",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Kim L.",
+            "family": "Askew",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Andrew",
+            "family": "Wood",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Cédric G.",
+            "family": "Geoffroy",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Binhai",
+            "family": "Zheng",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Claire D.",
+            "family": "Liepmann",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yasuhiro",
+            "family": "Katagiri",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Larry I.",
+            "family": "Benowitz",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Herbert M.",
+            "family": "Geller",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Roman J.",
+            "family": "Giger",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "container-title": [
+          "Nature Neuroscience"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02534-3.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02534-3",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02534-3.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ],
+          "date-time": "2026-11-05T11:01:44Z",
+          "timestamp": 1793876504000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.nature.com/articles/s41593-026-02534-3"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "references-count": 0,
+        "alternative-id": [
+          "2534"
+        ],
+        "URL": "https://doi.org/10.1038/s41593-026-02534-3",
+        "ISSN": [
+          "1097-6256",
+          "1546-1726"
+        ],
+        "issn-type": [
+          {
+            "value": "1097-6256",
+            "type": "print"
+          },
+          {
+            "value": "1546-1726",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              5
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "5 November 2026",
+            "order": 1,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          },
+          {
+            "value": "This content has been made available to all.",
+            "name": "free",
+            "label": "Free to read"
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T10:29:17Z",
+          "timestamp": 1793788157216,
+          "version": "4.6.1"
+        },
+        "reference-count": 79,
+        "publisher": "Springer Science and Business Media LLC",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  4
+                ]
+              ],
+              "date-time": "2026-11-04T00:00:00Z",
+              "timestamp": 1793750400000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  4
+                ]
+              ],
+              "date-time": "2026-11-04T00:00:00Z",
+              "timestamp": 1793750400000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Nat Neurosci"
+        ],
+        "DOI": "10.1038/s41593-026-02496-6",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T10:03:30Z",
+          "timestamp": 1793786610000
+        },
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Single-neuron encoding of rapidly learned visual information reshapes human perception"
+        ],
+        "prefix": "10.1038",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-7905-1104",
+            "authenticated-orcid": false,
+            "given": "Marcelo",
+            "family": "Armendariz",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Julie",
+            "family": "Blumberg",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Jed",
+            "family": "Singer",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Franz",
+            "family": "Aiple",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-5232-7748",
+            "authenticated-orcid": false,
+            "given": "Jiye",
+            "family": "Kim",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-0693-0589",
+            "authenticated-orcid": false,
+            "given": "Nuria",
+            "family": "Domínguez-Iturza",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Armin",
+            "family": "Brandt",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-1691-546X",
+            "authenticated-orcid": false,
+            "given": "Peter",
+            "family": "Reinacher",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-2382-0506",
+            "authenticated-orcid": false,
+            "given": "Andreas",
+            "family": "Schulze-Bonhage",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-3505-8475",
+            "authenticated-orcid": false,
+            "given": "Gabriel",
+            "family": "Kreiman",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ]
+        },
+        "reference": "[79 items dropped in fixture]",
+        "container-title": [
+          "Nature Neuroscience"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02496-6.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02496-6",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02496-6.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T10:03:33Z",
+          "timestamp": 1793786613000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.nature.com/articles/s41593-026-02496-6"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ]
+        },
+        "references-count": 79,
+        "alternative-id": [
+          "2496"
+        ],
+        "URL": "https://doi.org/10.1038/s41593-026-02496-6",
+        "ISSN": [
+          "1097-6256",
+          "1546-1726"
+        ],
+        "issn-type": [
+          {
+            "value": "1097-6256",
+            "type": "print"
+          },
+          {
+            "value": "1546-1726",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "8 October 2025",
+            "order": 1,
+            "name": "received",
+            "label": "Received",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          },
+          {
+            "value": "17 September 2026",
+            "order": 2,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          },
+          {
+            "value": "4 November 2026",
+            "order": 3,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          },
+          {
+            "value": "The authors declare no competing interests.",
+            "order": 1,
+            "name": "Ethics",
+            "label": "Competing interests",
+            "group": {
+              "name": "EthicsHeading",
+              "label": "Ethics"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T10:29:16Z",
+          "timestamp": 1793788156041,
+          "version": "4.6.1"
+        },
+        "reference-count": 5,
+        "publisher": "Springer Science and Business Media LLC",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  4
+                ]
+              ],
+              "date-time": "2026-11-04T00:00:00Z",
+              "timestamp": 1793750400000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  4
+                ]
+              ],
+              "date-time": "2026-11-04T00:00:00Z",
+              "timestamp": 1793750400000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Nat Neurosci"
+        ],
+        "DOI": "10.1038/s41593-026-02471-1",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T10:03:19Z",
+          "timestamp": 1793786599000
+        },
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "The human claustrum tracks uncertainty and prediction error"
+        ],
+        "prefix": "10.1038",
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ]
+        },
+        "reference": "[5 items dropped in fixture]",
+        "container-title": [
+          "Nature Neuroscience"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02471-1.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02471-1",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02471-1.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ],
+          "date-time": "2026-11-04T10:03:19Z",
+          "timestamp": 1793786599000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.nature.com/articles/s41593-026-02471-1"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ]
+        },
+        "references-count": 5,
+        "alternative-id": [
+          "2471"
+        ],
+        "URL": "https://doi.org/10.1038/s41593-026-02471-1",
+        "ISSN": [
+          "1097-6256",
+          "1546-1726"
+        ],
+        "issn-type": [
+          {
+            "value": "1097-6256",
+            "type": "print"
+          },
+          {
+            "value": "1546-1726",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              4
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "4 November 2026",
+            "order": 1,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              3
+            ]
+          ],
+          "date-time": "2026-11-03T14:37:39Z",
+          "timestamp": 1793716659368,
+          "version": "4.6.1"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1038/s41593-025-01951-0",
+            "type": "correction",
+            "label": "Correction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  3
+                ]
+              ],
+              "date-time": "2026-11-03T00:00:00Z",
+              "timestamp": 1793664000000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Springer Science and Business Media LLC",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  3
+                ]
+              ],
+              "date-time": "2026-11-03T00:00:00Z",
+              "timestamp": 1793664000000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  3
+                ]
+              ],
+              "date-time": "2026-11-03T00:00:00Z",
+              "timestamp": 1793664000000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Nat Neurosci"
+        ],
+        "DOI": "10.1038/s41593-026-02535-2",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              3
+            ]
+          ],
+          "date-time": "2026-11-03T14:02:11Z",
+          "timestamp": 1793714531000
+        },
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Author Correction: Social rank modulates methamphetamine-seeking in dominant and subordinate male rodents via distinct dopaminergic pathways"
+        ],
+        "prefix": "10.1038",
+        "author": [
+          {
+            "given": "Xiaofei",
+            "family": "Deng",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-7261-9203",
+            "authenticated-orcid": false,
+            "given": "Wei",
+            "family": "Xu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yutong",
+            "family": "Liu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Haiyang",
+            "family": "Jing",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Jiafeng",
+            "family": "Zhong",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Kaige",
+            "family": "Sun",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Ruiyi",
+            "family": "Zhou",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Liang",
+            "family": "Xu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Xiaocong",
+            "family": "Wu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Baofang",
+            "family": "Zhang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Wanqi",
+            "family": "Chen",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Shaolei",
+            "family": "Jiang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-4033-2811",
+            "authenticated-orcid": false,
+            "given": "Gaowei",
+            "family": "Chen",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-0783-0897",
+            "authenticated-orcid": false,
+            "given": "Yingjie",
+            "family": "Zhu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              3
+            ]
+          ]
+        },
+        "container-title": [
+          "Nature Neuroscience"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02535-2.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02535-2",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02535-2.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              3
+            ]
+          ],
+          "date-time": "2026-11-03T14:02:11Z",
+          "timestamp": 1793714531000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.nature.com/articles/s41593-026-02535-2"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              3
+            ]
+          ]
+        },
+        "references-count": 0,
+        "alternative-id": [
+          "2535"
+        ],
+        "URL": "https://doi.org/10.1038/s41593-026-02535-2",
+        "ISSN": [
+          "1097-6256",
+          "1546-1726"
+        ],
+        "issn-type": [
+          {
+            "value": "1097-6256",
+            "type": "print"
+          },
+          {
+            "value": "1546-1726",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              3
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "3 November 2026",
+            "order": 1,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          },
+          {
+            "value": "This content has been made available to all.",
+            "name": "free",
+            "label": "Free to read"
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T13:31:00Z",
+          "timestamp": 1793626260709,
+          "version": "4.5.1"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1038/s41593-026-02486-8",
+            "type": "correction",
+            "label": "Correction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  2
+                ]
+              ],
+              "date-time": "2026-11-02T00:00:00Z",
+              "timestamp": 1793577600000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Springer Science and Business Media LLC",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  2
+                ]
+              ],
+              "date-time": "2026-11-02T00:00:00Z",
+              "timestamp": 1793577600000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  2
+                ]
+              ],
+              "date-time": "2026-11-02T00:00:00Z",
+              "timestamp": 1793577600000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Nat Neurosci"
+        ],
+        "DOI": "10.1038/s41593-026-02530-7",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T13:03:35Z",
+          "timestamp": 1793624615000
+        },
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Publisher Correction: Network geometry shapes the transformation of task representations across the human cortex"
+        ],
+        "prefix": "10.1038",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0002-7910-1463",
+            "authenticated-orcid": false,
+            "given": "Lakshman N. C.",
+            "family": "Chakravarthula",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-2060-4608",
+            "authenticated-orcid": false,
+            "given": "Takuya",
+            "family": "Ito",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0000-8614-5179",
+            "authenticated-orcid": false,
+            "given": "Alexandros",
+            "family": "Tzalavras",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-4329-438X",
+            "authenticated-orcid": false,
+            "given": "Michael W.",
+            "family": "Cole",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ]
+        },
+        "container-title": [
+          "Nature Neuroscience"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02530-7.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02530-7",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02530-7.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T13:03:36Z",
+          "timestamp": 1793624616000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.nature.com/articles/s41593-026-02530-7"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ]
+        },
+        "references-count": 0,
+        "alternative-id": [
+          "2530"
+        ],
+        "URL": "https://doi.org/10.1038/s41593-026-02530-7",
+        "ISSN": [
+          "1097-6256",
+          "1546-1726"
+        ],
+        "issn-type": [
+          {
+            "value": "1097-6256",
+            "type": "print"
+          },
+          {
+            "value": "1546-1726",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2 November 2026",
+            "order": 1,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          },
+          {
+            "value": "This content has been made available to all.",
+            "name": "free",
+            "label": "Free to read"
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              8
+            ]
+          ],
+          "date-time": "2026-11-08T08:24:11Z",
+          "timestamp": 1794126251763,
+          "version": "4.8.0"
+        },
+        "reference-count": 80,
+        "publisher": "Springer Science and Business Media LLC",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  2
+                ]
+              ],
+              "date-time": "2026-11-02T00:00:00Z",
+              "timestamp": 1793577600000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  2
+                ]
+              ],
+              "date-time": "2026-11-02T00:00:00Z",
+              "timestamp": 1793577600000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0"
+          }
+        ],
+        "funder": [
+          {
+            "DOI": "10.13039/100000026",
+            "name": "U.S. Department of Health & Human Services | NIH | National Institute on Drug Abuse",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "P50 DA042012"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "P50 DA042012"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100000026",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100000026",
+            "name": "U.S. Department of Health & Human Services | NIH | National Institute on Drug Abuse",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "K99 DA056573"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "K99 DA056573"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100000026",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100000026",
+            "name": "U.S. Department of Health & Human Services | NIH | National Institute on Drug Abuse",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "P50 DA042012"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "P50 DA042012"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100000026",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "DOI": "10.13039/100000026",
+            "name": "U.S. Department of Health & Human Services | NIH | National Institute on Drug Abuse",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "K08 DA055157"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "K08 DA055157"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100000026",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          },
+          {
+            "name": "Supported by an anonymous philanthropic gift."
+          },
+          {
+            "DOI": "10.13039/100000057",
+            "name": "U.S. Department of Health & Human Services | NIH | National Institute of General Medical Sciences",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "K12GM081266"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "K12GM081266"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/100000057",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Nat Neurosci"
+        ],
+        "DOI": "10.1038/s41593-026-02500-z",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T10:02:58Z",
+          "timestamp": 1793613778000
+        },
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 1,
+        "title": [
+          "A multi-institutional investigation of psilocybin’s effects on mouse behavior"
+        ],
+        "prefix": "10.1038",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0003-0928-0144",
+            "authenticated-orcid": false,
+            "given": "Odilia D.",
+            "family": "Lu",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Katrina",
+            "family": "White",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Kendall B.",
+            "family": "Raymond",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Christine",
+            "family": "Liu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-0997-3648",
+            "authenticated-orcid": false,
+            "given": "Alexandra S.",
+            "family": "Klein",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0005-2980-5333",
+            "authenticated-orcid": false,
+            "given": "Nathaniel",
+            "family": "Green",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0009-0007-2220-9998",
+            "authenticated-orcid": false,
+            "given": "Sam",
+            "family": "Vaillancourt",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Austin J.",
+            "family": "Gallagher",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Lena",
+            "family": "Shindy",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Alyssa",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Kira E.",
+            "family": "Wallquist",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Ruoxian",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Mila",
+            "family": "Zou",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-4670-851X",
+            "authenticated-orcid": false,
+            "given": "Austen B.",
+            "family": "Casey",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Natalie",
+            "family": "Perez",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-6912-4461",
+            "authenticated-orcid": false,
+            "given": "Muhammad",
+            "family": "Asim",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Setareh",
+            "family": "Metanat",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Kelsey R.",
+            "family": "Logas",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Vivan",
+            "family": "Chhaya",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Alexander S.",
+            "family": "Enos",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Ellie M.",
+            "family": "Ho",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-8420-7898",
+            "authenticated-orcid": false,
+            "given": "Lindsay P.",
+            "family": "Cameron",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-9032-5911",
+            "authenticated-orcid": false,
+            "given": "Matthew B.",
+            "family": "Pomrenze",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-6053-2952",
+            "authenticated-orcid": false,
+            "given": "Jason M.",
+            "family": "Tucciarone",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-2238-4186",
+            "authenticated-orcid": false,
+            "given": "Vikaas S.",
+            "family": "Sohal",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-9157-7363",
+            "authenticated-orcid": false,
+            "given": "Mazen A.",
+            "family": "Kheirbek",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-2923-6362",
+            "authenticated-orcid": false,
+            "given": "Andrea M.",
+            "family": "Gomez",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-3350-3208",
+            "authenticated-orcid": false,
+            "given": "Stephan",
+            "family": "Lammel",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-1474-0379",
+            "authenticated-orcid": false,
+            "given": "Boris D.",
+            "family": "Heifets",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-5428-5211",
+            "authenticated-orcid": false,
+            "given": "Robert C.",
+            "family": "Malenka",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ]
+        },
+        "reference": "[80 items dropped in fixture]",
+        "container-title": [
+          "Nature Neuroscience"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02500-z.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02500-z",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02500-z.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T10:03:08Z",
+          "timestamp": 1793613788000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.nature.com/articles/s41593-026-02500-z"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ]
+        },
+        "references-count": 80,
+        "alternative-id": [
+          "2500"
+        ],
+        "URL": "https://doi.org/10.1038/s41593-026-02500-z",
+        "ISSN": [
+          "1097-6256",
+          "1546-1726"
+        ],
+        "issn-type": [
+          {
+            "value": "1097-6256",
+            "type": "print"
+          },
+          {
+            "value": "1546-1726",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "27 March 2025",
+            "order": 1,
+            "name": "received",
+            "label": "Received",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          },
+          {
+            "value": "28 September 2026",
+            "order": 2,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          },
+          {
+            "value": "2 November 2026",
+            "order": 3,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          },
+          {
+            "value": "R.C.M. is on the scientific advisory boards of MapLight Therapeutics and Definium Therapeutics and is a scientific advisor to Bayshore Global Management. B.D.H. is on the scientific advisory boards of Journey Clinical and Osmind and is a paid consultant to Arcadia Medicine Inc., Tactogen LLC and Vida Ventures LLC. The other authors declare no competing interests.",
+            "order": 1,
+            "name": "Ethics",
+            "label": "Competing interests",
+            "group": {
+              "name": "EthicsHeading",
+              "label": "Ethics"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T16:29:20Z",
+          "timestamp": 1793636960813,
+          "version": "4.5.1"
+        },
+        "reference-count": 0,
+        "publisher": "Springer Science and Business Media LLC",
+        "issue": "11",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Nat Neurosci"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "DOI": "10.1038/s41593-026-02510-x",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T16:02:27Z",
+          "timestamp": 1793635347000
+        },
+        "page": "2625-2625",
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Correcting automatic decisions"
+        ],
+        "prefix": "10.1038",
+        "volume": "29",
+        "author": [
+          {
+            "given": "Luis A.",
+            "family": "Mejia",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ]
+        },
+        "container-title": [
+          "Nature Neuroscience"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02510-x.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02510-x",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02510-x.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T16:02:27Z",
+          "timestamp": 1793635347000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.nature.com/articles/s41593-026-02510-x"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "11",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "2510"
+        ],
+        "URL": "https://doi.org/10.1038/s41593-026-02510-x",
+        "ISSN": [
+          "1097-6256",
+          "1546-1726"
+        ],
+        "issn-type": [
+          {
+            "value": "1097-6256",
+            "type": "print"
+          },
+          {
+            "value": "1546-1726",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2 November 2026",
+            "order": 1,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T16:28:46Z",
+          "timestamp": 1793636926877,
+          "version": "4.5.1"
+        },
+        "reference-count": 0,
+        "publisher": "Springer Science and Business Media LLC",
+        "issue": "11",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Nat Neurosci"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "DOI": "10.1038/s41593-026-02509-4",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T16:02:26Z",
+          "timestamp": 1793635346000
+        },
+        "page": "2625-2625",
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "A brain of many microglia origins"
+        ],
+        "prefix": "10.1038",
+        "volume": "29",
+        "author": [
+          {
+            "given": "Ioana A.",
+            "family": "Marin",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ]
+        },
+        "container-title": [
+          "Nature Neuroscience"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02509-4.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02509-4",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02509-4.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T16:02:26Z",
+          "timestamp": 1793635346000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.nature.com/articles/s41593-026-02509-4"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "11",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "2509"
+        ],
+        "URL": "https://doi.org/10.1038/s41593-026-02509-4",
+        "ISSN": [
+          "1097-6256",
+          "1546-1726"
+        ],
+        "issn-type": [
+          {
+            "value": "1097-6256",
+            "type": "print"
+          },
+          {
+            "value": "1546-1726",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2 November 2026",
+            "order": 1,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T16:29:20Z",
+          "timestamp": 1793636960810,
+          "version": "4.5.1"
+        },
+        "reference-count": 0,
+        "publisher": "Springer Science and Business Media LLC",
+        "issue": "11",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  11,
+                  1
+                ]
+              ],
+              "date-time": "2026-11-01T00:00:00Z",
+              "timestamp": 1793491200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Nat Neurosci"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "DOI": "10.1038/s41593-026-02512-9",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T16:02:28Z",
+          "timestamp": 1793635348000
+        },
+        "page": "2625-2625",
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Misfolded tau propagates via templated seeding"
+        ],
+        "prefix": "10.1038",
+        "volume": "29",
+        "author": [
+          {
+            "given": "Qingzhong",
+            "family": "Ren",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ]
+        },
+        "container-title": [
+          "Nature Neuroscience"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02512-9.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02512-9",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.nature.com/articles/s41593-026-02512-9.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              11,
+              2
+            ]
+          ],
+          "date-time": "2026-11-02T16:02:28Z",
+          "timestamp": 1793635348000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.nature.com/articles/s41593-026-02512-9"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "11",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                11
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "2512"
+        ],
+        "URL": "https://doi.org/10.1038/s41593-026-02512-9",
+        "ISSN": [
+          "1097-6256",
+          "1546-1726"
+        ],
+        "issn-type": [
+          {
+            "value": "1097-6256",
+            "type": "print"
+          },
+          {
+            "value": "1546-1726",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              11
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2 November 2026",
+            "order": 1,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          }
+        ]
+      }
+    ],
+    "items-per-page": 10,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}
