@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 2** · 2026-11-09 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 3** · 2026-11-09 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -112,14 +112,14 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 
 ### Fase 0 — Cimientos
 
-- [ ] Repositorio `synaptica` en local y en GitHub (visibilidad: D9)
-- [ ] `pyproject.toml` (uv, Python 3.14, ruff, pytest), `.gitignore`, `.editorconfig`, `.python-version`
-- [ ] CLI `syn` mínima (typer) con `syn --version` y `syn doctor`, que comprueba el entorno y las variables necesarias
-- [ ] CI (`ci.yml`): ruff y pytest sin red en cada push y PR
-- [ ] `LICENSE` (AGPL-3.0) y `LICENSE-CONTENT.md` (CC BY-SA 4.0 para los textos propios; terceros con su licencia), según §8
-- [ ] `README.md` y `README.es.md` mínimos
-- [ ] `docs/adr/README.md` con plantilla y `docs/fases/README.md`
-- [ ] `docs/propuesta.md`, exportada del documento aprobado
+- [x] Repositorio `synaptica` en local y en GitHub (visibilidad: D9)
+- [x] `pyproject.toml` (uv, Python 3.14, ruff, pytest), `.gitignore`, `.editorconfig`, `.python-version`
+- [x] CLI `syn` mínima (typer) con `syn --version` y `syn doctor`, que comprueba el entorno y las variables necesarias
+- [x] CI (`ci.yml`): ruff y pytest sin red en cada push y PR
+- [x] `LICENSE` (AGPL-3.0) y `LICENSE-CONTENT.md` (CC BY-SA 4.0 para los textos propios; terceros con su licencia), según §8
+- [x] `README.md` y `README.es.md` mínimos
+- [x] `docs/adr/README.md` con plantilla y `docs/fases/README.md`
+- [x] `docs/propuesta.md`, exportada del documento aprobado
 - [ ] **S1 Fuentes:** script mínimo por fuente que descarga unos 10 elementos, guardados como fixtures, y `docs/fuentes.md` con acceso, límites, clave y licencia
 - [ ] **S2 Almacén:** prueba de BigQuery sandbox desde GitHub Actions con dbt-bigquery → ADR de D1
 - [ ] **S3 Visor 3D:** prototipo con una región clicable del atlas humano y otra del de rata en GitHub Pages → ADR de D3
@@ -186,6 +186,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 | Python + dbt + GitHub Actions + Pages; estado en git | Se repite el motor de Paleo Atlas |
 | Sin Airflow, Docker ni Snowflake | Los dos primeros ya están demostrados; Snowflake no es gratis |
 | Licencias: código AGPL-3.0; textos propios CC BY-SA 4.0; material de terceros con la suya (NC incluidas) | El código comparte motor con Paleo Atlas (AGPL), y una licencia más abierta anularía esa protección. Los textos parten de Wikipedia (CC BY-SA) y así pueden reutilizarse e incluso volver a ella. Los textos nunca incorporan material de los atlas NC. |
+| Repositorio público en GitHub; Sofía no es colaboradora por ahora | Por el portfolio, y en público Actions no tiene límite de minutos y Pages es gratis. Sofía entra como colaboradora solo si el flujo de revisión (D5) lo necesita |
 
 ### Abiertas
 
@@ -198,7 +199,6 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 | D5 | Flujo de revisión de Sofía | Editar en la web de GitHub · formulario de GitHub Issues · página de revisión generada · hoja de cálculo | Prototipo en S4 probado con ella. Requisitos: sin terminal, sin git y menos de 1 h al día |
 | D6 | Procesamiento a escala | Databricks Free Edition para una carga histórica de PubMed · solo APIs | Solo si el volumen lo justifica y se mide, como en el ADR D5 de Paleo. Si no, basta OpenAlex |
 | D7 | Dominio | Dominio propio · `adaycuestacorrea.github.io/synaptica` | Empezar en GitHub Pages y comprobar el nombre antes de registrar nada (ya existe Synaptica B.V., una empresa neerlandesa de neurociencia computacional) |
-| D9 | Visibilidad y acceso | Repositorio público o privado; Sofía como colaboradora o no | Público, por el portfolio. Sofía como colaboradora solo si D5 lo necesita |
 
 ## 9. Riesgos y mitigaciones
 
@@ -225,3 +225,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 |---|---|---|
 | 1 | 2026-11-09 | Creación a partir de la propuesta aprobada por Sofía |
 | 2 | 2026-11-09 | D8 cerrada: código AGPL-3.0 y textos propios CC BY-SA 4.0 |
+| 3 | 2026-11-09 | Andamiaje de la Fase 0 hecho (repo, pyproject, CLI `syn` con `--version` y `doctor`, CI, licencias, README, índices de ADR y fases); D9 cerrada: repositorio público, Sofía no es colaboradora hasta que D5 lo pida |

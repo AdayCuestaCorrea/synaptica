@@ -85,6 +85,7 @@ docs/                propuesta.md, fuentes.md, adr/, fases/
 ```sh
 uv sync
 uv run syn --help
+uv run syn doctor                         # entorno y variables necesarias (exit 1 si falta algo)
 uv run pytest
 uv run ruff check . && uv run ruff format --check .
 uv run syn build                          # dbt build: modelos + tests (desde la Fase 1)
