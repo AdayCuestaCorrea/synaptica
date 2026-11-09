@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 3** · 2026-11-09 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 4** · 2026-11-09 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -124,6 +124,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 - [ ] **S2 Almacén:** prueba de BigQuery sandbox desde GitHub Actions con dbt-bigquery → ADR de D1
 - [ ] **S3 Visor 3D:** prototipo con una región clicable del atlas humano y otra del de rata en GitHub Pages → ADR de D3
 - [ ] **S4 Revisión:** prototipo del flujo de revisión probado con Sofía → ADR de D5
+- [ ] **S5 LLM:** límites actuales del plan gratuito de Groq y de Ollama local, y elección de un juez de otra familia de modelos para el contenido de salud → ADR de D4
 
 **Cierre:** CI en verde, D1, D3, D4 y D5 cerradas con su ADR, y `docs/fuentes.md` completo.
 
@@ -196,7 +197,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 | D2 | Motor común con Paleo Atlas | Copiar y adaptar · extraer un paquete compartido | Copiar y adaptar ahora; extraer el paquete solo cuando ambos sean estables |
 | D3 | Visor 3D | siibra-explorer embebido o autohospedado · three.js con mallas de BrainGlobe · otro | Lo decide S3: tiene que funcionar en GitHub Pages sin backend propio, con regiones clicables por ID, licencias compatibles y un peso razonable en móvil |
 | D4 | LLM | Groq gratuito en Actions + Ollama local (Qwen) por lotes, como Paleo · otros | Como Paleo, con un juez de otra familia de modelos para el contenido de salud. Verificar los límites actuales del plan gratuito |
-| D5 | Flujo de revisión de Sofía | Editar en la web de GitHub · formulario de GitHub Issues · página de revisión generada · hoja de cálculo | Prototipo en S4 probado con ella. Requisitos: sin terminal, sin git y menos de 1 h al día |
+| D5 | Flujo de revisión de Sofía | Editar en la web de GitHub · formulario de GitHub Issues · página de revisión generada · hoja de cálculo | Prototipo en S4 probado con ella. Requisitos: sin terminal, sin git y menos de 1 h al día. Sofía no tiene cuenta de GitHub; se la crea si el prototipo elegido la necesita |
 | D6 | Procesamiento a escala | Databricks Free Edition para una carga histórica de PubMed · solo APIs | Solo si el volumen lo justifica y se mide, como en el ADR D5 de Paleo. Si no, basta OpenAlex |
 | D7 | Dominio | Dominio propio · `adaycuestacorrea.github.io/synaptica` | Empezar en GitHub Pages y comprobar el nombre antes de registrar nada (ya existe Synaptica B.V., una empresa neerlandesa de neurociencia computacional) |
 
@@ -226,3 +227,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 1 | 2026-11-09 | Creación a partir de la propuesta aprobada por Sofía |
 | 2 | 2026-11-09 | D8 cerrada: código AGPL-3.0 y textos propios CC BY-SA 4.0 |
 | 3 | 2026-11-09 | Andamiaje de la Fase 0 hecho (repo, pyproject, CLI `syn` con `--version` y `doctor`, CI, licencias, README, índices de ADR y fases); D9 cerrada: repositorio público, Sofía no es colaboradora hasta que D5 lo pida |
+| 4 | 2026-11-09 | Nuevo spike S5 (LLM) para cerrar D4, que el cierre de la Fase 0 exige y ningún spike cubría; D5 anota que Sofía no tiene cuenta de GitHub; GitHub Pages activado (origen: GitHub Actions) |
