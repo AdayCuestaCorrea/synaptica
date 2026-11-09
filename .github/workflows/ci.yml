@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches-ignore: [data] # the data branch holds no code
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      SYN_DATA_DIR: ${{ github.workspace }}/.ci-data
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          enable-cache: true
+
+      - name: Install
+        run: uv sync --locked
+
+      - name: Lint
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
+
+      - name: Unit tests (no network)
+        run: uv run pytest -q
+
+      - name: Environment check
+        run: uv run syn doctor

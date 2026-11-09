@@ -25,3 +25,4 @@ site/_build/
 # Secrets
 .env
 .env.*
+.ci-data/
