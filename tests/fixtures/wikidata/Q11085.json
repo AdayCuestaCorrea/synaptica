@@ -1,0 +1,370 @@
+{
+  "entities": {
+    "Q11085": {
+      "type": "item",
+      "id": "Q11085",
+      "labels": {
+        "en": {
+          "language": "en",
+          "value": "Parkinson's disease"
+        },
+        "es": {
+          "language": "es",
+          "value": "enfermedad de Parkinson"
+        }
+      },
+      "claims": {
+        "P279": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P279",
+              "hash": "407cc01829ee87bc8e1bfae4299b2d1cf28d6e3b",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 2376264,
+                  "id": "Q2376264"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q11085$BE137008-EE2E-45D3-BA4D-596684817107",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "b68b5c04eca9bac1f478bb6c4ac597e1b4157a40",
+                "snaks": {
+                  "P248": [
+                    {
+                      "snaktype": "value",
+                      "property": "P248",
+                      "hash": "e0d9e28e955002e1f784eefdebc166c9db6c9302",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 55345445,
+                          "id": "Q55345445"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ],
+                  "P813": [
+                    {
+                      "snaktype": "value",
+                      "property": "P813",
+                      "hash": "c0afe4bba4d3df6a44244a9c1111c1a3b44a9e3e",
+                      "datavalue": {
+                        "value": {
+                          "time": "+2018-07-03T00:00:00Z",
+                          "timezone": 0,
+                          "before": 0,
+                          "after": 0,
+                          "precision": 11,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+                        },
+                        "type": "time"
+                      },
+                      "datatype": "time"
+                    }
+                  ],
+                  "P5270": [
+                    {
+                      "snaktype": "value",
+                      "property": "P5270",
+                      "hash": "85204082d6c79471e1a9661561f9d2251db2b762",
+                      "datavalue": {
+                        "value": "MONDO_0005180",
+                        "type": "string"
+                      },
+                      "datatype": "external-id"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248",
+                  "P813",
+                  "P5270"
+                ]
+              },
+              {
+                "hash": "4c116d8b42ec7212de3e898b982eb30906f8fc37",
+                "snaks": {
+                  "P248": [
+                    {
+                      "snaktype": "value",
+                      "property": "P248",
+                      "hash": "2d605fd668b56941351731a068d461b9fdceee72",
+                      "datavalue": {
+                        "value": {
+                          "entity-type": "item",
+                          "numeric-id": 5282129,
+                          "id": "Q5282129"
+                        },
+                        "type": "wikibase-entityid"
+                      },
+                      "datatype": "wikibase-item"
+                    }
+                  ],
+                  "P813": [
+                    {
+                      "snaktype": "value",
+                      "property": "P813",
+                      "hash": "1404ed43c31d4e2b8b834d065951afce7838bfe2",
+                      "datavalue": {
+                        "value": {
+                          "time": "+2020-11-30T00:00:00Z",
+                          "timezone": 0,
+                          "before": 0,
+                          "after": 0,
+                          "precision": 11,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+                        },
+                        "type": "time"
+                      },
+                      "datatype": "time"
+                    }
+                  ],
+                  "P699": [
+                    {
+                      "snaktype": "value",
+                      "property": "P699",
+                      "hash": "edcfb845d847a0be65714de0b16adc907c0c2bcb",
+                      "datavalue": {
+                        "value": "DOID:14330",
+                        "type": "string"
+                      },
+                      "datatype": "external-id"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P248",
+                  "P813",
+                  "P699"
+                ]
+              }
+            ]
+          }
+        ],
+        "P31": [
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P31",
+              "hash": "56788f079a85b2afcc4016ad8bd09c039525d959",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 42303753,
+                  "id": "Q42303753"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q11085$9e70fa40-47bf-e344-c23e-23e9e5043a39",
+            "rank": "normal",
+            "references": [
+              {
+                "hash": "16ed5d93833f10dd153347f992d98a32ac6b443a",
+                "snaks": {
+                  "P854": [
+                    {
+                      "snaktype": "value",
+                      "property": "P854",
+                      "hash": "3b573ad8238055fd0e4cf7692dba2d515a047e36",
+                      "datavalue": {
+                        "value": "http://www.mhlw.go.jp/english/wp/wp-hw10/dl/02e.pdf",
+                        "type": "string"
+                      },
+                      "datatype": "url"
+                    }
+                  ],
+                  "P813": [
+                    {
+                      "snaktype": "value",
+                      "property": "P813",
+                      "hash": "bb8b6a8c9f68f061441df77def72e85043544b06",
+                      "datavalue": {
+                        "value": {
+                          "time": "+2018-12-06T00:00:00Z",
+                          "timezone": 0,
+                          "before": 0,
+                          "after": 0,
+                          "precision": 11,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+                        },
+                        "type": "time"
+                      },
+                      "datatype": "time"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854",
+                  "P813"
+                ]
+              },
+              {
+                "hash": "30fb78a93104242709ce8230ea5b815869ced2b9",
+                "snaks": {
+                  "P854": [
+                    {
+                      "snaktype": "value",
+                      "property": "P854",
+                      "hash": "1720eed84ed8c143308efba861db60247459f01c",
+                      "datavalue": {
+                        "value": "http://www.nanbyou.or.jp/entry/169",
+                        "type": "string"
+                      },
+                      "datatype": "url"
+                    }
+                  ],
+                  "P813": [
+                    {
+                      "snaktype": "value",
+                      "property": "P813",
+                      "hash": "bb8b6a8c9f68f061441df77def72e85043544b06",
+                      "datavalue": {
+                        "value": {
+                          "time": "+2018-12-06T00:00:00Z",
+                          "timezone": 0,
+                          "before": 0,
+                          "after": 0,
+                          "precision": 11,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+                        },
+                        "type": "time"
+                      },
+                      "datatype": "time"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854",
+                  "P813"
+                ]
+              },
+              {
+                "hash": "fe2ee53b8d9aae9c2aa926782e6084a979780487",
+                "snaks": {
+                  "P854": [
+                    {
+                      "snaktype": "value",
+                      "property": "P854",
+                      "hash": "3e0d1ae114fa66b764985ff02f1d6ed5811f6d24",
+                      "datavalue": {
+                        "value": "https://ddrare.nibiohn.go.jp/",
+                        "type": "string"
+                      },
+                      "datatype": "url"
+                    }
+                  ],
+                  "P813": [
+                    {
+                      "snaktype": "value",
+                      "property": "P813",
+                      "hash": "2f459180e36a3aa4a1153a7a11fa053149537165",
+                      "datavalue": {
+                        "value": {
+                          "time": "+2019-05-17T00:00:00Z",
+                          "timezone": 0,
+                          "before": 0,
+                          "after": 0,
+                          "precision": 11,
+                          "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+                        },
+                        "type": "time"
+                      },
+                      "datatype": "time"
+                    }
+                  ]
+                },
+                "snaks-order": [
+                  "P854",
+                  "P813"
+                ]
+              }
+            ]
+          },
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P31",
+              "hash": "a7a2fd288378982977eb71e089a6628e85d163e3",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 929833,
+                  "id": "Q929833"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q11085$D7B750DD-B3A9-4F4E-90EC-6AC8FE439652",
+            "rank": "normal"
+          },
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P31",
+              "hash": "bcbc52012025a062fb4454f65addb4fc699386ca",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 112193867,
+                  "id": "Q112193867"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q11085$F8633283-097A-4305-996A-81D3BD43E773",
+            "rank": "normal"
+          },
+          {
+            "mainsnak": {
+              "snaktype": "value",
+              "property": "P31",
+              "hash": "66bbf77d5517a11d551e6336d38e0acfba38bf59",
+              "datavalue": {
+                "value": {
+                  "entity-type": "item",
+                  "numeric-id": 112965645,
+                  "id": "Q112965645"
+                },
+                "type": "wikibase-entityid"
+              },
+              "datatype": "wikibase-item"
+            },
+            "type": "statement",
+            "id": "Q11085$888305E3-FB46-4903-943F-6AE1D8327980",
+            "rank": "normal"
+          }
+        ]
+      },
+      "sitelinks": {
+        "enwiki": {
+          "site": "enwiki",
+          "title": "Parkinson's disease",
+          "badges": []
+        },
+        "eswiki": {
+          "site": "eswiki",
+          "title": "Enfermedad de Parkinson",
+          "badges": []
+        }
+      }
+    }
+  },
+  "success": 1
+}

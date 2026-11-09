@@ -1,0 +1,109 @@
+{
+  "nobelPrizes": [
+    {
+      "awardYear": "2026",
+      "category": {
+        "en": "Physiology or Medicine",
+        "no": "Fysiologi eller medisin",
+        "se": "Fysiologi eller medicin"
+      },
+      "categoryFullName": {
+        "en": "The Nobel Prize in Physiology or Medicine",
+        "no": "Nobelprisen i fysiologi eller medisin",
+        "se": "Nobelpriset i fysiologi eller medicin"
+      },
+      "dateAwarded": "2026-10-05",
+      "prizeAmount": 12000000,
+      "prizeAmountAdjusted": 12000000,
+      "links": [
+        {
+          "rel": "nobelPrize",
+          "href": "https://api.nobelprize.org/2/nobelPrize/med/2026",
+          "action": "GET",
+          "types": "application/json"
+        }
+      ],
+      "laureates": [
+        {
+          "id": "1061",
+          "knownName": {
+            "en": "Karl Deisseroth"
+          },
+          "fullName": {
+            "en": "Karl Deisseroth"
+          },
+          "portion": "1/3",
+          "sortOrder": "1",
+          "motivation": {
+            "en": "for their discoveries concerning light-gated ion channels and optogenetics",
+            "se": "för deras upptäckter rörande ljusstyrda jonkanaler och optogenetik"
+          },
+          "links": [
+            {
+              "rel": "laureate",
+              "href": "https://api.nobelprize.org/2/laureate/1061",
+              "action": "GET",
+              "types": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "1062",
+          "knownName": {
+            "en": "Peter Hegemann"
+          },
+          "fullName": {
+            "en": "Peter Hegemann"
+          },
+          "portion": "1/3",
+          "sortOrder": "2",
+          "motivation": {
+            "en": "for their discoveries concerning light-gated ion channels and optogenetics",
+            "se": "för deras upptäckter rörande ljusstyrda jonkanaler och optogenetik"
+          },
+          "links": [
+            {
+              "rel": "laureate",
+              "href": "https://api.nobelprize.org/2/laureate/1062",
+              "action": "GET",
+              "types": "application/json"
+            }
+          ]
+        },
+        {
+          "id": "1063",
+          "knownName": {
+            "en": "Georg Nagel"
+          },
+          "fullName": {
+            "en": "Georg Nagel"
+          },
+          "portion": "1/3",
+          "sortOrder": "3",
+          "motivation": {
+            "en": "for their discoveries concerning light-gated ion channels and optogenetics",
+            "se": "för deras upptäckter rörande ljusstyrda jonkanaler och optogenetik"
+          },
+          "links": [
+            {
+              "rel": "laureate",
+              "href": "https://api.nobelprize.org/2/laureate/1063",
+              "action": "GET",
+              "types": "application/json"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "offset": 0,
+    "limit": 25,
+    "nobelPrizeYear": 2026,
+    "nobelPrizeCategory": "med",
+    "count": 1,
+    "terms": "https://www.nobelprize.org/about/terms-of-use-for-api-nobelprize-org-and-data-nobelprize-org/",
+    "license": "https://www.nobelprize.org/about/terms-of-use-for-api-nobelprize-org-and-data-nobelprize-org/#licence",
+    "disclaimer": "https://www.nobelprize.org/about/terms-of-use-for-api-nobelprize-org-and-data-nobelprize-org/#disclaimer"
+  }
+}
