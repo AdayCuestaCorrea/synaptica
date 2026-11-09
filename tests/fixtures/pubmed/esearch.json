@@ -1,0 +1,25 @@
+{
+  "header": {
+    "type": "esearch",
+    "version": "0.3"
+  },
+  "esearchresult": {
+    "count": "3434",
+    "retmax": "10",
+    "retstart": "0",
+    "idlist": [
+      "43002189",
+      "43002187",
+      "43002171",
+      "43002170",
+      "43002166",
+      "43002164",
+      "43002159",
+      "43002157",
+      "43002151",
+      "43002149"
+    ],
+    "translationset": [],
+    "querytranslation": "(\"nervous system\"[MeSH Terms] OR \"nervous system diseases\"[MeSH Terms] OR \"brain\"[Title/Abstract] OR \"neuron*\"[Title/Abstract] OR \"neural\"[Title/Abstract] OR \"cortex\"[Title/Abstract] OR \"synap*\"[Title/Abstract]) AND 2026/11/02:2026/11/09[Date - Entry]"
+  }
+}

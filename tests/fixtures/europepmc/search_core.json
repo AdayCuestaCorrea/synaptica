@@ -1,0 +1,2823 @@
+{
+  "version": "6.9",
+  "hitCount": 189,
+  "nextCursorMark": "AoIIQD1OJSg1Njg0NDcyMg==",
+  "nextPageUrl": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28TITLE_ABS%3A%28brain+OR+neuron*+OR+neural+OR+cortex+OR+synap*%29%29+AND+FIRST_PDATE%3A%5B2026-11-02+TO+2026-11-09%5D+AND+OPEN_ACCESS%3Ay&cursorMark=AoIIQD1OJSg1Njg0NDcyMg%3D%3D&resultType=core&pageSize=10&format=json",
+  "request": {
+    "queryString": "(TITLE_ABS:(brain OR neuron* OR neural OR cortex OR synap*)) AND FIRST_PDATE:[2026-11-02 TO 2026-11-09] AND OPEN_ACCESS:y",
+    "resultType": "core",
+    "cursorMark": "*",
+    "pageSize": 10,
+    "sort": "",
+    "synonym": false
+  },
+  "resultList": {
+    "result": [
+      {
+        "id": "42976197",
+        "source": "MED",
+        "pmid": "42976197",
+        "pmcid": "PMC13730387",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC13730387"
+          ]
+        },
+        "doi": "10.1371/journal.pone.0362090",
+        "title": "Spreading depolarization drives distant connectivity changes in the focally injured cortex.",
+        "authorString": "Lachinova DA, Smirnova MP, Sysoev IV, Vinogradova LV.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Lachinova DA",
+              "lastName": "Lachinova",
+              "firstName": "Daria A",
+              "initials": "DA",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0005-7947-4966"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Institute of Higher Nervous Activity and Neurophysiology, Russian Academy of Sciences, Moscow, Russia."
+                  },
+                  {
+                    "affiliation": "Saratov State University, Saratov, Russia."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Smirnova MP",
+              "lastName": "Smirnova",
+              "firstName": "Maria P",
+              "initials": "MP",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Institute of Higher Nervous Activity and Neurophysiology, Russian Academy of Sciences, Moscow, Russia."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Sysoev IV",
+              "lastName": "Sysoev",
+              "firstName": "Ilya V",
+              "initials": "IV",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-9203-5504"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Institute of Higher Nervous Activity and Neurophysiology, Russian Academy of Sciences, Moscow, Russia."
+                  },
+                  {
+                    "affiliation": "Saratov State University, Saratov, Russia."
+                  },
+                  {
+                    "affiliation": "Peter the Great St. Petersburg Polytechnic University, St. Petersburg, Russia."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Vinogradova LV",
+              "lastName": "Vinogradova",
+              "firstName": "Lyudmila V",
+              "initials": "LV",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-0336-606X"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Institute of Higher Nervous Activity and Neurophysiology, Russian Academy of Sciences, Moscow, Russia."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-9203-5504"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-0336-606X"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0005-7947-4966"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "issue": "11",
+          "volume": "21",
+          "journalIssueId": 4305194,
+          "dateOfPublication": "2026 ",
+          "monthOfPublication": 0,
+          "yearOfPublication": 2026,
+          "journal": {
+            "medlineAbbreviation": "PLoS One",
+            "title": "PloS one",
+            "essn": "1932-6203",
+            "issn": "1932-6203",
+            "isoabbreviation": "PLoS One",
+            "nlmid": "101285081"
+          },
+          "printPublicationDate": "2026-01-01"
+        },
+        "pubYear": "2026",
+        "pageInfo": "e0362090",
+        "abstractText": "[REDACTED in fixture: publisher text, not redistributed]",
+        "affiliation": "Institute of Higher Nervous Activity and Neurophysiology, Russian Academy of Sciences, Moscow, Russia.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic-eCollection",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Cerebral Cortex",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PP",
+                    "qualifierName": "physiopathology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Somatosensory Cortex",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PP",
+                    "qualifierName": "physiopathology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Nerve Net",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PP",
+                    "qualifierName": "physiopathology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Animals"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Rats"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Brain Injuries",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PP",
+                    "qualifierName": "physiopathology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Male"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Cortical Spreading Depression",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PH",
+                    "qualifierName": "physiology"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1371/journal.pone.0362090"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13730387"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13730387?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 0,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "hasLabsLinks": "N",
+        "hasData": "Y",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "doi"
+          ]
+        },
+        "dateOfCompletion": "2026-11-03",
+        "dateOfCreation": "2026-11-03",
+        "dateOfRevision": "2026-11-05",
+        "electronicPublicationDate": "2026-11-03",
+        "firstPublicationDate": "2026-11-03",
+        "firstIndexDate": "2026-11-04",
+        "fullTextReceivedDate": "2026-11-04",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "42970571",
+        "source": "MED",
+        "pmid": "42970571",
+        "pmcid": "PMC13739216",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC13739216"
+          ]
+        },
+        "doi": "10.1371/journal.pbio.3003795",
+        "title": "Emotion knowledge is structured in a grid-like coordinate system in the human ventromedial prefrontal cortex.",
+        "authorString": "Ma Y, Kragel PA.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Ma Y",
+              "lastName": "Ma",
+              "firstName": "Yumeng",
+              "initials": "Y",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0005-6160-9252"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Psychology, Emory University, Atlanta, Georgia, United States of America."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Kragel PA",
+              "lastName": "Kragel",
+              "firstName": "Philip A",
+              "initials": "PA",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-9463-6381"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Psychology, Emory University, Atlanta, Georgia, United States of America."
+                  },
+                  {
+                    "affiliation": "Department of Psychiatry and Behavioral Sciences, Emory University, Atlanta, Georgia, United States of America."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-9463-6381"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0005-6160-9252"
+            }
+          ]
+        },
+        "journalInfo": {
+          "issue": "11",
+          "volume": "24",
+          "journalIssueId": 4305202,
+          "dateOfPublication": "2026 Nov",
+          "monthOfPublication": 11,
+          "yearOfPublication": 2026,
+          "journal": {
+            "medlineAbbreviation": "PLoS Biol",
+            "title": "PLoS biology",
+            "essn": "1545-7885",
+            "issn": "1544-9173",
+            "isoabbreviation": "PLoS Biol",
+            "nlmid": "101183755"
+          },
+          "printPublicationDate": "2026-11-01"
+        },
+        "pubYear": "2026",
+        "pageInfo": "e3003795",
+        "abstractText": "[REDACTED in fixture: publisher text, not redistributed]",
+        "affiliation": "Department of Psychology, Emory University, Atlanta, Georgia, United States of America.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic-eCollection",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "agency": "Emory University",
+              "orderIn": 0
+            }
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Prefrontal Cortex",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PH",
+                    "qualifierName": "physiology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Magnetic Resonance Imaging"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Facial Expression"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Brain Mapping"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Emotions",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PH",
+                    "qualifierName": "physiology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Adult"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Female"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Male"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Young Adult"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1371/journal.pbio.3003795"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13739216"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13739216?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 0,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "hasLabsLinks": "N",
+        "hasData": "Y",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2026-11-05",
+        "dateOfCreation": "2026-11-02",
+        "dateOfRevision": "2026-11-07",
+        "electronicPublicationDate": "2026-11-02",
+        "firstPublicationDate": "2026-11-02",
+        "firstIndexDate": "2026-11-03",
+        "fullTextReceivedDate": "2026-11-07",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "42969617",
+        "source": "MED",
+        "pmid": "42969617",
+        "pmcid": "PMC13714774",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC13714774"
+          ]
+        },
+        "doi": "10.1097/j.pain.0000000000004056",
+        "title": "Exercise therapy for chronic pain: an updated perspective on mesocorticolimbic system function.",
+        "authorString": "Senba E, Minami K, Habata S, Kami T, Kouda K, Tajima F, Kami K.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Senba E",
+              "lastName": "Senba",
+              "firstName": "Emiko",
+              "initials": "E",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Rehabilitation Medicine, Wakayama Medical University, Wakayama, Japan."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Minami K",
+              "lastName": "Minami",
+              "firstName": "Kohei",
+              "initials": "K",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Rehabilitation, Wakayama Medical University Hospital, Wakayama, Japan."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Habata S",
+              "lastName": "Habata",
+              "firstName": "Shogo",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Rehabilitation Medicine, Wakayama Medical University, Wakayama, Japan."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Kami T",
+              "lastName": "Kami",
+              "firstName": "Takuma",
+              "initials": "T",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Rehabilitation Medicine, Wakayama Medical University, Wakayama, Japan."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Kouda K",
+              "lastName": "Kouda",
+              "firstName": "Ken",
+              "initials": "K",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Rehabilitation Medicine, Wakayama Medical University, Wakayama, Japan."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Tajima F",
+              "lastName": "Tajima",
+              "firstName": "Fumihiro",
+              "initials": "F",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Chuzan Hospital, Okinawa, Japan."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Kami K",
+              "lastName": "Kami",
+              "firstName": "Katsuya",
+              "initials": "K",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Rehabilitation Medicine, Wakayama Medical University, Wakayama, Japan."
+                  },
+                  {
+                    "affiliation": "Department of Rehabilitation, Faculty of Wakayama Health Care Sciences, Takarazuka University of Medical and Health Care, Wakayama, Japan."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "journalInfo": {
+          "issue": "11S",
+          "volume": "167",
+          "journalIssueId": 4304055,
+          "dateOfPublication": "2026 Nov",
+          "monthOfPublication": 11,
+          "yearOfPublication": 2026,
+          "journal": {
+            "medlineAbbreviation": "Pain",
+            "title": "Pain",
+            "essn": "1872-6623",
+            "issn": "0304-3959",
+            "isoabbreviation": "Pain",
+            "nlmid": "7508686"
+          },
+          "printPublicationDate": "2026-11-01"
+        },
+        "pubYear": "2026",
+        "pageInfo": "S77-S89",
+        "abstractText": "[REDACTED in fixture: publisher text, not redistributed]",
+        "affiliation": "Department of Rehabilitation Medicine, Wakayama Medical University, Wakayama, Japan.",
+        "publicationStatus": "ppublish",
+        "language": "eng",
+        "pubModel": "Print-Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Review",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "agency": "the Japan Society for the Promotion of Science",
+              "grantId": "Grants-in-Aid for Scientific Research[C]23K10407",
+              "orderIn": 0
+            },
+            {
+              "agency": "Japan Society for Aeronautical and Space Sciences",
+              "grantId": "Grants-in-Aid for Scientific Research [C] 21K11268",
+              "orderIn": 0
+            }
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Cerebral Cortex",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PP",
+                    "qualifierName": "physiopathology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Animals"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Exercise Therapy",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "MT",
+                    "qualifierName": "methods"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Chronic Pain",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PP",
+                    "qualifierName": "physiopathology"
+                  },
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "RH",
+                    "qualifierName": "rehabilitation"
+                  },
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "TH",
+                    "qualifierName": "therapy"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Mesolimbic System"
+            }
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1097/j.pain.0000000000004056"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13714774"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13714774?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 0,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "N",
+        "hasLabsLinks": "N",
+        "hasData": "N",
+        "license": "cc by-nc-nd",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2026-11-02",
+        "dateOfCreation": "2026-11-02",
+        "dateOfRevision": "2026-11-03",
+        "electronicPublicationDate": "2026-11-02",
+        "firstPublicationDate": "2026-11-02",
+        "firstIndexDate": "2026-11-03",
+        "fullTextReceivedDate": "2026-10-30",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "42978770",
+        "source": "MED",
+        "pmid": "42978770",
+        "pmcid": "PMC13728234",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC13728234"
+          ]
+        },
+        "doi": "10.34133/bmr.0437",
+        "title": "Engineering Neural Interface Materials for Brain-Computer Interfaces: Toward Reliable Neural Information and Functional Recovery.",
+        "authorString": "Xu K, Li Q, Dong Y, Zhong M, Shi W, Lu B, Mo Z, Park J, Wu J.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Xu K",
+              "lastName": "Xu",
+              "firstName": "Kaixin",
+              "initials": "K",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0002-7394-5059"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "College of Art and Physical Education, Kyungil University, 50, Gamasil-gil, Hayang-eup, Gyeongsan-si, Gyeongbuk-do 38428, Korea."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Li Q",
+              "lastName": "Li",
+              "firstName": "Qinglei",
+              "initials": "Q",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "College of Art and Physical Education, Kyungil University, 50, Gamasil-gil, Hayang-eup, Gyeongsan-si, Gyeongbuk-do 38428, Korea."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Dong Y",
+              "lastName": "Dong",
+              "firstName": "Yangmei",
+              "initials": "Y",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0002-4629-9979"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Management, Zhengzhou University, Zhengzhou, Henan 475001, PR China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Zhong M",
+              "lastName": "Zhong",
+              "firstName": "Mian",
+              "initials": "M",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-8614-7668"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "College of Aviation Electronic and Electrical Engineering, Civil Aviation Flight University of China, Deyang 618307, PR China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Shi W",
+              "lastName": "Shi",
+              "firstName": "Weiquan",
+              "initials": "W",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "College of Art and Physical Education, Kyungil University, 50, Gamasil-gil, Hayang-eup, Gyeongsan-si, Gyeongbuk-do 38428, Korea."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Lu B",
+              "lastName": "Lu",
+              "firstName": "Bin",
+              "initials": "B",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "College of General Education, Zhejiang Vocational College of Special Education, Zhejiang, Hangzhou 310018, PR China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Mo Z",
+              "lastName": "Mo",
+              "firstName": "Zhiqi",
+              "initials": "Z",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "School of Wushu, Henan University, Kaifeng, Henan 475001, PR China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Park J",
+              "lastName": "Park",
+              "firstName": "Jaeyoung",
+              "initials": "J",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-1267-6716"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "College of Art and Physical Education, Kyungil University, 50, Gamasil-gil, Hayang-eup, Gyeongsan-si, Gyeongbuk-do 38428, Korea."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wu J",
+              "lastName": "Wu",
+              "firstName": "Jie",
+              "initials": "J",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "College of Art and Physical Education, Kyungil University, 50, Gamasil-gil, Hayang-eup, Gyeongsan-si, Gyeongbuk-do 38428, Korea."
+                  },
+                  {
+                    "affiliation": "School of Wushu, Henan University, Kaifeng, Henan 475001, PR China."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-8614-7668"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-1267-6716"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0002-4629-9979"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0002-7394-5059"
+            }
+          ]
+        },
+        "journalInfo": {
+          "volume": "2026",
+          "journalIssueId": 4307405,
+          "dateOfPublication": "2026 ",
+          "monthOfPublication": 0,
+          "yearOfPublication": 2026,
+          "journal": {
+            "medlineAbbreviation": "Biomater Res",
+            "title": "Biomaterials research",
+            "essn": "2055-7124",
+            "issn": "1226-4601",
+            "isoabbreviation": "Biomater Res",
+            "nlmid": "101650636"
+          },
+          "printPublicationDate": "2026-01-01"
+        },
+        "pubYear": "2026",
+        "pageInfo": "0437",
+        "abstractText": "[REDACTED in fixture: publisher text, not redistributed]",
+        "affiliation": "College of Art and Physical Education, Kyungil University, 50, Gamasil-gil, Hayang-eup, Gyeongsan-si, Gyeongbuk-do 38428, Korea.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic-eCollection",
+        "pubTypeList": {
+          "pubType": [
+            "review-article",
+            "Review",
+            "Journal Article"
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.34133/bmr.0437"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13728234"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13728234?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 0,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "hasLabsLinks": "N",
+        "hasData": "Y",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2026-11-04",
+        "dateOfCreation": "2026-11-04",
+        "dateOfRevision": "2026-11-05",
+        "electronicPublicationDate": "2026-11-03",
+        "firstPublicationDate": "2026-11-03",
+        "firstIndexDate": "2026-11-04",
+        "fullTextReceivedDate": "2026-11-04",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "42985990",
+        "source": "MED",
+        "pmid": "42985990",
+        "pmcid": "PMC13739276",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC13739276"
+          ]
+        },
+        "doi": "10.7554/elife.112088",
+        "title": "Distinct neural representations of perceptual and numerical absence in the human brain.",
+        "authorString": "Barnett B, Fleming SM.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Barnett B",
+              "lastName": "Barnett",
+              "firstName": "Benjy",
+              "initials": "B",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-4123-5693"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Imaging Neuroscience, University College London, London, United Kingdom."
+                  },
+                  {
+                    "affiliation": "School of Psychological Sciences, Birkbeck, University of London, London, United Kingdom."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Fleming SM",
+              "lastName": "Fleming",
+              "firstName": "Stephen M",
+              "initials": "SM",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-0233-4891"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Experimental Psychology and Institute of Cognitive Neuroscience, University College London, London, United Kingdom."
+                  },
+                  {
+                    "affiliation": "Max Planck UCL Centre for Computational Psychiatry and Ageing Research, University College London, London, United Kingdom."
+                  },
+                  {
+                    "affiliation": "Canadian Institute for Advanced Research (CIFAR), Brain, Mind and Consciousness Program, Toronto, Canada."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0003-0233-4891"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-4123-5693"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "volume": "15",
+          "journalIssueId": 4304034,
+          "dateOfPublication": "2026 Nov",
+          "monthOfPublication": 11,
+          "yearOfPublication": 2026,
+          "journal": {
+            "medlineAbbreviation": "Elife",
+            "title": "eLife",
+            "essn": "2050-084X",
+            "issn": "2050-084X",
+            "isoabbreviation": "Elife",
+            "nlmid": "101579614"
+          },
+          "printPublicationDate": "2026-11-01"
+        },
+        "pubYear": "2026",
+        "pageInfo": "RP112088",
+        "abstractText": "[REDACTED in fixture: publisher text, not redistributed]",
+        "affiliation": "Department of Imaging Neuroscience, University College London, London, United Kingdom.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "agency": "Leverhulme Trust",
+              "grantId": "RPG-2024-153",
+              "orderIn": 0
+            },
+            {
+              "agency": "European Research Council",
+              "acronym": "ERC_",
+              "grantId": "101043666",
+              "orderIn": 0
+            },
+            {
+              "agency": "TWCF",
+              "acronym": "TWCF",
+              "grantId": "TWCF22032",
+              "orderIn": 0
+            }
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Brain",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PH",
+                    "qualifierName": "physiology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Magnetoencephalography"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Cognition",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PH",
+                    "qualifierName": "physiology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Perception"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Adult"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Female"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Male"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Young Adult"
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Human",
+            "Detection",
+            "Neuroscience",
+            "perception",
+            "Absence",
+            "Numerosity",
+            "Zero"
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.7554/eLife.112088"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13739276"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13739276?pdf=render"
+            }
+          ]
+        },
+        "commentCorrectionList": {
+          "commentCorrection": [
+            {
+              "source": "PPR",
+              "id": "PPR1330545",
+              "type": "Preprint in",
+              "note": "Link created based on a title-first author match",
+              "orderIn": 10002
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 0,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "hasLabsLinks": "N",
+        "hasData": "Y",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "doi"
+          ]
+        },
+        "dateOfCompletion": "2026-11-05",
+        "dateOfCreation": "2026-11-05",
+        "dateOfRevision": "2026-11-07",
+        "electronicPublicationDate": "2026-11-05",
+        "firstPublicationDate": "2026-11-05",
+        "firstIndexDate": "2026-11-06",
+        "fullTextReceivedDate": "2026-11-07",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "42978843",
+        "source": "MED",
+        "pmid": "42978843",
+        "pmcid": "PMC13727673",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC13727673"
+          ]
+        },
+        "doi": "10.1038/s44335-026-00105-0",
+        "title": "Multimodal training in reconfigurable brain-inspired iontronic networks.",
+        "authorString": "Conte M, Kamsma TM, van Roij R, Dijkstra M.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Conte M",
+              "lastName": "Conte",
+              "firstName": "Monica",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Soft Condensed Matter & Biophysics, Debye Institute for Nanomaterials Science, Utrecht University, Utrecht, The Netherlands."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Kamsma TM",
+              "lastName": "Kamsma",
+              "firstName": "Tim M",
+              "initials": "TM",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-8898-8337"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Institute for Theoretical Physics, Utrecht University, Utrecht, The Netherlands."
+                  },
+                  {
+                    "affiliation": "Mathematical Institute, Utrecht University, Utrecht, The Netherlands."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "van Roij R",
+              "lastName": "van Roij",
+              "firstName": "René",
+              "initials": "R",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-2221-294X"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Institute for Theoretical Physics, Utrecht University, Utrecht, The Netherlands."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Dijkstra M",
+              "lastName": "Dijkstra",
+              "firstName": "Marjolein",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Soft Condensed Matter & Biophysics, Debye Institute for Nanomaterials Science, Utrecht University, Utrecht, The Netherlands."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-2221-294X"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-8898-8337"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "issue": "1",
+          "volume": "3",
+          "journalIssueId": 4090971,
+          "dateOfPublication": "2026 ",
+          "monthOfPublication": 0,
+          "yearOfPublication": 2026,
+          "journal": {
+            "medlineAbbreviation": "Npj Unconv Comput",
+            "title": "Npj unconventional computing",
+            "essn": "3004-8672",
+            "issn": "3004-8672",
+            "isoabbreviation": "Npj Unconv Comput",
+            "nlmid": "9918863332106676"
+          },
+          "printPublicationDate": "2026-01-01"
+        },
+        "pubYear": "2026",
+        "pageInfo": "58",
+        "abstractText": "[REDACTED in fixture: publisher text, not redistributed]",
+        "affiliation": "Soft Condensed Matter & Biophysics, Debye Institute for Nanomaterials Science, Utrecht University, Utrecht, The Netherlands.",
+        "publicationStatus": "ppublish",
+        "language": "eng",
+        "pubModel": "Print-Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "agency": "European Research Council",
+              "grantId": "884902",
+              "orderIn": 0
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Engineering",
+            "Physics",
+            "Materials Science",
+            "Mathematics And Computing",
+            "Nanoscience And Technology"
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1038/s44335-026-00105-0"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13727673"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13727673?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 0,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "hasLabsLinks": "N",
+        "hasData": "Y",
+        "license": "cc by-nc-nd",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "doi"
+          ]
+        },
+        "dateOfCreation": "2026-11-04",
+        "dateOfRevision": "2026-11-05",
+        "electronicPublicationDate": "2026-11-02",
+        "firstPublicationDate": "2026-11-02",
+        "firstIndexDate": "2026-11-04",
+        "fullTextReceivedDate": "2026-11-04",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "42996891",
+        "source": "MED",
+        "pmid": "42996891",
+        "pmcid": "PMC13740678",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC13740678"
+          ]
+        },
+        "doi": "10.1155/da/1506367",
+        "title": "Social Anxiety Modulates Default Mode Network Dysfunction and Working Memory Impairment During Social Media-Like Cue Distraction. ",
+        "authorString": "Hu Y, Wei Z, Xu L, Becker B, Kou J.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Hu Y",
+              "lastName": "Hu",
+              "firstName": "Yuan",
+              "initials": "Y",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Institute of Brain and Psychological Sciences Sichuan Normal University Chengdu China sicnu.edu.cn."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Wei Z",
+              "lastName": "Wei",
+              "firstName": "Zijie",
+              "initials": "Z",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Institute of Brain and Psychological Sciences Sichuan Normal University Chengdu China sicnu.edu.cn."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Xu L",
+              "lastName": "Xu",
+              "firstName": "Lei",
+              "initials": "L",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-9942-0117"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Institute of Brain and Psychological Sciences Sichuan Normal University Chengdu China sicnu.edu.cn."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Becker B",
+              "lastName": "Becker",
+              "firstName": "Benjamin",
+              "initials": "B",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Psychology The University of Hong Kong Hong Kong China hku.hk."
+                  },
+                  {
+                    "affiliation": "State Key Laboratory of Brain and Cognitive Sciences The University of Hong Kong Hong Kong China hku.hk."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Kou J",
+              "lastName": "Kou",
+              "firstName": "Juan",
+              "initials": "J",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-0634-7991"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Institute of Brain and Psychological Sciences Sichuan Normal University Chengdu China sicnu.edu.cn."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-9942-0117"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-0634-7991"
+            }
+          ]
+        },
+        "journalInfo": {
+          "volume": "2026",
+          "journalIssueId": 4089166,
+          "dateOfPublication": "2026 ",
+          "monthOfPublication": 0,
+          "yearOfPublication": 2026,
+          "journal": {
+            "medlineAbbreviation": "Depress Anxiety",
+            "title": "Depression and anxiety",
+            "essn": "1520-6394",
+            "issn": "1091-4269",
+            "isoabbreviation": "Depress Anxiety",
+            "nlmid": "9708816"
+          },
+          "printPublicationDate": "2026-01-01"
+        },
+        "pubYear": "2026",
+        "pageInfo": "1506367",
+        "abstractText": "[REDACTED in fixture: publisher text, not redistributed]",
+        "affiliation": "Institute of Brain and Psychological Sciences Sichuan Normal University Chengdu China sicnu.edu.cn.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic-eCollection",
+        "pubTypeList": {
+          "pubType": [
+            "IM",
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Gyrus Cinguli",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "DG",
+                    "qualifierName": "diagnostic imaging"
+                  },
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PP",
+                    "qualifierName": "physiopathology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Memory Disorders",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PP",
+                    "qualifierName": "physiopathology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Magnetic Resonance Imaging"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Anxiety",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PP",
+                    "qualifierName": "physiopathology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Cues"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Memory, Short-Term",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PH",
+                    "qualifierName": "physiology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Adult"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Female"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Male"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Young Adult"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Social Media"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Default Mode Network",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "DG",
+                    "qualifierName": "diagnostic imaging"
+                  },
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PP",
+                    "qualifierName": "physiopathology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Media Exposure"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Digital Media"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1155/da/1506367"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13740678"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13740678?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 0,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "N",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "hasLabsLinks": "N",
+        "hasData": "Y",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "N",
+        "dateOfCompletion": "2026-11-07",
+        "dateOfCreation": "2026-11-07",
+        "dateOfRevision": "2026-11-08",
+        "electronicPublicationDate": "2026-11-05",
+        "firstPublicationDate": "2026-11-05",
+        "firstIndexDate": "2026-11-08",
+        "fullTextReceivedDate": "2026-11-07",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "42979283",
+        "source": "MED",
+        "pmid": "42979283",
+        "pmcid": "PMC13728934",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC13728934"
+          ]
+        },
+        "doi": "10.1162/imag.a.1428",
+        "title": "Negative emotion recognition impairments despite preserved neural activity in patients with mild cognitive impairment (MCI).",
+        "authorString": "Mahadevan R, Giesers NK, Liman T, Witt K, Hildebrandt A, Roheger M, Rosemann S.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Mahadevan R",
+              "lastName": "Mahadevan",
+              "firstName": "Rachana",
+              "initials": "R",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0002-5191-6417"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Ambulatory Assessment in Psychology Lab, Department of Psychology, Carl von Ossietzky Universität Oldenburg, Oldenburg, Germany."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Giesers NK",
+              "lastName": "Giesers",
+              "firstName": "Naomi Kristin",
+              "initials": "NK",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University Clinic of Neurology, Evangelical Hospital Oldenburg, Oldenburg, Germany."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Liman T",
+              "lastName": "Liman",
+              "firstName": "Thomas",
+              "initials": "T",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University Clinic of Neurology, Evangelical Hospital Oldenburg, Oldenburg, Germany."
+                  },
+                  {
+                    "affiliation": "Charité - Universitätsmedizin Berlin, Center for Stroke Research Berlin, Berlin, Germany."
+                  },
+                  {
+                    "affiliation": "German Center for Neurodegenerative Disease DZNE, Berlin, Germany."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Witt K",
+              "lastName": "Witt",
+              "firstName": "Karsten",
+              "initials": "K",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "University Clinic of Neurology, Evangelical Hospital Oldenburg, Oldenburg, Germany."
+                  },
+                  {
+                    "affiliation": "Research Center Neurosensory Science, University of Oldenburg, Oldenburg, Germany."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Hildebrandt A",
+              "lastName": "Hildebrandt",
+              "firstName": "Andrea",
+              "initials": "A",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Psychological Methods and Statistics, Department of Psychology, Carl von Ossietzky Universität Oldenburg, Oldenburg, Germany."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Roheger M",
+              "lastName": "Roheger",
+              "firstName": "Mandy",
+              "initials": "M",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Ambulatory Assessment in Psychology Lab, Department of Psychology, Carl von Ossietzky Universität Oldenburg, Oldenburg, Germany."
+                  },
+                  {
+                    "affiliation": "Research Center Neurosensory Science, University of Oldenburg, Oldenburg, Germany."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Rosemann S",
+              "lastName": "Rosemann",
+              "firstName": "Stephanie",
+              "initials": "S",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Research Center Neurosensory Science, University of Oldenburg, Oldenburg, Germany."
+                  },
+                  {
+                    "affiliation": "Biological Psychology Lab, Department of Psychology, Carl von Ossietzky University Oldenburg, Oldenburg, Germany."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0009-0002-5191-6417"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "volume": "4",
+          "journalIssueId": 4088095,
+          "dateOfPublication": "2026 ",
+          "monthOfPublication": 0,
+          "yearOfPublication": 2026,
+          "journal": {
+            "medlineAbbreviation": "Imaging Neurosci (Camb)",
+            "title": "Imaging neuroscience (Cambridge, Mass.)",
+            "essn": "2837-6056",
+            "issn": "2837-6056",
+            "isoabbreviation": "Imaging Neurosci (Camb)",
+            "nlmid": "9918663686606676"
+          },
+          "printPublicationDate": "2026-01-01"
+        },
+        "pubYear": "2026",
+        "pageInfo": "IMAG.a.1428",
+        "abstractText": "[REDACTED in fixture: publisher text, not redistributed]",
+        "affiliation": "Ambulatory Assessment in Psychology Lab, Department of Psychology, Carl von Ossietzky Universität Oldenburg, Oldenburg, Germany.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic-eCollection",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Brain",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "DG",
+                    "qualifierName": "diagnostic imaging"
+                  },
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PP",
+                    "qualifierName": "physiopathology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Magnetic Resonance Imaging"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Facial Expression"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Brain Mapping"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Emotions",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PH",
+                    "qualifierName": "physiology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Aged"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Middle Aged"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Female"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Male"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Facial Recognition",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PH",
+                    "qualifierName": "physiology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Cognitive Dysfunction",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "DG",
+                    "qualifierName": "diagnostic imaging"
+                  },
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PP",
+                    "qualifierName": "physiopathology"
+                  },
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PX",
+                    "qualifierName": "psychology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Recognition, Psychology",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PH",
+                    "qualifierName": "physiology"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Neural Activity",
+            "Mild Cognitive Impairment",
+            "Face Processing",
+            "Facial Emotion Recognition",
+            "Socio-emotional Functioning"
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1162/IMAG.a.1428"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13728934"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13728934?pdf=render"
+            }
+          ]
+        },
+        "commentCorrectionList": {
+          "commentCorrection": [
+            {
+              "source": "PPR",
+              "id": "PPR1078727",
+              "type": "Preprint in",
+              "note": "Link created based on a title-first author match",
+              "orderIn": 10002
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 0,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "hasLabsLinks": "N",
+        "hasData": "Y",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "doi"
+          ]
+        },
+        "dateOfCompletion": "2026-11-04",
+        "dateOfCreation": "2026-11-04",
+        "dateOfRevision": "2026-11-05",
+        "electronicPublicationDate": "2026-11-02",
+        "firstPublicationDate": "2026-11-02",
+        "firstIndexDate": "2026-11-04",
+        "fullTextReceivedDate": "2026-11-04",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "42991868",
+        "source": "MED",
+        "pmid": "42991868",
+        "pmcid": "PMC13736823",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC13736823"
+          ]
+        },
+        "doi": "10.1162/imag.a.1435",
+        "title": "Temporal confounds emulate multivariate fMRI measures of perceptual learning.",
+        "authorString": "Milne GA, Staeubli K, Chow-Wing-Bom HT, Greenwood JA, Kok P, Maimon-Mor RO, Dekker TM.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Milne GA",
+              "lastName": "Milne",
+              "firstName": "Georgia A",
+              "initials": "GA",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-9355-9967"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Institute of Ophthalmology, University College London, London, United Kingdom."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Staeubli K",
+              "lastName": "Staeubli",
+              "firstName": "Kim",
+              "initials": "K",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0007-8316-0411"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Institute of Ophthalmology, University College London, London, United Kingdom."
+                  },
+                  {
+                    "affiliation": "Experimental Psychology, Division of Psychology and Language Sciences, University College London, London, United Kingdom."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Chow-Wing-Bom HT",
+              "lastName": "Chow-Wing-Bom",
+              "firstName": "Hugo T",
+              "initials": "HT",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-3348-3005"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Institute of Ophthalmology, University College London, London, United Kingdom."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Greenwood JA",
+              "lastName": "Greenwood",
+              "firstName": "John A",
+              "initials": "JA",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-6184-0818"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Experimental Psychology, Division of Psychology and Language Sciences, University College London, London, United Kingdom."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Kok P",
+              "lastName": "Kok",
+              "firstName": "Peter",
+              "initials": "P",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Department of Imaging Neuroscience, UCL Queen Square Institute of Neurology, University College London, London, United Kingdom."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Maimon-Mor RO",
+              "lastName": "Maimon-Mor",
+              "firstName": "Roni O",
+              "initials": "RO",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0001-5262-9976"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Institute of Ophthalmology, University College London, London, United Kingdom."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Dekker TM",
+              "lastName": "Dekker",
+              "firstName": "Tessa M",
+              "initials": "TM",
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "Institute of Ophthalmology, University College London, London, United Kingdom."
+                  },
+                  {
+                    "affiliation": "Experimental Psychology, Division of Psychology and Language Sciences, University College London, London, United Kingdom."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0001-5262-9976"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-6184-0818"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0002-9355-9967"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-3348-3005"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0007-8316-0411"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "volume": "4",
+          "journalIssueId": 4250530,
+          "dateOfPublication": "2026",
+          "monthOfPublication": 0,
+          "yearOfPublication": 2026,
+          "journal": {
+            "medlineAbbreviation": "Imaging Neurosci (Camb)",
+            "title": "Imaging neuroscience (Cambridge, Mass.)",
+            "essn": "2837-6056",
+            "issn": "2837-6056",
+            "isoabbreviation": "Imaging Neurosci (Camb)",
+            "nlmid": "9918663686606676"
+          },
+          "printPublicationDate": "2026-01-01"
+        },
+        "pubYear": "2026",
+        "pageInfo": "IMAG.a.1435",
+        "abstractText": "[REDACTED in fixture: publisher text, not redistributed]",
+        "affiliation": "Institute of Ophthalmology, University College London, London, United Kingdom.",
+        "publicationStatus": "epublish",
+        "language": "eng",
+        "pubModel": "Electronic-eCollection",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "agency": "Wellcome Trust",
+              "grantId": "306332/Z/23/Z",
+              "orderIn": 0
+            }
+          ]
+        },
+        "meshHeadingList": {
+          "meshHeading": [
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Brain",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "DG",
+                    "qualifierName": "diagnostic imaging"
+                  },
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PH",
+                    "qualifierName": "physiology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Visual Cortex",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "DG",
+                    "qualifierName": "diagnostic imaging"
+                  },
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PH",
+                    "qualifierName": "physiology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Humans"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Magnetic Resonance Imaging",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "MT",
+                    "qualifierName": "methods"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Artifacts"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Brain Mapping",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "MT",
+                    "qualifierName": "methods"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Multivariate Analysis"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Photic Stimulation"
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Learning",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PH",
+                    "qualifierName": "physiology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "Y",
+              "descriptorName": "Visual Perception",
+              "meshQualifierList": {
+                "meshQualifier": [
+                  {
+                    "majorTopic_YN": "N",
+                    "abbreviation": "PH",
+                    "qualifierName": "physiology"
+                  }
+                ]
+              }
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Image Processing, Computer-Assisted"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Adult"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Female"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Male"
+            },
+            {
+              "majorTopic_YN": "N",
+              "descriptorName": "Young Adult"
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Cognition",
+            "fMRI",
+            "RSA",
+            "perception",
+            "Two-tone Images",
+            "Perceptual Reorganisation"
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1162/IMAG.a.1435"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13736823"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13736823?pdf=render"
+            }
+          ]
+        },
+        "commentCorrectionList": {
+          "commentCorrection": [
+            {
+              "source": "PPR",
+              "id": "PPR1068506",
+              "type": "Preprint in",
+              "note": "Link created based on a title-first author match",
+              "orderIn": 10002
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 0,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "hasLabsLinks": "N",
+        "hasData": "Y",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "doi"
+          ]
+        },
+        "dateOfCompletion": "2026-11-06",
+        "dateOfCreation": "2026-11-06",
+        "dateOfRevision": "2026-11-07",
+        "electronicPublicationDate": "2026-11-04",
+        "firstPublicationDate": "2026-11-04",
+        "firstIndexDate": "2026-11-07",
+        "fullTextReceivedDate": "2026-11-07",
+        "hasEvaluations": "N"
+      },
+      {
+        "id": "42977573",
+        "source": "MED",
+        "pmid": "42977573",
+        "pmcid": "PMC13731086",
+        "fullTextIdList": {
+          "fullTextId": [
+            "PMC13731086"
+          ]
+        },
+        "doi": "10.1002/advs.78508",
+        "title": "Device Stochasticity Directly Implements Bayesian Sampling in Spiking Neurons.",
+        "authorString": "Zheng H, Liu J, Yang K.",
+        "authorList": {
+          "author": [
+            {
+              "fullName": "Zheng H",
+              "lastName": "Zheng",
+              "firstName": "Huannan",
+              "initials": "H",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0003-0805-8648"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "MICS Thrust, Function Hub, The Hong Kong University of Science and Technology (Guangzhou), Guangdong, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Liu J",
+              "lastName": "Liu",
+              "firstName": "Jingli",
+              "initials": "J",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0009-0000-7155-9395"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "MICS Thrust, Function Hub, The Hong Kong University of Science and Technology (Guangzhou), Guangdong, China."
+                  }
+                ]
+              }
+            },
+            {
+              "fullName": "Yang K",
+              "lastName": "Yang",
+              "firstName": "Kezhou",
+              "initials": "K",
+              "authorId": {
+                "type": "ORCID",
+                "value": "0000-0002-1004-8767"
+              },
+              "authorAffiliationDetailsList": {
+                "authorAffiliation": [
+                  {
+                    "affiliation": "MICS Thrust, Function Hub, The Hong Kong University of Science and Technology (Guangzhou), Guangdong, China."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "authorIdList": {
+          "authorId": [
+            {
+              "type": "ORCID",
+              "value": "0000-0002-1004-8767"
+            },
+            {
+              "type": "ORCID",
+              "value": "0000-0003-0805-8648"
+            },
+            {
+              "type": "ORCID",
+              "value": "0009-0000-7155-9395"
+            }
+          ]
+        },
+        "dataLinksTagsList": {
+          "dataLinkstag": [
+            "supporting_data"
+          ]
+        },
+        "journalInfo": {
+          "journalIssueId": 4303336,
+          "dateOfPublication": "2026 Nov",
+          "monthOfPublication": 11,
+          "yearOfPublication": 2026,
+          "journal": {
+            "medlineAbbreviation": "Adv Sci (Weinh)",
+            "title": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
+            "essn": "2198-3844",
+            "issn": "2198-3844",
+            "isoabbreviation": "Adv Sci (Weinh)",
+            "nlmid": "101664569"
+          },
+          "printPublicationDate": "2026-11-01"
+        },
+        "pubYear": "2026",
+        "pageInfo": "e78508",
+        "abstractText": "[REDACTED in fixture: publisher text, not redistributed]",
+        "affiliation": "MICS Thrust, Function Hub, The Hong Kong University of Science and Technology (Guangzhou), Guangdong, China.",
+        "publicationStatus": "aheadofprint",
+        "language": "eng",
+        "pubModel": "Print-Electronic",
+        "pubTypeList": {
+          "pubType": [
+            "research-article",
+            "Journal Article"
+          ]
+        },
+        "grantsList": {
+          "grant": [
+            {
+              "agency": "Guangdong Science and Technology Department",
+              "grantId": "2025D03J0018",
+              "orderIn": 0
+            },
+            {
+              "agency": "the Guangzhou-HKUST(GZ) Joint Funding Program",
+              "grantId": "2025A03J3717",
+              "orderIn": 0
+            }
+          ]
+        },
+        "keywordList": {
+          "keyword": [
+            "Spiking Neural Network",
+            "Probabilistic Computing",
+            "Device Uncertainty"
+          ]
+        },
+        "subsetList": {
+          "subset": [
+            {
+              "code": "IM",
+              "name": "Index Medicus"
+            }
+          ]
+        },
+        "fullTextUrlList": {
+          "fullTextUrl": [
+            {
+              "availability": "Subscription required",
+              "availabilityCode": "S",
+              "documentStyle": "doi",
+              "site": "DOI",
+              "url": "https://doi.org/10.1002/advs.78508"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "html",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13731086"
+            },
+            {
+              "availability": "Open access",
+              "availabilityCode": "OA",
+              "documentStyle": "pdf",
+              "site": "Europe_PMC",
+              "url": "https://europepmc.org/articles/PMC13731086?pdf=render"
+            }
+          ]
+        },
+        "isOpenAccess": "Y",
+        "inEPMC": "Y",
+        "inPMC": "Y",
+        "citedByCount": 0,
+        "hasReferences": "Y",
+        "hasTextMinedTerms": "Y",
+        "hasDbCrossReferences": "N",
+        "hasPDF": "Y",
+        "hasBook": "N",
+        "hasSuppl": "Y",
+        "hasLabsLinks": "N",
+        "hasData": "Y",
+        "license": "cc by",
+        "authMan": "N",
+        "epmcAuthMan": "N",
+        "nihAuthMan": "N",
+        "hasTMAccessionNumbers": "Y",
+        "tmAccessionTypeList": {
+          "accessionType": [
+            "doi"
+          ]
+        },
+        "dateOfCreation": "2026-11-03",
+        "dateOfRevision": "2026-11-06",
+        "electronicPublicationDate": "2026-11-03",
+        "firstPublicationDate": "2026-11-03",
+        "firstIndexDate": "2026-11-04",
+        "fullTextReceivedDate": "2026-11-05",
+        "hasEvaluations": "N"
+      }
+    ]
+  }
+}
