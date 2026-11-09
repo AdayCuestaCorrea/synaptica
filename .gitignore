@@ -1,0 +1,27 @@
+# Local data: a worktree of the `data` branch (git worktree add data data)
+/data/
+
+# Warehouse (DuckDB, if D1 picks it)
+*.duckdb
+*.duckdb.wal
+
+# dbt
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+dbt/.user.yml
+logs/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Generated site
+site/_build/
+
+# Secrets
+.env
+.env.*
