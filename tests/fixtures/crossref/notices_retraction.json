@@ -1,0 +1,2563 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 5918,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              10
+            ]
+          ],
+          "date-time": "2026-10-10T21:51:05Z",
+          "timestamp": 1791669065770,
+          "version": "4.3.4"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1186/s41065-025-00496-3",
+            "type": "retraction",
+            "label": "Retraction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  10
+                ]
+              ],
+              "date-time": "2026-10-10T00:00:00Z",
+              "timestamp": 1791590400000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Springer Science and Business Media LLC",
+        "issue": "1",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  10
+                ]
+              ],
+              "date-time": "2026-10-10T00:00:00Z",
+              "timestamp": 1791590400000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  10
+                ]
+              ],
+              "date-time": "2026-10-10T00:00:00Z",
+              "timestamp": 1791590400000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Hereditas"
+        ],
+        "DOI": "10.1186/s41065-026-00753-z",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              10
+            ]
+          ],
+          "date-time": "2026-10-10T21:42:26Z",
+          "timestamp": 1791668546000
+        },
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Retraction Note: In silico and in vitro assessment of TP53, ATM, RAD51, and BAX genes in gastric cancer and their contribution to radiotherapy resistance"
+        ],
+        "prefix": "10.1186",
+        "volume": "163",
+        "author": [
+          {
+            "given": "Junwei",
+            "family": "Zhang",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Pengtao",
+            "family": "He",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              10
+            ]
+          ]
+        },
+        "container-title": [
+          "Hereditas"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://link.springer.com/content/pdf/10.1186/s41065-026-00753-z.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://link.springer.com/article/10.1186/s41065-026-00753-z",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://link.springer.com/content/pdf/10.1186/s41065-026-00753-z.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              10
+            ]
+          ],
+          "date-time": "2026-10-10T21:42:27Z",
+          "timestamp": 1791668547000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://link.springer.com/10.1186/s41065-026-00753-z"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              10
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "1",
+          "published-online": {
+            "date-parts": [
+              [
+                2026,
+                12
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "753"
+        ],
+        "URL": "https://doi.org/10.1186/s41065-026-00753-z",
+        "ISSN": [
+          "1601-5223"
+        ],
+        "issn-type": [
+          {
+            "value": "1601-5223",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              10
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "10 October 2026",
+            "order": 1,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          }
+        ],
+        "article-number": "110"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              11
+            ]
+          ],
+          "date-time": "2026-10-11T21:46:08Z",
+          "timestamp": 1791755168187,
+          "version": "4.3.4"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1080/01616412.2025.2582699",
+            "type": "retraction",
+            "label": "Retraction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  11
+                ]
+              ],
+              "date-time": "2026-10-11T00:00:00Z",
+              "timestamp": 1791676800000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Informa UK Limited",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  11
+                ]
+              ],
+              "date-time": "2026-10-11T00:00:00Z",
+              "timestamp": 1791676800000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.1080/policies-text-data-mining"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "www.tandfonline.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Neurological Research"
+        ],
+        "DOI": "10.1080/01616412.2026.2739202",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              11
+            ]
+          ],
+          "date-time": "2026-10-11T21:16:53Z",
+          "timestamp": 1791753413000
+        },
+        "page": "1-1",
+        "update-policy": "https://doi.org/10.1080/tandf_crossmark_01",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Statement of Retraction: Predictors of futile recanalization following mechanical thrombectomy in acute ischemic stroke: a single-center retrospective cohort study"
+        ],
+        "prefix": "10.1080",
+        "member": "301",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              11
+            ]
+          ]
+        },
+        "container-title": [
+          "Neurological Research"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://www.tandfonline.com/doi/pdf/10.1080/01616412.2026.2739202",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.tandfonline.com/doi/full-xml/10.1080/01616412.2026.2739202",
+            "content-type": "application/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://www.tandfonline.com/doi/pdf/10.1080/01616412.2026.2739202",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              11
+            ]
+          ],
+          "date-time": "2026-10-11T21:16:53Z",
+          "timestamp": 1791753413000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.tandfonline.com/doi/full/10.1080/01616412.2026.2739202"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              11
+            ]
+          ]
+        },
+        "references-count": 0,
+        "alternative-id": [
+          "10.1080/01616412.2026.2739202"
+        ],
+        "URL": "https://doi.org/10.1080/01616412.2026.2739202",
+        "ISSN": [
+          "0161-6412",
+          "1743-1328"
+        ],
+        "issn-type": [
+          {
+            "value": "0161-6412",
+            "type": "print"
+          },
+          {
+            "value": "1743-1328",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              11
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "The publishing and review policy for this title is described in its Aims & Scope.",
+            "order": 1,
+            "name": "peerreview_statement",
+            "label": "Peer Review Statement"
+          },
+          {
+            "value": "http://www.tandfonline.com/action/journalInformation?show=aimsScope&journalCode=yner20",
+            "URL": "http://www.tandfonline.com/action/journalInformation?show=aimsScope&journalCode=yner20",
+            "order": 2,
+            "name": "aims_and_scope_url",
+            "label": "Aim & Scope"
+          },
+          {
+            "value": "2026-10-11",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ],
+          "date-time": "2026-10-15T15:44:23Z",
+          "timestamp": 1792079063547,
+          "version": "4.4.0"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1016/j.ceramint.2023.07.065",
+            "type": "retraction",
+            "label": "Retraction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2023,
+                  10,
+                  1
+                ]
+              ],
+              "date-time": "2023-10-01T00:00:00Z",
+              "timestamp": 1696118400000
+            }
+          }
+        ],
+        "reference-count": 44,
+        "publisher": "Elsevier BV",
+        "issue": "19",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  10,
+                  1
+                ]
+              ],
+              "date-time": "2023-10-01T00:00:00Z",
+              "timestamp": 1696118400000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2023,
+                  10,
+                  1
+                ]
+              ],
+              "date-time": "2023-10-01T00:00:00Z",
+              "timestamp": 1696118400000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/legal/tdmrep-license"
+          }
+        ],
+        "funder": [
+          {
+            "DOI": "10.13039/501100023674",
+            "name": "Deanship of Scientific Research, King Khalid University",
+            "doi-asserted-by": "publisher",
+            "award": [
+              "RGP2/325/44"
+            ],
+            "award-info": [
+              {
+                "award-number": [
+                  "RGP2/325/44"
+                ]
+              }
+            ],
+            "id": [
+              {
+                "id": "10.13039/501100023674",
+                "id-type": "DOI",
+                "asserted-by": "publisher"
+              }
+            ]
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "elsevier.com",
+            "sciencedirect.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Ceramics International"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2023,
+              10
+            ]
+          ]
+        },
+        "DOI": "10.1016/j.ceramint.2023.07.065",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2023,
+              7,
+              7
+            ]
+          ],
+          "date-time": "2023-07-07T21:04:05Z",
+          "timestamp": 1688763845000
+        },
+        "page": "31193-31209",
+        "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 32,
+        "title": [
+          "RETRACTED: Analysis and characterization of structural, morphological, thermal properties and colloidal stability of CuO nanoparticles for various natural fuels"
+        ],
+        "prefix": "10.1016",
+        "volume": "49",
+        "author": [
+          {
+            "given": "C. Arun",
+            "family": "Paul",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "E.",
+            "family": "Ranjith Kumar",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "J.",
+            "family": "Suryakanth",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "A.F. Abd",
+            "family": "El-Rehim",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": "[44 items dropped in fixture]",
+        "updated-by": [
+          {
+            "DOI": "10.1016/j.ceramint.2023.07.065",
+            "type": "retraction",
+            "label": "Retraction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2023,
+                  10,
+                  1
+                ]
+              ],
+              "date-time": "2023-10-01T00:00:00Z",
+              "timestamp": 1696118400000
+            }
+          },
+          {
+            "DOI": "10.1016/j.ceramint.2026.07.398",
+            "type": "erratum",
+            "label": "Erratum",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  7,
+                  30
+                ]
+              ],
+              "date-time": "2026-07-30T00:00:00Z",
+              "timestamp": 1785369600000
+            }
+          },
+          {
+            "DOI": "10.1016/j.ceramint.2026.07.398",
+            "type": "erratum",
+            "label": "Erratum",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  1
+                ]
+              ],
+              "date-time": "2026-10-01T00:00:00Z",
+              "timestamp": 1790812800000
+            }
+          }
+        ],
+        "container-title": [
+          "Ceramics International"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0272884223019909?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0272884223019909?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ],
+          "date-time": "2026-10-15T14:50:02Z",
+          "timestamp": 1792075802000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0272884223019909"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2023,
+              10
+            ]
+          ]
+        },
+        "references-count": 44,
+        "journal-issue": {
+          "issue": "19",
+          "published-print": {
+            "date-parts": [
+              [
+                2023,
+                10
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "S0272884223019909"
+        ],
+        "URL": "https://doi.org/10.1016/j.ceramint.2023.07.065",
+        "ISSN": [
+          "0272-8842"
+        ],
+        "issn-type": [
+          {
+            "value": "0272-8842",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2023,
+              10
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "Elsevier",
+            "name": "publisher",
+            "label": "This article is maintained by"
+          },
+          {
+            "value": "RETRACTED: Analysis and characterization of structural, morphological, thermal properties and colloidal stability of CuO nanoparticles for various natural fuels",
+            "name": "articletitle",
+            "label": "Article Title"
+          },
+          {
+            "value": "Ceramics International",
+            "name": "journaltitle",
+            "label": "Journal Title"
+          },
+          {
+            "value": "https://doi.org/10.1016/j.ceramint.2023.07.065",
+            "name": "articlelink",
+            "label": "CrossRef DOI link to publisher maintained version"
+          },
+          {
+            "value": "article",
+            "name": "content_type",
+            "label": "Content Type"
+          },
+          {
+            "value": "© 2023 Published by Elsevier Ltd.",
+            "name": "copyright",
+            "label": "Copyright"
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ],
+          "date-time": "2026-10-15T17:44:50Z",
+          "timestamp": 1792086290702,
+          "version": "4.4.0"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1016/j.scitotenv.2019.134112",
+            "type": "retraction",
+            "label": "Retraction",
+            "source": "retraction-watch",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  8,
+                  26
+                ]
+              ],
+              "date-time": "2026-08-26T00:00:00Z",
+              "timestamp": 1787702400000
+            },
+            "record-id": "72643"
+          },
+          {
+            "DOI": "10.1016/j.scitotenv.2019.134112",
+            "type": "erratum",
+            "label": "Erratum",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  15
+                ]
+              ],
+              "date-time": "2026-10-15T00:00:00Z",
+              "timestamp": 1792022400000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Elsevier BV",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  1
+                ]
+              ],
+              "date-time": "2026-10-01T00:00:00Z",
+              "timestamp": 1790812800000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  1
+                ]
+              ],
+              "date-time": "2026-10-01T00:00:00Z",
+              "timestamp": 1790812800000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/legal/tdmrep-license"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  1
+                ]
+              ],
+              "date-time": "2026-10-01T00:00:00Z",
+              "timestamp": 1790812800000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-017"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  1
+                ]
+              ],
+              "date-time": "2026-10-01T00:00:00Z",
+              "timestamp": 1790812800000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-037"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  1
+                ]
+              ],
+              "date-time": "2026-10-01T00:00:00Z",
+              "timestamp": 1790812800000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-012"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  1
+                ]
+              ],
+              "date-time": "2026-10-01T00:00:00Z",
+              "timestamp": 1790812800000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-029"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  1
+                ]
+              ],
+              "date-time": "2026-10-01T00:00:00Z",
+              "timestamp": 1790812800000
+            },
+            "content-version": "stm-asf",
+            "delay-in-days": 0,
+            "URL": "https://doi.org/10.15223/policy-004"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "elsevier.com",
+            "sciencedirect.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Science of The Total Environment"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              10
+            ]
+          ]
+        },
+        "DOI": "10.1016/j.scitotenv.2026.182256",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              26
+            ]
+          ],
+          "date-time": "2026-08-26T03:49:42Z",
+          "timestamp": 1787716182000
+        },
+        "page": "182256",
+        "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "special_numbering": "C",
+        "title": [
+          "Retraction notice to “Biochar-induced metal immobilization and soil biogeochemical process: An integrated mechanistic approach” [Sci. Total Environ. 698 (2020) 134112]"
+        ],
+        "prefix": "10.1016",
+        "volume": "1052",
+        "author": [
+          {
+            "given": "Ali",
+            "family": "El-Naggar",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Mi-Hee",
+            "family": "Lee",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Jin",
+            "family": "Hur",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Young Han",
+            "family": "Lee",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Avanthi Deshani",
+            "family": "Igalavithana",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Sabry M.",
+            "family": "Shaheen",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Changkook",
+            "family": "Ryu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Jörg",
+            "family": "Rinklebe",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Daniel C.W.",
+            "family": "Tsang",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yong Sik",
+            "family": "Ok",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "container-title": [
+          "Science of The Total Environment"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0048969726009241?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0048969726009241?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ],
+          "date-time": "2026-10-15T16:57:18Z",
+          "timestamp": 1792083438000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0048969726009241"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              10
+            ]
+          ]
+        },
+        "references-count": 0,
+        "alternative-id": [
+          "S0048969726009241"
+        ],
+        "URL": "https://doi.org/10.1016/j.scitotenv.2026.182256",
+        "ISSN": [
+          "0048-9697"
+        ],
+        "issn-type": [
+          {
+            "value": "0048-9697",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              10
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "Elsevier",
+            "name": "publisher",
+            "label": "This article is maintained by"
+          },
+          {
+            "value": "Retraction notice to “Biochar-induced metal immobilization and soil biogeochemical process: An integrated mechanistic approach” [Sci. Total Environ. 698 (2020) 134112]",
+            "name": "articletitle",
+            "label": "Article Title"
+          },
+          {
+            "value": "Science of The Total Environment",
+            "name": "journaltitle",
+            "label": "Journal Title"
+          },
+          {
+            "value": "https://doi.org/10.1016/j.scitotenv.2026.182256",
+            "name": "articlelink",
+            "label": "CrossRef DOI link to publisher maintained version"
+          },
+          {
+            "value": "https://doi.org/10.1016/j.scitotenv.2019.134112",
+            "name": "associatedlink",
+            "label": "CrossRef DOI link to the associated document"
+          },
+          {
+            "value": "simple-article",
+            "name": "content_type",
+            "label": "Content Type"
+          },
+          {
+            "value": "© 2026 Elsevier B.V. All rights are reserved, including those for text and data mining, AI training, and similar technologies.",
+            "name": "copyright",
+            "label": "Copyright"
+          }
+        ],
+        "article-number": "182256"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ],
+          "date-time": "2026-10-15T20:49:54Z",
+          "timestamp": 1792097394612,
+          "version": "4.4.0"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1016/j.nupar.2025.06.005",
+            "type": "retraction",
+            "label": "Retraction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2025,
+                  9,
+                  9
+                ]
+              ],
+              "date-time": "2025-09-09T00:00:00Z",
+              "timestamp": 1757376000000
+            }
+          }
+        ],
+        "reference-count": 41,
+        "publisher": "Elsevier BV",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  9,
+                  1
+                ]
+              ],
+              "date-time": "2025-09-01T00:00:00Z",
+              "timestamp": 1756684800000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2025,
+                  9,
+                  1
+                ]
+              ],
+              "date-time": "2025-09-01T00:00:00Z",
+              "timestamp": 1756684800000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.elsevier.com/legal/tdmrep-license"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "clinicalkey.fr",
+            "em-consulte.com",
+            "elsevier.com",
+            "sciencedirect.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Nutrition Clinique et Métabolisme"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2025,
+              9
+            ]
+          ]
+        },
+        "DOI": "10.1016/j.nupar.2025.06.005",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2025,
+              9,
+              10
+            ]
+          ],
+          "date-time": "2025-09-10T12:56:26Z",
+          "timestamp": 1757508986000
+        },
+        "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "WITHDRAWN: Exploring the impact of vitamin D supplementation on urinary incontinence (UI): A systematic review and meta-analysis of randomized controlled trials"
+        ],
+        "prefix": "10.1016",
+        "author": [
+          {
+            "given": "Hashem O.",
+            "family": "Alsaab",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Mohammad S.",
+            "family": "Alzahrani",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Bandar",
+            "family": "Almutairy",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "78",
+        "reference": "[41 items dropped in fixture]",
+        "updated-by": [
+          {
+            "DOI": "10.1016/j.nupar.2025.06.005",
+            "type": "retraction",
+            "label": "Retraction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2025,
+                  9,
+                  9
+                ]
+              ],
+              "date-time": "2025-09-09T00:00:00Z",
+              "timestamp": 1757376000000
+            }
+          }
+        ],
+        "container-title": [
+          "Nutrition Clinique et Métabolisme"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0985056225000536?httpAccept=text/xml",
+            "content-type": "text/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://api.elsevier.com/content/article/PII:S0985056225000536?httpAccept=text/plain",
+            "content-type": "text/plain",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ],
+          "date-time": "2026-10-15T20:40:07Z",
+          "timestamp": 1792096807000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0985056225000536"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2025,
+              9
+            ]
+          ]
+        },
+        "references-count": 41,
+        "alternative-id": [
+          "S0985056225000536"
+        ],
+        "URL": "https://doi.org/10.1016/j.nupar.2025.06.005",
+        "ISSN": [
+          "0985-0562"
+        ],
+        "issn-type": [
+          {
+            "value": "0985-0562",
+            "type": "print"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              9
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "Elsevier",
+            "name": "publisher",
+            "label": "This article is maintained by"
+          },
+          {
+            "value": "WITHDRAWN: Exploring the impact of vitamin D supplementation on urinary incontinence (UI): A systematic review and meta-analysis of randomized controlled trials",
+            "name": "articletitle",
+            "label": "Article Title"
+          },
+          {
+            "value": "Nutrition Clinique et Métabolisme",
+            "name": "journaltitle",
+            "label": "Journal Title"
+          },
+          {
+            "value": "https://doi.org/10.1016/j.nupar.2025.06.005",
+            "name": "articlelink",
+            "label": "CrossRef DOI link to publisher maintained version"
+          },
+          {
+            "value": "simple-article",
+            "name": "content_type",
+            "label": "Content Type"
+          },
+          {
+            "name": "copyright",
+            "label": "Copyright"
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              18
+            ]
+          ],
+          "date-time": "2026-10-18T18:40:39Z",
+          "timestamp": 1792348839147,
+          "version": "4.4.0"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1115/1.4052210",
+            "type": "retraction",
+            "label": "Retraction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2021,
+                  10,
+                  8
+                ]
+              ],
+              "date-time": "2021-10-08T00:00:00Z",
+              "timestamp": 1633651200000
+            }
+          }
+        ],
+        "reference-count": 28,
+        "publisher": "Wiley",
+        "issue": "2",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2021,
+                  8,
+                  18
+                ]
+              ],
+              "date-time": "2021-08-18T00:00:00Z",
+              "timestamp": 1629244800000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://www.asme.org/publications-submissions/publishing-information/legal-policies"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "asmedigitalcollection.asme.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "published-print": {
+          "date-parts": [
+            [
+              2022,
+              4,
+              1
+            ]
+          ]
+        },
+        "DOI": "10.1115/1.4052210",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2021,
+              8,
+              18
+            ]
+          ],
+          "date-time": "2021-08-18T05:29:53Z",
+          "timestamp": 1629264593000
+        },
+        "update-policy": "https://doi.org/10.1115/crossmarkpolicy-asme",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Retracted: “Evaluation of the Structural Integrity of Bell–Spigot Joints in Steel Gas Pipelines” [ASME Journal of Pressure Vessel Technology, 2022, 144(2), p. 021801; DOI: 10.1115/1.4052210]"
+        ],
+        "prefix": "10.1002",
+        "volume": "144",
+        "member": "311",
+        "published-online": {
+          "date-parts": [
+            [
+              2021,
+              10,
+              8
+            ]
+          ]
+        },
+        "reference": "[28 items dropped in fixture]",
+        "updated-by": [
+          {
+            "DOI": "10.1115/1.4052210",
+            "type": "retraction",
+            "label": "Retraction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2021,
+                  10,
+                  8
+                ]
+              ],
+              "date-time": "2021-10-08T00:00:00Z",
+              "timestamp": 1633651200000
+            }
+          }
+        ],
+        "container-title": [
+          "Journal of Pressure Vessel Technology"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://asmedigitalcollection.asme.org/pressurevesseltech/article-pdf/144/2/027001/6999765/pvt_144_02_027001.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "syndication"
+          },
+          {
+            "URL": "https://asmedigitalcollection.asme.org/pressurevesseltech/article-pdf/144/2/027001/6999765/pvt_144_02_027001.pdf",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              18
+            ]
+          ],
+          "date-time": "2026-10-18T17:48:01Z",
+          "timestamp": 1792345681000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://asmedigitalcollection.asme.org/pressurevesseltech/article/144/2/027001/1115905/Retracted-Evaluation-of-the-Structural-Integrity"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2021,
+              10,
+              8
+            ]
+          ]
+        },
+        "references-count": 28,
+        "journal-issue": {
+          "issue": "2",
+          "published-print": {
+            "date-parts": [
+              [
+                2022,
+                4,
+                1
+              ]
+            ]
+          }
+        },
+        "URL": "https://doi.org/10.1115/1.4052210",
+        "ISSN": [
+          "0094-9930",
+          "1528-8978"
+        ],
+        "issn-type": [
+          {
+            "value": "0094-9930",
+            "type": "print"
+          },
+          {
+            "value": "1528-8978",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2021,
+              10,
+              8
+            ]
+          ]
+        },
+        "article-number": "027001"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              18
+            ]
+          ],
+          "date-time": "2026-10-18T11:47:49Z",
+          "timestamp": 1792324069820,
+          "version": "4.4.0"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1002/2013ja019349",
+            "type": "retraction",
+            "label": "Retraction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  9,
+                  13
+                ]
+              ],
+              "date-time": "2026-09-13T00:00:00Z",
+              "timestamp": 1789257600000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "American Geophysical Union (AGU)",
+        "issue": "9",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  9,
+                  13
+                ]
+              ],
+              "date-time": "2026-09-13T00:00:00Z",
+              "timestamp": 1789257600000
+            },
+            "content-version": "vor",
+            "delay-in-days": 12,
+            "URL": "http://onlinelibrary.wiley.com/termsAndConditions#vor"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  9,
+                  1
+                ]
+              ],
+              "date-time": "2026-09-01T00:00:00Z",
+              "timestamp": 1788220800000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "http://doi.wiley.com/10.1002/tdm_license_1.1"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "agupubs.onlinelibrary.wiley.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "JGR Space Physics"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              9
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1029/jgra.70687",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              9,
+              14
+            ]
+          ],
+          "date-time": "2026-09-14T04:18:17Z",
+          "timestamp": 1789359497000
+        },
+        "update-policy": "https://doi.org/10.1002/crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "RETRACTION: Type II Solar Radio Bursts Predicted by 3D MHD CME and Kinetic Radio Emission"
+        ],
+        "prefix": "10.1029",
+        "volume": "131",
+        "member": "13",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              9,
+              13
+            ]
+          ]
+        },
+        "container-title": [
+          "Journal of Geophysical Research: Space Physics"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/jgra.70687",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/jgra.70687",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              18
+            ]
+          ],
+          "date-time": "2026-10-18T11:20:27Z",
+          "timestamp": 1792322427000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/jgra.70687"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              9
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "9",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                9
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1029/jgra.70687"
+        ],
+        "URL": "https://doi.org/10.1029/jgra.70687",
+        "archive": [
+          "Portico"
+        ],
+        "ISSN": [
+          "2169-9380",
+          "2169-9402"
+        ],
+        "issn-type": [
+          {
+            "value": "2169-9380",
+            "type": "print"
+          },
+          {
+            "value": "2169-9402",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              9
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-09-13",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ],
+        "article-number": "ejgra.70687"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              14
+            ]
+          ],
+          "date-time": "2026-10-14T10:46:36Z",
+          "timestamp": 1791974796739,
+          "version": "4.4.0"
+        },
+        "update-to": [
+          {
+            "DOI": "10.3389/fpsyg.2025.1566618",
+            "type": "retraction",
+            "label": "Retraction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  14
+                ]
+              ],
+              "date-time": "2026-10-14T00:00:00Z",
+              "timestamp": 1791936000000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Frontiers Media SA",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  14
+                ]
+              ],
+              "date-time": "2026-10-14T00:00:00Z",
+              "timestamp": 1791936000000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "frontiersin.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Front. Psychol."
+        ],
+        "DOI": "10.3389/fpsyg.2026.2023217",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              14
+            ]
+          ],
+          "date-time": "2026-10-14T10:01:13Z",
+          "timestamp": 1791972073000
+        },
+        "update-policy": "https://doi.org/10.3389/crossmark-policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Retraction: Emotional regulation self-efficacy and impulsivity effects on college students' risk-taking behavior: a cross-sectional study"
+        ],
+        "prefix": "10.3389",
+        "volume": "17",
+        "author": [
+          {
+            "name": "Frontiers Editorial Office",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "1965",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              14
+            ]
+          ]
+        },
+        "container-title": [
+          "Frontiers in Psychology"
+        ],
+        "link": [
+          {
+            "URL": "https://www.frontiersin.org/articles/10.3389/fpsyg.2026.2023217/full",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              14
+            ]
+          ],
+          "date-time": "2026-10-14T10:01:14Z",
+          "timestamp": 1791972074000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.frontiersin.org/articles/10.3389/fpsyg.2026.2023217/full"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              14
+            ]
+          ]
+        },
+        "references-count": 0,
+        "alternative-id": [
+          "10.3389/fpsyg.2026.2023217"
+        ],
+        "URL": "https://doi.org/10.3389/fpsyg.2026.2023217",
+        "ISSN": [
+          "1664-1078"
+        ],
+        "issn-type": [
+          {
+            "value": "1664-1078",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              14
+            ]
+          ]
+        },
+        "article-number": "2023217"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              13
+            ]
+          ],
+          "date-time": "2026-10-13T07:45:39Z",
+          "timestamp": 1791877539721,
+          "version": "4.3.4"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1002/berj.4190",
+            "type": "retraction",
+            "label": "Retraction",
+            "source": "retraction-watch",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  4,
+                  24
+                ]
+              ],
+              "date-time": "2026-04-24T00:00:00Z",
+              "timestamp": 1776988800000
+            },
+            "record-id": "70469"
+          },
+          {
+            "DOI": "10.1002/berj.4190",
+            "type": "retraction",
+            "label": "Retraction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  4,
+                  24
+                ]
+              ],
+              "date-time": "2026-04-24T00:00:00Z",
+              "timestamp": 1776988800000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Wiley",
+        "issue": "3",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  4,
+                  24
+                ]
+              ],
+              "date-time": "2026-04-24T00:00:00Z",
+              "timestamp": 1776988800000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "http://onlinelibrary.wiley.com/termsAndConditions#vor"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  4,
+                  24
+                ]
+              ],
+              "date-time": "2026-04-24T00:00:00Z",
+              "timestamp": 1776988800000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "http://doi.wiley.com/10.1002/tdm_license_1.1"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "bera-journals.onlinelibrary.wiley.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "British Educational Res J"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              6
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1002/berj.70187",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              24
+            ]
+          ],
+          "date-time": "2026-04-24T16:20:30Z",
+          "timestamp": 1777047630000
+        },
+        "page": "2395-2395",
+        "update-policy": "https://doi.org/10.1002/crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "<scp>RETRACTION</scp>\n                    : Examining the Impact of Gamified Mobile and\n                    <scp>AI</scp>\n                    ‐Assisted Language Learning on Academic Integrity, Creative Trait Motivation and Writing Performance"
+        ],
+        "prefix": "10.1002",
+        "volume": "52",
+        "member": "311",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              24
+            ]
+          ]
+        },
+        "container-title": [
+          "British Educational Research Journal"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://bera-journals.onlinelibrary.wiley.com/doi/pdf/10.1002/berj.70187",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://bera-journals.onlinelibrary.wiley.com/doi/pdf/10.1002/berj.70187",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              13
+            ]
+          ],
+          "date-time": "2026-10-13T06:53:00Z",
+          "timestamp": 1791874380000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://bera-journals.onlinelibrary.wiley.com/doi/10.1002/berj.70187"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              24
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                6
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1002/berj.70187"
+        ],
+        "URL": "https://doi.org/10.1002/berj.70187",
+        "archive": [
+          "Portico"
+        ],
+        "ISSN": [
+          "0141-1926",
+          "1469-3518"
+        ],
+        "issn-type": [
+          {
+            "value": "0141-1926",
+            "type": "print"
+          },
+          {
+            "value": "1469-3518",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              24
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-04-02",
+            "order": 2,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-04-24",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              13
+            ]
+          ],
+          "date-time": "2026-10-13T07:45:45Z",
+          "timestamp": 1791877545629,
+          "version": "4.3.4"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1002/berj.4146",
+            "type": "retraction",
+            "label": "Retraction",
+            "source": "retraction-watch",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  4,
+                  24
+                ]
+              ],
+              "date-time": "2026-04-24T00:00:00Z",
+              "timestamp": 1776988800000
+            },
+            "record-id": "70487"
+          },
+          {
+            "DOI": "10.1002/berj.4146",
+            "type": "retraction",
+            "label": "Retraction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  4,
+                  24
+                ]
+              ],
+              "date-time": "2026-04-24T00:00:00Z",
+              "timestamp": 1776988800000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Wiley",
+        "issue": "3",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  4,
+                  24
+                ]
+              ],
+              "date-time": "2026-04-24T00:00:00Z",
+              "timestamp": 1776988800000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "http://onlinelibrary.wiley.com/termsAndConditions#vor"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  4,
+                  24
+                ]
+              ],
+              "date-time": "2026-04-24T00:00:00Z",
+              "timestamp": 1776988800000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "http://doi.wiley.com/10.1002/tdm_license_1.1"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "bera-journals.onlinelibrary.wiley.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "British Educational Res J"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              6
+            ]
+          ]
+        },
+        "abstract": "[REDACTED in fixture: publisher text, not redistributed]",
+        "DOI": "10.1002/berj.70181",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              24
+            ]
+          ],
+          "date-time": "2026-04-24T16:02:40Z",
+          "timestamp": 1777046560000
+        },
+        "page": "2389-2389",
+        "update-policy": "https://doi.org/10.1002/crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "RETRACTION: Unboxing the Intersections Between Self‐Esteem and Academic Mindfulness with Test Emotions, Psychological Wellness and Academic Achievement in Artificial Intelligence‐Supported Learning Environments: Evidence from English as a Foreign Language Learners"
+        ],
+        "prefix": "10.1002",
+        "volume": "52",
+        "member": "311",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              24
+            ]
+          ]
+        },
+        "container-title": [
+          "British Educational Research Journal"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://bera-journals.onlinelibrary.wiley.com/doi/pdf/10.1002/berj.70181",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://bera-journals.onlinelibrary.wiley.com/doi/full-xml/10.1002/berj.70181",
+            "content-type": "application/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://bera-journals.onlinelibrary.wiley.com/doi/pdf/10.1002/berj.70181",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              13
+            ]
+          ],
+          "date-time": "2026-10-13T06:54:34Z",
+          "timestamp": 1791874474000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://bera-journals.onlinelibrary.wiley.com/doi/10.1002/berj.70181"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              24
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "3",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                6
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1002/berj.70181"
+        ],
+        "URL": "https://doi.org/10.1002/berj.70181",
+        "archive": [
+          "Portico"
+        ],
+        "ISSN": [
+          "0141-1926",
+          "1469-3518"
+        ],
+        "issn-type": [
+          {
+            "value": "0141-1926",
+            "type": "print"
+          },
+          {
+            "value": "1469-3518",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              4,
+              24
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-04-24",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ]
+      }
+    ],
+    "items-per-page": 10,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}

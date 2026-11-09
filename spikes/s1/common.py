@@ -54,8 +54,11 @@ def get(c: httpx.Client, url: str, pause: float = 0.5, **kwargs: Any) -> httpx.R
     return r
 
 
-# Bulky lists the parsers do not need (Crossref reference lists): kept as a count.
-DROP_KEYS = {"reference"}
+# Bulky lists the parsers do not need (reference lists, related works): kept as a count.
+DROP_KEYS = {
+    "reference", "referenced_works", "related_works",  # Crossref, OpenAlex
+    "locations", "concepts", "sustainable_development_goals", "grants", "awards", "funders",
+}  # fmt: skip
 
 
 def redact_json(value: Any) -> Any:

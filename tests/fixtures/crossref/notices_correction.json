@@ -1,0 +1,2632 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "facets": {},
+    "total-results": 3814,
+    "items": [
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              11
+            ]
+          ],
+          "date-time": "2026-10-11T15:46:47Z",
+          "timestamp": 1791733607651,
+          "version": "4.3.4"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1002/ame2.70195",
+            "type": "correction",
+            "label": "Correction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  8,
+                  18
+                ]
+              ],
+              "date-time": "2026-08-18T00:00:00Z",
+              "timestamp": 1787011200000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Wiley",
+        "issue": "9",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  8,
+                  18
+                ]
+              ],
+              "date-time": "2026-08-18T00:00:00Z",
+              "timestamp": 1787011200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "http://creativecommons.org/licenses/by/4.0/"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  8,
+                  18
+                ]
+              ],
+              "date-time": "2026-08-18T00:00:00Z",
+              "timestamp": 1787011200000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "http://doi.wiley.com/10.1002/tdm_license_1.1"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "onlinelibrary.wiley.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Anim Models and Exp Med"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              9
+            ]
+          ]
+        },
+        "DOI": "10.1002/ame2.70284",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              18
+            ]
+          ],
+          "date-time": "2026-08-18T08:20:16Z",
+          "timestamp": 1787041216000
+        },
+        "page": "1910-1910",
+        "update-policy": "https://doi.org/10.1002/crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Correction to “Porcine kidney xenotransplantation: From primate models to clinical reality”"
+        ],
+        "prefix": "10.1002",
+        "volume": "9",
+        "member": "311",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              18
+            ]
+          ]
+        },
+        "container-title": [
+          "Animal Models and Experimental Medicine"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://onlinelibrary.wiley.com/doi/pdf/10.1002/ame2.70284",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://onlinelibrary.wiley.com/doi/full-xml/10.1002/ame2.70284",
+            "content-type": "application/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://onlinelibrary.wiley.com/doi/pdf/10.1002/ame2.70284",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              11
+            ]
+          ],
+          "date-time": "2026-10-11T15:24:52Z",
+          "timestamp": 1791732292000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://onlinelibrary.wiley.com/doi/10.1002/ame2.70284"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              18
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "9",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                9
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1002/ame2.70284"
+        ],
+        "URL": "https://doi.org/10.1002/ame2.70284",
+        "archive": [
+          "Portico"
+        ],
+        "ISSN": [
+          "2576-2095",
+          "2576-2095"
+        ],
+        "issn-type": [
+          {
+            "value": "2576-2095",
+            "type": "print"
+          },
+          {
+            "value": "2576-2095",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              18
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-08-18",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ],
+          "date-time": "2026-10-12T16:57:01Z",
+          "timestamp": 1791824221345,
+          "version": "4.3.4"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1007/s44464-026-00041-9",
+            "type": "correction",
+            "label": "Correction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  12
+                ]
+              ],
+              "date-time": "2026-10-12T00:00:00Z",
+              "timestamp": 1791763200000
+            }
+          }
+        ],
+        "reference-count": 1,
+        "publisher": "Springer Science and Business Media LLC",
+        "issue": "1",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  12
+                ]
+              ],
+              "date-time": "2026-10-12T00:00:00Z",
+              "timestamp": 1791763200000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  12
+                ]
+              ],
+              "date-time": "2026-10-12T00:00:00Z",
+              "timestamp": 1791763200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by-nc-nd/4.0"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Discov. Quantum Sci."
+        ],
+        "DOI": "10.1007/s44464-026-00046-4",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ],
+          "date-time": "2026-10-12T16:33:02Z",
+          "timestamp": 1791822782000
+        },
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Correction: Fundamentals and applications of hybrid electro- and opto- mechanical system coupled to superconducting qubit: a short review"
+        ],
+        "prefix": "10.1007",
+        "volume": "2",
+        "author": [
+          {
+            "given": "Roson",
+            "family": "Nongthombam",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Urmimala",
+            "family": "Dewan",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Amarendra K.",
+            "family": "Sarma",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ]
+        },
+        "reference": "[1 items dropped in fixture]",
+        "container-title": [
+          "Discover Quantum Science"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://link.springer.com/content/pdf/10.1007/s44464-026-00046-4.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://link.springer.com/article/10.1007/s44464-026-00046-4",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://link.springer.com/content/pdf/10.1007/s44464-026-00046-4.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ],
+          "date-time": "2026-10-12T16:33:03Z",
+          "timestamp": 1791822783000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://link.springer.com/10.1007/s44464-026-00046-4"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ]
+        },
+        "references-count": 1,
+        "journal-issue": {
+          "issue": "1",
+          "published-online": {
+            "date-parts": [
+              [
+                2026,
+                12
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "46"
+        ],
+        "URL": "https://doi.org/10.1007/s44464-026-00046-4",
+        "ISSN": [
+          "3059-4529"
+        ],
+        "issn-type": [
+          {
+            "value": "3059-4529",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "12 October 2026",
+            "order": 1,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          }
+        ],
+        "article-number": "41"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              10
+            ]
+          ],
+          "date-time": "2026-10-10T19:52:08Z",
+          "timestamp": 1791661928976,
+          "version": "4.3.4"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1007/s12119-026-10614-6",
+            "type": "correction",
+            "label": "Correction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  10
+                ]
+              ],
+              "date-time": "2026-10-10T00:00:00Z",
+              "timestamp": 1791590400000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Springer Science and Business Media LLC",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  10
+                ]
+              ],
+              "date-time": "2026-10-10T00:00:00Z",
+              "timestamp": 1791590400000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  10
+                ]
+              ],
+              "date-time": "2026-10-10T00:00:00Z",
+              "timestamp": 1791590400000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Sexuality &amp; Culture"
+        ],
+        "DOI": "10.1007/s12119-026-10629-z",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              10
+            ]
+          ],
+          "date-time": "2026-10-10T19:41:27Z",
+          "timestamp": 1791661287000
+        },
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Correction: “I’d Avoid This Site If I Were Black”: Black Masculinity and Inceldom"
+        ],
+        "prefix": "10.1007",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0009-0001-9847-0793",
+            "authenticated-orcid": false,
+            "given": "Alicia-Ann",
+            "family": "Pauld",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              10
+            ]
+          ]
+        },
+        "container-title": [
+          "Sexuality &amp; Culture"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://link.springer.com/content/pdf/10.1007/s12119-026-10629-z.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://link.springer.com/article/10.1007/s12119-026-10629-z",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://link.springer.com/content/pdf/10.1007/s12119-026-10629-z.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              10
+            ]
+          ],
+          "date-time": "2026-10-10T19:41:28Z",
+          "timestamp": 1791661288000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://link.springer.com/10.1007/s12119-026-10629-z"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              10
+            ]
+          ]
+        },
+        "references-count": 0,
+        "alternative-id": [
+          "10629"
+        ],
+        "URL": "https://doi.org/10.1007/s12119-026-10629-z",
+        "ISSN": [
+          "1095-5143",
+          "1936-4822"
+        ],
+        "issn-type": [
+          {
+            "value": "1095-5143",
+            "type": "print"
+          },
+          {
+            "value": "1936-4822",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              10
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "10 October 2026",
+            "order": 1,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          },
+          {
+            "value": "This content has been made available to all.",
+            "name": "free",
+            "label": "Free to read"
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              10
+            ]
+          ],
+          "date-time": "2026-10-10T16:50:18Z",
+          "timestamp": 1791651018062,
+          "version": "4.3.4"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1002/ange.202423473",
+            "type": "correction",
+            "label": "Correction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  8,
+                  30
+                ]
+              ],
+              "date-time": "2026-08-30T00:00:00Z",
+              "timestamp": 1788048000000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Wiley",
+        "issue": "42",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  8,
+                  30
+                ]
+              ],
+              "date-time": "2026-08-30T00:00:00Z",
+              "timestamp": 1788048000000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "http://onlinelibrary.wiley.com/termsAndConditions#vor"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  8,
+                  30
+                ]
+              ],
+              "date-time": "2026-08-30T00:00:00Z",
+              "timestamp": 1788048000000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "http://doi.wiley.com/10.1002/tdm_license_1.1"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "onlinelibrary.wiley.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Angewandte Chemie"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ]
+        },
+        "DOI": "10.1002/ange.6219762",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              31
+            ]
+          ],
+          "date-time": "2026-08-31T03:46:28Z",
+          "timestamp": 1788147988000
+        },
+        "update-policy": "https://doi.org/10.1002/crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Correction to “Accurate Molecular Sensing based on a Modular and Customizable CRISPR/Cas‐Assisted Nanopore Operational Nexus (CANON)”"
+        ],
+        "prefix": "10.1002",
+        "volume": "138",
+        "member": "311",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              30
+            ]
+          ]
+        },
+        "container-title": [
+          "Angewandte Chemie"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://onlinelibrary.wiley.com/doi/pdf/10.1002/ange.6219762",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://onlinelibrary.wiley.com/doi/full-xml/10.1002/ange.6219762",
+            "content-type": "application/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://onlinelibrary.wiley.com/doi/pdf/10.1002/ange.6219762",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              10
+            ]
+          ],
+          "date-time": "2026-10-10T16:04:52Z",
+          "timestamp": 1791648292000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://onlinelibrary.wiley.com/doi/10.1002/ange.6219762"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              30
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "42",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                10,
+                12
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1002/ange.6219762"
+        ],
+        "URL": "https://doi.org/10.1002/ange.6219762",
+        "archive": [
+          "Portico"
+        ],
+        "ISSN": [
+          "0044-8249",
+          "1521-3757"
+        ],
+        "issn-type": [
+          {
+            "value": "0044-8249",
+            "type": "print"
+          },
+          {
+            "value": "1521-3757",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              8,
+              30
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-08-30",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ],
+        "article-number": "e6219762"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ],
+          "date-time": "2026-10-12T14:50:09Z",
+          "timestamp": 1791816609835,
+          "version": "4.3.4"
+        },
+        "update-to": [
+          {
+            "DOI": "10.3389/fmars.2023.1144398",
+            "type": "correction",
+            "label": "Correction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  12
+                ]
+              ],
+              "date-time": "2026-10-12T00:00:00Z",
+              "timestamp": 1791763200000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Frontiers Media SA",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  12
+                ]
+              ],
+              "date-time": "2026-10-12T00:00:00Z",
+              "timestamp": 1791763200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "frontiersin.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Front. Mar. Sci."
+        ],
+        "DOI": "10.3389/fmars.2026.2002654",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ],
+          "date-time": "2026-10-12T14:40:25Z",
+          "timestamp": 1791816025000
+        },
+        "update-policy": "https://doi.org/10.3389/crossmark-policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Correction: Better or worse food: Nutrition value of the prey fishes and the potential health implications for Indo-Pacific humpback dolphins"
+        ],
+        "prefix": "10.3389",
+        "volume": "13",
+        "author": [
+          {
+            "given": "Jianqing",
+            "family": "Lin",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Guangdong Provincial Key Laboratory of Marine Biotechnology, Guangdong Provincial Key Laboratory of Marine Disaster Prediction and Prevention, Institute of Marine Sciences, Shantou University",
+                "place": [
+                  "Shantou, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yan",
+            "family": "Liang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Guangdong Provincial Key Laboratory of Marine Biotechnology, Guangdong Provincial Key Laboratory of Marine Disaster Prediction and Prevention, Institute of Marine Sciences, Shantou University",
+                "place": [
+                  "Shantou, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Hancheng",
+            "family": "Zhao",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Guangdong Provincial Key Laboratory of Marine Biotechnology, Guangdong Provincial Key Laboratory of Marine Disaster Prediction and Prevention, Institute of Marine Sciences, Shantou University",
+                "place": [
+                  "Shantou, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Qilin",
+            "family": "Gutang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Guangdong Provincial Key Laboratory of Marine Biotechnology, Guangdong Provincial Key Laboratory of Marine Disaster Prediction and Prevention, Institute of Marine Sciences, Shantou University",
+                "place": [
+                  "Shantou, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Zonghuan",
+            "family": "Wu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Guangdong Provincial Key Laboratory of Marine Biotechnology, Guangdong Provincial Key Laboratory of Marine Disaster Prediction and Prevention, Institute of Marine Sciences, Shantou University",
+                "place": [
+                  "Shantou, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yan",
+            "family": "Gao",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Guangdong Provincial Key Laboratory of Marine Biotechnology, Guangdong Provincial Key Laboratory of Marine Disaster Prediction and Prevention, Institute of Marine Sciences, Shantou University",
+                "place": [
+                  "Shantou, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Sailan",
+            "family": "Liu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Guangdong Provincial Key Laboratory of Marine Biotechnology, Guangdong Provincial Key Laboratory of Marine Disaster Prediction and Prevention, Institute of Marine Sciences, Shantou University",
+                "place": [
+                  "Shantou, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Kunhuan",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Guangdong Provincial Key Laboratory of Marine Biotechnology, Guangdong Provincial Key Laboratory of Marine Disaster Prediction and Prevention, Institute of Marine Sciences, Shantou University",
+                "place": [
+                  "Shantou, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Yinglin",
+            "family": "Wu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Guangdong Provincial Key Laboratory of Marine Biotechnology, Guangdong Provincial Key Laboratory of Marine Disaster Prediction and Prevention, Institute of Marine Sciences, Shantou University",
+                "place": [
+                  "Shantou, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Zonghang",
+            "family": "Zhang",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Guangdong Provincial Key Laboratory of Marine Biotechnology, Guangdong Provincial Key Laboratory of Marine Disaster Prediction and Prevention, Institute of Marine Sciences, Shantou University",
+                "place": [
+                  "Shantou, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Ping",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Guangdong Provincial Key Laboratory of Marine Biotechnology, Guangdong Provincial Key Laboratory of Marine Disaster Prediction and Prevention, Institute of Marine Sciences, Shantou University",
+                "place": [
+                  "Shantou, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Wenhua",
+            "family": "Liu",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Guangdong Provincial Key Laboratory of Marine Biotechnology, Guangdong Provincial Key Laboratory of Marine Disaster Prediction and Prevention, Institute of Marine Sciences, Shantou University",
+                "place": [
+                  "Shantou, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "1965",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ]
+        },
+        "container-title": [
+          "Frontiers in Marine Science"
+        ],
+        "link": [
+          {
+            "URL": "https://www.frontiersin.org/articles/10.3389/fmars.2026.2002654/full",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ],
+          "date-time": "2026-10-12T14:40:28Z",
+          "timestamp": 1791816028000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.frontiersin.org/articles/10.3389/fmars.2026.2002654/full"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ]
+        },
+        "references-count": 0,
+        "alternative-id": [
+          "10.3389/fmars.2026.2002654"
+        ],
+        "URL": "https://doi.org/10.3389/fmars.2026.2002654",
+        "ISSN": [
+          "2296-7745"
+        ],
+        "issn-type": [
+          {
+            "value": "2296-7745",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ]
+        },
+        "article-number": "2002654"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ],
+          "date-time": "2026-10-12T14:44:34Z",
+          "timestamp": 1791816274496,
+          "version": "4.3.4"
+        },
+        "update-to": [
+          {
+            "DOI": "10.3389/fpubh.2026.1961816",
+            "type": "correction",
+            "label": "Correction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  12
+                ]
+              ],
+              "date-time": "2026-10-12T00:00:00Z",
+              "timestamp": 1791763200000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Frontiers Media SA",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  12
+                ]
+              ],
+              "date-time": "2026-10-12T00:00:00Z",
+              "timestamp": 1791763200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "frontiersin.org"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Front. Public Health"
+        ],
+        "DOI": "10.3389/fpubh.2026.2015265",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ],
+          "date-time": "2026-10-12T13:45:11Z",
+          "timestamp": 1791812711000
+        },
+        "update-policy": "https://doi.org/10.3389/crossmark-policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Correction: Pathogen prevalence, feature composition and cross-centre generalisability of machine learning diagnostic models for multi-pathogen respiratory infection"
+        ],
+        "prefix": "10.3389",
+        "volume": "14",
+        "author": [
+          {
+            "given": "Fengmiao",
+            "family": "Hu",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Sichuan Center for Disease Control and Prevention",
+                "place": [
+                  "Chengdu, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Xingyu",
+            "family": "Zhou",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Sichuan Center for Disease Control and Prevention",
+                "place": [
+                  "Chengdu, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Lijun",
+            "family": "Zhou",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Sichuan Center for Disease Control and Prevention",
+                "place": [
+                  "Chengdu, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Zhirui",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Sichuan Center for Disease Control and Prevention",
+                "place": [
+                  "Chengdu, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Shuang",
+            "family": "Dong",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Sichuan Center for Disease Control and Prevention",
+                "place": [
+                  "Chengdu, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Chongkun",
+            "family": "Xiao",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Sichuan Center for Disease Control and Prevention",
+                "place": [
+                  "Chengdu, China"
+                ]
+              }
+            ],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "1965",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ]
+        },
+        "container-title": [
+          "Frontiers in Public Health"
+        ],
+        "link": [
+          {
+            "URL": "https://www.frontiersin.org/articles/10.3389/fpubh.2026.2015265/full",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ],
+          "date-time": "2026-10-12T13:45:12Z",
+          "timestamp": 1791812712000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://www.frontiersin.org/articles/10.3389/fpubh.2026.2015265/full"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ]
+        },
+        "references-count": 0,
+        "alternative-id": [
+          "10.3389/fpubh.2026.2015265"
+        ],
+        "URL": "https://doi.org/10.3389/fpubh.2026.2015265",
+        "ISSN": [
+          "2296-2565"
+        ],
+        "issn-type": [
+          {
+            "value": "2296-2565",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              12
+            ]
+          ]
+        },
+        "article-number": "2015265"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ],
+          "date-time": "2026-10-15T00:46:50Z",
+          "timestamp": 1792025210272,
+          "version": "4.4.0"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1007/s11192-025-05280-8",
+            "type": "correction",
+            "label": "Correction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  14
+                ]
+              ],
+              "date-time": "2026-10-14T00:00:00Z",
+              "timestamp": 1791936000000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Springer Science and Business Media LLC",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  14
+                ]
+              ],
+              "date-time": "2026-10-14T00:00:00Z",
+              "timestamp": 1791936000000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  14
+                ]
+              ],
+              "date-time": "2026-10-14T00:00:00Z",
+              "timestamp": 1791936000000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Scientometrics"
+        ],
+        "DOI": "10.1007/s11192-026-05855-z",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ],
+          "date-time": "2026-10-15T00:08:03Z",
+          "timestamp": 1792022883000
+        },
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Correction: Will patents with more interdisciplinary scientific knowledge have higher technological impact? Empirical evidence from USPTO patents"
+        ],
+        "prefix": "10.1007",
+        "author": [
+          {
+            "given": "Yuan",
+            "family": "Xu",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Xi",
+            "family": "Chen",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Jin",
+            "family": "Mao",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Gang",
+            "family": "Li",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              14
+            ]
+          ]
+        },
+        "container-title": [
+          "Scientometrics"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://link.springer.com/content/pdf/10.1007/s11192-026-05855-z.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://link.springer.com/article/10.1007/s11192-026-05855-z",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://link.springer.com/content/pdf/10.1007/s11192-026-05855-z.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ],
+          "date-time": "2026-10-15T00:08:12Z",
+          "timestamp": 1792022892000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://link.springer.com/article/10.1007/s11192-026-05855-z"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              14
+            ]
+          ]
+        },
+        "references-count": 0,
+        "alternative-id": [
+          "5855"
+        ],
+        "URL": "https://doi.org/10.1007/s11192-026-05855-z",
+        "ISSN": [
+          "0138-9130",
+          "1588-2861"
+        ],
+        "issn-type": [
+          {
+            "value": "0138-9130",
+            "type": "print"
+          },
+          {
+            "value": "1588-2861",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              14
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "14 October 2026",
+            "order": 1,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          },
+          {
+            "value": "This content has been made available to all.",
+            "name": "free",
+            "label": "Free to read"
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ],
+          "date-time": "2026-10-15T14:47:50Z",
+          "timestamp": 1792075670856,
+          "version": "4.4.0"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1007/s10597-026-01727-1",
+            "type": "correction",
+            "label": "Correction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  15
+                ]
+              ],
+              "date-time": "2026-10-15T00:00:00Z",
+              "timestamp": 1792022400000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Springer Science and Business Media LLC",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  15
+                ]
+              ],
+              "date-time": "2026-10-15T00:00:00Z",
+              "timestamp": 1792022400000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  15
+                ]
+              ],
+              "date-time": "2026-10-15T00:00:00Z",
+              "timestamp": 1792022400000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "https://creativecommons.org/licenses/by/4.0"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "link.springer.com"
+          ],
+          "crossmark-restriction": false
+        },
+        "short-container-title": [
+          "Community Ment Health J"
+        ],
+        "DOI": "10.1007/s10597-026-01738-y",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ],
+          "date-time": "2026-10-15T14:31:19Z",
+          "timestamp": 1792074679000
+        },
+        "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Correction: Implementing Proactive Smoking Cessation Induction Interventions in a Certified Community Behavioral Health Clinic: A Pilot Type 2 Hybrid Effectiveness-Implementation Study"
+        ],
+        "prefix": "10.1007",
+        "author": [
+          {
+            "ORCID": "https://orcid.org/0000-0002-0765-810X",
+            "authenticated-orcid": false,
+            "given": "Sandra",
+            "family": "Japuntich",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Melissa",
+            "family": "Adkins-Hempel",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Nathalia Gutierrez",
+            "family": "Sacasa",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Carina",
+            "family": "Lundtvedt",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0001-9271-2432",
+            "authenticated-orcid": false,
+            "given": "Sara",
+            "family": "Becker",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0002-3497-2241",
+            "authenticated-orcid": false,
+            "given": "Sarah",
+            "family": "Helseth",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "ORCID": "https://orcid.org/0000-0003-3561-8276",
+            "authenticated-orcid": false,
+            "given": "Rebekah",
+            "family": "Pratt",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Jennifer",
+            "family": "Tidey",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Shira",
+            "family": "Dunsiger",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "A. Eden",
+            "family": "Evins",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          },
+          {
+            "given": "Steven",
+            "family": "Fu",
+            "sequence": "additional",
+            "affiliation": [],
+            "role": [
+              {
+                "vocabulary": "crossref",
+                "role": "author"
+              }
+            ]
+          }
+        ],
+        "member": "297",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ]
+        },
+        "container-title": [
+          "Community Mental Health Journal"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://link.springer.com/content/pdf/10.1007/s10597-026-01738-y.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://link.springer.com/article/10.1007/s10597-026-01738-y",
+            "content-type": "text/html",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://link.springer.com/content/pdf/10.1007/s10597-026-01738-y.pdf",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ],
+          "date-time": "2026-10-15T14:31:20Z",
+          "timestamp": 1792074680000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://link.springer.com/article/10.1007/s10597-026-01738-y"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ]
+        },
+        "references-count": 0,
+        "alternative-id": [
+          "1738"
+        ],
+        "URL": "https://doi.org/10.1007/s10597-026-01738-y",
+        "ISSN": [
+          "0010-3853",
+          "1573-2789"
+        ],
+        "issn-type": [
+          {
+            "value": "0010-3853",
+            "type": "print"
+          },
+          {
+            "value": "1573-2789",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "15 October 2026",
+            "order": 1,
+            "name": "first_online",
+            "label": "First Online",
+            "group": {
+              "name": "ArticleHistory",
+              "label": "Article History"
+            }
+          }
+        ]
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ],
+          "date-time": "2026-10-15T13:46:09Z",
+          "timestamp": 1792071969947,
+          "version": "4.4.0"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1002/adfm.201706709",
+            "type": "correction",
+            "label": "Correction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  2,
+                  19
+                ]
+              ],
+              "date-time": "2026-02-19T00:00:00Z",
+              "timestamp": 1771459200000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Wiley",
+        "issue": "28",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  2,
+                  19
+                ]
+              ],
+              "date-time": "2026-02-19T00:00:00Z",
+              "timestamp": 1771459200000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "http://onlinelibrary.wiley.com/termsAndConditions#vor"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  2,
+                  19
+                ]
+              ],
+              "date-time": "2026-02-19T00:00:00Z",
+              "timestamp": 1771459200000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "http://doi.wiley.com/10.1002/tdm_license_1.1"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "advanced.onlinelibrary.wiley.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "Adv Funct Materials"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              4
+            ]
+          ]
+        },
+        "DOI": "10.1002/adfm.74602",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              19
+            ]
+          ],
+          "date-time": "2026-02-19T11:59:16Z",
+          "timestamp": 1771502356000
+        },
+        "update-policy": "https://doi.org/10.1002/crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Correction to “Polycationic Synergistic Antibacterial Agents with Multiple Functional Components for Efficient Anti‐Infective Therapy”"
+        ],
+        "prefix": "10.1002",
+        "volume": "36",
+        "member": "311",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              19
+            ]
+          ]
+        },
+        "container-title": [
+          "Advanced Functional Materials"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://advanced.onlinelibrary.wiley.com/doi/pdf/10.1002/adfm.74602",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://advanced.onlinelibrary.wiley.com/doi/full-xml/10.1002/adfm.74602",
+            "content-type": "application/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://advanced.onlinelibrary.wiley.com/doi/pdf/10.1002/adfm.74602",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ],
+          "date-time": "2026-10-15T13:00:13Z",
+          "timestamp": 1792069213000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.74602"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              19
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "28",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                4
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1002/adfm.74602"
+        ],
+        "URL": "https://doi.org/10.1002/adfm.74602",
+        "archive": [
+          "Portico"
+        ],
+        "ISSN": [
+          "1616-301X",
+          "1616-3028"
+        ],
+        "issn-type": [
+          {
+            "value": "1616-301X",
+            "type": "print"
+          },
+          {
+            "value": "1616-3028",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              2,
+              19
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-02-19",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ],
+        "article-number": "e74602"
+      },
+      {
+        "indexed": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              16
+            ]
+          ],
+          "date-time": "2026-10-16T04:45:30Z",
+          "timestamp": 1792125930431,
+          "version": "4.4.0"
+        },
+        "update-to": [
+          {
+            "DOI": "10.1002/mba2.70065",
+            "type": "correction",
+            "label": "Correction",
+            "source": "publisher",
+            "updated": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  15
+                ]
+              ],
+              "date-time": "2026-10-15T00:00:00Z",
+              "timestamp": 1792022400000
+            }
+          }
+        ],
+        "reference-count": 0,
+        "publisher": "Wiley",
+        "issue": "4",
+        "license": [
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  15
+                ]
+              ],
+              "date-time": "2026-10-15T00:00:00Z",
+              "timestamp": 1792022400000
+            },
+            "content-version": "vor",
+            "delay-in-days": 0,
+            "URL": "http://creativecommons.org/licenses/by/4.0/"
+          },
+          {
+            "start": {
+              "date-parts": [
+                [
+                  2026,
+                  10,
+                  15
+                ]
+              ],
+              "date-time": "2026-10-15T00:00:00Z",
+              "timestamp": 1792022400000
+            },
+            "content-version": "tdm",
+            "delay-in-days": 0,
+            "URL": "http://doi.wiley.com/10.1002/tdm_license_1.1"
+          }
+        ],
+        "content-domain": {
+          "domain": [
+            "onlinelibrary.wiley.com"
+          ],
+          "crossmark-restriction": true
+        },
+        "short-container-title": [
+          "MedComm – Biomaterials and Applications"
+        ],
+        "published-print": {
+          "date-parts": [
+            [
+              2026,
+              12
+            ]
+          ]
+        },
+        "DOI": "10.1002/mba2.70092",
+        "type": "journal-article",
+        "created": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              16
+            ]
+          ],
+          "date-time": "2026-10-16T04:00:55Z",
+          "timestamp": 1792123255000
+        },
+        "update-policy": "https://doi.org/10.1002/crossmark_policy",
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+          "Correction to “Improving Proteolysis‐Targeting Chimera Delivery by Targeting Key Biomarkers in Tumor Endocytosis Pathways”"
+        ],
+        "prefix": "10.1002",
+        "volume": "5",
+        "member": "311",
+        "published-online": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ]
+        },
+        "container-title": [
+          "MedComm – Biomaterials and Applications"
+        ],
+        "language": "en",
+        "link": [
+          {
+            "URL": "https://onlinelibrary.wiley.com/doi/pdf/10.1002/mba2.70092",
+            "content-type": "application/pdf",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://onlinelibrary.wiley.com/doi/full-xml/10.1002/mba2.70092",
+            "content-type": "application/xml",
+            "content-version": "vor",
+            "intended-application": "text-mining"
+          },
+          {
+            "URL": "https://onlinelibrary.wiley.com/doi/pdf/10.1002/mba2.70092",
+            "content-type": "unspecified",
+            "content-version": "vor",
+            "intended-application": "similarity-checking"
+          }
+        ],
+        "deposited": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              16
+            ]
+          ],
+          "date-time": "2026-10-16T04:00:56Z",
+          "timestamp": 1792123256000
+        },
+        "score": 0.0,
+        "resource": {
+          "primary": {
+            "URL": "https://onlinelibrary.wiley.com/doi/10.1002/mba2.70092"
+          }
+        },
+        "issued": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+          "issue": "4",
+          "published-print": {
+            "date-parts": [
+              [
+                2026,
+                12
+              ]
+            ]
+          }
+        },
+        "alternative-id": [
+          "10.1002/mba2.70092"
+        ],
+        "URL": "https://doi.org/10.1002/mba2.70092",
+        "archive": [
+          "Portico"
+        ],
+        "ISSN": [
+          "2769-643X",
+          "2769-643X"
+        ],
+        "issn-type": [
+          {
+            "value": "2769-643X",
+            "type": "print"
+          },
+          {
+            "value": "2769-643X",
+            "type": "electronic"
+          }
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              10,
+              15
+            ]
+          ]
+        },
+        "assertion": [
+          {
+            "value": "2026-10-12",
+            "order": 2,
+            "name": "accepted",
+            "label": "Accepted",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          },
+          {
+            "value": "2026-10-15",
+            "order": 3,
+            "name": "published",
+            "label": "Published",
+            "group": {
+              "name": "publication_history",
+              "label": "Publication History"
+            }
+          }
+        ],
+        "article-number": "e70092"
+      }
+    ],
+    "items-per-page": 10,
+    "query": {
+      "start-index": 0,
+      "search-terms": null
+    }
+  }
+}
