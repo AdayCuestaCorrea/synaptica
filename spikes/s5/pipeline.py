@@ -132,6 +132,8 @@ class Verdict(BaseModel):
     spanish_matches: bool
     passed: bool
     reason: str = ""
+    # Not a gate: orders Sofía's queue (judge-v2, after her S5 review).
+    spanish_natural: int = Field(ge=1, le=5, description="1-5, how natural the Spanish reads")
 
 
 def prompt(name: str) -> str:
