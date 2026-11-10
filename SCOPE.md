@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 8** · 2026-11-09 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 9** · 2026-11-10 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -124,7 +124,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 - [x] **S2 Almacén:** prueba de BigQuery sandbox desde GitHub Actions con dbt-bigquery → ADR de D1
 - [ ] **S3 Visor 3D:** prototipo con una región clicable del atlas humano y otra del de rata en GitHub Pages → ADR de D3
 - [ ] **S4 Revisión:** prototipo del flujo de revisión probado con Sofía → ADR de D5
-- [ ] **S5 LLM:** límites actuales del plan gratuito de Groq y de Ollama local, y elección de un juez de otra familia de modelos para el contenido de salud → ADR de D4
+- [x] **S5 LLM:** límites actuales del plan gratuito de Groq y de Ollama local, y elección de un juez de otra familia de modelos para el contenido de salud → ADR de D4
 
 **Cierre:** CI en verde, D1, D3, D4 y D5 cerradas con su ADR, y `docs/fuentes.md` completo.
 
@@ -197,7 +197,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 |---|---|---|---|
 | D2 | Motor común con Paleo Atlas | Copiar y adaptar · extraer un paquete compartido | Copiar y adaptar ahora; extraer el paquete solo cuando ambos sean estables |
 | D3 | Visor 3D | siibra-explorer embebido o autohospedado · three.js con mallas de BrainGlobe · otro | Lo decide S3: tiene que funcionar en GitHub Pages sin backend propio, con regiones clicables por ID, licencias compatibles y un peso razonable en móvil |
-| D4 | LLM | Groq gratuito en Actions + Ollama local (Qwen) por lotes, como Paleo · otros | Como Paleo, con un juez de otra familia de modelos para el contenido de salud. Verificar los límites actuales del plan gratuito |
+| D4 | LLM | A: todo en Groq desde Actions, con juez cruzado · B: Ollama local por lotes + Groq de respaldo y juez, como Paleo · C: Groq + juez en otro proveedor | S5 ([ADR D4, propuesta](docs/adr/0004-llm.md)): **A**, con redactor `qwen3.8-27b` y juez `gpt-oss-120b` (otra familia) en Groq, y Ollama como modo por lotes opcional. Groq gratis da unos 40–60 resúmenes al día por modelo (200 000 TPD), no los ~400 que pasan el filtro de metadatos, así que la Fase 1 necesita un filtro previo hasta unos 30 al día |
 | D5 | Flujo de revisión de Sofía | Editar en la web de GitHub · formulario de GitHub Issues · página de revisión generada · hoja de cálculo | Prototipo en S4 probado con ella. Requisitos: sin terminal, sin git y menos de 1 h al día. Sofía no tiene cuenta de GitHub; se la crea si el prototipo elegido la necesita |
 | D6 | Procesamiento a escala | Databricks Free Edition para una carga histórica de PubMed · solo APIs | Solo si el volumen lo justifica y se mide, como en el ADR D5 de Paleo. Si no, basta OpenAlex |
 | D7 | Dominio | Dominio propio · `adaycuestacorrea.github.io/synaptica` | Empezar en GitHub Pages y comprobar el nombre antes de registrar nada (ya existe Synaptica B.V., una empresa neerlandesa de neurociencia computacional) |
@@ -211,7 +211,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 | ~~Nature, Science o Cell sin un canal público útil~~ **Mitigado** (S1, 2026-11-09) | Los 7 RSS de las revistas y sus hermanas funcionan y traen DOI; Crossref por ISSN queda de respaldo (ISSN impreso para Cell Press). Ver `docs/fuentes.md` |
 | Visor 3D pesado o imposible sin backend | S3 en la Fase 0, antes de comprometer la Fase 2 |
 | Los nombres de las regiones dan resultados ambiguos en PubMed | Tabla de sinónimos revisada por Sofía y tests con ejemplos |
-| Cambian los límites de los planes gratuitos (LLM, APIs) | Caché, ejecución por lotes y degradación al texto de respaldo |
+| Cambian los límites de los planes gratuitos (LLM, APIs) | Caché, ejecución por lotes y degradación al texto de respaldo. Ya pasó: Groq retiró Llama del plan gratuito (S5). Los papeles de redactor y juez se pueden intercambiar entre las dos familias que quedan, y Ollama recupera los atrasos |
 | GitHub retrasa o se salta las ejecuciones programadas | Ejecución de respaldo y detección de cambios, como en Paleo |
 
 ## 10. Backlog
@@ -233,3 +233,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 6 | 2026-11-09 | §9: riesgo «Nature, Science o Cell sin canal público» mitigado según S1 |
 | 7 | 2026-11-09 | S2 hecho: BigQuery sandbox funciona desde Actions sin tarjeta ni clave (WIF), pero tiene un cupo de almacenamiento de 10 GiB de por vida que no se recupera al borrar, incompatible con reconstruir el almacén cada día. ADR D1 en propuesta (recomendación: DuckDB + espejo semanal de los marts en BigQuery) |
 | 8 | 2026-11-09 | D1 cerrada (opción C): DuckDB como almacén y espejo semanal de los marts en BigQuery; tarea del espejo añadida a la Fase 1 |
+| 9 | 2026-11-10 | S5 hecho: límites de Groq medidos (1000 RPD y 8000 TPM por modelo; 200 000 TPD documentado; sin Llama), Qwen 9B local a 122 tokens/s y la cadena de Paleo probada con 10 artículos de PubMed (8–9 de 10 publicables; el juez de otra familia cazó 3 errores reales que las comprobaciones dejaban pasar). ADR D4 en propuesta (recomendación: opción A); D4 sigue abierta |
