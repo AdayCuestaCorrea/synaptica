@@ -1,0 +1,68 @@
+{
+ "measured_at": "2026-11-10T14:11:48.215102+00:00",
+ "gpu": "NVIDIA GeForce RTX 5070 Ti, 16303 MiB",
+ "paleo-qwen3.5-9b": {
+  "median": {
+   "prompt_tokens": 1462,
+   "prompt_tok_s": 5953.9,
+   "output_tokens": 106,
+   "output_tok_s": 122.5,
+   "total_s": 1.2
+  },
+  "runs": [
+   {
+    "prompt_tokens": 1462,
+    "prompt_tok_s": 5953.9081175957945,
+    "output_tokens": 106,
+    "output_tok_s": 122.5062466628605,
+    "total_s": 1.152378907
+   },
+   {
+    "prompt_tokens": 1462,
+    "prompt_tok_s": 5795.102306149468,
+    "output_tokens": 94,
+    "output_tok_s": 122.08854536693453,
+    "total_s": 1.062789057
+   },
+   {
+    "prompt_tokens": 1462,
+    "prompt_tok_s": 5965.812872608268,
+    "output_tokens": 107,
+    "output_tok_s": 123.6171058347274,
+    "total_s": 1.152938878
+   }
+  ]
+ },
+ "paleo-qwen3.5-4b": {
+  "median": {
+   "prompt_tokens": 1462,
+   "prompt_tok_s": 8676.4,
+   "output_tokens": 111,
+   "output_tok_s": 190.8,
+   "total_s": 0.8
+  },
+  "runs": [
+   {
+    "prompt_tokens": 1462,
+    "prompt_tok_s": 8633.416399948035,
+    "output_tokens": 111,
+    "output_tok_s": 190.99205748344735,
+    "total_s": 0.7845602
+   },
+   {
+    "prompt_tokens": 1462,
+    "prompt_tok_s": 8780.042518947355,
+    "output_tokens": 127,
+    "output_tok_s": 190.7645904870055,
+    "total_s": 0.869932502
+   },
+   {
+    "prompt_tokens": 1462,
+    "prompt_tok_s": 8676.403387476781,
+    "output_tokens": 99,
+    "output_tok_s": 190.52861104642545,
+    "total_s": 0.729176848
+   }
+  ]
+ }
+}
