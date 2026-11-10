@@ -32,6 +32,11 @@ spike-s2 = [
     "dbt-bigquery>=1.12.2",
     "dbt-duckdb>=1.11.1",
 ]
+# Spike S5 (decision D4): pydantic validates the JSON answers of the LLM, as in Paleo.
+# Moves to the main dependencies in Phase 1 if D4 keeps this design.
+spike-s5 = [
+    "pydantic>=2.14.3",
+]
 
 [tool.uv]
 # CachyOS is a rolling distro: use a uv-managed interpreter so a system

@@ -1762,6 +1762,9 @@ spike-s2 = [
     { name = "dbt-bigquery" },
     { name = "dbt-duckdb" },
 ]
+spike-s5 = [
+    { name = "pydantic" },
+]
 
 [package.metadata]
 requires-dist = [
@@ -1778,6 +1781,7 @@ spike-s2 = [
     { name = "dbt-bigquery", specifier = ">=1.12.2" },
     { name = "dbt-duckdb", specifier = ">=1.11.1" },
 ]
+spike-s5 = [{ name = "pydantic", specifier = ">=2.14.3" }]
 
 [[package]]
 name = "tabulate"
