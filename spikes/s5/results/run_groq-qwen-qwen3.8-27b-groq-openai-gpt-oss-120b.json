@@ -1,0 +1,604 @@
+{
+ "measured_at": "2026-11-10T14:52:29.886125+00:00",
+ "writer": "groq/qwen/qwen3.8-27b",
+ "judge": "groq/openai/gpt-oss-120b",
+ "window": [
+  "2026/11/02",
+  "2026/11/08"
+ ],
+ "writer_stats": {
+  "calls": 5,
+  "cached": 25,
+  "prompt_tokens": 23228,
+  "completion_tokens": 10593,
+  "seconds": 623.9558120110011
+ },
+ "judge_stats": {
+  "calls": 2,
+  "cached": 8,
+  "prompt_tokens": 14609,
+  "completion_tokens": 1417,
+  "seconds": 11.38148477000033
+ },
+ "articles": [
+  {
+   "pmid": "42971231",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 9,
+    "rejected": 1,
+    "reasons": [
+     "statement copies the source wording"
+    ]
+   },
+   "subjects": [
+    "humans"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Researchers in Botswana monitored birth outcomes for over eight years, recording 235,727 deliveries that represented more than two-thirds of all births in the country.",
+    "The study tracked 11,110 babies exposed to the HIV drug dolutegravir at conception, alongside 24,368 babies exposed to other HIV medications.",
+    "Among deliveries where status could be determined, 162 neural tube defects were found, with a rate of 0.11% for dolutegravir exposure and 0.10% for other drugs.",
+    "These findings suggest that dolutegravir is safe to use during pregnancy."
+   ],
+   "es": [
+    "Investigadores en Botsuana monitorizaron los resultados del parto durante más de ocho años, registrando 235 727 partos que representaron más de dos tercios de todos los nacimientos del país.",
+    "El estudio siguió a 11 110 bebés expuestos al fármaco antirretroviral dolutegravir en la concepción, junto con 24 368 bebés expuestos a otros medicamentos contra el VIH.",
+    "Entre los partos en los que se pudo determinar el estado, se encontraron 162 defectos del tubo neural, con una tasa del 0,11 % para la exposición a dolutegravir y del 0,10 % para los otros fármacos.",
+    "Estos hallazgos sugieren que el dolutegravir es seguro para su uso durante el embarazo."
+   ],
+   "writer_tokens": {
+    "calls": 2,
+    "cached": 1,
+    "prompt_tokens": 2853,
+    "completion_tokens": 1077,
+    "seconds": 2.95
+   },
+   "writer_seconds": 1.4,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": false,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": false,
+    "reason": "Overstates safety beyond the study's reassurance"
+   },
+   "judge_tokens": {
+    "calls": 1,
+    "cached": 0,
+    "prompt_tokens": 1835,
+    "completion_tokens": 202,
+    "seconds": 1.54
+   },
+   "status": "rejected_by_judge"
+  },
+  {
+   "pmid": "42999541",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 8,
+    "rejected": 0,
+    "reasons": []
+   },
+   "subjects": [
+    "animals",
+    "cells_or_tissue",
+    "other"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Researchers developed a gelatin-based hydrogel system to retain vesicles from fat-derived stem cells at brain injury sites, addressing the rapid clearance of standard two-dimensional culture products.",
+    "By harvesting vesicles from stem cells grown via three-dimensional bioprinting, the team generated approximately eight times more vesicles with higher protein content than traditional flat cultures.",
+    "In living subjects, this delivery method remained at the injury site longer, reduced tissue damage, and improved long-term movement control and memory.",
+    "The treatment increased the number of dividing cells developing into nerve cells and boosted the activity of proteins like CREB1, PGC-1α, and FNDC5 in neural stem cells.",
+    "The authors describe this gel-based approach as a promising cell-free strategy for repairing brain tissue after injury."
+   ],
+   "es": [
+    "Los investigadores desarrollaron un sistema de hidrogel a base de gelatina para retener vesículas de células madre derivadas de grasa en los sitios de lesión cerebral, abordando la rápida eliminación de los productos de cultivo bidimensionales estándar.",
+    "Al recolectar vesículas de células madre cultivadas mediante bioimpresión tridimensional, el equipo generó aproximadamente ocho veces más vesículas con un mayor contenido proteico que los cultivos planos tradicionales.",
+    "En sujetos vivos, este método de administración permaneció más tiempo en el sitio de la lesión, redujo el daño tisular y mejoró el control del movimiento y la memoria a largo plazo.",
+    "El tratamiento aumentó el número de células en división que se desarrollan en células nerviosas y potenció la actividad de proteínas como CREB1, PGC-1α y FNDC5 en las células madre neurales.",
+    "Los autores describen este enfoque basado en gel como una estrategia prometedora y sin células para reparar el tejido cerebral tras una lesión."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2375,
+    "completion_tokens": 1280,
+    "seconds": 77.14
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1481,
+    "completion_tokens": 125,
+    "seconds": 0.77
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42985707",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 6,
+    "rejected": 1,
+    "reasons": [
+     "statement copies the source wording"
+    ]
+   },
+   "subjects": [
+    "humans"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Researchers examined a 57-year-old woman who underwent surgery to remove a small, 5-millimeter surface growth in her throat.",
+    "In this single case, red dichromatic imaging, a technique that uses specific wavelengths to enhance contrast, made a nearby nerve appear sharper and more distinct than standard white light.",
+    "The tumor was removed in one piece without visible nerve damage, and the patient did not experience swallowing difficulties, voice changes, or other complications.",
+    "These findings suggest that the imaging method could be a helpful tool for visualizing this nerve and supporting techniques that aim to preserve it."
+   ],
+   "es": [
+    "Los investigadores examinaron a una mujer de 57 años que se sometió a una cirugía para extirpar un pequeño crecimiento superficial de 5 milímetros en su garganta.",
+    "En este caso único, la imagen dicromática roja, una técnica que utiliza longitudes de onda específicas para mejorar el contraste, hizo que un nervio cercano apareciera más nítido y definido que con la luz blanca estándar.",
+    "El tumor se extirpó en una sola pieza sin daños visibles en el nervio, y la paciente no experimentó dificultades para tragar, cambios en la voz ni otras complicaciones.",
+    "Estos hallazgos sugieren que el método de imagen podría ser una herramienta útil para visualizar este nervio y respaldar las técnicas que buscan preservarlo."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2059,
+    "completion_tokens": 886,
+    "seconds": 79.54
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1235,
+    "completion_tokens": 136,
+    "seconds": 0.69
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42993056",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 9,
+    "rejected": 0,
+    "reasons": []
+   },
+   "subjects": [
+    "animals",
+    "cells_or_tissue",
+    "other"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Researchers studying sensory neurons in the roundworm C. elegans found that electrical synapses, which are direct physical connections between cells, are temporarily present in early life before being removed as the nervous system matures.",
+    "These early electrical connections cause rapid fluctuations in calcium levels, a signaling molecule within the cells, and using light to destroy them stops these fluctuations while preventing the formation of standard chemical synapses.",
+    "However, restoring the calcium activity without the electrical connections fixes the issue with chemical synapse formation, indicating that the calcium signal itself is crucial for proper development.",
+    "The removal process relies on a protein called UNC-51/ULK, which modifies another protein to trigger the transport of channel proteins away from the connection site.",
+    "When this removal mechanism is blocked, the electrical connections persist, causing the neurons to become overly active."
+   ],
+   "es": [
+    "Investigadores que estudian las neuronas sensoriales del nematodo C. elegans descubrieron que las sinapsis eléctricas, que son conexiones físicas directas entre células, están presentes temporalmente en las primeras etapas de la vida antes de ser eliminadas a medida que el sistema nervioso madura.",
+    "Estas conexiones eléctricas tempranas provocan fluctuaciones rápidas en los niveles de calcio, una molécula de señalización intracelular, y su destrucción mediante luz detiene estas fluctuaciones al tiempo que impide la formación de sinapsis químicas estándar.",
+    "Sin embargo, restaurar la actividad del calcio sin las conexiones eléctricas corrige el problema en la formación de sinapsis químicas, lo que indica que la señal de calcio en sí misma es crucial para un desarrollo adecuado.",
+    "El proceso de eliminación depende de una proteína llamada UNC-51/ULK, que modifica otra proteína para activar el transporte de proteínas de canal lejos del sitio de conexión.",
+    "Cuando este mecanismo de eliminación se bloquea, las conexiones eléctricas persisten, lo que provoca que las neuronas se vuelvan excesivamente activas."
+   ],
+   "writer_tokens": {
+    "calls": 3,
+    "cached": 0,
+    "prompt_tokens": 2085,
+    "completion_tokens": 1032,
+    "seconds": 16.98
+   },
+   "writer_seconds": 17.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 1,
+    "cached": 0,
+    "prompt_tokens": 1292,
+    "completion_tokens": 118,
+    "seconds": 3.05
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42986391",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 7,
+    "rejected": 0,
+    "reasons": []
+   },
+   "subjects": [
+    "animals"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Scientists examined how rod cells in mice release glutamate, a chemical messenger, by engineering the animals to express a glowing marker that reacts to this substance.",
+    "By tracking these chemical signals in both dim and bright lighting, the team observed that glutamate release responded more strongly to slow changes in light intensity than to rapid fluctuations.",
+    "The cells emitted glutamate in a random pattern at a speed of 20 to 40 packets per second per ribbon, a rate that was confirmed by a separate electrical measurement method showing about 38 packets per second.",
+    "Maintaining this steady release rate across different light levels helps pass visual information accurately to the next stage of the visual system."
+   ],
+   "es": [
+    "Los científicos examinaron cómo las células bastones de los ratones liberan glutamato, un mensajero químico, para lo cual modificaron genéticamente a los animales para que expresaran un marcador luminoso que reacciona a esta sustancia.",
+    "Al rastrear estas señales químicas tanto en condiciones de poca luz como de mucha, el equipo observó que la liberación de glutamato respondía con mayor fuerza a los cambios lentos en la intensidad de la luz que a las fluctuaciones rápidas.",
+    "Las células emitían glutamato de forma aleatoria a una velocidad de 20 a 40 paquetes por segundo por cinta, una tasa que fue confirmada por un método de medición eléctrica independiente que mostraba aproximadamente 38 paquetes por segundo.",
+    "Mantener esta tasa de liberación constante a través de diferentes niveles de luz ayuda a transmitir la información visual con precisión a la siguiente etapa del sistema visual."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2152,
+    "completion_tokens": 901,
+    "seconds": 108.14
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1352,
+    "completion_tokens": 125,
+    "seconds": 0.67
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42969949",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 8,
+    "rejected": 0,
+    "reasons": []
+   },
+   "subjects": [
+    "animals",
+    "cells_or_tissue",
+    "humans"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Alström syndrome is a human ciliopathy caused by mutations in the ALMS1 gene.",
+    "The ALMS1 protein anchors at the base of centrioles, and its absence causes these structures to shorten and snap.",
+    "Broken centrioles exhibit weaker microtubule organization, while specific Golgi proteins fail to reach the centrosome.",
+    "ALMS1 is essential for building the transition zone, forming cilia, and regulating the ciliary membrane.",
+    "In mice, ALMS1 removal leads to age-related cilia loss in the retina, kidney, and brain, supporting a model where centriole damage and faulty transport hinder cilia upkeep."
+   ],
+   "es": [
+    "El síndrome de Alström es una ciliopatía humana causada por mutaciones en el gen ALMS1.",
+    "La proteína ALMS1 se ancla en la base de los centríolos, y su ausencia provoca que estas estructuras se acorten y se rompan.",
+    "Los centríolos dañados presentan una organización más débil de los microtúbulos, mientras que proteínas específicas del aparato de Golgi no logran llegar al centrómero.",
+    "ALMS1 es esencial para construir la zona de transición, formar cilios y regular la membrana ciliar.",
+    "En ratones, la eliminación de ALMS1 conduce a una pérdida de cilios relacionada con la edad en la retina, el riñón y el cerebro, lo que respalda un modelo en el que el daño a los centríolos y el transporte defectuoso dificultan el mantenimiento de los cilios."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2094,
+    "completion_tokens": 984,
+    "seconds": 69.49
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1210,
+    "completion_tokens": 108,
+    "seconds": 1.01
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "43000116",
+   "types": [
+    "Journal Article",
+    "Observational Study"
+   ],
+   "facts": {
+    "accepted": 7,
+    "rejected": 1,
+    "reasons": [
+     "quote not found verbatim in the source"
+    ]
+   },
+   "subjects": [
+    "humans"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Researchers compared three blood markers of brain damage in 21 stroke patients undergoing clot-removal surgery against 19 control patients having non-brain surgery.",
+    "Blood samples were collected before the procedure and at 2 and 24 hours after, then tested with a specific laboratory assay.",
+    "While the other two markers, NfL and tau, went up significantly in both groups, the GFAP level did not show a significant rise in the control group over the 24-hour period.",
+    "Because GFAP did not rise in the control group, it may be less affected by the effects of anesthesia and surgery than the other markers.",
+    "The results suggest that GFAP should be studied further as a possible tool for detecting acute brain injury in hospital settings."
+   ],
+   "es": [
+    "Los investigadores compararon tres marcadores sanguíneos de daño cerebral en 21 pacientes con ictus que se sometieron a una cirugía de eliminación de coágulos frente a 19 pacientes de control que se sometieron a cirugías no cerebrales.",
+    "Las muestras de sangre se recogieron antes del procedimiento y a las 2 y 24 horas después, y luego se analizaron mediante un ensayo de laboratorio específico.",
+    "Si bien los otros dos marcadores, NfL y tau, aumentaron significativamente en ambos grupos, el nivel de GFAP no mostró un aumento significativo en el grupo de control durante el período de 24 horas.",
+    "Dado que el GFAP no aumentó en el grupo de control, es posible que se vea menos afectado por los efectos de la anestesia y la cirugía que los otros marcadores.",
+    "Los resultados sugieren que el GFAP debería estudiarse más a fondo como una posible herramienta para detectar lesiones cerebrales agudas en entornos hospitalarios."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2477,
+    "completion_tokens": 1193,
+    "seconds": 106.58
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1607,
+    "completion_tokens": 165,
+    "seconds": 0.81
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42999788",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 6,
+    "rejected": 0,
+    "reasons": []
+   },
+   "subjects": [
+    "humans"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Researchers analyzed brain tissue from 17 individuals with major depressive disorder and 20 healthy controls using RiboMeth-seq, a method that maps chemical modifications in ribosomal RNA.",
+    "The overall pattern of these modifications was largely similar between the two groups, indicating that the general structure of ribosomes was not broadly disrupted.",
+    "However, the team identified 8 specific sites on the ribosomal RNA where modification levels differed significantly between the depressed and control participants.",
+    "These findings suggest that depression is associated with targeted changes at specific ribosomal positions rather than a general breakdown, which may contribute to issues with protein production in the brain."
+   ],
+   "es": [
+    "Los investigadores analizaron tejido cerebral de 17 personas con trastorno depresivo mayor y 20 controles sanos mediante RiboMeth-seq, un método que cartografía las modificaciones químicas en el ARN ribosómico.",
+    "El patrón general de estas modificaciones fue mayoritariamente similar entre ambos grupos, lo que indica que la estructura general de los ribosomas no se vio ampliamente alterada.",
+    "Sin embargo, el equipo identificó 8 sitios específicos en el ARN ribosómico donde los niveles de modificación diferían significativamente entre los participantes con depresión y los controles.",
+    "Estos hallazgos sugieren que la depresión se asocia con cambios dirigidos en posiciones ribosómicas específicas, en lugar de un deterioro generalizado, lo cual podría contribuir a problemas en la producción de proteínas en el cerebro."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2345,
+    "completion_tokens": 921,
+    "seconds": 46.05
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1484,
+    "completion_tokens": 108,
+    "seconds": 0.68
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42997796",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 7,
+    "rejected": 0,
+    "reasons": []
+   },
+   "subjects": [
+    "humans"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Researchers examined 102 teenagers aged 10 to 17, dividing them into two groups based on recent exposure to fine air particles relative to a 9 micrograms per cubic meter limit.",
+    "By measuring skin sweat, observing avoidance behaviors, and asking about fear levels, the team found that those with higher pollution exposure displayed stronger physical and emotional reactions when learning to associate a signal with a threat.",
+    "Participants in the high-exposure group also reported a more intense return of fear when the threat signal reappeared after the danger had passed.",
+    "Brain scans indicated that this group exhibited increased activity in the right amygdala and left insula, regions responsible for processing fear and safety.",
+    "These results suggest that altered fear processing may be one mechanism through which air pollution contributes to anxiety in young people."
+   ],
+   "es": [
+    "Los investigadores examinaron a 102 adolescentes de entre 10 y 17 años, dividiéndolos en dos grupos según su exposición reciente a partículas finas del aire en relación con un límite de 9 microgramos por metro cúbico.",
+    "Al medir el sudor de la piel, observar comportamientos de evitación y preguntar sobre los niveles de miedo, el equipo descubrió que quienes tenían una mayor exposición a la contaminación mostraban reacciones físicas y emocinales más intensas al aprender a asociar una señal con una amenaza.",
+    "Los participantes del grupo de alta exposición también informaron de un retorno del miedo más intenso cuando la señal de amenaza reapareció después de que el peligro hubiera cesado.",
+    "Las escaneos cerebrales indicaron que este grupo presentaba una mayor actividad en la amígdala derecha y la ínsula izquierda, regiones responsables de procesar el miedo y la seguridad.",
+    "Estos resultados sugieren que el procesamiento alterado del miedo podría ser uno de los mecanismos a través de los cuales la contaminación del aire contribuye a la ansiedad en los jóvenes."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2341,
+    "completion_tokens": 1043,
+    "seconds": 44.39
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1529,
+    "completion_tokens": 232,
+    "seconds": 1.17
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42997793",
+   "types": [
+    "Journal Article",
+    "Review"
+   ],
+   "facts": {
+    "accepted": 9,
+    "rejected": 1,
+    "reasons": [
+     "numbers not in the quote"
+    ]
+   },
+   "subjects": [
+    "humans",
+    "other"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "A systematic review of adults aged 18 to 70 with major depressive disorder examined whether brain connectivity in the subgenual anterior cingulate cortex before treatment could predict changes in depression symptoms.",
+    "The analysis found that stronger initial connections between the subgenual cingulate and the right dorsolateral prefrontal cortex were linked to less improvement, while stronger links to the medial orbitofrontal cortex were associated with greater symptom relief.",
+    "These predictive patterns were most common in studies using repetitive transcranial magnetic stimulation, a technique that uses magnetic fields to stimulate nerve cells, particularly when targeting was personalized.",
+    "Although the brain scans used in the included studies were rated as adequate with an average score of 16.1 out of 20, the results varied across studies and did not support a detailed statistical analysis of specific brain locations.",
+    "The authors note that larger future studies are needed to confirm these findings and determine if they can be used in clinical practice."
+   ],
+   "es": [
+    "Una revisión sistemática de adultos de entre 18 y 70 años con trastorno depresivo mayor examinó si la conectividad cerebral en la corteza cingulada anterior subgenual antes del tratamiento podía predecir los cambios en los síntomas de la depresión.",
+    "El análisis reveló que conexiones iniciales más fuertes entre el cingulado subgenual y la corteza prefrontal dorsolateral derecha se asociaban con una menor mejoría, mientras que vínculos más intensos con la corteza orbitofrontal medial se relacionaban con un mayor alivio de los síntomas.",
+    "Estos patrones predictivos fueron más frecuentes en los estudios que utilizaban estimulación magnética transcraneal repetitiva, una técnica que emplea campos magnéticos para estimular las células nerviosas, especialmente cuando la diana era personalizada.",
+    "Aunque las resonancias cerebrales utilizadas en los estudios incluidos fueron calificadas como adecuadas, con una puntuación media de 16,1 sobre 20, los resultados variaban entre estudios y no permitían un análisis estadístico detallado de localizaciones cerebrales específicas.",
+    "Los autores señalan que se necesitan estudios futuros más amplios para confirmar estos hallazgos y determinar si pueden aplicarse en la práctica clínica."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2447,
+    "completion_tokens": 1276,
+    "seconds": 72.7
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1584,
+    "completion_tokens": 98,
+    "seconds": 0.99
+   },
+   "status": "published"
+  }
+ ]
+}

@@ -1,0 +1,573 @@
+{
+ "measured_at": "2026-11-10T14:53:20.381320+00:00",
+ "writer": "ollama/paleo-qwen3.5-9b",
+ "judge": "groq/openai/gpt-oss-120b",
+ "window": [
+  "2026/11/02",
+  "2026/11/08"
+ ],
+ "writer_stats": {
+  "calls": 8,
+  "cached": 24,
+  "prompt_tokens": 24095,
+  "completion_tokens": 11452,
+  "seconds": 99.66457229100298
+ },
+ "judge_stats": {
+  "calls": 4,
+  "cached": 6,
+  "prompt_tokens": 13979,
+  "completion_tokens": 1255,
+  "seconds": 6.795185840999592
+ },
+ "articles": [
+  {
+   "pmid": "42971231",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 4,
+    "rejected": 4,
+    "reasons": [
+     "numbers not in the quote",
+     "quote not found verbatim in the source",
+     "quote not found verbatim in the source",
+     "quote not found verbatim in the source"
+    ]
+   },
+   "subjects": [
+    "humans"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Researchers conducted a large-scale surveillance study in Botswana that monitored over two-thirds of the country's births, including 11,110 pregnancies exposed to dolutegravir at conception where 12 cases of neural tube defects were found.",
+    "Although defects were more frequent in the first year dolutegravir was used widely, rates dropped significantly in later years, and the study found no evidence that dolutegravir increases the risk of major birth defects compared to other treatments."
+   ],
+   "es": [
+    "Los investigadores llevaron a cabo un estudio de vigilancia a gran escala en Botsuana que monitorizó más de dos tercios de los nacimientos del país, incluyendo 11 110 embarazos expuestos a dolutegravir en el momento de la concepción, en los que se detectaron 12 casos de defectos del tubo neural.",
+    "Aunque los defectos fueron más frecuentes durante el primer año de uso generalizado del dolutegravir, las tasas disminuyeron significativamente en años posteriores, y el estudio no encontró evidencia de que el dolutegravir aumente el riesgo de defectos de nacimiento graves en comparación con otros tratamientos."
+   ],
+   "writer_tokens": {
+    "calls": 2,
+    "cached": 1,
+    "prompt_tokens": 2707,
+    "completion_tokens": 1150,
+    "seconds": 11.77
+   },
+   "writer_seconds": 4.8,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 1,
+    "cached": 0,
+    "prompt_tokens": 1757,
+    "completion_tokens": 117,
+    "seconds": 0.57
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42999541",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 6,
+    "rejected": 1,
+    "reasons": [
+     "numbers not in the quote"
+    ]
+   },
+   "subjects": [
+    "animals",
+    "cells_or_tissue",
+    "computational",
+    "other"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Researchers identified that current methods for producing stem cell vesicles suffer from low yields and quick removal from the body, prompting the creation of a new 3D-printed gel system designed to slowly release these vesicles directly into brain injury sites.",
+    "In animal studies, those treated with the new gel showed improved movement and memory skills over time, as the vesicles triggered specific molecular signals that encouraged more brain cells to grow into neurons and support cells.",
+    "The authors conclude this approach offers a hopeful, non-cell-based method for long-term brain repair after injury."
+   ],
+   "es": [
+    "Los investigadores identificaron que los métodos actuales para producir vesículas de células madre presentan bajos rendimientos y una eliminación rápida del organismo, lo que ha impulsado el desarrollo de un nuevo sistema de gel impreso en 3D diseñado para liberar estas vesículas de forma lenta directamente en los sitios de lesión cerebral.",
+    "En estudios con animales, aquellos tratados con el nuevo gel mostraron una mejora progresiva en el movimiento y las habilidades de memoria, ya que las vesículas activaron señales moleculares específicas que fomentaron el crecimiento de nuevas células cerebrales hacia neuronas y células de soporte.",
+    "Los autores concluyen que este enfoque ofrece un método prometedor y no basado en células para la reparación cerebral a largo plazo tras una lesión."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2211,
+    "completion_tokens": 1116,
+    "seconds": 9.52
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1368,
+    "completion_tokens": 99,
+    "seconds": 0.66
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42985707",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 7,
+    "rejected": 1,
+    "reasons": [
+     "statement copies the source wording"
+    ]
+   },
+   "subjects": [
+    "humans"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Researchers examined whether a specialized red-colored camera view assists doctors in identifying target nerves better than standard white light during surgery on a single 57-year-old patient with a small 5-millimeter throat tumor.",
+    "While both imaging methods showed a white line under the tumor, the red imaging made the nerve appear clearer before the cut and kept it visible, allowing the tumor to be removed in one piece without visible nerve damage.",
+    "Following the procedure, the patient experienced no swallowing problems, voice changes, or other negative side effects, leading authors to suggest this tool could protect nerves in similar surgeries, though the finding relies on just one case."
+   ],
+   "es": [
+    "Los investigadores examinaron si una vista especializada mediante cámara de color rojo ayuda a los médicos a identificar mejor los nervios objetivo que la luz blanca estándar durante una cirugía en un único paciente de 57 años con un pequeño tumor faríngeo de 5 milímetros.",
+    "Aunque ambos métodos de imagen mostraron una línea blanca bajo el tumor, la imagen en rojo hizo que el nervio apareciera más claro antes del corte y lo mantuvo visible, permitiendo extraer el tumor en una pieza única sin daños visibles en el nervio.",
+    "Tras el procedimiento, el paciente no experimentó problemas de deglución, cambios de voz u otros efectos adversos, lo que lleva a los autores a sugerir que esta herramienta podría proteger los nervios en cirugías similares, aunque el hallazgo se basa únicamente en un caso."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2092,
+    "completion_tokens": 1146,
+    "seconds": 9.62
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1251,
+    "completion_tokens": 122,
+    "seconds": 0.62
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42993056",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 7,
+    "rejected": 0,
+    "reasons": []
+   },
+   "subjects": [
+    "animals",
+    "cells_or_tissue",
+    "other"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Scientists previously did not know how electrical connections between neurons are removed as the nervous system matures. Researchers studied specific sensory neurons in roundworms and found that these electrical connections appear briefly during early growth before disappearing.",
+    "A specific enzyme called UNC-51 was found to be necessary for removing these temporary electrical connections. The enzyme modifies a transport protein to help pull the electrical connection proteins out of the synapse and remove them from the cell. If the removal process is blocked, the electrical connections stay active, leading to excessive neuronal firing.",
+    "When the temporary electrical links were removed, the neurons stopped sending calcium signals and failed to build permanent chemical connections. Restoring calcium signals alone was enough to fix the failure to build chemical connections, proving that calcium flow is the key factor."
+   ],
+   "es": [
+    "Anteriormente, los científicos no sabían cómo se eliminan las conexiones eléctricas entre neuronas a medida que el sistema nervioso madura. Los investigadores estudiaron neuronas sensoriales específicas en nemátodos y descubrieron que estas conexiones eléctricas aparecen brevemente durante el crecimiento inicial antes de desaparecer.",
+    "Se descubrió que una enzima específica llamada UNC-51 es necesaria para eliminar estas conexiones eléctricas temporales. La enzima modifica una proteína de transporte para ayudar a extraer las proteínas de la conexión eléctrica de la sinapsis y eliminarlas de la célula. Si el proceso de eliminación se bloquea, las conexiones eléctricas permanecen activas, lo que provoca una actividad neuronal excesiva.",
+    "Cuando se eliminaron los enlaces eléctricos temporales, las neuronas dejaron de enviar señales de calcio y fallaron en establecer conexiones químicas permanentes. Restaurar únicamente las señales de calcio fue suficiente para corregir el fallo en la formación de conexiones químicas, demostrando que el flujo de calcio es el factor clave."
+   ],
+   "writer_tokens": {
+    "calls": 2,
+    "cached": 1,
+    "prompt_tokens": 2035,
+    "completion_tokens": 1101,
+    "seconds": 9.14
+   },
+   "writer_seconds": 4.5,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 1,
+    "cached": 0,
+    "prompt_tokens": 1246,
+    "completion_tokens": 160,
+    "seconds": 0.71
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42986391",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 6,
+    "rejected": 0,
+    "reasons": []
+   },
+   "subjects": [
+    "animals",
+    "humans"
+   ],
+   "en_attempts": 2,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "In humans, seeing in low light depends on rod bipolar cells detecting tiny changes in the constant release of glutamate from rod cells. Keeping this release rate steady helps ensure that the brain correctly interprets how the eye adjusts to different light levels.",
+    "Scientists created a special mouse model where rod cells glow when they release glutamate to study its random release at 20 to 40 packets per second. This speed drops off between 1 and 10 times per second, a finding confirmed by separate electrical measurement showing about 38 packets per second."
+   ],
+   "es": [
+    "En humanos, la visión en baja luminosidad depende de que las células bipolares de los bastones detecten mínimas variaciones en la liberación constante de glutamato por parte de las células de los bastones. Mantener estable esta tasa de liberación ayuda a garantizar que el cerebro interprete correctamente cómo el ojo se adapta a diferentes niveles de luz.",
+    "Los científicos crearon un modelo especial de ratón en el que las células de los bastones brillan cuando liberan glutamato para estudiar su liberación aleatoria, que oscila entre 20 y 40 paquetes por segundo. Esta velocidad disminuye entre 1 y 10 veces por segundo, un hallazgo confirmado por mediciones eléctricas independientes que muestran unos 38 paquetes por segundo."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 4,
+    "prompt_tokens": 2823,
+    "completion_tokens": 1094,
+    "seconds": 9.26
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": false,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": false,
+    "reason": "Summary incorrectly states the study was in humans"
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1281,
+    "completion_tokens": 126,
+    "seconds": 0.71
+   },
+   "status": "rejected_by_judge"
+  },
+  {
+   "pmid": "42969949",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 7,
+    "rejected": 0,
+    "reasons": []
+   },
+   "subjects": [
+    "animals",
+    "cells_or_tissue",
+    "humans"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Mutations in the ALMS1 gene cause the human disease Alström syndrome, a condition resulting from broken centrioles and faulty protein transport that disrupts cilia formation and maintenance.",
+    "Research shows the ALMS1 protein sits at the base of centrioles, where it is essential for transporting cargo to build the transition zone, a structure needed for growing cilia and managing their membrane proteins.",
+    "In mice, losing ALMS1 leads to a gradual loss of cilia in the retina, kidney, and brain as the animals age."
+   ],
+   "es": [
+    "Las mutaciones en el gen ALMS1 provocan la enfermedad humana de Alström, una afección derivada de centrioles defectuosos y un transporte proteico fallido que altera la formación y el mantenimiento de los cilios.",
+    "La investigación muestra que la proteína ALMS1 se sitúa en la base de los centrioles, donde es esencial para transportar la carga necesaria para construir la zona de transición, una estructura requerida para el crecimiento de los cilios y la gestión de sus proteínas de membrana.",
+    "En ratones, la pérdida de ALMS1 conduce a una disminución progresiva de los cilios en la retina, el riñón y el cerebro a medida que los animales envejecen."
+   ],
+   "writer_tokens": {
+    "calls": 2,
+    "cached": 1,
+    "prompt_tokens": 2028,
+    "completion_tokens": 989,
+    "seconds": 8.22
+   },
+   "writer_seconds": 3.6,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 1,
+    "cached": 0,
+    "prompt_tokens": 1142,
+    "completion_tokens": 98,
+    "seconds": 0.89
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "43000116",
+   "types": [
+    "Journal Article",
+    "Observational Study"
+   ],
+   "facts": {
+    "accepted": 8,
+    "rejected": 0,
+    "reasons": []
+   },
+   "subjects": [
+    "humans"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Researchers investigated whether a blood test could detect brain injury in 21 stroke patients under anesthesia, where standard exams fail. They measured three proteins in samples taken before, at two hours, and at 24 hours after the procedure. The study included 19 healthy people undergoing non-brain surgery for comparison.",
+    "Levels of the protein GFAP rose sharply in stroke patients and remained higher than in the control group throughout the study period. Unlike the stroke patients, the control group showed no significant rise in GFAP levels, suggesting the protein is specific to brain injury rather than just anesthesia. The other two proteins, NfL and tau, went up in both groups, making them less reliable for distinguishing brain injury from surgery stress.",
+    "The authors conclude that GFAP appears to be a better marker for acute brain injury because it does not rise simply due to the effects of anesthesia or surgery. The results suggest that GFAP could become a useful tool for monitoring brain health in hospitals, but more research is needed to confirm this."
+   ],
+   "es": [
+    "Los investigadores analizaron si una prueba de sangre podía detectar lesiones cerebrales en 21 pacientes con ictus bajo anestesia, en situaciones donde los exámenes estándar fallan. midieron tres proteínas en muestras tomadas antes, a las dos horas y a las 24 horas tras el procedimiento. El estudio incluyó a 19 personas sanas sometidas a cirugía no cerebral para la comparación.",
+    "Los niveles de la proteína GFAP aumentaron bruscamente en los pacientes con ictus y se mantuvieron más altos que en el grupo de control durante todo el periodo del estudio. A diferencia de los pacientes con ictus, el grupo de control no mostró un aumento significativo de los niveles de GFAP, lo que sugiere que la proteína es específica de la lesión cerebral y no solo de la anestesia. Las otras dos proteínas, NfL y tau, aumentaron en ambos grupos, lo que las hace menos fiables para distinguir entre la lesión cerebral y el estrés quirúrgico.",
+    "Los autores concluyen que la GFAP parece ser un marcador mejor para la lesión cerebral aguda porque no aumenta simplemente debido a los efectos de la anestesia o la cirugía. Los resultados sugieren que la GFAP podría convertirse en una herramienta útil para monitorizar la salud cerebral en los hospitales, pero se necesita más investigación para confirmar esto."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2585,
+    "completion_tokens": 1468,
+    "seconds": 12.6
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": false,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": false,
+    "reason": "Controls are described as healthy people, which is not stated in the abstract"
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1713,
+    "completion_tokens": 174,
+    "seconds": 0.84
+   },
+   "status": "rejected_by_judge"
+  },
+  {
+   "pmid": "42999788",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 7,
+    "rejected": 0,
+    "reasons": []
+   },
+   "subjects": [
+    "humans",
+    "other"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "This study examined whether specific ribosome control mechanisms contribute to molecular abnormalities in major depressive disorder by analyzing brain tissue from 17 people with depression and 20 healthy controls. Scientists used a specialized sequencing method to map chemical changes in ribosomal RNA within the prefrontal cortex.",
+    "While the general pattern of ribosomal RNA modifications was largely the same in both groups, exactly 8 specific locations showed significant differences. These findings suggest that depression involves targeted changes to specific ribosome sites rather than a broad breakdown of ribosome structure.",
+    "The authors propose that these specific RNA changes might help explain how protein production goes awry in the brains of people with depression."
+   ],
+   "es": [
+    "Este estudio examinó si los mecanismos específicos de control de los ribosomas contribuyen a las anomalías moleculares en el trastorno depresivo mayor mediante el análisis de tejido cerebral de 17 personas con depresión y 20 controles sanos. Los científicos utilizaron un método de secuenciación especializado para mapear los cambios químicos en el ARN ribosómico dentro de la corteza prefrontal.",
+    "Aunque el patrón general de modificaciones del ARN ribosómico fue en gran parte el mismo en ambos grupos, exactamente 8 ubicaciones específicas mostraron diferencias significativas. Estos hallazgos sugieren que la depresión implica cambios dirigidos a sitios específicos del ribosoma en lugar de una degradación general de la estructura del ribosoma.",
+    "Los autores proponen que estos cambios específicos del ARN podrían ayudar a explicar cómo se altera la producción de proteínas en los cerebros de las personas con depresión."
+   ],
+   "writer_tokens": {
+    "calls": 2,
+    "cached": 1,
+    "prompt_tokens": 2351,
+    "completion_tokens": 1182,
+    "seconds": 10.31
+   },
+   "writer_seconds": 4.4,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 1,
+    "cached": 0,
+    "prompt_tokens": 1505,
+    "completion_tokens": 125,
+    "seconds": 0.69
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42997796",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 7,
+    "rejected": 0,
+    "reasons": []
+   },
+   "subjects": [
+    "humans"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "A study involving 102 teenagers aged 10 to 17 examined how air pollution might disrupt brain processes that help young people learn to recognize and manage threats.",
+    "Participants were divided by past exposure to fine dust particles, revealing that those with higher exposure showed stronger fear reactions and greater difficulty stopping fear later on, alongside increased activity in specific brain areas.",
+    "The authors conclude that these observed changes in fear learning could explain why air pollution is linked to higher rates of anxiety in young people."
+   ],
+   "es": [
+    "Un estudio con 102 adolescentes de entre 10 y 17 años examinó cómo la contaminación atmosférica podría alterar los procesos cerebrales que ayudan a los jóvenes a aprender a reconocer y gestionar las amenazas.",
+    "Los participantes se dividieron según su exposición previa a partículas de polvo fino, revelando que aquellos con mayor exposición mostraron reacciones de miedo más intensas y una mayor dificultad para detener el miedo posteriormente, junto con un aumento de la actividad en áreas cerebrales específicas.",
+    "Los autores concluyen que estos cambios observados en el aprendizaje del miedo podrían explicar por qué la contaminación atmosférica se asocia con mayores tasas de ansiedad en los jóvenes."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2282,
+    "completion_tokens": 996,
+    "seconds": 8.68
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1363,
+    "completion_tokens": 137,
+    "seconds": 0.7
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42997793",
+   "types": [
+    "Journal Article",
+    "Review"
+   ],
+   "facts": {
+    "accepted": 7,
+    "rejected": 1,
+    "reasons": [
+     "numbers not in the quote"
+    ]
+   },
+   "subjects": [
+    "humans"
+   ],
+   "en_attempts": 2,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Researchers examined whether activity patterns in a specific mood-related brain region could forecast how effectively depression treatments would work for humans.",
+    "In some cases, stronger connections between the subgenual area and the right prefrontal cortex were linked to less symptom improvement, while links to the medial orbitofrontal cortex correlated with better outcomes.",
+    "Although predictive links were most frequently observed in magnetic stimulation studies using personalized targeting, results varied too much to allow definitive conclusions about exact brain locations."
+   ],
+   "es": [
+    "Los investigadores examinaron si los patrones de actividad en una región cerebral específica relacionada con el estado de ánimo podían predecir qué tan efectivos serían los tratamientos para la depresión en humanos.",
+    "En algunos casos, conexiones más fuertes entre el área subgenual y la corteza prefrontal derecha se asociaron con una menor mejora de los síntomas, mientras que las conexiones con la corteza orbitofrontal medial correlacionaron con mejores resultados.",
+    "Aunque los vínculos predictivos se observaron con mayor frecuencia en estudios de estimulación magnética que utilizaban un enfoque personalizado, los resultados variaban demasiado para permitir conclusiones definitivas sobre las ubicaciones exactas del cerebro."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 4,
+    "prompt_tokens": 2981,
+    "completion_tokens": 1210,
+    "seconds": 10.53
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1353,
+    "completion_tokens": 97,
+    "seconds": 0.42
+   },
+   "status": "published"
+  }
+ ]
+}

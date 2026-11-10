@@ -69,14 +69,23 @@ _FUNCTION_WORDS = _wordset(
 )
 
 
-def normalize(text: str) -> str:
+# The Lancet journals write decimals with a middle dot ("0\u00b711"); seen in S5.
+_MIDDLE_DOT = re.compile(r"(?<=\d)\u00b7(?=\d)")
+
+
+def _typography(text: str) -> str:
+    """NFKC (thin and no-break spaces become spaces), plain quotes, decimal points."""
     text = unicodedata.normalize("NFKC", text).translate(_QUOTES)
-    return " ".join(text.lower().split())
+    return _MIDDLE_DOT.sub(".", text)
+
+
+def normalize(text: str) -> str:
+    return " ".join(_typography(text).lower().split())
 
 
 def numbers(text: str) -> set[str]:
     """Numbers in a language-neutral form: "1,5" and "1.5" -> "1.5"; "1,000" -> "1000"."""
-    text = re.sub(r"(?<=\d)[ \u00a0\u202f](?=\d{3}(?:\D|$))", "", text)
+    text = re.sub(r"(?<=\d) (?=\d{3}(?:\D|$))", "", _typography(text))
     out = set()
     for token in _NUMBER.findall(text):
         token = re.sub(r"[.,](?=\d{3}(?:\D|$))", "", token)
@@ -122,7 +131,9 @@ def check_fact(statement: str, quote: str, source: str) -> str | None:
     """Why the fact is rejected, or None when its quote supports it."""
     if len(quote.strip()) < MIN_QUOTE_CHARS:
         return "quote too short"
-    if normalize(quote) not in normalize(source):
+    # A quote that ends a clause with "." where the source has ";" or "," is still verbatim
+    # (seen with the local Qwen in S5): trailing punctuation is not compared.
+    if normalize(quote).rstrip(" .;,:") not in normalize(source):
         return "quote not found verbatim in the source"
     if missing := numbers(statement) - numbers(quote):
         return f"numbers not in the quote: {sorted(missing)}"

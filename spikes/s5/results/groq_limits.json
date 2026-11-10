@@ -1,0 +1,116 @@
+{
+ "measured_at": "2026-11-10T14:19:32.950981+00:00",
+ "models": {
+  "allam-2-7b": {
+   "owned_by": "SDAIA",
+   "active": true,
+   "context_window": 4096,
+   "max_completion_tokens": 4096,
+   "status": 200,
+   "headers": {
+    "x-ratelimit-limit-requests": "7000",
+    "x-ratelimit-limit-tokens": "6000",
+    "x-ratelimit-remaining-requests": "6999",
+    "x-ratelimit-remaining-tokens": "5979",
+    "x-ratelimit-reset-requests": "12.342s",
+    "x-ratelimit-reset-tokens": "210ms"
+   }
+  },
+  "canopylabs/orpheus-arabic-saudi": {
+   "owned_by": "Canopy Labs",
+   "active": true,
+   "context_window": 4000,
+   "max_completion_tokens": 50000
+  },
+  "canopylabs/orpheus-v1-english": {
+   "owned_by": "Canopy Labs",
+   "active": true,
+   "context_window": 4000,
+   "max_completion_tokens": 50000
+  },
+  "meta-llama/llama-prompt-guard-2-22m": {
+   "owned_by": "Meta",
+   "active": true,
+   "context_window": 512,
+   "max_completion_tokens": 512
+  },
+  "meta-llama/llama-prompt-guard-2-86m": {
+   "owned_by": "Meta",
+   "active": true,
+   "context_window": 512,
+   "max_completion_tokens": 512
+  },
+  "openai/gpt-oss-120b": {
+   "owned_by": "OpenAI",
+   "active": true,
+   "context_window": 131072,
+   "max_completion_tokens": 65536,
+   "status": 200,
+   "headers": {
+    "x-ratelimit-limit-requests": "1000",
+    "x-ratelimit-limit-tokens": "8000",
+    "x-ratelimit-remaining-requests": "999",
+    "x-ratelimit-remaining-tokens": "7915",
+    "x-ratelimit-reset-requests": "1m26.4s",
+    "x-ratelimit-reset-tokens": "637ms"
+   }
+  },
+  "openai/gpt-oss-20b": {
+   "owned_by": "OpenAI",
+   "active": true,
+   "context_window": 131072,
+   "max_completion_tokens": 65536,
+   "status": 200,
+   "headers": {
+    "x-ratelimit-limit-requests": "1000",
+    "x-ratelimit-limit-tokens": "8000",
+    "x-ratelimit-remaining-requests": "999",
+    "x-ratelimit-remaining-tokens": "7915",
+    "x-ratelimit-reset-requests": "1m26.4s",
+    "x-ratelimit-reset-tokens": "637ms"
+   }
+  },
+  "openai/gpt-oss-safeguard-20b": {
+   "owned_by": "OpenAI",
+   "active": true,
+   "context_window": 131072,
+   "max_completion_tokens": 65536,
+   "status": 200,
+   "headers": {
+    "x-ratelimit-limit-requests": "1000",
+    "x-ratelimit-limit-tokens": "2000",
+    "x-ratelimit-remaining-requests": "999",
+    "x-ratelimit-remaining-tokens": "1915",
+    "x-ratelimit-reset-requests": "1m26.4s",
+    "x-ratelimit-reset-tokens": "2.55s"
+   }
+  },
+  "qwen/qwen3.8-27b": {
+   "owned_by": "Alibaba Cloud",
+   "active": true,
+   "context_window": 131072,
+   "max_completion_tokens": 16384,
+   "status": 200,
+   "headers": {
+    "x-ratelimit-limit-requests": "1000",
+    "x-ratelimit-limit-tokens": "8000",
+    "x-ratelimit-remaining-requests": "999",
+    "x-ratelimit-remaining-tokens": "7974",
+    "x-ratelimit-reset-requests": "1m26.4s",
+    "x-ratelimit-reset-tokens": "194ms"
+   }
+  },
+  "whisper-large-v3": {
+   "owned_by": "OpenAI",
+   "active": true,
+   "context_window": 448,
+   "max_completion_tokens": 448
+  },
+  "whisper-large-v3-turbo": {
+   "owned_by": "OpenAI",
+   "active": true,
+   "context_window": 448,
+   "max_completion_tokens": 448
+  }
+ }
+}

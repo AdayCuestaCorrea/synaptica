@@ -1,0 +1,572 @@
+{
+ "measured_at": "2026-11-10T14:54:23.749476+00:00",
+ "writer": "groq/openai/gpt-oss-120b",
+ "judge": "groq/qwen/qwen3.8-27b",
+ "window": [
+  "2026/11/02",
+  "2026/11/08"
+ ],
+ "writer_stats": {
+  "calls": 5,
+  "cached": 26,
+  "prompt_tokens": 29057,
+  "completion_tokens": 20505,
+  "seconds": 82.16738065800209
+ },
+ "judge_stats": {
+  "calls": 3,
+  "cached": 7,
+  "prompt_tokens": 14102,
+  "completion_tokens": 401,
+  "seconds": 4.936793533998076
+ },
+ "articles": [
+  {
+   "pmid": "42971231",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 5,
+    "rejected": 2,
+    "reasons": [
+     "quote not found verbatim in the source",
+     "numbers not in the quote"
+    ]
+   },
+   "subjects": [
+    "humans",
+    "other"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Researchers examined babies born in public hospitals across Botswana from August 2014 to August 2022, covering 235,727 deliveries—over two‑thirds of the nation’s births—and compared neural tube defects and major external structural abnormalities in infants whose mothers used dolutegravir at conception with those whose mothers used other antiretroviral regimens, after surface examinations were performed on 235,286 infants (11,110 dolutegravir‑exposed and 24,368 non‑dolutegravir‑exposed).",
+    "The age‑adjusted analysis showed virtually no difference in neural tube defect prevalence between the two groups, with a calculated difference of ‑0.02%.",
+    "The authors also observed that defect rates were higher for conceptions occurring in the early dry season and during the first year after dolutegravir rollout, suggesting possible seasonal or temporal influences."
+   ],
+   "es": [
+    "Los investigadores estudiaron a los bebés nacidos en hospitales públicos de Botsuana entre agosto de 2014 y agosto de 2022, abarcando 235 727 partos —más de dos tercios de los nacimientos del país— y compararon los defectos del tubo neural y las principales anomalías estructurales externas en los infantes cuyas madres usaron dolutegravir al concebir con los de madres que emplearon otros regímenes antirretrovirales, tras realizar exámenes superficiales a 235 286 infantes (11 110 expuestos a dolutegravir y 24 368 no expuestos).",
+    "El análisis ajustado por edad mostró prácticamente ninguna diferencia en la prevalencia de defectos del tubo neural entre los dos grupos, con una diferencia calculada de ‑0,02 %.",
+    "Los autores también observaron que las tasas de defectos fueron mayores en los embarazos que ocurrieron a principios de la estación seca y durante el primer año tras la introducción del dolutegravir, lo que sugiere posibles influencias estacionales o temporales."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 3247,
+    "completion_tokens": 2245,
+    "seconds": 6.5
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1973,
+    "completion_tokens": 40,
+    "seconds": 0.64
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42999541",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 6,
+    "rejected": 0,
+    "reasons": []
+   },
+   "subjects": [
+    "animals",
+    "cells_or_tissue",
+    "other"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "In a mouse model of traumatic brain injury, researchers implanted a GelMA hydrogel that gradually releases extracellular vesicles derived from 3D‑bioprinted adipose stem cells, which remained at the lesion longer, reduced tissue loss, and improved sensorimotor coordination and spatial memory over time.",
+    "The vesicles were generated using a coaxial alginate‑microfiber culture that yielded roughly eight times more vesicles and protein than conventional 2D culture, enabling the hydrogel to carry a high therapeutic load.",
+    "Implantation increased the pool of dividing cells expressing markers of neural progenitors, neurons and oligodendrocytes, an effect linked to vesicle‑induced elevation of nuclear CREB1 in neural stem cells, which boosted PGC‑1α transcription and FNDC5 expression to support endogenous neurogenesis.",
+    "Functional recovery and molecular changes were assessed through behavioral testing, immunofluorescence imaging, multi‑omics profiling, and pharmacological inhibition following orthotopic transplantation of the hydrogel system."
+   ],
+   "es": [
+    "En un modelo de ratón con lesión cerebral traumática, los investigadores implantaron un hidrogel de GelMA que libera gradualmente vesículas extracelulares derivadas de células madre adiposas biimpresas en 3D, las cuales permanecieron más tiempo en la lesión, redujeron la pérdida de tejido y mejoraron la coordinación sensoriomotora y la memoria espacial con el tiempo.",
+    "Las vesículas se generaron mediante un cultivo coaxial de microfibras de alginato que produjo aproximadamente ocho veces más vesículas y proteína que el cultivo convencional en 2D, lo que permitió al hidrogel transportar una alta carga terapéutica.",
+    "La implantación aumentó el conjunto de células en división que expresan marcadores de progenitores neuronales, neuronas y oligodendrocitos, un efecto asociado a la elevación inducida por las vesículas de CREB1 nuclear en las células madre neurales, lo que potenció la transcripción de PGC‑1α y la expresión de FNDC5 para favorecer la neurogénesis endógena.",
+    "La recuperación funcional y los cambios moleculares se evaluaron mediante pruebas conductuales, imágenes de inmunofluorescencia, perfiles multi‑ómicos e inhibición farmacológica tras el trasplante ortotópico del sistema de hidrogel."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2897,
+    "completion_tokens": 2116,
+    "seconds": 26.8
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1451,
+    "completion_tokens": 40,
+    "seconds": 0.65
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42985707",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 5,
+    "rejected": 2,
+    "reasons": [
+     "statement copies the source wording",
+     "statement copies the source wording"
+    ]
+   },
+   "subjects": [
+    "humans"
+   ],
+   "en_attempts": 2,
+   "en_problems": [
+    "sentence 1: copies 8+ words from a source"
+   ],
+   "status": "failed",
+   "stage": "en",
+   "tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2679,
+    "completion_tokens": 1799,
+    "seconds": 5.04
+   }
+  },
+  {
+   "pmid": "42993056",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 6,
+    "rejected": 1,
+    "reasons": [
+     "numbers not in the quote"
+    ]
+   },
+   "subjects": [
+    "animals"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "The researchers investigated how electrical synapses are removed as neural circuits mature, focusing on the PLM mechanosensory neurons of the nematode Caenorhabditis elegans, where gap junctions appear early in development and later disappear.",
+    "These transient electrical synapses produce high‑frequency calcium oscillations, and optogenetically eliminating them halts calcium activity and disrupts the subsequent formation of chemical synapses.",
+    "Re‑activating calcium signaling without restoring the gap junctions largely rescued the deficit in chemical synapse development.",
+    "A forward genetic screen revealed that the conserved kinase UNC‑51/ULK is essential for removing the early electrical synapses; UNC‑51 phosphorylates the kinesin adaptor UNC‑76/FEZ, which initiates RAB‑10‑dependent retrograde transport that clears innexin proteins from the synaptic site."
+   ],
+   "es": [
+    "Los investigadores estudiaron cómo se eliminan las sinapsis eléctricas al madurar los circuitos neuronales, centrándose en las neuronas mecanosensoriales PLM del nematodo Caenorhabditis elegans, donde las uniones gap aparecen temprano en el desarrollo y desaparecen después.",
+    "Estas sinapsis eléctricas transitorias generan oscilaciones de calcio de alta frecuencia, y su eliminación optogenética detiene la actividad de calcio y perturba la posterior formación de sinapsis químicas.",
+    "Reactivar la señalización de calcio sin restaurar las uniones gap rescata en gran medida el déficit en el desarrollo de sinapsis químicas.",
+    "Una criba genética de avance reveló que la quinasa conservada UNC‑51/ULK es esencial para eliminar las sinapsis eléctricas tempranas; UNC‑51 fosforila al adaptador de quinesina UNC‑76/FEZ, lo que inicia el transporte retrógrado dependiente de RAB‑10 que elimina las proteínas innexina del sitio sináptico."
+   ],
+   "writer_tokens": {
+    "calls": 2,
+    "cached": 1,
+    "prompt_tokens": 2573,
+    "completion_tokens": 1717,
+    "seconds": 5.87
+   },
+   "writer_seconds": 2.4,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 1,
+    "cached": 0,
+    "prompt_tokens": 1136,
+    "completion_tokens": 40,
+    "seconds": 0.37
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42986391",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 8,
+    "rejected": 0,
+    "reasons": []
+   },
+   "subjects": [
+    "animals",
+    "cells_or_tissue"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "The researchers generated a mouse line that expresses a bright fluorescent glutamate sensor exclusively in rod photoreceptor cells and used it to monitor glutamate release under dim (mesopic) and bright (photopic) lighting conditions.",
+    "When brief light flashes were presented, the sensor’s fluorescence decreased, showing that glutamate release was transiently suppressed.",
+    "During a chirp‑type stimulus the release signal behaved like a low‑pass filter, losing power as frequency rose from 1 to 10 Hz, while the tonic release occurred randomly at about 20–40 vesicles per second per synaptic ribbon.",
+    "Independent capacitance recordings from voltage‑clamped rods gave a comparable rate of roughly 38 vesicles per second per ribbon, leading the authors to conclude that rods maintain a fairly constant release speed across a wide range of background light levels, preserving visual signals for downstream neurons."
+   ],
+   "es": [
+    "Los investigadores generaron una línea de ratón que expresa un sensor fluorescente brillante de glutamato exclusivamente en las células fotorreceptoras de bastón y lo utilizaron para monitorizar la liberación de glutamato bajo condiciones de iluminación tenue (mesópica) y brillante (fotópica).",
+    "Cuando se presentaron destellos de luz breves, la fluorescencia del sensor disminuyó, mostrando que la liberación de glutamato se suprimió de forma transitoria.",
+    "Durante un estímulo tipo chirp, la señal de liberación se comportó como un filtro paso bajo, perdiendo potencia a medida que la frecuencia aumentaba de 1 a 10 Hz, mientras que la liberación tónica ocurría de forma aleatoria a alrededor de 20–40 vesículas por segundo por cinta sináptica.",
+    "Grabaciones independientes de capacitancia de bastones bajo clamp de voltaje mostraron una tasa comparable de aproximadamente 38 vesículas por segundo por cinta, lo que llevó a los autores a concluir que los bastones mantienen una velocidad de liberación bastante constante en un amplio rango de niveles de luz de fondo, preservando las señales visuales para las neuronas de etapas posteriores."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2787,
+    "completion_tokens": 1745,
+    "seconds": 4.72
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1316,
+    "completion_tokens": 40,
+    "seconds": 0.27
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42969949",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 8,
+    "rejected": 0,
+    "reasons": []
+   },
+   "subjects": [
+    "animals",
+    "cells_or_tissue",
+    "humans",
+    "other"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Alström syndrome is a human disorder caused by mutations in the ALMS1 gene, whose protein normally resides at the proximal end of centrioles, a location distinct from many other ciliopathy proteins.",
+    "When ALMS1 is missing, centrioles become shorter and frequently break near their proximal ends, and these defective centrioles show a reduced capacity to organize microtubules and have damaged linker structures.",
+    "The loss of ALMS1 also hampers the transport of Golgi‑derived cargo, including transition‑zone membrane proteins, to the centrosome, thereby preventing proper construction of the transition zone, cilia formation, and maintenance of the ciliary membrane composition.",
+    "In mice, genetic removal of ALMS1 produces a gradual, age‑related loss of cilia in retina, kidney and brain—tissues that are affected in human Alström syndrome—and the authors conclude that the disease stems from weakened proximal centriole integrity combined with disrupted centrosome‑directed protein trafficking, which together impair cilia assembly and upkeep."
+   ],
+   "es": [
+    "El síndrome de Alström es un trastorno humano causado por mutaciones en el gen ALMS1, cuya proteína normalmente se localiza en el extremo proximal de los centriolos, una posición distinta de la de muchas otras proteínas de ciliopatía.",
+    "Cuando falta ALMS1, los centriolos se acortan y con frecuencia se rompen cerca de sus extremos proximales, y estos centriolos defectuosos muestran una capacidad reducida para organizar microtúbulos y presentan estructuras de enlace dañadas.",
+    "La pérdida de ALMS1 también dificulta el transporte de carga derivada del aparato de Golgi, incluidas las proteínas de membrana de la zona de transición, hacia el centrosoma, impidiendo así la correcta construcción de la zona de transición, la formación de cilios y el mantenimiento de la composición de la membrana ciliar.",
+    "En ratones, la eliminación genética de ALMS1 produce una pérdida gradual y relacionada con la edad de cilios en retina, riñón y cerebro —tejidos afectados en el síndrome de Alström humano— y los autores concluyen que la enfermedad se origina por una integridad debilitada del centrólo proximal combinada con una alteración del tráfico de proteínas dirigido por el centrosoma, lo que juntos dificultan el ensamblaje y el mantenimiento de los cilios."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2665,
+    "completion_tokens": 2093,
+    "seconds": 6.06
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1233,
+    "completion_tokens": 40,
+    "seconds": 0.37
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "43000116",
+   "types": [
+    "Journal Article",
+    "Observational Study"
+   ],
+   "facts": {
+    "accepted": 7,
+    "rejected": 1,
+    "reasons": [
+     "numbers not in the quote"
+    ]
+   },
+   "subjects": [
+    "humans"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "In a prospective observational pilot trial, researchers measured blood levels of the brain injury proteins GFAP, NfL and tau before, 2 hours after, and 24 hours after the procedure in 21 stroke patients undergoing thrombectomy and 19 participants undergoing non‑brain surgery under anesthesia.",
+    "The surgical control group showed no significant change in GFAP over the 24‑hour period, indicating stability of this protein despite anesthesia and surgery.",
+    "Both NfL and tau rose significantly in stroke patients and also increased markedly in the control participants, demonstrating that these markers respond to the procedural context.",
+    "Overall, GFAP and NfL remained higher in stroke patients than in controls, while tau differed only after 24 hours, leading the authors to propose that GFAP, which was not elevated by surgery, may be a more specific stroke biomarker for further testing."
+   ],
+   "es": [
+    "En un ensayo piloto observacional prospectivo, los investigadores midieron los niveles sanguíneos de las proteínas de lesión cerebral GFAP, NfL y tau antes, 2 horas después y 24 horas después del procedimiento en 21 pacientes con ictus sometidos a trombectomía y 19 participantes sometidos a cirugía no cerebral bajo anestesia.",
+    "El grupo de control quirúrgico no mostró cambios significativos en GFAP durante el periodo de 24 horas, lo que indica estabilidad de esta proteína pese a la anestesia y la cirugía.",
+    "Tanto NfL como tau aumentaron de forma significativa en los pacientes con ictus y también se incrementaron notablemente en los participantes de control, demostrando que estos marcadores responden al contexto del procedimiento.",
+    "En conjunto, GFAP y NfL se mantuvieron más elevados en los pacientes con ictus que en los controles, mientras que tau sólo difería tras 24 horas, lo que lleva a los autores a proponer que GFAP, que no se elevó con la cirugía, podría ser un biomarcador de ictus más específico para futuras pruebas."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2962,
+    "completion_tokens": 2306,
+    "seconds": 6.34
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1588,
+    "completion_tokens": 40,
+    "seconds": 0.69
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42999788",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 5,
+    "rejected": 2,
+    "reasons": [
+     "numbers not in the quote",
+     "quote not found verbatim in the source"
+    ]
+   },
+   "subjects": [
+    "humans",
+    "other"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "Researchers examined dorsolateral prefrontal cortex samples from 17 people diagnosed with major depressive disorder and 20 matched individuals without psychiatric conditions.",
+    "While the overall pattern of ribose methylation scores was nearly the same in both groups, eight individual methylation sites—four in 28S ribosomal RNA and four in 18S ribosomal RNA—showed statistically significant differences, indicating localized changes without a broad reshaping of the ribosomal RNA methylation landscape.",
+    "The authors suggest that these site‑specific ribosomal RNA methylation alterations represent a previously unrecognized molecular feature of depression that could influence how ribosomes regulate protein synthesis in the brain."
+   ],
+   "es": [
+    "Los investigadores examinaron muestras de corteza prefrontal dorsolateral de 17 personas diagnosticadas con trastorno depresivo mayor y 20 individuos emparejados sin trastornos psiquiátricos.",
+    "Aunque el patrón global de puntuaciones de metilación de ribosa era prácticamente idéntico en ambos grupos, ocho sitios de metilación individuales —cuatro en el ARN ribosomal 28S y cuatro en el ARN ribosomal 18S— mostraron diferencias estadísticamente significativas, lo que indica cambios localizados sin una reconfiguración amplia del panorama de metilación del ARN ribosomal.",
+    "Los autores sugieren que estas alteraciones de metilación del ARN ribosomal específicas de sitio constituyen una característica molecular de la depresión hasta ahora no reconocida, que podría influir en cómo los ribosomas regulan la síntesis de proteínas en el cerebro."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2789,
+    "completion_tokens": 1897,
+    "seconds": 5.89
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1381,
+    "completion_tokens": 40,
+    "seconds": 0.76
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42997796",
+   "types": [
+    "Journal Article"
+   ],
+   "facts": {
+    "accepted": 4,
+    "rejected": 4,
+    "reasons": [
+     "statement copies the source wording",
+     "quote not found verbatim in the source",
+     "statement copies the source wording",
+     "numbers not in the quote"
+    ]
+   },
+   "subjects": [
+    "humans"
+   ],
+   "en_attempts": 1,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "The researchers examined whether adolescents exposed to higher recent levels of fine particulate matter (PM2.5) show differences in fear‑related learning compared with peers with lower exposure.",
+    "The sample comprised 102 youths aged 10 to 17 years, of whom 55 % were female.",
+    "Exposure levels were assigned to low or high groups using the EPA annual standard of 9 µg/m³.",
+    "Brain‑imaging analyses were performed only on a subset of the participants, which limits how broadly the neural findings can be applied."
+   ],
+   "es": [
+    "Los investigadores examinaron si los adolescentes expuestos a niveles recientes más altos de partículas finas (PM2.5) presentan diferencias en el aprendizaje relacionado con el miedo en comparación con sus pares con menor exposición.",
+    "La muestra constó de 102 jóvenes de entre 10 y 17 años, de los que el 55 % eran mujeres.",
+    "Los niveles de exposición se asignaron a grupos bajo o alto empleando el estándar anual de la EPA de 9 µg/m³.",
+    "Los análisis de neuroimagen se realizaron solo en un subconjunto de los participantes, lo que limita la generalización de los hallazgos neuronales."
+   ],
+   "writer_tokens": {
+    "calls": 0,
+    "cached": 3,
+    "prompt_tokens": 2686,
+    "completion_tokens": 2179,
+    "seconds": 6.99
+   },
+   "writer_seconds": 0.0,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 0,
+    "cached": 1,
+    "prompt_tokens": 1244,
+    "completion_tokens": 40,
+    "seconds": 0.35
+   },
+   "status": "published"
+  },
+  {
+   "pmid": "42997793",
+   "types": [
+    "Journal Article",
+    "Review"
+   ],
+   "facts": {
+    "accepted": 8,
+    "rejected": 0,
+    "reasons": []
+   },
+   "subjects": [
+    "humans",
+    "other"
+   ],
+   "en_attempts": 2,
+   "en_problems": [],
+   "es_attempts": 1,
+   "es_problems": [],
+   "en": [
+    "The review of resting‑state connectivity of the subgenual anterior cingulate cortex (sgACC) looked at whether it can predict treatment response in depressed adults aged 18 to 70.",
+    "It pooled data from twenty‑two studies that together enrolled 1,366 participants with major depressive disorder.",
+    "Some investigations reported that stronger baseline sgACC‑right dorsolateral prefrontal cortex connectivity was associated with smaller symptom improvement, whereas other work found that higher sgACC‑medial orbitofrontal cortex connectivity predicted larger improvement.",
+    "These mixed findings, most evident in repetitive transcranial magnetic stimulation trials with individualized targets, occurred despite generally adequate MRI quality (average 16.1/20) and underscore the authors’ call for larger prospective studies to test reproducibility."
+   ],
+   "es": [
+    "La revisión de la conectividad en estado de reposo de la corteza cingulada anterior subgenual (sgACC) analizó si puede predecir la respuesta al tratamiento en adultos deprimidos de entre 18 y 70 años.",
+    "Se agruparon datos de veintidós estudios que, en conjunto, incluyeron a 1366 participantes con trastorno depresivo mayor.",
+    "Algunas investigaciones informaron que una mayor conectividad basal entre la sgACC y la corteza prefrontal dorsolateral derecha se asociaba con una menor mejoría de los síntomas, mientras que otros trabajos hallaron que una mayor conectividad entre la sgACC y la corteza orbitofrontal medial predecía una mayor mejoría.",
+    "Estos hallazgos contradictorios, más evidentes en ensayos de estimulación magnética transcraneal repetitiva con objetivos individualizados, surgieron pese a una calidad de resonancia magnética generalmente adecuada (media 16,1/20) y subrayan la necesidad, señalada por los autores, de estudios prospectivos más amplios que prueben la reproducibilidad."
+   ],
+   "writer_tokens": {
+    "calls": 3,
+    "cached": 1,
+    "prompt_tokens": 3772,
+    "completion_tokens": 2408,
+    "seconds": 7.97
+   },
+   "writer_seconds": 5.4,
+   "checks_passed": true,
+   "judge": {
+    "faithful": true,
+    "no_overclaim": true,
+    "no_medical_advice": true,
+    "spanish_matches": true,
+    "passed": true,
+    "reason": ""
+   },
+   "judge_tokens": {
+    "calls": 2,
+    "cached": 0,
+    "prompt_tokens": 2780,
+    "completion_tokens": 81,
+    "seconds": 0.84
+   },
+   "status": "published"
+  }
+ ]
+}

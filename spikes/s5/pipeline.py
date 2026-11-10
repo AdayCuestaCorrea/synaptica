@@ -202,10 +202,13 @@ def run_article(art: dict[str, str], writer: LLM, judge: LLM | None) -> dict[str
         feedback = report.summary()
         if report.passed:
             break
-    row["en_problems"] = feedback
+    # A failed text may contain a run copied from the abstract: neither it nor the quoted
+    # run in the problem message goes to results/.
+    row["en_problems"] = [
+        re.sub(r" \('.*?'\)|: '.*'$", "", p) for p in feedback
+    ]  # "sentence 1: copies 8+ words from a source"
     if feedback:
         row.update(status="failed", stage="en", tokens=writer.stats.since(w0))
-        row["en"] = [t for t, _ in en]
         return row
     # 3. Spanish adaptation + alignment, one retry.
     en_texts = [t for t, _ in en]
