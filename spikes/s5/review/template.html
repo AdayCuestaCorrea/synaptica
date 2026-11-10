@@ -1,0 +1,301 @@
+<title>Revisión de resúmenes SYNAPTICA</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Layout: a single reading column, one card per study, a slim sticky progress bar. */
+:root {
+  --bg: #f3f5f7;
+  --surface: #ffffff;
+  --ink: #18212b;
+  --muted: #5a6673;
+  --line: #d9dfe5;
+  --accent: #2c5d8f;
+  --accent-soft: #e3ecf5;
+  --ok: #2f7a4f;
+  --ok-soft: #e3f1e8;
+  --warn: #a5541b;
+  --warn-soft: #f7e9de;
+  --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11161c; --surface: #19212a; --ink: #e4e9ee; --muted: #9aa7b4; --line: #2c3743;
+    --accent: #7fb0e0; --accent-soft: #1f3247; --ok: #79c79a; --ok-soft: #1b3326;
+    --warn: #e7a06c; --warn-soft: #3a281b; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11161c; --surface: #19212a; --ink: #e4e9ee; --muted: #9aa7b4; --line: #2c3743;
+  --accent: #7fb0e0; --accent-soft: #1f3247; --ok: #79c79a; --ok-soft: #1b3326;
+  --warn: #e7a06c; --warn-soft: #3a281b; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px;
+  line-height: 1.55;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 10; background: var(--surface);
+}
+.wrap {
+  max-width: 46rem; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+header.intro { padding-block: 2.5rem 1.5rem; display: grid; gap: 0.9rem; }
+.eyebrow {
+  font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--accent);
+}
+h1 { font-family: var(--serif); font-weight: 600; font-size: 2rem; line-height: 1.2; margin: 0; text-wrap: balance; }
+h2 { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; line-height: 1.3; margin: 0; text-wrap: balance; }
+p { margin: 0; max-width: 65ch; }
+.intro ul { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; max-width: 65ch; }
+.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+.bar .wrap { display: flex; align-items: center; gap: 1rem; padding-block: 0.6rem; flex-wrap: wrap; }
+.progress { flex: 1 1 12rem; display: grid; gap: 0.3rem; min-width: 0; }
+.progress small { color: var(--muted); font-variant-numeric: tabular-nums; }
+.track { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.track span { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.3s; }
+button {
+  font: 500 0.95rem var(--sans); color: var(--accent); background: var(--surface);
+  border: 1px solid var(--accent); border-radius: 6px; padding: 0.5rem 0.9rem; cursor: pointer;
+}
+button.primary { background: var(--accent); color: var(--surface); }
+button:focus-visible, label:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+main { display: grid; gap: 1.75rem; padding-block: 1.75rem 3rem; }
+article.study {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+  padding: 1.25rem; display: grid; gap: 1.1rem;
+}
+.study-head { display: grid; gap: 0.4rem; }
+.meta { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: baseline; font-size: 0.9rem; color: var(--muted); }
+.meta .pmid { font-family: var(--mono); }
+.meta a { color: var(--accent); }
+.done-chip {
+  font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.1rem 0.5rem;
+  border-radius: 999px; background: var(--line); color: var(--muted);
+}
+.done-chip.is-done { background: var(--ok-soft); color: var(--ok); }
+.version { border-top: 1px solid var(--line); padding-top: 1rem; display: grid; gap: 0.9rem; }
+.version h3 { font: 600 0.8rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; margin: 0; color: var(--accent); }
+.es { font-family: var(--serif); font-size: 1.08rem; line-height: 1.65; display: grid; gap: 0.5rem; }
+details.en summary { cursor: pointer; color: var(--muted); font-size: 0.9rem; }
+details.en div { margin-top: 0.5rem; font-size: 0.95rem; color: var(--muted); display: grid; gap: 0.35rem; }
+.q { display: grid; gap: 0.35rem; }
+.q > span { font-weight: 500; font-size: 0.95rem; }
+.q > span em { font-weight: 400; color: var(--muted); font-style: normal; }
+.opts { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.opts label {
+  display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.75rem;
+  border: 1px solid var(--line); border-radius: 6px; cursor: pointer; font-size: 0.95rem;
+}
+.opts input { accent-color: var(--accent); margin: 0; }
+.opts label:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+textarea {
+  width: 100%; min-height: 3.2rem; font: 0.95rem var(--sans); color: var(--ink);
+  background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 0.5rem 0.65rem;
+}
+.judge { border-radius: 6px; padding: 0.75rem 0.9rem; display: grid; gap: 0.5rem; font-size: 0.95rem; }
+.judge.pass { background: var(--ok-soft); }
+.judge.fail { background: var(--warn-soft); }
+.judge strong.pass { color: var(--ok); }
+.judge strong.fail { color: var(--warn); }
+.choose { border-top: 1px solid var(--line); padding-top: 1rem; }
+section.send { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 1.25rem; display: grid; gap: 0.8rem; }
+section.send textarea { min-height: 10rem; font-family: var(--mono); font-size: 0.8rem; }
+.status { color: var(--ok); font-size: 0.9rem; min-height: 1.3em; }
+footer { color: var(--muted); font-size: 0.85rem; padding-block: 0 3rem; }
+@media (prefers-reduced-motion: reduce) { .track span { transition: none; } }
+</style>
+
+<header class="wrap intro">
+  <div class="eyebrow">SYNAPTICA · prueba de resúmenes · noviembre de 2026</div>
+  <h1>Revisión de resúmenes para Sofía</h1>
+  <p>Hola, Sofía. Esto son resúmenes de 10 estudios recientes de PubMed escritos por la IA que usará la web. Cada estudio tiene <strong>dos versiones</strong>, escritas por dos modelos distintos. No te digo cuál es cuál para no influirte.</p>
+  <ul>
+    <li>Abre el estudio en PubMed (el enlace de cada tarjeta) y compara el resumen con el abstract.</li>
+    <li>Responde las cuatro preguntas de cada versión. Si algo está mal, cuéntalo en el comentario con tus palabras.</li>
+    <li>Después pulsa «Ver qué dijo el revisor automático»: es otra IA que comprueba cada resumen antes de publicarlo. Dinos si estás de acuerdo con ella.</li>
+    <li>Al final, «Copiar mis respuestas» y se las mandas a Aday por donde te venga mejor.</li>
+  </ul>
+  <p>Unos 4 minutos por estudio, unos 40 en total. Las respuestas se guardan en este navegador, así que puedes dejarlo a medias y seguir otro día en el mismo dispositivo.</p>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="progress">
+      <small id="progress-text">0 de 10 estudios completos</small>
+      <div class="track"><span id="progress-fill"></span></div>
+    </div>
+    <button type="button" class="primary" id="copy-top">Copiar mis respuestas</button>
+  </div>
+</div>
+
+<main class="wrap" id="list"></main>
+
+<div class="wrap">
+  <section class="send" id="send">
+    <h2>Enviar a Aday</h2>
+    <p>Pulsa el botón y pega el texto en un mensaje para Aday. Si el botón no funciona, selecciona el texto del recuadro y cópialo a mano.</p>
+    <div><button type="button" class="primary" id="copy-bottom">Copiar mis respuestas</button></div>
+    <div class="status" id="copy-status" role="status"></div>
+    <textarea id="export" readonly aria-label="Tus respuestas en texto"></textarea>
+  </section>
+</div>
+<footer class="wrap"><p>Ningún abstract se copia aquí: los resúmenes son textos propios de SYNAPTICA y el estudio original está enlazado en PubMed. Esta página no es consejo médico.</p></footer>
+
+<script>
+const ITEMS = /*DATA*/[];
+const STORE = "synaptica-revision-s5";
+const VERSION_Q = [
+  ["fiel", "¿Todo lo que dice el resumen está en el estudio?", ""],
+  ["exagera", "¿Exagera algo?", "Por ejemplo: un resultado en ratones contado como si fuera en personas, una asociación contada como causa, «cura», «seguro»."],
+  ["consejo", "¿Da algún consejo médico o de salud?", ""],
+  ["espanol", "¿El español es correcto y natural?", ""],
+];
+const YES_NO = [["si", "Sí"], ["no", "No"], ["nose", "No lo sé"]];
+let answers = {};
+try { answers = JSON.parse(localStorage.getItem(STORE) || "{}"); } catch (e) { answers = {}; }
+
+function save() {
+  try { localStorage.setItem(STORE, JSON.stringify(answers)); } catch (e) { /* not available */ }
+  refresh();
+}
+
+function el(tag, attrs = {}, ...kids) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") n.className = v; else if (k === "text") n.textContent = v; else n.setAttribute(k, v);
+  }
+  for (const k of kids) if (k) n.append(k);
+  return n;
+}
+
+function radios(name, options, key) {
+  const box = el("div", { class: "opts" });
+  for (const [value, label] of options) {
+    const id = `${name}-${value}`;
+    const input = el("input", { type: "radio", name, id, value });
+    if (answers[key] === value) input.checked = true;
+    input.addEventListener("change", () => { answers[key] = value; save(); });
+    box.append(el("label", { for: id }, input, document.createTextNode(label)));
+  }
+  return box;
+}
+
+function question(text, hint, name, options, key) {
+  const head = el("span", {}, document.createTextNode(text + " "));
+  if (hint) head.append(el("em", { text: hint }));
+  return el("div", { class: "q" }, head, radios(name, options, key));
+}
+
+function comment(key, label) {
+  const id = `c-${key}`;
+  const t = el("textarea", { id, placeholder: label, "aria-label": label });
+  t.value = answers[key] || "";
+  t.addEventListener("input", () => { answers[key] = t.value; save(); });
+  return t;
+}
+
+function render() {
+  const list = document.getElementById("list");
+  ITEMS.forEach((item, i) => {
+    const chip = el("span", { class: "done-chip", id: `chip-${item.pmid}`, text: "pendiente" });
+    const head = el("div", { class: "study-head" },
+      el("div", { class: "meta" },
+        el("span", { text: `Estudio ${i + 1} de ${ITEMS.length}` }),
+        el("span", { class: "pmid", text: `PMID ${item.pmid}` }),
+        el("a", { href: `https://pubmed.ncbi.nlm.nih.gov/${item.pmid}/`, target: "_blank", rel: "noopener", text: "Abrir en PubMed ↗" }),
+        chip),
+      el("h2", { text: item.title }));
+    const card = el("article", { class: "study" }, head);
+    for (const v of item.versions) {
+      const base = `${item.pmid}-${v.id}`;
+      const box = el("section", { class: "version" }, el("h3", { text: `Versión ${v.id.slice(1)}` }));
+      box.append(el("div", { class: "es" }, ...v.es.map((s) => el("p", { text: s }))));
+      box.append(el("details", { class: "en" }, el("summary", { text: "Ver la versión en inglés" }),
+        el("div", {}, ...v.en.map((s) => el("p", { text: s })))));
+      for (const [k, text, hint] of VERSION_Q) box.append(question(text, hint, `${base}-${k}`, YES_NO, `${base}-${k}`));
+      box.append(comment(`${base}-comentario`, "Comentario (opcional): qué está mal o qué cambiarías"));
+      const judge = el("div", { class: `judge ${v.judge_passed ? "pass" : "fail"}` });
+      judge.hidden = !answers[`${base}-visto`];
+      judge.append(el("p", {},
+        el("strong", { class: v.judge_passed ? "pass" : "fail", text: v.judge_passed ? "El revisor automático lo aprobó." : "El revisor automático lo rechazó." }),
+        document.createTextNode(v.judge_reason ? ` Motivo: ${v.judge_reason}` : "")));
+      judge.append(question("¿Estás de acuerdo con el revisor automático?", "", `${base}-acuerdo`, YES_NO, `${base}-acuerdo`));
+      const reveal = el("button", { type: "button", text: "Ver qué dijo el revisor automático" });
+      reveal.hidden = !judge.hidden;
+      reveal.addEventListener("click", () => { answers[`${base}-visto`] = "1"; judge.hidden = false; reveal.hidden = true; save(); });
+      box.append(el("div", {}, reveal), judge);
+      card.append(box);
+    }
+    if (item.versions.length > 1) {
+      const opts = [...item.versions.map((v) => [v.id, `La ${v.id.slice(1)}`]), ["ambas", "Las dos"], ["ninguna", "Ninguna"]];
+      card.append(el("div", { class: "choose" }, question("¿Cuál publicarías en la web?", "", `${item.pmid}-elige`, opts, `${item.pmid}-elige`)));
+    }
+    list.append(card);
+  });
+}
+
+function studyDone(item) {
+  const versionsOk = item.versions.every((v) =>
+    VERSION_Q.every(([k]) => answers[`${item.pmid}-${v.id}-${k}`]) && answers[`${item.pmid}-${v.id}-acuerdo`]);
+  return versionsOk && (item.versions.length < 2 || answers[`${item.pmid}-elige`]);
+}
+
+function exportText() {
+  const lines = ["Revisión SYNAPTICA S5 · respuestas de Sofía", ""];
+  for (const item of ITEMS) {
+    lines.push(`PMID ${item.pmid}${answers[`${item.pmid}-elige`] ? ` · publicaría: ${answers[`${item.pmid}-elige`]}` : ""}`);
+    for (const v of item.versions) {
+      const b = `${item.pmid}-${v.id}`;
+      const parts = [...VERSION_Q.map(([k]) => `${k}=${answers[`${b}-${k}`] || "-"}`), `acuerdo_revisor=${answers[`${b}-acuerdo`] || "-"}`];
+      lines.push(`  ${v.id}: ${parts.join(" ")}`);
+      const c = (answers[`${b}-comentario`] || "").trim();
+      if (c) lines.push(`      comentario: ${c.replace(/\s+/g, " ")}`);
+    }
+  }
+  return lines.join("\n");
+}
+
+function refresh() {
+  const done = ITEMS.filter(studyDone).length;
+  document.getElementById("progress-text").textContent = `${done} de ${ITEMS.length} estudios completos`;
+  document.getElementById("progress-fill").style.width = `${(100 * done) / ITEMS.length}%`;
+  for (const item of ITEMS) {
+    const chip = document.getElementById(`chip-${item.pmid}`);
+    const ok = studyDone(item);
+    chip.textContent = ok ? "completo" : "pendiente";
+    chip.classList.toggle("is-done", ok);
+  }
+  document.getElementById("export").value = exportText();
+}
+
+async function copy() {
+  const status = document.getElementById("copy-status");
+  const box = document.getElementById("export");
+  box.value = exportText();
+  try {
+    await navigator.clipboard.writeText(box.value);
+    status.textContent = "Copiado. Ya puedes pegarlo en un mensaje para Aday.";
+  } catch (e) {
+    box.focus(); box.select();
+    status.textContent = "No se pudo copiar solo: el texto está seleccionado, cópialo a mano.";
+  }
+  document.getElementById("send").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+render();
+refresh();
+document.getElementById("copy-top").addEventListener("click", copy);
+document.getElementById("copy-bottom").addEventListener("click", copy);
+</script>

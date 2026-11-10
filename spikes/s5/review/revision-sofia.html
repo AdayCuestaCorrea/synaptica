@@ -1,0 +1,301 @@
+<title>Revisión de resúmenes SYNAPTICA</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Layout: a single reading column, one card per study, a slim sticky progress bar. */
+:root {
+  --bg: #f3f5f7;
+  --surface: #ffffff;
+  --ink: #18212b;
+  --muted: #5a6673;
+  --line: #d9dfe5;
+  --accent: #2c5d8f;
+  --accent-soft: #e3ecf5;
+  --ok: #2f7a4f;
+  --ok-soft: #e3f1e8;
+  --warn: #a5541b;
+  --warn-soft: #f7e9de;
+  --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11161c; --surface: #19212a; --ink: #e4e9ee; --muted: #9aa7b4; --line: #2c3743;
+    --accent: #7fb0e0; --accent-soft: #1f3247; --ok: #79c79a; --ok-soft: #1b3326;
+    --warn: #e7a06c; --warn-soft: #3a281b; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11161c; --surface: #19212a; --ink: #e4e9ee; --muted: #9aa7b4; --line: #2c3743;
+  --accent: #7fb0e0; --accent-soft: #1f3247; --ok: #79c79a; --ok-soft: #1b3326;
+  --warn: #e7a06c; --warn-soft: #3a281b; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px;
+  line-height: 1.55;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 10; background: var(--surface);
+}
+.wrap {
+  max-width: 46rem; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+header.intro { padding-block: 2.5rem 1.5rem; display: grid; gap: 0.9rem; }
+.eyebrow {
+  font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--accent);
+}
+h1 { font-family: var(--serif); font-weight: 600; font-size: 2rem; line-height: 1.2; margin: 0; text-wrap: balance; }
+h2 { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; line-height: 1.3; margin: 0; text-wrap: balance; }
+p { margin: 0; max-width: 65ch; }
+.intro ul { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; max-width: 65ch; }
+.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+.bar .wrap { display: flex; align-items: center; gap: 1rem; padding-block: 0.6rem; flex-wrap: wrap; }
+.progress { flex: 1 1 12rem; display: grid; gap: 0.3rem; min-width: 0; }
+.progress small { color: var(--muted); font-variant-numeric: tabular-nums; }
+.track { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.track span { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.3s; }
+button {
+  font: 500 0.95rem var(--sans); color: var(--accent); background: var(--surface);
+  border: 1px solid var(--accent); border-radius: 6px; padding: 0.5rem 0.9rem; cursor: pointer;
+}
+button.primary { background: var(--accent); color: var(--surface); }
+button:focus-visible, label:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+main { display: grid; gap: 1.75rem; padding-block: 1.75rem 3rem; }
+article.study {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+  padding: 1.25rem; display: grid; gap: 1.1rem;
+}
+.study-head { display: grid; gap: 0.4rem; }
+.meta { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: baseline; font-size: 0.9rem; color: var(--muted); }
+.meta .pmid { font-family: var(--mono); }
+.meta a { color: var(--accent); }
+.done-chip {
+  font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.1rem 0.5rem;
+  border-radius: 999px; background: var(--line); color: var(--muted);
+}
+.done-chip.is-done { background: var(--ok-soft); color: var(--ok); }
+.version { border-top: 1px solid var(--line); padding-top: 1rem; display: grid; gap: 0.9rem; }
+.version h3 { font: 600 0.8rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; margin: 0; color: var(--accent); }
+.es { font-family: var(--serif); font-size: 1.08rem; line-height: 1.65; display: grid; gap: 0.5rem; }
+details.en summary { cursor: pointer; color: var(--muted); font-size: 0.9rem; }
+details.en div { margin-top: 0.5rem; font-size: 0.95rem; color: var(--muted); display: grid; gap: 0.35rem; }
+.q { display: grid; gap: 0.35rem; }
+.q > span { font-weight: 500; font-size: 0.95rem; }
+.q > span em { font-weight: 400; color: var(--muted); font-style: normal; }
+.opts { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.opts label {
+  display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.75rem;
+  border: 1px solid var(--line); border-radius: 6px; cursor: pointer; font-size: 0.95rem;
+}
+.opts input { accent-color: var(--accent); margin: 0; }
+.opts label:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+textarea {
+  width: 100%; min-height: 3.2rem; font: 0.95rem var(--sans); color: var(--ink);
+  background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 0.5rem 0.65rem;
+}
+.judge { border-radius: 6px; padding: 0.75rem 0.9rem; display: grid; gap: 0.5rem; font-size: 0.95rem; }
+.judge.pass { background: var(--ok-soft); }
+.judge.fail { background: var(--warn-soft); }
+.judge strong.pass { color: var(--ok); }
+.judge strong.fail { color: var(--warn); }
+.choose { border-top: 1px solid var(--line); padding-top: 1rem; }
+section.send { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 1.25rem; display: grid; gap: 0.8rem; }
+section.send textarea { min-height: 10rem; font-family: var(--mono); font-size: 0.8rem; }
+.status { color: var(--ok); font-size: 0.9rem; min-height: 1.3em; }
+footer { color: var(--muted); font-size: 0.85rem; padding-block: 0 3rem; }
+@media (prefers-reduced-motion: reduce) { .track span { transition: none; } }
+</style>
+
+<header class="wrap intro">
+  <div class="eyebrow">SYNAPTICA · prueba de resúmenes · noviembre de 2026</div>
+  <h1>Revisión de resúmenes para Sofía</h1>
+  <p>Hola, Sofía. Esto son resúmenes de 10 estudios recientes de PubMed escritos por la IA que usará la web. Cada estudio tiene <strong>dos versiones</strong>, escritas por dos modelos distintos. No te digo cuál es cuál para no influirte.</p>
+  <ul>
+    <li>Abre el estudio en PubMed (el enlace de cada tarjeta) y compara el resumen con el abstract.</li>
+    <li>Responde las cuatro preguntas de cada versión. Si algo está mal, cuéntalo en el comentario con tus palabras.</li>
+    <li>Después pulsa «Ver qué dijo el revisor automático»: es otra IA que comprueba cada resumen antes de publicarlo. Dinos si estás de acuerdo con ella.</li>
+    <li>Al final, «Copiar mis respuestas» y se las mandas a Aday por donde te venga mejor.</li>
+  </ul>
+  <p>Unos 4 minutos por estudio, unos 40 en total. Las respuestas se guardan en este navegador, así que puedes dejarlo a medias y seguir otro día en el mismo dispositivo.</p>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="progress">
+      <small id="progress-text">0 de 10 estudios completos</small>
+      <div class="track"><span id="progress-fill"></span></div>
+    </div>
+    <button type="button" class="primary" id="copy-top">Copiar mis respuestas</button>
+  </div>
+</div>
+
+<main class="wrap" id="list"></main>
+
+<div class="wrap">
+  <section class="send" id="send">
+    <h2>Enviar a Aday</h2>
+    <p>Pulsa el botón y pega el texto en un mensaje para Aday. Si el botón no funciona, selecciona el texto del recuadro y cópialo a mano.</p>
+    <div><button type="button" class="primary" id="copy-bottom">Copiar mis respuestas</button></div>
+    <div class="status" id="copy-status" role="status"></div>
+    <textarea id="export" readonly aria-label="Tus respuestas en texto"></textarea>
+  </section>
+</div>
+<footer class="wrap"><p>Ningún abstract se copia aquí: los resúmenes son textos propios de SYNAPTICA y el estudio original está enlazado en PubMed. Esta página no es consejo médico.</p></footer>
+
+<script>
+const ITEMS = [{"pmid": "42971231", "title": "Prevalence of neural tube defects and major external structural abnormalities by antiretroviral treatment regimen in Botswana in 2014-22: a birth outcomes surveillance study.", "versions": [{"id": "v1", "es": ["Los investigadores llevaron a cabo un estudio de vigilancia a gran escala en Botsuana que monitorizó más de dos tercios de los nacimientos del país, incluyendo 11 110 embarazos expuestos a dolutegravir en el momento de la concepción, en los que se detectaron 12 casos de defectos del tubo neural.", "Aunque los defectos fueron más frecuentes durante el primer año de uso generalizado del dolutegravir, las tasas disminuyeron significativamente en años posteriores, y el estudio no encontró evidencia de que el dolutegravir aumente el riesgo de defectos de nacimiento graves en comparación con otros tratamientos."], "en": ["Researchers conducted a large-scale surveillance study in Botswana that monitored over two-thirds of the country's births, including 11,110 pregnancies exposed to dolutegravir at conception where 12 cases of neural tube defects were found.", "Although defects were more frequent in the first year dolutegravir was used widely, rates dropped significantly in later years, and the study found no evidence that dolutegravir increases the risk of major birth defects compared to other treatments."], "judge_passed": true, "judge_reason": ""}, {"id": "v2", "es": ["Investigadores en Botsuana monitorizaron los resultados del parto durante más de ocho años, registrando 235 727 partos que representaron más de dos tercios de todos los nacimientos del país.", "El estudio siguió a 11 110 bebés expuestos al fármaco antirretroviral dolutegravir en la concepción, junto con 24 368 bebés expuestos a otros medicamentos contra el VIH.", "Entre los partos en los que se pudo determinar el estado, se encontraron 162 defectos del tubo neural, con una tasa del 0,11 % para la exposición a dolutegravir y del 0,10 % para los otros fármacos.", "Estos hallazgos sugieren que el dolutegravir es seguro para su uso durante el embarazo."], "en": ["Researchers in Botswana monitored birth outcomes for over eight years, recording 235,727 deliveries that represented more than two-thirds of all births in the country.", "The study tracked 11,110 babies exposed to the HIV drug dolutegravir at conception, alongside 24,368 babies exposed to other HIV medications.", "Among deliveries where status could be determined, 162 neural tube defects were found, with a rate of 0.11% for dolutegravir exposure and 0.10% for other drugs.", "These findings suggest that dolutegravir is safe to use during pregnancy."], "judge_passed": false, "judge_reason": "Exagera la seguridad: afirma más de lo que el estudio permite concluir."}]}, {"pmid": "42999541", "title": "Sustained delivery of 3D-bioprinted stem cell-derived small extracellular vesicles promotes neural regeneration following traumatic brain injury via the CREB1/PGC-1α/FNDC5 axis.", "versions": [{"id": "v1", "es": ["Los investigadores identificaron que los métodos actuales para producir vesículas de células madre presentan bajos rendimientos y una eliminación rápida del organismo, lo que ha impulsado el desarrollo de un nuevo sistema de gel impreso en 3D diseñado para liberar estas vesículas de forma lenta directamente en los sitios de lesión cerebral.", "En estudios con animales, aquellos tratados con el nuevo gel mostraron una mejora progresiva en el movimiento y las habilidades de memoria, ya que las vesículas activaron señales moleculares específicas que fomentaron el crecimiento de nuevas células cerebrales hacia neuronas y células de soporte.", "Los autores concluyen que este enfoque ofrece un método prometedor y no basado en células para la reparación cerebral a largo plazo tras una lesión."], "en": ["Researchers identified that current methods for producing stem cell vesicles suffer from low yields and quick removal from the body, prompting the creation of a new 3D-printed gel system designed to slowly release these vesicles directly into brain injury sites.", "In animal studies, those treated with the new gel showed improved movement and memory skills over time, as the vesicles triggered specific molecular signals that encouraged more brain cells to grow into neurons and support cells.", "The authors conclude this approach offers a hopeful, non-cell-based method for long-term brain repair after injury."], "judge_passed": true, "judge_reason": ""}, {"id": "v2", "es": ["Los investigadores desarrollaron un sistema de hidrogel a base de gelatina para retener vesículas de células madre derivadas de grasa en los sitios de lesión cerebral, abordando la rápida eliminación de los productos de cultivo bidimensionales estándar.", "Al recolectar vesículas de células madre cultivadas mediante bioimpresión tridimensional, el equipo generó aproximadamente ocho veces más vesículas con un mayor contenido proteico que los cultivos planos tradicionales.", "En sujetos vivos, este método de administración permaneció más tiempo en el sitio de la lesión, redujo el daño tisular y mejoró el control del movimiento y la memoria a largo plazo.", "El tratamiento aumentó el número de células en división que se desarrollan en células nerviosas y potenció la actividad de proteínas como CREB1, PGC-1α y FNDC5 en las células madre neurales.", "Los autores describen este enfoque basado en gel como una estrategia prometedora y sin células para reparar el tejido cerebral tras una lesión."], "en": ["Researchers developed a gelatin-based hydrogel system to retain vesicles from fat-derived stem cells at brain injury sites, addressing the rapid clearance of standard two-dimensional culture products.", "By harvesting vesicles from stem cells grown via three-dimensional bioprinting, the team generated approximately eight times more vesicles with higher protein content than traditional flat cultures.", "In living subjects, this delivery method remained at the injury site longer, reduced tissue damage, and improved long-term movement control and memory.", "The treatment increased the number of dividing cells developing into nerve cells and boosted the activity of proteins like CREB1, PGC-1α, and FNDC5 in neural stem cells.", "The authors describe this gel-based approach as a promising cell-free strategy for repairing brain tissue after injury."], "judge_passed": true, "judge_reason": ""}]}, {"pmid": "42985707", "title": "Improved Visualization of the Internal Branch of the Superior Laryngeal Nerve during Pharyngeal Endoscopic Subepithelial Dissection with Use of Red Dichromatic Imaging.", "versions": [{"id": "v1", "es": ["Los investigadores examinaron a una mujer de 57 años que se sometió a una cirugía para extirpar un pequeño crecimiento superficial de 5 milímetros en su garganta.", "En este caso único, la imagen dicromática roja, una técnica que utiliza longitudes de onda específicas para mejorar el contraste, hizo que un nervio cercano apareciera más nítido y definido que con la luz blanca estándar.", "El tumor se extirpó en una sola pieza sin daños visibles en el nervio, y la paciente no experimentó dificultades para tragar, cambios en la voz ni otras complicaciones.", "Estos hallazgos sugieren que el método de imagen podría ser una herramienta útil para visualizar este nervio y respaldar las técnicas que buscan preservarlo."], "en": ["Researchers examined a 57-year-old woman who underwent surgery to remove a small, 5-millimeter surface growth in her throat.", "In this single case, red dichromatic imaging, a technique that uses specific wavelengths to enhance contrast, made a nearby nerve appear sharper and more distinct than standard white light.", "The tumor was removed in one piece without visible nerve damage, and the patient did not experience swallowing difficulties, voice changes, or other complications.", "These findings suggest that the imaging method could be a helpful tool for visualizing this nerve and supporting techniques that aim to preserve it."], "judge_passed": true, "judge_reason": ""}, {"id": "v2", "es": ["Los investigadores examinaron si una vista especializada mediante cámara de color rojo ayuda a los médicos a identificar mejor los nervios objetivo que la luz blanca estándar durante una cirugía en un único paciente de 57 años con un pequeño tumor faríngeo de 5 milímetros.", "Aunque ambos métodos de imagen mostraron una línea blanca bajo el tumor, la imagen en rojo hizo que el nervio apareciera más claro antes del corte y lo mantuvo visible, permitiendo extraer el tumor en una pieza única sin daños visibles en el nervio.", "Tras el procedimiento, el paciente no experimentó problemas de deglución, cambios de voz u otros efectos adversos, lo que lleva a los autores a sugerir que esta herramienta podría proteger los nervios en cirugías similares, aunque el hallazgo se basa únicamente en un caso."], "en": ["Researchers examined whether a specialized red-colored camera view assists doctors in identifying target nerves better than standard white light during surgery on a single 57-year-old patient with a small 5-millimeter throat tumor.", "While both imaging methods showed a white line under the tumor, the red imaging made the nerve appear clearer before the cut and kept it visible, allowing the tumor to be removed in one piece without visible nerve damage.", "Following the procedure, the patient experienced no swallowing problems, voice changes, or other negative side effects, leading authors to suggest this tool could protect nerves in similar surgeries, though the finding relies on just one case."], "judge_passed": true, "judge_reason": ""}]}, {"pmid": "42993056", "title": "Developmental elimination of electrical synapses by UNC-51/UNC-76-mediated vesicular transport.", "versions": [{"id": "v1", "es": ["Anteriormente, los científicos no sabían cómo se eliminan las conexiones eléctricas entre neuronas a medida que el sistema nervioso madura. Los investigadores estudiaron neuronas sensoriales específicas en nemátodos y descubrieron que estas conexiones eléctricas aparecen brevemente durante el crecimiento inicial antes de desaparecer.", "Se descubrió que una enzima específica llamada UNC-51 es necesaria para eliminar estas conexiones eléctricas temporales. La enzima modifica una proteína de transporte para ayudar a extraer las proteínas de la conexión eléctrica de la sinapsis y eliminarlas de la célula. Si el proceso de eliminación se bloquea, las conexiones eléctricas permanecen activas, lo que provoca una actividad neuronal excesiva.", "Cuando se eliminaron los enlaces eléctricos temporales, las neuronas dejaron de enviar señales de calcio y fallaron en establecer conexiones químicas permanentes. Restaurar únicamente las señales de calcio fue suficiente para corregir el fallo en la formación de conexiones químicas, demostrando que el flujo de calcio es el factor clave."], "en": ["Scientists previously did not know how electrical connections between neurons are removed as the nervous system matures. Researchers studied specific sensory neurons in roundworms and found that these electrical connections appear briefly during early growth before disappearing.", "A specific enzyme called UNC-51 was found to be necessary for removing these temporary electrical connections. The enzyme modifies a transport protein to help pull the electrical connection proteins out of the synapse and remove them from the cell. If the removal process is blocked, the electrical connections stay active, leading to excessive neuronal firing.", "When the temporary electrical links were removed, the neurons stopped sending calcium signals and failed to build permanent chemical connections. Restoring calcium signals alone was enough to fix the failure to build chemical connections, proving that calcium flow is the key factor."], "judge_passed": true, "judge_reason": ""}, {"id": "v2", "es": ["Investigadores que estudian las neuronas sensoriales del nematodo C. elegans descubrieron que las sinapsis eléctricas, que son conexiones físicas directas entre células, están presentes temporalmente en las primeras etapas de la vida antes de ser eliminadas a medida que el sistema nervioso madura.", "Estas conexiones eléctricas tempranas provocan fluctuaciones rápidas en los niveles de calcio, una molécula de señalización intracelular, y su destrucción mediante luz detiene estas fluctuaciones al tiempo que impide la formación de sinapsis químicas estándar.", "Sin embargo, restaurar la actividad del calcio sin las conexiones eléctricas corrige el problema en la formación de sinapsis químicas, lo que indica que la señal de calcio en sí misma es crucial para un desarrollo adecuado.", "El proceso de eliminación depende de una proteína llamada UNC-51/ULK, que modifica otra proteína para activar el transporte de proteínas de canal lejos del sitio de conexión.", "Cuando este mecanismo de eliminación se bloquea, las conexiones eléctricas persisten, lo que provoca que las neuronas se vuelvan excesivamente activas."], "en": ["Researchers studying sensory neurons in the roundworm C. elegans found that electrical synapses, which are direct physical connections between cells, are temporarily present in early life before being removed as the nervous system matures.", "These early electrical connections cause rapid fluctuations in calcium levels, a signaling molecule within the cells, and using light to destroy them stops these fluctuations while preventing the formation of standard chemical synapses.", "However, restoring the calcium activity without the electrical connections fixes the issue with chemical synapse formation, indicating that the calcium signal itself is crucial for proper development.", "The removal process relies on a protein called UNC-51/ULK, which modifies another protein to trigger the transport of channel proteins away from the connection site.", "When this removal mechanism is blocked, the electrical connections persist, causing the neurons to become overly active."], "judge_passed": true, "judge_reason": ""}]}, {"pmid": "42986391", "title": "Fluorescent glutamate reporter mouse line reveals slow stochastic release from rod photoreceptor cells.", "versions": [{"id": "v1", "es": ["Los científicos examinaron cómo las células bastones de los ratones liberan glutamato, un mensajero químico, para lo cual modificaron genéticamente a los animales para que expresaran un marcador luminoso que reacciona a esta sustancia.", "Al rastrear estas señales químicas tanto en condiciones de poca luz como de mucha, el equipo observó que la liberación de glutamato respondía con mayor fuerza a los cambios lentos en la intensidad de la luz que a las fluctuaciones rápidas.", "Las células emitían glutamato de forma aleatoria a una velocidad de 20 a 40 paquetes por segundo por cinta, una tasa que fue confirmada por un método de medición eléctrica independiente que mostraba aproximadamente 38 paquetes por segundo.", "Mantener esta tasa de liberación constante a través de diferentes niveles de luz ayuda a transmitir la información visual con precisión a la siguiente etapa del sistema visual."], "en": ["Scientists examined how rod cells in mice release glutamate, a chemical messenger, by engineering the animals to express a glowing marker that reacts to this substance.", "By tracking these chemical signals in both dim and bright lighting, the team observed that glutamate release responded more strongly to slow changes in light intensity than to rapid fluctuations.", "The cells emitted glutamate in a random pattern at a speed of 20 to 40 packets per second per ribbon, a rate that was confirmed by a separate electrical measurement method showing about 38 packets per second.", "Maintaining this steady release rate across different light levels helps pass visual information accurately to the next stage of the visual system."], "judge_passed": true, "judge_reason": ""}, {"id": "v2", "es": ["En humanos, la visión en baja luminosidad depende de que las células bipolares de los bastones detecten mínimas variaciones en la liberación constante de glutamato por parte de las células de los bastones. Mantener estable esta tasa de liberación ayuda a garantizar que el cerebro interprete correctamente cómo el ojo se adapta a diferentes niveles de luz.", "Los científicos crearon un modelo especial de ratón en el que las células de los bastones brillan cuando liberan glutamato para estudiar su liberación aleatoria, que oscila entre 20 y 40 paquetes por segundo. Esta velocidad disminuye entre 1 y 10 veces por segundo, un hallazgo confirmado por mediciones eléctricas independientes que muestran unos 38 paquetes por segundo."], "en": ["In humans, seeing in low light depends on rod bipolar cells detecting tiny changes in the constant release of glutamate from rod cells. Keeping this release rate steady helps ensure that the brain correctly interprets how the eye adjusts to different light levels.", "Scientists created a special mouse model where rod cells glow when they release glutamate to study its random release at 20 to 40 packets per second. This speed drops off between 1 and 10 times per second, a finding confirmed by separate electrical measurement showing about 38 packets per second."], "judge_passed": false, "judge_reason": "El resumen dice que el estudio se hizo en humanos, y no es así."}]}, {"pmid": "42969949", "title": "ALMS1 stabilizes the proximal centriole to drive transition zone assembly and ciliogenesis.", "versions": [{"id": "v1", "es": ["El síndrome de Alström es una ciliopatía humana causada por mutaciones en el gen ALMS1.", "La proteína ALMS1 se ancla en la base de los centríolos, y su ausencia provoca que estas estructuras se acorten y se rompan.", "Los centríolos dañados presentan una organización más débil de los microtúbulos, mientras que proteínas específicas del aparato de Golgi no logran llegar al centrómero.", "ALMS1 es esencial para construir la zona de transición, formar cilios y regular la membrana ciliar.", "En ratones, la eliminación de ALMS1 conduce a una pérdida de cilios relacionada con la edad en la retina, el riñón y el cerebro, lo que respalda un modelo en el que el daño a los centríolos y el transporte defectuoso dificultan el mantenimiento de los cilios."], "en": ["Alström syndrome is a human ciliopathy caused by mutations in the ALMS1 gene.", "The ALMS1 protein anchors at the base of centrioles, and its absence causes these structures to shorten and snap.", "Broken centrioles exhibit weaker microtubule organization, while specific Golgi proteins fail to reach the centrosome.", "ALMS1 is essential for building the transition zone, forming cilia, and regulating the ciliary membrane.", "In mice, ALMS1 removal leads to age-related cilia loss in the retina, kidney, and brain, supporting a model where centriole damage and faulty transport hinder cilia upkeep."], "judge_passed": true, "judge_reason": ""}, {"id": "v2", "es": ["Las mutaciones en el gen ALMS1 provocan la enfermedad humana de Alström, una afección derivada de centrioles defectuosos y un transporte proteico fallido que altera la formación y el mantenimiento de los cilios.", "La investigación muestra que la proteína ALMS1 se sitúa en la base de los centrioles, donde es esencial para transportar la carga necesaria para construir la zona de transición, una estructura requerida para el crecimiento de los cilios y la gestión de sus proteínas de membrana.", "En ratones, la pérdida de ALMS1 conduce a una disminución progresiva de los cilios en la retina, el riñón y el cerebro a medida que los animales envejecen."], "en": ["Mutations in the ALMS1 gene cause the human disease Alström syndrome, a condition resulting from broken centrioles and faulty protein transport that disrupts cilia formation and maintenance.", "Research shows the ALMS1 protein sits at the base of centrioles, where it is essential for transporting cargo to build the transition zone, a structure needed for growing cilia and managing their membrane proteins.", "In mice, losing ALMS1 leads to a gradual loss of cilia in the retina, kidney, and brain as the animals age."], "judge_passed": true, "judge_reason": ""}]}, {"pmid": "43000116", "title": "Biomarkers in Patients With Acute Ischaemic Stroke Undergoing Thrombectomy Compared With Controls: A Pilot Study.", "versions": [{"id": "v1", "es": ["Los investigadores compararon tres marcadores sanguíneos de daño cerebral en 21 pacientes con ictus que se sometieron a una cirugía de eliminación de coágulos frente a 19 pacientes de control que se sometieron a cirugías no cerebrales.", "Las muestras de sangre se recogieron antes del procedimiento y a las 2 y 24 horas después, y luego se analizaron mediante un ensayo de laboratorio específico.", "Si bien los otros dos marcadores, NfL y tau, aumentaron significativamente en ambos grupos, el nivel de GFAP no mostró un aumento significativo en el grupo de control durante el período de 24 horas.", "Dado que el GFAP no aumentó en el grupo de control, es posible que se vea menos afectado por los efectos de la anestesia y la cirugía que los otros marcadores.", "Los resultados sugieren que el GFAP debería estudiarse más a fondo como una posible herramienta para detectar lesiones cerebrales agudas en entornos hospitalarios."], "en": ["Researchers compared three blood markers of brain damage in 21 stroke patients undergoing clot-removal surgery against 19 control patients having non-brain surgery.", "Blood samples were collected before the procedure and at 2 and 24 hours after, then tested with a specific laboratory assay.", "While the other two markers, NfL and tau, went up significantly in both groups, the GFAP level did not show a significant rise in the control group over the 24-hour period.", "Because GFAP did not rise in the control group, it may be less affected by the effects of anesthesia and surgery than the other markers.", "The results suggest that GFAP should be studied further as a possible tool for detecting acute brain injury in hospital settings."], "judge_passed": true, "judge_reason": ""}, {"id": "v2", "es": ["Los investigadores analizaron si una prueba de sangre podía detectar lesiones cerebrales en 21 pacientes con ictus bajo anestesia, en situaciones donde los exámenes estándar fallan. midieron tres proteínas en muestras tomadas antes, a las dos horas y a las 24 horas tras el procedimiento. El estudio incluyó a 19 personas sanas sometidas a cirugía no cerebral para la comparación.", "Los niveles de la proteína GFAP aumentaron bruscamente en los pacientes con ictus y se mantuvieron más altos que en el grupo de control durante todo el periodo del estudio. A diferencia de los pacientes con ictus, el grupo de control no mostró un aumento significativo de los niveles de GFAP, lo que sugiere que la proteína es específica de la lesión cerebral y no solo de la anestesia. Las otras dos proteínas, NfL y tau, aumentaron en ambos grupos, lo que las hace menos fiables para distinguir entre la lesión cerebral y el estrés quirúrgico.", "Los autores concluyen que la GFAP parece ser un marcador mejor para la lesión cerebral aguda porque no aumenta simplemente debido a los efectos de la anestesia o la cirugía. Los resultados sugieren que la GFAP podría convertirse en una herramienta útil para monitorizar la salud cerebral en los hospitales, pero se necesita más investigación para confirmar esto."], "en": ["Researchers investigated whether a blood test could detect brain injury in 21 stroke patients under anesthesia, where standard exams fail. They measured three proteins in samples taken before, at two hours, and at 24 hours after the procedure. The study included 19 healthy people undergoing non-brain surgery for comparison.", "Levels of the protein GFAP rose sharply in stroke patients and remained higher than in the control group throughout the study period. Unlike the stroke patients, the control group showed no significant rise in GFAP levels, suggesting the protein is specific to brain injury rather than just anesthesia. The other two proteins, NfL and tau, went up in both groups, making them less reliable for distinguishing brain injury from surgery stress.", "The authors conclude that GFAP appears to be a better marker for acute brain injury because it does not rise simply due to the effects of anesthesia or surgery. The results suggest that GFAP could become a useful tool for monitoring brain health in hospitals, but more research is needed to confirm this."], "judge_passed": false, "judge_reason": "Describe a los controles como personas sanas, y el abstract no lo dice."}]}, {"pmid": "42999788", "title": "RiboMeth-Sequencing Reveals Selective Ribosomal RNA 2'-O-Methylation Changes in the Dorsolateral Prefrontal Cortex of Subjects With Major Depressive Disorder.", "versions": [{"id": "v1", "es": ["Los investigadores analizaron tejido cerebral de 17 personas con trastorno depresivo mayor y 20 controles sanos mediante RiboMeth-seq, un método que cartografía las modificaciones químicas en el ARN ribosómico.", "El patrón general de estas modificaciones fue mayoritariamente similar entre ambos grupos, lo que indica que la estructura general de los ribosomas no se vio ampliamente alterada.", "Sin embargo, el equipo identificó 8 sitios específicos en el ARN ribosómico donde los niveles de modificación diferían significativamente entre los participantes con depresión y los controles.", "Estos hallazgos sugieren que la depresión se asocia con cambios dirigidos en posiciones ribosómicas específicas, en lugar de un deterioro generalizado, lo cual podría contribuir a problemas en la producción de proteínas en el cerebro."], "en": ["Researchers analyzed brain tissue from 17 individuals with major depressive disorder and 20 healthy controls using RiboMeth-seq, a method that maps chemical modifications in ribosomal RNA.", "The overall pattern of these modifications was largely similar between the two groups, indicating that the general structure of ribosomes was not broadly disrupted.", "However, the team identified 8 specific sites on the ribosomal RNA where modification levels differed significantly between the depressed and control participants.", "These findings suggest that depression is associated with targeted changes at specific ribosomal positions rather than a general breakdown, which may contribute to issues with protein production in the brain."], "judge_passed": true, "judge_reason": ""}, {"id": "v2", "es": ["Este estudio examinó si los mecanismos específicos de control de los ribosomas contribuyen a las anomalías moleculares en el trastorno depresivo mayor mediante el análisis de tejido cerebral de 17 personas con depresión y 20 controles sanos. Los científicos utilizaron un método de secuenciación especializado para mapear los cambios químicos en el ARN ribosómico dentro de la corteza prefrontal.", "Aunque el patrón general de modificaciones del ARN ribosómico fue en gran parte el mismo en ambos grupos, exactamente 8 ubicaciones específicas mostraron diferencias significativas. Estos hallazgos sugieren que la depresión implica cambios dirigidos a sitios específicos del ribosoma en lugar de una degradación general de la estructura del ribosoma.", "Los autores proponen que estos cambios específicos del ARN podrían ayudar a explicar cómo se altera la producción de proteínas en los cerebros de las personas con depresión."], "en": ["This study examined whether specific ribosome control mechanisms contribute to molecular abnormalities in major depressive disorder by analyzing brain tissue from 17 people with depression and 20 healthy controls. Scientists used a specialized sequencing method to map chemical changes in ribosomal RNA within the prefrontal cortex.", "While the general pattern of ribosomal RNA modifications was largely the same in both groups, exactly 8 specific locations showed significant differences. These findings suggest that depression involves targeted changes to specific ribosome sites rather than a broad breakdown of ribosome structure.", "The authors propose that these specific RNA changes might help explain how protein production goes awry in the brains of people with depression."], "judge_passed": true, "judge_reason": ""}]}, {"pmid": "42997796", "title": "Outdoor Air Pollution Exposure Alters Fear Regulation and Fear-Related Neural Circuitry in Adolescence.", "versions": [{"id": "v1", "es": ["Un estudio con 102 adolescentes de entre 10 y 17 años examinó cómo la contaminación atmosférica podría alterar los procesos cerebrales que ayudan a los jóvenes a aprender a reconocer y gestionar las amenazas.", "Los participantes se dividieron según su exposición previa a partículas de polvo fino, revelando que aquellos con mayor exposición mostraron reacciones de miedo más intensas y una mayor dificultad para detener el miedo posteriormente, junto con un aumento de la actividad en áreas cerebrales específicas.", "Los autores concluyen que estos cambios observados en el aprendizaje del miedo podrían explicar por qué la contaminación atmosférica se asocia con mayores tasas de ansiedad en los jóvenes."], "en": ["A study involving 102 teenagers aged 10 to 17 examined how air pollution might disrupt brain processes that help young people learn to recognize and manage threats.", "Participants were divided by past exposure to fine dust particles, revealing that those with higher exposure showed stronger fear reactions and greater difficulty stopping fear later on, alongside increased activity in specific brain areas.", "The authors conclude that these observed changes in fear learning could explain why air pollution is linked to higher rates of anxiety in young people."], "judge_passed": true, "judge_reason": ""}, {"id": "v2", "es": ["Los investigadores examinaron a 102 adolescentes de entre 10 y 17 años, dividiéndolos en dos grupos según su exposición reciente a partículas finas del aire en relación con un límite de 9 microgramos por metro cúbico.", "Al medir el sudor de la piel, observar comportamientos de evitación y preguntar sobre los niveles de miedo, el equipo descubrió que quienes tenían una mayor exposición a la contaminación mostraban reacciones físicas y emocinales más intensas al aprender a asociar una señal con una amenaza.", "Los participantes del grupo de alta exposición también informaron de un retorno del miedo más intenso cuando la señal de amenaza reapareció después de que el peligro hubiera cesado.", "Las escaneos cerebrales indicaron que este grupo presentaba una mayor actividad en la amígdala derecha y la ínsula izquierda, regiones responsables de procesar el miedo y la seguridad.", "Estos resultados sugieren que el procesamiento alterado del miedo podría ser uno de los mecanismos a través de los cuales la contaminación del aire contribuye a la ansiedad en los jóvenes."], "en": ["Researchers examined 102 teenagers aged 10 to 17, dividing them into two groups based on recent exposure to fine air particles relative to a 9 micrograms per cubic meter limit.", "By measuring skin sweat, observing avoidance behaviors, and asking about fear levels, the team found that those with higher pollution exposure displayed stronger physical and emotional reactions when learning to associate a signal with a threat.", "Participants in the high-exposure group also reported a more intense return of fear when the threat signal reappeared after the danger had passed.", "Brain scans indicated that this group exhibited increased activity in the right amygdala and left insula, regions responsible for processing fear and safety.", "These results suggest that altered fear processing may be one mechanism through which air pollution contributes to anxiety in young people."], "judge_passed": true, "judge_reason": ""}]}, {"pmid": "42997793", "title": "Subgenual Cingulate Functional Connectivity Predicts Neuromodulation Response in Depression: A Systematic Review.", "versions": [{"id": "v1", "es": ["Los investigadores examinaron si los patrones de actividad en una región cerebral específica relacionada con el estado de ánimo podían predecir qué tan efectivos serían los tratamientos para la depresión en humanos.", "En algunos casos, conexiones más fuertes entre el área subgenual y la corteza prefrontal derecha se asociaron con una menor mejora de los síntomas, mientras que las conexiones con la corteza orbitofrontal medial correlacionaron con mejores resultados.", "Aunque los vínculos predictivos se observaron con mayor frecuencia en estudios de estimulación magnética que utilizaban un enfoque personalizado, los resultados variaban demasiado para permitir conclusiones definitivas sobre las ubicaciones exactas del cerebro."], "en": ["Researchers examined whether activity patterns in a specific mood-related brain region could forecast how effectively depression treatments would work for humans.", "In some cases, stronger connections between the subgenual area and the right prefrontal cortex were linked to less symptom improvement, while links to the medial orbitofrontal cortex correlated with better outcomes.", "Although predictive links were most frequently observed in magnetic stimulation studies using personalized targeting, results varied too much to allow definitive conclusions about exact brain locations."], "judge_passed": true, "judge_reason": ""}, {"id": "v2", "es": ["Una revisión sistemática de adultos de entre 18 y 70 años con trastorno depresivo mayor examinó si la conectividad cerebral en la corteza cingulada anterior subgenual antes del tratamiento podía predecir los cambios en los síntomas de la depresión.", "El análisis reveló que conexiones iniciales más fuertes entre el cingulado subgenual y la corteza prefrontal dorsolateral derecha se asociaban con una menor mejoría, mientras que vínculos más intensos con la corteza orbitofrontal medial se relacionaban con un mayor alivio de los síntomas.", "Estos patrones predictivos fueron más frecuentes en los estudios que utilizaban estimulación magnética transcraneal repetitiva, una técnica que emplea campos magnéticos para estimular las células nerviosas, especialmente cuando la diana era personalizada.", "Aunque las resonancias cerebrales utilizadas en los estudios incluidos fueron calificadas como adecuadas, con una puntuación media de 16,1 sobre 20, los resultados variaban entre estudios y no permitían un análisis estadístico detallado de localizaciones cerebrales específicas.", "Los autores señalan que se necesitan estudios futuros más amplios para confirmar estos hallazgos y determinar si pueden aplicarse en la práctica clínica."], "en": ["A systematic review of adults aged 18 to 70 with major depressive disorder examined whether brain connectivity in the subgenual anterior cingulate cortex before treatment could predict changes in depression symptoms.", "The analysis found that stronger initial connections between the subgenual cingulate and the right dorsolateral prefrontal cortex were linked to less improvement, while stronger links to the medial orbitofrontal cortex were associated with greater symptom relief.", "These predictive patterns were most common in studies using repetitive transcranial magnetic stimulation, a technique that uses magnetic fields to stimulate nerve cells, particularly when targeting was personalized.", "Although the brain scans used in the included studies were rated as adequate with an average score of 16.1 out of 20, the results varied across studies and did not support a detailed statistical analysis of specific brain locations.", "The authors note that larger future studies are needed to confirm these findings and determine if they can be used in clinical practice."], "judge_passed": true, "judge_reason": ""}]}];
+const STORE = "synaptica-revision-s5";
+const VERSION_Q = [
+  ["fiel", "¿Todo lo que dice el resumen está en el estudio?", ""],
+  ["exagera", "¿Exagera algo?", "Por ejemplo: un resultado en ratones contado como si fuera en personas, una asociación contada como causa, «cura», «seguro»."],
+  ["consejo", "¿Da algún consejo médico o de salud?", ""],
+  ["espanol", "¿El español es correcto y natural?", ""],
+];
+const YES_NO = [["si", "Sí"], ["no", "No"], ["nose", "No lo sé"]];
+let answers = {};
+try { answers = JSON.parse(localStorage.getItem(STORE) || "{}"); } catch (e) { answers = {}; }
+
+function save() {
+  try { localStorage.setItem(STORE, JSON.stringify(answers)); } catch (e) { /* not available */ }
+  refresh();
+}
+
+function el(tag, attrs = {}, ...kids) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") n.className = v; else if (k === "text") n.textContent = v; else n.setAttribute(k, v);
+  }
+  for (const k of kids) if (k) n.append(k);
+  return n;
+}
+
+function radios(name, options, key) {
+  const box = el("div", { class: "opts" });
+  for (const [value, label] of options) {
+    const id = `${name}-${value}`;
+    const input = el("input", { type: "radio", name, id, value });
+    if (answers[key] === value) input.checked = true;
+    input.addEventListener("change", () => { answers[key] = value; save(); });
+    box.append(el("label", { for: id }, input, document.createTextNode(label)));
+  }
+  return box;
+}
+
+function question(text, hint, name, options, key) {
+  const head = el("span", {}, document.createTextNode(text + " "));
+  if (hint) head.append(el("em", { text: hint }));
+  return el("div", { class: "q" }, head, radios(name, options, key));
+}
+
+function comment(key, label) {
+  const id = `c-${key}`;
+  const t = el("textarea", { id, placeholder: label, "aria-label": label });
+  t.value = answers[key] || "";
+  t.addEventListener("input", () => { answers[key] = t.value; save(); });
+  return t;
+}
+
+function render() {
+  const list = document.getElementById("list");
+  ITEMS.forEach((item, i) => {
+    const chip = el("span", { class: "done-chip", id: `chip-${item.pmid}`, text: "pendiente" });
+    const head = el("div", { class: "study-head" },
+      el("div", { class: "meta" },
+        el("span", { text: `Estudio ${i + 1} de ${ITEMS.length}` }),
+        el("span", { class: "pmid", text: `PMID ${item.pmid}` }),
+        el("a", { href: `https://pubmed.ncbi.nlm.nih.gov/${item.pmid}/`, target: "_blank", rel: "noopener", text: "Abrir en PubMed ↗" }),
+        chip),
+      el("h2", { text: item.title }));
+    const card = el("article", { class: "study" }, head);
+    for (const v of item.versions) {
+      const base = `${item.pmid}-${v.id}`;
+      const box = el("section", { class: "version" }, el("h3", { text: `Versión ${v.id.slice(1)}` }));
+      box.append(el("div", { class: "es" }, ...v.es.map((s) => el("p", { text: s }))));
+      box.append(el("details", { class: "en" }, el("summary", { text: "Ver la versión en inglés" }),
+        el("div", {}, ...v.en.map((s) => el("p", { text: s })))));
+      for (const [k, text, hint] of VERSION_Q) box.append(question(text, hint, `${base}-${k}`, YES_NO, `${base}-${k}`));
+      box.append(comment(`${base}-comentario`, "Comentario (opcional): qué está mal o qué cambiarías"));
+      const judge = el("div", { class: `judge ${v.judge_passed ? "pass" : "fail"}` });
+      judge.hidden = !answers[`${base}-visto`];
+      judge.append(el("p", {},
+        el("strong", { class: v.judge_passed ? "pass" : "fail", text: v.judge_passed ? "El revisor automático lo aprobó." : "El revisor automático lo rechazó." }),
+        document.createTextNode(v.judge_reason ? ` Motivo: ${v.judge_reason}` : "")));
+      judge.append(question("¿Estás de acuerdo con el revisor automático?", "", `${base}-acuerdo`, YES_NO, `${base}-acuerdo`));
+      const reveal = el("button", { type: "button", text: "Ver qué dijo el revisor automático" });
+      reveal.hidden = !judge.hidden;
+      reveal.addEventListener("click", () => { answers[`${base}-visto`] = "1"; judge.hidden = false; reveal.hidden = true; save(); });
+      box.append(el("div", {}, reveal), judge);
+      card.append(box);
+    }
+    if (item.versions.length > 1) {
+      const opts = [...item.versions.map((v) => [v.id, `La ${v.id.slice(1)}`]), ["ambas", "Las dos"], ["ninguna", "Ninguna"]];
+      card.append(el("div", { class: "choose" }, question("¿Cuál publicarías en la web?", "", `${item.pmid}-elige`, opts, `${item.pmid}-elige`)));
+    }
+    list.append(card);
+  });
+}
+
+function studyDone(item) {
+  const versionsOk = item.versions.every((v) =>
+    VERSION_Q.every(([k]) => answers[`${item.pmid}-${v.id}-${k}`]) && answers[`${item.pmid}-${v.id}-acuerdo`]);
+  return versionsOk && (item.versions.length < 2 || answers[`${item.pmid}-elige`]);
+}
+
+function exportText() {
+  const lines = ["Revisión SYNAPTICA S5 · respuestas de Sofía", ""];
+  for (const item of ITEMS) {
+    lines.push(`PMID ${item.pmid}${answers[`${item.pmid}-elige`] ? ` · publicaría: ${answers[`${item.pmid}-elige`]}` : ""}`);
+    for (const v of item.versions) {
+      const b = `${item.pmid}-${v.id}`;
+      const parts = [...VERSION_Q.map(([k]) => `${k}=${answers[`${b}-${k}`] || "-"}`), `acuerdo_revisor=${answers[`${b}-acuerdo`] || "-"}`];
+      lines.push(`  ${v.id}: ${parts.join(" ")}`);
+      const c = (answers[`${b}-comentario`] || "").trim();
+      if (c) lines.push(`      comentario: ${c.replace(/\s+/g, " ")}`);
+    }
+  }
+  return lines.join("\n");
+}
+
+function refresh() {
+  const done = ITEMS.filter(studyDone).length;
+  document.getElementById("progress-text").textContent = `${done} de ${ITEMS.length} estudios completos`;
+  document.getElementById("progress-fill").style.width = `${(100 * done) / ITEMS.length}%`;
+  for (const item of ITEMS) {
+    const chip = document.getElementById(`chip-${item.pmid}`);
+    const ok = studyDone(item);
+    chip.textContent = ok ? "completo" : "pendiente";
+    chip.classList.toggle("is-done", ok);
+  }
+  document.getElementById("export").value = exportText();
+}
+
+async function copy() {
+  const status = document.getElementById("copy-status");
+  const box = document.getElementById("export");
+  box.value = exportText();
+  try {
+    await navigator.clipboard.writeText(box.value);
+    status.textContent = "Copiado. Ya puedes pegarlo en un mensaje para Aday.";
+  } catch (e) {
+    box.focus(); box.select();
+    status.textContent = "No se pudo copiar solo: el texto está seleccionado, cópialo a mano.";
+  }
+  document.getElementById("send").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+render();
+refresh();
+document.getElementById("copy-top").addEventListener("click", copy);
+document.getElementById("copy-bottom").addEventListener("click", copy);
+</script>
