@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 20** · 2026-11-11 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 21** · 2026-11-11 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -130,7 +130,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 - [x] `docs/propuesta.md`, exportada del documento aprobado
 - [ ] **S1 Fuentes:** script mínimo por fuente que descarga unos 10 elementos, guardados como fixtures, y `docs/fuentes.md` con acceso, límites, clave y licencia
 - [x] **S2 Almacén:** prueba de BigQuery sandbox desde GitHub Actions con dbt-bigquery → ADR de D1
-- [ ] **S3 Visor 3D:** dos maquetas (three.js con mallas propias y Niivue con volúmenes propios; siibra-explorer embebido, medido y descartado) con los dos atlas lado a lado y regiones clicables por ID, en GitHub Pages; entre las que cumplan D3 elige Sofía ([plan](spikes/s3/PLAN.md)) → ADR de D3. Hechos los pasos 0 (preparación), 1 (datos y licencias, [resultados](spikes/s3/results/README.md)) y 2 (maqueta A, descartada: [resultados](spikes/s3/results/maqueta-a.md))
+- [ ] **S3 Visor 3D:** dos maquetas (three.js con mallas propias y Niivue con volúmenes propios; siibra-explorer embebido, medido y descartado) con los dos atlas lado a lado y regiones clicables por ID, en GitHub Pages; entre las que cumplan D3 elige Sofía ([plan](spikes/s3/PLAN.md)) → ADR de D3. Hechos los pasos 0 (preparación), 1 (datos y licencias, [resultados](spikes/s3/results/README.md)) 2 (maqueta A, descartada: [resultados](spikes/s3/results/maqueta-a.md)) y 3 (datos para B y C, [resultados](spikes/s3/results/README.md#s3--paso-3-datos-para-las-maquetas-b-y-c))
 - [ ] **S4 Revisión:** prototipo del flujo de revisión probado con Sofía → ADR de D5
 - [x] **S5 LLM:** límites actuales del plan gratuito de Groq y de Ollama local, y elección de un juez de otra familia de modelos para el contenido de salud → ADR de D4
 
@@ -262,3 +262,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 18 | 2026-11-11 | CLAUDE.md: los textos propios de Paleo Atlas (CC BY-NC-SA) no se copian a SYNAPTICA (CC BY-SA), se reescriben; el código se sigue copiando (AGPL en los dos) |
 | 19 | 2026-11-11 | S3, paso 2 ([maqueta A](spikes/s3/results/maqueta-a.md)): siibra-explorer se deja embeber y abre con una región seleccionada desde la URL, pero no avisa a la página que lo embebe; solo un plugin propio (`?pl=`), que el usuario tiene que aprobar en cada visita, podría reenviar el clic, y no se ha podido probar sin publicarlo en HTTPS. 6,8 MB de código antes de los datos, interfaz de escritorio en móvil y Matomo de EBRAINS activado por defecto |
 | 20 | 2026-11-11 | Plan de S3 cambiado ([`spikes/s3/PLAN.md`](spikes/s3/PLAN.md)): la maqueta A (siibra-explorer) queda descartada y la sustituye la C, Niivue 0.69.0 con volúmenes propios; Sofía elegirá entre B (three.js) y C. Nuevo paso común de datos para las dos y requisito añadido: sin ventanas, sin seguimiento y sin otros dominios en tiempo de uso. Pages pasa a ser el paso 7 |
+| 21 | 2026-11-11 | S3, paso 3: `spikes/s3/build_assets.py` genera, por atlas y sin mezclarlos, un glTF con Draco (B), un NIfTI de etiquetas (C), la tabla de nombres y colores y la licencia con su cita; unos 0,8 MB por atlas. Waxholm a 117 µm, con protección de regiones pequeñas (decisión de Aday: sin ella se pierde CC L). Julich-Brain distingue los hemisferios por archivo (lh/rh), no por coordenada. `equivalencias.json` de prueba con el grado «pendiente de Sofía». Dependencias declaradas en `spike-s3`: dracopy, fast-simplification, nibabel, scikit-image y scipy |

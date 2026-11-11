@@ -1,0 +1,112 @@
+{
+  "note": "Test data for spike S3 (PLAN.md): which regions the mock-ups pair. Only IDs and names, no geometry. The grade of equivalence is pending Sofía's review.",
+  "grade_values": null,
+  "pairs": [
+    {
+      "kind": "surface",
+      "waxholm": {
+        "id": 408,
+        "acronym": "M1",
+        "name": "Primary motor area"
+      },
+      "julich": [
+        {
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_AREA_4A_PRECG",
+          "label": 76,
+          "name": "Area 4a (PreCG)"
+        },
+        {
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_AREA_4P_PRECG",
+          "label": 142,
+          "name": "Area 4p (PreCG)"
+        }
+      ],
+      "same_side": true,
+      "grade": "pendiente de Sofía"
+    },
+    {
+      "kind": "internal",
+      "waxholm": {
+        "id": 1021,
+        "acronym": "HF",
+        "name": "Hippocampal formation"
+      },
+      "julich": [
+        {
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CA1_HIPPOCAMPUS",
+          "label": 146,
+          "name": "CA1 (Hippocampus)"
+        },
+        {
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CA2_HIPPOCAMPUS",
+          "label": 44,
+          "name": "CA2 (Hippocampus)"
+        },
+        {
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CA3_HIPPOCAMPUS",
+          "label": 174,
+          "name": "CA3 (Hippocampus)"
+        },
+        {
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_DG_HIPPOCAMPUS",
+          "label": 120,
+          "name": "DG (Hippocampus)"
+        },
+        {
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_SUBC_HIPPOCAMPUS_SUBICULAR_COMPLEX",
+          "label": 172,
+          "name": "Subc (Hippocampus, Subicular complex)"
+        }
+      ],
+      "same_side": true,
+      "grade": "pendiente de Sofía"
+    },
+    {
+      "kind": "third",
+      "waxholm": {
+        "id": 501,
+        "acronym": "Am-u",
+        "name": "Amygdaloid area, unspecified"
+      },
+      "julich": [
+        {
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CM_AMYGDALA",
+          "label": 141,
+          "name": "CM (Amygdala)"
+        },
+        {
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_LB_AMYGDALA",
+          "label": 75,
+          "name": "LB (Amygdala)"
+        },
+        {
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_SF_AMYGDALA",
+          "label": 191,
+          "name": "SF (Amygdala)"
+        },
+        {
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_ASTR_AMYGDALA",
+          "label": 5,
+          "name": "Astr (Amygdala)"
+        },
+        {
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_VTM_AMYGDALA",
+          "label": 66,
+          "name": "VTM (Amygdala)"
+        },
+        {
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_IF_AMYGDALA",
+          "label": 149,
+          "name": "IF (Amygdala)"
+        },
+        {
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_MF_AMYGDALA",
+          "label": 188,
+          "name": "MF (Amygdala)"
+        }
+      ],
+      "same_side": true,
+      "grade": "pendiente de Sofía"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "atlas": "Julich-Brain Cytoarchitectonic Atlas",
+  "short": "Julich-Brain v3.1",
+  "version": "v3.1",
+  "licence": "CC BY-NC-SA 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "source": "Julich-Brain Atlas, cytoarchitectonic maps (v3.1), maximum probability map in MNI152 2009c nonlinear asymmetric",
+  "source_url": "https://doi.org/10.25493/KNSN-XB4",
+  "via": "siibra-python",
+  "citation": "Lindsay B. Lewis, Hartmut Mohlberg, Sebastian Bludau, Svenja Caspers, Simon B. Eickhoff, Katrin Amunts, Peter Pieperhoff. Julich-Brain Atlas, cytoarchitectonic maps (v3.1). EBRAINS. https://doi.org/10.25493/KNSN-XB4",
+  "citation_source": "siibra (EBRAINS KG record of the dataset)",
+  "derived": "Left and right maximum probability maps joined into one label volume with compact indices per area and side; meshes by marching cubes, smoothed, simplified and Draco-compressed. Changes made by SYNAPTICA. Shared under the same licence."
+}

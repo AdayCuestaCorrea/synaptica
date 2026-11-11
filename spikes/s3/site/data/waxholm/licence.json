@@ -1,0 +1,13 @@
+{
+  "atlas": "Waxholm Space atlas of the Sprague Dawley rat brain",
+  "short": "Waxholm v4.01",
+  "version": "v4.01",
+  "licence": "CC BY 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source": "EBRAINS Knowledge Graph, dataset version 2cf40e61-fae1-4ab3-b7de-cb8fdfa19b70",
+  "source_url": "https://search.kg.ebrains.eu/instances/2cf40e61-fae1-4ab3-b7de-cb8fdfa19b70",
+  "via": "BrainGlobe atlas whs_sd_rat_39um (packaging 3.0)",
+  "citation": "Kleven et al. 2023, Nature Methods, https://doi.org/10.1038/s41592-023-02034-3",
+  "citation_source": "BrainGlobe metadata of whs_sd_rat_39um",
+  "derived": "Meshes simplified and Draco-compressed; label volume downsampled by majority vote and relabelled with compact indices per region and side. Changes made by SYNAPTICA."
+}

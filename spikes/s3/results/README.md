@@ -39,3 +39,44 @@ El grado de equivalencia queda **pendiente de Sofía**: aquí solo se dice qué 
 ## Peticiones
 
 User-Agent genérico (`synaptica-spike/0.1`), sin contacto, en serie y con 1 s de pausa: listado del bucket de BrainGlobe, configuración y mapas de siibra, DataCite, el buscador público del KG (sin token) y una visita a NITRC. La descarga del atlas que hace BrainGlobe por dentro va por S3 anónimo con el User-Agent por defecto de botocore, que no lleva datos personales.
+
+# S3 · Paso 3: datos para las maquetas B y C
+
+Generados el 2026-11-11 con `spikes/s3/build_assets.py` (cifras en `spikes/s3/site/data/manifest.json`). Descargó solo lo que faltaba en la caché: el volumen de anotación de Waxholm (4,4 MB), el de hemisferios (0,6 MB) y 4 mallas de BrainGlobe. Una ejecución tarda unos 20 s y es idempotente: dos ejecuciones dan archivos idénticos.
+
+## Qué hay en `site/data/`
+
+Una carpeta por atlas; ningún archivo combina los dos.
+
+| Archivo | Waxholm | Julich-Brain | Para |
+|---|---|---|---|
+| `<atlas>.glb` | 152 KB · contorno + M1, HF y Am-u, cada una por lado | 181 KB · contorno + 14 áreas, cada una por lado | B |
+| `labels.nii.gz` | 536 KB · 171 × 342 × 171 a 117 µm | 539 KB · 193 × 229 × 193 a 1 mm | C |
+| `labels.json` | 113 KB · 447 regiones con lado + árbol | 104 KB · 414 áreas con lado | B y C |
+| `licence.json` | CC BY 4.0, cita Kleven et al. 2023 | CC BY-NC-SA 4.0, cita del conjunto de datos (DOI 10.25493/KNSN-XB4) | B y C |
+
+Más `equivalencias.json` (3 KB): los tres pares de prueba, con solo IDs y nombres, todos con el grado `"pendiente de Sofía"`.
+
+- **Total por atlas: unos 0,8 MB**, muy por debajo de los 3 MB del presupuesto. Cada maqueta usa solo una parte: B, el glTF y las tablas (unos 270 KB); C, el NIfTI y las tablas (unos 650 KB).
+- **Valores:** el valor de cada vóxel y el de cada nodo del glTF es un índice compacto (1…N) que apunta a una fila de `labels.json`, con el ID del atlas y su lado (`L` o `R`).
+- **Coordenadas:** milímetros RAS centrados en el cerebro, iguales en los dos atlas para que se vean con la misma orientación.
+- **Mallas (B):** decimación cuádrica (12.000 caras por región, 40.000 el contorno) y compresión Draco, con la posición cuantizada a 12 bits. El nodo lleva en `extras` el ID, el lado y el nombre.
+  - Rata: las mallas de BrainGlobe, separadas en piezas conexas y asignadas al lado donde caen la mayoría de sus vértices.
+  - Humano: marching cubes sobre el volumen de cada área y lado, suavizado.
+
+## Hemisferios
+
+- **Julich-Brain:** siibra no lo distingue por la coordenada x. El mapa de máxima probabilidad son **dos archivos**, uno por hemisferio (`JulichBrainAtlas_3.1_207areas_MPM_lh_MNI152.nii.gz` y `…_rh_…`), y cada `MapIndex` lleva `fragment = "left hemisphere"` o `"right hemisphere"`; la región de cada lado tiene su propio ID (`…_AREA_4A_PRECG_LEFT`). Los dos archivos no se solapan, pero sus rangos de x se cruzan cerca de la línea media (vóxeles 95–97), así que el lado lo da el archivo. Cada fila de `labels.json` lleva `label` (la etiqueta del MPM, igual a los dos lados), `side`, `id` (la región de ese lado) y `area_id` (el área sin lado).
+- **Waxholm:** BrainGlobe trae un volumen de hemisferios (1 = izquierdo, 2 = derecho).
+
+## Resolución de Waxholm para C
+
+Reducción por voto mayoritario: cada bloque toma la etiqueta que más vóxeles tiene. La variante «proteger» da a cada región que se quedaría sin vóxeles el bloque donde más tiene, siempre que eso no borre otra región.
+
+| Resolución | NIfTI | Regiones perdidas | Con «proteger» | Región fina (cst L, 684 vóxeles a 39 µm) |
+|---|---|---|---|---|
+| 78 µm | 1,5 MB | CC L | ninguna | 90 |
+| **117 µm** | **0,54 MB** | CC L | **ninguna** | 14 |
+| 156 µm | 0,27 MB | CC L y CC R | ninguna | 5 |
+
+**Elegido por Aday: 117 µm con «proteger».** CC L es la franja izquierda del canal central, en la línea media, con 141 vóxeles a 39 µm; con la protección queda en 1 vóxel. Fondo de RM: no se ha añadido; cabe en el presupuesto si Sofía lo pide.

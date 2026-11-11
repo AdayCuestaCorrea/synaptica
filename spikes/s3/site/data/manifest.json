@@ -1,0 +1,320 @@
+{
+  "waxholm": {
+    "regions_with_side": 447,
+    "glb_nodes": [
+      "Brain",
+      "M1 L",
+      "M1 R",
+      "HF L",
+      "HF R",
+      "Am-u L",
+      "Am-u R"
+    ],
+    "resolutions": {
+      "78um": {
+        "factor": 2,
+        "keep_small": false,
+        "shape": [
+          256,
+          512,
+          256
+        ],
+        "bytes_nifti_gz": 1514794,
+        "labels_lost": [
+          "CC L"
+        ],
+        "smallest_full_vs_down": {
+          "CC L": [
+            141,
+            0
+          ],
+          "hbc R": [
+            670,
+            71
+          ],
+          "cst L": [
+            684,
+            90
+          ],
+          "PP L": [
+            712,
+            89
+          ],
+          "hbc L": [
+            750,
+            77
+          ]
+        },
+        "test_regions_voxels": {
+          "M1 L": 42500,
+          "M1 R": 41266,
+          "HF L": 119266,
+          "HF R": 121872,
+          "Am-u L": 50888,
+          "Am-u R": 52659
+        }
+      },
+      "78um_keep_small": {
+        "factor": 2,
+        "keep_small": true,
+        "shape": [
+          256,
+          512,
+          256
+        ],
+        "bytes_nifti_gz": 1514804,
+        "labels_lost": [],
+        "smallest_full_vs_down": {
+          "CC L": [
+            141,
+            1
+          ],
+          "hbc R": [
+            670,
+            71
+          ],
+          "cst L": [
+            684,
+            90
+          ],
+          "PP L": [
+            712,
+            89
+          ],
+          "hbc L": [
+            750,
+            77
+          ]
+        },
+        "test_regions_voxels": {
+          "M1 L": 42500,
+          "M1 R": 41266,
+          "HF L": 119266,
+          "HF R": 121872,
+          "Am-u L": 50888,
+          "Am-u R": 52659
+        }
+      },
+      "117um": {
+        "factor": 3,
+        "keep_small": false,
+        "shape": [
+          171,
+          342,
+          171
+        ],
+        "bytes_nifti_gz": 536465,
+        "labels_lost": [
+          "CC L"
+        ],
+        "smallest_full_vs_down": {
+          "CC L": [
+            141,
+            0
+          ],
+          "hbc R": [
+            670,
+            23
+          ],
+          "cst L": [
+            684,
+            14
+          ],
+          "PP L": [
+            712,
+            28
+          ],
+          "hbc L": [
+            750,
+            20
+          ]
+        },
+        "test_regions_voxels": {
+          "M1 L": 12818,
+          "M1 R": 12434,
+          "HF L": 35657,
+          "HF R": 36580,
+          "Am-u L": 15386,
+          "Am-u R": 15968
+        }
+      },
+      "117um_keep_small": {
+        "factor": 3,
+        "keep_small": true,
+        "shape": [
+          171,
+          342,
+          171
+        ],
+        "bytes_nifti_gz": 536470,
+        "labels_lost": [],
+        "smallest_full_vs_down": {
+          "CC L": [
+            141,
+            1
+          ],
+          "hbc R": [
+            670,
+            23
+          ],
+          "cst L": [
+            684,
+            14
+          ],
+          "PP L": [
+            712,
+            28
+          ],
+          "hbc L": [
+            750,
+            20
+          ]
+        },
+        "test_regions_voxels": {
+          "M1 L": 12818,
+          "M1 R": 12434,
+          "HF L": 35657,
+          "HF R": 36580,
+          "Am-u L": 15386,
+          "Am-u R": 15968
+        }
+      },
+      "156um": {
+        "factor": 4,
+        "keep_small": false,
+        "shape": [
+          128,
+          256,
+          128
+        ],
+        "bytes_nifti_gz": 267339,
+        "labels_lost": [
+          "CC L",
+          "CC R"
+        ],
+        "smallest_full_vs_down": {
+          "CC L": [
+            141,
+            0
+          ],
+          "hbc R": [
+            670,
+            9
+          ],
+          "cst L": [
+            684,
+            5
+          ],
+          "PP L": [
+            712,
+            11
+          ],
+          "hbc L": [
+            750,
+            11
+          ]
+        },
+        "test_regions_voxels": {
+          "M1 L": 5348,
+          "M1 R": 5218,
+          "HF L": 15118,
+          "HF R": 15461,
+          "Am-u L": 6542,
+          "Am-u R": 6740
+        }
+      },
+      "156um_keep_small": {
+        "factor": 4,
+        "keep_small": true,
+        "shape": [
+          128,
+          256,
+          128
+        ],
+        "bytes_nifti_gz": 267361,
+        "labels_lost": [],
+        "smallest_full_vs_down": {
+          "CC L": [
+            141,
+            1
+          ],
+          "hbc R": [
+            670,
+            9
+          ],
+          "cst L": [
+            684,
+            5
+          ],
+          "PP L": [
+            712,
+            11
+          ],
+          "hbc L": [
+            750,
+            11
+          ]
+        },
+        "test_regions_voxels": {
+          "M1 L": 5348,
+          "M1 R": 5218,
+          "HF L": 15118,
+          "HF R": 15461,
+          "Am-u L": 6542,
+          "Am-u R": 6740
+        }
+      }
+    },
+    "chosen": "117um_keep_small",
+    "bytes_total": 802190,
+    "within_budget": true
+  },
+  "julich": {
+    "regions_with_side": 414,
+    "glb_nodes": [
+      "outline",
+      "Area 4a (PreCG) L",
+      "Area 4a (PreCG) R",
+      "Area 4p (PreCG) L",
+      "Area 4p (PreCG) R",
+      "CA1 (Hippocampus) L",
+      "CA1 (Hippocampus) R",
+      "CA2 (Hippocampus) L",
+      "CA2 (Hippocampus) R",
+      "CA3 (Hippocampus) L",
+      "CA3 (Hippocampus) R",
+      "DG (Hippocampus) L",
+      "DG (Hippocampus) R",
+      "Subc (Hippocampus, Subicular complex) L",
+      "Subc (Hippocampus, Subicular complex) R",
+      "CM (Amygdala) L",
+      "CM (Amygdala) R",
+      "LB (Amygdala) L",
+      "LB (Amygdala) R",
+      "SF (Amygdala) L",
+      "SF (Amygdala) R",
+      "Astr (Amygdala) L",
+      "Astr (Amygdala) R",
+      "VTM (Amygdala) L",
+      "VTM (Amygdala) R",
+      "IF (Amygdala) L",
+      "IF (Amygdala) R",
+      "MF (Amygdala) L",
+      "MF (Amygdala) R"
+    ],
+    "bytes_nifti_gz": 539219,
+    "bytes_total": 825626,
+    "within_budget": true
+  },
+  "files_bytes": {
+    "equivalencias.json": 3213,
+    "julich/julich.glb": 181432,
+    "julich/labels.json": 104008,
+    "julich/labels.nii.gz": 539219,
+    "julich/licence.json": 967,
+    "waxholm/labels.json": 112740,
+    "waxholm/labels.nii.gz": 536470,
+    "waxholm/licence.json": 800,
+    "waxholm/waxholm.glb": 152180
+  }
+}
