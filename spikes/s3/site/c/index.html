@@ -25,6 +25,18 @@
 .stage .tag.left { transform: translate(calc(-100% - 10px), -50%); }
 .panel abbr { text-decoration: underline dotted; cursor: help; }
 .panel .small { font-size: 0.8rem; }
+/* Improvement M1: one search box per viewer, results over the canvas. C only. */
+.search { position: relative; padding: 6px 12px 0; }
+.search input { width: 100%; font: inherit; padding: 4px 8px; box-sizing: border-box; }
+.search ul {
+  position: absolute; z-index: 5; left: 12px; right: 12px; margin: 2px 0 0; padding: 4px 0; list-style: none;
+  background: var(--bg, #fff); color: var(--fg, #111); border: 1px solid var(--line); border-radius: 6px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.3); max-height: 16em; overflow-y: auto;
+}
+.search ul[hidden] { display: none; }
+.search li { padding: 4px 10px; cursor: pointer; font-size: 0.9rem; }
+.search li[aria-selected="true"], .search li:hover { background: color-mix(in srgb, var(--accent) 25%, transparent); }
+.search li.empty { color: var(--muted); cursor: default; }
 /* Step 7.6: the mode selector, one group of buttons. C only. */
 .modes { display: inline-flex; gap: 0; }
 .modes[hidden] { display: none; }
@@ -65,12 +77,14 @@
   <div class="viewers">
     <section class="viewer" id="waxholm">
       <h2><span data-t="rat"></span> · Waxholm v4.01</h2>
+      <div class="search"><input type="search" autocomplete="off" spellcheck="false"><ul role="listbox" hidden></ul></div>
       <div class="stage"><canvas></canvas><div class="status" data-t="loading"></div></div>
       <div class="panel"></div>
       <div class="licence"></div>
     </section>
     <section class="viewer" id="julich">
       <h2><span data-t="human"></span> · Julich-Brain v3.1</h2>
+      <div class="search"><input type="search" autocomplete="off" spellcheck="false"><ul role="listbox" hidden></ul></div>
       <div class="stage"><canvas></canvas><div class="status" data-t="loading"></div></div>
       <div class="panel"></div>
       <div class="licence"></div>

@@ -209,3 +209,23 @@ Hecho el 2026-11-11, solo en C.
   - al volver a Color no queda nada pintado;
   - en español y en inglés, sin errores en la consola.
 
+## Mejora M1: buscador de áreas (Aday)
+
+Hecho el 2026-11-11, solo en C. Decisiones de Aday: un buscador por cerebro, y cada resultado resalta los dos hemisferios.
+
+- **Dónde:** un campo encima de cada visor que busca solo en su atlas. Busca por sigla o por nombre (en inglés, como los atlas), sin distinguir mayúsculas ni tildes.
+- **Orden de los resultados:** sigla exacta, sigla que empieza igual, nombre que empieza igual y, por último, coincidencia en cualquier parte. Como mucho 8.
+- **Qué se puede buscar:**
+  - un resultado por área, con los dos lados juntos;
+  - en la rata, también los nodos padre de la jerarquía de Waxholm (por ejemplo «HF · Hippocampal formation» o «HR · Hippocampal region»), que resaltan todas sus piezas.
+- **Uso:** con flechas, Intro y Escape, o con clic o toque. Si no hay nada, «Sin resultados».
+- **Al elegir** se comporta como un clic: resalta el área, lleva el punto, el corte y el recorte a ella, y el otro cerebro marca su pareja (también en los dos lados) con su panel.
+  - Con los dos lados, el punto va al lado izquierdo, el que mira la cámara; el centroide de los dos caería en la línea media.
+  - Los paneles dicen «ambos hemisferios».
+- **Comprobado en Brave (escritorio):**
+  - «ca1» en el humano: CA1 a los dos lados, y la rata resalta HF a los dos lados;
+  - «hipp» en la rata, flecha abajo e Intro: HF, con 12 piezas resaltadas, y el humano resalta CA1, CA2, CA3, DG y Subc;
+  - «zzz»: «Sin resultados»; Escape cierra la lista;
+  - en inglés, «m1»: M1 y su pareja, Area 4a y Area 4p;
+  - sin errores en la consola.
+

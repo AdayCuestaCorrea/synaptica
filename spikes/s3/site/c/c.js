@@ -86,11 +86,17 @@ const fmt = (x, d = 2) =>
     minimumFractionDigits: d, maximumFractionDigits: d, signDisplay: "exceptZero",
   }).format(Math.abs(x) < 0.5 * 10 ** -d ? 0 : x);
 
+const SEARCH = {
+  es: { placeholder: "Buscar área (sigla o nombre en inglés)", none: "Sin resultados" },
+  en: { placeholder: "Search area (acronym or name)", none: "No results" },
+}[lang];
+
 // Step 7.4 (P3, P6): panels of C. Written here, not in common.js, so mock-up B stays as it is.
 const P = {
   es: {
     none: "Ninguna región seleccionada.",
     side: { L: "hemisferio izquierdo", R: "hemisferio derecho" },
+    both: "ambos hemisferios",
     id: "ID",
     mpm: "etiqueta del mapa",
     origName: "Nombre original del atlas, en inglés: la traducción la revisa Sofía en la Fase 2.",
@@ -105,6 +111,7 @@ const P = {
   en: {
     none: "No region selected.",
     side: { L: "left hemisphere", R: "right hemisphere" },
+    both: "both hemispheres",
     id: "ID",
     mpm: "map label",
     origName: null,
@@ -126,6 +133,80 @@ function names(region) {
   return { full: region.name, short };
 }
 
+// Search text: lower case, no accents.
+const fold = (x) => x.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+
+// Improvement M1: best matches first (exact short name, short name start, name start, anywhere).
+function search(items, query, max = 8) {
+  const q = fold(query);
+  if (!q) return [];
+  const rank = (it) => (it.s === q ? 0 : it.s.startsWith(q) ? 1 : it.f.startsWith(q) ? 2
+    : it.f.includes(q) || it.s.includes(q) ? 3 : 9);
+  return items
+    .map((it) => [rank(it), it])
+    .filter(([r]) => r < 9)
+    .sort((a, b) => a[0] - b[0] || a[1].full.length - b[1].full.length || a[1].full.localeCompare(b[1].full))
+    .slice(0, max)
+    .map(([, it]) => it);
+}
+
+// A search box over one viewer: own result list (not a datalist, which filters differently in
+// each browser), arrows, Enter and Escape, click or tap.
+function searchBox(v, items) {
+  const box = v.section.querySelector(".search");
+  const input = box.querySelector("input");
+  const list = box.querySelector("ul");
+  input.placeholder = SEARCH.placeholder;
+  input.setAttribute("aria-label", SEARCH.placeholder);
+  let shown = [];
+  let active = -1;
+  const close = () => {
+    list.hidden = true;
+    active = -1;
+  };
+  const render = () => {
+    list.replaceChildren();
+    if (!shown.length) {
+      list.append(h("li", { class: "empty" }, SEARCH.none));
+    }
+    shown.forEach((it, i) => {
+      const li = h("li", { role: "option", "aria-selected": String(i === active) },
+        h("strong", {}, it.short), it.short === it.full ? "" : ` ${it.full}`);
+      li.addEventListener("pointerdown", (e) => {
+        e.preventDefault(); // keep the focus in the box until chosen
+        choose(it);
+      });
+      list.append(li);
+    });
+    list.hidden = false;
+  };
+  const choose = (it) => {
+    input.value = it.short === it.full ? it.full : `${it.short} · ${it.full}`;
+    close();
+    v.selectArea(it);
+  };
+  input.addEventListener("input", () => {
+    shown = search(items, input.value);
+    active = shown.length ? 0 : -1;
+    if (fold(input.value)) render();
+    else close();
+  });
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+      if (!shown.length) return;
+      e.preventDefault();
+      active = (active + (e.key === "ArrowDown" ? 1 : shown.length - 1)) % shown.length;
+      render();
+    } else if (e.key === "Enter" && active >= 0 && !list.hidden) {
+      e.preventDefault();
+      choose(shown[active]);
+    } else if (e.key === "Escape") {
+      close();
+    }
+  });
+  input.addEventListener("blur", close);
+}
+
 function h(tag, attrs = {}, ...children) {
   const e = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
@@ -144,7 +225,7 @@ function title(region) {
 }
 
 function facts(region) {
-  const p = h("p", { class: "facts" }, `${P.side[region.side] || ""} · ${P.id}: `);
+  const p = h("p", { class: "facts" }, `${P.side[region.side] || P.both} · ${P.id}: `);
   p.append(h("code", {}, String(region.id)));
   if (region.label != null) p.append(` · ${P.mpm}: ${region.label}`);
   return p;
@@ -191,7 +272,7 @@ function panelPartner(box, source, pair) {
       list.append(r.acronym ? ` · ${n.full}` : ` ${n.full.slice(n.short.length).trim()}`);
     }
   });
-  list.append(` · ${P.side[source.side]}`);
+  list.append(` · ${P.side[source.side] || P.both}`);
   const g = h("p", { class: "pair" }, h("span", { class: "grade" }, `${P.grade}: ${pair.grade}`));
   box.append(head, list, g);
   if (P.origName) box.append(h("p", { class: "muted small" }, P.origName));
@@ -926,6 +1007,10 @@ class VolumeViewer {
   // the plain 3D view, the camera turns to the region's side; with the cut on it stays on the
   // left, because the cut removes the camera's side and the region shows on the cut face.
   goTo(indices) {
+    // Both sides (an area picked in the search): go to the left one, the side the camera
+    // faces; their joint centroid would fall on the midline.
+    const sides = new Set([...indices].map((i) => this.rows[i].side));
+    if (sides.size > 1) indices = [...indices].filter((i) => this.rows[i].side === "L");
     let w = 0;
     const c = [0, 0, 0];
     for (const i of indices) {
@@ -943,13 +1028,51 @@ class VolumeViewer {
     this.nv.drawScene();
   }
 
+  // Improvement M1 (Aday): pick an area from the search box, as a click would, both sides.
+  selectArea(item) {
+    this.selectedIndex = null; // a later click on one of its pieces still picks that piece
+    this.focus = new Set(item.indices);
+    if (this.tag) this.tag.hidden = true;
+    this.apply();
+    this.goTo(this.focus);
+    this.onPick(item.region);
+  }
+
+  // What the search box can find in this atlas: one entry per area with both sides together
+  // (Waxholm id, Julich-Brain area) and, for Waxholm, the parent nodes of its hierarchy, which
+  // stand for all their pieces. Names are the atlases' own, in English.
+  searchIndex(tree) {
+    const items = new Map();
+    const add = (key, region, index) => {
+      if (!items.has(key)) items.set(key, { region, indices: [] });
+      items.get(key).indices.push(index);
+    };
+    for (const r of this.rows) {
+      if (!r.index) continue;
+      if (this.atlas === "waxholm") {
+        add(`w${r.id}`, { atlas: "waxholm", side: null, id: r.id, name: r.name, acronym: r.acronym, path: r.path }, r.index);
+        for (const a of r.path || []) {
+          if (a === r.id || !tree[a]) continue;
+          const t = tree[a];
+          add(`w${a}`, { atlas: "waxholm", side: null, id: a, name: t.name, acronym: t.acronym, path: t.path }, r.index);
+        }
+      } else {
+        add(`j${r.area_id}`, { atlas: "julich", side: null, id: r.area_id, name: r.name, label: r.label, areaId: r.area_id }, r.index);
+      }
+    }
+    return [...items.values()].map((it) => {
+      const n = names(it.region);
+      return { ...it, short: n.short, full: n.full, s: fold(n.short), f: fold(n.full) };
+    });
+  }
+
   // Highlight what the other atlas asked for: same side, by Waxholm ancestor or Julich area.
   highlight(partner) {
     this.selectedIndex = null;
     this.focus = new Set(
       partner
         ? this.rows
-            .filter((r) => r.index && r.side === partner.side)
+            .filter((r) => r.index && (partner.side == null || r.side === partner.side))
             .filter((r) =>
               partner.waxholmId != null
                 ? (r.path || []).includes(partner.waxholmId)
@@ -973,6 +1096,7 @@ const viewers = (window.__viewers = {
 for (const [atlas, v] of Object.entries(viewers)) {
   renderLicence(v.section.querySelector(".licence"), data[atlas].licence);
   panelPicked(v.panel, null);
+  searchBox(v, v.searchIndex(data[atlas].labels.tree || {}));
   v.onPick = (region) => {
     const other = viewers[atlas === "waxholm" ? "julich" : "waxholm"];
     const pair = region ? pairOf(region, data.pairs) : null;
