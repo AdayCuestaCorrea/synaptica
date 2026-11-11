@@ -85,3 +85,19 @@ def test_the_page_writes_the_same_format():
 
 def test_max_url_stays_below_the_measured_limit():
     assert MAX_URL <= 6920 - 500  # results/README.md: 302 up to 6920, 500 from 6982
+
+
+def test_real_issue_from_the_form(queue):
+    """Issue #1, sent from the page through the form: GitHub's body decodes and applies."""
+    event = json.loads((FIXTURES / "issue_opened_1.json").read_text("utf-8"))
+    issue = event["issue"]
+    block = decode(issue["body"])
+    assert (block.page, block.part) == ("public", (1, 1))
+    assert [d["action"] for d in block.decisions] == ["pick", "set_grade", "approve"]
+    intake = {
+        "reviewed_by": issue["user"]["login"],
+        "reviewed_at": issue["created_at"],
+        "source": f"issue#{issue['number']}",
+    }
+    for d in block.decisions:
+        assert check_against(Decision.model_validate(d | intake), queue) == []

@@ -1,0 +1,19 @@
+{
+ "_note": "Issue #1, the first real submission from the S4 review page (2026-11-11, by Aday). Fetched with `gh issue view 1` and reshaped to the `issues: opened` webhook payload the intake workflow receives (only the fields it reads).",
+ "action": "opened",
+ "issue": {
+  "number": 1,
+  "title": "Revisión de Sofía · 2026-11-11 · 1/1",
+  "user": {
+   "login": "AdayCuestaCorrea",
+   "type": "User"
+  },
+  "created_at": "2026-11-11T17:15:14Z",
+  "labels": [
+   {
+    "name": "revisión"
+   }
+  ],
+  "body": "### Decisiones\n\n```text\nsynaptica-review v1\nqueue: 2026-11-11T06:00:00Z\npage: public\npart: 1/1\n{\"item_type\":\"classics\",\"item_id\":\"2026-w46\",\"content_sha256\":\"b7e5b06e913aa2ccc61067137eb65e77fa033e5a38099a84c93760897e432ae6\",\"action\":\"pick\",\"payload\":{\"dois\":[\"10.1159/000444713\"]},\"note\":null}\n{\"item_type\":\"equivalence\",\"item_id\":\"waxholm-1021\",\"content_sha256\":\"6e13e789e4f8701a792765424333be0479d490494ff14944b36e7ddf62cc6e29\",\"action\":\"set_grade\",\"payload\":{\"grade\":\"clear\",\"note_es\":\"prueba prueba\"},\"note\":null}\n{\"item_type\":\"search_terms\",\"item_id\":\"waxholm-1021\",\"content_sha256\":\"94df4b10d48c58337adcf0d64e52827f0ab0e6fb37d8c64c1ae3bfdd414af2d2\",\"action\":\"approve\",\"payload\":{},\"note\":null}\n```"
+ }
+}

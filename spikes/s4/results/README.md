@@ -22,5 +22,6 @@ Medida con `curl` **sin sesión iniciada**, que es el caso que manda: si Sofía 
 - Una sola decisión que no quepa en ninguna URL (una ficha corregida entera en los dos idiomas) va sola, en una parte **para pegar**: la página copia el bloque al portapapeles y abre el formulario vacío; Sofía pega y pulsa «Create». Es el único caso en que tiene que hacer algo más que pulsar un botón.
 - Volumen, medido con las decisiones de las fixtures: una decisión sin texto propio (aprobar, rechazar, grado, elegir, ocultar, proponer una sigla) ocupa entre 240 y 290 caracteres de URL, así que caben unas 20 por Issue; una corrección de un par de frases, unos 430. Un día normal (Clásicos y algún texto) es un solo Issue.
 
-### Pendiente
-- **Un envío real de punta a punta** (página → formulario → «Create») para guardar el cuerpo que escribe GitHub como fixture del paso 4. Lo hace Aday, porque la extensión de Chrome sigue bloqueada.
+### Envío real de punta a punta
+- [Issue #1](https://github.com/AdayCuestaCorrea/synaptica/issues/1), enviado por Aday desde `revision.html` con 3 decisiones (un Clásico, un grado con nota y unos términos aprobados): título `Revisión de Sofía · 2026-11-11 · 1/1`, etiqueta `revisión` y el cuerpo exactamente como lo espera `issue_block.decode` (`### Decisiones` y el bloque en una valla `text`). Las 3 decisiones pasan `check_against` con la cola de las fixtures.
+- Guardado como `tests/fixtures/review/issue_opened_1.json`, con la forma del evento `issues: opened` que recibirá el workflow. Cerrado a mano como «not planned».
