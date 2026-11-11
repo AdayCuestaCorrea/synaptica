@@ -176,11 +176,17 @@ class ReviewItem(Strict):
     # Why the item is back in her queue (a check failed on her edit, step 4). Not hashed:
     # it describes the review, not the content.
     warnings: list[str] = []
+    # For an edit of hers that came back to the queue: the draft she was correcting. Her
+    # next edit is checked against it, not against her own text (a number she added must
+    # not count as known). Not hashed either: the hash of the held edit binds it.
+    base: TextContent | None = None
 
     @model_validator(mode="after")
     def _consistent(self) -> ReviewItem:
         if self.content.kind != KIND_OF[self.item_type]:
             raise ValueError(f"{self.item_type} needs content of kind {KIND_OF[self.item_type]}")
+        if self.base is not None and self.content.kind != "text":
+            raise ValueError("only text items have a base draft")
         if self.item_type is ItemType.DISEASE and self.public:
             raise ValueError("Neuro Diseases drafts never go on the public review page")
         return self

@@ -90,7 +90,7 @@ def edit_warnings(item: ReviewItem, payload: dict, source_texts: dict[str, str])
     ``source_texts`` maps a source id to its text (the Wikipedia lead, the cached
     abstract); a source without text only skips the copy check.
     """
-    content = item.content
+    content = item.base or item.content  # a held edit is checked against the original draft
     assert isinstance(content, TextContent)
     reviewed = " ".join(s.text for s in content.es + content.en)
     sources = [source_texts[s.id] for s in content.sources if s.id in source_texts]

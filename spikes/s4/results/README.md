@@ -44,3 +44,24 @@ Medida con `curl` **sin sesión iniciada**, que es el caso que manda: si Sofía 
 - **Workflow** (`review-intake.yml`, borrador sin activar): solo se ejecuta si el autor es `vars.REVIEWER_LOGIN` y el Issue lleva la etiqueta `revisión`; el cuerpo del Issue nunca entra en un `run:` (evita la inyección de comandos; un test lo vigila); permisos mínimos (`contents` e `issues`); comparte `concurrency` con el pipeline para no pisar la rama `data`; comenta y cierra el Issue.
 - **Fuera del paso 4:** de dónde salen los textos de las fuentes en el pipeline (el lead de Wikipedia, el abstract en la caché de la rama `data`) y la llamada real al juez (Groq); son de la Fase 1.
 
+## Paso 5: del registro al estado (2026-11-11)
+
+`apply.py` lee `decisions.jsonl` y `held.jsonl` frente a la cola de borradores del día y responde tres preguntas:
+
+- **Estado de cada elemento.** Los eventos se recorren por orden de fecha (y de Issue). Un evento solo cuenta si nombra el hash de la versión que está en la mesa: el borrador de hoy o la corrección retenida que volvió a su cola. Si el borrador cambia, sus decisiones antiguas dejan de contar y el elemento vuelve a estar pendiente.
+- **Si se puede publicar** (`publishable`):
+  - una ficha de Neuro Diseases, solo con su aprobación o su corrección de la versión actual, con `reviewed_by` y `reviewed_at`;
+  - nada de lo que ella rechazó;
+  - ningún texto cuyo inglés esté por rehacer a partir de su español (ninguna página en un solo idioma);
+  - lo demás se publica mientras espera, como dice §9: solo Neuro Diseases bloquea.
+  - Para un par rata ↔ humano, «publicable» no basta: la vista comparada solo aparece si tiene grado (`state.grade`).
+- **La cola de mañana** (`next_queue`): lo que no tiene decisión para su versión actual y sus correcciones retenidas, que vuelven con su texto, el aviso y el borrador original (`base`).
+
+Detalles:
+- **Correcciones:** cada frase suya conserva las citas de la frase revisada con la que se corresponde (mismo umbral que la recepción); una frase nueva no cita nada. El idioma que no tocó se queda como estaba hasta que se rehaga.
+- **«Lo mantengo»** solo cuenta si nombra el hash de la corrección retenida que está en la mesa; guarda su motivo.
+- **Una nueva corrección sobre un texto retenido** se comprueba contra el borrador original, no contra su texto anterior: una cifra que ella añadió no pasa a ser «conocida» (nuevo campo `base` en `ReviewItem`, fuera del hash, y la recepción lo usa).
+- **Grados:** se guarda el historial completo (grado, nota, quién, cuándo y si era la versión actual del par), también los de versiones antiguas; el grado vigente solo cuenta para la versión actual.
+- **Siglas propuestas:** `proposals` las devuelve para el paso de redacción del glosario (Fase 2).
+- Probado de punta a punta: el Issue #1 pasa por la recepción, se escribe en disco y `apply` lee el grado y su nota.
+
