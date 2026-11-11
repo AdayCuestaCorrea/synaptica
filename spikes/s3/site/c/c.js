@@ -26,13 +26,13 @@ const CLIP_AZIMUTH = 270;
 const clipAt = (fx) => [0.5 - fx, CLIP_AZIMUTH, 0];
 
 // Step 7.3 (P1): the 3D cut (sagittal) and the 2D slice (coronal) are perpendicular, so they share
-// a point, Niivue's crosshair: its x is the sagittal cut, its y the coronal slice. Two variants to
-// compare (Aday, 2026-11-11), with ?sync=deslizadores: "punto" moves the point by clicking or
-// dragging on the slice or clicking the 3D view; "deslizadores" adds one slider per plane.
-const SYNC = new URLSearchParams(location.search).get("sync") === "deslizadores" ? "sliders" : "point";
+// a point, Niivue's crosshair: its x is the sagittal cut, its y the coronal slice, its z the height
+// of the crosshair. Clicking the slice or the 3D cut face moves the point too. Of the two variants
+// tried, Aday kept the sliders (2026-11-11), with the exact millimetre typed on the keyboard and
+// a third axis, z.
 const TXT = {
-  es: { sag: "Sagital (3D)", cor: "Coronal (2D)" },
-  en: { sag: "Sagittal (3D)", cor: "Coronal (2D)" },
+  es: { x: "Sagital · x (3D)", y: "Coronal · y (2D)", z: "Vertical · z", mm: "mm" },
+  en: { x: "Sagittal · x (3D)", y: "Coronal · y (2D)", z: "Vertical · z", mm: "mm" },
 }[lang];
 
 const state = { view: "3d", clip: false, isolate: false };
@@ -137,24 +137,40 @@ class VolumeViewer {
     this.layout();
   }
 
-  // One slider per plane (variant "deslizadores"). Values are volume fractions; the label shows
-  // millimetres (RAS centred on the brain; Bregma/Lambda come in step 7.5).
+  // One row per axis: a slider (volume fraction) and a number field in millimetres that can be
+  // typed (RAS of the atlas, centred on the brain; Bregma/Lambda come in step 7.5).
   buildSliders() {
     const box = document.createElement("div");
     box.className = "planes";
     this.sliders = {};
-    for (const [axis, key] of [[0, "sag"], [1, "cor"]]) {
+    const lo = this.nv.frac2mm([0, 0, 0]);
+    const hi = this.nv.frac2mm([1, 1, 1]);
+    for (const [axis, key] of [[0, "x"], [1, "y"], [2, "z"]]) {
       const label = document.createElement("label");
       const name = document.createElement("span");
-      const input = Object.assign(document.createElement("input"), {
+      const range = Object.assign(document.createElement("input"), {
         type: "range", min: 0, max: 1000, step: 1,
       });
-      const value = document.createElement("output");
+      const [min, max] = [Math.min(lo[axis], hi[axis]), Math.max(lo[axis], hi[axis])];
+      const number = Object.assign(document.createElement("input"), {
+        type: "number", step: 0.01, min: min.toFixed(2), max: max.toFixed(2), inputMode: "decimal",
+      });
+      number.setAttribute("aria-label", `${TXT[key]} (${TXT.mm})`);
+      const unit = document.createElement("span");
+      unit.textContent = TXT.mm;
       name.textContent = TXT[key];
-      input.addEventListener("input", () => this.setPlane(axis, input.value / 1000));
-      label.append(name, input, value);
+      range.addEventListener("input", () => this.setPlane(axis, range.value / 1000));
+      // Applied on Enter or when the field loses focus, so typing "-3.2" does not jump at "-".
+      number.addEventListener("change", () => {
+        const v = parseFloat(number.value);
+        if (Number.isFinite(v)) this.setPlaneMm(axis, Math.min(max, Math.max(min, v)));
+        // Show what was applied (clamped to the volume, 2 decimals), even while still focused.
+        number.value = this.nv.frac2mm(this.nv.scene.crosshairPos)[axis].toFixed(2);
+        this.syncPlanes();
+      });
+      label.append(name, range, number, unit);
       box.append(label);
-      this.sliders[axis] = { input, value };
+      this.sliders[axis] = { range, number };
     }
     this.section.querySelector(".stage").after(box);
     this.planesBox = box;
@@ -170,16 +186,23 @@ class VolumeViewer {
     this.nv.drawScene();
   }
 
-  // The sagittal cut follows the crosshair x, and the sliders show where both planes are.
+  setPlaneMm(axis, mm) {
+    const at = this.nv.frac2mm(this.nv.scene.crosshairPos);
+    const target = [at[0], at[1], at[2]];
+    target[axis] = mm;
+    this.setPlane(axis, this.nv.mm2frac(target)[axis]);
+  }
+
+  // The sagittal cut follows the crosshair x, and the controls show where the point is.
   syncPlanes() {
     const pos = this.nv.scene.crosshairPos;
     if (state.clip) this.nv.setClipPlane(clipAt(pos[0]));
     if (!this.sliders) return;
     const mm = this.nv.frac2mm(pos);
-    for (const axis of [0, 1]) {
-      const { input, value } = this.sliders[axis];
-      input.value = Math.round(pos[axis] * 1000);
-      value.textContent = `${axis ? "y" : "x"} = ${mm[axis].toFixed(1)} mm`;
+    for (const axis of [0, 1, 2]) {
+      const { range, number } = this.sliders[axis];
+      range.value = Math.round(pos[axis] * 1000);
+      if (document.activeElement !== number) number.value = mm[axis].toFixed(2);
     }
   }
 
@@ -187,7 +210,7 @@ class VolumeViewer {
     const nv = this.nv;
     nv.setClipPlane(state.clip ? clipAt(nv.scene.crosshairPos[0]) : [2, 0, 0]);
     nv.opts.show3Dcrosshair = state.view !== "3d";
-    if (this.planesBox) this.planesBox.hidden = !(state.view !== "3d" && SYNC === "sliders");
+    if (this.planesBox) this.planesBox.hidden = state.view === "3d";
     if (state.view === "3d") {
       nv.clearCustomLayout();
       nv.setSliceType(SLICE_TYPE.RENDER);

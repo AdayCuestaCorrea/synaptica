@@ -7,12 +7,13 @@
 <title>SYNAPTICA · S3 · C (Niivue)</title>
 <link rel="stylesheet" href="../common/common.css">
 <style>
-/* Step 7.3: one slider per plane (only with ?sync=deslizadores). C only. */
+/* Step 7.3: one row per axis, slider and typed millimetres. C only. */
 .planes { display: grid; gap: 4px; padding: 6px 12px; border-top: 1px solid var(--line); }
-.planes label { display: grid; grid-template-columns: 7.5em 1fr 6.5em; gap: 8px; align-items: center; }
 .planes[hidden] { display: none; }
-.planes input { width: 100%; }
-.planes output { font-variant-numeric: tabular-nums; text-align: right; }
+.planes label { display: grid; grid-template-columns: 9em 1fr 5.5em 2em; gap: 8px; align-items: center; }
+.planes input[type="range"] { width: 100%; }
+.planes input[type="number"] { width: 100%; font: inherit; font-variant-numeric: tabular-nums; text-align: right; }
+@media (max-width: 799px) { .planes label { grid-template-columns: 7em 1fr 5em 2em; } }
 </style>
 <script src="../vendor/niivue-0.69.0/niivue.umd.js"></script>
 <script type="module" src="c.js"></script>

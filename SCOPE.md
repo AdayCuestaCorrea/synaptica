@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 36** · 2026-11-11 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 37** · 2026-11-11 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -278,3 +278,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 34 | 2026-11-11 | S3, paso 7.1: Sofía elige la maqueta C (Niivue) y pide ajustes ([peticiones](spikes/s3/results/peticiones-sofia.md)): recorte 3D sagital y corte 2D coronal sincronizados (se prueban dos variantes), clic que selecciona, gira y mueve el corte en el otro cerebro, paleta tranquila, tres modos de vista (color, atlas en blanco y negro, tinción dibujada y, si hay datos con licencia, real), nombre y sigla al clicar, y coordenadas en mm desde Bregma y Lambda. Nuevos pasos 7.1–7.10 en el [plan](spikes/s3/PLAN.md). D3 suma el requisito del corte 2D sincronizado; decisión de Aday: el 3D sigue siendo la vista principal y el 2D la secundaria, así que §1 no cambia. Fase 2: definición del glosario al tocar la sigla de una región |
 | 35 | 2026-11-11 | S3, paso 7.2: paleta tranquila en B y C ([resultados](spikes/s3/results/maqueta-c.md#paso-72-paleta-tranquila-petición-p5-de-sofía)). Cada región toma el tono suave de su familia (corteza, hipocampo, tálamo…), el mismo en los dos atlas y calculado con la jerarquía de cada uno; el color oficial se conserva y se ve con `?colors=atlas`. La selección y su pareja, en un tono más intenso. El pie de cada atlas indica que la paleta es propia |
 | 36 | 2026-11-11 | S3, paso 7.3, solo en C ([resultados](spikes/s3/results/maqueta-c.md#paso-73-recorte-sagital-y-corte-coronal-sincronizados-peticiones-p1-y-p2)): vista 3D de lado y recorte siempre sagital, sin diagonal. El recorte 3D (sagital) y el corte 2D (coronal) comparten un punto: la x es el recorte y la y el corte. Dos variantes para que elija Sofía: «punto común» (clic o arrastre en el 2D, o clic en la cara cortada del 3D) y «dos deslizadores» (`?sync=deslizadores`, con la posición en mm). Decisión de Aday: la maqueta B ya no se toca |
+| 37 | 2026-11-11 | S3, paso 7.3: Aday elige la variante de los deslizadores, que gana un campo para escribir los mm exactos y un tercer eje, z (vertical: la línea horizontal del corte y la altura de la cruz del 3D). Hacer clic en el corte o en la cara cortada sigue moviendo el punto |

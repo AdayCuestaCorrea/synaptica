@@ -84,3 +84,12 @@ Hecho el 2026-11-11, solo en C.
   - clic en el 2D de la rata en x = 0,707: recorte en `d = −0,207`, y CA3 seleccionado y resaltado en el humano;
   - clic en la cara cortada del 3D humano: el corte coronal salta a y = 0,40 y el recorte se queda en x ≈ 0,51;
   - español e inglés, sin errores en la consola. Falta el móvil (paso 7.9).
+
+### Paso 7.3, segunda parte: deslizadores con mm escritos y eje z
+
+Decisión de Aday (2026-11-11): de las dos variantes se queda la de los **deslizadores**. La variante «punto común» se quita como opción aparte, aunque hacer clic en el corte o en la cara cortada sigue moviendo el punto.
+
+- Tres filas, una por eje: **x** (sagital, mueve el recorte 3D), **y** (coronal, mueve el corte 2D) y **z** (vertical: mueve la línea horizontal del corte y la altura de la cruz del 3D; no hay recorte axial).
+- Cada fila tiene un deslizador y un **campo para escribir los mm** exactos. Se aplica con Intro o al salir del campo. Acepta punto o coma decimal, y un valor fuera del volumen se ajusta al borde (999 → 96,50 mm en el humano). Un texto que no es número deja el valor como estaba.
+- Los mm siguen siendo del atlas, centrados en el cerebro: Bregma y Lambda llegan en el paso 7.5.
+- Comprobado en Brave: y = −3,5 en la rata, y = 20,5 escrito con coma en el humano, x = 999 ajustado al borde y z = «abc» sin cambios.
