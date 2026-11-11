@@ -95,6 +95,7 @@ const SEARCH = {
 const P = {
   es: {
     none: "Ninguna región seleccionada.",
+    nonePoint: "Ninguna región en el punto.",
     side: { L: "hemisferio izquierdo", R: "hemisferio derecho" },
     both: "ambos hemisferios",
     id: "ID",
@@ -110,6 +111,7 @@ const P = {
   },
   en: {
     none: "No region selected.",
+    nonePoint: "No region at the point.",
     side: { L: "left hemisphere", R: "right hemisphere" },
     both: "both hemispheres",
     id: "ID",
@@ -232,9 +234,9 @@ function facts(region) {
 }
 
 // The panel of the viewer that was clicked.
-function panelPicked(box, region, pair) {
+function panelPicked(box, region, pair, empty = P.none) {
   box.replaceChildren();
-  if (!region) return box.append(h("p", { class: "muted" }, P.none));
+  if (!region) return box.append(h("p", { class: "muted" }, empty));
   box.append(title(region), facts(region));
   if (!pair) {
     box.append(h("p", { class: "muted" }, abbr(region), ": ", P.noPairHere));
@@ -645,7 +647,11 @@ class VolumeViewer {
       const unit = document.createElement("span");
       unit.textContent = TXT.mm;
       name.textContent = F.axes[key];
-      range.addEventListener("input", () => this.setPlane(axis, range.value / 1000));
+      range.addEventListener("input", () => {
+        this.setPlane(axis, range.value / 1000);
+        this.pickAtPoint({ partner: false }); // M2: live in this brain only
+      });
+      range.addEventListener("change", () => this.pickAtPoint({ partner: true })); // on release
       // Applied on Enter or when the field loses focus, so typing "-3.2" does not jump at "-".
       number.addEventListener("change", () => {
         const v = parseFloat(number.value);
@@ -656,6 +662,7 @@ class VolumeViewer {
         const at = this.nv.frac2mm(this.nv.scene.crosshairPos)[axis];
         number.value = fixed2(this.shownMm(axis, at));
         this.syncPlanes();
+        this.pickAtPoint({ partner: true }); // M2
       });
       label.append(name, range, number, unit);
       box.append(label);
@@ -981,12 +988,31 @@ class VolumeViewer {
     const raw = loc && loc.values && loc.values[at] ? Math.round(loc.values[at].value) : 0;
     const v = this.regionOf(raw);
     this.showTag(v ? this.rows[v] : null);
-    if (v === this.selectedIndex) return;
-    this.selectedIndex = v || null;
-    const row = v ? this.rows[v] : null;
-    this.focus = new Set(row ? [row.index] : []);
-    this.apply();
-    this.onPick(row ? regionFromRow(this.atlas, row) : null);
+    this.pick(v, { partner: true });
+  }
+
+  // Select region index v (0 = none). partner: also tell the other brain (pair, panel, point).
+  // While a slider is dragged the other brain waits (partner false) and catches up on release,
+  // so the same region is picked again with partner true if it was not passed on yet.
+  pick(v, { partner = true, atPoint = false } = {}) {
+    const same = v === (this.selectedIndex || 0);
+    if (same && (!partner || this.passedOn)) return;
+    if (!same) {
+      this.selectedIndex = v || null;
+      this.focus = new Set(v ? [v] : []);
+      this.apply();
+    }
+    this.passedOn = partner;
+    this.onPick(v ? regionFromRow(this.atlas, this.rows[v]) : null, { partner, atPoint });
+  }
+
+  // Improvement M2 (Aday): the point where the three axes meet picks the region there.
+  pickAtPoint(options) {
+    if (!this.vol) return;
+    const [x, y, z] = this.vol.convertFrac2Vox(this.nv.scene.crosshairPos);
+    const [, nx, ny] = this.vol.hdr.dims;
+    if (this.tag) this.tag.hidden = true;
+    this.pick(this.regionOf(this.vol.img[x + y * nx + z * nx * ny]), { ...options, atPoint: true });
   }
 
   showTag(row) {
@@ -1030,7 +1056,8 @@ class VolumeViewer {
 
   // Improvement M1 (Aday): pick an area from the search box, as a click would, both sides.
   selectArea(item) {
-    this.selectedIndex = null; // a later click on one of its pieces still picks that piece
+    this.selectedIndex = -1; // an area, not one piece: any later click or point picks again
+    this.passedOn = true;
     this.focus = new Set(item.indices);
     if (this.tag) this.tag.hidden = true;
     this.apply();
@@ -1068,7 +1095,7 @@ class VolumeViewer {
 
   // Highlight what the other atlas asked for: same side, by Waxholm ancestor or Julich area.
   highlight(partner) {
-    this.selectedIndex = null;
+    this.selectedIndex = -1; // the partner set, not a picked piece: any click or point picks again
     this.focus = new Set(
       partner
         ? this.rows
@@ -1097,10 +1124,11 @@ for (const [atlas, v] of Object.entries(viewers)) {
   renderLicence(v.section.querySelector(".licence"), data[atlas].licence);
   panelPicked(v.panel, null);
   searchBox(v, v.searchIndex(data[atlas].labels.tree || {}));
-  v.onPick = (region) => {
+  v.onPick = (region, { partner = true, atPoint = false } = {}) => {
     const other = viewers[atlas === "waxholm" ? "julich" : "waxholm"];
     const pair = region ? pairOf(region, data.pairs) : null;
-    panelPicked(v.panel, region, pair);
+    panelPicked(v.panel, region, pair, atPoint ? P.nonePoint : P.none);
+    if (!partner) return; // M2: the other brain follows when the slider is let go
     other.highlight(region ? partnerOf(region, pair) : null);
     panelPartner(other.panel, region, pair);
   };

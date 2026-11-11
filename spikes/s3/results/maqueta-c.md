@@ -229,3 +229,22 @@ Hecho el 2026-11-11, solo en C. Decisiones de Aday: un buscador por cerebro, y c
   - en inglés, «m1»: M1 y su pareja, Area 4a y Area 4p;
   - sin errores en la consola.
 
+## Mejora M2: el punto de los tres ejes marca el área (Aday)
+
+Hecho el 2026-11-11, solo en C. Decisión de Aday: el panel se actualiza en vivo y la pareja del otro cerebro, al soltar.
+
+- **Qué hace:** la intersección de los tres ejes (deslizadores o mm escritos) elige la región que hay en ese vóxel, como un clic, y su descripción sale en el panel de abajo.
+  - Al arrastrar un deslizador, el área cambia en vivo, pero solo en ese cerebro.
+  - Al soltarlo, o al pulsar Intro en los mm, el otro cerebro marca la pareja y lleva su punto a ella.
+  - Fuera del cerebro se quita la selección y el panel dice «Ninguna región en el punto».
+- **Cómo:** el vóxel bajo el punto se lee del volumen de etiquetas y pasa por el mismo `regionOf()` del modo Atlas, que también entiende los vóxeles de borde. El clic, el buscador y el punto acaban todos en el mismo `pick()`.
+  - Si arrastras hasta un área y la sueltas en ella, el otro cerebro se sincroniza aunque el área ya estuviera elegida.
+  - Mover el punto del otro cerebro hacia la pareja no elige nada allí: solo eligen los controles de cada cerebro, así que no hay bucles.
+- **Comprobado en Brave (escritorio):**
+  - en la rata, ML −2,5, AP −3,6 y DV −3: CA1, y el humano marca sus 5 áreas del hipocampo;
+  - al arrastrar AP, el panel pasa por CA1, el cuerpo calloso, RSG, RSD, V1, «ninguna región» y el cerebelo, y el humano no se mueve hasta soltar;
+  - al soltar sobre CA1, el humano la sincroniza;
+  - en el humano, en modo Atlas (x −40, y −20, z 50): Area 3b, y la rata avisa de que no tiene pareja;
+  - el clic en el corte sigue igual (DG y su pareja);
+  - sin errores en la consola.
+
