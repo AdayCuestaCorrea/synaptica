@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 30** · 2026-11-11 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 31** · 2026-11-11 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -272,3 +272,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 28 | 2026-11-11 | S4, paso 2: página de revisión generada desde la cola (`spikes/s4/review_page.py`), en dos variantes que nunca se mezclan: pública (todo menos Neuro Diseases) y privada (solo Neuro Diseases, como archivo). Ordenada por prioridad, con las respuestas guardadas en el navegador y atadas al hash, sin peticiones a otros dominios. Probada en Chrome con decisiones que valida el modelo de Python. El envío llega en el paso 3 |
 | 29 | 2026-11-11 | S4, paso 3: la página de revisión envía sus decisiones abriendo el formulario de Issue `revision.yml` ya relleno (subido a `main` con la etiqueta `revisión`, con permiso de Aday). Medido: sin sesión iniciada, GitHub falla por encima de unos 6950 caracteres de URL (500 y después 414), así que la página usa 6000 y reparte en varios Issues; una ficha corregida entera se pega a mano. Falta un envío real de punta a punta, que hará Aday: la extensión de Chrome se bloqueó con las URL largas ([resultados](spikes/s4/results/README.md)) |
 | 30 | 2026-11-11 | S4, paso 3 cerrado con un envío real (Issue #1, de Aday): el cuerpo que escribe GitHub se decodifica y sus decisiones aplican sobre la cola; guardado como fixture del paso 4 y el Issue, cerrado |
+| 31 | 2026-11-11 | S4, paso 4: recepción de los Issues de revisión (`spikes/s4/intake.py`) y borrador del workflow, sin activar. Solo cuentan los Issues de la cuenta de Sofía; quién y cuándo salen del Issue; cada decisión se aplica, vuelve a su cola con un aviso (correcciones que fallan una comprobación mecánica) o se rechaza con el motivo; el juez solo comenta; procesar dos veces el mismo Issue no añade nada. Decisión de Aday: si Sofía corrige solo el español, el inglés lo rehace la cadena del LLM y pasa las comprobaciones (también la nota del grado) |

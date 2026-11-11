@@ -25,3 +25,22 @@ Medida con `curl` **sin sesión iniciada**, que es el caso que manda: si Sofía 
 ### Envío real de punta a punta
 - [Issue #1](https://github.com/AdayCuestaCorrea/synaptica/issues/1), enviado por Aday desde `revision.html` con 3 decisiones (un Clásico, un grado con nota y unos términos aprobados): título `Revisión de Sofía · 2026-11-11 · 1/1`, etiqueta `revisión` y el cuerpo exactamente como lo espera `issue_block.decode` (`### Decisiones` y el bloque en una valla `text`). Las 3 decisiones pasan `check_against` con la cola de las fixtures.
 - Guardado como `tests/fixtures/review/issue_opened_1.json`, con la forma del evento `issues: opened` que recibirá el workflow. Cerrado a mano como «not planned».
+
+## Paso 4: recepción (2026-11-11)
+
+`intake.py` lee el evento `issues: opened` y devuelve una de cuatro salidas: *ignored* (otro autor, o no es una apertura), *duplicate* (ese Issue ya está en el registro), *refused* (el bloque no se puede leer: no se aplica nada) o *processed*. En *processed*, cada decisión acaba en uno de tres sitios:
+
+| Destino | Cuándo |
+|---|---|
+| `decisions.jsonl` (aplicada) | pasa el modelo y `check_against`, y si es una corrección de texto, también las comprobaciones |
+| `held.jsonl` (vuelve a su cola) | una corrección de texto con algún aviso; ella la corrige o responde «Lo mantengo» |
+| rechazada, con el motivo en la respuesta | no valida, el elemento no existe, el texto cambió (hash), elige Clásicos fuera de los candidatos, un elemento privado llega desde la página pública, o «Lo mantengo» sin aviso que mantener |
+
+- **Quién y cuándo** salen del Issue (`user.login`, `created_at` en UTC, `issue#N`). El autor se compara sin distinguir mayúsculas, y el workflow lo comprueba también antes de ejecutar nada.
+- **Comprobaciones de sus correcciones**, con las funciones de `spikes/s5/checks.py`: cifras y nombres que no están ni en el texto revisado (en los dos idiomas) ni en sus fuentes; 8 palabras seguidas copiadas de una fuente; y frases que no se parecen a ninguna del texto revisado (similitud < 0,5), que por tanto no citan nada. Las dos correcciones realistas probadas (la exageración del dolutegravir reescrita de dos formas) pasan sin avisos: el umbral solo salta con contenido claramente nuevo.
+- **El juez** entra como una función opcional; sus comentarios van a la respuesta con «no bloquea nada». En los tests es una función falsa, sin red.
+- **Respuesta** en español y pública, con los títulos de cada elemento: «Aplicadas: N», qué vuelve a su cola y por qué, qué no se ha aplicado y qué comenta el juez.
+- **Idempotente:** el mismo Issue dos veces no añade nada (probado de punta a punta con el Issue #1).
+- **Workflow** (`review-intake.yml`, borrador sin activar): solo se ejecuta si el autor es `vars.REVIEWER_LOGIN` y el Issue lleva la etiqueta `revisión`; el cuerpo del Issue nunca entra en un `run:` (evita la inyección de comandos; un test lo vigila); permisos mínimos (`contents` e `issues`); comparte `concurrency` con el pipeline para no pisar la rama `data`; comenta y cierra el Issue.
+- **Fuera del paso 4:** de dónde salen los textos de las fuentes en el pipeline (el lead de Wikipedia, el abstract en la caché de la rama `data`) y la llamada real al juez (Groq); son de la Fase 1.
+

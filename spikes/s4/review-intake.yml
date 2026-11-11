@@ -1,0 +1,83 @@
+# DRAFT (spike S4, step 4 of spikes/s4/PLAN.md). Not active: GitHub only runs workflows
+# from .github/workflows/. Moving it there, and creating the REVIEWER_LOGIN repository
+# variable, needs Aday's confirmation (CLAUDE.md: no GitHub settings without it).
+#
+# Reads Sofía's review Issue, appends her decisions to the data branch, replies on the
+# Issue and closes it. Security:
+# - Only Issues by vars.REVIEWER_LOGIN run anything (checked here and again in intake.py).
+#   A variable, not a secret: her login is public anyway.
+# - The Issue body is untrusted text: it is never interpolated into a `run:` script
+#   (`${{ github.event.issue.body }}` would let a body inject shell commands). intake.py
+#   reads it from the event file that Actions writes.
+# - Least privilege: write access to contents (the data branch) and issues, nothing else.
+name: Review intake
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+# The daily pipeline writes the data branch too: one writer at a time.
+concurrency:
+  group: data-branch
+  cancel-in-progress: false
+
+jobs:
+  intake:
+    if: >-
+      vars.REVIEWER_LOGIN != '' &&
+      github.event.issue.user.login == vars.REVIEWER_LOGIN &&
+      contains(github.event.issue.labels.*.name, 'revisión')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - name: Data branch
+        uses: actions/checkout@v7.0.1
+        with:
+          ref: data
+          path: data
+
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          enable-cache: true
+
+      - name: Read the Issue
+        id: intake
+        env:
+          REVIEWER: ${{ vars.REVIEWER_LOGIN }}
+        run: |
+          uv run --group spike-s4 python spikes/s4/intake.py \
+            --event "$GITHUB_EVENT_PATH" \
+            --queue data/review/queue.json \
+            --data-dir data/review \
+            --reviewer "$REVIEWER" \
+            --reply "$RUNNER_TEMP/reply.md" | tee "$RUNNER_TEMP/outcome.json"
+          echo "status=$(jq -r .status "$RUNNER_TEMP/outcome.json")" >> "$GITHUB_OUTPUT"
+
+      - name: Commit to the data branch
+        if: steps.intake.outputs.status == 'processed'
+        working-directory: data
+        env:
+          NUMBER: ${{ github.event.issue.number }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add review/decisions.jsonl review/held.jsonl
+          git diff --cached --quiet || git commit -m "data: review decisions from issue #$NUMBER"
+          git push origin data
+
+      - name: Reply and close
+        if: steps.intake.outputs.status == 'processed' || steps.intake.outputs.status == 'refused'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.issue.number }}
+          STATUS: ${{ steps.intake.outputs.status }}
+        run: |
+          gh issue comment "$NUMBER" --repo "$GITHUB_REPOSITORY" --body-file "$RUNNER_TEMP/reply.md"
+          if [ "$STATUS" = processed ]; then
+            gh issue close "$NUMBER" --repo "$GITHUB_REPOSITORY" --reason completed
+          fi
