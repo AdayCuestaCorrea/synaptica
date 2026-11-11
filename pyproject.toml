@@ -60,6 +60,11 @@ spike-s3 = [
 spike-s5 = [
     "pydantic>=2.14.3",
 ]
+# Spike S4 (decision D5): pydantic validates the review queue and Sofía's decisions.
+# Same package and version as spike-s5; no new dependency.
+spike-s4 = [
+    "pydantic>=2.14.3",
+]
 
 [tool.uv]
 # CachyOS is a rolling distro: use a uv-managed interpreter so a system

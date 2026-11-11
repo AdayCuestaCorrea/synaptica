@@ -2720,6 +2720,9 @@ spike-s3 = [
     { name = "siibra" },
     { name = "trimesh" },
 ]
+spike-s4 = [
+    { name = "pydantic" },
+]
 spike-s5 = [
     { name = "pydantic" },
 ]
@@ -2749,6 +2752,7 @@ spike-s3 = [
     { name = "siibra", specifier = ">=1.0.1a27" },
     { name = "trimesh", specifier = ">=5.2.0" },
 ]
+spike-s4 = [{ name = "pydantic", specifier = ">=2.14.3" }]
 spike-s5 = [{ name = "pydantic", specifier = ">=2.14.3" }]
 
 [[package]]
