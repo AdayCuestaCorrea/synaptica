@@ -66,3 +66,21 @@ Hecho el 2026-11-11. `build_assets.py` da a cada región una **familia** (cortez
 - B y C usan la paleta nueva por defecto; con `?colors=atlas`, los colores oficiales, para comparar. La región elegida y su pareja se pintan con una versión más intensa de su tono, y el resto en gris.
 - El pie de cada atlas dice que los colores son una paleta propia de SYNAPTICA.
 - Comprobado en Brave (escritorio): 3D y corte coronal en los dos atlas, selección del subículo (rata) con el hipocampo humano resaltado, B con las tres regiones de prueba, español e inglés, sin errores en la consola.
+
+## Paso 7.3: recorte sagital y corte coronal sincronizados (peticiones P1 y P2)
+
+Hecho el 2026-11-11, solo en C.
+
+- **Cámara y recorte sin diagonal:** la vista 3D mira el lado izquierdo de frente (azimut 90, elevación 0) y el recorte es siempre un plano **sagital**. Antes, el plano seguía a la cámara a −60°.
+- **Cómo se sincronizan dos planos perpendiculares:** comparten un punto, el punto de cruce de Niivue. Su x es el recorte sagital del 3D y su y el corte coronal del 2D. En el 2D, la línea vertical marca dónde corta el 3D; en el 3D, la cruz marca dónde está el corte coronal.
+- **Geometría (comprobada en el código de Niivue 0.69):** el plano de recorte es `dot(n, p − 0,5) + d = 0`, con `p` en fracciones del volumen. Con azimut 270, `n = +x`, así que el plano queda en `x = 0,5 − d` y se quita la parte del lado de la cámara. El arrastre propio de Niivue en 3D **gira** el plano, y por eso no se usa.
+- **Dos variantes, para que Sofía elija:**
+  - **Punto común** (por defecto): se mueve el punto haciendo clic o arrastrando en el corte 2D, o con un clic en la cara cortada del 3D.
+  - **Dos deslizadores** (`?sync=deslizadores`): además, un deslizador por plano con su posición en mm. Por ahora son mm del atlas centrados en el cerebro; Bregma y Lambda llegan en el paso 7.5.
+- «3D + corte» enciende el recorte, porque los dos planos van juntos; «Recortar» lo sigue quitando y poniendo.
+- **Comprobado en Brave (escritorio), en los dos atlas:**
+  - deslizador sagital a 0,30: recorte en `d = 0,20`, con la línea del 2D en el hemisferio izquierdo (x = −4,1 mm en la rata, −38,6 mm en el humano);
+  - deslizador coronal a 0,38: el 2D pasa al cerebelo de la rata y la cruz del 3D se mueve hacia atrás;
+  - clic en el 2D de la rata en x = 0,707: recorte en `d = −0,207`, y CA3 seleccionado y resaltado en el humano;
+  - clic en la cara cortada del 3D humano: el corte coronal salta a y = 0,40 y el recorte se queda en x ≈ 0,51;
+  - español e inglés, sin errores en la consola. Falta el móvil (paso 7.9).

@@ -1,7 +1,7 @@
 // Spike S3, mock-up C: Niivue with our own label volumes (one NIfTI per atlas). Throwaway code.
 // Niivue is loaded as a classic script (vendor/niivue-0.69.0/niivue.umd.js): global `niivue`.
 import {
-  t, loadData, fillTexts, renderPanel, renderLicence, regionFromRow, pairOf, partnerOf, markReady,
+  t, lang, loadData, fillTexts, renderPanel, renderLicence, regionFromRow, pairOf, partnerOf, markReady,
   colourOf, strong,
 } from "../common/common.js";
 
@@ -10,15 +10,30 @@ const { Niivue, SLICE_TYPE } = window.niivue;
 
 const dark = matchMedia("(prefers-color-scheme: dark)").matches;
 const BACK = dark ? [0.106, 0.106, 0.125, 1] : [0.949, 0.945, 0.933, 1];
-// Same starting direction in both viewers, and as in B: from the front left, slightly above.
-// Measured: azimuth 90 looks at the left side, 120 at the left side from the front.
-const AZIMUTH = 120;
+// Step 7.3 (Sofía, P2): a true side view, no diagonal. Azimuth 90 looks at the left side.
+const AZIMUTH = 90;
 // Niivue 0.69 lifts every value above the scale minimum to at least 2/256 of the colour table
 // (its issue 1139): with ~450 labels, background and the first labels all land on entry 3-4,
 // opaque. So, in this viewer only, labels move up by OFFSET when the volume is loaded: entries
 // 0..OFFSET-1 are left empty and transparent. Data files keep the plain indices.
 const OFFSET = 8;
-const ELEVATION = 20;
+const ELEVATION = 0;
+// The cut is always sagittal (P2). Niivue's clip plane is dot(n, p - 0.5) + depth = 0 in volume
+// fractions, with n from (azimuth + 180, elevation): for azimuth 270 and elevation 0, n = +x, so
+// the plane sits at x = 0.5 - depth and the part on the camera's side (left) is cut away.
+// Niivue's own drag in 3D rotates the plane, so it is not used.
+const CLIP_AZIMUTH = 270;
+const clipAt = (fx) => [0.5 - fx, CLIP_AZIMUTH, 0];
+
+// Step 7.3 (P1): the 3D cut (sagittal) and the 2D slice (coronal) are perpendicular, so they share
+// a point, Niivue's crosshair: its x is the sagittal cut, its y the coronal slice. Two variants to
+// compare (Aday, 2026-11-11), with ?sync=deslizadores: "punto" moves the point by clicking or
+// dragging on the slice or clicking the 3D view; "deslizadores" adds one slider per plane.
+const SYNC = new URLSearchParams(location.search).get("sync") === "deslizadores" ? "sliders" : "point";
+const TXT = {
+  es: { sag: "Sagital (3D)", cor: "Coronal (2D)" },
+  en: { sag: "Sagittal (3D)", cor: "Coronal (2D)" },
+}[lang];
 
 const state = { view: "3d", clip: false, isolate: false };
 
@@ -40,7 +55,7 @@ class VolumeViewer {
     this.onPick = () => {};
     this.nv = new Niivue({
       backColor: BACK,
-      show3Dcrosshair: false,
+      show3Dcrosshair: false, // on in "3D + slice": the 3D view shows where the 2D slice is
       isColorbar: false,
       dragAndDropEnabled: false,
       loadingText: "",
@@ -63,7 +78,11 @@ class VolumeViewer {
     for (let i = 0; i < img.length; i++) if (img[i]) img[i] += OFFSET;
     this.vol.calMinMax();
     this.nv.setRenderAzimuthElevation(AZIMUTH, ELEVATION);
-    this.nv.onLocationChange = (loc) => this.picked(loc);
+    this.nv.onLocationChange = (loc) => {
+      this.syncPlanes();
+      this.picked(loc);
+    };
+    this.buildSliders();
     this.singleClickPicks();
     this.status.remove();
     this.apply();
@@ -118,9 +137,57 @@ class VolumeViewer {
     this.layout();
   }
 
+  // One slider per plane (variant "deslizadores"). Values are volume fractions; the label shows
+  // millimetres (RAS centred on the brain; Bregma/Lambda come in step 7.5).
+  buildSliders() {
+    const box = document.createElement("div");
+    box.className = "planes";
+    this.sliders = {};
+    for (const [axis, key] of [[0, "sag"], [1, "cor"]]) {
+      const label = document.createElement("label");
+      const name = document.createElement("span");
+      const input = Object.assign(document.createElement("input"), {
+        type: "range", min: 0, max: 1000, step: 1,
+      });
+      const value = document.createElement("output");
+      name.textContent = TXT[key];
+      input.addEventListener("input", () => this.setPlane(axis, input.value / 1000));
+      label.append(name, input, value);
+      box.append(label);
+      this.sliders[axis] = { input, value };
+    }
+    this.section.querySelector(".stage").after(box);
+    this.planesBox = box;
+    this.syncPlanes();
+  }
+
+  // Move one plane: the crosshair coordinate on that axis. The coronal slice follows by itself.
+  setPlane(axis, frac) {
+    const pos = [...this.nv.scene.crosshairPos];
+    pos[axis] = Math.min(1, Math.max(0, frac));
+    this.nv.scene.crosshairPos = pos;
+    this.syncPlanes();
+    this.nv.drawScene();
+  }
+
+  // The sagittal cut follows the crosshair x, and the sliders show where both planes are.
+  syncPlanes() {
+    const pos = this.nv.scene.crosshairPos;
+    if (state.clip) this.nv.setClipPlane(clipAt(pos[0]));
+    if (!this.sliders) return;
+    const mm = this.nv.frac2mm(pos);
+    for (const axis of [0, 1]) {
+      const { input, value } = this.sliders[axis];
+      input.value = Math.round(pos[axis] * 1000);
+      value.textContent = `${axis ? "y" : "x"} = ${mm[axis].toFixed(1)} mm`;
+    }
+  }
+
   layout() {
     const nv = this.nv;
-    nv.setClipPlane(state.clip ? [0, AZIMUTH - 180, 0] : [2, 0, 0]);
+    nv.setClipPlane(state.clip ? clipAt(nv.scene.crosshairPos[0]) : [2, 0, 0]);
+    nv.opts.show3Dcrosshair = state.view !== "3d";
+    if (this.planesBox) this.planesBox.hidden = !(state.view !== "3d" && SYNC === "sliders");
     if (state.view === "3d") {
       nv.clearCustomLayout();
       nv.setSliceType(SLICE_TYPE.RENDER);
@@ -203,6 +270,8 @@ const b3d = toggle("view3d", () => {
 });
 const bSlice = toggle("viewSlice", () => {
   state.view = "slice";
+  state.clip = true; // the 3D cut and the 2D slice go together (P1)
+  document.getElementById("clip").setAttribute("aria-pressed", "true");
   b3d.setAttribute("aria-pressed", "false");
   bSlice.setAttribute("aria-pressed", "true");
 });
