@@ -1,0 +1,323 @@
+{
+  "mock": "c",
+  "base": "http://127.0.0.1:8766",
+  "date": "2026-11-11T15:04:20.319Z",
+  "browser": "Chrome/157.0.8103.39",
+  "conditions": {
+    "viewport": "390x844 DPR 3, touch",
+    "network": {
+      "name": "Slow 4G",
+      "offline": false,
+      "latency": 562.5,
+      "downloadThroughput": 180000,
+      "uploadThroughput": 84375
+    },
+    "cpu": 4
+  },
+  "runs": [
+    {
+      "run": 1,
+      "interactiveMs": 25364,
+      "wallMs": 26300,
+      "requests": 13,
+      "bytes": 3605717,
+      "hosts": [
+        "127.0.0.1:8766"
+      ],
+      "inPage": [
+        "data:image/png;base64,iVBORw0KGgoAAAANSU",
+        "data:image/jpeg;base64,/9j/4QrFRXhpZgAAT"
+      ],
+      "failed": [
+        [
+          "http://127.0.0.1:8766/favicon.ico",
+          404,
+          null
+        ]
+      ],
+      "files": [
+        [
+          "/c/",
+          1821
+        ],
+        [
+          "/common/common.css",
+          2959
+        ],
+        [
+          "/vendor/niivue-0.69.0/niivue.umd.js",
+          2284577
+        ],
+        [
+          "/c/c.js",
+          9122
+        ],
+        [
+          "/common/common.js",
+          7812
+        ],
+        [
+          "/data/waxholm/labels.json",
+          112936
+        ],
+        [
+          "/data/waxholm/licence.json",
+          993
+        ],
+        [
+          "/data/julich/labels.json",
+          104204
+        ],
+        [
+          "/data/julich/licence.json",
+          1160
+        ],
+        [
+          "/data/equivalencias.json",
+          3407
+        ],
+        [
+          "/favicon.ico",
+          645
+        ],
+        [
+          "/data/waxholm/labels.nii.gz",
+          536666
+        ],
+        [
+          "/data/julich/labels.nii.gz",
+          539415
+        ]
+      ],
+      "webglRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "touch": {
+        "picked": {
+          "at": [
+            0.5,
+            0.5
+          ],
+          "panel": "Primary somatosensory area, face representation (S1-f)",
+          "partnerInOtherAtlas": []
+        },
+        "before": {
+          "azimuth": 120,
+          "zoom": 1
+        },
+        "afterDrag": {
+          "azimuth": 262.4,
+          "zoom": 1
+        },
+        "afterPinch": {
+          "azimuth": 262.4,
+          "zoom": 2
+        }
+      },
+      "fps": {
+        "cpu4": {
+          "waxholm": 3,
+          "julich": 3
+        },
+        "cpu1": {
+          "waxholm": 4,
+          "julich": 4
+        }
+      }
+    },
+    {
+      "run": 2,
+      "interactiveMs": 25274,
+      "wallMs": 26273,
+      "requests": 12,
+      "bytes": 3605072,
+      "hosts": [
+        "127.0.0.1:8766"
+      ],
+      "inPage": [
+        "data:image/png;base64,iVBORw0KGgoAAAANSU",
+        "data:image/jpeg;base64,/9j/4QrFRXhpZgAAT"
+      ],
+      "failed": [],
+      "files": [
+        [
+          "/c/",
+          1821
+        ],
+        [
+          "/common/common.css",
+          2959
+        ],
+        [
+          "/vendor/niivue-0.69.0/niivue.umd.js",
+          2284577
+        ],
+        [
+          "/c/c.js",
+          9122
+        ],
+        [
+          "/common/common.js",
+          7812
+        ],
+        [
+          "/data/waxholm/labels.json",
+          112936
+        ],
+        [
+          "/data/waxholm/licence.json",
+          993
+        ],
+        [
+          "/data/julich/labels.json",
+          104204
+        ],
+        [
+          "/data/julich/licence.json",
+          1160
+        ],
+        [
+          "/data/equivalencias.json",
+          3407
+        ],
+        [
+          "/data/waxholm/labels.nii.gz",
+          536666
+        ],
+        [
+          "/data/julich/labels.nii.gz",
+          539415
+        ]
+      ],
+      "webglRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "touch": {
+        "picked": {
+          "at": [
+            0.5,
+            0.5
+          ],
+          "panel": "Primary somatosensory area, face representation (S1-f)",
+          "partnerInOtherAtlas": []
+        },
+        "before": {
+          "azimuth": 120,
+          "zoom": 1
+        },
+        "afterDrag": {
+          "azimuth": 262.4,
+          "zoom": 1
+        },
+        "afterPinch": {
+          "azimuth": 262.4,
+          "zoom": 2
+        }
+      },
+      "fps": {
+        "cpu4": {
+          "waxholm": 3,
+          "julich": 3
+        },
+        "cpu1": {
+          "waxholm": 3,
+          "julich": 3
+        }
+      }
+    },
+    {
+      "run": 3,
+      "interactiveMs": 25336,
+      "wallMs": 26237,
+      "requests": 12,
+      "bytes": 3605072,
+      "hosts": [
+        "127.0.0.1:8766"
+      ],
+      "inPage": [
+        "data:image/png;base64,iVBORw0KGgoAAAANSU",
+        "data:image/jpeg;base64,/9j/4QrFRXhpZgAAT"
+      ],
+      "failed": [],
+      "files": [
+        [
+          "/c/",
+          1821
+        ],
+        [
+          "/common/common.css",
+          2959
+        ],
+        [
+          "/vendor/niivue-0.69.0/niivue.umd.js",
+          2284577
+        ],
+        [
+          "/c/c.js",
+          9122
+        ],
+        [
+          "/common/common.js",
+          7812
+        ],
+        [
+          "/data/waxholm/labels.json",
+          112936
+        ],
+        [
+          "/data/waxholm/licence.json",
+          993
+        ],
+        [
+          "/data/julich/labels.json",
+          104204
+        ],
+        [
+          "/data/julich/licence.json",
+          1160
+        ],
+        [
+          "/data/equivalencias.json",
+          3407
+        ],
+        [
+          "/data/waxholm/labels.nii.gz",
+          536666
+        ],
+        [
+          "/data/julich/labels.nii.gz",
+          539415
+        ]
+      ],
+      "webglRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "touch": {
+        "picked": {
+          "at": [
+            0.5,
+            0.5
+          ],
+          "panel": "Primary somatosensory area, face representation (S1-f)",
+          "partnerInOtherAtlas": []
+        },
+        "before": {
+          "azimuth": 120,
+          "zoom": 1
+        },
+        "afterDrag": {
+          "azimuth": 262.4,
+          "zoom": 1
+        },
+        "afterPinch": {
+          "azimuth": 262.4,
+          "zoom": 2
+        }
+      },
+      "fps": {
+        "cpu4": {
+          "waxholm": 3,
+          "julich": 3
+        },
+        "cpu1": {
+          "waxholm": 3,
+          "julich": 3
+        }
+      }
+    }
+  ]
+}

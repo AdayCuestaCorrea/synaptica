@@ -48,6 +48,8 @@ class VolumeViewer {
       isOrientCube: false,
       clipPlaneColor: [0, 0, 0, 0], // cut without drawing the plane
       logLevel: "error",
+      // ?dpr=1 renders at one pixel per CSS pixel (measured in results/maqueta-c.md); 0 = device.
+      forceDevicePixelRatio: Number(new URLSearchParams(location.search).get("dpr") || 0),
     });
   }
 
