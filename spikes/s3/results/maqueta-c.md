@@ -116,3 +116,29 @@ Hecho el 2026-11-11, solo en C. El panel nuevo vive en `c/c.js`, no en `common/`
   - Am-u derecha en «Solo 3D» → el humano gira a 270°;
   - español e inglés, sin errores en la consola.
   - Las selecciones de pareja se lanzaron desde la consola, para elegir exactamente la región; el clic con el ratón se probó aparte.
+
+## Paso 7.5: coordenadas en mm desde Bregma y MNI (petición P7)
+
+Hecho el 2026-11-11, solo en C.
+
+- **Fuente de Bregma y Lambda:** E. A. Papp y J. G. Bjaalie, *Waxholm Space atlas of the Sprague Dawley rat brain. Coordinates v1 vs v1.01*, Neural Systems Laboratory, 16 de julio de 2014, en NITRC ([PDF](https://www.nitrc.org/docman/view.php/1081/2095/Coordinates_v1-v1.01.pdf)). Para la versión v1.01 a 39 µm da, en vóxeles (desde 0) y en mm WHS (origen en la decusación de la comisura anterior):
+
+  | Punto | Vóxel (x, y, z) | mm WHS (x, y, z) |
+  |---|---|---|
+  | Origen WHS | 244, 623, 248 | 0, 0, 0 |
+  | Bregma | 246, 653, 440 | 0,078; 1,172; 7,500 |
+  | Lambda | 244, 442, 464 | 0; −7,070; 8,438 |
+
+  Se guardan solo esas cifras (fixture `tests/fixtures/s3/whs_coordinates_v1_01.json`), no el documento.
+- **¿Vale para v4.01?** La tabla es de v1.01, pero las versiones siguientes cambian las delineaciones, no la rejilla: el volumen de BrainGlobe sigue siendo de 512 × 1024 × 512 y su vóxel (244, 623, 248) cae en la comisura anterior (rama anterior, con la posterior al lado), que es donde la tabla pone el origen.
+- **Conversión** (`spikes/s3/coords.py`): de los mm del visor (centrados en el volumen) a mm desde Bregma, pasando por el vóxel de 39 µm. BrainGlobe dice que el vóxel mide 39,0 µm y la tabla, 39,0625 µm; la conversión usa el de la tabla (un 0,16 % de diferencia, unos 0,02 mm cada 10 mm). El humano: mm MNI152 2009c, que son los mm del visor más el centro del volumen. `build_assets.py` escribe un `coords.json` por atlas (1,2 KB y 0,4 KB); el resto de los datos sale idéntico.
+- **En la maqueta:**
+  - los deslizadores de la rata pasan a ser ML (x), AP (y) y DV (z) en mm desde Bregma; los del humano, mm MNI. Escribir −3,6 en AP lleva el corte coronal a Bregma −3,60 mm;
+  - sobre el corte 2D, marcas en mm (x abajo, z a la izquierda, con el 0 más largo) y, arriba, la posición del corte: «Bregma −3,60 mm · Lambda +4,64 mm» en la rata y «y = −20,0 mm (MNI)» en el humano;
+  - bajo los deslizadores, qué son esos mm, dónde está Lambda respecto a Bregma (AP −8,24 mm y DV +0,94 mm) y la fuente con su enlace.
+- **Avisos:**
+  - son las coordenadas del animal del atlas; en otra rata son aproximadas, y así se dice en la página;
+  - el cráneo del atlas no está en posición *flat skull*: Lambda queda 0,94 mm más alto que Bregma, mientras que en Paxinos y Watson están a la misma altura. Por eso AP y DV no coinciden del todo con los de sus láminas;
+  - el DV se mide desde la altura de Bregma (sobre el cráneo), no desde la superficie del cerebro.
+- **Comprobado en Brave (escritorio):** con el punto en Bregma, los tres campos dan 0,00; con AP −3,60 y DV −5,00, la cruz del 2D cae en las marcas −5 de z y +0,39 de x, el hipocampo dorsal está en el corte, la superficie del cerebro queda a unos −1 mm y la base a unos −10 mm; en el humano, y = −20 mm MNI. En «Solo 3D» las marcas desaparecen. Español e inglés, sin errores en la consola.
+- **Test** (`uv run pytest spikes/s3/tests`, sin red): la tabla publicada cumple la fórmula, Bregma da 0, Lambda da su distancia publicada a Bregma, el origen WHS da −Bregma y el paso de un vóxel mide 0,0390625 mm.

@@ -1,0 +1,56 @@
+{
+  "frame": "bregma",
+  "axes": {
+    "x": "ML",
+    "y": "AP",
+    "z": "DV"
+  },
+  "scale": 1.00160256,
+  "offset": [
+    0.449219,
+    -5.429688,
+    -7.128906
+  ],
+  "landmarks": {
+    "bregma": {
+      "whs_mm": [
+        0.078125,
+        1.171875,
+        7.5
+      ],
+      "viewer_mm": [
+        -0.4485,
+        5.421,
+        7.1175
+      ],
+      "shown_mm": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "lambda": {
+      "whs_mm": [
+        0.0,
+        -7.0703125,
+        8.4375
+      ],
+      "viewer_mm": [
+        -0.5265,
+        -2.808,
+        8.0535
+      ],
+      "shown_mm": [
+        -0.0781,
+        -8.2422,
+        0.9375
+      ]
+    }
+  },
+  "source": {
+    "citation": "Papp EA, Bjaalie JG. Waxholm Space atlas of the Sprague Dawley rat brain. Coordinates v1 vs v1.01. Neural Systems Laboratory, University of Oslo, 16 July 2014",
+    "url": "https://www.nitrc.org/docman/view.php/1081/2095/Coordinates_v1-v1.01.pdf",
+    "table": "WHS SDr v1.01, high resolution (39 µm): voxels and WHS mm"
+  },
+  "note": "Atlas coordinates of one animal (Waxholm): approximate for any other rat. The skull is not flat-skull: Lambda is 0.94 mm above Bregma."
+}

@@ -35,6 +35,54 @@ const TXT = {
   en: { x: "Sagittal · x (3D)", y: "Coronal · y (2D)", z: "Vertical · z", mm: "mm" },
 }[lang];
 
+// Step 7.5 (P7): what the millimetres mean. The viewer works in each volume's own frame (RAS, mm,
+// centred on the brain); coords.json maps it to what is shown: mm from Bregma for the rat (from
+// a published table, see spikes/s3/coords.py) and MNI mm for the human.
+const FRAME = {
+  es: {
+    bregma: {
+      axes: { x: "ML · x (3D)", y: "AP · y (2D)", z: "DV · z" },
+      title: "Milímetros desde Bregma",
+      lambda: (ap, dv) => `Lambda está a ${ap} mm (AP) y ${dv} mm (DV) de Bregma.`,
+      approx: "Son las coordenadas del animal del atlas: en otra rata, aproximadas.",
+      source: "Bregma y Lambda: tabla de",
+      cite: "Papp y Bjaalie (2014)",
+      slice: (b, l) => `Bregma ${b} mm · Lambda ${l} mm`,
+    },
+    mni: {
+      axes: { x: "Sagital · x (3D)", y: "Coronal · y (2D)", z: "Vertical · z" },
+      title: "Milímetros del espacio MNI152 (2009c)",
+      source: "Espacio:",
+      cite: "ICBM 152 2009c no lineal asimétrico",
+      slice: (y) => `y = ${y} mm (MNI)`,
+    },
+  },
+  en: {
+    bregma: {
+      axes: { x: "ML · x (3D)", y: "AP · y (2D)", z: "DV · z" },
+      title: "Millimetres from Bregma",
+      lambda: (ap, dv) => `Lambda is ${ap} mm (AP) and ${dv} mm (DV) from Bregma.`,
+      approx: "These are the coordinates of the atlas animal: approximate for any other rat.",
+      source: "Bregma and Lambda: table by",
+      cite: "Papp and Bjaalie (2014)",
+      slice: (b, l) => `Bregma ${b} mm · Lambda ${l} mm`,
+    },
+    mni: {
+      axes: { x: "Sagittal · x (3D)", y: "Coronal · y (2D)", z: "Vertical · z" },
+      title: "Millimetres in MNI152 space (2009c)",
+      source: "Space:",
+      cite: "ICBM 152 2009c nonlinear asymmetric",
+      slice: (y) => `y = ${y} mm (MNI)`,
+    },
+  },
+}[lang];
+// Number fields: plain dot decimals, and no "-0.00".
+const fixed2 = (x) => (Math.abs(x) < 0.005 ? 0 : x).toFixed(2);
+const fmt = (x, d = 2) =>
+  new Intl.NumberFormat(lang === "es" ? "es-ES" : "en-GB", {
+    minimumFractionDigits: d, maximumFractionDigits: d, signDisplay: "exceptZero",
+  }).format(Math.abs(x) < 0.5 * 10 ** -d ? 0 : x);
+
 // Step 7.4 (P3, P6): panels of C. Written here, not in common.js, so mock-up B stays as it is.
 const P = {
   es: {
@@ -188,12 +236,14 @@ class VolumeViewer {
     const img = this.vol.img;
     for (let i = 0; i < img.length; i++) if (img[i]) img[i] += OFFSET;
     this.vol.calMinMax();
+    this.coords = await (await fetch(`../data/${this.atlas}/coords.json`)).json();
     this.nv.setRenderAzimuthElevation(AZIMUTH, ELEVATION);
     this.nv.onLocationChange = (loc) => {
       this.syncPlanes();
       this.picked(loc);
     };
     this.buildSliders();
+    this.buildAxes();
     // Name of the region next to the point that was clicked (P6).
     this.tag = h("div", { class: "tag" });
     this.tag.hidden = true;
@@ -262,14 +312,24 @@ class VolumeViewer {
     this.layout();
   }
 
+  // Viewer frame (centred RAS mm) ↔ shown frame (mm from Bregma, or MNI mm), axis by axis.
+  shownMm(axis, v) {
+    return this.coords.scale * v + this.coords.offset[axis];
+  }
+
+  viewerMm(axis, v) {
+    return (v - this.coords.offset[axis]) / this.coords.scale;
+  }
+
   // One row per axis: a slider (volume fraction) and a number field in millimetres that can be
-  // typed (RAS of the atlas, centred on the brain; Bregma/Lambda come in step 7.5).
+  // typed, in the shown frame (step 7.5).
   buildSliders() {
+    const F = FRAME[this.coords.frame];
     const box = document.createElement("div");
     box.className = "planes";
     this.sliders = {};
-    const lo = this.nv.frac2mm([0, 0, 0]);
-    const hi = this.nv.frac2mm([1, 1, 1]);
+    const lo = this.nv.frac2mm([0, 0, 0]).map((v, a) => this.shownMm(a, v));
+    const hi = this.nv.frac2mm([1, 1, 1]).map((v, a) => this.shownMm(a, v));
     for (const [axis, key] of [[0, "x"], [1, "y"], [2, "z"]]) {
       const label = document.createElement("label");
       const name = document.createElement("span");
@@ -280,23 +340,27 @@ class VolumeViewer {
       const number = Object.assign(document.createElement("input"), {
         type: "number", step: 0.01, min: min.toFixed(2), max: max.toFixed(2), inputMode: "decimal",
       });
-      number.setAttribute("aria-label", `${TXT[key]} (${TXT.mm})`);
+      number.setAttribute("aria-label", `${F.axes[key]} (${TXT.mm})`);
       const unit = document.createElement("span");
       unit.textContent = TXT.mm;
-      name.textContent = TXT[key];
+      name.textContent = F.axes[key];
       range.addEventListener("input", () => this.setPlane(axis, range.value / 1000));
       // Applied on Enter or when the field loses focus, so typing "-3.2" does not jump at "-".
       number.addEventListener("change", () => {
         const v = parseFloat(number.value);
-        if (Number.isFinite(v)) this.setPlaneMm(axis, Math.min(max, Math.max(min, v)));
+        if (Number.isFinite(v)) {
+          this.setPlaneMm(axis, this.viewerMm(axis, Math.min(max, Math.max(min, v))));
+        }
         // Show what was applied (clamped to the volume, 2 decimals), even while still focused.
-        number.value = this.nv.frac2mm(this.nv.scene.crosshairPos)[axis].toFixed(2);
+        const at = this.nv.frac2mm(this.nv.scene.crosshairPos)[axis];
+        number.value = fixed2(this.shownMm(axis, at));
         this.syncPlanes();
       });
       label.append(name, range, number, unit);
       box.append(label);
       this.sliders[axis] = { range, number };
     }
+    box.append(this.frameNote(F));
     this.section.querySelector(".stage").after(box);
     this.planesBox = box;
     this.syncPlanes();
@@ -327,8 +391,111 @@ class VolumeViewer {
     for (const axis of [0, 1, 2]) {
       const { range, number } = this.sliders[axis];
       range.value = Math.round(pos[axis] * 1000);
-      if (document.activeElement !== number) number.value = mm[axis].toFixed(2);
+      if (document.activeElement !== number) number.value = fixed2(this.shownMm(axis, mm[axis]));
     }
+  }
+
+  // Under the sliders: what the millimetres are and where Bregma and Lambda come from.
+  frameNote(F) {
+    const c = this.coords;
+    const parts = [h("strong", {}, F.title), ". "];
+    const lam = c.landmarks.lambda;
+    if (lam) parts.push(F.lambda(fmt(lam.shown_mm[1]), fmt(lam.shown_mm[2])), " ", F.approx, " ");
+    parts.push(
+      F.source, " ",
+      h("a", { href: c.source.url, rel: "noopener" }, F.cite),
+      ".",
+    );
+    return h("p", { class: "frame small" }, ...parts);
+  }
+
+  // Step 7.5 (P7): millimetre ticks on the coronal slice, x along the bottom and z along the
+  // left edge, plus the slice's position (AP from Bregma and Lambda, or MNI y) in a corner. A 2D
+  // canvas over Niivue's; it follows Niivue's own tile geometry (screenSlices), redrawn only when
+  // that or the point changes.
+  buildAxes() {
+    this.axes = h("canvas", { class: "axes" });
+    this.section.querySelector(".stage").append(this.axes);
+    let last = "";
+    const loop = () => {
+      const tile = state.view === "3d" ? null : this.nv.screenSlices.find(
+        (s) => s.axCorSag === SLICE_TYPE.CORONAL && s.AxyzMxy.length >= 4,
+      );
+      const key = tile
+        ? JSON.stringify([tile.leftTopWidthHeight, tile.leftTopMM, tile.fovMM, this.nv.scene.crosshairPos,
+          this.canvas.width, this.canvas.height])
+        : "";
+      if (key !== last) {
+        last = key;
+        this.drawAxes(tile);
+      }
+      requestAnimationFrame(loop);
+    };
+    requestAnimationFrame(loop);
+  }
+
+  drawAxes(tile) {
+    const cv = this.axes;
+    const dpr = this.nv.uiData.dpr || 1;
+    cv.width = this.canvas.width;
+    cv.height = this.canvas.height;
+    const g = cv.getContext("2d");
+    g.clearRect(0, 0, cv.width, cv.height);
+    if (!tile) return;
+    const [left, top, w, hgt] = tile.leftTopWidthHeight;
+    // Niivue: horizontal mm = leftTopMM[0] + h * fovMM[0], h = (X - left) / w (also when w < 0,
+    // radiological); vertical mm = leftTopMM[1] + D * fovMM[1], D = 1 - (Y - top) / height.
+    const toX = (mm) => left + ((mm - tile.leftTopMM[0]) / tile.fovMM[0]) * w;
+    const toY = (mm) => top + (1 - (mm - tile.leftTopMM[1]) / tile.fovMM[1]) * hgt;
+    const c = this.coords;
+    const fg = getComputedStyle(this.section).color;
+    g.fillStyle = fg;
+    g.strokeStyle = fg;
+    g.lineWidth = dpr;
+    g.font = `${11 * dpr}px system-ui, sans-serif`;
+    // A round step that leaves at least ~40 CSS px between ticks.
+    const pxPerMm = Math.abs(w / tile.fovMM[0]) * c.scale ** -1;
+    const step = [0.5, 1, 2, 5, 10, 20, 50].find((s) => s * pxPerMm >= 40 * dpr) || 100;
+    const range = (axis, a, b) => {
+      const [s0, s1] = [this.shownMm(axis, a), this.shownMm(axis, b)].sort((p, q) => p - q);
+      const out = [];
+      for (let v = Math.ceil(s0 / step) * step; v <= s1 + 1e-9; v += step) out.push(v);
+      return out;
+    };
+    const dec = step < 1 ? 1 : 0;
+    // x along the bottom edge.
+    const bottom = top + hgt;
+    g.textAlign = "center";
+    g.textBaseline = "bottom";
+    for (const v of range(0, tile.leftTopMM[0], tile.leftTopMM[0] + tile.fovMM[0])) {
+      const X = toX(this.viewerMm(0, v));
+      g.beginPath();
+      g.moveTo(X, bottom);
+      g.lineTo(X, bottom - (v === 0 ? 10 : 6) * dpr);
+      g.stroke();
+      g.fillText(fmt(v, dec), X, bottom - 12 * dpr);
+    }
+    // z along the left edge.
+    const x0 = Math.min(left, left + w);
+    g.textAlign = "left";
+    g.textBaseline = "middle";
+    for (const v of range(2, tile.leftTopMM[1], tile.leftTopMM[1] + tile.fovMM[1])) {
+      const Y = toY(this.viewerMm(2, v));
+      g.beginPath();
+      g.moveTo(x0, Y);
+      g.lineTo(x0 + (v === 0 ? 10 : 6) * dpr, Y);
+      g.stroke();
+      g.fillText(fmt(v, dec), x0 + 12 * dpr, Y);
+    }
+    // Where the slice is, top left of the tile.
+    const y = this.shownMm(1, this.nv.frac2mm(this.nv.scene.crosshairPos)[1]);
+    const F = FRAME[c.frame];
+    const text = c.frame === "bregma"
+      ? F.slice(fmt(y), fmt(y - c.landmarks.lambda.shown_mm[1]))
+      : F.slice(fmt(y, 1));
+    g.textBaseline = "top";
+    g.font = `600 ${12 * dpr}px system-ui, sans-serif`;
+    g.fillText(text, x0 + 8 * dpr, top + 8 * dpr);
   }
 
   layout() {

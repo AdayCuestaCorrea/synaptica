@@ -8,8 +8,8 @@ Reads data/cache/s3/ (step 1) and downloads only what is missing there: the Waxh
 and hemisphere volumes and four BrainGlobe meshes (BrainGlobe fetches them lazily, from its
 public S3 bucket). Writes spikes/s3/site/data/:
 
-    waxholm/  waxholm.glb, labels.nii.gz, labels.json, licence.json
-    julich/   julich.glb,  labels.nii.gz, labels.json, licence.json
+    waxholm/  waxholm.glb, labels.nii.gz, labels.json, licence.json, coords.json
+    julich/   julich.glb,  labels.nii.gz, labels.json, licence.json, coords.json
     equivalencias.json  test pairs between the two atlases, grade "pendiente de Sofía"
     manifest.json       sizes and the Waxholm resolution measurements
 
@@ -39,6 +39,7 @@ from pathlib import Path
 import numpy as np
 import requests
 import requests.utils
+from coords import human_mni_map, rat_bregma_map
 
 USER_AGENT = "synaptica-spike/0.1"
 requests.utils.default_user_agent = lambda *_: USER_AGENT
@@ -375,6 +376,10 @@ def save_nifti(path: Path, data: np.ndarray, voxel_mm: float, origin: np.ndarray
     return path.stat().st_size
 
 
+def write_json(path: Path, data: dict) -> None:
+    path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
+
+
 def add_centroids(rows: list[dict], vol: np.ndarray, voxel_mm: float, origin: np.ndarray) -> None:
     """Voxel count and centroid (mm, the NIfTI's own RAS grid) of every row, in place.
 
@@ -462,6 +467,8 @@ def waxholm() -> dict:
             size = save_nifti(out / "labels.nii.gz" if chosen else tmp, ds, vmm, origin)
             if chosen:
                 add_centroids(rows, ds, vmm, origin)
+                # Step 7.5 (P7): mm from Bregma, from the published WHS table (coords.py).
+                write_json(out / "coords.json", rat_bregma_map(f, vmm, tuple(origin.tolist())))
             smallest = sorted(rows[1:], key=lambda r: full[r["index"]])[:5]
             measured[f"{round(WAXHOLM_UM * f)}um" + ("_keep_small" if keep else "")] = {
                 "factor": f,
@@ -634,6 +641,7 @@ def julich() -> dict:
     centre = affine[:3, 3] + (np.array(compact.shape) - 1) / 2
     size = save_nifti(out / "labels.nii.gz", compact, 1.0, affine[:3, 3] - centre)
     add_centroids(rows, compact, 1.0, affine[:3, 3] - centre)
+    write_json(out / "coords.json", human_mni_map(tuple(centre.tolist())))  # step 7.5: MNI mm
 
     def surface(mask: np.ndarray, sigma: float, target: int):
         sm = ndimage.gaussian_filter(np.pad(mask, 2).astype(np.float32), sigma)

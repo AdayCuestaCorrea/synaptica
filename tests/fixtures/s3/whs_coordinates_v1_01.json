@@ -1,0 +1,9 @@
+{
+  "source": "Papp EA, Bjaalie JG. Waxholm Space atlas of the Sprague Dawley rat brain. Coordinates v1 vs v1.01. Neural Systems Laboratory, 16 July 2014. https://www.nitrc.org/docman/view.php/1081/2095/Coordinates_v1-v1.01.pdf",
+  "note": "Transcribed from the table, columns WHS SDr v1.01, high resolution (39 µm): WHS voxels (0-based) and WHS mm. Only numbers, no text of the document.",
+  "rows": {
+    "origin": {"voxel": [244, 623, 248], "mm": [0.0, 0.0, 0.0]},
+    "bregma": {"voxel": [246, 653, 440], "mm": [0.0781250, 1.1718750, 7.5000000]},
+    "lambda": {"voxel": [244, 442, 464], "mm": [0.0000000, -7.0703125, 8.4375000]}
+  }
+}

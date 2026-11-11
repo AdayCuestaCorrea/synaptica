@@ -1,0 +1,20 @@
+{
+  "frame": "mni",
+  "axes": {
+    "x": "x",
+    "y": "y",
+    "z": "z"
+  },
+  "scale": 1.0,
+  "offset": [
+    0.0,
+    -18.0,
+    18.0
+  ],
+  "landmarks": {},
+  "source": {
+    "citation": "MNI ICBM 152 2009c nonlinear asymmetric (space of the Julich-Brain MPM)",
+    "url": "https://www.bic.mni.mcgill.ca/ServicesAtlases/ICBM152NLin2009"
+  },
+  "note": null
+}
