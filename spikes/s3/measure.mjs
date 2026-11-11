@@ -1,9 +1,9 @@
-// Spike S3, step 6: measures mock-ups B and C in a headless Chromium (Brave here), driven
+// Spike S3, step 6: measures mock-up C (B was measured too, then removed) in a headless Chromium (Brave here), driven
 // through the DevTools protocol. Throwaway code; no dependencies (Node >= 22 has WebSocket).
 //
 //   python -m http.server 8766 --bind 127.0.0.1 --directory spikes/s3/site &
-//   node spikes/s3/measure.mjs b   # or c; writes spikes/s3/results/measure-b.json
-//   BASE=http://127.0.0.1:8767 TAG=gzip node spikes/s3/measure.mjs b   # with serve-gzip.mjs
+//   node spikes/s3/measure.mjs   # writes spikes/s3/results/measure-c.json
+//   BASE=http://127.0.0.1:8767 TAG=gzip node spikes/s3/measure.mjs   # with serve-gzip.mjs
 //
 // What it does, per run, in a fresh profile with the cache disabled:
 // - a phone: 390 x 844 CSS px, DPR 3, touch; Chrome's "Slow 4G" preset and CPU x4;
@@ -19,7 +19,7 @@ import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const mock = process.argv[2] === "c" ? "c" : "b";
+const mock = "c";
 const BASE = process.env.BASE || "http://127.0.0.1:8766";
 const BROWSER = process.env.BROWSER || "brave";
 const PORT = 9333;
@@ -143,13 +143,10 @@ async function pinch(cdp, x, y, d) {
 
 // State read from the page: what changes when the user rotates, zooms or picks.
 const VIEW_STATE = {
-  b: `(() => { const v = window.__viewers.waxholm; const c = v.camera.position, t = v.controls.target;
-        return { pos: [c.x, c.y, c.z].map(n => +n.toFixed(2)), dist: +c.distanceTo(t).toFixed(2) }; })()`,
   c: `(() => { const s = window.__viewers.waxholm.nv.scene;
         return { azimuth: +s.renderAzimuth.toFixed(1), zoom: +s.volScaleMultiplier.toFixed(3) }; })()`,
 };
 const PARTNER_STATE = {
-  b: `(() => { const v = window.__viewers.julich; return v.partner ? v.regions.filter(m => v.isPartner(m)).map(m => m.name) : []; })()`,
   c: `(() => { const v = window.__viewers.julich; return [...v.focus].map(i => v.rows[i].name + " " + v.rows[i].side); })()`,
 };
 

@@ -4,6 +4,8 @@ Plan aprobado por Aday el 2026-11-11 y cambiado ese mismo día tras el paso 2: l
 
 Cambiado otra vez el 2026-11-11 tras el paso 6: **Sofía elige C** y pide ajustes ([`results/peticiones-sofia.md`](results/peticiones-sofia.md)), que entran como pasos 7.1–7.9 antes de publicar.
 
+El 2026-11-11, durante el paso 7.5, Aday decide **borrar la maqueta B**: no se va a usar y confunde. Se quitan `site/b/`, three.js, las mallas glTF de `build_assets.py` y sus dependencias. Sus cifras se quedan en `results/maqueta-b.md` y `results/measure-b*.json` para el ADR. Lo que este plan dice de B es histórico. En el paso 7.10 solo se publica C.
+
 ## Objetivo
 Dos maquetas del visor con los dos atlas **lado a lado**, Waxholm (rata) y Julich-Brain (humano), publicadas en GitHub Pages y **sin depender de EBRAINS al usarlas**: los datos salen de nuestra web.
 - **B:** three.js con mallas propias. Todo lo programamos nosotros: vista 3D de superficies.

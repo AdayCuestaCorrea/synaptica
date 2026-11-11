@@ -40,18 +40,11 @@ spike-s3 = [
     # Julich-Brain human atlas: parcellation, maximum probability maps, EBRAINS metadata.
     # siibra publishes its releases with "a" versions; 1.0.1a27 is the current one on PyPI.
     "siibra>=1.0.1a27",
-    # Meshes: marching cubes output to simplified glTF, and measuring mesh sizes.
-    "trimesh>=5.2.0",
-    # The next ones were already installed through brainglobe/siibra, except
-    # fast-simplification; listed so build_assets.py does not rely on someone else's deps.
-    # Draco compression of each mesh inside the glTF (KHR_draco_mesh_compression).
-    "dracopy>=2.2.0",
-    # Quadric decimation behind trimesh.simplify_quadric_decimation (fewer triangles).
-    "fast-simplification>=0.1.9",
+    # The next ones were already installed through brainglobe/siibra; listed so
+    # build_assets.py does not rely on someone else's deps. (trimesh, dracopy,
+    # fast-simplification and scikit-image went with mock-up B's meshes.)
     # Read and write NIfTI label volumes.
     "nibabel>=5.5.0",
-    # Marching cubes on the Julich-Brain maximum probability map.
-    "scikit-image>=0.26.0",
     # Connected components and smoothing of label volumes.
     "scipy>=1.18.1",
 ]

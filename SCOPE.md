@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 39** · 2026-11-11 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 40** · 2026-11-11 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -281,3 +281,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 37 | 2026-11-11 | S3, paso 7.3: Aday elige la variante de los deslizadores, que gana un campo para escribir los mm exactos y un tercer eje, z (vertical: la línea horizontal del corte y la altura de la cruz del 3D). Hacer clic en el corte o en la cara cortada sigue moviendo el punto |
 | 38 | 2026-11-11 | S3, paso 7.4, solo en C ([resultados](spikes/s3/results/maqueta-c.md#paso-74-clic-sincronizado-nombre-y-sigla-peticiones-p3-y-p6)): al elegir una región, el otro cerebro selecciona su pareja, lleva el corte y el recorte a su centroide (nuevo en `labels.json`, calculado por atlas) y, sin recorte, gira hacia su lado; aviso cuando no hay pareja. Sigla y nombre completo en el panel y junto al punto tocado, con la sigla marcada para el glosario de la Fase 2. Los nombres siguen en inglés: en español se avisa de que la traducción es de la Fase 2 |
 | 39 | 2026-11-11 | S3, paso 7.5, solo en C ([resultados](spikes/s3/results/maqueta-c.md#paso-75-coordenadas-en-mm-desde-bregma-y-mni-petición-p7)): Bregma y Lambda salen de una tabla publicada (Papp y Bjaalie 2014, «Coordinates v1 vs v1.01», NITRC), que sigue valiendo en v4.01 porque la rejilla no ha cambiado (su origen cae en la comisura anterior de nuestro volumen). La rata se mide en mm desde Bregma (ML, AP, DV) y el humano en mm MNI, en los deslizadores y en unas marcas sobre el corte 2D, con la posición del corte respecto a Bregma y a Lambda. Nuevo `coords.json` por atlas y `spikes/s3/coords.py` con su test sin red |
+| 40 | 2026-11-11 | S3: decisión de Aday, se borra la maqueta B (three.js), que no se va a usar. Fuera `spikes/s3/site/b/`, three.js, las mallas glTF y sus dependencias (`trimesh`, `dracopy`, `fast-simplification`, `scikit-image`). Sus mediciones se conservan en `spikes/s3/results/` para el ADR 0003. Los datos de C no cambian |

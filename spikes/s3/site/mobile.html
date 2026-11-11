@@ -10,11 +10,10 @@
 </style>
 </head>
 <body>
-<!-- Spike S3: a mock-up inside a 390 × 844 frame (a phone's width), e.g. mobile.html?m=b -->
+<!-- Spike S3: mock-up C inside a 390 × 844 frame (a phone's width). -->
 <iframe id="f" title="maqueta"></iframe>
 <script>
-  const m = new URLSearchParams(location.search).get("m") === "c" ? "c" : "b";
-  document.getElementById("f").src = `${m}/`;
+  document.getElementById("f").src = `c/${location.search}`;
 </script>
 </body>
 </html>

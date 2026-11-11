@@ -1,4 +1,4 @@
-// Spike S3: what mock-ups B (three.js) and C (Niivue) share. Throwaway code.
+// Spike S3: shared helpers of mock-up C (Niivue); mock-up B was removed. Throwaway code.
 //
 // - Texts in Spanish and English (?lang=en), as every SYNAPTICA page.
 // - Data loading: per atlas, labels.json and licence.json from ../data/<atlas>/ (same origin),
@@ -36,14 +36,11 @@ const TEXT = {
     isolate: "Aislar selección",
     cortexShown: "Contorno: transparente",
     cortexHidden: "Contorno: oculto",
-    libsB: "three.js (MIT) y el decodificador Draco (Apache-2.0), servidos desde esta web:",
     libsC: "Niivue (BSD-2-Clause), servido desde esta web:",
     licences: "licencias",
     view3d: "Solo 3D",
     view3dSlice: "3D + corte",
     clip: "Recortar",
-    titleB: "SYNAPTICA · Visor B",
-    subB: "three.js 0.187.0 · mallas propias",
     titleC: "SYNAPTICA · Visor C",
     subC: "Niivue 0.69.0 · volúmenes propios",
   },
@@ -76,14 +73,11 @@ const TEXT = {
     isolate: "Isolate selection",
     cortexShown: "Outline: transparent",
     cortexHidden: "Outline: hidden",
-    libsB: "three.js (MIT) and the Draco decoder (Apache-2.0), served from this site:",
     libsC: "Niivue (BSD-2-Clause), served from this site:",
     licences: "licences",
     view3d: "3D only",
     view3dSlice: "3D + slice",
     clip: "Cut away",
-    titleB: "SYNAPTICA · Viewer B",
-    subB: "three.js 0.187.0 · our own meshes",
     titleC: "SYNAPTICA · Viewer C",
     subC: "Niivue 0.69.0 · our own volumes",
   },
@@ -180,32 +174,6 @@ function el(tag, attrs = {}, ...children) {
   }
   for (const c of children) e.append(c);
   return e;
-}
-
-export function renderPanel(box, region, pairs) {
-  box.replaceChildren();
-  if (!region) {
-    box.append(el("p", { class: "muted" }, t.none));
-    return;
-  }
-  const title = region.acronym ? `${region.name} (${region.acronym})` : region.name;
-  box.append(el("h3", {}, title));
-  const facts = el("p", { class: "facts" });
-  facts.append(`${t.side[region.side] || ""} · ${t.id}: `, el("code", {}, String(region.id)));
-  if (region.label != null) facts.append(` · ${t.mpmLabel}: ${region.label}`);
-  box.append(facts);
-  const pair = pairOf(region, pairs);
-  if (!pair) {
-    box.append(el("p", { class: "muted" }, t.noPair));
-    return;
-  }
-  const other =
-    region.atlas === "waxholm"
-      ? pair.julich.map((j) => j.name).join(", ")
-      : `${pair.waxholm.name} (${pair.waxholm.acronym})`;
-  const p = el("p", { class: "pair" }, `${t.equivalent}: ${other} · ${t.side[region.side]}. `);
-  p.append(el("span", { class: "grade" }, `${t.grade}: ${pair.grade}`));
-  box.append(p);
 }
 
 export function renderLicence(box, lic) {

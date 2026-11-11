@@ -1,15 +1,6 @@
 {
   "waxholm": {
     "regions_with_side": 447,
-    "glb_nodes": [
-      "Brain",
-      "M1 L",
-      "M1 R",
-      "HF L",
-      "HF R",
-      "Am-u L",
-      "Am-u R"
-    ],
     "resolutions": {
       "78um": {
         "factor": 2,
@@ -266,57 +257,24 @@
       }
     },
     "chosen": "117um_keep_small",
-    "bytes_total": 862739,
+    "bytes_total": 695102,
     "within_budget": true
   },
   "julich": {
     "regions_with_side": 414,
-    "glb_nodes": [
-      "outline",
-      "Area 4a (PreCG) L",
-      "Area 4a (PreCG) R",
-      "Area 4p (PreCG) L",
-      "Area 4p (PreCG) R",
-      "CA1 (Hippocampus) L",
-      "CA1 (Hippocampus) R",
-      "CA2 (Hippocampus) L",
-      "CA2 (Hippocampus) R",
-      "CA3 (Hippocampus) L",
-      "CA3 (Hippocampus) R",
-      "DG (Hippocampus) L",
-      "DG (Hippocampus) R",
-      "Subc (Hippocampus, Subicular complex) L",
-      "Subc (Hippocampus, Subicular complex) R",
-      "CM (Amygdala) L",
-      "CM (Amygdala) R",
-      "LB (Amygdala) L",
-      "LB (Amygdala) R",
-      "SF (Amygdala) L",
-      "SF (Amygdala) R",
-      "Astr (Amygdala) L",
-      "Astr (Amygdala) R",
-      "VTM (Amygdala) L",
-      "VTM (Amygdala) R",
-      "IF (Amygdala) L",
-      "IF (Amygdala) R",
-      "MF (Amygdala) L",
-      "MF (Amygdala) R"
-    ],
     "bytes_nifti_gz": 539219,
-    "bytes_total": 866736,
+    "bytes_total": 685627,
     "within_budget": true
   },
   "files_bytes": {
     "equivalencias.json": 3213,
     "julich/coords.json": 363,
-    "julich/julich.glb": 181096,
-    "julich/labels.json": 145091,
+    "julich/labels.json": 145078,
     "julich/labels.nii.gz": 539219,
     "julich/licence.json": 967,
     "waxholm/coords.json": 1191,
-    "waxholm/labels.json": 156654,
+    "waxholm/labels.json": 156641,
     "waxholm/labels.nii.gz": 536470,
-    "waxholm/licence.json": 800,
-    "waxholm/waxholm.glb": 167624
+    "waxholm/licence.json": 800
   }
 }

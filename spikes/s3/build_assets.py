@@ -1,15 +1,16 @@
-"""Spike S3, step 3: the data served by mock-ups B (three.js) and C (Niivue).
+"""Spike S3, step 3: the data served by mock-up C (Niivue). Mock-up B (three.js meshes) was
+removed on 2026-11-11 after Sofía chose C; its numbers stay in results/maqueta-b.md.
 
 Throwaway code, not part of the package. Run from the repo root:
 
     SIIBRA_CACHEDIR=data/cache/s3/siibra uv run --group spike-s3 python spikes/s3/build_assets.py
 
 Reads data/cache/s3/ (step 1) and downloads only what is missing there: the Waxholm annotation
-and hemisphere volumes and four BrainGlobe meshes (BrainGlobe fetches them lazily, from its
-public S3 bucket). Writes spikes/s3/site/data/:
+and hemisphere volumes (BrainGlobe fetches them lazily, from its public S3 bucket).
+Writes spikes/s3/site/data/:
 
-    waxholm/  waxholm.glb, labels.nii.gz, labels.json, licence.json, coords.json
-    julich/   julich.glb,  labels.nii.gz, labels.json, licence.json, coords.json
+    waxholm/  labels.nii.gz, labels.json, licence.json, coords.json
+    julich/   labels.nii.gz, labels.json, licence.json, coords.json
     equivalencias.json  test pairs between the two atlases, grade "pendiente de Sofía"
     manifest.json       sizes and the Waxholm resolution measurements
 
@@ -18,8 +19,7 @@ CC BY-NC-SA 4.0). equivalencias.json holds only IDs and names, no geometry.
 
 Conventions shared by both atlases, so the two viewers look at the brains the same way:
 - Coordinates in millimetres, RAS (x to the right, y to the front, z up), centred on the brain.
-  In the glTF they go as glTF wants them (y up): (x, z, -y).
-- Every voxel value and every glTF node points to one row of labels.json: the atlas ID
+- Every voxel value points to one row of labels.json: the atlas ID
   plus its side ("L" or "R"). Both atlases give the left and right area the same ID; the side
   comes from BrainGlobe's hemispheres volume (Waxholm, 1 = left, 2 = right) and from the
   fragment of siibra's map (Julich-Brain: one NIfTI per hemisphere, lh and rh).
@@ -33,7 +33,6 @@ from __future__ import annotations
 
 import csv
 import json
-import struct
 from pathlib import Path
 
 import numpy as np
@@ -61,7 +60,6 @@ BUDGET_BYTES = 3_000_000  # per atlas, compressed (PLAN.md, step 6)
 
 # Test regions (PLAN.md). Waxholm: BrainGlobe ids; Julich-Brain: area names in siibra.
 WAXHOLM_TEST = {"surface": [408], "internal": [1021], "third": [501]}  # M1, HF, Am-u
-WAXHOLM_OUTLINE = 1000  # "Brain"
 JULICH_TEST = {
     "surface": ["Area 4a (PreCG)", "Area 4p (PreCG)"],
     "internal": [
@@ -89,11 +87,6 @@ PAIRS = [
     ("third", 501, JULICH_TEST["third"]),
 ]
 PENDING = "pendiente de Sofía"
-
-# Mesh detail: faces after quadric decimation (BrainGlobe outline has 872k faces).
-FACES_REGION = 12_000
-FACES_OUTLINE = 40_000
-DRACO_BITS = 12  # position quantisation: 4096 steps across each mesh's box
 
 LICENCES = {
     "waxholm": {
@@ -214,114 +207,6 @@ def calm_colours(members: list[tuple[str, list[str], object]]) -> dict[object, t
         r, g, b = colorsys.hls_to_rgb((h % 360) / 360, li, s)
         out[key] = (family, "#{:02X}{:02X}{:02X}".format(*(round(c * 255) for c in (r, g, b))))
     return out
-
-
-# ---------------------------------------------------------------- glTF with Draco
-
-
-def write_glb(path: Path, nodes: list[dict]) -> None:
-    """Write a binary glTF, one node per mesh, each compressed with KHR_draco_mesh_compression.
-
-    nodes: [{"name", "extras", "vertices" (nx3 float, glTF frame), "faces" (mx3 int)}].
-    The node's extras end up in three.js as object.userData (GLTFLoader).
-    """
-    import DracoPy
-
-    gltf: dict = {
-        "asset": {"version": "2.0", "generator": "synaptica spikes/s3/build_assets.py"},
-        "extensionsUsed": ["KHR_draco_mesh_compression"],
-        "extensionsRequired": ["KHR_draco_mesh_compression"],
-        "scene": 0,
-        "scenes": [{"nodes": list(range(len(nodes)))}],
-        "nodes": [],
-        "meshes": [],
-        "accessors": [],
-        "bufferViews": [],
-        "buffers": [],
-    }
-    blob = bytearray()
-    for i, n in enumerate(nodes):
-        enc = DracoPy.encode(
-            np.ascontiguousarray(n["vertices"], dtype=np.float32),
-            np.ascontiguousarray(n["faces"], dtype=np.uint32),
-            quantization_bits=DRACO_BITS,
-            compression_level=10,
-        )
-        dec = DracoPy.decode(enc)  # counts and bounds as the browser will see them
-        pts = np.asarray(dec.points, dtype=np.float32)
-        gltf["bufferViews"].append({"buffer": 0, "byteOffset": len(blob), "byteLength": len(enc)})
-        blob += enc
-        blob += b"\0" * (-len(blob) % 4)
-        pos, idx = len(gltf["accessors"]), len(gltf["accessors"]) + 1
-        gltf["accessors"] += [
-            {
-                "componentType": 5126,
-                "count": len(pts),
-                "type": "VEC3",
-                "min": pts.min(0).tolist(),
-                "max": pts.max(0).tolist(),
-            },
-            {"componentType": 5125, "count": int(np.asarray(dec.faces).size), "type": "SCALAR"},
-        ]
-        gltf["meshes"].append(
-            {
-                "name": n["name"],
-                "primitives": [
-                    {
-                        "attributes": {"POSITION": pos},
-                        "indices": idx,
-                        "mode": 4,
-                        "extensions": {
-                            "KHR_draco_mesh_compression": {
-                                "bufferView": i,
-                                "attributes": {"POSITION": 0},
-                            }
-                        },
-                    }
-                ],
-            }
-        )
-        gltf["nodes"].append({"name": n["name"], "mesh": i, "extras": n["extras"]})
-    gltf["buffers"].append({"byteLength": len(blob)})
-
-    js = json.dumps(gltf, separators=(",", ":"), ensure_ascii=False).encode()
-    js += b" " * (-len(js) % 4)
-    total = 12 + 8 + len(js) + 8 + len(blob)
-    with path.open("wb") as f:
-        f.write(struct.pack("<III", 0x46546C67, 2, total))
-        f.write(struct.pack("<II", len(js), 0x4E4F534A) + js)
-        f.write(struct.pack("<II", len(blob), 0x004E4942) + bytes(blob))
-
-
-def simplify(vertices: np.ndarray, faces: np.ndarray, target: int, orient: bool = True):
-    import trimesh
-
-    m = trimesh.Trimesh(vertices, faces, process=True)
-    if orient:
-        orient_outwards(m)
-    if len(m.faces) > target:
-        m = m.simplify_quadric_decimation(face_count=target)  # keeps the winding
-    return np.asarray(m.vertices), np.asarray(m.faces)
-
-
-def orient_outwards(m) -> None:
-    """Faces must wind outwards: renderers cull back faces and raycasts skip them.
-
-    Needs a closed mesh (the sign of the volume says which way it winds), so it runs before
-    decimating or cutting. The axis changes to RAS include a reflection for Waxholm, which turns
-    every face inside out.
-    """
-    import trimesh
-
-    trimesh.repair.fix_normals(m, multibody=True)
-
-
-def ras_to_gltf(v: np.ndarray) -> np.ndarray:
-    """RAS millimetres → glTF frame (y up, right-handed): (x, z, -y)."""
-    return np.column_stack([v[:, 0], v[:, 2], -v[:, 1]])
-
-
-# ---------------------------------------------------------------- label volumes
 
 
 def majority_downsample(vol: np.ndarray, f: int, keep_small: bool = False) -> np.ndarray:
@@ -491,68 +376,6 @@ def waxholm() -> dict:
             }
     tmp.unlink(missing_ok=True)
 
-    # B: BrainGlobe meshes, in µm (AP, SI, RL) → RAS mm, centred like the volume.
-    centre_um = np.array(ann.shape) * WAXHOLM_UM / 2
-
-    def to_ras(p_um: np.ndarray) -> np.ndarray:
-        d = (p_um - centre_um) / 1000  # (AP, SI, RL) mm from the centre
-        return np.column_stack([-d[:, 2], -d[:, 0], -d[:, 1]])
-
-    def side_of(p_um: np.ndarray) -> np.ndarray:
-        ijk = np.clip((p_um / WAXHOLM_UM).astype(int), 0, np.array(ann.shape) - 1)
-        return hem[ijk[:, 0], ijk[:, 1], ijk[:, 2]]
-
-    nodes = []
-    import trimesh
-
-    for kind, test_ids in [("outline", [WAXHOLM_OUTLINE]), *WAXHOLM_TEST.items()]:
-        for i in test_ids:
-            mesh = atlas.mesh_from_structure(i)
-            v_um, faces = np.asarray(mesh.points, float), mesh.cells[0].data
-            t = tree[i]
-            if kind == "outline":
-                v, fc = simplify(to_ras(v_um), faces, FACES_OUTLINE)
-                nodes.append(
-                    {
-                        "name": f"{t['acronym']}",
-                        "vertices": ras_to_gltf(v),
-                        "faces": fc,
-                        "extras": {"kind": "outline", "id": i, "side": None, "index": None},
-                    }
-                )
-                continue
-            # Cut by side face by face: each face goes to the hemisphere its centre falls in
-            # (hemispheres volume). Splitting into connected pieces does not work: HF is one
-            # piece across the midline (commissures).
-            face_side = side_of(v_um[faces].mean(axis=1))
-            whole = trimesh.Trimesh(to_ras(v_um), faces, process=False)
-            orient_outwards(whole)  # while still closed
-            for side, hv in (("L", 1), ("R", 2)):
-                mask = face_side == hv
-                if not mask.any():
-                    continue
-                m = whole.submesh([np.nonzero(mask)[0]], append=True)
-                v, fc = simplify(
-                    np.asarray(m.vertices), np.asarray(m.faces), FACES_REGION, orient=False
-                )
-                nodes.append(
-                    {
-                        "name": f"{t['acronym']} {side}",
-                        "vertices": ras_to_gltf(v),
-                        "faces": fc,
-                        "extras": {
-                            "kind": kind,
-                            "id": i,
-                            "side": side,
-                            "acronym": t["acronym"],
-                            "name": t["name"],
-                            "color": terms[i]["color_hex_triplet"],
-                            "faces_share": round(float(mask.mean()), 3),
-                        },
-                    }
-                )
-    write_glb(out / "waxholm.glb", nodes)
-
     names = {
         i: [tree[a]["name"] for a in tree[i]["path"] if a in tree and a != i] + [tree[i]["name"]]
         for i in tree
@@ -563,7 +386,7 @@ def waxholm() -> dict:
 
     labels = {
         "atlas": "waxholm",
-        "value": "voxel value and glTF node point to rows[index]; id is the Waxholm/BrainGlobe id",
+        "value": "voxel value points to rows[index]; id is the Waxholm/BrainGlobe id",
         "rows": rows,
         "tree": {str(k): v for k, v in tree.items()},
     }
@@ -573,7 +396,6 @@ def waxholm() -> dict:
     )
     return {
         "regions_with_side": len(rows) - 1,
-        "glb_nodes": [n["name"] for n in nodes],
         "resolutions": measured,
         "chosen": f"{round(WAXHOLM_UM * WAXHOLM_FACTOR)}um"
         + ("_keep_small" if WAXHOLM_KEEP_SMALL else ""),
@@ -585,8 +407,6 @@ def waxholm() -> dict:
 
 def julich() -> dict:
     import siibra
-    from scipy import ndimage
-    from skimage import measure
 
     p = siibra.parcellations["julich 3.1"]
     labelled = p.get_map(space=siibra.spaces["mni152"], maptype="labelled")
@@ -643,48 +463,6 @@ def julich() -> dict:
     add_centroids(rows, compact, 1.0, affine[:3, 3] - centre)
     write_json(out / "coords.json", human_mni_map(tuple(centre.tolist())))  # step 7.5: MNI mm
 
-    def surface(mask: np.ndarray, sigma: float, target: int):
-        sm = ndimage.gaussian_filter(np.pad(mask, 2).astype(np.float32), sigma)
-        v, fc, *_ = measure.marching_cubes(sm, 0.5)
-        v = v - 2 + affine[:3, 3] - centre  # voxel → RAS mm, centred
-        return simplify(v, fc, target)
-
-    nodes = []
-    brain = (halves["L"] > 0) | (halves["R"] > 0)
-    brain = ndimage.binary_closing(brain, iterations=2)
-    v, fc = surface(brain, 1.2, FACES_OUTLINE)
-    nodes.append(
-        {
-            "name": "outline",
-            "vertices": ras_to_gltf(v),
-            "faces": fc,
-            "extras": {"kind": "outline", "id": None, "side": None, "index": None},
-        }
-    )
-    for kind, names in JULICH_TEST.items():
-        for area in names:
-            for side in ("L", "R"):
-                (r,) = [x for x in rows[1:] if x["name"] == area and x["side"] == side]
-                v, fc = surface(compact == r["index"], 0.7, FACES_REGION)
-                nodes.append(
-                    {
-                        "name": f"{area} {side}",
-                        "vertices": ras_to_gltf(v),
-                        "faces": fc,
-                        "extras": {
-                            "kind": kind,
-                            "id": r["id"],
-                            "area_id": r["area_id"],
-                            "side": side,
-                            "label": r["label"],
-                            "index": r["index"],
-                            "name": area,
-                            "color": r["color"],
-                        },
-                    }
-                )
-    write_glb(out / "julich.glb", nodes)
-
     authors = list(dict.fromkeys(p.authors))
     lic = dict(LICENCES["julich"])
     lic["citation"] = (
@@ -705,7 +483,7 @@ def julich() -> dict:
 
     labels = {
         "atlas": "julich",
-        "value": "voxel value and glTF node point to rows[index]; id is the siibra region id of "
+        "value": "voxel value points to rows[index]; id is the siibra region id of "
         "the area on that side, label the MPM value (the same on both sides)",
         "rows": rows,
     }
@@ -713,7 +491,6 @@ def julich() -> dict:
     (out / "licence.json").write_text(json.dumps(lic, indent=2, ensure_ascii=False) + "\n")
     return {
         "regions_with_side": len(rows) - 1,
-        "glb_nodes": [n["name"] for n in nodes],
         "bytes_nifti_gz": size,
     }
 
