@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 46** · 2026-11-11 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 47** · 2026-11-11 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -158,6 +158,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 ### Fase 2 — Prioridades de Sofía
 
 - [ ] **Neuro Atlas:** humano (Julich-Brain) y rata (Waxholm) en 3D según D3, cada atlas por separado y con su licencia
+  - [ ] **Estudio de UX y UI de Neuro Atlas**, antes de construirlo, a partir de las [notas de la maqueta de S3](spikes/s3/results/notas-ux.md) y de la revisión de Sofía
   - [ ] **Introducción:** diferencias generales entre el cerebro humano y el de rata (girencéfalo frente a lisencéfalo, proporciones, etc.), con la cadena de textos y revisada por Sofía
   - [ ] Orden de las regiones: primero las estructuras de la superficie y después las internas (hipocampo, amígdala…), según propone Sofía
   - [ ] Cada región con nombre y código oficial; al tocarla, descripción, enfermedades relacionadas (Wikidata) y últimos estudios
@@ -289,3 +290,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 44 | 2026-11-11 | S3, paso 7.8 ([resultados](spikes/s3/results/tincion.md)): para el humano hay tinción real con licencia y alineada, BigBrain en el ICBM152 2009 a 1 mm (Xiao et al. 2019, CC BY 4.0 las versiones reducidas), en la misma rejilla que el mapa de Julich-Brain. Entra como variante «Real» del modo Tinción, en su propia carpeta y con su licencia, y se carga solo al elegirla (+1,61 MB). Para la rata solo hay cortes de Nissl registrados uno a uno (atlas Timm-Nissl, CC BY 4.0), sin volumen 3D: va al backlog y la rata sigue con la dibujada. Nuevas fuentes en `docs/fuentes.md`. Decisión de Aday: antes del 7.9 entran sus mejoras de UX y UI, que revisará Sofía |
 | 45 | 2026-11-11 | S3, mejora M1 de Aday, solo en C ([resultados](spikes/s3/results/maqueta-c.md#mejora-m1-buscador-de-áreas-aday)): un buscador de áreas por cerebro, por sigla o nombre (en inglés), sin distinguir mayúsculas ni tildes. En la rata también busca los nodos padre de la jerarquía (p. ej. HF). Elegir un área equivale a un clic, con los dos hemisferios: se resalta, el punto va a ella (al lado izquierdo) y el otro cerebro marca su pareja |
 | 46 | 2026-11-11 | S3, mejora M2 de Aday, solo en C ([resultados](spikes/s3/results/maqueta-c.md#mejora-m2-el-punto-de-los-tres-ejes-marca-el-área-aday)): la intersección de los tres ejes (deslizadores o mm escritos) elige la región de ese vóxel y su descripción sale en el panel. Al arrastrar se actualiza en vivo solo ese cerebro; al soltar o pulsar Intro, el otro marca la pareja. Fuera del cerebro: «Ninguna región en el punto» |
+| 47 | 2026-11-11 | Decisión de Aday: el estudio de UX y UI se hace en la Fase 2, antes de construir Neuro Atlas (nueva tarea en §7), no sobre la maqueta. S3 deja solo unas [notas de UX](spikes/s3/results/notas-ux.md) de la maqueta C, con un apartado para lo que diga Sofía |

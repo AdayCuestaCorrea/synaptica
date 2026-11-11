@@ -85,6 +85,7 @@ Sofía propone que el contenido de la Fase 2 empiece por las estructuras de la s
    - **Después del 7.8** (Aday, 2026-11-11): antes del 7.9 entran las mejoras de UX y UI que tiene pensadas Aday, que revisará Sofía. Después siguen el 7.9 (móvil), el 7.10 (Pages) y el ADR.
      - **M1, buscador de áreas:** uno por cerebro; cada resultado resalta los dos hemisferios. *Hecho* (`results/maqueta-c.md`, mejora M1).
      - **M2, el punto marca el área:** el área bajo el punto de los tres ejes sale en el panel en vivo, y su pareja en el otro cerebro al soltar. *Hecho* (`results/maqueta-c.md`, mejora M2).
+     - **Estudio de UX y UI:** en la Fase 2 (decisión de Aday). Aquí solo [notas](results/notas-ux.md).
    9. **Móvil.** Resolución del 3D limitada en móviles, nuevas mediciones y prueba en un móvil real.
    10. **Publicación.**
        - En GitHub Pages, en `/synaptica/spikes/s3/`. **Se confirma con Aday antes de tocar Pages.**
