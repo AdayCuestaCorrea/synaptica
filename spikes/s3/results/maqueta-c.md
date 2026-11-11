@@ -183,3 +183,29 @@ Hecho el 2026-11-11, solo en C.
   - en español y en inglés, sin errores en la consola.
 - **Ya pasaba antes, no es nuevo:** con «Aislar», el corte 2D sigue mostrando las demás regiones en gris (también en el modo Color).
 
+## Paso 7.7: tinción dibujada (petición P4)
+
+Hecho el 2026-11-11, solo en C.
+
+- **Modo «Tinción»** del selector (se abre directamente con `?mode=stain`). Es una ilustración con aspecto de tinción de Nissl (violeta de cresilo), generada a partir de las etiquetas. No sale de ninguna histología.
+- **Aviso en el propio lienzo**, «Ilustración, no es una tinción real» (en inglés, «Illustration, not a real stain»). Va arriba a la izquierda de la vista 3D y del corte 2D, en los dos cerebros y en las dos vistas, con fondo propio para que se lea sobre cualquier color.
+- **Cuánto tiñe cada región:** lo decide el dibujo, no una medida (`STAIN` en `c/c.js`). Hay que leerlo como una propuesta para que la revise Sofía.
+  - Según la familia de la paleta tranquila: hipocampo 0,75; olfativo 0,65; corteza, amígdala e hipotálamo 0,6; tálamo 0,55; ganglios basales y mesencéfalo 0,5; rombencéfalo 0,48; sustancia blanca 0,1; ventrículos 0.
+  - Algunos nombres lo cambian: capas moleculares y capa 1, pálidas (0,22); giro dentado, capas granulares, capa 2 y cerebelo sin especificar, oscuros (0,9); capa glomerular, 0,35.
+  - Más una variación fija de ±0,08 por región, para que se distingan las vecinas de una misma familia.
+- **En 2D** se pinta el corte coronal en un lienzo encima del de Niivue:
+  - la densidad se mezcla entre los centros de los vóxeles, así que los bordes son suaves;
+  - el grano es de tres «células» por vóxel, atado a la rejilla, así que no parpadea al redibujar;
+  - se pinta a 1,5 píxeles por píxel CSS como máximo y luego se escala, para no penalizar los móviles;
+  - como tapa el corte de Niivue, la cruz se vuelve a dibujar encima y la selección y su pareja se marcan con un contorno naranja;
+  - en escritorio, pintarlo tarda unos 8 ms.
+- **En 3D**, cada región toma un tono plano entre el blanco del portaobjetos y el violeta, según su densidad. La selección y su pareja, en su color intenso.
+- **En el humano, la sustancia blanca no está etiquetada** en el mapa de Julich-Brain: sale del color del portaobjetos, igual que el fondo, y no se ve el contorno del cerebro. En la rata sí está etiquetada y sale pálida, como en una tinción de verdad.
+- **Peso:** ningún archivo nuevo. El código de C crece 2,1 KB con gzip (`c.js`, de 11,9 a 14,0 KB).
+- **Comprobado en Brave (escritorio):**
+  - Solo 3D y 3D + corte, con el aviso visible en los cuatro sitios;
+  - a Bregma −3,6 mm, el cuerpo calloso sale pálido, el hipocampo oscuro y la corteza intermedia;
+  - el clic en CA1 de la rata contornea la pareja en el corte del humano y la resalta en su 3D;
+  - al volver a Color no queda nada pintado;
+  - en español y en inglés, sin errores en la consola.
+

@@ -198,8 +198,9 @@ function panelPartner(box, source, pair) {
 }
 
 // Step 7.6 (P4): one way of looking at a time. "color": the calm palette; "atlas": black and
-// white, grey fill and contours, like a printed atlas plate; "stain": step 7.7.
-const MODES = ["color", "atlas"];
+// white, grey fill and contours, like a printed atlas plate; "stain": a drawn Nissl-like stain
+// (step 7.7), always with the notice that it is an illustration.
+const MODES = ["color", "atlas", "stain"];
 const askedMode = new URLSearchParams(location.search).get("mode");
 const state = {
   view: "3d", clip: false, isolate: false, mode: MODES.includes(askedMode) ? askedMode : "color",
@@ -207,6 +208,37 @@ const state = {
 // Atlas mode: fill grey from the lightness of the region's colour, kept light so the contours
 // read; the selection and its counterpart, darker. Contours, almost black.
 const GREY = { lo: 175, hi: 238, focus: 125, edge: 40 };
+
+// Step 7.7 (P4): drawn stain, Nissl-like (cresyl violet). How dark a region stains is a drawing
+// choice by family and a few names (cell-dense layers dark, white matter and molecular layers
+// pale), not a measurement: the canvas says so. Slide and ink colours, and density 0..1.
+const STAIN = {
+  slide: [247, 243, 247],
+  ink: [70, 36, 118],
+  family: {
+    cortex: 0.6, cortex_gap: 0.55, hippocampus: 0.75, olfactory: 0.65, amygdala: 0.6,
+    basal_ganglia: 0.5, thalamus: 0.55, hypothalamus: 0.6, midbrain: 0.5, hindbrain: 0.48,
+    white_matter: 0.1, ventricles: 0, other: 0.35,
+  },
+  names: [
+    [/molecular|layer 1\b/i, 0.22],
+    [/dentate gyrus|^DG |granule cell layer|granular layer|layer 2\b|cerebellum, unspecified/i, 0.9],
+    [/glomerular/i, 0.35],
+  ],
+};
+const NOTICE = {
+  es: "Ilustración, no es una tinción real",
+  en: "Illustration, not a real stain",
+}[lang];
+
+// Deterministic noise in [0, 1) for integer cells, so the drawn grain does not flicker.
+function hash2(i, j) {
+  let x = Math.imul(i, 374761393) + Math.imul(j, 668265263);
+  x = Math.imul(x ^ (x >>> 13), 1274126177);
+  return ((x ^ (x >>> 16)) >>> 0) / 4294967296;
+}
+
+const mix = (a, b, t) => a.map((v, k) => Math.round(v + (b[k] - v) * t));
 
 function greyOf(rgb) {
   const l = (0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]) / 255; // ~0.65-0.92 in calm
@@ -322,10 +354,13 @@ class VolumeViewer {
           rgb = edge ? [GREY.edge, GREY.edge, GREY.edge]
             : focused ? [GREY.focus, GREY.focus, GREY.focus] : greyOf(hex(colourOf(r)));
         }
+        if (state.mode === "stain" && r.index && !focused) {
+          rgb = mix(STAIN.slide, STAIN.ink, this.stainDensity()[r.index]);
+        }
         // While something is selected the rest goes grey (alpha barely shows in the 3D render
         // of a label volume), or disappears when isolating.
         if (r.index && this.focus.size && !focused) {
-          if (!atlas) {
+          if (state.mode === "color") {
             const grey = Math.round(0.15 * (rgb[0] + rgb[1] + rgb[2]) / 3 + 0.85 * 150);
             rgb = [grey, grey, grey];
           }
@@ -337,6 +372,21 @@ class VolumeViewer {
       }
     }
     return { R, G, B, A, I, labels };
+  }
+
+  // Step 7.7: stain density per row index, once (see STAIN). A small, fixed variation per region
+  // keeps neighbours of one family apart, as in a real section.
+  stainDensity() {
+    if (this.density) return this.density;
+    const d = new Float32Array(this.n);
+    for (const r of this.rows) {
+      if (!r.index) continue;
+      const byName = STAIN.names.find(([re]) => re.test(r.name));
+      const base = byName ? byName[1] : STAIN.family[r.group] ?? STAIN.family.other;
+      d[r.index] = base ? Math.min(1, Math.max(0, base + 0.16 * (hash2(r.index, 17) - 0.5))) : 0;
+    }
+    this.density = d;
+    return d;
   }
 
   // Step 7.6: region index of a stored voxel value (0 = background), with or without edge mark.
@@ -537,10 +587,10 @@ class VolumeViewer {
       const tile = state.view === "3d" ? null : this.nv.screenSlices.find(
         (s) => s.axCorSag === SLICE_TYPE.CORONAL && s.AxyzMxy.length >= 4,
       );
-      const key = tile
-        ? JSON.stringify([tile.leftTopWidthHeight, tile.leftTopMM, tile.fovMM, this.nv.scene.crosshairPos,
-          this.canvas.width, this.canvas.height, state.mode, state.isolate, [...this.focus]])
-        : "";
+      const key = JSON.stringify([
+        tile && [tile.leftTopWidthHeight, tile.leftTopMM, tile.fovMM, this.nv.scene.crosshairPos],
+        this.canvas.width, this.canvas.height, state.view, state.mode, state.isolate, [...this.focus],
+      ]);
       if (key !== last) {
         last = key;
         this.drawAxes(tile);
@@ -557,6 +607,9 @@ class VolumeViewer {
     cv.height = this.canvas.height;
     const g = cv.getContext("2d");
     g.clearRect(0, 0, cv.width, cv.height);
+    // Step 7.7: the notice goes on the canvas itself, on the 3D view and on the slice.
+    // The 3D view starts at the top left corner in both layouts (layout()).
+    if (state.mode === "stain") this.drawNotice(g, 8 * dpr, 8 * dpr, dpr);
     if (!tile) return;
     const [left, top, w, hgt] = tile.leftTopWidthHeight;
     // Niivue: horizontal mm = leftTopMM[0] + h * fovMM[0], h = (X - left) / w (also when w < 0,
@@ -564,8 +617,24 @@ class VolumeViewer {
     const toX = (mm) => left + ((mm - tile.leftTopMM[0]) / tile.fovMM[0]) * w;
     const toY = (mm) => top + (1 - (mm - tile.leftTopMM[1]) / tile.fovMM[1]) * hgt;
     if (state.mode === "atlas") this.drawContours(g, toX, toY, dpr);
+    if (state.mode === "stain") {
+      this.paintStain(g, tile, dpr);
+      // The painted slice covers Niivue's: crosshair and selection drawn again on top.
+      const at = this.nv.frac2mm(this.nv.scene.crosshairPos);
+      g.save();
+      g.strokeStyle = "rgb(255 217 51)";
+      g.lineWidth = dpr;
+      g.beginPath();
+      g.moveTo(toX(at[0]), top);
+      g.lineTo(toX(at[0]), top + hgt);
+      g.moveTo(left, toY(at[2]));
+      g.lineTo(left + w, toY(at[2]));
+      g.stroke();
+      g.restore();
+      if (this.focus.size) this.drawContours(g, toX, toY, dpr, this.focus, "rgb(232 120 20)", 2);
+    }
     const c = this.coords;
-    const fg = getComputedStyle(this.section).color;
+    const fg = state.mode === "stain" ? "rgb(40 30 50)" : getComputedStyle(this.section).color;
     g.fillStyle = fg;
     g.strokeStyle = fg;
     g.lineWidth = dpr;
@@ -613,12 +682,88 @@ class VolumeViewer {
     g.textBaseline = "top";
     g.font = `600 ${12 * dpr}px system-ui, sans-serif`;
     g.fillText(text, x0 + 8 * dpr, top + 8 * dpr);
+    if (state.mode === "stain") this.drawNotice(g, x0 + 8 * dpr, top + 28 * dpr, dpr);
+  }
+
+  drawNotice(g, x, y, dpr) {
+    g.save();
+    g.font = `600 ${12 * dpr}px system-ui, sans-serif`;
+    g.textBaseline = "top";
+    g.textAlign = "left";
+    const pad = 5 * dpr;
+    const w = g.measureText(NOTICE).width + 2 * pad;
+    const hh = 12 * dpr + 2 * pad;
+    g.fillStyle = "rgb(255 248 225 / 0.95)";
+    g.strokeStyle = "rgb(150 100 0)";
+    g.lineWidth = dpr;
+    g.beginPath();
+    g.roundRect(x, y, w, hh, 4 * dpr);
+    g.fill();
+    g.stroke();
+    g.fillStyle = "rgb(90 55 0)";
+    g.fillText(NOTICE, x + pad, y + pad + dpr);
+    g.restore();
+  }
+
+  // Step 7.7: the coronal slice painted as a drawn Nissl-like section. Density per voxel from
+  // the region (stainDensity), blended between voxel centres so borders are soft, times a grain
+  // tied to the voxel grid (three cells per voxel), so it stays put while the slice redraws.
+  // Painted at no more than 1.5 pixels per CSS pixel and scaled, to keep phones fast.
+  paintStain(g, tile, dpr) {
+    const img = this.vol.img;
+    const [, nx, ny, nz] = this.vol.hdr.dims;
+    const y = this.vol.convertFrac2Vox(this.nv.scene.crosshairPos)[1];
+    const dens = this.stainDensity();
+    const D = new Float32Array(nx * nz);
+    for (let z = 0; z < nz; z++) {
+      for (let x = 0; x < nx; x++) D[x + z * nx] = dens[this.regionOf(img[x + y * nx + z * nx * ny])] || 0;
+    }
+    const at = (x, z) => (x < 0 || x >= nx || z < 0 || z >= nz ? 0 : D[x + z * nx]);
+    const [left, top, w, hgt] = tile.leftTopWidthHeight;
+    const x0 = Math.min(left, left + w);
+    const s = Math.min(1.5, dpr) / dpr;
+    const W = Math.max(1, Math.ceil(Math.abs(w) * s));
+    const H = Math.max(1, Math.ceil(hgt * s));
+    const m = this.vol.hdr.affine;
+    const out = new ImageData(W, H);
+    const px = out.data;
+    const [sr, sg, sb] = STAIN.slide;
+    const [ir, ig, ib] = STAIN.ink;
+    for (let py = 0; py < H; py++) {
+      const Y = top + (py + 0.5) / s;
+      const mmZ = tile.leftTopMM[1] + (1 - (Y - top) / hgt) * tile.fovMM[1];
+      const fk = (mmZ - m[2][3]) / m[2][2];
+      const k0 = Math.floor(fk);
+      const tk = fk - k0;
+      for (let qx = 0; qx < W; qx++) {
+        const X = x0 + (qx + 0.5) / s;
+        const mmX = tile.leftTopMM[0] + ((X - left) / w) * tile.fovMM[0];
+        const fi = (mmX - m[0][3]) / m[0][0];
+        const i0 = Math.floor(fi);
+        const ti = fi - i0;
+        const d = (at(i0, k0) * (1 - ti) + at(i0 + 1, k0) * ti) * (1 - tk)
+          + (at(i0, k0 + 1) * (1 - ti) + at(i0 + 1, k0 + 1) * ti) * tk;
+        const n = hash2(Math.floor(fi * 3), Math.floor(fk * 3));
+        const t = Math.min(1, d * (0.7 + 0.8 * n * n * n));
+        const o = 4 * (qx + py * W);
+        px[o] = sr + (ir - sr) * t;
+        px[o + 1] = sg + (ig - sg) * t;
+        px[o + 2] = sb + (ib - sb) * t;
+        px[o + 3] = 255;
+      }
+    }
+    const off = new OffscreenCanvas(W, H);
+    off.getContext("2d").putImageData(out, 0, 0);
+    g.save();
+    g.imageSmoothingEnabled = true;
+    g.drawImage(off, x0, top, Math.abs(w), hgt);
+    g.restore();
   }
 
   // Step 7.6, contours in 2D: lines along the voxel faces between two regions (or a region and
   // the background) of the coronal slice, neighbours in the slice only, so a border lying along
   // the slice never shows as a patch. Isolating keeps only the borders of what is shown.
-  drawContours(g, toX, toY, dpr) {
+  drawContours(g, toX, toY, dpr, subset = null, colour = null, width = 0.75) {
     const img = this.vol.img;
     const [, nx, ny, nz] = this.vol.hdr.dims;
     const y = this.vol.convertFrac2Vox(this.nv.scene.crosshairPos)[1];
@@ -628,7 +773,7 @@ class VolumeViewer {
     const fz = (k) => toY(m[2][2] * (k - 0.5) + m[2][3]);
     const at = (x, z) => (x < 0 || x >= nx || z < 0 || z >= nz ? 0
       : this.regionOf(img[x + y * nx + z * nx * ny]));
-    const only = state.isolate && this.focus.size ? this.focus : null;
+    const only = subset || (state.isolate && this.focus.size ? this.focus : null);
     const shown = (a) => a && (!only || only.has(a));
     const path = new Path2D();
     for (let z = 0; z <= nz; z++) {
@@ -647,8 +792,8 @@ class VolumeViewer {
       }
     }
     g.save();
-    g.strokeStyle = `rgb(${GREY.edge} ${GREY.edge} ${GREY.edge})`;
-    g.lineWidth = Math.max(1, dpr * 0.75);
+    g.strokeStyle = colour || `rgb(${GREY.edge} ${GREY.edge} ${GREY.edge})`;
+    g.lineWidth = Math.max(1, dpr * width);
     g.stroke(path);
     g.restore();
   }
@@ -790,7 +935,7 @@ toggle("clip", (b) => {
   state.clip = !state.clip;
   b.setAttribute("aria-pressed", String(state.clip));
 });
-// Step 7.6: the mode selector, one mode at a time. "Tinción" arrives in step 7.7.
+// Step 7.6: the mode selector, one mode at a time.
 const modeButtons = [...document.querySelectorAll("[data-mode]")];
 const showMode = () =>
   modeButtons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.mode === state.mode)));

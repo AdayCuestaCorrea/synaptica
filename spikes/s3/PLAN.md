@@ -80,7 +80,7 @@ Sofía propone que el contenido de la Fase 2 empiece por las estructuras de la s
    4. **Clic sincronizado y nombre (P3, P6).** Centroides por región, un archivo por atlas; el otro visor selecciona la pieza, gira hacia ella y lleva su corte hasta ella; aviso «sin pareja todavía»; nombre completo y sigla visibles, con la sigla marcada para el glosario de la Fase 2. *Hecho* (`results/maqueta-c.md`, paso 7.4).
    5. **Coordenadas (P7).** Bregma y Lambda en Waxholm, solo de una publicación citada; ejes en mm. El humano, en mm MNI. Si no hay fuente, se para y se avisa. *Hecho*: tabla de Papp y Bjaalie 2014 (`results/maqueta-c.md`, paso 7.5).
    6. **Modos de vista y atlas en blanco y negro (P4).** Selector «Color · Atlas · Tinción», uno a la vez; grises y contornos en 2D y en 3D. Los archivos extra se cargan solo al elegir el modo. *Hecho*: los contornos se calculan en el navegador a partir del volumen de etiquetas, así que no hay archivos extra (+0 bytes) (`results/maqueta-c.md`, paso 7.6).
-   7. **Tinción dibujada (P4).** Aspecto de tinción generado desde las etiquetas, con el aviso «ilustración, no es una tinción real» en el lienzo.
+   7. **Tinción dibujada (P4).** Aspecto de tinción generado desde las etiquetas, con el aviso «ilustración, no es una tinción real» en el lienzo. *Hecho*: aspecto de Nissl dibujado; el aviso está en el 3D y en el corte, en los dos idiomas (`results/maqueta-c.md`, paso 7.7).
    8. **Tinción real (P4).** Búsqueda de histologías alineadas a Waxholm y a MNI, con licencia y peso (`results/tincion.md`). Se integran solo si hay datos válidos que quepan; si no, al backlog.
    9. **Móvil.** Resolución del 3D limitada en móviles, nuevas mediciones y prueba en un móvil real.
    10. **Publicación.**
