@@ -69,6 +69,7 @@ Documentos de referencia:
   - `site --check`;
   - informe de cada ejecución.
 - El código se copia y se adapta, no se importa entre repositorios. Cada módulo copiado indica su origen en el docstring. Los dos repositorios son del mismo autor.
+- Los textos propios de Paleo (fichas, recaps, glosario) no se copian: se reescriben. Allí son CC BY-NC-SA y aquí serían CC BY-SA, así que copiarlos les quitaría la restricción NC. El código sí se copia, porque los dos son AGPL.
 
 ## Estructura (objetivo; se crea en la Fase 0)
 
