@@ -21,7 +21,11 @@ from typing import Any
 
 import httpx
 
-from synaptica.config import USER_AGENT, project_root
+from synaptica import __version__
+from synaptica.config import REPO_URL, project_root
+
+# Generic User-Agent for spike runs: contact through the repository, no e-mail address.
+USER_AGENT = f"synaptica-bot/{__version__} (+{REPO_URL})"
 
 FIXTURES = project_root() / "tests" / "fixtures"
 REDACTED = "[REDACTED in fixture: publisher text, not redistributed]"
