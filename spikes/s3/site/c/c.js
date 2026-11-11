@@ -6,7 +6,7 @@ import {
 } from "../common/common.js";
 
 fillTexts();
-const { Niivue, SLICE_TYPE } = window.niivue;
+const { Niivue, NVImage, SLICE_TYPE } = window.niivue;
 
 const dark = matchMedia("(prefers-color-scheme: dark)").matches;
 const BACK = dark ? [0.106, 0.106, 0.125, 1] : [0.949, 0.945, 0.933, 1];
@@ -204,7 +204,12 @@ const MODES = ["color", "atlas", "stain"];
 const askedMode = new URLSearchParams(location.search).get("mode");
 const state = {
   view: "3d", clip: false, isolate: false, mode: MODES.includes(askedMode) ? askedMode : "color",
+  // Step 7.8: inside "stain", the drawn one or real histology where there is some (human only).
+  stain: new URLSearchParams(location.search).get("stain") === "real" ? "real" : "drawn",
 };
+// Step 7.8: real stains, one folder and licence each (results/tincion.md). Rat: none found that
+// fits (backlog), so the rat keeps the drawn one and says so.
+const REAL_STAIN = { julich: "../data/bigbrain" };
 // Atlas mode: fill grey from the lightness of the region's colour, kept light so the contours
 // read; the selection and its counterpart, darker. Contours, almost black.
 const GREY = { lo: 175, hi: 238, focus: 125, edge: 40 };
@@ -227,8 +232,16 @@ const STAIN = {
   ],
 };
 const NOTICE = {
-  es: "Ilustración, no es una tinción real",
-  en: "Illustration, not a real stain",
+  es: {
+    drawn: "Ilustración, no es una tinción real",
+    noReal: "Ilustración, no es una tinción real (no hay de rata)",
+    real: "Tinción real de otro cerebro (BigBrain)",
+  },
+  en: {
+    drawn: "Illustration, not a real stain",
+    noReal: "Illustration, not a real stain (none for the rat)",
+    real: "Real stain of another brain (BigBrain)",
+  },
 }[lang];
 
 // Deterministic noise in [0, 1) for integer cells, so the drawn grain does not flicker.
@@ -356,6 +369,7 @@ class VolumeViewer {
         }
         if (state.mode === "stain" && r.index && !focused) {
           rgb = mix(STAIN.slide, STAIN.ink, this.stainDensity()[r.index]);
+          if (this.realOn) a = 0; // the histology shows through; only the selection is coloured
         }
         // While something is selected the rest goes grey (alpha barely shows in the 3D render
         // of a label volume), or disappears when isolating.
@@ -387,6 +401,41 @@ class VolumeViewer {
     }
     this.density = d;
     return d;
+  }
+
+  // Step 7.8: this viewer shows real histology now (stain mode, "real", and it has some).
+  get realOn() {
+    return state.mode === "stain" && state.stain === "real" && Boolean(REAL_STAIN[this.atlas]);
+  }
+
+  // Load the real stain the first time it is asked for, and put it under the labels (first
+  // volume, same grid) or take it out. Its licence goes under the atlas licence while shown.
+  async syncReal() {
+    const dir = REAL_STAIN[this.atlas];
+    if (!dir || !this.vol) return;
+    const want = this.realOn;
+    if (want && !this.real) {
+      this.realLoading ||= Promise.all([
+        NVImage.loadFromUrl({ url: `${dir}/stain.nii.gz`, colormap: "gray", cal_min: 1, cal_max: 254 }),
+        fetch(`${dir}/licence.json`).then((r) => r.json()),
+      ]);
+      const [vol, lic] = await this.realLoading;
+      if (this.real) return; // another call got here first
+      this.real = vol;
+      this.realLicence = lic;
+      if (!this.realOn) return;
+    }
+    const has = this.real && this.nv.volumes.includes(this.real);
+    if (want && !has) {
+      this.nv.addVolume(this.real);
+      this.nv.setVolume(this.real, 0);
+    } else if (!want && has) {
+      this.nv.removeVolume(this.real);
+    }
+    if (want !== Boolean(has)) this.apply();
+    const box = this.section.querySelector(".licence-extra");
+    box.hidden = !want;
+    if (want) renderLicence(box, this.realLicence, { colours: false });
   }
 
   // Step 7.6: region index of a stored voxel value (0 = background), with or without edge mark.
@@ -472,6 +521,12 @@ class VolumeViewer {
     if (!this.vol) return;
     if (state.mode === "atlas") this.markEdges();
     this.cleanSlice();
+    if (REAL_STAIN[this.atlas] && this.realOn !== (this.real ? this.nv.volumes.includes(this.real) : false)) {
+      this.syncReal(); // calls apply() again once the volume is in or out
+    } else if (REAL_STAIN[this.atlas]) {
+      const box = this.section.querySelector(".licence-extra");
+      if (box) box.hidden = !this.realOn;
+    }
     this.vol.setColormapLabel(this.colormap());
     this.nv.updateGLVolume();
     this.layout();
@@ -589,7 +644,8 @@ class VolumeViewer {
       );
       const key = JSON.stringify([
         tile && [tile.leftTopWidthHeight, tile.leftTopMM, tile.fovMM, this.nv.scene.crosshairPos],
-        this.canvas.width, this.canvas.height, state.view, state.mode, state.isolate, [...this.focus],
+        this.canvas.width, this.canvas.height, state.view, state.mode, state.stain, state.isolate,
+        [...this.focus], this.realOn && this.nv.volumes.includes(this.real),
       ]);
       if (key !== last) {
         last = key;
@@ -609,7 +665,10 @@ class VolumeViewer {
     g.clearRect(0, 0, cv.width, cv.height);
     // Step 7.7: the notice goes on the canvas itself, on the 3D view and on the slice.
     // The 3D view starts at the top left corner in both layouts (layout()).
-    if (state.mode === "stain") this.drawNotice(g, 8 * dpr, 8 * dpr, dpr);
+    if (state.mode === "stain") {
+      const half = state.view !== "3d" && cv.width >= cv.height;
+      this.drawNotice(g, 8 * dpr, 8 * dpr, dpr, (half ? cv.width / 2 : cv.width) - 16 * dpr);
+    }
     if (!tile) return;
     const [left, top, w, hgt] = tile.leftTopWidthHeight;
     // Niivue: horizontal mm = leftTopMM[0] + h * fovMM[0], h = (X - left) / w (also when w < 0,
@@ -617,7 +676,9 @@ class VolumeViewer {
     const toX = (mm) => left + ((mm - tile.leftTopMM[0]) / tile.fovMM[0]) * w;
     const toY = (mm) => top + (1 - (mm - tile.leftTopMM[1]) / tile.fovMM[1]) * hgt;
     if (state.mode === "atlas") this.drawContours(g, toX, toY, dpr);
-    if (state.mode === "stain") {
+    if (state.mode === "stain" && this.realOn) {
+      if (this.focus.size) this.drawContours(g, toX, toY, dpr, this.focus, "rgb(232 120 20)", 2);
+    } else if (state.mode === "stain") {
       this.paintStain(g, tile, dpr);
       // The painted slice covers Niivue's: crosshair and selection drawn again on top.
       const at = this.nv.frac2mm(this.nv.scene.crosshairPos);
@@ -634,7 +695,8 @@ class VolumeViewer {
       if (this.focus.size) this.drawContours(g, toX, toY, dpr, this.focus, "rgb(232 120 20)", 2);
     }
     const c = this.coords;
-    const fg = state.mode === "stain" ? "rgb(40 30 50)" : getComputedStyle(this.section).color;
+    const fg = state.mode === "stain" && !this.realOn
+      ? "rgb(40 30 50)" : getComputedStyle(this.section).color;
     g.fillStyle = fg;
     g.strokeStyle = fg;
     g.lineWidth = dpr;
@@ -682,17 +744,26 @@ class VolumeViewer {
     g.textBaseline = "top";
     g.font = `600 ${12 * dpr}px system-ui, sans-serif`;
     g.fillText(text, x0 + 8 * dpr, top + 8 * dpr);
-    if (state.mode === "stain") this.drawNotice(g, x0 + 8 * dpr, top + 28 * dpr, dpr);
+    if (state.mode === "stain") this.drawNotice(g, x0 + 8 * dpr, top + 28 * dpr, dpr, Math.abs(w) - 16 * dpr);
   }
 
-  drawNotice(g, x, y, dpr) {
+  // The notice always fits its view: the type shrinks (down to 8 px) rather than being cut.
+  drawNotice(g, x, y, dpr, maxW) {
     g.save();
-    g.font = `600 ${12 * dpr}px system-ui, sans-serif`;
     g.textBaseline = "top";
     g.textAlign = "left";
     const pad = 5 * dpr;
-    const w = g.measureText(NOTICE).width + 2 * pad;
-    const hh = 12 * dpr + 2 * pad;
+    const text = this.realOn ? NOTICE.real
+      : state.stain === "real" ? NOTICE.noReal : NOTICE.drawn;
+    let size = 12 * dpr;
+    g.font = `600 ${size}px system-ui, sans-serif`;
+    const full = g.measureText(text).width;
+    if (full + 2 * pad > maxW) {
+      size = Math.max(8 * dpr, (size * (maxW - 2 * pad)) / full);
+      g.font = `600 ${size}px system-ui, sans-serif`;
+    }
+    const w = g.measureText(text).width + 2 * pad;
+    const hh = size + 2 * pad;
     g.fillStyle = "rgb(255 248 225 / 0.95)";
     g.strokeStyle = "rgb(150 100 0)";
     g.lineWidth = dpr;
@@ -701,7 +772,7 @@ class VolumeViewer {
     g.fill();
     g.stroke();
     g.fillStyle = "rgb(90 55 0)";
-    g.fillText(NOTICE, x + pad, y + pad + dpr);
+    g.fillText(text, x + pad, y + pad + dpr);
     g.restore();
   }
 
@@ -825,7 +896,8 @@ class VolumeViewer {
   }
 
   picked(loc) {
-    const raw = loc && loc.values && loc.values[0] ? Math.round(loc.values[0].value) : 0;
+    const at = this.nv.volumes.indexOf(this.vol); // 1 while the real stain is under it
+    const raw = loc && loc.values && loc.values[at] ? Math.round(loc.values[at].value) : 0;
     const v = this.regionOf(raw);
     this.showTag(v ? this.rows[v] : null);
     if (v === this.selectedIndex) return;
@@ -947,6 +1019,19 @@ for (const b of modeButtons) {
     showMode();
   });
 }
+// Step 7.8: drawn or real stain, only while the stain mode is on.
+const kindBox = document.querySelector(".stain-kind");
+const kindButtons = [...kindBox.querySelectorAll("[data-stain]")];
+const showKind = () => {
+  kindBox.hidden = state.mode !== "stain";
+  kindButtons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.stain === state.stain)));
+};
+showKind();
+for (const b of kindButtons) toggle(b.id, () => {
+  state.stain = b.dataset.stain;
+  showKind();
+});
+modeButtons.forEach((b) => b.addEventListener("click", showKind));
 toggle("isolate", (b) => {
   state.isolate = !state.isolate;
   b.setAttribute("aria-pressed", String(state.isolate));

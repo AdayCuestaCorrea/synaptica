@@ -27,6 +27,7 @@
 .panel .small { font-size: 0.8rem; }
 /* Step 7.6: the mode selector, one group of buttons. C only. */
 .modes { display: inline-flex; gap: 0; }
+.modes[hidden] { display: none; }
 .modes button { border-radius: 0; }
 .modes button:first-child { border-radius: 6px 0 0 6px; }
 .modes button:last-child { border-radius: 0 6px 6px 0; }
@@ -55,6 +56,10 @@
       <button id="modeAtlas" data-mode="atlas" aria-pressed="false" data-t="modeAtlas"></button>
       <button id="modeStain" data-mode="stain" aria-pressed="false" data-t="modeStain"></button>
     </span>
+    <span class="modes stain-kind" role="group" data-t-label="stainKind" hidden>
+      <button id="stainDrawn" data-stain="drawn" aria-pressed="true" data-t="stainDrawn"></button>
+      <button id="stainReal" data-stain="real" aria-pressed="false" data-t="stainReal"></button>
+    </span>
     <p class="hint" data-t="hint"></p>
   </div>
   <div class="viewers">
@@ -69,6 +74,7 @@
       <div class="stage"><canvas></canvas><div class="status" data-t="loading"></div></div>
       <div class="panel"></div>
       <div class="licence"></div>
+      <div class="licence licence-extra" hidden></div>
     </section>
   </div>
 </main>

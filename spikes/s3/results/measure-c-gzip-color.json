@@ -2,7 +2,7 @@
   "mock": "c",
   "base": "http://127.0.0.1:8767",
   "query": "",
-  "date": "2026-11-11T21:44:48.145Z",
+  "date": "2026-11-11T22:08:50.277Z",
   "browser": "Chrome/157.0.8103.39",
   "conditions": {
     "viewport": "390x844 DPR 3, touch",
@@ -18,10 +18,10 @@
   "runs": [
     {
       "run": 1,
-      "interactiveMs": 16753,
-      "wallMs": 17586,
+      "interactiveMs": 16940,
+      "wallMs": 17739,
       "requests": 14,
-      "bytes": 1954460,
+      "bytes": 1957785,
       "hosts": [
         "127.0.0.1:8767"
       ],
@@ -33,7 +33,7 @@
       "files": [
         [
           "/c/",
-          1697
+          1757
         ],
         [
           "/common/common.css",
@@ -45,11 +45,11 @@
         ],
         [
           "/c/c.js",
-          12273
+          15495
         ],
         [
           "/common/common.js",
-          3660
+          3703
         ],
         [
           "/data/waxholm/labels.json",
@@ -124,10 +124,10 @@
     },
     {
       "run": 2,
-      "interactiveMs": 16745,
-      "wallMs": 17573,
+      "interactiveMs": 16752,
+      "wallMs": 17628,
       "requests": 14,
-      "bytes": 1954460,
+      "bytes": 1957785,
       "hosts": [
         "127.0.0.1:8767"
       ],
@@ -139,7 +139,7 @@
       "files": [
         [
           "/c/",
-          1697
+          1757
         ],
         [
           "/common/common.css",
@@ -151,11 +151,11 @@
         ],
         [
           "/c/c.js",
-          12273
+          15495
         ],
         [
           "/common/common.js",
-          3660
+          3703
         ],
         [
           "/data/waxholm/labels.json",
@@ -230,10 +230,10 @@
     },
     {
       "run": 3,
-      "interactiveMs": 16630,
-      "wallMs": 17406,
+      "interactiveMs": 16736,
+      "wallMs": 17549,
       "requests": 14,
-      "bytes": 1954460,
+      "bytes": 1957785,
       "hosts": [
         "127.0.0.1:8767"
       ],
@@ -245,7 +245,7 @@
       "files": [
         [
           "/c/",
-          1697
+          1757
         ],
         [
           "/common/common.css",
@@ -257,11 +257,11 @@
         ],
         [
           "/c/c.js",
-          12273
+          15495
         ],
         [
           "/common/common.js",
-          3660
+          3703
         ],
         [
           "/data/waxholm/labels.json",

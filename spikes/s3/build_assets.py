@@ -11,6 +11,7 @@ Writes spikes/s3/site/data/:
 
     waxholm/  labels.nii.gz, labels.json, licence.json, coords.json
     julich/   labels.nii.gz, labels.json, licence.json, coords.json
+    bigbrain/ stain.nii.gz, licence.json   (step 7.8: real stain for the human, BigBrain)
     equivalencias.json  test pairs between the two atlases, grade "pendiente de Sofía"
     manifest.json       sizes and the Waxholm resolution measurements
 
@@ -96,7 +97,39 @@ PAIRS = [
 ]
 PENDING = "pendiente de Sofía"
 
+# Step 7.8: real stain for the human. BigBrain (Merker silver stain of cell bodies) registered to
+# ICBM152 2009 nonlinear asymmetric by Xiao et al. 2019, 1 mm. Its grid is the one of the
+# Julich-Brain MPM (193 x 229 x 193, origin -96, -132, -78). Downloaded once to the cache.
+BIGBRAIN_URL = "https://osf.io/download/6qmhj/"  # BigBrain-to-ICBM2009asym-nonlin-1mm.nii
+BIGBRAIN_FILE = CACHE / "bigbrain" / "BigBrain-to-ICBM2009asym-nonlin-1mm.nii"
+MPM_ORIGIN = np.array([-96.0, -132.0, -78.0])  # checked against the MPM in julich()
+
 LICENCES = {
+    "bigbrain": {
+        "atlas": "BigBrain, Merker-stained histology, in ICBM152 2009 nonlinear asymmetric space",
+        "short": "BigBrain (1 mm, ICBM152 2009)",
+        "version": "BigBrain 2015 release, registration by Xiao et al. 2019",
+        "licence": "CC BY 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+        "licence_note": (
+            "The down-sampled BigBrain volumes of this OSF dataset are CC BY 4.0 with the consent "
+            "of the MNI and Forschungszentrum Jülich; BigBrain itself remains CC BY-NC-SA 4.0 "
+            "(README of the dataset)."
+        ),
+        "source": "OSF project xkqb3, file BigBrain-to-ICBM2009asym-nonlin-1mm.nii",
+        "source_url": "https://osf.io/xkqb3/",
+        "citation": (
+            "Amunts K. et al. 2013, BigBrain: an ultrahigh-resolution 3D human brain model, "
+            "Science 340:1472-1475, https://doi.org/10.1126/science.1235381; Xiao Y. et al. 2019, "
+            "An accurate registration of the BigBrain dataset with the MNI PD25 and ICBM152 "
+            "atlases, Scientific Data 6:210, https://doi.org/10.1038/s41597-019-0217-0"
+        ),
+        "derived": (
+            "Converted to 8 bits; slide (white) and voxels without data set to 0 so that they "
+            "are transparent; centred like the Julich-Brain label volume (same grid). Changes "
+            "made by SYNAPTICA. Not combined with any atlas file."
+        ),
+    },
     "waxholm": {
         "atlas": "Waxholm Space atlas of the Sprague Dawley rat brain",
         "short": "Waxholm v4.01",
@@ -517,6 +550,8 @@ def julich() -> dict:
     # The MPM is already RAS with a diagonal 1 mm affine: keep its grid, centre it.
     if not np.allclose(affine[:3, :3], np.eye(3)):
         raise SystemExit(f"unexpected MPM affine:\n{affine}")
+    if not np.allclose(affine[:3, 3], MPM_ORIGIN):  # BigBrain (step 7.8) relies on this grid
+        raise SystemExit(f"unexpected MPM origin: {affine[:3, 3]}")
     centre = affine[:3, 3] + (np.array(compact.shape) - 1) / 2
     size = save_nifti(out / "labels.nii.gz", compact, 1.0, affine[:3, 3] - centre)
     add_centroids(rows, compact, 1.0, affine[:3, 3] - centre)
@@ -554,6 +589,44 @@ def julich() -> dict:
     }
 
 
+def bigbrain() -> dict:
+    """Step 7.8: BigBrain in ICBM152 2009 asymmetric, 1 mm, as an 8-bit volume for the viewer.
+
+    Its own folder and licence (CC BY 4.0); nothing from Julich-Brain goes into it. It shares the
+    MPM grid, so the viewer can show it under the human labels without resampling.
+    """
+    import nibabel as nib
+
+    if not BIGBRAIN_FILE.exists():
+        BIGBRAIN_FILE.parent.mkdir(parents=True, exist_ok=True)
+        r = requests.get(BIGBRAIN_URL, timeout=300)
+        r.raise_for_status()
+        BIGBRAIN_FILE.write_bytes(r.content)
+    img = nib.load(BIGBRAIN_FILE)
+    if img.shape != (193, 229, 193) or not np.allclose(img.affine[:3, 3], MPM_ORIGIN):
+        raise SystemExit(f"unexpected BigBrain grid: {img.shape}\n{img.affine}")
+    d = np.rint(np.asarray(img.dataobj, dtype=np.float32) / 257)
+    # 255 is the bare slide, 0 has no data: both transparent. Tissue goes to 1..254.
+    u8 = np.where((d >= 255) | (d <= 0), 0, np.clip(d, 1, 254)).astype(np.uint8)
+    centre = MPM_ORIGIN + (np.array(u8.shape) - 1) / 2
+    out = OUT / "bigbrain"
+    out.mkdir(parents=True, exist_ok=True)
+    origin = MPM_ORIGIN - centre
+    aff = np.diag([1.0, 1.0, 1.0, 1.0])
+    aff[:3, 3] = origin
+    nimg = nib.Nifti1Image(u8, aff)
+    nimg.header.set_xyzt_units("mm")
+    nimg.header.set_qform(aff, code=1)
+    nimg.header.set_sform(aff, code=1)
+    nib.save(nimg, out / "stain.nii.gz")
+    write_json(out / "licence.json", LICENCES["bigbrain"])
+    return {
+        "shape": list(u8.shape),
+        "tissue_fraction": round(float((u8 > 0).mean()), 4),
+        "bytes_nifti_gz": (out / "stain.nii.gz").stat().st_size,
+    }
+
+
 def equivalences() -> dict:
     """Test pairs between the atlases: IDs and names only. The grade is Sofía's to give."""
     with BG_TERMINOLOGY.open() as f:
@@ -588,7 +661,7 @@ def equivalences() -> dict:
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    report = {"waxholm": waxholm(), "julich": julich()}
+    report = {"waxholm": waxholm(), "julich": julich(), "bigbrain": bigbrain()}
     eq = equivalences()
     (OUT / "equivalencias.json").write_text(json.dumps(eq, indent=2, ensure_ascii=False) + "\n")
     files = {
@@ -597,7 +670,7 @@ def main() -> None:
         if p.is_file() and p.name != "manifest.json"
     }
     report["files_bytes"] = files
-    for atlas in ("waxholm", "julich"):
+    for atlas in ("waxholm", "julich", "bigbrain"):
         total = sum(v for k, v in files.items() if k.startswith(atlas + "/"))
         report[atlas]["bytes_total"] = total
         report[atlas]["within_budget"] = total <= BUDGET_BYTES

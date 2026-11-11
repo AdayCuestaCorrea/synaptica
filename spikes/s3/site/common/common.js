@@ -45,6 +45,9 @@ const TEXT = {
     modeColor: "Color",
     modeAtlas: "Atlas",
     modeStain: "Tinción",
+    stainKind: "Tipo de tinción",
+    stainDrawn: "Dibujada",
+    stainReal: "Real",
     titleC: "SYNAPTICA · Visor C",
     subC: "Niivue 0.69.0 · volúmenes propios",
   },
@@ -86,6 +89,9 @@ const TEXT = {
     modeColor: "Colour",
     modeAtlas: "Atlas",
     modeStain: "Stain",
+    stainKind: "Kind of stain",
+    stainDrawn: "Drawn",
+    stainReal: "Real",
     titleC: "SYNAPTICA · Viewer C",
     subC: "Niivue 0.69.0 · our own volumes",
   },
@@ -184,7 +190,7 @@ function el(tag, attrs = {}, ...children) {
   return e;
 }
 
-export function renderLicence(box, lic) {
+export function renderLicence(box, lic, { colours = true } = {}) {
   box.replaceChildren(
     el("strong", {}, lic.short),
     " · ",
@@ -196,7 +202,7 @@ export function renderLicence(box, lic) {
     `${t.cite}: ${lic.citation}`,
     el("br"),
     `${t.changes}: ${t.changesText}`,
-    ...(palette === "calm" ? [el("br"), t.coloursCalm] : []),
+    ...(colours && palette === "calm" ? [el("br"), t.coloursCalm] : []),
   );
 }
 

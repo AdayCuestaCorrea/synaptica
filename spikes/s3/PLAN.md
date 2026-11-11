@@ -81,7 +81,8 @@ Sofía propone que el contenido de la Fase 2 empiece por las estructuras de la s
    5. **Coordenadas (P7).** Bregma y Lambda en Waxholm, solo de una publicación citada; ejes en mm. El humano, en mm MNI. Si no hay fuente, se para y se avisa. *Hecho*: tabla de Papp y Bjaalie 2014 (`results/maqueta-c.md`, paso 7.5).
    6. **Modos de vista y atlas en blanco y negro (P4).** Selector «Color · Atlas · Tinción», uno a la vez; grises y contornos en 2D y en 3D. Los archivos extra se cargan solo al elegir el modo. *Hecho*: los contornos se calculan en el navegador a partir del volumen de etiquetas, así que no hay archivos extra (+0 bytes) (`results/maqueta-c.md`, paso 7.6).
    7. **Tinción dibujada (P4).** Aspecto de tinción generado desde las etiquetas, con el aviso «ilustración, no es una tinción real» en el lienzo. *Hecho*: aspecto de Nissl dibujado; el aviso está en el 3D y en el corte, en los dos idiomas (`results/maqueta-c.md`, paso 7.7).
-   8. **Tinción real (P4).** Búsqueda de histologías alineadas a Waxholm y a MNI, con licencia y peso (`results/tincion.md`). Se integran solo si hay datos válidos que quepan; si no, al backlog.
+   8. **Tinción real (P4).** Búsqueda de histologías alineadas a Waxholm y a MNI, con licencia y peso (`results/tincion.md`). Se integran solo si hay datos válidos que quepan; si no, al backlog. *Hecho* (`results/tincion.md`): el humano, con BigBrain en el ICBM152 2009 (CC BY 4.0, 1,61 MB), como variante «Real» de la tinción; la rata, al backlog (el atlas Timm-Nissl no tiene volumen 3D).
+   - **Después del 7.8** (Aday, 2026-11-11): antes del 7.9 entran las mejoras de UX y UI que tiene pensadas Aday, que revisará Sofía. Después siguen el 7.9 (móvil), el 7.10 (Pages) y el ADR.
    9. **Móvil.** Resolución del 3D limitada en móviles, nuevas mediciones y prueba en un móvil real.
    10. **Publicación.**
        - En GitHub Pages, en `/synaptica/spikes/s3/`. **Se confirma con Aday antes de tocar Pages.**

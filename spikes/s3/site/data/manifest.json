@@ -281,7 +281,20 @@
     "bytes_total": 685627,
     "within_budget": true
   },
+  "bigbrain": {
+    "shape": [
+      193,
+      229,
+      193
+    ],
+    "tissue_fraction": 0.1971,
+    "bytes_nifti_gz": 1614939,
+    "bytes_total": 1616140,
+    "within_budget": true
+  },
   "files_bytes": {
+    "bigbrain/licence.json": 1201,
+    "bigbrain/stain.nii.gz": 1614939,
     "equivalencias.json": 3213,
     "julich/coords.json": 363,
     "julich/labels.json": 145078,

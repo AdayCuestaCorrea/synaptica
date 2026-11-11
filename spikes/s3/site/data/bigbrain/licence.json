@@ -1,0 +1,12 @@
+{
+  "atlas": "BigBrain, Merker-stained histology, in ICBM152 2009 nonlinear asymmetric space",
+  "short": "BigBrain (1 mm, ICBM152 2009)",
+  "version": "BigBrain 2015 release, registration by Xiao et al. 2019",
+  "licence": "CC BY 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+  "licence_note": "The down-sampled BigBrain volumes of this OSF dataset are CC BY 4.0 with the consent of the MNI and Forschungszentrum Jülich; BigBrain itself remains CC BY-NC-SA 4.0 (README of the dataset).",
+  "source": "OSF project xkqb3, file BigBrain-to-ICBM2009asym-nonlin-1mm.nii",
+  "source_url": "https://osf.io/xkqb3/",
+  "citation": "Amunts K. et al. 2013, BigBrain: an ultrahigh-resolution 3D human brain model, Science 340:1472-1475, https://doi.org/10.1126/science.1235381; Xiao Y. et al. 2019, An accurate registration of the BigBrain dataset with the MNI PD25 and ICBM152 atlases, Scientific Data 6:210, https://doi.org/10.1038/s41597-019-0217-0",
+  "derived": "Converted to 8 bits; slide (white) and voxels without data set to 0 so that they are transparent; centred like the Julich-Brain label volume (same grid). Changes made by SYNAPTICA. Not combined with any atlas file."
+}
