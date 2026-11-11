@@ -41,6 +41,11 @@ const TEXT = {
     view3d: "Solo 3D",
     view3dSlice: "3D + corte",
     clip: "Recortar",
+    modes: "Modo de vista",
+    modeColor: "Color",
+    modeAtlas: "Atlas",
+    modeStain: "Tinción",
+    modeStainSoon: "Llega en el paso 7.7",
     titleC: "SYNAPTICA · Visor C",
     subC: "Niivue 0.69.0 · volúmenes propios",
   },
@@ -78,6 +83,11 @@ const TEXT = {
     view3d: "3D only",
     view3dSlice: "3D + slice",
     clip: "Cut away",
+    modes: "View mode",
+    modeColor: "Colour",
+    modeAtlas: "Atlas",
+    modeStain: "Stain",
+    modeStainSoon: "Comes in step 7.7",
     titleC: "SYNAPTICA · Viewer C",
     subC: "Niivue 0.69.0 · our own volumes",
   },
@@ -195,6 +205,8 @@ export function renderLicence(box, lic) {
 // Fills the static texts of the page (data-t="key").
 export function fillTexts() {
   for (const n of document.querySelectorAll("[data-t]")) n.textContent = t[n.dataset.t];
+  for (const n of document.querySelectorAll("[data-t-label]")) n.setAttribute("aria-label", t[n.dataset.tLabel]);
+  for (const n of document.querySelectorAll("[data-t-title]")) n.title = t[n.dataset.tTitle];
   const a = document.getElementById("lang");
   if (a) {
     a.textContent = t.other;
@@ -208,7 +220,7 @@ export function markReady(atlas) {
   ready.add(atlas);
   if (ready.size === 2) {
     performance.mark("s3-interactive");
-    window.__s3 = { interactiveMs: Math.round(performance.getEntriesByName("s3-interactive")[0].startTime) };
+    window.__s3 = { ...window.__s3, interactiveMs: Math.round(performance.getEntriesByName("s3-interactive")[0].startTime) };
     document.body.dataset.ready = "1";
   }
 }

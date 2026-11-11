@@ -25,6 +25,11 @@
 .stage .tag.left { transform: translate(calc(-100% - 10px), -50%); }
 .panel abbr { text-decoration: underline dotted; cursor: help; }
 .panel .small { font-size: 0.8rem; }
+/* Step 7.6: the mode selector, one group of buttons. C only. */
+.modes { display: inline-flex; gap: 0; }
+.modes button { border-radius: 0; }
+.modes button:first-child { border-radius: 6px 0 0 6px; }
+.modes button:last-child { border-radius: 0 6px 6px 0; }
 /* Step 7.5: millimetre ticks over the coronal slice, and what the millimetres are. C only. */
 .stage canvas.axes { position: absolute; inset: 0; pointer-events: none; }
 .planes .frame { margin: 4px 0 0; font-size: 0.8rem; opacity: 0.85; }
@@ -45,6 +50,11 @@
     <button id="viewSlice" aria-pressed="false" data-t="view3dSlice"></button>
     <button id="clip" aria-pressed="false" data-t="clip"></button>
     <button id="isolate" aria-pressed="false" data-t="isolate"></button>
+    <span class="modes" role="group" data-t-label="modes">
+      <button id="modeColor" data-mode="color" aria-pressed="true" data-t="modeColor"></button>
+      <button id="modeAtlas" data-mode="atlas" aria-pressed="false" data-t="modeAtlas"></button>
+      <button id="modeStain" data-mode="stain" aria-pressed="false" data-t="modeStain" disabled data-t-title="modeStainSoon"></button>
+    </span>
     <p class="hint" data-t="hint"></p>
   </div>
   <div class="viewers">

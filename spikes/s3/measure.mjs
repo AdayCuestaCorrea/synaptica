@@ -234,6 +234,7 @@ async function run(i) {
   return {
     run: i,
     interactiveMs: s3 && s3.interactiveMs,
+    edgesMs: s3 && s3.edges, // step 7.6: marking the contours (atlas mode), CPU x4
     wallMs,
     requests: list.length,
     bytes: list.reduce((a, r) => a + (r.bytes || 0), 0),

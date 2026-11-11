@@ -147,3 +147,39 @@ Hecho el 2026-11-11, solo en C.
   - el DV se mide desde la altura de Bregma (sobre el cráneo), no desde la superficie del cerebro.
 - **Comprobado en Brave (escritorio):** con el punto en Bregma, los tres campos dan 0,00; con AP −3,60 y DV −5,00, la cruz del 2D cae en las marcas −5 de z y 0 de x, el hipocampo dorsal está en el corte, la superficie del cerebro queda a unos −1 mm y la base a unos −10 mm; en el humano, y = −20 mm MNI. Con el cráneo plano, Lambda da (−0,08; −8,30; 0,00). Al elegir CA1 derecho en el humano, el centroide del hipocampo de la rata cae en ML +3,84, AP −4,94 y DV −5,42. En «Solo 3D» las marcas desaparecen. Español e inglés, sin errores en la consola. Dos ejecuciones del script dan archivos idénticos.
 - **Test** (`uv run pytest spikes/s3/tests`, sin red): la tabla publicada cumple la fórmula; con el cráneo plano, Bregma da 0, Lambda queda a la altura de Bregma con la misma distancia (−8,2953 mm), el giro es de 6,489° y se deshace; y los mm del visor dan los de la rejilla plana.
+
+## Paso 7.6: selector de modos y atlas en blanco y negro (petición P4)
+
+Hecho el 2026-11-11, solo en C.
+
+- **Selector «Color · Atlas · Tinción»**, un modo a la vez. «Tinción» está desactivado hasta el paso 7.7. Con `?mode=atlas` la página abre en el modo Atlas (sirve para medir).
+- **Modo Atlas:** relleno en grises claros, sacados de la luminosidad del color de cada región en la paleta tranquila (de 175 a 238 sobre 255); la selección y su pareja, en un gris oscuro (125); contornos casi negros (40).
+- **Contornos en 2D:** líneas finas dibujadas sobre el corte coronal, en el mismo lienzo que las marcas en mm, por las caras de vóxel entre dos regiones (o entre una región y el fondo). Solo se miran los vecinos del propio corte, así que un borde paralelo al corte no aparece como una mancha. Con «Aislar selección», solo los contornos de lo que se ve.
+- **Contornos en 3D:** los vóxeles de borde se marcan en el propio volumen (la región r pasa a r + N) y la tabla de colores los pinta oscuros. En el modo Color esas entradas llevan el color de su región, así que las marcas no se ven. Detalles:
+  - se marca un solo lado de cada borde, para que las líneas tengan un vóxel de grosor;
+  - se miran los vecinos en y y en z (cara cortada sagital y superficie lateral) y, solo en la superficie exterior, también en x. Así la cara cortada no tiene manchas;
+  - el plano coronal bajo el corte 2D se deja sin marcas mientras se ve el corte, y se restaura al moverlo. Si no, los bordes a lo largo de y saldrían como manchas en el 2D.
+- **Niivue ya tiene un contorno de atlas** (`setAtlasOutline`), pero no sirve aquí. Mira los seis vecinos, así que en el 2D salen manchas, y cuenta el fondo como vecino, así que en 3D pinta de negro toda la superficie.
+- **Sin archivos nuevos.** Los contornos se calculan en el navegador, a partir del mismo volumen de etiquetas, la primera vez que se elige el modo Atlas. Así no hay ningún dato derivado nuevo que licenciar y nunca se juntan los dos atlas: cada visor trabaja solo con su volumen.
+- **Mediciones** (`QUERY=?mode=atlas`, móvil emulado con Slow 4G, CPU ×4 y gzip; `results/measure-c-gzip-color.json` y `measure-c-gzip-atlas.json`, tres ejecuciones cada una):
+
+  | | Modo Color | Modo Atlas |
+  |---|---|---|
+  | Peso transferido | 1,954 MB | 1,954 MB (+0 bytes) |
+  | Listo para usar | 16,6–16,8 s | 17,4–17,5 s |
+  | Cálculo de los contornos (CPU ×4) | — | rata 377–484 ms · humano 184–194 ms |
+  | Peticiones a otros dominios | ninguna | ninguna |
+
+  - El código de C crece 2,6 KB con gzip (`c.js`, de 9,6 a 11,9 KB).
+  - Respecto al paso 6 (1,914 MB), la página pesa 40 KB más por los pasos 7.2–7.6 (centroides, `coords.json` y código).
+  - En escritorio, los contornos se calculan en 89 ms (rata) y 80 ms (humano). Mover el corte coronal en el modo Atlas tarda unos 53 ms, porque Niivue vuelve a subir el volumen entero a la GPU. Con la CPU ×4 será más; se mide en el paso 7.9.
+  - La fluidez al girar no cambia (los mismos 3 fps a DPR 3 con WebGL por software).
+- **Comprobado en Brave (escritorio):**
+  - en Solo 3D y en 3D + corte, los dos atlas en grises con contornos en el 3D, en la cara cortada y en el corte 2D, que parece una lámina de atlas;
+  - sin manchas en el corte al moverlo;
+  - el clic en el corte elige la región (SUB) y el humano resalta su pareja en gris oscuro;
+  - «Aislar» deja en el 3D solo la selección y, en el 2D, sus contornos;
+  - al volver a Color no queda rastro de los contornos;
+  - en español y en inglés, sin errores en la consola.
+- **Ya pasaba antes, no es nuevo:** con «Aislar», el corte 2D sigue mostrando las demás regiones en gris (también en el modo Color).
+

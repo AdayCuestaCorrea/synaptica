@@ -16,7 +16,8 @@ const AZIMUTH = 90;
 // (its issue 1139): with ~450 labels, background and the first labels all land on entry 3-4,
 // opaque. So, in this viewer only, labels move up by OFFSET when the volume is loaded: entries
 // 0..OFFSET-1 are left empty and transparent. Data files keep the plain indices.
-const OFFSET = 8;
+// With the atlas mode's edge labels (step 7.6) the table doubles (~900 entries, lift ~7), so 16.
+const OFFSET = 16;
 const ELEVATION = 0;
 // The cut is always sagittal (P2). Niivue's clip plane is dot(n, p - 0.5) + depth = 0 in volume
 // fractions, with n from (azimuth + 180, elevation): for azimuth 270 and elevation 0, n = +x, so
@@ -196,7 +197,23 @@ function panelPartner(box, source, pair) {
   if (P.origName) box.append(h("p", { class: "muted small" }, P.origName));
 }
 
-const state = { view: "3d", clip: false, isolate: false };
+// Step 7.6 (P4): one way of looking at a time. "color": the calm palette; "atlas": black and
+// white, grey fill and contours, like a printed atlas plate; "stain": step 7.7.
+const MODES = ["color", "atlas"];
+const askedMode = new URLSearchParams(location.search).get("mode");
+const state = {
+  view: "3d", clip: false, isolate: false, mode: MODES.includes(askedMode) ? askedMode : "color",
+};
+// Atlas mode: fill grey from the lightness of the region's colour, kept light so the contours
+// read; the selection and its counterpart, darker. Contours, almost black.
+const GREY = { lo: 175, hi: 238, focus: 125, edge: 40 };
+
+function greyOf(rgb) {
+  const l = (0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]) / 255; // ~0.65-0.92 in calm
+  const t = Math.min(1, Math.max(0, (l - 0.6) / 0.35));
+  const g = Math.round(GREY.lo + t * (GREY.hi - GREY.lo));
+  return [g, g, g];
+}
 
 function hex(c) {
   const n = parseInt((c || "#888888").slice(1), 16);
@@ -213,6 +230,8 @@ class VolumeViewer {
     this.status = section.querySelector(".status");
     this.focus = new Set(); // row indices shown at full strength
     this.selectedIndex = null;
+    this.n = rows.length; // atlas mode: the edge voxels of region r hold r + n (step 7.6)
+    this.edges = null; // set the first time the atlas mode is chosen
     this.onPick = () => {};
     this.nv = new Niivue({
       backColor: BACK,
@@ -290,25 +309,119 @@ class VolumeViewer {
 
   colormap() {
     const R = [], G = [], B = [], A = [], I = [], labels = [];
-    for (const r of this.rows) {
-      const focused = r.index && this.focus.has(r.index);
-      let [red, green, blue] = r.index ? hex(focused ? strong(colourOf(r)) : colourOf(r)) : [0, 0, 0];
-      let a = r.index ? 255 : 0;
-      // While something is selected the rest goes grey (alpha barely shows in the 3D render of
-      // a label volume), or disappears when isolating.
-      if (r.index && this.focus.size && !this.focus.has(r.index)) {
-        const grey = Math.round(0.15 * (red + green + blue) / 3 + 0.85 * 150);
-        [red, green, blue] = [grey, grey, grey];
-        if (state.isolate) a = 0;
+    const atlas = state.mode === "atlas";
+    // Edge entries (index + n) exist once the edges have been marked; in colour mode they take
+    // the region's own colour, so the marks do not show.
+    for (const edge of this.edges ? [false, true] : [false]) {
+      for (const r of this.rows) {
+        if (edge && !r.index) continue;
+        const focused = r.index && this.focus.has(r.index);
+        let rgb = r.index ? hex(focused ? strong(colourOf(r)) : colourOf(r)) : [0, 0, 0];
+        let a = r.index ? 255 : 0;
+        if (atlas && r.index) {
+          rgb = edge ? [GREY.edge, GREY.edge, GREY.edge]
+            : focused ? [GREY.focus, GREY.focus, GREY.focus] : greyOf(hex(colourOf(r)));
+        }
+        // While something is selected the rest goes grey (alpha barely shows in the 3D render
+        // of a label volume), or disappears when isolating.
+        if (r.index && this.focus.size && !focused) {
+          if (!atlas) {
+            const grey = Math.round(0.15 * (rgb[0] + rgb[1] + rgb[2]) / 3 + 0.85 * 150);
+            rgb = [grey, grey, grey];
+          }
+          if (state.isolate) a = 0;
+        }
+        R.push(rgb[0]); G.push(rgb[1]); B.push(rgb[2]); A.push(a);
+        I.push(r.index ? r.index + OFFSET + (edge ? this.n : 0) : 0);
+        labels.push(r.index ? `${r.acronym || r.name} ${r.side}${edge ? " edge" : ""}` : "");
       }
-      R.push(red); G.push(green); B.push(blue); A.push(a); I.push(r.index ? r.index + OFFSET : 0);
-      labels.push(r.index ? `${r.acronym || r.name} ${r.side}` : "");
     }
     return { R, G, B, A, I, labels };
   }
 
+  // Step 7.6: region index of a stored voxel value (0 = background), with or without edge mark.
+  regionOf(value) {
+    const v = value > OFFSET ? value - OFFSET : 0;
+    return v >= this.n ? v - this.n : v;
+  }
+
+  // Step 7.6, contours in 3D: mark, once, the voxels on a border between two regions, in the
+  // volume itself (region r → r + n), so the 3D render draws them dark in atlas mode. Computed
+  // here from the loaded labels: no extra file. One side of each border only (thin lines), and
+  // only borders seen in the 3D view: across y and z (the sagittal cut face and the lateral
+  // surface) and, on the outer surface only, across x. Borders across y would leave patches on a
+  // coronal slice, so the plane under the 2D slice is kept unmarked (cleanSlice); its contours
+  // are drawn as lines over it (drawContours).
+  markEdges() {
+    if (this.edges) return;
+    const t0 = performance.now();
+    const img = this.vol.img;
+    const [, nx, ny, nz] = this.vol.hdr.dims;
+    const sx = 1, sy = nx, sz = nx * ny;
+    const n = this.n;
+    const base = (i) => this.regionOf(img[i]);
+    let marked = 0;
+    for (let z = 0; z < nz; z++) {
+      for (let y = 0; y < ny; y++) {
+        for (let x = 0, i = y * sy + z * sz; x < nx; x++, i++) {
+          const a = base(i);
+          if (!a) continue;
+          const xp = x + 1 < nx ? base(i + sx) : 0;
+          const xm = x > 0 ? base(i - sx) : 0;
+          const yp = y + 1 < ny ? base(i + sy) : 0;
+          const ym = y > 0 ? base(i - sy) : 0;
+          const zp = z + 1 < nz ? base(i + sz) : 0;
+          const zm = z > 0 ? base(i - sz) : 0;
+          const surface = !xp || !xm || !yp || !ym || !zp || !zm;
+          // a border is marked on the side with the lower index only
+          const edge = yp > a || ym > a || zp > a || zm > a || (surface && (xp > a || xm > a));
+          if (edge) {
+            img[i] += n;
+            marked++;
+          }
+        }
+      }
+    }
+    this.vol.calMinMax();
+    this.edges = { ms: Math.round(performance.now() - t0), marked, slice: null };
+    (window.__s3 ||= {}).edges = { ...(window.__s3.edges || {}), [this.atlas]: this.edges.ms };
+  }
+
+  // Keep the coronal plane under the 2D slice free of edge marks while the slice is shown in
+  // atlas mode; put the previous plane's marks back. Returns true if the volume changed.
+  cleanSlice() {
+    if (!this.edges) return false;
+    const want = state.mode === "atlas" && state.view !== "3d"
+      ? this.vol.convertFrac2Vox(this.nv.scene.crosshairPos)[1] : null;
+    const e = this.edges;
+    if (e.slice && e.slice.y === want) return false;
+    if (!e.slice && want == null) return false;
+    const img = this.vol.img;
+    const [, nx, ny, nz] = this.vol.hdr.dims;
+    if (e.slice) {
+      for (let z = 0, k = 0; z < nz; z++) {
+        for (let x = 0; x < nx; x++, k++) img[x + e.slice.y * nx + z * nx * ny] = e.slice.saved[k];
+      }
+      e.slice = null;
+    }
+    if (want != null) {
+      const saved = new Uint16Array(nx * nz);
+      for (let z = 0, k = 0; z < nz; z++) {
+        for (let x = 0; x < nx; x++, k++) {
+          const i = x + want * nx + z * nx * ny;
+          saved[k] = img[i];
+          if (img[i] >= OFFSET + this.n) img[i] -= this.n;
+        }
+      }
+      e.slice = { y: want, saved };
+    }
+    return true;
+  }
+
   apply() {
     if (!this.vol) return;
+    if (state.mode === "atlas") this.markEdges();
+    this.cleanSlice();
     this.vol.setColormapLabel(this.colormap());
     this.nv.updateGLVolume();
     this.layout();
@@ -388,6 +501,7 @@ class VolumeViewer {
   syncPlanes() {
     const pos = this.nv.scene.crosshairPos;
     if (state.clip) this.nv.setClipPlane(clipAt(pos[0]));
+    if (this.vol && this.cleanSlice()) this.nv.updateGLVolume();
     if (!this.sliders) return;
     const mm = this.nv.frac2mm(pos);
     for (const axis of [0, 1, 2]) {
@@ -425,7 +539,7 @@ class VolumeViewer {
       );
       const key = tile
         ? JSON.stringify([tile.leftTopWidthHeight, tile.leftTopMM, tile.fovMM, this.nv.scene.crosshairPos,
-          this.canvas.width, this.canvas.height])
+          this.canvas.width, this.canvas.height, state.mode, state.isolate, [...this.focus]])
         : "";
       if (key !== last) {
         last = key;
@@ -449,6 +563,7 @@ class VolumeViewer {
     // radiological); vertical mm = leftTopMM[1] + D * fovMM[1], D = 1 - (Y - top) / height.
     const toX = (mm) => left + ((mm - tile.leftTopMM[0]) / tile.fovMM[0]) * w;
     const toY = (mm) => top + (1 - (mm - tile.leftTopMM[1]) / tile.fovMM[1]) * hgt;
+    if (state.mode === "atlas") this.drawContours(g, toX, toY, dpr);
     const c = this.coords;
     const fg = getComputedStyle(this.section).color;
     g.fillStyle = fg;
@@ -500,6 +615,44 @@ class VolumeViewer {
     g.fillText(text, x0 + 8 * dpr, top + 8 * dpr);
   }
 
+  // Step 7.6, contours in 2D: lines along the voxel faces between two regions (or a region and
+  // the background) of the coronal slice, neighbours in the slice only, so a border lying along
+  // the slice never shows as a patch. Isolating keeps only the borders of what is shown.
+  drawContours(g, toX, toY, dpr) {
+    const img = this.vol.img;
+    const [, nx, ny, nz] = this.vol.hdr.dims;
+    const y = this.vol.convertFrac2Vox(this.nv.scene.crosshairPos)[1];
+    // Voxel centres are at affine * index (RAS, diagonal); faces half a voxel away.
+    const m = this.vol.hdr.affine;
+    const fx = (i) => toX(m[0][0] * (i - 0.5) + m[0][3]);
+    const fz = (k) => toY(m[2][2] * (k - 0.5) + m[2][3]);
+    const at = (x, z) => (x < 0 || x >= nx || z < 0 || z >= nz ? 0
+      : this.regionOf(img[x + y * nx + z * nx * ny]));
+    const only = state.isolate && this.focus.size ? this.focus : null;
+    const shown = (a) => a && (!only || only.has(a));
+    const path = new Path2D();
+    for (let z = 0; z <= nz; z++) {
+      for (let x = 0; x <= nx; x++) {
+        const a = at(x, z);
+        const left = at(x - 1, z);
+        const below = at(x, z - 1);
+        if (a !== left && (shown(a) || shown(left))) {
+          path.moveTo(fx(x), fz(z));
+          path.lineTo(fx(x), fz(z + 1));
+        }
+        if (a !== below && (shown(a) || shown(below))) {
+          path.moveTo(fx(x), fz(z));
+          path.lineTo(fx(x + 1), fz(z));
+        }
+      }
+    }
+    g.save();
+    g.strokeStyle = `rgb(${GREY.edge} ${GREY.edge} ${GREY.edge})`;
+    g.lineWidth = Math.max(1, dpr * 0.75);
+    g.stroke(path);
+    g.restore();
+  }
+
   layout() {
     const nv = this.nv;
     nv.setClipPlane(state.clip ? clipAt(nv.scene.crosshairPos[0]) : [2, 0, 0]);
@@ -528,7 +681,7 @@ class VolumeViewer {
 
   picked(loc) {
     const raw = loc && loc.values && loc.values[0] ? Math.round(loc.values[0].value) : 0;
-    const v = raw > OFFSET ? raw - OFFSET : 0;
+    const v = this.regionOf(raw);
     this.showTag(v ? this.rows[v] : null);
     if (v === this.selectedIndex) return;
     this.selectedIndex = v || null;
@@ -637,6 +790,18 @@ toggle("clip", (b) => {
   state.clip = !state.clip;
   b.setAttribute("aria-pressed", String(state.clip));
 });
+// Step 7.6: the mode selector, one mode at a time. "Tinción" arrives in step 7.7.
+const modeButtons = [...document.querySelectorAll("[data-mode]")];
+const showMode = () =>
+  modeButtons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.mode === state.mode)));
+showMode();
+for (const b of modeButtons) {
+  if (!MODES.includes(b.dataset.mode)) continue;
+  toggle(b.id, () => {
+    state.mode = b.dataset.mode;
+    showMode();
+  });
+}
 toggle("isolate", (b) => {
   state.isolate = !state.isolate;
   b.setAttribute("aria-pressed", String(state.isolate));
