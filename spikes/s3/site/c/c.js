@@ -43,7 +43,8 @@ const FRAME = {
     bregma: {
       axes: { x: "ML · x (3D)", y: "AP · y (2D)", z: "DV · z" },
       title: "Milímetros desde Bregma",
-      lambda: (ap, dv) => `Lambda está a ${ap} mm (AP) y ${dv} mm (DV) de Bregma.`,
+      lambda: (ap, deg) =>
+        `Cráneo plano: el atlas se ha girado ${deg}° para dejar Lambda a la altura de Bregma, a ${ap} mm (AP).`,
       approx: "Son las coordenadas del animal del atlas: en otra rata, aproximadas.",
       source: "Bregma y Lambda: tabla de",
       cite: "Papp y Bjaalie (2014)",
@@ -61,7 +62,8 @@ const FRAME = {
     bregma: {
       axes: { x: "ML · x (3D)", y: "AP · y (2D)", z: "DV · z" },
       title: "Millimetres from Bregma",
-      lambda: (ap, dv) => `Lambda is ${ap} mm (AP) and ${dv} mm (DV) from Bregma.`,
+      lambda: (ap, deg) =>
+        `Flat skull: the atlas is turned ${deg}° so that Lambda is at Bregma's height, ${ap} mm (AP) away.`,
       approx: "These are the coordinates of the atlas animal: approximate for any other rat.",
       source: "Bregma and Lambda: table by",
       cite: "Papp and Bjaalie (2014)",
@@ -400,7 +402,7 @@ class VolumeViewer {
     const c = this.coords;
     const parts = [h("strong", {}, F.title), ". "];
     const lam = c.landmarks.lambda;
-    if (lam) parts.push(F.lambda(fmt(lam.shown_mm[1]), fmt(lam.shown_mm[2])), " ", F.approx, " ");
+    if (lam) parts.push(F.lambda(fmt(lam.shown_mm[1]), fmt(c.flat_skull_deg, 1).replace(/^\+/, "")), " ", F.approx, " ");
     parts.push(
       F.source, " ",
       h("a", { href: c.source.url, rel: "noopener" }, F.cite),

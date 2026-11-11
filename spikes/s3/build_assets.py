@@ -38,7 +38,15 @@ from pathlib import Path
 import numpy as np
 import requests
 import requests.utils
-from coords import human_mni_map, rat_bregma_map
+from coords import (
+    WHS_ORIGIN_VOXEL,
+    WHS_VOXEL_MM,
+    flat_skull_angle,
+    flat_to_whs,
+    human_mni_map,
+    rat_flat_map,
+    whs_to_flat,
+)
 
 USER_AGENT = "synaptica-spike/0.1"
 requests.utils.default_user_agent = lambda *_: USER_AGENT
@@ -209,6 +217,42 @@ def calm_colours(members: list[tuple[str, list[str], object]]) -> dict[object, t
     return out
 
 
+def flat_skull(ras: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """Turn the 39 µm Waxholm labels to flat skull (step 7.5, option A), nearest neighbour.
+
+    Input: RAS labels on the WHS v1.01 grid (voxel v is at 0.0390625 * (v - origin voxel) WHS mm).
+    Output: labels on a grid of the same voxel size in mm from Bregma, flat skull (coords.py):
+    voxel u is at grid_min + u * 0.0390625. Only the box around the brain is resampled.
+    """
+    import itertools
+
+    from scipy import ndimage
+
+    (box,) = ndimage.find_objects((ras > 0).astype(np.uint8))
+    lo = np.array([b.start for b in box])
+    hi = np.array([b.stop - 1 for b in box])
+    o = np.array(WHS_ORIGIN_VOXEL)
+    corners = np.array(
+        [
+            whs_to_flat(tuple(WHS_VOXEL_MM * (np.array(c) - o)))
+            for c in itertools.product(*zip(lo, hi, strict=True))
+        ]
+    )
+    v = WHS_VOXEL_MM
+    grid_min = np.floor(corners.min(axis=0) / v) * v - v
+    grid_max = np.ceil(corners.max(axis=0) / v) * v + v
+    shape = tuple(int(n) for n in np.rint((grid_max - grid_min) / v) + 1)
+    a = flat_skull_angle()
+    # Output index u → input index: flat_to_whs(grid_min + u * v) / v + o - lo. Same voxel size,
+    # so the linear part is the inverse turn.
+    turn = np.array([[1, 0, 0], [0, np.cos(a), np.sin(a)], [0, -np.sin(a), np.cos(a)]])
+    offset = np.array(flat_to_whs(tuple(grid_min))) / v + o - lo
+    flat = ndimage.affine_transform(
+        ras[box], turn, offset=offset, output_shape=shape, order=0, mode="constant", cval=0
+    )
+    return flat, grid_min
+
+
 def majority_downsample(vol: np.ndarray, f: int, keep_small: bool = False) -> np.ndarray:
     """Each block of fxfxf voxels takes the value most voxels in it have (ties: lowest).
 
@@ -336,7 +380,18 @@ def waxholm() -> dict:
 
     # Full resolution → RAS (x right, y anterior, z superior), axes flipped as needed.
     ras = np.ascontiguousarray(np.flip(np.transpose(compact, (2, 0, 1)), axis=(0, 1, 2)))
+    before = np.bincount(ras.ravel(), minlength=len(rows))
+    # Step 7.5, option A (Aday): flat skull, on a 39.0625 µm grid in mm from Bregma.
+    ras, grid_min = flat_skull(ras)
     full = np.bincount(ras.ravel(), minlength=len(rows))
+    flat_report = {
+        "angle_deg": round(float(np.degrees(flat_skull_angle())), 3),
+        "shape": list(ras.shape),
+        "grid_min_mm": [round(float(x), 6) for x in grid_min],
+        "labels_lost": [f"{r['acronym']} {r['side']}" for r in rows[1:] if not full[r["index"]]],
+        "voxels_ratio_min": round(float(np.min(full[1:] / np.maximum(before[1:], 1))), 3),
+        "voxels_ratio_max": round(float(np.max(full[1:] / np.maximum(before[1:], 1))), 3),
+    }
     measured = {}
     out = OUT / "waxholm"
     out.mkdir(parents=True, exist_ok=True)
@@ -346,14 +401,17 @@ def waxholm() -> dict:
             ds = majority_downsample(ras, f, keep_small=keep)
             cnt = np.bincount(ds.ravel(), minlength=len(rows))
             lost = [r for r in rows[1:] if cnt[r["index"]] == 0]
-            vmm = WAXHOLM_UM * f / 1000
+            vmm = WHS_VOXEL_MM * f
             origin = -np.array(ds.shape) * vmm / 2
             chosen = f == WAXHOLM_FACTOR and keep == WAXHOLM_KEEP_SMALL
             size = save_nifti(out / "labels.nii.gz" if chosen else tmp, ds, vmm, origin)
             if chosen:
                 add_centroids(rows, ds, vmm, origin)
-                # Step 7.5 (P7): mm from Bregma, from the published WHS table (coords.py).
-                write_json(out / "coords.json", rat_bregma_map(f, vmm, tuple(origin.tolist())))
+                # Step 7.5 (P7): mm from Bregma, flat skull, from the published WHS table.
+                write_json(
+                    out / "coords.json",
+                    rat_flat_map(tuple(grid_min), WHS_VOXEL_MM, f, tuple(origin.tolist())),
+                )
             smallest = sorted(rows[1:], key=lambda r: full[r["index"]])[:5]
             measured[f"{round(WAXHOLM_UM * f)}um" + ("_keep_small" if keep else "")] = {
                 "factor": f,
@@ -396,6 +454,7 @@ def waxholm() -> dict:
     )
     return {
         "regions_with_side": len(rows) - 1,
+        "flat_skull": flat_report,
         "resolutions": measured,
         "chosen": f"{round(WAXHOLM_UM * WAXHOLM_FACTOR)}um"
         + ("_keep_small" if WAXHOLM_KEEP_SMALL else ""),

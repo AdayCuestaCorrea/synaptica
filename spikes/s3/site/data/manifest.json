@@ -1,263 +1,278 @@
 {
   "waxholm": {
     "regions_with_side": 447,
+    "flat_skull": {
+      "angle_deg": 6.489,
+      "shape": [
+        514,
+        1065,
+        558
+      ],
+      "grid_min_mm": [
+        -9.648438,
+        -25.703125,
+        -17.34375
+      ],
+      "labels_lost": [],
+      "voxels_ratio_min": 0.989,
+      "voxels_ratio_max": 1.015
+    },
     "resolutions": {
       "78um": {
         "factor": 2,
         "keep_small": false,
         "shape": [
-          256,
-          512,
-          256
+          257,
+          533,
+          279
         ],
-        "bytes_nifti_gz": 1514794,
-        "labels_lost": [
-          "CC L"
-        ],
+        "bytes_nifti_gz": 1586976,
+        "labels_lost": [],
         "smallest_full_vs_down": {
           "CC L": [
-            141,
-            0
+            140,
+            14
           ],
           "hbc R": [
-            670,
-            71
+            663,
+            68
           ],
           "cst L": [
-            684,
-            90
+            690,
+            92
           ],
           "PP L": [
-            712,
+            714,
             89
           ],
           "hbc L": [
-            750,
-            77
+            746,
+            84
           ]
         },
         "test_regions_voxels": {
-          "M1 L": 42500,
-          "M1 R": 41266,
-          "HF L": 119266,
-          "HF R": 121872,
-          "Am-u L": 50888,
-          "Am-u R": 52659
+          "M1 L": 42465,
+          "M1 R": 41289,
+          "HF L": 119465,
+          "HF R": 121828,
+          "Am-u L": 51034,
+          "Am-u R": 52786
         }
       },
       "78um_keep_small": {
         "factor": 2,
         "keep_small": true,
         "shape": [
-          256,
-          512,
-          256
+          257,
+          533,
+          279
         ],
-        "bytes_nifti_gz": 1514804,
+        "bytes_nifti_gz": 1586976,
         "labels_lost": [],
         "smallest_full_vs_down": {
           "CC L": [
-            141,
-            1
+            140,
+            14
           ],
           "hbc R": [
-            670,
-            71
+            663,
+            68
           ],
           "cst L": [
-            684,
-            90
+            690,
+            92
           ],
           "PP L": [
-            712,
+            714,
             89
           ],
           "hbc L": [
-            750,
-            77
+            746,
+            84
           ]
         },
         "test_regions_voxels": {
-          "M1 L": 42500,
-          "M1 R": 41266,
-          "HF L": 119266,
-          "HF R": 121872,
-          "Am-u L": 50888,
-          "Am-u R": 52659
+          "M1 L": 42465,
+          "M1 R": 41289,
+          "HF L": 119465,
+          "HF R": 121828,
+          "Am-u L": 51034,
+          "Am-u R": 52786
         }
       },
       "117um": {
         "factor": 3,
         "keep_small": false,
         "shape": [
-          171,
-          342,
-          171
+          172,
+          355,
+          186
         ],
-        "bytes_nifti_gz": 536465,
+        "bytes_nifti_gz": 549456,
         "labels_lost": [
-          "CC L"
+          "CC L",
+          "CC R",
+          "mlx R"
         ],
         "smallest_full_vs_down": {
           "CC L": [
-            141,
+            140,
             0
           ],
           "hbc R": [
-            670,
-            23
+            663,
+            18
           ],
           "cst L": [
-            684,
-            14
+            690,
+            15
           ],
           "PP L": [
-            712,
-            28
+            714,
+            24
           ],
           "hbc L": [
-            750,
-            20
+            746,
+            28
           ]
         },
         "test_regions_voxels": {
-          "M1 L": 12818,
-          "M1 R": 12434,
-          "HF L": 35657,
-          "HF R": 36580,
-          "Am-u L": 15386,
-          "Am-u R": 15968
+          "M1 L": 12856,
+          "M1 R": 12408,
+          "HF L": 35740,
+          "HF R": 36411,
+          "Am-u L": 15430,
+          "Am-u R": 15992
         }
       },
       "117um_keep_small": {
         "factor": 3,
         "keep_small": true,
         "shape": [
-          171,
-          342,
-          171
+          172,
+          355,
+          186
         ],
-        "bytes_nifti_gz": 536470,
+        "bytes_nifti_gz": 549466,
         "labels_lost": [],
         "smallest_full_vs_down": {
           "CC L": [
-            141,
+            140,
             1
           ],
           "hbc R": [
-            670,
-            23
+            663,
+            18
           ],
           "cst L": [
-            684,
-            14
+            690,
+            15
           ],
           "PP L": [
-            712,
-            28
+            714,
+            24
           ],
           "hbc L": [
-            750,
-            20
+            746,
+            28
           ]
         },
         "test_regions_voxels": {
-          "M1 L": 12818,
-          "M1 R": 12434,
-          "HF L": 35657,
-          "HF R": 36580,
-          "Am-u L": 15386,
-          "Am-u R": 15968
+          "M1 L": 12856,
+          "M1 R": 12408,
+          "HF L": 35740,
+          "HF R": 36411,
+          "Am-u L": 15430,
+          "Am-u R": 15992
         }
       },
       "156um": {
         "factor": 4,
         "keep_small": false,
         "shape": [
-          128,
-          256,
-          128
+          129,
+          267,
+          140
         ],
-        "bytes_nifti_gz": 267339,
+        "bytes_nifti_gz": 272793,
         "labels_lost": [
-          "CC L",
-          "CC R"
+          "CC L"
         ],
         "smallest_full_vs_down": {
           "CC L": [
-            141,
+            140,
             0
           ],
           "hbc R": [
-            670,
-            9
+            663,
+            8
           ],
           "cst L": [
-            684,
-            5
+            690,
+            6
           ],
           "PP L": [
-            712,
+            714,
             11
           ],
           "hbc L": [
-            750,
-            11
+            746,
+            9
           ]
         },
         "test_regions_voxels": {
-          "M1 L": 5348,
-          "M1 R": 5218,
-          "HF L": 15118,
-          "HF R": 15461,
-          "Am-u L": 6542,
-          "Am-u R": 6740
+          "M1 L": 5363,
+          "M1 R": 5241,
+          "HF L": 15101,
+          "HF R": 15459,
+          "Am-u L": 6485,
+          "Am-u R": 6745
         }
       },
       "156um_keep_small": {
         "factor": 4,
         "keep_small": true,
         "shape": [
-          128,
-          256,
-          128
+          129,
+          267,
+          140
         ],
-        "bytes_nifti_gz": 267361,
+        "bytes_nifti_gz": 272794,
         "labels_lost": [],
         "smallest_full_vs_down": {
           "CC L": [
-            141,
+            140,
             1
           ],
           "hbc R": [
-            670,
-            9
+            663,
+            8
           ],
           "cst L": [
-            684,
-            5
+            690,
+            6
           ],
           "PP L": [
-            712,
+            714,
             11
           ],
           "hbc L": [
-            750,
-            11
+            746,
+            9
           ]
         },
         "test_regions_voxels": {
-          "M1 L": 5348,
-          "M1 R": 5218,
-          "HF L": 15118,
-          "HF R": 15461,
-          "Am-u L": 6542,
-          "Am-u R": 6740
+          "M1 L": 5363,
+          "M1 R": 5241,
+          "HF L": 15101,
+          "HF R": 15459,
+          "Am-u L": 6485,
+          "Am-u R": 6745
         }
       }
     },
     "chosen": "117um_keep_small",
-    "bytes_total": 695102,
+    "bytes_total": 708233,
     "within_budget": true
   },
   "julich": {
@@ -272,9 +287,9 @@
     "julich/labels.json": 145078,
     "julich/labels.nii.gz": 539219,
     "julich/licence.json": 967,
-    "waxholm/coords.json": 1191,
-    "waxholm/labels.json": 156641,
-    "waxholm/labels.nii.gz": 536470,
+    "waxholm/coords.json": 1230,
+    "waxholm/labels.json": 156737,
+    "waxholm/labels.nii.gz": 549466,
     "waxholm/licence.json": 800
   }
 }

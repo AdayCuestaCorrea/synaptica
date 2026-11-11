@@ -1,15 +1,17 @@
 {
   "frame": "bregma",
+  "flat_skull": true,
+  "flat_skull_deg": 6.489,
   "axes": {
     "x": "ML",
     "y": "AP",
     "z": "DV"
   },
-  "scale": 1.00160256,
+  "scale": 1.0,
   "offset": [
-    0.449219,
-    -5.429688,
-    -7.128906
+    0.46875,
+    -4.863281,
+    -6.40625
   ],
   "landmarks": {
     "bregma": {
@@ -19,9 +21,9 @@
         7.5
       ],
       "viewer_mm": [
-        -0.4485,
-        5.421,
-        7.1175
+        -0.4688,
+        4.8633,
+        6.4062
       ],
       "shown_mm": [
         0.0,
@@ -36,14 +38,14 @@
         8.4375
       ],
       "viewer_mm": [
-        -0.5265,
-        -2.808,
-        8.0535
+        -0.5469,
+        -3.4321,
+        6.4062
       ],
       "shown_mm": [
         -0.0781,
-        -8.2422,
-        0.9375
+        -8.2953,
+        0.0
       ]
     }
   },
@@ -52,5 +54,5 @@
     "url": "https://www.nitrc.org/docman/view.php/1081/2095/Coordinates_v1-v1.01.pdf",
     "table": "WHS SDr v1.01, high resolution (39 µm): voxels and WHS mm"
   },
-  "note": "Atlas coordinates of one animal (Waxholm): approximate for any other rat. The skull is not flat-skull: Lambda is 0.94 mm above Bregma."
+  "note": "Atlas coordinates of one animal (Waxholm), turned to flat skull (Bregma and Lambda at the same height): approximate for any other rat."
 }
