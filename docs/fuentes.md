@@ -21,7 +21,7 @@ Resultado del spike **S1** (`SCOPE.md` §5 y §7). Para cada fuente: cómo se ac
 | ↳ alternativa: **Crossref por ISSN** | `api.crossref.org/journals/{ISSN}/works` | Igual que Crossref (abajo) | No | Igual que Crossref | Funciona. Hay que usar el **ISSN impreso para Cell Press** (Cell 0092-8674, Neuron 0896-6273); el electrónico da 404. En 14 días: Nature 202, Science 92, Science Advances 162, Nature Neuroscience 16, Cell 7, Neuron 5 |
 | **ScienceDaily** (Neuroscience) | RSS `rss/mind_brain/neuroscience.xml` | Sin límite publicado | No | Términos de sus RSS: texto sin modificar y con atribución (los mismos que en Paleo) | 61 items, 51 con una palabra de neuro en el título |
 | **The Conversation** | Atom por tema: EN `topics/neuroscience-427`; ES `es/topics/neurociencia-55189` y `es/topics/cerebro-54660` | Sin límite publicado | No | CC BY-ND 4.0 (como en Paleo) | 25 items por feed; 16, 11 y 15 con una palabra de neuro en el título. **Ojo:** los ID de tema que adiviné llevaban a otros temas («Birth control», «Property»). Los buenos salieron del buscador de la web |
-| **SINC** | RSS `agenciasinc.es/feed/{sección}` | Sin límite publicado; una petición al día basta. Cada feed trae 150 items (unos 3 MB) | No | CC BY 4.0 (como en Paleo) | El 2026-11-09 estaba caído (503 del CDN). **Medido de nuevo el 2026-11-11:** *Salud* cubre 127 días, con 20 items de neuro en el título (1,1 por semana), e incluye opinión y entrevistas; *Noticias* cubre 46 días, con 8 de neuro (1,2 por semana), mezcla todas las categorías e incluye 46 de los 51 items de Salud de esos días, más noticias de neuro en *Tierra* (animales) que Salud no trae. Fixtures con 12 items |
+| **SINC** | RSS `agenciasinc.es/feed/Noticias` (**elegida** el 2026-11-11; descartada `feed/Salud`) | Sin límite publicado; una petición al día basta. Cada feed trae 150 items (unos 3 MB) | No | CC BY 4.0 (como en Paleo) | El 2026-11-09 estaba caído (503 del CDN). **Medido de nuevo el 2026-11-11:** *Salud* cubre 127 días, con 20 items de neuro en el título (1,1 por semana), e incluye opinión y entrevistas; *Noticias* cubre 46 días, con 8 de neuro (1,2 por semana), mezcla todas las categorías e incluye 46 de los 51 items de Salud de esos días, más noticias de neuro en *Tierra* (animales) que Salud no trae. Fixtures con 12 items |
 | **Crossref** | `works/{DOI}`; `works?filter=update-type:…` | Con `mailto`: **10 peticiones/s y 3 concurrentes** por DOI, pero **3/s en las consultas de lista**. *Medido* con las cabeceras `x-rate-limit-*` | No | Metadatos sin restricciones | `works/{DOI}` trae `updated-by`, **con los datos de Retraction Watch incluidos**. Lesné et al. 2006 (10.1038/nature04533) aparece como retractado por el editor y por Retraction Watch, y con una expresión de preocupación. Avisos de los últimos 30 días, en todas las disciplinas: 5918 retractaciones y 3814 correcciones |
 | **OpenAlex** | `works?filter=primary_topic.field.id:28,…&sort=cited_by_count:desc` | **Sin clave:** 10 peticiones/s y unas 1000 consultas de lista al día (*medido* con la cabecera `x-ratelimit-limit: 1000`). **Con la clave gratuita:** 30/s y 10 veces más presupuesto. `search=` cuesta 10 veces más que `filter=` (*documentado*) | No hace falta para la propuesta semanal de Clásicos; existe una clave gratuita sin tarjeta | CC0 | El campo 28 es Neuroscience (comprobado en la respuesta): 103 445 trabajos de 2016; el más citado tiene 8951 citas |
 
@@ -44,11 +44,15 @@ Resultado del spike **S1** (`SCOPE.md` §5 y §7). Para cada fuente: cómo se ac
 - **Nature, Science y Cell no necesitan Crossref:** los RSS bastan, y Crossref queda como respaldo.
 - **Retractaciones:** una consulta por DOI en Crossref da la señal de retractación y de corrección, con Retraction Watch incluido.
 - **Clásicos:** OpenAlex sin clave, solo con `filter` (nunca `search`).
+- **Preprints:** bioRxiv y medRxiv rellenan semanas pasadas días después, y cada versión es una entrada aparte: la ingesta vuelve a pedir unos días hacia atrás y deduplica por DOI.
+- **Atribuciones:** ClinicalTrials.gov exige citarlo como fuente y mostrar la fecha en que se procesaron los datos; el Nobel (CC0) no lo exige, pero se cita igual.
 
 ## Pendiente
 
 - [x] SINC: repetido el 2026-11-11, vuelve a responder.
-- [ ] SINC: elegir la sección (Aday).
+- [x] SINC: sección *Noticias*, elegida por Aday (2026-11-11): trae casi todo lo de Salud y además la neuro animal de *Tierra*.
+
+S1 queda cerrado el 2026-11-11. Los límites que no publica ninguna fuente se vuelven a mirar si la Fase 1 recibe un 429.
 - [x] Límites de bioRxiv, Europe PMC, ClinicalTrials.gov y nobelprize.org, y licencias de los dos últimos (2026-11-11). Ninguno publica un límite en su documentación salvo Europe PMC, que lo da en su foro. En todos se piden en serie y con pausa.
 - [x] medRxiv: volumen de psiquiatría confirmado paginando: 34 en 7 días (2026-11-11).
 - [x] Atlas: medidos en S3, paso 1 (2026-11-11).
