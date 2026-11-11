@@ -31,6 +31,7 @@ const TEXT = {
     source: "Fuente",
     changes: "Cambios",
     changesText: "datos derivados por SYNAPTICA (ver licence.json); se comparten con la misma licencia.",
+    coloursCalm: "Colores: paleta propia de SYNAPTICA por familias de regiones, no la del atlas.",
     background: "fondo",
     isolate: "Aislar selección",
     cortexShown: "Contorno: transparente",
@@ -70,6 +71,7 @@ const TEXT = {
     source: "Source",
     changes: "Changes",
     changesText: "data derived by SYNAPTICA (see licence.json); shared under the same licence.",
+    coloursCalm: "Colours: SYNAPTICA's own palette by region family, not the atlas's.",
     background: "background",
     isolate: "Isolate selection",
     cortexShown: "Outline: transparent",
@@ -90,6 +92,37 @@ const TEXT = {
 export const lang = new URLSearchParams(location.search).get("lang") === "en" ? "en" : "es";
 export const t = TEXT[lang];
 document.documentElement.lang = lang;
+
+// Palette (S3 step 7.2): "calm" groups regions by family in soft tones (Sofía's request P5);
+// ?colors=atlas shows the official colours of each atlas, to compare.
+export const palette = new URLSearchParams(location.search).get("colors") === "atlas" ? "atlas" : "calm";
+
+export function colourOf(row) {
+  return (palette === "calm" && row && row.color_calm) || (row && row.color) || "#888888";
+}
+
+// A stronger version of a colour, for the selected region and its partner: with soft tones the
+// selection has to stand out from the rest without relying on the grey alone.
+export function strong(hex) {
+  const n = parseInt(hex.slice(1), 16);
+  let [r, g, b] = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map((v) => v / 255);
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  let h = 0;
+  const l = (max + min) / 2;
+  const d = max - min;
+  const s = d === 0 ? 0 : d / (1 - Math.abs(2 * l - 1));
+  if (d) {
+    if (max === r) h = ((g - b) / d) % 6;
+    else if (max === g) h = (b - r) / d + 2;
+    else h = (r - g) / d + 4;
+  }
+  h = (h * 60 + 360) % 360;
+  const s2 = Math.min(1, s + 0.35), l2 = Math.max(0.3, l - 0.25);
+  const c = (1 - Math.abs(2 * l2 - 1)) * s2, x = c * (1 - Math.abs(((h / 60) % 2) - 1)), m = l2 - c / 2;
+  [r, g, b] = h < 60 ? [c, x, 0] : h < 120 ? [x, c, 0] : h < 180 ? [0, c, x]
+    : h < 240 ? [0, x, c] : h < 300 ? [x, 0, c] : [c, 0, x];
+  return "#" + [r, g, b].map((v) => Math.round((v + m) * 255).toString(16).padStart(2, "0")).join("");
+}
 
 async function json(url) {
   const r = await fetch(url);
@@ -187,6 +220,7 @@ export function renderLicence(box, lic) {
     `${t.cite}: ${lic.citation}`,
     el("br"),
     `${t.changes}: ${t.changesText}`,
+    ...(palette === "calm" ? [el("br"), t.coloursCalm] : []),
   );
 }
 

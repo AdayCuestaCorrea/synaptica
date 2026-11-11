@@ -73,7 +73,7 @@ Sofía propone que el contenido de la Fase 2 empiece por las estructuras de la s
    Presupuesto inicial: unos **3 MB por atlas** comprimido.
 7. **Ajustes que pide Sofía en C** (P1–P7 de `results/peticiones-sofia.md`). Un commit por subpaso.
    1. **Resumen y plan.** El resumen de sus peticiones, este plan y SCOPE. *Hecho.*
-   2. **Paleta tranquila (P5).** Colores por grupo de la jerarquía, en tonos suaves e iguales en 2D y 3D, en un campo nuevo de `labels.json`; el color oficial se conserva.
+   2. **Paleta tranquila (P5).** Colores por grupo de la jerarquía, en tonos suaves e iguales en 2D y 3D, en un campo nuevo de `labels.json`; el color oficial se conserva. *Hecho* (`results/maqueta-c.md`, paso 7.2).
    3. **Recorte sagital y sincronía (P1, P2).** Recorte 3D sagital y corte 2D coronal. Dos variantes, elegibles con `?sync=punto|deslizadores`: un punto común (línea arrastrable en el 2D y plano fino en el 3D) o dos deslizadores.
    4. **Clic sincronizado y nombre (P3, P6).** Centroides por región, un archivo por atlas; el otro visor selecciona la pieza, gira hacia ella y lleva su corte hasta ella; aviso «sin pareja todavía»; nombre completo y sigla visibles, con la sigla marcada para el glosario de la Fase 2.
    5. **Coordenadas (P7).** Bregma y Lambda en Waxholm, solo de una publicación citada; ejes en mm. El humano, en mm MNI. Si no hay fuente, se para y se avisa.

@@ -132,6 +132,89 @@ LICENCES = {
 }
 
 
+# ---------------------------------------------------------------- calm palette (step 7.2)
+#
+# Sofía asked for a palette that is not visually noisy (results/peticiones-sofia.md, P5). The
+# official colours give hundreds of unrelated hues side by side. Here every region takes the
+# soft hue of its family (cortex, hippocampus, thalamus...), with a small change of lightness
+# between neighbours so that borders still show. Same family, same hue in both atlases, so the
+# rat and the human read alike; each atlas is coloured from its own hierarchy only. The
+# official colour stays in "color"; this one goes in "color_calm". Both sides share a colour.
+
+# Family: (hue in degrees, saturation, lightness), all low-saturation pastels.
+CALM_FAMILIES = {
+    "cortex": (15, 0.45, 0.80),
+    "cortex_gap": (15, 0.12, 0.86),  # Julich-Brain GapMaps: cortex not mapped yet
+    "hippocampus": (265, 0.30, 0.77),
+    "olfactory": (40, 0.45, 0.78),
+    "amygdala": (340, 0.33, 0.76),
+    "basal_ganglia": (200, 0.35, 0.77),
+    "thalamus": (50, 0.55, 0.77),
+    "hypothalamus": (90, 0.30, 0.75),
+    "midbrain": (170, 0.28, 0.73),
+    "hindbrain": (125, 0.20, 0.72),
+    "white_matter": (35, 0.12, 0.90),
+    "ventricles": (205, 0.50, 0.85),
+    "other": (0, 0.0, 0.80),
+}
+# First match wins, over the ancestor names (lower case) from the root down to the region.
+CALM_RULES = [
+    ("cortex_gap", ("gapmap",)),
+    ("hippocampus", ("hippocampal formation",)),
+    ("olfactory", ("olfactory bulb",)),
+    ("amygdala", ("amygdala", "non-laminated pallium")),
+    ("basal_ganglia", ("basal ganglia", "basal forebrain", "subpallium")),
+    ("hypothalamus", ("hypothalamus",)),
+    ("thalamus", ("thalamus", "subthalamus", "diencephalon")),
+    ("midbrain", ("mesencephalon",)),
+    ("hindbrain", ("rhombencephalon", "metencephalon")),
+    ("white_matter", ("white matter",)),
+    ("ventricles", ("ventricular system",)),
+    ("cortex", ("cerebral cortex",)),
+]
+# Human cortex: a slight hue shift per lobe, inside the cortex family.
+CALM_LOBE_SHIFT = {
+    "frontal lobe": -6,
+    "parietal lobe": 8,
+    "temporal lobe": -12,
+    "occipital lobe": 16,
+    "insula": 2,
+    "limbic lobe": -18,
+}
+CALM_STEPS = (0.0, 0.05, -0.05, 0.025, -0.025)  # lightness steps between neighbours
+
+
+def calm_family(ancestors: list[str]) -> str:
+    names = [a.strip().lower() for a in ancestors]
+    for family, keys in CALM_RULES:
+        if any(k in n for n in names for k in keys):
+            return family
+    return "other"
+
+
+def calm_colours(members: list[tuple[str, list[str], object]]) -> dict[object, tuple[str, str]]:
+    """members: (family, ancestors, key) per region. Returns key → (family, "#RRGGBB").
+
+    Within a family, regions are taken in key order and step through CALM_STEPS, so the
+    result depends only on the atlas data (idempotent).
+    """
+    import colorsys
+
+    out = {}
+    seen: dict[str, int] = {}
+    for family, ancestors, key in sorted(members, key=lambda m: (m[0], str(m[2]))):
+        h, s, li = CALM_FAMILIES[family]
+        if family == "cortex":
+            lower = [a.strip().lower() for a in ancestors]
+            h += next((v for k, v in CALM_LOBE_SHIFT.items() if k in lower), 0)
+        n = seen.get(family, 0)
+        seen[family] = n + 1
+        li = min(0.95, max(0.5, li + CALM_STEPS[n % len(CALM_STEPS)]))
+        r, g, b = colorsys.hls_to_rgb((h % 360) / 360, li, s)
+        out[key] = (family, "#{:02X}{:02X}{:02X}".format(*(round(c * 255) for c in (r, g, b))))
+    return out
+
+
 # ---------------------------------------------------------------- glTF with Draco
 
 
@@ -439,6 +522,14 @@ def waxholm() -> dict:
                 )
     write_glb(out / "waxholm.glb", nodes)
 
+    names = {
+        i: [tree[a]["name"] for a in tree[i]["path"] if a in tree and a != i] + [tree[i]["name"]]
+        for i in tree
+    }
+    calm = calm_colours([(calm_family(names[i]), names[i], i) for i in {r["id"] for r in rows[1:]}])
+    for r in rows[1:]:
+        r["group"], r["color_calm"] = calm[r["id"]]
+
     labels = {
         "atlas": "waxholm",
         "value": "voxel value and glTF node point to rows[index]; id is the Waxholm/BrainGlobe id",
@@ -477,6 +568,13 @@ def julich() -> dict:
     if np.any((halves["L"] > 0) & (halves["R"] > 0)):
         raise SystemExit("left and right MPM overlap: the side would be ambiguous")
 
+    def ancestors(region) -> list[str]:
+        names = []
+        while region is not None:
+            names.append(region.name)
+            region = region.parent
+        return names[::-1]
+
     rows = [{"index": 0, "id": None, "side": None, "label": None, "name": "background"}]
     lut = {}
     for name in labelled.regions:
@@ -492,6 +590,7 @@ def julich() -> dict:
                 "name": r.parent.name,
                 "area_id": r.parent.id,
                 "color": "#{:02X}{:02X}{:02X}".format(*r.rgb) if r.rgb else None,
+                "_ancestors": ancestors(r),
             }
         )
     rows[1:] = sorted(rows[1:], key=lambda r: (r["label"], r["side"]))
@@ -559,6 +658,18 @@ def julich() -> dict:
         f"{', '.join(authors)}. Julich-Brain Atlas, cytoarchitectonic maps (v3.1). "
         "EBRAINS. https://doi.org/10.25493/KNSN-XB4"
     )
+    calm = calm_colours(
+        list(
+            {
+                r["area_id"]: (calm_family(r["_ancestors"]), r["_ancestors"], r["area_id"])
+                for r in rows[1:]
+            }.values()
+        )
+    )
+    for r in rows[1:]:
+        del r["_ancestors"]
+        r["group"], r["color_calm"] = calm[r["area_id"]]
+
     labels = {
         "atlas": "julich",
         "value": "voxel value and glTF node point to rows[index]; id is the siibra region id of "

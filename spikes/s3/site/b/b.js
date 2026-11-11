@@ -5,6 +5,7 @@ import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import {
   t, loadData, fillTexts, renderPanel, renderLicence, pairOf, partnerOf, markReady,
+  colourOf, strong,
 } from "../common/common.js";
 
 fillTexts();
@@ -54,7 +55,7 @@ class MeshViewer {
     this.pickHandlers();
   }
 
-  async load(url) {
+  async load(url, rows) {
     const gltf = await loader.loadAsync(url);
     gltf.scene.traverse((o) => {
       if (!o.isMesh) return;
@@ -67,8 +68,14 @@ class MeshViewer {
         o.renderOrder = 2; // after the opaque regions, so they show through
         this.outline = o;
       } else {
+        // Same row as in labels.json: Julich-Brain nodes carry the index, Waxholm ones the id.
+        // A Waxholm parent such as HF has no row of its own: take its family from a descendant.
+        const row = x.index != null
+          ? rows[x.index]
+          : rows.find((r) => r.id === x.id) || rows.find((r) => r.path && r.path.includes(x.id));
+        x.base = row ? colourOf(row) : x.color || "#888888";
         o.material = new THREE.MeshStandardMaterial({
-          color: new THREE.Color(x.color || "#888888"), roughness: 0.55, metalness: 0,
+          color: new THREE.Color(x.base), roughness: 0.55, metalness: 0,
         });
         this.regions.push(o);
       }
@@ -151,6 +158,7 @@ class MeshViewer {
     for (const m of this.regions) {
       const on = focus.includes(m);
       m.material.emissive.copy(m === this.selected ? SELECT : on ? PARTNER : new THREE.Color(0));
+      m.material.color.set(on ? strong(m.userData.base) : m.userData.base);
       const dim = focus.length > 0 && !on;
       m.visible = !(state.isolate && dim);
       m.material.transparent = dim;
@@ -218,7 +226,7 @@ isoBtn.addEventListener("click", () => {
 
 await Promise.all(
   Object.entries(viewers).map(([atlas, v]) =>
-    v.load(`../data/${atlas}/${atlas}.glb`).then(() => markReady(atlas)),
+    v.load(`../data/${atlas}/${atlas}.glb`, data[atlas].labels.rows).then(() => markReady(atlas)),
   ),
 );
 

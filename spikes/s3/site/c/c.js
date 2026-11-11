@@ -2,6 +2,7 @@
 // Niivue is loaded as a classic script (vendor/niivue-0.69.0/niivue.umd.js): global `niivue`.
 import {
   t, loadData, fillTexts, renderPanel, renderLicence, regionFromRow, pairOf, partnerOf, markReady,
+  colourOf, strong,
 } from "../common/common.js";
 
 fillTexts();
@@ -94,7 +95,8 @@ class VolumeViewer {
   colormap() {
     const R = [], G = [], B = [], A = [], I = [], labels = [];
     for (const r of this.rows) {
-      let [red, green, blue] = r.index ? hex(r.color) : [0, 0, 0];
+      const focused = r.index && this.focus.has(r.index);
+      let [red, green, blue] = r.index ? hex(focused ? strong(colourOf(r)) : colourOf(r)) : [0, 0, 0];
       let a = r.index ? 255 : 0;
       // While something is selected the rest goes grey (alpha barely shows in the 3D render of
       // a label volume), or disappears when isolating.

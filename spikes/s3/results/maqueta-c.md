@@ -56,3 +56,13 @@ Mismo método que B (`spikes/s3/measure.mjs`): Chromium 157 sin interfaz, móvil
   - limitar la resolución del 3D (`?dpr=1` o 2) en móviles;
   - quitar el árbol completo de `labels.json` de la rata;
   - fondo de RM: no está y cabría.
+
+## Paso 7.2: paleta tranquila (petición P5 de Sofía)
+
+Hecho el 2026-11-11. `build_assets.py` da a cada región una **familia** (corteza, hipocampo, bulbo olfatorio, amígdala, ganglios basales, tálamo, hipotálamo, mesencéfalo, rombencéfalo, sustancia blanca, ventrículos y otras) a partir de la jerarquía de su propio atlas, y un tono suave de esa familia, con pequeños saltos de luminosidad entre vecinas para que se vean los bordes. La misma familia tiene el mismo tono en los dos atlas, así que la rata y el humano se leen igual; cada atlas se colorea solo con sus datos.
+
+- En `labels.json`: campos nuevos `group` y `color_calm`; el color oficial sigue en `color`. Unos 20 KB más por atlas sin comprimir. Dos ejecuciones dan archivos idénticos.
+- Corteza humana: un ligero cambio de tono por lóbulo. Las *GapMaps* de Julich-Brain (corteza aún sin mapear) van en un tono casi gris.
+- B y C usan la paleta nueva por defecto; con `?colors=atlas`, los colores oficiales, para comparar. La región elegida y su pareja se pintan con una versión más intensa de su tono, y el resto en gris.
+- El pie de cada atlas dice que los colores son una paleta propia de SYNAPTICA.
+- Comprobado en Brave (escritorio): 3D y corte coronal en los dos atlas, selección del subículo (rata) con el hipocampo humano resaltado, B con las tres regiones de prueba, español e inglés, sin errores en la consola.
