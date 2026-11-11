@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 25** · 2026-11-11 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 26** · 2026-11-11 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -39,7 +39,7 @@ Para no solaparse: nada de fichas de medicamentos, ni sistemas emocionales o cor
 - Demostrar que el motor de Paleo Atlas se generaliza: el mismo diseño, funcionando en otro dominio.
 - Repetir dbt, Python, pytest y GitHub Actions, que ya aparecen en Paleo Atlas.
 - Añadir lo que falta en el CV: un almacén en la nube (decisión D1) y, si se justifica con medidas, procesamiento a escala (D6).
-- Evaluar con rigor: el clasificador de noticias se mide contra etiquetas puestas por una experta, Sofía.
+- Evaluar con rigor: el clasificador de noticias se mide contra etiquetas puestas por Sofía, doctoranda en neurociencia.
 
 **Métricas que se irán registrando:** artículos procesados por día, porcentaje de textos verificados, precisión del clasificador frente a Sofía, duración del pipeline diario y coste (0 €).
 
@@ -131,7 +131,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 - [x] **S1 Fuentes:** script mínimo por fuente que descarga unos 10 elementos, guardados como fixtures, y `docs/fuentes.md` con acceso, límites, clave y licencia
 - [x] **S2 Almacén:** prueba de BigQuery sandbox desde GitHub Actions con dbt-bigquery → ADR de D1
 - [ ] **S3 Visor 3D:** dos maquetas (three.js con mallas propias y Niivue con volúmenes propios; siibra-explorer embebido, medido y descartado) con los dos atlas lado a lado y regiones clicables por ID, en GitHub Pages; entre las que cumplan D3 elige Sofía ([plan](spikes/s3/PLAN.md)) → ADR de D3. Hechos los pasos 0 (preparación), 1 (datos y licencias, [resultados](spikes/s3/results/README.md)), 2 (maqueta A, descartada: [resultados](spikes/s3/results/maqueta-a.md)), 3 (datos para B y C, [resultados](spikes/s3/results/README.md#s3--paso-3-datos-para-las-maquetas-b-y-c)), 4 (maqueta B, `spikes/s3/site/b/`), 5 (maqueta C, `spikes/s3/site/c/`) y 6 (mediciones: [B](spikes/s3/results/maqueta-b.md), [C](spikes/s3/results/maqueta-c.md))
-- [ ] **S4 Revisión:** prototipo del flujo de revisión probado con Sofía → ADR de D5
+- [ ] **S4 Revisión:** prototipo del flujo de revisión probado con Sofía ([plan](spikes/s4/PLAN.md)) → ADR de D5
 - [x] **S5 LLM:** límites actuales del plan gratuito de Groq y de Ollama local, y elección de un juez de otra familia de modelos para el contenido de salud → ADR de D4
 
 **Cierre:** CI en verde, D1, D3, D4 y D5 cerradas con su ADR, y `docs/fuentes.md` completo.
@@ -267,3 +267,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 23 | 2026-11-11 | S3, paso 5: maqueta C (Niivue 0.69.0, guardado en `spikes/s3/site/vendor/` con su licencia, que el paquete de npm no trae). Con el mismo comportamiento que B, más dos vistas (solo 3D, y 3D con un corte coronal), recortar y aislar. Hubo que sortear dos cosas de Niivue: en 3D solo lee el vóxel con doble clic (un clic simple le manda ese doble clic), y con unas 450 etiquetas su tabla de colores pintaba el fondo con la etiqueta 3 (se suben las etiquetas 8 valores al cargar, solo en el visor) |
 | 24 | 2026-11-11 | S3, paso 6: mediciones de B y C en un móvil emulado (Slow 4G, CPU ×4, táctil) con `spikes/s3/measure.mjs`. Con gzip, como en Pages: B pesa 1,07 MB y se puede usar a los 10 s; C, 1,91 MB y 16 s. Las dos funcionan con el dedo y no piden nada a otros dominios. Fluidez con WebGL por software: B, 20 fps; C, 3 fps a DPR 3 y 22 fps con `?dpr=1`. Falta probar las dos en un móvil real |
 | 25 | 2026-11-11 | S1 hecho. SINC vuelve a responder y se usa su sección *Noticias* (decisión de Aday): unos 1,2 items de neuro por semana, incluye casi todo lo de Salud y añade la neuro animal de *Tierra*. medRxiv psiquiatría: 34 preprints en 7 días al paginar; las semanas pasadas crecen días después y cada versión es una entrada aparte (habrá que volver atrás y deduplicar por DOI). Límites: solo Europe PMC da uno (10/s, en su foro); bioRxiv, ClinicalTrials.gov y nobelprize.org no publican ninguno y ninguna envía cabeceras. Licencias: Nobel CC0; ClinicalTrials.gov pide atribución y fecha de proceso. Nuevo `tests/test_fixtures.py`: las fixtures parsean y no guardan texto de editores. Los scripts de S1 envían un User-Agent genérico, sin correo. Corrige la v16: los atlas no eran lo último de S1, quedaban SINC y los límites |
+| 26 | 2026-11-11 | Plan de S4 ([`spikes/s4/PLAN.md`](spikes/s4/PLAN.md)): inventario de lo que revisa Sofía y opciones de D5 comparadas; recomendación: página de revisión generada con envío como Issue de GitHub, y Google Sheets de reserva. Decisiones de Aday: Sofía tendrá cuenta de GitHub sin ser colaboradora (D9 no cambia); los borradores de Neuro Diseases no van a la página pública; las decisiones van en Issues públicos, con la nota opcional; sus correcciones pasan otra vez las comprobaciones mecánicas y el juez solo como aviso. D5 sigue abierta. §2: Sofía es doctoranda, no «una experta» |
