@@ -109,9 +109,13 @@ def test_edit_in_both_languages_is_published(queue):
     assert publishable(st) and not st.awaiting_en
 
 
-def test_a_new_sentence_cites_nothing(queue):
-    text = edited_text(queue.get(*NEWS).content, {"es": "Una frase que no se parece a ninguna."})
-    assert [s.cites for s in text.es] == [[]]
+def test_an_added_sentence_cites_nothing_and_a_rewritten_one_keeps_its_cite(queue):
+    es = _es(queue)
+    es[1] = "Frase reescrita entera."
+    es.insert(2, "Una frase añadida por ella.")
+    text = edited_text(queue.get(*NEWS).content, {"es": "\n".join(es)})
+    cite = ["pubmed-42971231"]
+    assert [s.cites for s in text.es] == [cite, cite, [], cite, cite]
 
 
 # ---- held edits ----------------------------------------------------------------------

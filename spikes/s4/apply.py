@@ -22,7 +22,6 @@ of an older version of the pair.
 
 from __future__ import annotations
 
-import difflib
 import json
 import sys
 from dataclasses import dataclass, field
@@ -33,8 +32,7 @@ HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE))
 sys.path.insert(1, str(HERE.parent / "s5"))  # the S5 checks, as in intake.py
 
-import checks  # noqa: E402
-from intake import SAME_SENTENCE, sentences  # noqa: E402
+from intake import align, sentences  # noqa: E402
 from models import (  # noqa: E402
     Action,
     Decision,
@@ -112,25 +110,19 @@ def _issue(source: str) -> int:
 
 def edited_text(base: TextContent, payload: dict) -> TextContent:
     """Her version as content: each sentence keeps the citations of the reviewed sentence
-    it matches (same threshold as the intake); a new sentence cites nothing. A language
-    she did not touch stays as it was."""
+    it corrects (``intake.align``, the same rule as the checks); a sentence she added cites
+    nothing. A language she did not touch stays as it was."""
 
     def lang(name: str) -> list[Sentence]:
         old = getattr(base, name)
         if not payload.get(name):
             return list(old)
-        out = []
-        for s in sentences(payload[name]):
-            scored = [(_ratio(s, o.text), o) for o in old]
-            ratio, match = max(scored, key=lambda x: x[0], default=(0, None))
-            out.append(Sentence(text=s, cites=match.cites if ratio >= SAME_SENTENCE else []))
-        return out
+        mine = sentences(payload[name])
+        matched = align([o.text for o in old], mine)
+        return [Sentence(text=s, cites=old[i].cites if i is not None else [])
+                for s, i in zip(mine, matched, strict=True)]  # fmt: skip
 
     return TextContent(es=lang("es"), en=lang("en"), sources=base.sources)
-
-
-def _ratio(a: str, b: str) -> float:
-    return difflib.SequenceMatcher(None, checks.normalize(a), checks.normalize(b)).ratio()
 
 
 def requeued(item: ReviewItem, event: Event) -> ReviewItem:

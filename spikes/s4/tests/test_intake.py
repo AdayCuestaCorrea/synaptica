@@ -250,3 +250,29 @@ def test_command_end_to_end(real_issue, tmp_path, monkeypatch, capsys):
     assert [json.loads(x)["status"] for x in lines] == ["processed", "duplicate"]
     assert len((tmp_path / "data" / "decisions.jsonl").read_text().splitlines()) == 3
     assert (tmp_path / "reply.md").read_text().startswith("Aplicadas: 3.")
+
+
+# ---- aligning her sentences with the reviewed ones -----------------------------------
+
+
+@pytest.mark.parametrize(
+    ("new", "expected"),
+    [
+        (["A uno.", "B dos.", "C tres."], [0, 1, 2]),  # unchanged
+        (["A uno.", "Otra cosa distinta.", "C tres."], [0, 1, 2]),  # rewritten in place
+        (["A uno.", "Nueva.", "B dos.", "C tres."], [0, None, 1, 2]),  # inserted
+        (["A uno.", "C tres."], [0, 2]),  # deleted
+        (["A uno.", "B dos", "Añadida al final.", "C tres."], [0, 1, None, 2]),
+    ],
+)
+def test_align(new, expected):
+    from intake import align
+
+    assert align(["A uno.", "B dos.", "C tres."], new) == expected
+
+
+def test_a_short_fix_is_not_a_new_sentence(queue):
+    """Seen in the S4 dry run: shortening the overstated sentence scored below 0.5."""
+    es = _es(queue)
+    es[3] = "Estos resultados no muestran más defectos del tubo neural con dolutegravir."
+    assert edit_warnings(queue.get(*NEWS), {"es": "\n".join(es)}, {}) == []

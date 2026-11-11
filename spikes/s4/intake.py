@@ -80,6 +80,38 @@ def sentences(text: str) -> list[str]:
     return [s.strip() for s in _SPLIT.split(text) if s.strip()]
 
 
+def _ratio(a: str, b: str) -> float:
+    return difflib.SequenceMatcher(None, checks.normalize(a), checks.normalize(b)).ratio()
+
+
+def align(old: list[str], new: list[str]) -> list[int | None]:
+    """For each sentence of hers, the reviewed sentence it corrects (None: she added it).
+
+    The page gives her the text one sentence per line, so the two lists are aligned as
+    sequences: unchanged sentences anchor the alignment, and in a replaced stretch the
+    sentences pair up in order: a rewritten sentence is her correction of the one in its
+    place, however much she changed it (a short fix scored below 0.5 when compared one by
+    one; seen in the S4 dry run). Sentences left over in a stretch, or inserted, are hers
+    and cite nothing, unless one still reads like a reviewed sentence of the stretch.
+    """
+    out: list[int | None] = [None] * len(new)
+    norm_old, norm_new = [checks.normalize(x) for x in old], [checks.normalize(x) for x in new]
+    sm = difflib.SequenceMatcher(None, norm_old, norm_new, autojunk=False)
+    for tag, i1, i2, j1, j2 in sm.get_opcodes():
+        if tag == "equal":
+            for k in range(j2 - j1):
+                out[j1 + k] = i1 + k
+        elif tag == "replace":
+            pairs = min(i2 - i1, j2 - j1)
+            for k in range(pairs):
+                out[j1 + k] = i1 + k
+            for j in range(j1 + pairs, j2):
+                best = max(range(i1, i2), key=lambda i: _ratio(new[j], old[i]))
+                if _ratio(new[j], old[best]) >= SAME_SENTENCE:
+                    out[j] = best
+    return out
+
+
 def _short(text: str, n: int = 80) -> str:
     return text if len(text) <= n else text[: n - 1].rstrip() + "…"
 
@@ -104,7 +136,6 @@ def edit_warnings(item: ReviewItem, payload: dict, source_texts: dict[str, str])
         if not text:
             continue
         label = "español" if lang == "es" else "inglés"
-        originals = [checks.normalize(s.text) for s in getattr(content, lang)]
         for n in sorted(checks.numbers(text) - known_numbers):
             out.append(f"({label}) La cifra {n} no está en el texto revisado ni en su fuente.")
         for name in sorted(checks.names(text)):
@@ -113,13 +144,10 @@ def edit_warnings(item: ReviewItem, payload: dict, source_texts: dict[str, str])
         for run in checks.copied_runs(text, source_grams):
             out.append(f"({label}) Copia 8 palabras seguidas de la fuente: «{run}».")
         if content.sources:
-            for s in sentences(text):
-                best = max(
-                    (difflib.SequenceMatcher(None, checks.normalize(s), o).ratio()
-                     for o in originals),
-                    default=0,
-                )  # fmt: skip
-                if best < SAME_SENTENCE:
+            mine = sentences(text)
+            matched = align([s.text for s in getattr(content, lang)], mine)
+            for s, i in zip(mine, matched, strict=True):
+                if i is None:
                     out.append(f"({label}) Frase nueva sin fuente: «{_short(s)}».")
     return out
 

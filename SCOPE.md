@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 32** · 2026-11-11 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 33** · 2026-11-11 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -274,3 +274,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 30 | 2026-11-11 | S4, paso 3 cerrado con un envío real (Issue #1, de Aday): el cuerpo que escribe GitHub se decodifica y sus decisiones aplican sobre la cola; guardado como fixture del paso 4 y el Issue, cerrado |
 | 31 | 2026-11-11 | S4, paso 4: recepción de los Issues de revisión (`spikes/s4/intake.py`) y borrador del workflow, sin activar. Solo cuentan los Issues de la cuenta de Sofía; quién y cuándo salen del Issue; cada decisión se aplica, vuelve a su cola con un aviso (correcciones que fallan una comprobación mecánica) o se rechaza con el motivo; el juez solo comenta; procesar dos veces el mismo Issue no añade nada. Decisión de Aday: si Sofía corrige solo el español, el inglés lo rehace la cadena del LLM y pasa las comprobaciones (también la nota del grado) |
 | 32 | 2026-11-11 | S4, paso 5: del registro de decisiones al estado de cada elemento (`spikes/s4/apply.py`). Una decisión solo cuenta para la versión que Sofía vio: si el borrador cambia, vuelve a estar pendiente. Una ficha de Neuro Diseases se publica solo con su aprobación de la versión actual; nada rechazado se publica, ni un texto con el inglés por rehacer; lo demás se publica mientras espera. Los grados guardan todo su historial; las correcciones retenidas vuelven a su cola y una nueva corrección se comprueba contra el borrador original |
+| 33 | 2026-11-11 | S4, paso 6: prueba con Sofía preparada para cuando cierre S3 ([guion](spikes/s4/prueba/GUION.md)): creación de su cuenta de GitHub, dos rondas con 14 tareas cronometradas, preguntas y criterios para dar el flujo por bueno; sus Issues se procesan a mano, sin activar nada en GitHub. El ensayo en seco encontró un fallo: una corrección corta y legítima se retenía como «frase nueva sin fuente»; ahora sus frases se alinean con las originales y solo cuentan como nuevas las añadidas |

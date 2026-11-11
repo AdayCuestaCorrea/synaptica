@@ -73,15 +73,17 @@ PLACEHOLDER = "[Texto de prueba del spike S4: no es contenido de salud.]"
 PLACEHOLDER_EN = "[S4 spike test text: this is not health content.]"
 
 
-def news_item() -> ReviewItem:
-    pmid = "42971231"
+def news_item(
+    pmid: str = "42971231",
+    title_es: str = "Resumen de S5: dolutegravir y defectos del tubo neural",
+) -> ReviewItem:
     row = next(a for a in json.loads(S5_RUN.read_text())["articles"] if a["pmid"] == pmid)
     src = Source(id=f"pubmed-{pmid}", url=f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/",
                  label=f"PubMed {pmid}")  # fmt: skip
     return ReviewItem(
         item_type=ItemType.NEWS,
         item_id=f"pubmed-{pmid}",
-        title_es="Resumen de S5: dolutegravir y defectos del tubo neural",
+        title_es=title_es,
         content=TextContent(
             es=[Sentence(text=t, cites=[src.id]) for t in row["es"]],
             en=[Sentence(text=t, cites=[src.id]) for t in row["en"]],

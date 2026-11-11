@@ -1,0 +1,704 @@
+{
+ "generated_at": "2026-11-11T06:00:00Z",
+ "items": [
+  {
+   "item_type": "disease",
+   "item_id": "test-placeholder",
+   "title_es": "Ficha de prueba (no es una enfermedad real)",
+   "content": {
+    "kind": "text",
+    "es": [
+     {
+      "text": "[Texto de prueba del spike S4: no es contenido de salud.]",
+      "cites": []
+     }
+    ],
+    "en": [
+     {
+      "text": "[S4 spike test text: this is not health content.]",
+      "cites": []
+     }
+    ],
+    "sources": []
+   },
+   "public": false,
+   "warnings": [],
+   "base": null
+  },
+  {
+   "item_type": "news",
+   "item_id": "pubmed-42971231",
+   "title_es": "Resumen de S5: dolutegravir y defectos del tubo neural",
+   "content": {
+    "kind": "text",
+    "es": [
+     {
+      "text": "Investigadores en Botsuana monitorizaron los resultados del parto durante más de ocho años, registrando 235 727 partos que representaron más de dos tercios de todos los nacimientos del país.",
+      "cites": [
+       "pubmed-42971231"
+      ]
+     },
+     {
+      "text": "El estudio siguió a 11 110 bebés expuestos al fármaco antirretroviral dolutegravir en la concepción, junto con 24 368 bebés expuestos a otros medicamentos contra el VIH.",
+      "cites": [
+       "pubmed-42971231"
+      ]
+     },
+     {
+      "text": "Entre los partos en los que se pudo determinar el estado, se encontraron 162 defectos del tubo neural, con una tasa del 0,11 % para la exposición a dolutegravir y del 0,10 % para los otros fármacos.",
+      "cites": [
+       "pubmed-42971231"
+      ]
+     },
+     {
+      "text": "Estos hallazgos sugieren que el dolutegravir es seguro para su uso durante el embarazo.",
+      "cites": [
+       "pubmed-42971231"
+      ]
+     }
+    ],
+    "en": [
+     {
+      "text": "Researchers in Botswana monitored birth outcomes for over eight years, recording 235,727 deliveries that represented more than two-thirds of all births in the country.",
+      "cites": [
+       "pubmed-42971231"
+      ]
+     },
+     {
+      "text": "The study tracked 11,110 babies exposed to the HIV drug dolutegravir at conception, alongside 24,368 babies exposed to other HIV medications.",
+      "cites": [
+       "pubmed-42971231"
+      ]
+     },
+     {
+      "text": "Among deliveries where status could be determined, 162 neural tube defects were found, with a rate of 0.11% for dolutegravir exposure and 0.10% for other drugs.",
+      "cites": [
+       "pubmed-42971231"
+      ]
+     },
+     {
+      "text": "These findings suggest that dolutegravir is safe to use during pregnancy.",
+      "cites": [
+       "pubmed-42971231"
+      ]
+     }
+    ],
+    "sources": [
+     {
+      "id": "pubmed-42971231",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42971231/",
+      "label": "PubMed 42971231"
+     }
+    ]
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  },
+  {
+   "item_type": "glossary",
+   "item_id": "gaba",
+   "title_es": "GABA",
+   "content": {
+    "kind": "text",
+    "es": [
+     {
+      "text": "GABA (ácido gamma-aminobutírico): principal neurotransmisor inhibidor del cerebro.",
+      "cites": [
+       "propuesta"
+      ]
+     }
+    ],
+    "en": [
+     {
+      "text": "GABA (gamma-aminobutyric acid): the main inhibitory neurotransmitter of the brain.",
+      "cites": [
+       "propuesta"
+      ]
+     }
+    ],
+    "sources": [
+     {
+      "id": "propuesta",
+      "url": "docs/propuesta.md",
+      "label": "Propuesta, glosario (borrador)"
+     }
+    ]
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  },
+  {
+   "item_type": "glossary",
+   "item_id": "snr",
+   "title_es": "SNr",
+   "content": {
+    "kind": "text",
+    "es": [
+     {
+      "text": "SNr (sustancia negra pars reticulata): parte de la sustancia negra, en los ganglios basales, que envía señales inhibidoras a otras zonas.",
+      "cites": [
+       "propuesta"
+      ]
+     }
+    ],
+    "en": [
+     {
+      "text": "SNr (substantia nigra pars reticulata): part of the substantia nigra, in the basal ganglia, that sends inhibitory signals to other areas.",
+      "cites": [
+       "propuesta"
+      ]
+     }
+    ],
+    "sources": [
+     {
+      "id": "propuesta",
+      "url": "docs/propuesta.md",
+      "label": "Propuesta, glosario (borrador)"
+     }
+    ]
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  },
+  {
+   "item_type": "equivalence",
+   "item_id": "waxholm-408",
+   "title_es": "M1 (rata) ↔ Julich-Brain",
+   "content": {
+    "kind": "pair",
+    "rat": {
+     "id": 408,
+     "acronym": "M1",
+     "name": "Primary motor area"
+    },
+    "human": [
+     {
+      "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_AREA_4A_PRECG",
+      "label": 76,
+      "name": "Area 4a (PreCG)"
+     },
+     {
+      "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_AREA_4P_PRECG",
+      "label": 142,
+      "name": "Area 4p (PreCG)"
+     }
+    ]
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  },
+  {
+   "item_type": "equivalence",
+   "item_id": "waxholm-1021",
+   "title_es": "HF (rata) ↔ Julich-Brain",
+   "content": {
+    "kind": "pair",
+    "rat": {
+     "id": 1021,
+     "acronym": "HF",
+     "name": "Hippocampal formation"
+    },
+    "human": [
+     {
+      "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CA1_HIPPOCAMPUS",
+      "label": 146,
+      "name": "CA1 (Hippocampus)"
+     },
+     {
+      "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CA2_HIPPOCAMPUS",
+      "label": 44,
+      "name": "CA2 (Hippocampus)"
+     },
+     {
+      "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CA3_HIPPOCAMPUS",
+      "label": 174,
+      "name": "CA3 (Hippocampus)"
+     },
+     {
+      "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_DG_HIPPOCAMPUS",
+      "label": 120,
+      "name": "DG (Hippocampus)"
+     },
+     {
+      "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_SUBC_HIPPOCAMPUS_SUBICULAR_COMPLEX",
+      "label": 172,
+      "name": "Subc (Hippocampus, Subicular complex)"
+     }
+    ]
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  },
+  {
+   "item_type": "search_terms",
+   "item_id": "waxholm-1021",
+   "title_es": "Búsqueda en PubMed: Hippocampal formation",
+   "content": {
+    "kind": "terms",
+    "region": "waxholm-1021",
+    "terms": [
+     "Hippocampal formation",
+     "HF"
+    ]
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  },
+  {
+   "item_type": "equivalence",
+   "item_id": "waxholm-501",
+   "title_es": "Am-u (rata) ↔ Julich-Brain",
+   "content": {
+    "kind": "pair",
+    "rat": {
+     "id": 501,
+     "acronym": "Am-u",
+     "name": "Amygdaloid area, unspecified"
+    },
+    "human": [
+     {
+      "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CM_AMYGDALA",
+      "label": 141,
+      "name": "CM (Amygdala)"
+     },
+     {
+      "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_LB_AMYGDALA",
+      "label": 75,
+      "name": "LB (Amygdala)"
+     },
+     {
+      "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_SF_AMYGDALA",
+      "label": 191,
+      "name": "SF (Amygdala)"
+     },
+     {
+      "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_ASTR_AMYGDALA",
+      "label": 5,
+      "name": "Astr (Amygdala)"
+     },
+     {
+      "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_VTM_AMYGDALA",
+      "label": 66,
+      "name": "VTM (Amygdala)"
+     },
+     {
+      "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_IF_AMYGDALA",
+      "label": 149,
+      "name": "IF (Amygdala)"
+     },
+     {
+      "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_MF_AMYGDALA",
+      "label": 188,
+      "name": "MF (Amygdala)"
+     }
+    ]
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  },
+  {
+   "item_type": "classics",
+   "item_id": "2026-w46",
+   "title_es": "Clásicos de la semana 46",
+   "content": {
+    "kind": "candidates",
+    "week": "2026-W46",
+    "max_picks": 2,
+    "candidates": [
+     {
+      "doi": "10.1159/000444713",
+      "title": "Epigenetic Regulations of GABAergic Neurotransmission: Relevance for Neurological Disorders and Epigenetic Therapy",
+      "year": 2016,
+      "cited_by": 8951
+     },
+     {
+      "doi": "10.15252/emmm.201606210",
+      "title": "The amyloid hypothesis of Alzheimer's disease at 25 years",
+      "year": 2016,
+      "cited_by": 6367
+     },
+     {
+      "doi": "10.1038/nature18933",
+      "title": "A multi-modal parcellation of human cerebral cortex",
+      "year": 2016,
+      "cited_by": 5175
+     },
+     {
+      "doi": "10.1016/s2215-0366(16)00104-8",
+      "title": "Neurobiology of addiction: a neurocircuitry analysis",
+      "year": 2016,
+      "cited_by": 4005
+     },
+     {
+      "doi": "10.1007/s12021-016-9299-4",
+      "title": "DPABI: Data Processing & Analysis for (Resting-State) Brain Imaging",
+      "year": 2016,
+      "cited_by": 3935
+     }
+    ]
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  },
+  {
+   "item_type": "news_topic",
+   "item_id": "healthy-brain",
+   "title_es": "Tema: Cerebro sano",
+   "content": {
+    "kind": "toggle",
+    "label_es": "Cerebro sano",
+    "label_en": "Healthy brain"
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  },
+  {
+   "item_type": "news_topic",
+   "item_id": "diseases",
+   "title_es": "Tema: Enfermedades",
+   "content": {
+    "kind": "toggle",
+    "label_es": "Enfermedades",
+    "label_en": "Diseases"
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  },
+  {
+   "item_type": "news_topic",
+   "item_id": "clinical-trials",
+   "title_es": "Tema: Ensayos clínicos",
+   "content": {
+    "kind": "toggle",
+    "label_es": "Ensayos clínicos",
+    "label_en": "Clinical trials"
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  },
+  {
+   "item_type": "news_topic",
+   "item_id": "new-techniques",
+   "title_es": "Tema: Técnicas nuevas",
+   "content": {
+    "kind": "toggle",
+    "label_es": "Técnicas nuevas",
+    "label_en": "New techniques"
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  },
+  {
+   "item_type": "news",
+   "item_id": "pubmed-42997793",
+   "title_es": "Resumen de S5: revisión sistemática sobre depresión mayor",
+   "content": {
+    "kind": "text",
+    "es": [
+     {
+      "text": "Una revisión sistemática de adultos de entre 18 y 70 años con trastorno depresivo mayor examinó si la conectividad cerebral en la corteza cingulada anterior subgenual antes del tratamiento podía predecir los cambios en los síntomas de la depresión.",
+      "cites": [
+       "pubmed-42997793"
+      ]
+     },
+     {
+      "text": "El análisis reveló que conexiones iniciales más fuertes entre el cingulado subgenual y la corteza prefrontal dorsolateral derecha se asociaban con una menor mejoría, mientras que vínculos más intensos con la corteza orbitofrontal medial se relacionaban con un mayor alivio de los síntomas.",
+      "cites": [
+       "pubmed-42997793"
+      ]
+     },
+     {
+      "text": "Estos patrones predictivos fueron más frecuentes en los estudios que utilizaban estimulación magnética transcraneal repetitiva, una técnica que emplea campos magnéticos para estimular las células nerviosas, especialmente cuando la diana era personalizada.",
+      "cites": [
+       "pubmed-42997793"
+      ]
+     },
+     {
+      "text": "Aunque las resonancias cerebrales utilizadas en los estudios incluidos fueron calificadas como adecuadas, con una puntuación media de 16,1 sobre 20, los resultados variaban entre estudios y no permitían un análisis estadístico detallado de localizaciones cerebrales específicas.",
+      "cites": [
+       "pubmed-42997793"
+      ]
+     },
+     {
+      "text": "Los autores señalan que se necesitan estudios futuros más amplios para confirmar estos hallazgos y determinar si pueden aplicarse en la práctica clínica.",
+      "cites": [
+       "pubmed-42997793"
+      ]
+     }
+    ],
+    "en": [
+     {
+      "text": "A systematic review of adults aged 18 to 70 with major depressive disorder examined whether brain connectivity in the subgenual anterior cingulate cortex before treatment could predict changes in depression symptoms.",
+      "cites": [
+       "pubmed-42997793"
+      ]
+     },
+     {
+      "text": "The analysis found that stronger initial connections between the subgenual cingulate and the right dorsolateral prefrontal cortex were linked to less improvement, while stronger links to the medial orbitofrontal cortex were associated with greater symptom relief.",
+      "cites": [
+       "pubmed-42997793"
+      ]
+     },
+     {
+      "text": "These predictive patterns were most common in studies using repetitive transcranial magnetic stimulation, a technique that uses magnetic fields to stimulate nerve cells, particularly when targeting was personalized.",
+      "cites": [
+       "pubmed-42997793"
+      ]
+     },
+     {
+      "text": "Although the brain scans used in the included studies were rated as adequate with an average score of 16.1 out of 20, the results varied across studies and did not support a detailed statistical analysis of specific brain locations.",
+      "cites": [
+       "pubmed-42997793"
+      ]
+     },
+     {
+      "text": "The authors note that larger future studies are needed to confirm these findings and determine if they can be used in clinical practice.",
+      "cites": [
+       "pubmed-42997793"
+      ]
+     }
+    ],
+    "sources": [
+     {
+      "id": "pubmed-42997793",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42997793/",
+      "label": "PubMed 42997793"
+     }
+    ]
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  },
+  {
+   "item_type": "news",
+   "item_id": "pubmed-42997796",
+   "title_es": "Resumen de S5: 102 adolescentes de 10 a 17 años",
+   "content": {
+    "kind": "text",
+    "es": [
+     {
+      "text": "Los investigadores examinaron a 102 adolescentes de entre 10 y 17 años, dividiéndolos en dos grupos según su exposición reciente a partículas finas del aire en relación con un límite de 9 microgramos por metro cúbico.",
+      "cites": [
+       "pubmed-42997796"
+      ]
+     },
+     {
+      "text": "Al medir el sudor de la piel, observar comportamientos de evitación y preguntar sobre los niveles de miedo, el equipo descubrió que quienes tenían una mayor exposición a la contaminación mostraban reacciones físicas y emocinales más intensas al aprender a asociar una señal con una amenaza.",
+      "cites": [
+       "pubmed-42997796"
+      ]
+     },
+     {
+      "text": "Los participantes del grupo de alta exposición también informaron de un retorno del miedo más intenso cuando la señal de amenaza reapareció después de que el peligro hubiera cesado.",
+      "cites": [
+       "pubmed-42997796"
+      ]
+     },
+     {
+      "text": "Las escaneos cerebrales indicaron que este grupo presentaba una mayor actividad en la amígdala derecha y la ínsula izquierda, regiones responsables de procesar el miedo y la seguridad.",
+      "cites": [
+       "pubmed-42997796"
+      ]
+     },
+     {
+      "text": "Estos resultados sugieren que el procesamiento alterado del miedo podría ser uno de los mecanismos a través de los cuales la contaminación del aire contribuye a la ansiedad en los jóvenes.",
+      "cites": [
+       "pubmed-42997796"
+      ]
+     }
+    ],
+    "en": [
+     {
+      "text": "Researchers examined 102 teenagers aged 10 to 17, dividing them into two groups based on recent exposure to fine air particles relative to a 9 micrograms per cubic meter limit.",
+      "cites": [
+       "pubmed-42997796"
+      ]
+     },
+     {
+      "text": "By measuring skin sweat, observing avoidance behaviors, and asking about fear levels, the team found that those with higher pollution exposure displayed stronger physical and emotional reactions when learning to associate a signal with a threat.",
+      "cites": [
+       "pubmed-42997796"
+      ]
+     },
+     {
+      "text": "Participants in the high-exposure group also reported a more intense return of fear when the threat signal reappeared after the danger had passed.",
+      "cites": [
+       "pubmed-42997796"
+      ]
+     },
+     {
+      "text": "Brain scans indicated that this group exhibited increased activity in the right amygdala and left insula, regions responsible for processing fear and safety.",
+      "cites": [
+       "pubmed-42997796"
+      ]
+     },
+     {
+      "text": "These results suggest that altered fear processing may be one mechanism through which air pollution contributes to anxiety in young people.",
+      "cites": [
+       "pubmed-42997796"
+      ]
+     }
+    ],
+    "sources": [
+     {
+      "id": "pubmed-42997796",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42997796/",
+      "label": "PubMed 42997796"
+     }
+    ]
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  },
+  {
+   "item_type": "glossary",
+   "item_id": "vta",
+   "title_es": "VTA",
+   "content": {
+    "kind": "text",
+    "es": [
+     {
+      "text": "VTA (área tegmental ventral): región del mesencéfalo con neuronas dopaminérgicas, clave en recompensa y adicción.",
+      "cites": [
+       "propuesta"
+      ]
+     }
+    ],
+    "en": [
+     {
+      "text": "VTA (ventral tegmental area): a midbrain region with dopaminergic neurons, key in reward and addiction.",
+      "cites": [
+       "propuesta"
+      ]
+     }
+    ],
+    "sources": [
+     {
+      "id": "propuesta",
+      "url": "docs/propuesta.md",
+      "label": "Propuesta, glosario (borrador)"
+     }
+    ]
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  },
+  {
+   "item_type": "glossary",
+   "item_id": "nac",
+   "title_es": "NAc",
+   "content": {
+    "kind": "text",
+    "es": [
+     {
+      "text": "NAc (núcleo accumbens): zona del estriado ventral, central en el circuito de recompensa.",
+      "cites": [
+       "propuesta"
+      ]
+     }
+    ],
+    "en": [
+     {
+      "text": "NAc (nucleus accumbens): part of the ventral striatum, central to the reward circuit.",
+      "cites": [
+       "propuesta"
+      ]
+     }
+    ],
+    "sources": [
+     {
+      "id": "propuesta",
+      "url": "docs/propuesta.md",
+      "label": "Propuesta, glosario (borrador)"
+     }
+    ]
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  },
+  {
+   "item_type": "glossary",
+   "item_id": "bold",
+   "title_es": "BOLD",
+   "content": {
+    "kind": "text",
+    "es": [
+     {
+      "text": "BOLD (blood-oxygen-level dependent): señal de la fMRI que depende del oxígeno en la sangre.",
+      "cites": [
+       "propuesta"
+      ]
+     }
+    ],
+    "en": [
+     {
+      "text": "BOLD (blood-oxygen-level dependent): the fMRI signal that depends on the oxygen in the blood.",
+      "cites": [
+       "propuesta"
+      ]
+     }
+    ],
+    "sources": [
+     {
+      "id": "propuesta",
+      "url": "docs/propuesta.md",
+      "label": "Propuesta, glosario (borrador)"
+     }
+    ]
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  },
+  {
+   "item_type": "glossary",
+   "item_id": "chr2",
+   "title_es": "ChR2",
+   "content": {
+    "kind": "text",
+    "es": [
+     {
+      "text": "ChR2 (canalrodopsina-2): proteína sensible a la luz con la que se activan neuronas en optogenética.",
+      "cites": [
+       "propuesta"
+      ]
+     }
+    ],
+    "en": [
+     {
+      "text": "ChR2 (channelrhodopsin-2): a light-sensitive protein used to activate neurons in optogenetics.",
+      "cites": [
+       "propuesta"
+      ]
+     }
+    ],
+    "sources": [
+     {
+      "id": "propuesta",
+      "url": "docs/propuesta.md",
+      "label": "Propuesta, glosario (borrador)"
+     }
+    ]
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  }
+ ]
+}

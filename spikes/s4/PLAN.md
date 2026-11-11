@@ -63,7 +63,7 @@ Un commit por paso; cada uno con pytest y ruff en verde, y su línea en el §11 
 3. ✅ **Envío** (con un envío real, el Issue #1; ver [resultados](results/README.md)): la página codifica las decisiones en un bloque legible y abre el Issue ya relleno. Tests de ida y vuelta. Borrador del formulario `revision.yml` **dentro de `spikes/s4/`**: activarlo en `.github/` necesita la confirmación de Aday. Medición manual del límite de la URL y del relleno de campos (`?template=…&<id>=…`), con los resultados en `results/`.
 4. ✅ **Recepción:** `spikes/s4/intake.py`: autor, esquema, hashes, comprobaciones mecánicas de los textos corregidos, juez como aviso, estado «vuelve a la cola» y «lo mantengo». Fixtures de eventos de Issue: válido, autor ajeno, hash caducado y mal formado. Borrador de `review-intake.yml`, sin activar.
 5. ✅ **Aplicar:** del registro al estado actual. Tests: una ficha sin aprobar o con el hash caducado no se publica; un cambio de grado conserva el anterior.
-6. **Prueba con Sofía preparada**, para cuando cierre S3: guion con tareas cronometradas (aprobar una ficha, corregir un texto, poner grado a dos pares, elegir Clásicos, desactivar un tema, añadir una sigla y enviar), creación de su cuenta de GitHub con Aday y qué se mide (tiempo, errores, dudas, si el Issue llega bien).
+6. ✅ **Prueba con Sofía preparada** ([guion](prueba/GUION.md); se hace cuando cierre S3), para cuando cierre S3: guion con tareas cronometradas (aprobar una ficha, corregir un texto, poner grado a dos pares, elegir Clásicos, desactivar un tema, añadir una sigla y enviar), creación de su cuenta de GitHub con Aday y qué se mide (tiempo, errores, dudas, si el Issue llega bien).
 7. **Resultados y borrador del ADR** `docs/adr/0005-revision.md`. D5 sigue abierta hasta que decida Aday.
 
 ## Resultado de los pasos
@@ -72,6 +72,7 @@ Un commit por paso; cada uno con pytest y ruff en verde, y su línea en el §11 
 - **Paso 3** (`issue_block.py`, `.github/ISSUE_TEMPLATE/revision.yml`, botón «Enviar» de la página): bloque de texto con una cabecera y una línea JSON por decisión, sin `reviewed_by`, `reviewed_at` ni `source`, que pone el workflow a partir del Issue. GitHub rellena el formulario desde la URL; el límite que manda es el de la redirección al login sin sesión (unos 6950 caracteres), así que la página usa 6000 y reparte en partes; una decisión que no cabe sola se pega a mano. Detalles en [resultados](results/README.md).
 - **Paso 4** (`intake.py`, `review-intake.yml` sin activar): ver [resultados](results/README.md#paso-4-recepción-2026-11-11). El inglés de una corrección hecha solo en español lo rehace la cadena del LLM y pasa las comprobaciones (decisión de Aday, 2026-11-11); lo mismo para la nota del grado.
 - **Paso 5** (`apply.py`): ver [resultados](results/README.md#paso-5-del-registro-al-estado-2026-11-11).
+- **Paso 6** (`prueba/`, `event_from_issue.py`, `ronda.py`): ver [resultados](results/README.md#paso-6-prueba-con-sofía-preparada-2026-11-11).
 - ~~**Puntos abiertos para el paso 4**~~ (resueltos arriba), salidos del modelo:
   - si Sofía corrige solo el español, ¿se rehace el inglés con el LLM (y pasa las comprobaciones) o se le pide también el inglés? El modelo admite las dos cosas;
   - la nota del grado rata ↔ humano se ve en la web, así que necesita su versión en inglés: el mismo problema.

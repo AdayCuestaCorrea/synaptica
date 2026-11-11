@@ -22,7 +22,8 @@
     "sources": []
    },
    "public": false,
-   "warnings": []
+   "warnings": [],
+   "base": null
   },
   {
    "item_type": "news",
@@ -91,7 +92,8 @@
     ]
    },
    "public": true,
-   "warnings": []
+   "warnings": [],
+   "base": null
   },
   {
    "item_type": "glossary",
@@ -124,7 +126,8 @@
     ]
    },
    "public": true,
-   "warnings": []
+   "warnings": [],
+   "base": null
   },
   {
    "item_type": "glossary",
@@ -157,7 +160,8 @@
     ]
    },
    "public": true,
-   "warnings": []
+   "warnings": [],
+   "base": null
   },
   {
    "item_type": "equivalence",
@@ -184,7 +188,8 @@
     ]
    },
    "public": true,
-   "warnings": []
+   "warnings": [],
+   "base": null
   },
   {
    "item_type": "equivalence",
@@ -226,7 +231,8 @@
     ]
    },
    "public": true,
-   "warnings": []
+   "warnings": [],
+   "base": null
   },
   {
    "item_type": "search_terms",
@@ -241,7 +247,8 @@
     ]
    },
    "public": true,
-   "warnings": []
+   "warnings": [],
+   "base": null
   },
   {
    "item_type": "equivalence",
@@ -293,7 +300,8 @@
     ]
    },
    "public": true,
-   "warnings": []
+   "warnings": [],
+   "base": null
   },
   {
    "item_type": "classics",
@@ -337,7 +345,8 @@
     ]
    },
    "public": true,
-   "warnings": []
+   "warnings": [],
+   "base": null
   },
   {
    "item_type": "news_topic",
@@ -349,7 +358,8 @@
     "label_en": "Healthy brain"
    },
    "public": true,
-   "warnings": []
+   "warnings": [],
+   "base": null
   },
   {
    "item_type": "news_topic",
@@ -361,7 +371,8 @@
     "label_en": "Diseases"
    },
    "public": true,
-   "warnings": []
+   "warnings": [],
+   "base": null
   },
   {
    "item_type": "news_topic",
@@ -373,7 +384,8 @@
     "label_en": "Clinical trials"
    },
    "public": true,
-   "warnings": []
+   "warnings": [],
+   "base": null
   },
   {
    "item_type": "news_topic",
@@ -385,7 +397,8 @@
     "label_en": "New techniques"
    },
    "public": true,
-   "warnings": []
+   "warnings": [],
+   "base": null
   }
  ]
 }

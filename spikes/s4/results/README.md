@@ -37,7 +37,7 @@ Medida con `curl` **sin sesión iniciada**, que es el caso que manda: si Sofía 
 | rechazada, con el motivo en la respuesta | no valida, el elemento no existe, el texto cambió (hash), elige Clásicos fuera de los candidatos, un elemento privado llega desde la página pública, o «Lo mantengo» sin aviso que mantener |
 
 - **Quién y cuándo** salen del Issue (`user.login`, `created_at` en UTC, `issue#N`). El autor se compara sin distinguir mayúsculas, y el workflow lo comprueba también antes de ejecutar nada.
-- **Comprobaciones de sus correcciones**, con las funciones de `spikes/s5/checks.py`: cifras y nombres que no están ni en el texto revisado (en los dos idiomas) ni en sus fuentes; 8 palabras seguidas copiadas de una fuente; y frases que no se parecen a ninguna del texto revisado (similitud < 0,5), que por tanto no citan nada. Las dos correcciones realistas probadas (la exageración del dolutegravir reescrita de dos formas) pasan sin avisos: el umbral solo salta con contenido claramente nuevo.
+- **Comprobaciones de sus correcciones**, con las funciones de `spikes/s5/checks.py`: cifras y nombres que no están ni en el texto revisado (en los dos idiomas) ni en sus fuentes; 8 palabras seguidas copiadas de una fuente; y frases añadidas, que no citan nada. Una frase reescrita en su sitio cuenta como corrección de la original y conserva su cita (ver el paso 6: la primera versión, que comparaba frase a frase con un umbral de similitud de 0,5, retenía una corrección corta y legítima).
 - **El juez** entra como una función opcional; sus comentarios van a la respuesta con «no bloquea nada». En los tests es una función falsa, sin red.
 - **Respuesta** en español y pública, con los títulos de cada elemento: «Aplicadas: N», qué vuelve a su cola y por qué, qué no se ha aplicado y qué comenta el juez.
 - **Idempotente:** el mismo Issue dos veces no añade nada (probado de punta a punta con el Issue #1).
@@ -58,10 +58,18 @@ Medida con `curl` **sin sesión iniciada**, que es el caso que manda: si Sofía 
 - **La cola de mañana** (`next_queue`): lo que no tiene decisión para su versión actual y sus correcciones retenidas, que vuelven con su texto, el aviso y el borrador original (`base`).
 
 Detalles:
-- **Correcciones:** cada frase suya conserva las citas de la frase revisada con la que se corresponde (mismo umbral que la recepción); una frase nueva no cita nada. El idioma que no tocó se queda como estaba hasta que se rehaga.
+- **Correcciones:** cada frase suya conserva las citas de la frase revisada a la que corrige (`intake.align`, la misma regla que las comprobaciones); una frase añadida no cita nada. El idioma que no tocó se queda como estaba hasta que se rehaga.
 - **«Lo mantengo»** solo cuenta si nombra el hash de la corrección retenida que está en la mesa; guarda su motivo.
 - **Una nueva corrección sobre un texto retenido** se comprueba contra el borrador original, no contra su texto anterior: una cifra que ella añadió no pasa a ser «conocida» (nuevo campo `base` en `ReviewItem`, fuera del hash, y la recepción lo usa).
 - **Grados:** se guarda el historial completo (grado, nota, quién, cuándo y si era la versión actual del par), también los de versiones antiguas; el grado vigente solo cuenta para la versión actual.
 - **Siglas propuestas:** `proposals` las devuelve para el paso de redacción del glosario (Fase 2).
 - Probado de punta a punta: el Issue #1 pasa por la recepción, se escribe en disco y `apply` lee el grado y su nota.
+
+## Paso 6: prueba con Sofía preparada (2026-11-11)
+
+- **Guion:** [`prueba/GUION.md`](../prueba/GUION.md), para Aday. Dos rondas (unos 25 y 5 minutos) más la creación de su cuenta de GitHub. Catorce tareas cronometradas, el primer envío sin sesión iniciada (el caso de la redirección al login), preguntas finales, criterios para dar el flujo por bueno y hoja de observación. Si no le convence tener cuenta o que sus decisiones sean públicas, se prueba la opción D antes de cerrar D5.
+- **Cola de prueba:** `prueba/queue.json`, 19 elementos (la de las fixtures, más dos resúmenes de S5 y cuatro siglas de la propuesta); páginas de la ronda 1 en `prueba/ronda-1/`.
+- **Sin activar nada en GitHub:** sus Issues se procesan a mano con `event_from_issue.py` (lee el Issue con `gh`) e `intake.py`; `ronda.py` aplica el registro y genera las páginas de la ronda siguiente. Las decisiones de la prueba quedan en `prueba/datos/`, no en la rama `data`.
+- **Ensayo en seco** (`tests/test_prueba.py`): una ronda 1 simulada (corregir la exageración del dolutegravir solo en español, la frase de prueba de T7 y aprobar GABA) da justo lo que promete el guion: la corrección se aplica con el inglés por rehacer, GABA sale de la cola y T7 vuelve con sus dos avisos.
+- **Fallo encontrado por el ensayo y corregido:** la corrección de la exageración, más corta que la frase original, se quedaba por debajo de 0,5 de similitud y se retenía como «frase nueva sin fuente». Ahora las frases se alinean como secuencia (`intake.align`): una frase reescrita en su sitio corrige a la original y conserva su cita; solo las añadidas cuentan como nuevas. Las comprobaciones de cifras, nombres y copia siguen aplicándose a todas.
 
