@@ -10,7 +10,8 @@ variants, never mixed:
   of Aday, 2026-11-11). Aday sends her the file and she opens it in her browser.
 
 Each item carries its ``content_sha256``, so her answer names the exact version she saw.
-The page sends nothing yet: the prefilled GitHub Issue is step 3. Run from the repo root:
+Sending opens the Issue form ``.github/ISSUE_TEMPLATE/revision.yml`` already
+filled in (``issue_block.py``, step 3). Run from the repo root:
 
     uv run --group spike-s4 python spikes/s4/review_page.py [queue.json]
 """
@@ -31,6 +32,11 @@ DEFAULT_QUEUE = HERE.parents[1] / "tests" / "fixtures" / "review" / "queue.json"
 OUT = {"public": HERE / "review" / "revision.html",
        "private": HERE / "review" / "revision-privada.html"}  # fmt: skip
 MARKER = "/*DATA*/{}"
+ISSUE_NEW_URL = "https://github.com/AdayCuestaCorrea/synaptica/issues/new"
+# Longest Issue URL the page builds; above it, a decision goes in its own part or is pasted.
+# Measured in step 3 (spikes/s4/results/README.md): without a session GitHub redirects to
+# the login with the whole URL and fails above ~6950 characters (500, then 414).
+MAX_URL = 6000
 
 # Her queue, in order of priority: what blocks publication, what expires (the week's
 # Classics), what unlocks a feature (rat-human grades), the texts, and last the optional
@@ -55,6 +61,8 @@ def page_data(queue: Queue, variant: str) -> dict:
         "variant": variant,
         "generated_at": queue.generated_at.isoformat().replace("+00:00", "Z"),
         "propose": variant == "public",  # new glossary terms: not health content
+        "issue_new_url": ISSUE_NEW_URL,
+        "max_url": MAX_URL,
         "items": [
             i.model_dump(mode="json") | {"content_sha256": i.content_sha256, "blocking": i.blocking}
             for i in page_items(queue, variant)

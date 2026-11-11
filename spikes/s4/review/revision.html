@@ -85,6 +85,11 @@ textarea.edit { min-height: 8rem; font-family: var(--serif); font-size: 1rem; }
 section.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 1.25rem; display: grid; gap: 0.8rem; margin-bottom: 1.75rem; }
 .proposals { display: grid; gap: 0.5rem; }
 .proposal { display: flex; gap: 0.75rem; align-items: baseline; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 0.5rem; }
+.parts { display: grid; gap: 0.6rem; }
+.part { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+a.button { font: 500 0.95rem var(--sans); background: var(--accent); color: var(--surface); border-radius: 6px; padding: 0.5rem 0.9rem; text-decoration: none; }
+a.button.sent { background: var(--surface); color: var(--ok); border: 1px solid var(--ok); }
+.status { color: var(--ok); font-size: 0.9rem; min-height: 1.3em; }
 ol.preview { margin: 0; padding-left: 1.4rem; display: grid; gap: 0.3rem; font-size: 0.95rem; }
 footer { color: var(--muted); font-size: 0.85rem; padding-block: 0 3rem; }
 @media (prefers-reduced-motion: reduce) { .track span { transition: none; } }
@@ -131,14 +136,15 @@ footer { color: var(--muted); font-size: 0.85rem; padding-block: 0 3rem; }
     <h2>Enviar</h2>
     <p id="send-count"></p>
     <ol class="preview" id="preview"></ol>
-    <!-- Step 3 of spikes/s4/PLAN.md: this button will open the prefilled GitHub Issue. -->
-    <div><button type="button" class="primary" id="send-button" disabled>Enviar (llega en el paso 3)</button></div>
+    <p class="hint" id="send-how">Al pulsar «Enviar» se abre GitHub con todo ya escrito: allí solo tienes que pulsar «Create». Tienes que haber entrado en GitHub con tu cuenta.</p>
+    <div class="parts" id="parts"></div>
+    <div class="status" id="send-status" role="status"></div>
   </section>
 </div>
 <footer class="wrap"><p>Esta página es interna: no es parte de la web publicada. Los textos son propios de SYNAPTICA y cada estudio enlaza a su original. Nada de lo que aparece aquí es consejo médico.</p></footer>
 
 <script>
-const PAGE = {"variant": "public", "generated_at": "2026-11-11T06:00:00Z", "propose": true, "items": [{"item_type": "classics", "item_id": "2026-w46", "title_es": "Clásicos de la semana 46", "content": {"kind": "candidates", "week": "2026-W46", "max_picks": 2, "candidates": [{"doi": "10.1159/000444713", "title": "Epigenetic Regulations of GABAergic Neurotransmission: Relevance for Neurological Disorders and Epigenetic Therapy", "year": 2016, "cited_by": 8951}, {"doi": "10.15252/emmm.201606210", "title": "The amyloid hypothesis of Alzheimer's disease at 25 years", "year": 2016, "cited_by": 6367}, {"doi": "10.1038/nature18933", "title": "A multi-modal parcellation of human cerebral cortex", "year": 2016, "cited_by": 5175}, {"doi": "10.1016/s2215-0366(16)00104-8", "title": "Neurobiology of addiction: a neurocircuitry analysis", "year": 2016, "cited_by": 4005}, {"doi": "10.1007/s12021-016-9299-4", "title": "DPABI: Data Processing \u0026 Analysis for (Resting-State) Brain Imaging", "year": 2016, "cited_by": 3935}]}, "public": true, "warnings": [], "content_sha256": "b7e5b06e913aa2ccc61067137eb65e77fa033e5a38099a84c93760897e432ae6", "blocking": false}, {"item_type": "equivalence", "item_id": "waxholm-1021", "title_es": "HF (rata) ↔ Julich-Brain", "content": {"kind": "pair", "rat": {"id": 1021, "acronym": "HF", "name": "Hippocampal formation"}, "human": [{"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CA1_HIPPOCAMPUS", "label": 146, "name": "CA1 (Hippocampus)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CA2_HIPPOCAMPUS", "label": 44, "name": "CA2 (Hippocampus)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CA3_HIPPOCAMPUS", "label": 174, "name": "CA3 (Hippocampus)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_DG_HIPPOCAMPUS", "label": 120, "name": "DG (Hippocampus)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_SUBC_HIPPOCAMPUS_SUBICULAR_COMPLEX", "label": 172, "name": "Subc (Hippocampus, Subicular complex)"}]}, "public": true, "warnings": [], "content_sha256": "6e13e789e4f8701a792765424333be0479d490494ff14944b36e7ddf62cc6e29", "blocking": false}, {"item_type": "equivalence", "item_id": "waxholm-408", "title_es": "M1 (rata) ↔ Julich-Brain", "content": {"kind": "pair", "rat": {"id": 408, "acronym": "M1", "name": "Primary motor area"}, "human": [{"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_AREA_4A_PRECG", "label": 76, "name": "Area 4a (PreCG)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_AREA_4P_PRECG", "label": 142, "name": "Area 4p (PreCG)"}]}, "public": true, "warnings": [], "content_sha256": "73d00376b3084744a9f0fd66acc989690ef73de09ea651e36072619c057a0529", "blocking": false}, {"item_type": "equivalence", "item_id": "waxholm-501", "title_es": "Am-u (rata) ↔ Julich-Brain", "content": {"kind": "pair", "rat": {"id": 501, "acronym": "Am-u", "name": "Amygdaloid area, unspecified"}, "human": [{"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CM_AMYGDALA", "label": 141, "name": "CM (Amygdala)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_LB_AMYGDALA", "label": 75, "name": "LB (Amygdala)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_SF_AMYGDALA", "label": 191, "name": "SF (Amygdala)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_ASTR_AMYGDALA", "label": 5, "name": "Astr (Amygdala)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_VTM_AMYGDALA", "label": 66, "name": "VTM (Amygdala)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_IF_AMYGDALA", "label": 149, "name": "IF (Amygdala)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_MF_AMYGDALA", "label": 188, "name": "MF (Amygdala)"}]}, "public": true, "warnings": [], "content_sha256": "9aa8b4fd7ece35a0424ecd35c03687ba499361c987e7bf4e0375e6db4c406ab1", "blocking": false}, {"item_type": "search_terms", "item_id": "waxholm-1021", "title_es": "Búsqueda en PubMed: Hippocampal formation", "content": {"kind": "terms", "region": "waxholm-1021", "terms": ["Hippocampal formation", "HF"]}, "public": true, "warnings": [], "content_sha256": "94df4b10d48c58337adcf0d64e52827f0ab0e6fb37d8c64c1ae3bfdd414af2d2", "blocking": false}, {"item_type": "glossary", "item_id": "gaba", "title_es": "GABA", "content": {"kind": "text", "es": [{"text": "GABA (ácido gamma-aminobutírico): principal neurotransmisor inhibidor del cerebro.", "cites": ["propuesta"]}], "en": [{"text": "GABA (gamma-aminobutyric acid): the main inhibitory neurotransmitter of the brain.", "cites": ["propuesta"]}], "sources": [{"id": "propuesta", "url": "docs/propuesta.md", "label": "Propuesta, glosario (borrador)"}]}, "public": true, "warnings": [], "content_sha256": "f1e40e5757306588e1aab3fd24e311c8397a11a67411f1ffa0fefa1c8aa030e6", "blocking": false}, {"item_type": "glossary", "item_id": "snr", "title_es": "SNr", "content": {"kind": "text", "es": [{"text": "SNr (sustancia negra pars reticulata): parte de la sustancia negra, en los ganglios basales, que envía señales inhibidoras a otras zonas.", "cites": ["propuesta"]}], "en": [{"text": "SNr (substantia nigra pars reticulata): part of the substantia nigra, in the basal ganglia, that sends inhibitory signals to other areas.", "cites": ["propuesta"]}], "sources": [{"id": "propuesta", "url": "docs/propuesta.md", "label": "Propuesta, glosario (borrador)"}]}, "public": true, "warnings": [], "content_sha256": "db93eb093b5325b3198802aaefeab088831e77be9a6e9ce82f8158a21094189c", "blocking": false}, {"item_type": "news_topic", "item_id": "clinical-trials", "title_es": "Tema: Ensayos clínicos", "content": {"kind": "toggle", "label_es": "Ensayos clínicos", "label_en": "Clinical trials"}, "public": true, "warnings": [], "content_sha256": "5a8dab1085102ceaf08386ce9f6955b05015a1881729b91c898b0102e06e9ea0", "blocking": false}, {"item_type": "news_topic", "item_id": "diseases", "title_es": "Tema: Enfermedades", "content": {"kind": "toggle", "label_es": "Enfermedades", "label_en": "Diseases"}, "public": true, "warnings": [], "content_sha256": "3cbbedf304b032801bf03ef7bee6241aa5c25d2d67920ad8188018010aa939dd", "blocking": false}, {"item_type": "news_topic", "item_id": "healthy-brain", "title_es": "Tema: Cerebro sano", "content": {"kind": "toggle", "label_es": "Cerebro sano", "label_en": "Healthy brain"}, "public": true, "warnings": [], "content_sha256": "a769d21c79c2679e2cbce05fb6cfd8b0fb675bb24fe25ca0d74c22569794c915", "blocking": false}, {"item_type": "news_topic", "item_id": "new-techniques", "title_es": "Tema: Técnicas nuevas", "content": {"kind": "toggle", "label_es": "Técnicas nuevas", "label_en": "New techniques"}, "public": true, "warnings": [], "content_sha256": "57b128b14a31e729268b90d5d9395849ab8eab65727fab170d6dbca19ffab17f", "blocking": false}, {"item_type": "news", "item_id": "pubmed-42971231", "title_es": "Resumen de S5: dolutegravir y defectos del tubo neural", "content": {"kind": "text", "es": [{"text": "Investigadores en Botsuana monitorizaron los resultados del parto durante más de ocho años, registrando 235 727 partos que representaron más de dos tercios de todos los nacimientos del país.", "cites": ["pubmed-42971231"]}, {"text": "El estudio siguió a 11 110 bebés expuestos al fármaco antirretroviral dolutegravir en la concepción, junto con 24 368 bebés expuestos a otros medicamentos contra el VIH.", "cites": ["pubmed-42971231"]}, {"text": "Entre los partos en los que se pudo determinar el estado, se encontraron 162 defectos del tubo neural, con una tasa del 0,11 % para la exposición a dolutegravir y del 0,10 % para los otros fármacos.", "cites": ["pubmed-42971231"]}, {"text": "Estos hallazgos sugieren que el dolutegravir es seguro para su uso durante el embarazo.", "cites": ["pubmed-42971231"]}], "en": [{"text": "Researchers in Botswana monitored birth outcomes for over eight years, recording 235,727 deliveries that represented more than two-thirds of all births in the country.", "cites": ["pubmed-42971231"]}, {"text": "The study tracked 11,110 babies exposed to the HIV drug dolutegravir at conception, alongside 24,368 babies exposed to other HIV medications.", "cites": ["pubmed-42971231"]}, {"text": "Among deliveries where status could be determined, 162 neural tube defects were found, with a rate of 0.11% for dolutegravir exposure and 0.10% for other drugs.", "cites": ["pubmed-42971231"]}, {"text": "These findings suggest that dolutegravir is safe to use during pregnancy.", "cites": ["pubmed-42971231"]}], "sources": [{"id": "pubmed-42971231", "url": "https://pubmed.ncbi.nlm.nih.gov/42971231/", "label": "PubMed 42971231"}]}, "public": true, "warnings": [], "content_sha256": "7cf4c4512e3319f1f4fbe38973748a953bc0206852b89dc01f9985c4ae4c5258", "blocking": false}]};
+const PAGE = {"variant": "public", "generated_at": "2026-11-11T06:00:00Z", "propose": true, "issue_new_url": "https://github.com/AdayCuestaCorrea/synaptica/issues/new", "max_url": 6000, "items": [{"item_type": "classics", "item_id": "2026-w46", "title_es": "Clásicos de la semana 46", "content": {"kind": "candidates", "week": "2026-W46", "max_picks": 2, "candidates": [{"doi": "10.1159/000444713", "title": "Epigenetic Regulations of GABAergic Neurotransmission: Relevance for Neurological Disorders and Epigenetic Therapy", "year": 2016, "cited_by": 8951}, {"doi": "10.15252/emmm.201606210", "title": "The amyloid hypothesis of Alzheimer's disease at 25 years", "year": 2016, "cited_by": 6367}, {"doi": "10.1038/nature18933", "title": "A multi-modal parcellation of human cerebral cortex", "year": 2016, "cited_by": 5175}, {"doi": "10.1016/s2215-0366(16)00104-8", "title": "Neurobiology of addiction: a neurocircuitry analysis", "year": 2016, "cited_by": 4005}, {"doi": "10.1007/s12021-016-9299-4", "title": "DPABI: Data Processing \u0026 Analysis for (Resting-State) Brain Imaging", "year": 2016, "cited_by": 3935}]}, "public": true, "warnings": [], "content_sha256": "b7e5b06e913aa2ccc61067137eb65e77fa033e5a38099a84c93760897e432ae6", "blocking": false}, {"item_type": "equivalence", "item_id": "waxholm-1021", "title_es": "HF (rata) ↔ Julich-Brain", "content": {"kind": "pair", "rat": {"id": 1021, "acronym": "HF", "name": "Hippocampal formation"}, "human": [{"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CA1_HIPPOCAMPUS", "label": 146, "name": "CA1 (Hippocampus)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CA2_HIPPOCAMPUS", "label": 44, "name": "CA2 (Hippocampus)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CA3_HIPPOCAMPUS", "label": 174, "name": "CA3 (Hippocampus)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_DG_HIPPOCAMPUS", "label": 120, "name": "DG (Hippocampus)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_SUBC_HIPPOCAMPUS_SUBICULAR_COMPLEX", "label": 172, "name": "Subc (Hippocampus, Subicular complex)"}]}, "public": true, "warnings": [], "content_sha256": "6e13e789e4f8701a792765424333be0479d490494ff14944b36e7ddf62cc6e29", "blocking": false}, {"item_type": "equivalence", "item_id": "waxholm-408", "title_es": "M1 (rata) ↔ Julich-Brain", "content": {"kind": "pair", "rat": {"id": 408, "acronym": "M1", "name": "Primary motor area"}, "human": [{"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_AREA_4A_PRECG", "label": 76, "name": "Area 4a (PreCG)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_AREA_4P_PRECG", "label": 142, "name": "Area 4p (PreCG)"}]}, "public": true, "warnings": [], "content_sha256": "73d00376b3084744a9f0fd66acc989690ef73de09ea651e36072619c057a0529", "blocking": false}, {"item_type": "equivalence", "item_id": "waxholm-501", "title_es": "Am-u (rata) ↔ Julich-Brain", "content": {"kind": "pair", "rat": {"id": 501, "acronym": "Am-u", "name": "Amygdaloid area, unspecified"}, "human": [{"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CM_AMYGDALA", "label": 141, "name": "CM (Amygdala)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_LB_AMYGDALA", "label": 75, "name": "LB (Amygdala)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_SF_AMYGDALA", "label": 191, "name": "SF (Amygdala)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_ASTR_AMYGDALA", "label": 5, "name": "Astr (Amygdala)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_VTM_AMYGDALA", "label": 66, "name": "VTM (Amygdala)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_IF_AMYGDALA", "label": 149, "name": "IF (Amygdala)"}, {"area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_MF_AMYGDALA", "label": 188, "name": "MF (Amygdala)"}]}, "public": true, "warnings": [], "content_sha256": "9aa8b4fd7ece35a0424ecd35c03687ba499361c987e7bf4e0375e6db4c406ab1", "blocking": false}, {"item_type": "search_terms", "item_id": "waxholm-1021", "title_es": "Búsqueda en PubMed: Hippocampal formation", "content": {"kind": "terms", "region": "waxholm-1021", "terms": ["Hippocampal formation", "HF"]}, "public": true, "warnings": [], "content_sha256": "94df4b10d48c58337adcf0d64e52827f0ab0e6fb37d8c64c1ae3bfdd414af2d2", "blocking": false}, {"item_type": "glossary", "item_id": "gaba", "title_es": "GABA", "content": {"kind": "text", "es": [{"text": "GABA (ácido gamma-aminobutírico): principal neurotransmisor inhibidor del cerebro.", "cites": ["propuesta"]}], "en": [{"text": "GABA (gamma-aminobutyric acid): the main inhibitory neurotransmitter of the brain.", "cites": ["propuesta"]}], "sources": [{"id": "propuesta", "url": "docs/propuesta.md", "label": "Propuesta, glosario (borrador)"}]}, "public": true, "warnings": [], "content_sha256": "f1e40e5757306588e1aab3fd24e311c8397a11a67411f1ffa0fefa1c8aa030e6", "blocking": false}, {"item_type": "glossary", "item_id": "snr", "title_es": "SNr", "content": {"kind": "text", "es": [{"text": "SNr (sustancia negra pars reticulata): parte de la sustancia negra, en los ganglios basales, que envía señales inhibidoras a otras zonas.", "cites": ["propuesta"]}], "en": [{"text": "SNr (substantia nigra pars reticulata): part of the substantia nigra, in the basal ganglia, that sends inhibitory signals to other areas.", "cites": ["propuesta"]}], "sources": [{"id": "propuesta", "url": "docs/propuesta.md", "label": "Propuesta, glosario (borrador)"}]}, "public": true, "warnings": [], "content_sha256": "db93eb093b5325b3198802aaefeab088831e77be9a6e9ce82f8158a21094189c", "blocking": false}, {"item_type": "news_topic", "item_id": "clinical-trials", "title_es": "Tema: Ensayos clínicos", "content": {"kind": "toggle", "label_es": "Ensayos clínicos", "label_en": "Clinical trials"}, "public": true, "warnings": [], "content_sha256": "5a8dab1085102ceaf08386ce9f6955b05015a1881729b91c898b0102e06e9ea0", "blocking": false}, {"item_type": "news_topic", "item_id": "diseases", "title_es": "Tema: Enfermedades", "content": {"kind": "toggle", "label_es": "Enfermedades", "label_en": "Diseases"}, "public": true, "warnings": [], "content_sha256": "3cbbedf304b032801bf03ef7bee6241aa5c25d2d67920ad8188018010aa939dd", "blocking": false}, {"item_type": "news_topic", "item_id": "healthy-brain", "title_es": "Tema: Cerebro sano", "content": {"kind": "toggle", "label_es": "Cerebro sano", "label_en": "Healthy brain"}, "public": true, "warnings": [], "content_sha256": "a769d21c79c2679e2cbce05fb6cfd8b0fb675bb24fe25ca0d74c22569794c915", "blocking": false}, {"item_type": "news_topic", "item_id": "new-techniques", "title_es": "Tema: Técnicas nuevas", "content": {"kind": "toggle", "label_es": "Técnicas nuevas", "label_en": "New techniques"}, "public": true, "warnings": [], "content_sha256": "57b128b14a31e729268b90d5d9395849ab8eab65727fab170d6dbca19ffab17f", "blocking": false}, {"item_type": "news", "item_id": "pubmed-42971231", "title_es": "Resumen de S5: dolutegravir y defectos del tubo neural", "content": {"kind": "text", "es": [{"text": "Investigadores en Botsuana monitorizaron los resultados del parto durante más de ocho años, registrando 235 727 partos que representaron más de dos tercios de todos los nacimientos del país.", "cites": ["pubmed-42971231"]}, {"text": "El estudio siguió a 11 110 bebés expuestos al fármaco antirretroviral dolutegravir en la concepción, junto con 24 368 bebés expuestos a otros medicamentos contra el VIH.", "cites": ["pubmed-42971231"]}, {"text": "Entre los partos en los que se pudo determinar el estado, se encontraron 162 defectos del tubo neural, con una tasa del 0,11 % para la exposición a dolutegravir y del 0,10 % para los otros fármacos.", "cites": ["pubmed-42971231"]}, {"text": "Estos hallazgos sugieren que el dolutegravir es seguro para su uso durante el embarazo.", "cites": ["pubmed-42971231"]}], "en": [{"text": "Researchers in Botswana monitored birth outcomes for over eight years, recording 235,727 deliveries that represented more than two-thirds of all births in the country.", "cites": ["pubmed-42971231"]}, {"text": "The study tracked 11,110 babies exposed to the HIV drug dolutegravir at conception, alongside 24,368 babies exposed to other HIV medications.", "cites": ["pubmed-42971231"]}, {"text": "Among deliveries where status could be determined, 162 neural tube defects were found, with a rate of 0.11% for dolutegravir exposure and 0.10% for other drugs.", "cites": ["pubmed-42971231"]}, {"text": "These findings suggest that dolutegravir is safe to use during pregnancy.", "cites": ["pubmed-42971231"]}], "sources": [{"id": "pubmed-42971231", "url": "https://pubmed.ncbi.nlm.nih.gov/42971231/", "label": "PubMed 42971231"}]}, "public": true, "warnings": [], "content_sha256": "7cf4c4512e3319f1f4fbe38973748a953bc0206852b89dc01f9985c4ae4c5258", "blocking": false}]};
 const STORE = `synaptica-revision-s4-${PAGE.variant}`;
 const GRADES = [["clear", "Clara"], ["partial", "Parcial"], ["disputed", "Discutida"]];
 const GROUPS = {
@@ -152,10 +158,11 @@ let answers = {};
 try { answers = JSON.parse(localStorage.getItem(STORE) || "{}"); } catch (e) { answers = {}; }
 answers.proposals = answers.proposals || [];
 
-function save() {
+function persist() {
   try { localStorage.setItem(STORE, JSON.stringify(answers)); } catch (e) { /* not available */ }
-  refresh();
 }
+
+function save() { persist(); refresh(); }
 
 // Every text goes through textContent: the content comes from LLMs and publishers.
 function el(tag, attrs = {}, ...kids) {
@@ -376,8 +383,78 @@ function describe(d) {
   return `${title}: ${what}`;
 }
 
+// ---- sending: the block of issue_block.py, in one or more prefilled GitHub Issues ----
+
+const MAGIC = "synaptica-review v1";
+const DECISION_KEYS = ["item_type", "item_id", "content_sha256", "action", "payload", "note"];
+// Longest URL GitHub still prefills (measured in step 3, spikes/s4/results/README.md).
+const MAX_URL = PAGE.max_url;
+
+function blockOf(ds, part, total) {
+  const lines = [MAGIC, `queue: ${PAGE.generated_at}`, `page: ${PAGE.variant}`, `part: ${part}/${total}`];
+  for (const d of ds) lines.push(JSON.stringify(Object.fromEntries(DECISION_KEYS.map((k) => [k, d[k] ?? null]))));
+  return lines.join("\n");
+}
+
+function issueUrl(block, part, total) {
+  const q = { template: "revision.yml", title: `Revisión de Sofía · ${PAGE.generated_at.slice(0, 10)} · ${part}/${total}` };
+  if (block !== null) q.decisiones = block;
+  return `${PAGE.issue_new_url}?` + Object.entries(q).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join("&");
+}
+
+// Greedy packing into parts whose URL fits. A single decision too long for any URL (a
+// whole sheet corrected in both languages) goes alone, to be pasted by hand.
+function parts(ds) {
+  const out = [];
+  let current = [];
+  const fits = (group) => issueUrl(blockOf(group, 99, 99), 99, 99).length <= MAX_URL;
+  for (const d of ds) {
+    if (fits([...current, d])) { current.push(d); continue; }
+    if (current.length) out.push(current);
+    current = [d];
+  }
+  if (current.length) out.push(current);
+  return out.map((group) => ({ group, paste: !fits(group) }));
+}
+
+async function copyText(text) {
+  try { await navigator.clipboard.writeText(text); return true; } catch (e) { return false; }
+}
+
+function renderParts(ds) {
+  const ps = parts(ds);
+  answers.sent = answers.sent || {};
+  const box = document.getElementById("parts");
+  box.replaceChildren(...ps.map((p, n) => {
+    const block = blockOf(p.group, n + 1, ps.length);
+    const label = ps.length > 1 ? `Enviar parte ${n + 1} de ${ps.length}` : "Enviar";
+    const a = el("a", { class: `button${answers.sent[block] ? " sent" : ""}`, target: "_blank", rel: "noopener",
+      href: issueUrl(p.paste ? null : block, n + 1, ps.length),
+      text: answers.sent[block] ? `${label} (abierta)` : label });
+    // No redraw here: the link must stay in the page while the browser follows it.
+    a.addEventListener("click", async () => {
+      answers.sent[block] = true;
+      persist();
+      a.classList.add("sent");
+      a.textContent = `${label} (abierta)`;
+      const status = document.getElementById("send-status");
+      if (p.paste) {
+        const ok = await copyText(block);
+        status.textContent = ok
+          ? "Esta parte es demasiado larga para ir sola: está copiada. En GitHub, pégala en el recuadro «Decisiones» y pulsa «Create»."
+          : "Esta parte es demasiado larga y no se pudo copiar sola. Avisa a Aday.";
+      } else {
+        status.textContent = "Se ha abierto GitHub. Pulsa «Create» allí para terminar.";
+      }
+    });
+    const items = `${p.group.length} ${p.group.length === 1 ? "decisión" : "decisiones"}`;
+    return el("div", { class: "part" }, a, el("span", { class: "hint", text: p.paste ? `${items} · tendrás que pegarla` : items }));
+  }));
+}
+
 function refresh() {
   const ds = decisions();
+  renderParts(ds);
   const done = new Set(ds.map((d) => `${d.item_type}/${d.item_id}`));
   const total = PAGE.items.length;
   const answered = PAGE.items.filter((i) => done.has(`${i.item_type}/${i.item_id}`)).length;

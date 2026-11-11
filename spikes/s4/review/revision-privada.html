@@ -85,6 +85,11 @@ textarea.edit { min-height: 8rem; font-family: var(--serif); font-size: 1rem; }
 section.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 1.25rem; display: grid; gap: 0.8rem; margin-bottom: 1.75rem; }
 .proposals { display: grid; gap: 0.5rem; }
 .proposal { display: flex; gap: 0.75rem; align-items: baseline; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 0.5rem; }
+.parts { display: grid; gap: 0.6rem; }
+.part { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+a.button { font: 500 0.95rem var(--sans); background: var(--accent); color: var(--surface); border-radius: 6px; padding: 0.5rem 0.9rem; text-decoration: none; }
+a.button.sent { background: var(--surface); color: var(--ok); border: 1px solid var(--ok); }
+.status { color: var(--ok); font-size: 0.9rem; min-height: 1.3em; }
 ol.preview { margin: 0; padding-left: 1.4rem; display: grid; gap: 0.3rem; font-size: 0.95rem; }
 footer { color: var(--muted); font-size: 0.85rem; padding-block: 0 3rem; }
 @media (prefers-reduced-motion: reduce) { .track span { transition: none; } }
@@ -131,14 +136,15 @@ footer { color: var(--muted); font-size: 0.85rem; padding-block: 0 3rem; }
     <h2>Enviar</h2>
     <p id="send-count"></p>
     <ol class="preview" id="preview"></ol>
-    <!-- Step 3 of spikes/s4/PLAN.md: this button will open the prefilled GitHub Issue. -->
-    <div><button type="button" class="primary" id="send-button" disabled>Enviar (llega en el paso 3)</button></div>
+    <p class="hint" id="send-how">Al pulsar «Enviar» se abre GitHub con todo ya escrito: allí solo tienes que pulsar «Create». Tienes que haber entrado en GitHub con tu cuenta.</p>
+    <div class="parts" id="parts"></div>
+    <div class="status" id="send-status" role="status"></div>
   </section>
 </div>
 <footer class="wrap"><p>Esta página es interna: no es parte de la web publicada. Los textos son propios de SYNAPTICA y cada estudio enlaza a su original. Nada de lo que aparece aquí es consejo médico.</p></footer>
 
 <script>
-const PAGE = {"variant": "private", "generated_at": "2026-11-11T06:00:00Z", "propose": false, "items": [{"item_type": "disease", "item_id": "test-placeholder", "title_es": "Ficha de prueba (no es una enfermedad real)", "content": {"kind": "text", "es": [{"text": "[Texto de prueba del spike S4: no es contenido de salud.]", "cites": []}], "en": [{"text": "[S4 spike test text: this is not health content.]", "cites": []}], "sources": []}, "public": false, "warnings": [], "content_sha256": "ed03b966bc4c3ed967ace9c1ea4c77edb68fd8f92660d0d7e7151f0211fe05c9", "blocking": true}]};
+const PAGE = {"variant": "private", "generated_at": "2026-11-11T06:00:00Z", "propose": false, "issue_new_url": "https://github.com/AdayCuestaCorrea/synaptica/issues/new", "max_url": 6000, "items": [{"item_type": "disease", "item_id": "test-placeholder", "title_es": "Ficha de prueba (no es una enfermedad real)", "content": {"kind": "text", "es": [{"text": "[Texto de prueba del spike S4: no es contenido de salud.]", "cites": []}], "en": [{"text": "[S4 spike test text: this is not health content.]", "cites": []}], "sources": []}, "public": false, "warnings": [], "content_sha256": "ed03b966bc4c3ed967ace9c1ea4c77edb68fd8f92660d0d7e7151f0211fe05c9", "blocking": true}]};
 const STORE = `synaptica-revision-s4-${PAGE.variant}`;
 const GRADES = [["clear", "Clara"], ["partial", "Parcial"], ["disputed", "Discutida"]];
 const GROUPS = {
@@ -152,10 +158,11 @@ let answers = {};
 try { answers = JSON.parse(localStorage.getItem(STORE) || "{}"); } catch (e) { answers = {}; }
 answers.proposals = answers.proposals || [];
 
-function save() {
+function persist() {
   try { localStorage.setItem(STORE, JSON.stringify(answers)); } catch (e) { /* not available */ }
-  refresh();
 }
+
+function save() { persist(); refresh(); }
 
 // Every text goes through textContent: the content comes from LLMs and publishers.
 function el(tag, attrs = {}, ...kids) {
@@ -376,8 +383,78 @@ function describe(d) {
   return `${title}: ${what}`;
 }
 
+// ---- sending: the block of issue_block.py, in one or more prefilled GitHub Issues ----
+
+const MAGIC = "synaptica-review v1";
+const DECISION_KEYS = ["item_type", "item_id", "content_sha256", "action", "payload", "note"];
+// Longest URL GitHub still prefills (measured in step 3, spikes/s4/results/README.md).
+const MAX_URL = PAGE.max_url;
+
+function blockOf(ds, part, total) {
+  const lines = [MAGIC, `queue: ${PAGE.generated_at}`, `page: ${PAGE.variant}`, `part: ${part}/${total}`];
+  for (const d of ds) lines.push(JSON.stringify(Object.fromEntries(DECISION_KEYS.map((k) => [k, d[k] ?? null]))));
+  return lines.join("\n");
+}
+
+function issueUrl(block, part, total) {
+  const q = { template: "revision.yml", title: `Revisión de Sofía · ${PAGE.generated_at.slice(0, 10)} · ${part}/${total}` };
+  if (block !== null) q.decisiones = block;
+  return `${PAGE.issue_new_url}?` + Object.entries(q).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join("&");
+}
+
+// Greedy packing into parts whose URL fits. A single decision too long for any URL (a
+// whole sheet corrected in both languages) goes alone, to be pasted by hand.
+function parts(ds) {
+  const out = [];
+  let current = [];
+  const fits = (group) => issueUrl(blockOf(group, 99, 99), 99, 99).length <= MAX_URL;
+  for (const d of ds) {
+    if (fits([...current, d])) { current.push(d); continue; }
+    if (current.length) out.push(current);
+    current = [d];
+  }
+  if (current.length) out.push(current);
+  return out.map((group) => ({ group, paste: !fits(group) }));
+}
+
+async function copyText(text) {
+  try { await navigator.clipboard.writeText(text); return true; } catch (e) { return false; }
+}
+
+function renderParts(ds) {
+  const ps = parts(ds);
+  answers.sent = answers.sent || {};
+  const box = document.getElementById("parts");
+  box.replaceChildren(...ps.map((p, n) => {
+    const block = blockOf(p.group, n + 1, ps.length);
+    const label = ps.length > 1 ? `Enviar parte ${n + 1} de ${ps.length}` : "Enviar";
+    const a = el("a", { class: `button${answers.sent[block] ? " sent" : ""}`, target: "_blank", rel: "noopener",
+      href: issueUrl(p.paste ? null : block, n + 1, ps.length),
+      text: answers.sent[block] ? `${label} (abierta)` : label });
+    // No redraw here: the link must stay in the page while the browser follows it.
+    a.addEventListener("click", async () => {
+      answers.sent[block] = true;
+      persist();
+      a.classList.add("sent");
+      a.textContent = `${label} (abierta)`;
+      const status = document.getElementById("send-status");
+      if (p.paste) {
+        const ok = await copyText(block);
+        status.textContent = ok
+          ? "Esta parte es demasiado larga para ir sola: está copiada. En GitHub, pégala en el recuadro «Decisiones» y pulsa «Create»."
+          : "Esta parte es demasiado larga y no se pudo copiar sola. Avisa a Aday.";
+      } else {
+        status.textContent = "Se ha abierto GitHub. Pulsa «Create» allí para terminar.";
+      }
+    });
+    const items = `${p.group.length} ${p.group.length === 1 ? "decisión" : "decisiones"}`;
+    return el("div", { class: "part" }, a, el("span", { class: "hint", text: p.paste ? `${items} · tendrás que pegarla` : items }));
+  }));
+}
+
 function refresh() {
   const ds = decisions();
+  renderParts(ds);
   const done = new Set(ds.map((d) => `${d.item_type}/${d.item_id}`));
   const total = PAGE.items.length;
   const answered = PAGE.items.filter((i) => done.has(`${i.item_type}/${i.item_id}`)).length;
