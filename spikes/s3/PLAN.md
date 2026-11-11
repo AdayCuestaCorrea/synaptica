@@ -2,6 +2,8 @@
 
 Plan aprobado por Aday el 2026-11-11 y cambiado ese mismo día tras el paso 2: la maqueta A (siibra-explorer embebido) queda descartada y la sustituye la **C (Niivue)**. Resultado: el ADR `docs/adr/0003-visor.md`.
 
+Cambiado otra vez el 2026-11-11 tras el paso 6: **Sofía elige C** y pide ajustes ([`results/peticiones-sofia.md`](results/peticiones-sofia.md)), que entran como pasos 7.1–7.9 antes de publicar.
+
 ## Objetivo
 Dos maquetas del visor con los dos atlas **lado a lado**, Waxholm (rata) y Julich-Brain (humano), publicadas en GitHub Pages y **sin depender de EBRAINS al usarlas**: los datos salen de nuestra web.
 - **B:** three.js con mallas propias. Todo lo programamos nosotros: vista 3D de superficies.
@@ -14,7 +16,8 @@ Requisitos duros:
 - regiones clicables por ID;
 - licencias compatibles, sin mezclar los atlas;
 - peso razonable en móvil;
-- los dos atlas a la vez.
+- los dos atlas a la vez;
+- un corte 2D sincronizado con el 3D (añadido tras ver las maquetas), con el 3D como vista principal para no solaparse con The Folded Mind (SCOPE §1).
 
 Además, aprendido de la A: sin ventanas al entrar, sin seguimiento de terceros y sin peticiones a otros dominios en tiempo de uso.
 
@@ -68,11 +71,21 @@ Sofía propone que el contenido de la Fase 2 empiece por las estructuras de la s
    - comprobación de que no se pide nada a otros dominios.
 
    Presupuesto inicial: unos **3 MB por atlas** comprimido.
-7. **Publicación.**
-   - En GitHub Pages, en `/synaptica/spikes/s3/`. **Se confirma con Aday antes de tocar Pages.**
-   - Además, como artifact de claude.ai para que Sofía lo vea cómodamente.
-   - Página de respuestas al estilo de S5, que sirve también como prueba de D5: Sofía elige entre B y C y deja notas.
-8. **ADR `0003-visor.md`.** Cifras de A, B y C, licencias, la elección de Sofía y la casilla de SCOPE.
+7. **Ajustes que pide Sofía en C** (P1–P7 de `results/peticiones-sofia.md`). Un commit por subpaso.
+   1. **Resumen y plan.** El resumen de sus peticiones, este plan y SCOPE. *Hecho.*
+   2. **Paleta tranquila (P5).** Colores por grupo de la jerarquía, en tonos suaves e iguales en 2D y 3D, en un campo nuevo de `labels.json`; el color oficial se conserva.
+   3. **Recorte sagital y sincronía (P1, P2).** Recorte 3D sagital y corte 2D coronal. Dos variantes, elegibles con `?sync=punto|deslizadores`: un punto común (línea arrastrable en el 2D y plano fino en el 3D) o dos deslizadores.
+   4. **Clic sincronizado y nombre (P3, P6).** Centroides por región, un archivo por atlas; el otro visor selecciona la pieza, gira hacia ella y lleva su corte hasta ella; aviso «sin pareja todavía»; nombre completo y sigla visibles, con la sigla marcada para el glosario de la Fase 2.
+   5. **Coordenadas (P7).** Bregma y Lambda en Waxholm, solo de una publicación citada; ejes en mm. El humano, en mm MNI. Si no hay fuente, se para y se avisa.
+   6. **Modos de vista y atlas en blanco y negro (P4).** Selector «Color · Atlas · Tinción», uno a la vez; grises y contornos en 2D y en 3D. Los archivos extra se cargan solo al elegir el modo.
+   7. **Tinción dibujada (P4).** Aspecto de tinción generado desde las etiquetas, con el aviso «ilustración, no es una tinción real» en el lienzo.
+   8. **Tinción real (P4).** Búsqueda de histologías alineadas a Waxholm y a MNI, con licencia y peso (`results/tincion.md`). Se integran solo si hay datos válidos que quepan; si no, al backlog.
+   9. **Móvil.** Resolución del 3D limitada en móviles, nuevas mediciones y prueba en un móvil real.
+   10. **Publicación.**
+       - En GitHub Pages, en `/synaptica/spikes/s3/`. **Se confirma con Aday antes de tocar Pages.**
+       - Además, como artifact de claude.ai para que Sofía lo vea cómodamente.
+       - Página de respuestas al estilo de S5, que sirve también como prueba de D5: variante de sincronía, tinción dibujada o real, paleta y notas.
+8. **ADR `0003-visor.md`.** Cifras de A, B y C (antes y después de los ajustes), licencias, la elección de Sofía, lo que elija en 7.10 y la casilla de SCOPE.
 
 ## Licencias
 - Los datos derivados heredan la licencia de su atlas:
