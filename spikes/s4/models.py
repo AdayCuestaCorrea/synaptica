@@ -173,6 +173,9 @@ class ReviewItem(Strict):
     title_es: str
     content: Content
     public: bool = True  # False: never on the public review page (Neuro Diseases)
+    # Why the item is back in her queue (a check failed on her edit, step 4). Not hashed:
+    # it describes the review, not the content.
+    warnings: list[str] = []
 
     @model_validator(mode="after")
     def _consistent(self) -> ReviewItem:
