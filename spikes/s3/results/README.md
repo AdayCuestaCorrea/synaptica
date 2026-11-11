@@ -50,7 +50,7 @@ Una carpeta por atlas; ningún archivo combina los dos.
 
 | Archivo | Waxholm | Julich-Brain | Para |
 |---|---|---|---|
-| `<atlas>.glb` | 152 KB · contorno + M1, HF y Am-u, cada una por lado | 181 KB · contorno + 14 áreas, cada una por lado | B |
+| `<atlas>.glb` | 168 KB · contorno + M1, HF y Am-u, cada una por lado | 181 KB · contorno + 14 áreas, cada una por lado | B |
 | `labels.nii.gz` | 536 KB · 171 × 342 × 171 a 117 µm | 539 KB · 193 × 229 × 193 a 1 mm | C |
 | `labels.json` | 113 KB · 447 regiones con lado + árbol | 104 KB · 414 áreas con lado | B y C |
 | `licence.json` | CC BY 4.0, cita Kleven et al. 2023 | CC BY-NC-SA 4.0, cita del conjunto de datos (DOI 10.25493/KNSN-XB4) | B y C |
@@ -61,12 +61,14 @@ Más `equivalencias.json` (3 KB): los tres pares de prueba, con solo IDs y nombr
 - **Valores:** el valor de cada vóxel y el de cada nodo del glTF es un índice compacto (1…N) que apunta a una fila de `labels.json`, con el ID del atlas y su lado (`L` o `R`).
 - **Coordenadas:** milímetros RAS centrados en el cerebro, iguales en los dos atlas para que se vean con la misma orientación.
 - **Mallas (B):** decimación cuádrica (12.000 caras por región, 40.000 el contorno) y compresión Draco, con la posición cuantizada a 12 bits. El nodo lleva en `extras` el ID, el lado y el nombre.
-  - Rata: las mallas de BrainGlobe, separadas en piezas conexas y asignadas al lado donde caen la mayoría de sus vértices.
+  - Rata: las mallas de BrainGlobe, cortadas por lado cara a cara según el volumen de hemisferios. Separarlas en piezas conexas no sirve: HF es una sola pieza que cruza la línea media por las comisuras.
   - Humano: marching cubes sobre el volumen de cada área y lado, suavizado.
+  - Las caras se orientan hacia fuera antes de simplificar o cortar, mientras la malla aún está cerrada. El paso de los ejes de BrainGlobe a RAS incluye una reflexión que las daba la vuelta, y three.js no dibuja ni detecta las caras traseras.
 
 ## Hemisferios
 
-- **Julich-Brain:** siibra no lo distingue por la coordenada x. El mapa de máxima probabilidad son **dos archivos**, uno por hemisferio (`JulichBrainAtlas_3.1_207areas_MPM_lh_MNI152.nii.gz` y `…_rh_…`), y cada `MapIndex` lleva `fragment = "left hemisphere"` o `"right hemisphere"`; la región de cada lado tiene su propio ID (`…_AREA_4A_PRECG_LEFT`). Los dos archivos no se solapan, pero sus rangos de x se cruzan cerca de la línea media (vóxeles 95–97), así que el lado lo da el archivo. Cada fila de `labels.json` lleva `label` (la etiqueta del MPM, igual a los dos lados), `side`, `id` (la región de ese lado) y `area_id` (el área sin lado).
+- **Julich-Brain:** siibra no lo distingue por la coordenada x. El mapa de máxima probabilidad son **dos archivos**, uno por hemisferio (`JulichBrainAtlas_3.1_207areas_MPM_lh_MNI152.nii.gz` y `…_rh_…`), y cada `MapIndex` lleva `fragment = "left hemisphere"` o `"right hemisphere"`; la región de cada lado tiene su propio ID (`…_AREA_4A_PRECG_LEFT`). Los dos archivos no se solapan, pero sus rangos de x se cruzan cerca de la línea media (vóxeles 95–97), así que el lado lo da el archivo.
+- **Asimetrías del propio MPM:** algunas áreas tienen tamaños muy distintos en cada hemisferio, y así vienen ya en los archivos de siibra; no es efecto de nuestro proceso. Por ejemplo, el área 4a tiene 2.872 vóxeles a la izquierda y 9.280 a la derecha, y el área 3b, 7.596 y 2.249. 16 etiquetas difieren más de 2,5 veces. Conviene que Sofía lo sepa al ver la maqueta. Cada fila de `labels.json` lleva `label` (la etiqueta del MPM, igual a los dos lados), `side`, `id` (la región de ese lado) y `area_id` (el área sin lado).
 - **Waxholm:** BrainGlobe trae un volumen de hemisferios (1 = izquierdo, 2 = derecho).
 
 ## Resolución de Waxholm para C

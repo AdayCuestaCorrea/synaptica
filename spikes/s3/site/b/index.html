@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SYNAPTICA · S3 · B (three.js)</title>
+<link rel="stylesheet" href="../common/common.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "../vendor/three-0.187.0/build/three.module.js",
+    "three/addons/": "../vendor/three-0.187.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="b.js"></script>
+</head>
+<body>
+<header>
+  <h1>SYNAPTICA · Visor B</h1>
+  <span class="sub">three.js 0.187.0 · mallas propias</span>
+  <a id="lang" href="?lang=en">English</a>
+</header>
+<main>
+  <p class="disclaimer" data-t="disclaimer"></p>
+  <div class="controls">
+    <button id="cortex" aria-pressed="false" data-t="cortexShown"></button>
+    <button id="isolate" aria-pressed="false" data-t="isolate"></button>
+    <p class="hint" data-t="hint"></p>
+  </div>
+  <div class="viewers">
+    <section class="viewer" id="waxholm">
+      <h2><span data-t="rat"></span> · Waxholm v4.01</h2>
+      <div class="stage"><canvas></canvas><div class="status" data-t="loading"></div></div>
+      <div class="panel"></div>
+      <div class="licence"></div>
+    </section>
+    <section class="viewer" id="julich">
+      <h2><span data-t="human"></span> · Julich-Brain v3.1</h2>
+      <div class="stage"><canvas></canvas><div class="status" data-t="loading"></div></div>
+      <div class="panel"></div>
+      <div class="licence"></div>
+    </section>
+  </div>
+</main>
+<footer>
+  <p><span data-t="libsB"></span> <a href="../vendor/three-0.187.0/SOURCE.md" data-t="licences"></a>.</p>
+</footer>
+</body>
+</html>

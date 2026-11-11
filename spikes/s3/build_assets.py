@@ -209,13 +209,27 @@ def write_glb(path: Path, nodes: list[dict]) -> None:
         f.write(struct.pack("<II", len(blob), 0x004E4942) + bytes(blob))
 
 
-def simplify(vertices: np.ndarray, faces: np.ndarray, target: int):
+def simplify(vertices: np.ndarray, faces: np.ndarray, target: int, orient: bool = True):
     import trimesh
 
     m = trimesh.Trimesh(vertices, faces, process=True)
+    if orient:
+        orient_outwards(m)
     if len(m.faces) > target:
-        m = m.simplify_quadric_decimation(face_count=target)
+        m = m.simplify_quadric_decimation(face_count=target)  # keeps the winding
     return np.asarray(m.vertices), np.asarray(m.faces)
+
+
+def orient_outwards(m) -> None:
+    """Faces must wind outwards: renderers cull back faces and raycasts skip them.
+
+    Needs a closed mesh (the sign of the volume says which way it winds), so it runs before
+    decimating or cutting. The axis changes to RAS include a reflection for Waxholm, which turns
+    every face inside out.
+    """
+    import trimesh
+
+    trimesh.repair.fix_normals(m, multibody=True)
 
 
 def ras_to_gltf(v: np.ndarray) -> np.ndarray:
@@ -393,15 +407,20 @@ def waxholm() -> dict:
                     }
                 )
                 continue
-            # Split into connected pieces and give each piece the side most of its vertices
-            # fall in (hemispheres volume); then one mesh per side.
-            parts = trimesh.Trimesh(v_um, faces, process=True).split(only_watertight=False)
+            # Cut by side face by face: each face goes to the hemisphere its centre falls in
+            # (hemispheres volume). Splitting into connected pieces does not work: HF is one
+            # piece across the midline (commissures).
+            face_side = side_of(v_um[faces].mean(axis=1))
+            whole = trimesh.Trimesh(to_ras(v_um), faces, process=False)
+            orient_outwards(whole)  # while still closed
             for side, hv in (("L", 1), ("R", 2)):
-                mine = [p for p in parts if np.mean(side_of(p.vertices) == hv) > 0.5]
-                if not mine:
+                mask = face_side == hv
+                if not mask.any():
                     continue
-                m = trimesh.util.concatenate(mine)
-                v, fc = simplify(to_ras(np.asarray(m.vertices)), np.asarray(m.faces), FACES_REGION)
+                m = whole.submesh([np.nonzero(mask)[0]], append=True)
+                v, fc = simplify(
+                    np.asarray(m.vertices), np.asarray(m.faces), FACES_REGION, orient=False
+                )
                 nodes.append(
                     {
                         "name": f"{t['acronym']} {side}",
@@ -414,7 +433,7 @@ def waxholm() -> dict:
                             "acronym": t["acronym"],
                             "name": t["name"],
                             "color": terms[i]["color_hex_triplet"],
-                            "pieces": len(mine),
+                            "faces_share": round(float(mask.mean()), 3),
                         },
                     }
                 )
