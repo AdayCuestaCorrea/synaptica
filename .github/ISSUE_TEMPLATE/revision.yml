@@ -1,0 +1,21 @@
+# Sofía's review decisions (spike S4, decision D5). The review page opens this form with
+# the "decisiones" field already filled in; she only presses "Create". The intake
+# workflow (step 4 of spikes/s4/PLAN.md) reads the block and ignores Issues by anyone else.
+name: Revisión de Sofía
+description: Decisiones de revisión enviadas desde la página de revisión de SYNAPTICA.
+title: "Revisión de Sofía"
+labels: ["revisión"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        La página de revisión ya ha rellenado el recuadro de abajo. **No hace falta cambiar nada:** pulsa «Create» al final.
+        Todo lo que se envía aquí es público, también las notas.
+  - type: textarea
+    id: decisiones
+    attributes:
+      label: Decisiones
+      description: Generado por la página de revisión. Si está vacío, vuelve a la página y pulsa «Enviar».
+      render: text
+    validations:
+      required: true
