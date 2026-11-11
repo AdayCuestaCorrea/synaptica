@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 16** · 2026-11-11 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 17** · 2026-11-11 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -89,7 +89,7 @@ En la Fase 0 se verifica el acceso, los límites, si hace falta clave y la licen
 | OpenAlex | Recuento de citas para proponer los Clásicos | 1 |
 | Wikipedia (ES/EN) y Wikidata | Borradores de los textos fijos, enfermedades por región, Nobel | 2–4 |
 | Julich-Brain · siibra-explorer (EBRAINS) | Atlas humano (CC BY-NC-SA 4.0) y visor (Apache-2.0) | 2 |
-| Waxholm Space, rata v4 | Atlas de rata (CC BY-SA) | 2 |
+| Waxholm Space, rata v4.01 | Atlas de rata (delineaciones CC BY 4.0; la RM de plantilla, CC BY-SA 4.0) | 2 |
 | Allen Institute · BrainGlobe Atlas API | Alternativas y mallas 3D (licencias por confirmar) | 2 |
 | ClinicalTrials.gov | Ensayos abiertos en España | 3 |
 | nobelprize.org | Verificación de los Nobel y altas nuevas (ver si tiene API o se usa Wikidata) | 4 |
@@ -258,3 +258,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 14 | 2026-11-11 | D5: el flujo de revisión también tiene que cubrir la tabla de equivalencias rata ↔ humano (grado y nota); la página de revisión de S5 cuenta como primera prueba de la opción «página de revisión generada» |
 | 15 | 2026-11-11 | Plan de S3 ([`spikes/s3/PLAN.md`](spikes/s3/PLAN.md)): dos maquetas lado a lado (siibra-explorer y three.js) en GitHub Pages, y elige Sofía; regiones de prueba: una de superficie y el hipocampo. Fase 2, a propuesta de Sofía: introducción a las diferencias entre el cerebro humano y el de rata, y regiones de la superficie antes que las internas |
 | 16 | 2026-11-11 | S3, pasos 0 y 1: grupo `spike-s3` (brainglobe-atlasapi, siibra, trimesh) y medidas de los dos atlas ([resultados](spikes/s3/results/README.md)). Waxholm es v4.01 (224 regiones, mallas de 16,8 MB sin comprimir) y Julich-Brain v3.1 (MPM de 1 mm, sin mallas: hay que generarlas). Las tres regiones de prueba existen en los dos atlas; la amígdala de Waxholm no está subdividida. `docs/fuentes.md` completa la línea de los atlas, lo último de S1. **Por decidir:** las delineaciones de Waxholm son CC BY 4.0, no CC BY-SA como dicen §5, CLAUDE.md, la propuesta y el plan (solo la RM de plantilla es CC BY-SA); no se ha corregido en esos documentos |
+| 17 | 2026-11-11 | Licencia de Waxholm corregida a CC BY 4.0 en §5, CLAUDE.md, la propuesta y el plan de S3, según el EBRAINS KG (v4 y v4.01) y NITRC; la RM de plantilla es CC BY-SA 4.0. Se mantiene la regla de no combinar los dos atlas en un mismo dato derivado |

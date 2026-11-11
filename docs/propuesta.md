@@ -56,11 +56,11 @@ Existen atlas abiertos con las regiones ya identificadas (nombre y código ofici
 | --- | --- | --- |
 | [siibra-explorer (EBRAINS)](https://ebrains.eu/tools/siibra-explorer) | Visor 3D de atlas de humano, macaco, rata y ratón, con datos enlazados a cada región | Código bajo Apache-2.0: se puede reutilizar |
 | [Julich-Brain](https://ebrains.eu/service/human-brain-atlas) | Atlas del cerebro humano, 148 mapas de áreas | CC BY-NC-SA 4.0 según el [registro SciCrunch](https://scicrunch.org/resolver/SCR_023277): solo no comercial, con atribución |
-| [Waxholm Space, rata v4](https://pmc.ncbi.nlm.nih.gov/articles/PMC10630136) | Cerebro de rata con 222 regiones anotadas | CC BY-SA desde octubre de 2021: atribución y misma licencia |
+| [Waxholm Space, rata v4](https://pmc.ncbi.nlm.nih.gov/articles/PMC10630136) | Cerebro de rata con 222 regiones anotadas | CC BY 4.0: atribución (corregido el 2026-11-11, según EBRAINS y NITRC; la RM de plantilla es CC BY-SA 4.0) |
 | [Allen Institute](https://alleninstitute.org/terms-of-use/) (ratón CCFv3 y atlas humano 3D) | Regiones con jerarquía oficial; el de ratón es la referencia del campo | Términos del Allen: solo investigación o uso no comercial, citando la fuente |
 | [BrainGlobe Atlas API](https://pypi.org/project/brainglobe-atlasapi/) | Descarga de atlas (Allen ratón y humano, Waxholm rata) con mallas 3D por región | Cada atlas conserva su licencia; por confirmar |
 
-- **Licencias:** a diferencia de Paleo Atlas, aquí aceptamos licencias no comerciales (NC), así que Allen y Julich-Brain se pueden usar mientras la web sea gratuita; si algún día fuese de pago o un servicio comercial, exigirían permiso. Waxholm (CC BY-SA) y Julich-Brain (CC BY-NC-SA) no se pueden mezclar en un mismo dato: cada atlas se muestra por separado, con su licencia.
+- **Licencias:** a diferencia de Paleo Atlas, aquí aceptamos licencias no comerciales (NC), así que Allen y Julich-Brain se pueden usar mientras la web sea gratuita; si algún día fuese de pago o un servicio comercial, exigirían permiso. Waxholm (CC BY 4.0) y Julich-Brain (CC BY-NC-SA) no se mezclan en un mismo dato, porque el resultado quedaría con la licencia no comercial: cada atlas se muestra por separado, con su licencia.
 - **Nombre:** «Brain Explorer» figura como marca registrada del Allen Institute en sus términos de uso, así que la sección se llama **Neuro Atlas**.
 - **Al hacer clic:** el atlas da el nombre y el código de la región; la descripción y las enfermedades saldrían de Wikipedia y Wikidata (con tu revisión) y los artículos, de PubMed por nombre de región. Que cada región esté bien identificada lo comprobarías tú.
 

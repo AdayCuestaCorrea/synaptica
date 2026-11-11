@@ -39,7 +39,7 @@ Documentos de referencia:
 **Licencias.**
 - A diferencia de Paleo Atlas, se aceptan licencias NC (no comerciales).
 - Cada fuente, imagen y modelo 3D registra su licencia y su autor, y la web los muestra.
-- Datos con licencias incompatibles (por ejemplo Waxholm, CC BY-SA, y Julich-Brain, CC BY-NC-SA) nunca se combinan en un mismo dato derivado.
+- Los datos de atlas distintos (por ejemplo Waxholm, CC BY 4.0, y Julich-Brain, CC BY-NC-SA 4.0) nunca se combinan en un mismo dato derivado: el resultado heredaría la licencia más restrictiva. La RM de plantilla de Waxholm es otro conjunto de datos, CC BY-SA 4.0.
 - De Nature, Science y Cell solo se usan metadatos y enlaces de sus canales públicos (RSS o APIs de metadatos). No se descargan las páginas de los artículos.
 
 **Red y fuentes.**

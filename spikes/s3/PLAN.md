@@ -62,6 +62,6 @@ El grado de equivalencia se muestra como «pendiente de Sofía». No se inventa.
 5. **ADR `0003-visor.md`.** Cifras, licencias, la elección de Sofía y la casilla de SCOPE.
 
 ## Licencias
-- Las mallas derivadas heredan la licencia de su atlas: Waxholm, CC BY-SA, y Julich-Brain, CC BY-NC-SA.
+- Las mallas derivadas heredan la licencia de su atlas: Waxholm, CC BY 4.0 (salen de las delineaciones; la RM de plantilla es CC BY-SA 4.0 y no se usa para las mallas), y Julich-Brain, CC BY-NC-SA 4.0. Corregido el 2026-11-11 tras el paso 1.
 - Van en archivos separados y nunca se combinan. Verlas lado a lado no las mezcla.
 - La tabla de equivalencias es dato propio (de Sofía): IDs y nombres de región, sin geometría.
