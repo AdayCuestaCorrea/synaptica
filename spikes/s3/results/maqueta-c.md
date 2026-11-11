@@ -93,3 +93,26 @@ Decisión de Aday (2026-11-11): de las dos variantes se queda la de los **desliz
 - Cada fila tiene un deslizador y un **campo para escribir los mm** exactos. Se aplica con Intro o al salir del campo. Acepta punto o coma decimal, y un valor fuera del volumen se ajusta al borde (999 → 96,50 mm en el humano). Un texto que no es número deja el valor como estaba.
 - Los mm siguen siendo del atlas, centrados en el cerebro: Bregma y Lambda llegan en el paso 7.5.
 - Comprobado en Brave: y = −3,5 en la rata, y = 20,5 escrito con coma en el humano, x = 999 ajustado al borde y z = «abc» sin cambios.
+
+## Paso 7.4: clic sincronizado, nombre y sigla (peticiones P3 y P6)
+
+Hecho el 2026-11-11, solo en C. El panel nuevo vive en `c/c.js`, no en `common/`, para no cambiar B.
+
+- **Centroides:** `build_assets.py` guarda en `labels.json` el número de vóxeles (`voxels`) y el centroide en mm (`centroid_mm`) de cada región y lado, calculados sobre el mismo volumen y la misma transformación que carga C. Cada atlas, con sus propios datos. Sigue siendo idempotente.
+- **Al hacer clic en una región con pareja**, el otro cerebro:
+  - la selecciona y la colorea en tono intenso;
+  - lleva el punto común (el corte coronal, el recorte sagital y la cruz) a su centroide, ponderado por vóxeles cuando la pareja son varias áreas (el hipocampo humano son 5);
+  - en «Solo 3D» gira la cámara hacia el lado de la región. Con el recorte puesto, la cámara se queda a la izquierda, porque el recorte quita ese lado y la región aparece en la cara cortada;
+  - en su panel dice «Pareja de CA1 (rata)», con las áreas, el hemisferio y el grado «pendiente de Sofía».
+- **Sin pareja:** el panel de la región elegida dice «sin pareja todavía en el otro cerebro» y el del otro cerebro, «LP-mc (rata) aún no tiene pareja en este cerebro».
+- **Nombre y sigla (P6):** el panel empieza por la sigla y el nombre completo («CA1 · Cornu ammonis 1»). Para Julich-Brain, la sigla es lo que va antes del paréntesis («CA3 (Hippocampus)» → «CA3»). Además, junto al punto tocado aparece una etiqueta con los dos, que se oculta al arrastrar.
+- **Gancho para el glosario (Fase 2):** cada sigla va en `<abbr data-glossary="CA1" title="Cornu ammonis 1">`.
+- **Nombres en español:** los atlas solo traen nombres en inglés. En la versión en español, el panel lo avisa («la traducción la revisa Sofía en la Fase 2»); no se traduce a ojo.
+- **Las estructuras internas** (amígdala, hipocampo) no se ven en «Solo 3D» aunque la cámara gire hacia ellas, porque la corteza las tapa. Se ven con el recorte o con «Aislar selección».
+- **Comprobado en Brave:**
+  - un clic en el corte de la rata sobre una región sin pareja (LP-mc, cuerpo calloso): etiqueta junto al punto y avisos en los dos paneles;
+  - CA1 derecho de la rata → hipocampo derecho humano en x = 26, z = −36 mm, con su panel;
+  - área 4a izquierda humana → M1 izquierda de la rata (x = −3,56 mm);
+  - Am-u derecha en «Solo 3D» → el humano gira a 270°;
+  - español e inglés, sin errores en la consola.
+  - Las selecciones de pareja se lanzaron desde la consola, para elegir exactamente la región; el clic con el ratón se probó aparte.

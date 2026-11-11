@@ -1,7 +1,7 @@
 // Spike S3, mock-up C: Niivue with our own label volumes (one NIfTI per atlas). Throwaway code.
 // Niivue is loaded as a classic script (vendor/niivue-0.69.0/niivue.umd.js): global `niivue`.
 import {
-  t, lang, loadData, fillTexts, renderPanel, renderLicence, regionFromRow, pairOf, partnerOf, markReady,
+  t, lang, loadData, fillTexts, renderLicence, regionFromRow, pairOf, partnerOf, markReady,
   colourOf, strong,
 } from "../common/common.js";
 
@@ -34,6 +34,117 @@ const TXT = {
   es: { x: "Sagital · x (3D)", y: "Coronal · y (2D)", z: "Vertical · z", mm: "mm" },
   en: { x: "Sagittal · x (3D)", y: "Coronal · y (2D)", z: "Vertical · z", mm: "mm" },
 }[lang];
+
+// Step 7.4 (P3, P6): panels of C. Written here, not in common.js, so mock-up B stays as it is.
+const P = {
+  es: {
+    none: "Ninguna región seleccionada.",
+    side: { L: "hemisferio izquierdo", R: "hemisferio derecho" },
+    id: "ID",
+    mpm: "etiqueta del mapa",
+    origName: "Nombre original del atlas, en inglés: la traducción la revisa Sofía en la Fase 2.",
+    pairOf: "Pareja de",
+    inOther: "En el otro cerebro",
+    grade: "grado",
+    noPairHere: "sin pareja todavía en el otro cerebro.",
+    noPairThere: (n) => `${n} aún no tiene pareja en este cerebro.`,
+    rat: "rata",
+    human: "humano",
+  },
+  en: {
+    none: "No region selected.",
+    side: { L: "left hemisphere", R: "right hemisphere" },
+    id: "ID",
+    mpm: "map label",
+    origName: null,
+    pairOf: "Counterpart of",
+    inOther: "In the other brain",
+    grade: "grade",
+    noPairHere: "no counterpart yet in the other brain.",
+    noPairThere: (n) => `${n} has no counterpart in this brain yet.`,
+    rat: "rat",
+    human: "human",
+  },
+}[lang];
+
+// Name and short name of a region. Waxholm gives an acronym; for Julich-Brain the short name is
+// the part before the brackets ("CA1 (Hippocampus)" → "CA1"). The short name carries a stable
+// data-glossary key, so Neuro Glossary (Phase 2) can attach its definition to it.
+function names(region) {
+  const short = region.acronym || region.name.split(" (")[0];
+  return { full: region.name, short };
+}
+
+function h(tag, attrs = {}, ...children) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  e.append(...children);
+  return e;
+}
+
+function abbr(region) {
+  const n = names(region);
+  return h("abbr", { "data-glossary": n.short, title: n.full }, n.short);
+}
+
+function title(region) {
+  const n = names(region);
+  return n.short === n.full ? h("h3", {}, abbr(region)) : h("h3", {}, abbr(region), " · ", n.full);
+}
+
+function facts(region) {
+  const p = h("p", { class: "facts" }, `${P.side[region.side] || ""} · ${P.id}: `);
+  p.append(h("code", {}, String(region.id)));
+  if (region.label != null) p.append(` · ${P.mpm}: ${region.label}`);
+  return p;
+}
+
+// The panel of the viewer that was clicked.
+function panelPicked(box, region, pair) {
+  box.replaceChildren();
+  if (!region) return box.append(h("p", { class: "muted" }, P.none));
+  box.append(title(region), facts(region));
+  if (!pair) {
+    box.append(h("p", { class: "muted" }, abbr(region), ": ", P.noPairHere));
+  } else {
+    const other = region.atlas === "waxholm"
+      ? pair.julich.map((j) => j.name).join(", ")
+      : `${pair.waxholm.name} (${pair.waxholm.acronym})`;
+    const p = h("p", { class: "pair" }, `${P.inOther}: ${other}. `);
+    p.append(h("span", { class: "grade" }, `${P.grade}: ${pair.grade}`));
+    box.append(p);
+  }
+  if (P.origName) box.append(h("p", { class: "muted small" }, P.origName));
+}
+
+// The panel of the other viewer: what was selected there on its behalf, or why nothing was.
+function panelPartner(box, source, pair) {
+  box.replaceChildren();
+  if (!source) return box.append(h("p", { class: "muted" }, P.none));
+  const species = source.atlas === "waxholm" ? P.rat : P.human;
+  if (!pair) {
+    box.append(h("p", { class: "muted" }, P.noPairThere(`${names(source).short} (${species})`)));
+    return;
+  }
+  const shown = source.atlas === "waxholm"
+    ? pair.julich.map((j) => ({ name: j.name, id: j.area_id }))
+    : [{ name: pair.waxholm.name, acronym: pair.waxholm.acronym, id: pair.waxholm.id }];
+  const head = h("h3", {}, `${P.pairOf} `, abbr(source), ` (${species})`);
+  const list = h("p", {});
+  shown.forEach((r, i) => {
+    if (i) list.append(", ");
+    list.append(abbr(r));
+    const n = names(r);
+    // Waxholm: "M1 · Primary motor area"; Julich-Brain: "CA1 (Hippocampus)", the rest of the name.
+    if (n.short !== n.full) {
+      list.append(r.acronym ? ` · ${n.full}` : ` ${n.full.slice(n.short.length).trim()}`);
+    }
+  });
+  list.append(` · ${P.side[source.side]}`);
+  const g = h("p", { class: "pair" }, h("span", { class: "grade" }, `${P.grade}: ${pair.grade}`));
+  box.append(head, list, g);
+  if (P.origName) box.append(h("p", { class: "muted small" }, P.origName));
+}
 
 const state = { view: "3d", clip: false, isolate: false };
 
@@ -83,6 +194,10 @@ class VolumeViewer {
       this.picked(loc);
     };
     this.buildSliders();
+    // Name of the region next to the point that was clicked (P6).
+    this.tag = h("div", { class: "tag" });
+    this.tag.hidden = true;
+    this.section.querySelector(".stage").append(this.tag);
     this.singleClickPicks();
     this.status.remove();
     this.apply();
@@ -93,8 +208,18 @@ class VolumeViewer {
   // the double click it listens for. 2D slices already pick on a single click.
   singleClickPicks() {
     let down = null;
+    // Where the press was, for the name tag: Niivue reports a 2D click on press, a 3D one on
+    // the double click sent below. A drag (rotating, moving the slice) hides the tag.
+    const at = (e) => {
+      const box = this.canvas.getBoundingClientRect();
+      return { x: e.clientX - box.left, y: e.clientY - box.top };
+    };
     this.canvas.addEventListener("pointerdown", (e) => {
       down = { x: e.clientX, y: e.clientY, t: performance.now() };
+      this.lastClick = at(e);
+    });
+    this.canvas.addEventListener("pointermove", (e) => {
+      if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > 6) this.tag.hidden = true;
     });
     this.canvas.addEventListener("pointerup", (e) => {
       if (!down) return;
@@ -235,12 +360,48 @@ class VolumeViewer {
   picked(loc) {
     const raw = loc && loc.values && loc.values[0] ? Math.round(loc.values[0].value) : 0;
     const v = raw > OFFSET ? raw - OFFSET : 0;
+    this.showTag(v ? this.rows[v] : null);
     if (v === this.selectedIndex) return;
     this.selectedIndex = v || null;
     const row = v ? this.rows[v] : null;
     this.focus = new Set(row ? [row.index] : []);
     this.apply();
     this.onPick(row ? regionFromRow(this.atlas, row) : null);
+  }
+
+  showTag(row) {
+    if (!row || !this.lastClick) {
+      this.tag.hidden = true;
+      return;
+    }
+    const n = names(regionFromRow(this.atlas, row));
+    this.tag.replaceChildren(h("strong", {}, n.short), n.short === n.full ? "" : ` ${n.full}`);
+    this.tag.style.left = `${this.lastClick.x}px`;
+    this.tag.style.top = `${this.lastClick.y}px`;
+    this.tag.classList.toggle("left", this.lastClick.x > this.canvas.clientWidth / 2);
+    this.tag.hidden = false;
+  }
+
+  // Step 7.4 (P3): bring the highlighted region into view. The point (and so the coronal slice
+  // and the sagittal cut) goes to its centroid, weighted by voxels when it is several areas. In
+  // the plain 3D view, the camera turns to the region's side; with the cut on it stays on the
+  // left, because the cut removes the camera's side and the region shows on the cut face.
+  goTo(indices) {
+    let w = 0;
+    const c = [0, 0, 0];
+    for (const i of indices) {
+      const r = this.rows[i];
+      if (!r.centroid_mm || !r.voxels) continue;
+      for (const a of [0, 1, 2]) c[a] += r.centroid_mm[a] * r.voxels;
+      w += r.voxels;
+    }
+    if (!w) return;
+    const frac = this.nv.mm2frac(c.map((x) => x / w));
+    this.nv.scene.crosshairPos = [0, 1, 2].map((a) => Math.min(1, Math.max(0, frac[a])));
+    const side = this.rows[[...indices][0]].side;
+    if (!state.clip) this.nv.setRenderAzimuthElevation(side === "R" ? 270 : AZIMUTH, ELEVATION);
+    this.syncPlanes();
+    this.nv.drawScene();
   }
 
   // Highlight what the other atlas asked for: same side, by Waxholm ancestor or Julich area.
@@ -258,7 +419,10 @@ class VolumeViewer {
             .map((r) => r.index)
         : [],
     );
+    if (this.tag) this.tag.hidden = true;
+    if (!this.vol) return; // still loading
     this.apply();
+    if (this.focus.size) this.goTo(this.focus);
   }
 }
 
@@ -269,12 +433,13 @@ const viewers = (window.__viewers = {
 });
 for (const [atlas, v] of Object.entries(viewers)) {
   renderLicence(v.section.querySelector(".licence"), data[atlas].licence);
-  renderPanel(v.panel, null, data.pairs);
+  panelPicked(v.panel, null);
   v.onPick = (region) => {
     const other = viewers[atlas === "waxholm" ? "julich" : "waxholm"];
-    renderPanel(v.panel, region, data.pairs);
-    other.highlight(region ? partnerOf(region, pairOf(region, data.pairs)) : null);
-    renderPanel(other.panel, null, data.pairs);
+    const pair = region ? pairOf(region, data.pairs) : null;
+    panelPicked(v.panel, region, pair);
+    other.highlight(region ? partnerOf(region, pair) : null);
+    panelPartner(other.panel, region, pair);
   };
 }
 
@@ -294,6 +459,7 @@ const b3d = toggle("view3d", () => {
 const bSlice = toggle("viewSlice", () => {
   state.view = "slice";
   state.clip = true; // the 3D cut and the 2D slice go together (P1)
+  Object.values(viewers).forEach((v) => v.nv.setRenderAzimuthElevation(AZIMUTH, ELEVATION));
   document.getElementById("clip").setAttribute("aria-pressed", "true");
   b3d.setAttribute("aria-pressed", "false");
   bSlice.setAttribute("aria-pressed", "true");

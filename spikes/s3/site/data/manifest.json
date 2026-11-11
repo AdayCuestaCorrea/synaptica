@@ -266,7 +266,7 @@
       }
     },
     "chosen": "117um_keep_small",
-    "bytes_total": 838558,
+    "bytes_total": 861548,
     "within_budget": true
   },
   "julich": {
@@ -303,16 +303,16 @@
       "MF (Amygdala) R"
     ],
     "bytes_nifti_gz": 539219,
-    "bytes_total": 843982,
+    "bytes_total": 866373,
     "within_budget": true
   },
   "files_bytes": {
     "equivalencias.json": 3213,
     "julich/julich.glb": 181096,
-    "julich/labels.json": 122700,
+    "julich/labels.json": 145091,
     "julich/labels.nii.gz": 539219,
     "julich/licence.json": 967,
-    "waxholm/labels.json": 133664,
+    "waxholm/labels.json": 156654,
     "waxholm/labels.nii.gz": 536470,
     "waxholm/licence.json": 800,
     "waxholm/waxholm.glb": 167624

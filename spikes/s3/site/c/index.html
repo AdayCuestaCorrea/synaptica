@@ -14,6 +14,17 @@
 .planes input[type="range"] { width: 100%; }
 .planes input[type="number"] { width: 100%; font: inherit; font-variant-numeric: tabular-nums; text-align: right; }
 @media (max-width: 799px) { .planes label { grid-template-columns: 7em 1fr 5em 2em; } }
+/* Step 7.4: name next to the clicked point, and the short name as a glossary hook. C only. */
+.stage .tag {
+  position: absolute; transform: translate(10px, -50%); pointer-events: none; white-space: nowrap;
+  padding: 3px 8px; border-radius: 6px; font-size: 0.85rem; line-height: 1.3;
+  background: var(--bg, #fff); color: var(--fg, #111); border: 1px solid var(--line);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.25);
+}
+.stage .tag[hidden] { display: none; }
+.stage .tag.left { transform: translate(calc(-100% - 10px), -50%); }
+.panel abbr { text-decoration: underline dotted; cursor: help; }
+.panel .small { font-size: 0.8rem; }
 </style>
 <script src="../vendor/niivue-0.69.0/niivue.umd.js"></script>
 <script type="module" src="c.js"></script>

@@ -375,6 +375,28 @@ def save_nifti(path: Path, data: np.ndarray, voxel_mm: float, origin: np.ndarray
     return path.stat().st_size
 
 
+def add_centroids(rows: list[dict], vol: np.ndarray, voxel_mm: float, origin: np.ndarray) -> None:
+    """Voxel count and centroid (mm, the NIfTI's own RAS grid) of every row, in place.
+
+    Step 7.4: the viewer moves its slices and cut to the region picked in the other atlas. The
+    centroid is computed on the same volume and affine that C loads, so it lands where Niivue
+    draws the region. Rows of one atlas only; nothing crosses between atlases.
+    """
+    n = len(rows)
+    flat = vol.ravel()
+    counts = np.bincount(flat, minlength=n)
+    idx = np.indices(vol.shape).reshape(3, -1)
+    sums = [np.bincount(flat, weights=idx[a], minlength=n) for a in range(3)]
+    for r in rows[1:]:
+        c = int(counts[r["index"]])
+        r["voxels"] = c
+        r["centroid_mm"] = (
+            [round(float(origin[a] + sums[a][r["index"]] / c * voxel_mm), 2) for a in range(3)]
+            if c
+            else None
+        )
+
+
 # ---------------------------------------------------------------- Waxholm
 
 
@@ -438,6 +460,8 @@ def waxholm() -> dict:
             origin = -np.array(ds.shape) * vmm / 2
             chosen = f == WAXHOLM_FACTOR and keep == WAXHOLM_KEEP_SMALL
             size = save_nifti(out / "labels.nii.gz" if chosen else tmp, ds, vmm, origin)
+            if chosen:
+                add_centroids(rows, ds, vmm, origin)
             smallest = sorted(rows[1:], key=lambda r: full[r["index"]])[:5]
             measured[f"{round(WAXHOLM_UM * f)}um" + ("_keep_small" if keep else "")] = {
                 "factor": f,
@@ -609,6 +633,7 @@ def julich() -> dict:
         raise SystemExit(f"unexpected MPM affine:\n{affine}")
     centre = affine[:3, 3] + (np.array(compact.shape) - 1) / 2
     size = save_nifti(out / "labels.nii.gz", compact, 1.0, affine[:3, 3] - centre)
+    add_centroids(rows, compact, 1.0, affine[:3, 3] - centre)
 
     def surface(mask: np.ndarray, sigma: float, target: int):
         sm = ndimage.gaussian_filter(np.pad(mask, 2).astype(np.float32), sigma)
