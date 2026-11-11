@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 18** · 2026-11-11 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 19** · 2026-11-11 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -130,7 +130,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 - [x] `docs/propuesta.md`, exportada del documento aprobado
 - [ ] **S1 Fuentes:** script mínimo por fuente que descarga unos 10 elementos, guardados como fixtures, y `docs/fuentes.md` con acceso, límites, clave y licencia
 - [x] **S2 Almacén:** prueba de BigQuery sandbox desde GitHub Actions con dbt-bigquery → ADR de D1
-- [ ] **S3 Visor 3D:** dos maquetas (siibra-explorer embebido y three.js con mallas propias) con los dos atlas lado a lado y regiones clicables por ID, en GitHub Pages; entre las que cumplan D3 elige Sofía ([plan](spikes/s3/PLAN.md)) → ADR de D3. Hechos los pasos 0 (preparación) y 1 (datos y licencias, [resultados](spikes/s3/results/README.md))
+- [ ] **S3 Visor 3D:** dos maquetas (siibra-explorer embebido y three.js con mallas propias) con los dos atlas lado a lado y regiones clicables por ID, en GitHub Pages; entre las que cumplan D3 elige Sofía ([plan](spikes/s3/PLAN.md)) → ADR de D3. Hechos los pasos 0 (preparación), 1 (datos y licencias, [resultados](spikes/s3/results/README.md)) y 2 (maqueta A, [resultados](spikes/s3/results/maqueta-a.md); falta probar el aviso de clic con el plugin publicado)
 - [ ] **S4 Revisión:** prototipo del flujo de revisión probado con Sofía → ADR de D5
 - [x] **S5 LLM:** límites actuales del plan gratuito de Groq y de Ollama local, y elección de un juez de otra familia de modelos para el contenido de salud → ADR de D4
 
@@ -260,3 +260,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 16 | 2026-11-11 | S3, pasos 0 y 1: grupo `spike-s3` (brainglobe-atlasapi, siibra, trimesh) y medidas de los dos atlas ([resultados](spikes/s3/results/README.md)). Waxholm es v4.01 (224 regiones, mallas de 16,8 MB sin comprimir) y Julich-Brain v3.1 (MPM de 1 mm, sin mallas: hay que generarlas). Las tres regiones de prueba existen en los dos atlas; la amígdala de Waxholm no está subdividida. `docs/fuentes.md` completa la línea de los atlas, lo último de S1. **Por decidir:** las delineaciones de Waxholm son CC BY 4.0, no CC BY-SA como dicen §5, CLAUDE.md, la propuesta y el plan (solo la RM de plantilla es CC BY-SA); no se ha corregido en esos documentos |
 | 17 | 2026-11-11 | Licencia de Waxholm corregida a CC BY 4.0 en §5, CLAUDE.md, la propuesta y el plan de S3, según el EBRAINS KG (v4 y v4.01) y NITRC; la RM de plantilla es CC BY-SA 4.0. Se mantiene la regla de no combinar los dos atlas en un mismo dato derivado |
 | 18 | 2026-11-11 | CLAUDE.md: los textos propios de Paleo Atlas (CC BY-NC-SA) no se copian a SYNAPTICA (CC BY-SA), se reescriben; el código se sigue copiando (AGPL en los dos) |
+| 19 | 2026-11-11 | S3, paso 2 ([maqueta A](spikes/s3/results/maqueta-a.md)): siibra-explorer se deja embeber y abre con una región seleccionada desde la URL, pero no avisa a la página que lo embebe; solo un plugin propio (`?pl=`), que el usuario tiene que aprobar en cada visita, podría reenviar el clic, y no se ha podido probar sin publicarlo en HTTPS. 6,8 MB de código antes de los datos, interfaz de escritorio en móvil y Matomo de EBRAINS activado por defecto |

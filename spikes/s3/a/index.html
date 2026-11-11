@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S3 · Maqueta A</title>
+<style>
+  :root { --bg:#fff; --fg:#1a1a1a; --muted:#666; --line:#ddd; --hl:#fff3c4; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#141414; --fg:#eee; --muted:#999; --line:#333; --hl:#4a3f12; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 12px 16px; font: 14px/1.4 system-ui, sans-serif; background: var(--bg); color: var(--fg); }
+  h1 { font-size: 18px; margin: 0 0 4px; }
+  p.note { color: var(--muted); margin: 0 0 12px; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 800px) { .pair { grid-template-columns: 1fr; } }
+  figure { margin: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  figcaption { padding: 6px 10px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  figcaption small { color: var(--muted); }
+  iframe { width: 100%; height: 60vh; min-height: 360px; border: 0; display: block; }
+  .panel { padding: 6px 10px; min-height: 2.8em; border-top: 1px solid var(--line); }
+  .panel.hit { background: var(--hl); }
+  #log { font: 12px ui-monospace, monospace; white-space: pre-wrap; max-height: 30vh; overflow: auto; border: 1px solid var(--line); padding: 8px; margin-top: 12px; }
+  label { margin-right: 12px; }
+</style>
+</head>
+<body>
+<h1>Maqueta A · siibra-explorer embebido</h1>
+<p class="note">Spike S3 (D3). Dos visores de atlases.ebrains.eu lado a lado. El grado de equivalencia está <b>pendiente de Sofía</b>.</p>
+<p>
+  Región de prueba:
+  <label><input type="radio" name="region" value="surface" checked> superficie</label>
+  <label><input type="radio" name="region" value="internal"> hipocampo</label>
+  <label><input type="radio" name="region" value="third"> amígdala</label>
+  <label><input type="checkbox" id="plugin" checked> plugin de aviso</label>
+</p>
+<div class="pair">
+  <figure>
+    <figcaption><b>Rata · Waxholm v4</b><small>CC BY 4.0 · Kleven et al. 2023</small></figcaption>
+    <iframe id="rat" title="Atlas de rata (Waxholm)" loading="lazy" allow="fullscreen"></iframe>
+    <div class="panel" id="panel-rat">Haz clic en una región.</div>
+  </figure>
+  <figure>
+    <figcaption><b>Humano · Julich-Brain v3.1</b><small>CC BY-NC-SA 4.0 · Amunts et al. 2020</small></figcaption>
+    <iframe id="human" title="Atlas humano (Julich-Brain)" loading="lazy" allow="fullscreen"></iframe>
+    <div class="panel" id="panel-human">Haz clic en una región.</div>
+  </figure>
+</div>
+<div id="log"></div>
+<script>
+// Atlas, template and parcellation ids come from siibra (spikes/s3/results/*.json).
+const VIEWER = "https://atlases.ebrains.eu/viewer/";
+const ATLASES = {
+  rat: {
+    a: "minds/core/parcellationatlas/v1.0.0/522b368e-49a3-49fa-88d3-0870a307974a",
+    t: "minds/core/referencespace/v1.0.0/d5717c4a-0fa1-46e6-918c-b8003069ade8",
+    p: "minds/core/parcellationatlas/v1.0.0/ebb923ba-b4d5-4b82-8088-fa9215c2e1fe-v4",
+    regions: { surface: ["Primary motor area"], internal: ["Hippocampal formation"],
+               third: ["Amygdaloid area, unspecified"] },
+  },
+  human: {
+    a: "juelich/iav/atlas/v1.0.0/1",
+    t: "minds/core/referencespace/v1.0.0/dafcffc5-4826-4bf1-8ff6-46b8a31ff8e2",
+    p: "minds/core/parcellationatlas/v1.0.0/94c1125b-b87e-45e4-901c-00daee7f2579-310",
+    regions: { surface: ["Area 4a (PreCG) left"], internal: ["CA1 (Hippocampus) left"],
+               third: ["LB (Amygdala) left"] },
+  },
+};
+// Test table: which region is shown next to which. NOT an equivalence grade (Sofía's call).
+const PAIRS = { surface: "superficie", internal: "hipocampo", third: "amígdala" };
+
+// Same hash siibra-explorer uses for the `rn:` (region name) URL segment (src/util/fn.ts).
+function quickHash(str) {
+  let hash = 0;
+  for (const ch of str) { hash = ((hash << 5) - hash) + ch.charCodeAt(0); hash = hash & hash; }
+  return hash.toString(16).slice(1);
+}
+const enc = (id) => encodeURI(id.replace(/\//g, ":"));
+
+function viewerUrl(side, kind, withPlugin) {
+  const at = ATLASES[side];
+  const path = [`a:${enc(at.a)}`, `t:${enc(at.t)}`, `p:${enc(at.p)}`,
+                `rn:${at.regions[kind].map(quickHash).join("::")}`].join("/");
+  const plugin = new URL(`plugin.html?side=${side}`, location.href).href;
+  const query = withPlugin ? `?pl=${encodeURIComponent(JSON.stringify([plugin]))}` : "";
+  return `${VIEWER}#/${path}${query}`;
+}
+
+const log = (line) => {
+  const el = document.getElementById("log");
+  el.textContent = `${new Date().toISOString().slice(11, 23)} ${line}\n` + el.textContent;
+};
+
+function load() {
+  const kind = document.querySelector("input[name=region]:checked").value;
+  const withPlugin = document.getElementById("plugin").checked;
+  for (const side of ["rat", "human"]) {
+    const url = viewerUrl(side, kind, withPlugin);
+    document.getElementById(side).src = url;
+    log(`${side}: ${url}`);
+  }
+}
+
+window.addEventListener("message", (ev) => {
+  const m = ev.data;
+  if (!m || !m.s3) return;
+  log(`${m.side} · ${m.kind} · ${JSON.stringify(m.payload)}`);
+  if (m.kind !== "regionsSelected") return;
+  const panel = document.getElementById(`panel-${m.side}`);
+  const names = (m.payload || []).map((r) => r.name);
+  panel.textContent = names.length ? `Seleccionada: ${names.join(", ")}` : "Sin selección.";
+  panel.classList.toggle("hit", names.length > 0);
+  window.__s3 = (window.__s3 || []).concat([{ t: performance.now(), ...m }]);
+});
+
+document.querySelectorAll("input").forEach((i) => i.addEventListener("change", load));
+load();
+</script>
+</body>
+</html>

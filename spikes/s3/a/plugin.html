@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>S3 relay plugin</title>
+<style>body{font:12px system-ui;margin:6px;color:#333}</style>
+</head>
+<body>
+<p>SYNAPTICA S3 · relay: <b id="side"></b></p>
+<pre id="last">waiting for sxplr.init…</pre>
+<script>
+// Spike S3, mock-up A. siibra-explorer loads this page as a plugin (?pl=["…/plugin.html?side=…"]).
+// It answers the sxplr.init handshake and relays region selections to the top page, which
+// siibra-explorer itself only exposes to plugins (its window API only listens to window.opener).
+const side = new URLSearchParams(location.search).get("side") || "?";
+document.getElementById("side").textContent = side;
+const last = document.getElementById("last");
+const relay = (kind, payload) => window.top.postMessage({ s3: true, side, kind, payload }, "*");
+
+window.addEventListener("message", (ev) => {
+  const msg = ev.data || {};
+  if (msg.jsonrpc !== "2.0" || !msg.method) return;
+  if (msg.method === "sxplr.init") {
+    ev.source.postMessage({ jsonrpc: "2.0", id: msg.id, result: { name: "SYNAPTICA S3 relay" } }, ev.origin);
+    last.textContent = "handshake ok";
+    relay("handshake", { origin: ev.origin });
+    return;
+  }
+  if (msg.method === "sxplr.on.regionsSelected") {
+    const regions = (msg.params || []).map((r) => ({ id: r["@id"], name: r.name }));
+    last.textContent = JSON.stringify(regions, null, 1);
+    relay("regionsSelected", regions);
+  } else if (msg.method.startsWith("sxplr.on.")) {
+    relay(msg.method.slice(9), null);
+  }
+});
+</script>
+</body>
+</html>
