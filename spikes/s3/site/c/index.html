@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SYNAPTICA · S3 · C (Niivue)</title>
+<link rel="stylesheet" href="../common/common.css">
+<script src="../vendor/niivue-0.69.0/niivue.umd.js"></script>
+<script type="module" src="c.js"></script>
+</head>
+<body>
+<header>
+  <h1 data-t="titleC"></h1>
+  <span class="sub" data-t="subC"></span>
+  <a id="lang" href="?lang=en">English</a>
+</header>
+<main>
+  <p class="disclaimer" data-t="disclaimer"></p>
+  <div class="controls">
+    <button id="view3d" aria-pressed="true" data-t="view3d"></button>
+    <button id="viewSlice" aria-pressed="false" data-t="view3dSlice"></button>
+    <button id="clip" aria-pressed="false" data-t="clip"></button>
+    <button id="isolate" aria-pressed="false" data-t="isolate"></button>
+    <p class="hint" data-t="hint"></p>
+  </div>
+  <div class="viewers">
+    <section class="viewer" id="waxholm">
+      <h2><span data-t="rat"></span> · Waxholm v4.01</h2>
+      <div class="stage"><canvas></canvas><div class="status" data-t="loading"></div></div>
+      <div class="panel"></div>
+      <div class="licence"></div>
+    </section>
+    <section class="viewer" id="julich">
+      <h2><span data-t="human"></span> · Julich-Brain v3.1</h2>
+      <div class="stage"><canvas></canvas><div class="status" data-t="loading"></div></div>
+      <div class="panel"></div>
+      <div class="licence"></div>
+    </section>
+  </div>
+</main>
+<footer>
+  <p><span data-t="libsC"></span> <a href="../vendor/niivue-0.69.0/SOURCE.md" data-t="licences"></a>.</p>
+</footer>
+</body>
+</html>

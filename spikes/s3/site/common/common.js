@@ -41,6 +41,10 @@ const TEXT = {
     view3d: "Solo 3D",
     view3dSlice: "3D + corte",
     clip: "Recortar",
+    titleB: "SYNAPTICA · Visor B",
+    subB: "three.js 0.187.0 · mallas propias",
+    titleC: "SYNAPTICA · Visor C",
+    subC: "Niivue 0.69.0 · volúmenes propios",
   },
   en: {
     lang: "en",
@@ -76,6 +80,10 @@ const TEXT = {
     view3d: "3D only",
     view3dSlice: "3D + slice",
     clip: "Cut away",
+    titleB: "SYNAPTICA · Viewer B",
+    subB: "three.js 0.187.0 · our own meshes",
+    titleC: "SYNAPTICA · Viewer C",
+    subC: "Niivue 0.69.0 · our own volumes",
   },
 };
 
