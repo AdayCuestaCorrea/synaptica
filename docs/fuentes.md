@@ -34,7 +34,9 @@ Resultado del spike **S1** (`SCOPE.md` §5 y §7). Para cada fuente: cómo se ac
 | **Wikimedia Commons** | `generator=search` + `imageinfo` con `extmetadata` | Igual que Wikipedia | No | La de cada archivo, que viene en `LicenseShortName` y `Artist` | 10 imágenes de «hippocampus brain»: CC BY-SA 2.1–4.0, CC BY 4.0 y CC0 |
 | **ClinicalTrials.gov** | API v2 `studies` con `fields=` | *Por confirmar* | No | Datos del Gobierno de EE. UU. (*por confirmar los términos*) | Alzheimer, reclutando en España: **37 ensayos** |
 | **nobelprize.org** | API 2.1 `nobelPrizes?nobelPrizeYear=…&nobelPrizeCategory=med` | *Por confirmar* | No | *Por confirmar* | El Nobel de Medicina de 2026 (Deisseroth, Hegemann, Nagel; «light-gated ion channels and optogenetics») coincide con la tabla de la propuesta. Es una API propia, así que no hace falta Wikidata para los Nobel |
-| **Julich-Brain, Waxholm, Allen, BrainGlobe** | — | — | — | — | Se comprueban en el **spike S3** (visor 3D), donde se descargan de verdad |
+| **Waxholm** (rata) | BrainGlobe `whs_sd_rat_39um` (bucket S3 público, anónimo) con `brainglobe-atlasapi`; también en siibra, pero solo hasta v4 | Bucket público; descarga única y en caché | No | **CC BY 4.0** las delineaciones (EBRAINS KG v4 y v4.01, NITRC); la RM de plantilla es otro conjunto, **CC BY-SA 4.0** (DataCite 10.25493/DTSG-ZBS). Los metadatos de BrainGlobe no traen licencia | Medido el 2026-11-11: es **v4.01**, 224 regiones con ID entero (= valor del vóxel), 314 mallas por región en 16,8 MB sin comprimir ([S3](../spikes/s3/results/README.md)) |
+| **Julich-Brain** (humano) | siibra 1.0.1a27 (configuración y mapas de EBRAINS); KG por el buscador público, sin token | Sin límite documentado; caché de siibra | No | **CC BY-NC-SA 4.0** (EBRAINS KG y DataCite 10.25493/KNSN-XB4) | Medido el 2026-11-11: **v3.1**, 454 áreas, 414 en el mapa de máxima probabilidad (MNI152, 1 mm, 405 KB); sin mallas de volumen, hay que generarlas ([S3](../spikes/s3/results/README.md)) |
+| **Allen, BrainGlobe (otros atlas)** | — | — | — | *Por confirmar* | No se miden en S3, que solo necesita Waxholm y Julich-Brain; `SCOPE.md` §5 los deja como alternativa para la Fase 2 |
 
 ## Qué cambia para el diseño
 
@@ -48,4 +50,4 @@ Resultado del spike **S1** (`SCOPE.md` §5 y §7). Para cada fuente: cómo se ac
 - [ ] SINC: repetir cuando vuelva y elegir la sección.
 - [ ] Confirmar los límites de bioRxiv, Europe PMC (documentación oficial), ClinicalTrials.gov y nobelprize.org, y las licencias de los dos últimos.
 - [ ] medRxiv: confirmar con paginación el volumen de psiquiatría.
-- [ ] Atlas: en S3.
+- [x] Atlas: medidos en S3, paso 1 (2026-11-11).

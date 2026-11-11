@@ -1,0 +1,379 @@
+{
+  "atlas": "Julich-Brain Cytoarchitectonic Atlas",
+  "via": "siibra 1.0.1-alpha.27",
+  "versions_in_siibra": [
+    "Julich-Brain Cytoarchitectonic Atlas (v1.18)",
+    "Julich-Brain Cytoarchitectonic Atlas (v2.9)",
+    "Julich-Brain Cytoarchitectonic Atlas (v3.0.3)",
+    "Julich-Brain Cytoarchitectonic Atlas (v3.1)"
+  ],
+  "parcellation": {
+    "name": "Julich-Brain Cytoarchitectonic Atlas (v3.1)",
+    "version": "3.1.0",
+    "id": "minds/core/parcellationatlas/v1.0.0/94c1125b-b87e-45e4-901c-00daee7f2579-310",
+    "is_newest_version": true
+  },
+  "kg": {
+    "kg_dataset_version_id": "f1fe19e8-99bd-44bc-9616-a52850680777",
+    "name": "Julich-Brain Atlas, cytoarchitectonic maps (v3.1)",
+    "version": "v3.1",
+    "license": [
+      "Creative Commons Attribution Non Commercial Share Alike 4.0 International"
+    ],
+    "ebrains_page": "https://doi.org/10.25493/KNSN-XB4",
+    "doi": "10.25493/KNSN-XB4",
+    "paper": [
+      "https://doi.org/10.25493/KNSN-XB4"
+    ],
+    "datacite": {
+      "doi": "10.25493/KNSN-XB4",
+      "title": "Julich-Brain Atlas, cytoarchitectonic maps (v3.1)",
+      "publisher": "EBRAINS",
+      "version": null,
+      "rights": [
+        {
+          "rights": "Creative Commons Attribution Non Commercial Share Alike 4.0 International",
+          "rightsIdentifier": "cc-by-nc-sa-4.0",
+          "rightsUri": "https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
+        }
+      ],
+      "url": "https://search.kg.ebrains.eu/instances/f1fe19e8-99bd-44bc-9616-a52850680777"
+    }
+  },
+  "regions": {
+    "leaves": 454,
+    "labelled_in_mni152_mpm": 414
+  },
+  "id_format": "siibra/KG region id (string); MPM label is an integer per area and side",
+  "mpm": {
+    "space": "MNI 152 ICBM 2009c Nonlinear Asymmetric",
+    "shape": [
+      193,
+      229,
+      193
+    ],
+    "dtype": "uint8",
+    "bytes_nifti_gz": 405100
+  },
+  "meshes": {
+    "volumetric": "none: MPM is a label volume; meshes must be generated (marching cubes)",
+    "fsaverage_labelled_surface": true,
+    "fsaverage_provides_mesh": true
+  },
+  "test_regions": {
+    "surface": [
+      {
+        "name": "Area 4a (PreCG)",
+        "id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_AREA_4A_PRECG",
+        "path": [
+          "precentral gyrus",
+          "frontal lobe",
+          "cerebral cortex",
+          "telencephalon",
+          "Julich-Brain Cytoarchitectonic Atlas (v3.1)"
+        ],
+        "subdivisions_in_tree": 2,
+        "labels_mni152": {
+          "Area 4a (PreCG) left": {
+            "label": 76,
+            "volume": 0
+          },
+          "Area 4a (PreCG) right": {
+            "label": 76,
+            "volume": 0
+          }
+        }
+      },
+      {
+        "name": "Area 4p (PreCG)",
+        "id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_AREA_4P_PRECG",
+        "path": [
+          "precentral gyrus",
+          "frontal lobe",
+          "cerebral cortex",
+          "telencephalon",
+          "Julich-Brain Cytoarchitectonic Atlas (v3.1)"
+        ],
+        "subdivisions_in_tree": 2,
+        "labels_mni152": {
+          "Area 4p (PreCG) left": {
+            "label": 142,
+            "volume": 0
+          },
+          "Area 4p (PreCG) right": {
+            "label": 142,
+            "volume": 0
+          }
+        }
+      }
+    ],
+    "internal": [
+      {
+        "name": "CA1 (Hippocampus)",
+        "id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CA1_HIPPOCAMPUS",
+        "path": [
+          "hippocampal formation",
+          "limbic lobe",
+          "cerebral cortex",
+          "telencephalon",
+          "Julich-Brain Cytoarchitectonic Atlas (v3.1)"
+        ],
+        "subdivisions_in_tree": 2,
+        "labels_mni152": {
+          "CA1 (Hippocampus) left": {
+            "label": 146,
+            "volume": 0
+          },
+          "CA1 (Hippocampus) right": {
+            "label": 146,
+            "volume": 0
+          }
+        }
+      },
+      {
+        "name": "CA2 (Hippocampus)",
+        "id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CA2_HIPPOCAMPUS",
+        "path": [
+          "hippocampal formation",
+          "limbic lobe",
+          "cerebral cortex",
+          "telencephalon",
+          "Julich-Brain Cytoarchitectonic Atlas (v3.1)"
+        ],
+        "subdivisions_in_tree": 2,
+        "labels_mni152": {
+          "CA2 (Hippocampus) left": {
+            "label": 44,
+            "volume": 0
+          },
+          "CA2 (Hippocampus) right": {
+            "label": 44,
+            "volume": 0
+          }
+        }
+      },
+      {
+        "name": "CA3 (Hippocampus)",
+        "id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CA3_HIPPOCAMPUS",
+        "path": [
+          "hippocampal formation",
+          "limbic lobe",
+          "cerebral cortex",
+          "telencephalon",
+          "Julich-Brain Cytoarchitectonic Atlas (v3.1)"
+        ],
+        "subdivisions_in_tree": 2,
+        "labels_mni152": {
+          "CA3 (Hippocampus) left": {
+            "label": 174,
+            "volume": 0
+          },
+          "CA3 (Hippocampus) right": {
+            "label": 174,
+            "volume": 0
+          }
+        }
+      },
+      {
+        "name": "DG (Hippocampus)",
+        "id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_DG_HIPPOCAMPUS",
+        "path": [
+          "hippocampal formation",
+          "limbic lobe",
+          "cerebral cortex",
+          "telencephalon",
+          "Julich-Brain Cytoarchitectonic Atlas (v3.1)"
+        ],
+        "subdivisions_in_tree": 2,
+        "labels_mni152": {
+          "DG (Hippocampus) left": {
+            "label": 120,
+            "volume": 0
+          },
+          "DG (Hippocampus) right": {
+            "label": 120,
+            "volume": 0
+          }
+        }
+      },
+      {
+        "name": "Subc (Hippocampus, Subicular complex)",
+        "id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_SUBC_HIPPOCAMPUS_SUBICULAR_COMPLEX",
+        "path": [
+          "hippocampal formation",
+          "limbic lobe",
+          "cerebral cortex",
+          "telencephalon",
+          "Julich-Brain Cytoarchitectonic Atlas (v3.1)"
+        ],
+        "subdivisions_in_tree": 8,
+        "labels_mni152": {
+          "Subc (Hippocampus, Subicular complex) left": {
+            "label": 172,
+            "volume": 0
+          },
+          "Subc (Hippocampus, Subicular complex) right": {
+            "label": 172,
+            "volume": 0
+          }
+        }
+      }
+    ],
+    "third": [
+      {
+        "name": "CM (Amygdala)",
+        "id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CM_AMYGDALA",
+        "path": [
+          "amygdaloid groups",
+          "amygdala",
+          "cerebral nuclei",
+          "telencephalon",
+          "Julich-Brain Cytoarchitectonic Atlas (v3.1)"
+        ],
+        "subdivisions_in_tree": 6,
+        "labels_mni152": {
+          "CM (Amygdala) left": {
+            "label": 141,
+            "volume": 0
+          },
+          "CM (Amygdala) right": {
+            "label": 141,
+            "volume": 0
+          }
+        }
+      },
+      {
+        "name": "LB (Amygdala)",
+        "id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_LB_AMYGDALA",
+        "path": [
+          "amygdaloid groups",
+          "amygdala",
+          "cerebral nuclei",
+          "telencephalon",
+          "Julich-Brain Cytoarchitectonic Atlas (v3.1)"
+        ],
+        "subdivisions_in_tree": 8,
+        "labels_mni152": {
+          "LB (Amygdala) left": {
+            "label": 75,
+            "volume": 0
+          },
+          "LB (Amygdala) right": {
+            "label": 75,
+            "volume": 0
+          }
+        }
+      },
+      {
+        "name": "SF (Amygdala)",
+        "id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_SF_AMYGDALA",
+        "path": [
+          "amygdaloid groups",
+          "amygdala",
+          "cerebral nuclei",
+          "telencephalon",
+          "Julich-Brain Cytoarchitectonic Atlas (v3.1)"
+        ],
+        "subdivisions_in_tree": 6,
+        "labels_mni152": {
+          "SF (Amygdala) left": {
+            "label": 191,
+            "volume": 0
+          },
+          "SF (Amygdala) right": {
+            "label": 191,
+            "volume": 0
+          }
+        }
+      },
+      {
+        "name": "Astr (Amygdala)",
+        "id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_ASTR_AMYGDALA",
+        "path": [
+          "amygdalostriatal transition zone",
+          "amygdala",
+          "cerebral nuclei",
+          "telencephalon",
+          "Julich-Brain Cytoarchitectonic Atlas (v3.1)"
+        ],
+        "subdivisions_in_tree": 2,
+        "labels_mni152": {
+          "Astr (Amygdala) left": {
+            "label": 5,
+            "volume": 0
+          },
+          "Astr (Amygdala) right": {
+            "label": 5,
+            "volume": 0
+          }
+        }
+      },
+      {
+        "name": "VTM (Amygdala)",
+        "id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_VTM_AMYGDALA",
+        "path": [
+          "fiber masses",
+          "amygdala",
+          "cerebral nuclei",
+          "telencephalon",
+          "Julich-Brain Cytoarchitectonic Atlas (v3.1)"
+        ],
+        "subdivisions_in_tree": 2,
+        "labels_mni152": {
+          "VTM (Amygdala) left": {
+            "label": 66,
+            "volume": 0
+          },
+          "VTM (Amygdala) right": {
+            "label": 66,
+            "volume": 0
+          }
+        }
+      },
+      {
+        "name": "IF (Amygdala)",
+        "id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_IF_AMYGDALA",
+        "path": [
+          "fiber masses",
+          "amygdala",
+          "cerebral nuclei",
+          "telencephalon",
+          "Julich-Brain Cytoarchitectonic Atlas (v3.1)"
+        ],
+        "subdivisions_in_tree": 6,
+        "labels_mni152": {
+          "IF (Amygdala) left": {
+            "label": 149,
+            "volume": 0
+          },
+          "IF (Amygdala) right": {
+            "label": 149,
+            "volume": 0
+          }
+        }
+      },
+      {
+        "name": "MF (Amygdala)",
+        "id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_MF_AMYGDALA",
+        "path": [
+          "fiber masses",
+          "amygdala",
+          "cerebral nuclei",
+          "telencephalon",
+          "Julich-Brain Cytoarchitectonic Atlas (v3.1)"
+        ],
+        "subdivisions_in_tree": 4,
+        "labels_mni152": {
+          "MF (Amygdala) left": {
+            "label": 188,
+            "volume": 0
+          },
+          "MF (Amygdala) right": {
+            "label": 188,
+            "volume": 0
+          }
+        }
+      }
+    ]
+  }
+}

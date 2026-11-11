@@ -1,0 +1,152 @@
+{
+  "atlas": "Waxholm Space atlas of the Sprague Dawley rat brain",
+  "via": "brainglobe-atlasapi, atlas whs_sd_rat_39um",
+  "brainglobe_metadata": {
+    "name": "whs_sd_rat",
+    "version": "3.0",
+    "location": "/atlases/whs_sd_rat_39um/3_0",
+    "citation": "Kleven et al 2023, https://doi.org/10.1038/s41592-023-02034-3",
+    "atlas_link": "https://www.nitrc.org/projects/whs-sd-atlas",
+    "species": "Rattus norvegicus",
+    "symmetric": false,
+    "resolution": [
+      39.0,
+      39.0,
+      39.0
+    ],
+    "orientation": "asr",
+    "shape": [
+      1024,
+      512,
+      512
+    ],
+    "additional_references": []
+  },
+  "brainglobe_has_licence_field": false,
+  "content_version": "v4.01",
+  "v401_regions_present": [
+    "5n",
+    "AOA-u",
+    "msp5t"
+  ],
+  "kg_parcellation": {
+    "name": "Waxholm Space atlas of the Sprague Dawley rat brain (v4)",
+    "version": "4",
+    "id": "minds/core/parcellationatlas/v1.0.0/ebb923ba-b4d5-4b82-8088-fa9215c2e1fe-v4"
+  },
+  "kg": {
+    "kg_dataset_version_id": "fadcd2cb-9e8b-4e01-9777-f4d4df8f1ebc",
+    "name": "Waxholm Space atlas of the Sprague Dawley rat brain delineations (v4)",
+    "version": "v4",
+    "license": [
+      "Creative Commons Attribution 4.0 International"
+    ],
+    "ebrains_page": null,
+    "doi": null,
+    "paper": [
+      "https://doi.org/10.1038/s41592-023-02034-3"
+    ],
+    "datacite": null
+  },
+  "kg_v401": {
+    "kg_dataset_version_id": "2cf40e61-fae1-4ab3-b7de-cb8fdfa19b70",
+    "title": "Waxholm Space atlas of the Sprague Dawley rat brain delineations (v4.01)",
+    "license": {
+      "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "value": "Creative Commons Attribution 4.0 International"
+    },
+    "released": "2023-07-21",
+    "url": "https://search.kg.ebrains.eu/instances/2cf40e61-fae1-4ab3-b7de-cb8fdfa19b70"
+  },
+  "template_datacite": {
+    "doi": "10.25493/DTSG-ZBS",
+    "title": "Microscopic resolution diffusion magnetic resonance images of a normal adult Sprague Dawley rat brain",
+    "publisher": "Human Brain Project Neuroinformatics Platform",
+    "version": null,
+    "rights": [
+      {
+        "rights": "Creative Commons Attribution Share Alike 4.0 International",
+        "rightsIdentifier": "cc-by-sa-4.0",
+        "rightsUri": "https://creativecommons.org/licenses/by-sa/4.0/legalcode"
+      }
+    ],
+    "url": "https://kg.ebrains.eu/search/instances/Dataset/a4a4984f-b1a2-4d28-9c94-fa4767b19c62"
+  },
+  "regions": {
+    "structures_total": 314,
+    "leaves": 224
+  },
+  "id_format": "integer; BrainGlobe id == annotation value in the volume",
+  "meshes": {
+    "files": 629,
+    "bytes_raw_total": 16775312,
+    "format": "neuroglancer precomputed (legacy single-resolution), uncompressed",
+    "brain_root_mesh_bytes": 824413
+  },
+  "test_regions": {
+    "surface": [
+      {
+        "id": 408,
+        "acronym": "M1",
+        "name": "Primary motor area",
+        "path": [
+          "root",
+          "Brain",
+          "GM",
+          "Tel",
+          "LamP",
+          "Cx",
+          "Front",
+          "M",
+          "M1"
+        ],
+        "descendants": [],
+        "mesh_bytes_raw": 47297
+      }
+    ],
+    "internal": [
+      {
+        "id": 1021,
+        "acronym": "HF",
+        "name": "Hippocampal formation",
+        "path": [
+          "root",
+          "Brain",
+          "GM",
+          "Tel",
+          "LamP",
+          "Cx",
+          "HR",
+          "HF"
+        ],
+        "descendants": [
+          "FC",
+          "SUB",
+          "CA",
+          "CA1",
+          "CA2",
+          "CA3",
+          "DG"
+        ],
+        "mesh_bytes_raw": 96143
+      }
+    ],
+    "third": [
+      {
+        "id": 501,
+        "acronym": "Am-u",
+        "name": "Amygdaloid area, unspecified",
+        "path": [
+          "root",
+          "Brain",
+          "GM",
+          "Tel",
+          "N-LamP",
+          "Am-u"
+        ],
+        "descendants": [],
+        "mesh_bytes_raw": 63169
+      }
+    ]
+  }
+}

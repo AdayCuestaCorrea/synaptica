@@ -32,6 +32,17 @@ spike-s2 = [
     "dbt-bigquery>=1.12.2",
     "dbt-duckdb>=1.11.1",
 ]
+# Spike S3 (decision D3): the two atlases for the 3D viewer mock-ups.
+# Only `uv sync --group spike-s3`; the regular CI does not install it.
+spike-s3 = [
+    # Waxholm rat atlas: annotation volume, structure tree and one mesh per region.
+    "brainglobe-atlasapi>=3.0.3",
+    # Julich-Brain human atlas: parcellation, maximum probability maps, EBRAINS metadata.
+    # siibra publishes its releases with "a" versions; 1.0.1a27 is the current one on PyPI.
+    "siibra>=1.0.1a27",
+    # Meshes: marching cubes output to simplified glTF, and measuring mesh sizes.
+    "trimesh>=5.2.0",
+]
 # Spike S5 (decision D4): pydantic validates the JSON answers of the LLM, as in Paleo.
 # Moves to the main dependencies in Phase 1 if D4 keeps this design.
 spike-s5 = [
