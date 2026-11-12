@@ -25,7 +25,14 @@ from pydantic import BaseModel, Field
 
 from synaptica.config import get_paths
 from synaptica.llm import LLM, prompt
-from synaptica.narrative.checks import N_GRAM, TextReport, check_alignment, check_text
+from synaptica.narrative.checks import (
+    N_GRAM,
+    TextReport,
+    check_alignment,
+    check_claims_es,
+    check_spelling_es,
+    check_text,
+)
 from synaptica.narrative.facts import slug
 from synaptica.store import _atomic_write
 
@@ -177,7 +184,8 @@ def write_study(
     feedback, es = [], []
     for _ in range(ATTEMPTS):
         es = adapt_es(llm, en_texts, feedback)
-        feedback = check_alignment(en_texts, es)
+        feedback = [*check_alignment(en_texts, es), *check_claims_es(en_texts, es),
+                    *check_spelling_es(en_texts, es)]  # fmt: skip
         if not feedback:
             break
     es_sentences = [(t, f) for t, (_, f) in zip(es, en, strict=True)]  # same facts as EN

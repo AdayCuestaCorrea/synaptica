@@ -17,6 +17,7 @@ dependencies = [
     # Same version as the spike groups; dbt already installs it, now it is declared.
     "pydantic>=2.14.3",
     # CLI framework for the `syn` commands (same as Paleo Atlas).
+    "spylls>=0.1.7",
     "typer>=0.27.3",
 ]
 

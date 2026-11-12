@@ -239,3 +239,26 @@ def test_fallback_uses_only_the_data_and_leaves_gaps_out():
     )
     bare = {"study_id": "pmid:1", "review_status": "unknown", "species": "humans"}
     assert fallback.fallback_text(bare, "es") == "Estudio en humanos publicado."
+
+
+def test_spanish_that_fails_twice_keeps_the_english_and_falls_back_in_spanish(tmp_path):
+    derived, cache = tmp_path / "derived", tmp_path / "cache"
+    cache_abstract(cache)
+
+    class TypoLLM(FakeLLM):
+        def complete_json(self, system, user, output, max_tokens):
+            answer = super().complete_json(system, user, output, max_tokens)
+            if output.__name__ == "AdaptedText":
+                answer.sentences[1].text = answer.sentences[1].text.replace("animales", "animlaes")
+            return answer
+
+    llm = TypoLLM()
+    kw = {"derived_root": derived, "cache_root": cache, "now": NOW}
+    pipeline.run_facts(llm, [STUDY], **kw)
+    assert pipeline.run_write(llm, [STUDY], **kw).counts == {"en_verified": 1, "es_failed": 1}
+    assert llm.calls.count("AdaptedText") == 2  # one retry with the problems
+    review = json.loads(write_mod.text_path("10.1/spindles", "es", verified=False,
+                                            derived_root=derived).read_text())  # fmt: skip
+    assert review["problems"] == ["sentence 2: words not in the Spanish dictionary ['animlaes']"]
+    assert fallback.summary_for(STUDY, "en", derived_root=derived)["kind"] == "verified"
+    assert fallback.summary_for(STUDY, "es", derived_root=derived)["kind"] == "fallback"

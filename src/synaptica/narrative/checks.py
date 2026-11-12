@@ -17,14 +17,20 @@ be explained and reproduced. (The judge of step 19 is a separate, extra step.)
   mostly of names, numbers and function words count as facts, not prose: a run only
   counts as copied when it has at least ``MIN_ORDINARY_WORDS`` ordinary words.
 * **Alignment** (EN -> ES): one Spanish sentence per English one, same numbers.
+* **Spanish spelling** (step 17): every Spanish word is in the RLA-ES dictionary, in
+  our list of terms, or the twin of a word of its English sentence.
+* **Claims** (step 17): no overclaim, alarm, causal or predictive phrase that the cited
+  facts do not make, and the caution of the facts kept, in English and in Spanish.
 """
 
 from __future__ import annotations
 
+import functools
 import re
 import unicodedata
 from collections.abc import Iterable
 from dataclasses import dataclass, field
+from importlib import resources
 
 N_GRAM = 8  # CLAUDE.md: never 8 or more consecutive words copied
 MIN_ORDINARY_WORDS = 4
@@ -194,6 +200,7 @@ def check_text(
             report.problems.append(f"names not in the facts: {sorted(unknown)}")
         if copied := copied_runs(text, source_grams):
             report.problems.append(f"copies {N_GRAM}+ words from a source: {copied[0]!r}")
+        report.problems.extend(claim_problems(text, cited))
         reports.append(report)
     word_count = sum(len(words(t)) for t, _ in sentences)
     problems = []
@@ -243,4 +250,170 @@ def check_alignment(source: list[str], adapted: list[str]) -> list[str]:
             )
         if comma := sorted(m for m in re.findall(r"\b\d{1,3}(?:,\d{3})+(?!\d)", src) if m in dst):
             problems.append(f"sentence {i + 1}: thousands with a comma {comma} read as decimals")
+    return problems
+
+
+# --- claims (plan, step 17; Sofía's S5 review in ADR D4) ---------------------------
+#
+# Plain word lists, so a failure names the phrase. A phrase is allowed when a cited fact
+# says it too (the authors wrote "causes" in a trial); otherwise the summary says more
+# than the study. The Spanish lists map to the same keys as the English ones, and a
+# Spanish sentence may only use a phrase when its English sentence passed with it.
+
+OVERCLAIMS: dict[str, tuple[str, str]] = {  # key -> (English regex, Spanish regex)
+    "cure": (r"\bcur(?:e|es|ed|ing)\b", r"\bcura(?:r|n|rá)?\b"),
+    "breakthrough": (r"\bbreakthrough|game[- ]changer|revolution\w*|miracle\w*",
+                     r"\bavance histórico|revolucion\w*|milagr\w*"),
+    "proves": (r"\bprov(?:e|es|ed|en|ing)\b|\bdemonstrat\w+ that\b",
+               r"\bdemostr\w+ que|\bprueba(?:n)? que"),
+    "safe": (r"\b(?:is|are|was|were) safe\b", r"\b(?:es|son|era|eran|resultó) segur[oa]s?\b"),
+    "specific": (r"\b(?:is|are|was|were) specific to\b",
+                 r"\b(?:es|son|era|eran) específic[oa]s? de\b"),
+    "only": (r"\bthe only\b", r"\b(?:el|la|los|las) únic[oa]s?\b"),
+    "fail": (r"\bwhere (?:standard |usual |current |other )?(?:tests|exams|methods) fail",
+             r"\bdonde (?:las )?pruebas\b.*\bfallan"),
+    "alarm": (r"\balarming|devastating|deadly|terrifying|epidemic of",
+              r"\balarmante|devastador\w*|mortal(?:es)?\b|aterrador\w*|epidemia de"),
+}  # fmt: skip
+CAUSAL = (r"\bcaus(?:e|es|ed|ing)\b|\blead(?:s|ing)? to\b|\bled to\b|\bdriv(?:e|es|en)\b"
+          r"|\bcontribut\w+ to\b|\bresults? in\b|\btriggers?\b|\bdue to\b|\bbecause of\b",
+          r"\bcausa\w*|\bprovoca\w*|\bconduce\w* a\b|\bcontribuy\w+ a\b"
+          r"|\bdesencadena\w*")  # fmt: skip
+PREDICTS = (r"\bpredict\w*|\bforecast\w*", r"\bpredec\w*|\bpredic\w*|\bpronostic\w*")
+# Words of uncertainty only: "associated" is not a hedge but a description (turning it
+# into a cause is the causal rule's job), and "could" and "appear" are too often ability
+# or sight ("could be measured", "a line appeared") to count.
+HEDGES = (r"\bmay\b|\bmight\b|\bsuggest\w*|\bpossibl\w*|\blikely\b|\b(?:appears?|seems?) to\b"
+          r"|\bpreliminar\w*|\bpotential\w*|\bunclear\b|\bneeds? confirm\w*",
+          r"\bpodr[íi]\w+|\bsugier\w+|\bsugiere\w*|\bposibl\w*|\bprobabl\w*|\bparec\w+"
+          r"|\bpreliminar\w*|\bquiz[aá]s?\b|\btal vez\b|\bapunta\w*|\bpotencial\w*"
+          r"|\bno está claro\b|\bconfirmar\w*")  # fmt: skip
+
+_CLAIMS = {**OVERCLAIMS, "causal": CAUSAL, "predicts": PREDICTS}
+
+
+def _has(pattern: str, text: str) -> bool:
+    return re.search(pattern, _typography(text), re.IGNORECASE) is not None
+
+
+def claims(text: str, lang: str) -> set[str]:
+    """Keys of the overclaims, causal and predictive phrases in a text."""
+    i = 0 if lang == "en" else 1
+    return {key for key, patterns in _CLAIMS.items() if _has(patterns[i], text)}
+
+
+def claim_problems(text: str, cited: list[str]) -> list[str]:
+    """Problems of an English sentence: a claim its cited facts do not make, or the
+    hedge of its facts dropped (every cited fact hedged, the sentence certain)."""
+    supported = set().union(*(claims(c, "en") for c in cited)) if cited else set()
+    problems = [
+        f"says '{k}' but no cited fact does" for k in sorted(claims(text, "en") - supported)
+    ]
+    if cited and all(_has(HEDGES[0], c) for c in cited) and not _has(HEDGES[0], text):
+        problems.append("drops the caution of its facts (may, suggests, possibly…)")
+    return problems
+
+
+def check_claims_es(source: list[str], adapted: list[str]) -> list[str]:
+    """A Spanish sentence makes no claim its English sentence does not make, and keeps
+    its caution ("may" is "podría", not "puede": Sofía, S5)."""
+    problems = []
+    for i, (en, es) in enumerate(zip(source, adapted, strict=False), start=1):
+        for key in sorted(claims(es, "es") - claims(en, "en")):
+            problems.append(f"sentence {i}: '{key}' is not in the English sentence")
+        if _has(HEDGES[0], en) and not _has(HEDGES[1], es):
+            problems.append(f"sentence {i}: the English sentence is cautious and this is not")
+    return problems
+
+
+# --- Spanish spelling (plan, step 17; decision of Aday, SCOPE v73) -------------------
+#
+# Hunspell with the RLA-ES dictionary (``narrative/hunspell/``) through ``spylls``. Most
+# words it does not know are technical terms whose English twin is in the English
+# sentence ("ribosómico" for "ribosomal", "transcraneal" for "transcranial"), so an
+# unknown word passes when it shares a long stem with a word of that sentence, after
+# folding the spellings that differ between the two languages. Measured on the 38 S5
+# texts in Spanish: 45 different unknown words without the stem rule, 10 with it, and
+# the real typos ("emocinales", "biimpresas") are still caught. What is left is either
+# a typo or a term for ``extra_es.txt``. Capitalized words inside a sentence are names
+# and are not checked.
+
+_HUNSPELL = resources.files("synaptica.narrative") / "hunspell"
+_ES_WORD = re.compile(r"[^\W\d_]+", re.UNICODE)
+_FOLDS = (("ph", "f"), ("th", "t"), ("ch", "c"), ("qu", "c"), ("k", "c"), ("y", "i"),
+          ("rr", "r"), ("nm", "m"), ("mm", "m"), ("ss", "s"), ("ll", "l"))  # fmt: skip
+
+
+@functools.cache
+def _dictionary():
+    from spylls.hunspell import Dictionary
+
+    with resources.as_file(_HUNSPELL) as folder:
+        return Dictionary.from_files(str(folder / "es_ES"))
+
+
+@functools.cache
+def _extra_words() -> frozenset[str]:
+    text = (_HUNSPELL / "extra_es.txt").read_text(encoding="utf-8")
+    return frozenset(w.strip() for w in text.splitlines() if w.strip() and w[0] != "#")
+
+
+def _cognate_form(word: str) -> str:
+    word = _fold(word)
+    for a, b in _FOLDS:
+        word = word.replace(a, b)
+    return word
+
+
+def _shares_stem(word: str, english: Iterable[str]) -> bool:
+    w = _cognate_form(word)
+    for other in english:
+        o = _cognate_form(other)
+        shorter = min(len(w), len(o))
+        common = next((i for i in range(shorter) if w[i] != o[i]), shorter)
+        if common >= max(4, -(-6 * shorter // 10)):  # 60 % of the shorter, rounded up
+            return True
+    return False
+
+
+def _in_extra(word: str) -> bool:
+    extra = _extra_words()
+    forms = {word, word.removesuffix("s"), word.removesuffix("es")}
+    forms |= {f[:-1] + "o" for f in forms if f.endswith("a")}
+    forms |= {f[:-1] for f in forms if f.endswith("ora")}  # sensoriomotora
+    return bool(forms & extra)
+
+
+def unknown_words_es(sentence: str, english: str = "") -> list[str]:
+    """Words of a Spanish sentence that are neither in the dictionary nor in our list,
+    nor the twin of a word of its English sentence."""
+    english_words = _ES_WORD.findall(english)
+    english_lower = {w.lower() for w in english_words}
+    out = []
+    after_name = False
+    for m in _ES_WORD.finditer(unicodedata.normalize("NFC", sentence)):
+        word = m.group(0)
+        at_start = not sentence[: m.start()].strip(" ¿¡\"'«(")
+        if word[0].isupper() and not at_start:
+            after_name = sentence[m.end() : m.end() + 1] == " "
+            continue  # a name
+        if after_name and word.islower() and not _dictionary().lookup(word):
+            after_name = False
+            continue  # the epithet of a species ("Caenorhabditis elegans")
+        after_name = False
+        if word.isupper() or word.lower() in english_lower:
+            continue  # an acronym, a gene, a word kept from English
+        lower = word.lower()
+        if _dictionary().lookup(word) or _dictionary().lookup(lower) or _in_extra(lower):
+            continue
+        if not _shares_stem(lower, english_words):
+            out.append(word)
+    return out
+
+
+def check_spelling_es(source: list[str], adapted: list[str]) -> list[str]:
+    problems = []
+    for i, (en, es) in enumerate(zip(source, adapted, strict=False), start=1):
+        if unknown := unknown_words_es(es, en):
+            problems.append(f"sentence {i}: words not in the Spanish dictionary {unknown}")
     return problems

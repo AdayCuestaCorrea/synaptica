@@ -53,7 +53,7 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 depende de D5 (d
 | # | Paso | Tests | Hecho cuando |
 |---|---|---|---|
 | 16 ✅ | Pasar a `src/synaptica/narrative/` `llm.py`, `checks.py`, `pipeline.py` y los prompts v2 de S5; `syn facts`, `syn write`; texto de respaldo con datos (patrón de `paleo/site/fallback.py`) | FakeLLM; un texto que falla → respaldo; 8 palabras copiadas → falla | la cadena con fixtures publica o cae al respaldo |
-| 17 🟢 | Comprobaciones nuevas: frases de alarma, se conserva la cautela de cada hecho y ortografía en español (la dependencia se justifica en el paso, con 2–3 opciones) | casos de la revisión de Sofía en S5 | cada comprobación con su test positivo y negativo |
+| 17 ✅ | Comprobaciones nuevas: frases de alarma, se conserva la cautela de cada hecho y ortografía en español (la dependencia se justifica en el paso, con 2–3 opciones) | casos de la revisión de Sofía en S5 | cada comprobación con su test positivo y negativo |
 | 18 🔵 | Repetir S5 con v2 en Groq (gasta cupo: lo autoriza Aday) y con Qwen 9B cuando la GPU esté libre; comparar con la revisión de Sofía | — (ejecución real) | tabla en el ADR D4 |
 | 19 🟢 | Juez de otra familia (`gpt-oss-120b`) integrado en la cadena; `spanish_natural` no bloquea | FakeLLM del juez | veredicto del juez en el informe |
 | 20 🔵 | Carga inicial con Qwen 9B en local, cuando terminen los lotes de Paleo | — | cifras de la carga en el informe |
