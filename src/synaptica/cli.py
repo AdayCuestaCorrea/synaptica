@@ -420,6 +420,80 @@ def eval_news(
     typer.echo(report)
 
 
+LimitOption = Annotated[int | None, typer.Option(help="Call the model for N studies at most.")]
+StudyOption = Annotated[
+    list[str] | None, typer.Option("--study", help="Only this study_id (repeatable).")
+]
+
+
+def _narrative_studies(study: list[str] | None) -> list[dict]:
+    from synaptica.narrative import pipeline
+    from synaptica.news import classify
+
+    if not classify.warehouse_path().exists():
+        typer.echo("No warehouse yet: run `syn build` first.", err=True)
+        raise typer.Exit(1)
+    return pipeline.select(study_ids=study)
+
+
+def _outcomes(verb: str, result) -> str:
+    counts = ", ".join(f"{k} {v}" for k, v in sorted(result.counts.items())) or "nothing new"
+    return (f"{verb} {result.done} of {result.total} studies "
+            f"({result.up_to_date} up to date): {counts}")  # fmt: skip
+
+
+@app.command()
+def facts(
+    provider: ProviderOption = None,
+    model: ModelOption = None,
+    limit: LimitOption = None,
+    study: StudyOption = None,
+) -> None:
+    """Verified facts of the studies to summarize -> derived/facts/ (quotes only in
+    data/cache/). Reads the warehouse: run `syn build` and `syn news classify` first."""
+    from synaptica.http import make_client
+    from synaptica.llm import QuotaExhausted
+    from synaptica.narrative import pipeline
+
+    llm = _llm(provider, model)
+    if llm is None:
+        typer.echo("No --provider given: no facts extracted.")
+        raise typer.Exit(0)
+    studies = _narrative_studies(study)
+    try:
+        with make_client() as client:  # Europe PMC full text, on demand
+            result = pipeline.run_facts(llm, studies, client=client, limit=limit)
+    except QuotaExhausted as exc:
+        typer.echo(f"LLM quota used up: {exc}; the rest waits for the next run", err=True)
+        raise typer.Exit(0) from exc
+    typer.echo(_outcomes("Facts for", result))
+
+
+@app.command()
+def write(
+    provider: ProviderOption = None,
+    model: ModelOption = None,
+    limit: LimitOption = None,
+    study: StudyOption = None,
+) -> None:
+    """English and Spanish summaries from the facts, checked -> derived/texts/ (or
+    derived/texts_review/ when they fail; the site then shows the fallback text)."""
+    from synaptica.llm import QuotaExhausted
+    from synaptica.narrative import pipeline
+
+    llm = _llm(provider, model)
+    if llm is None:
+        typer.echo("No --provider given: nothing written.")
+        raise typer.Exit(0)
+    studies = _narrative_studies(study)
+    try:
+        result = pipeline.run_write(llm, studies, limit=limit)
+    except QuotaExhausted as exc:
+        typer.echo(f"LLM quota used up: {exc}; the rest waits for the next run", err=True)
+        raise typer.Exit(0) from exc
+    typer.echo(_outcomes("Wrote", result))
+
+
 @app.command()
 def build(
     as_of: Annotated[

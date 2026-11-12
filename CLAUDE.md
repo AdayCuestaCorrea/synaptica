@@ -105,6 +105,8 @@ uv run syn news neuro [--provider groq]   # ¿es neurociencia? reglas de OpenAle
 uv run syn news classify --provider groq  # tipo de cada pieza de Neuro News (lee el almacén: antes syn build)
 uv run syn news group --provider groq     # misma noticia entre medios e idiomas (pares al LLM)
 uv run syn eval news --gold eval/news/labels.csv [--pairs eval/news/pairs.csv]   # macro F1 del LLM y del baseline (grupo eval)
+uv run syn facts --provider groq [--limit 40]   # hechos verificados de los estudios a resumir (lee el almacén)
+uv run syn write --provider groq [--limit 40]   # resumen EN → ES con comprobaciones; si falla, texto de respaldo
 uv run syn build                          # dbt build: modelos + tests (desde la Fase 1)
 SYN_DATA_DIR=/tmp/syn-ci uv run python scripts/seed_fixture_data.py   # fixtures como si vinieran de las fuentes
 SYN_DATA_DIR=/tmp/syn-ci uv run syn build --as-of 2026-11-09          # dbt sobre esas fixtures (como la CI)
