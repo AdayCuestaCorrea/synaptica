@@ -1,13 +1,13 @@
 # D3: Visor 3D de Neuro Atlas
 
-- **Estado:** propuesta (2026-11-12, Fase 0, spike S3). Sofía eligió la maqueta C (Niivue) el 2026-11-11. Falta su revisión de los ajustes, esta tarde, y que Aday la acepte; hasta entonces D3 sigue en «Abiertas».
+- **Estado:** propuesta (2026-11-12, Fase 0, spike S3). Sofía eligió la maqueta C (Niivue) el 2026-11-11 y revisó los ajustes el 2026-11-12. Hay que conservar las dos tinciones, completar el humano (añadido CerebrA) y buscar una tinción real de rata (no la hay). Falta que Aday la acepte; hasta entonces D3 sigue en «Abiertas».
 - **Relacionadas:** [SCOPE §8 D3](../../SCOPE.md#8-decisiones) · [plan de S3](../../spikes/s3/PLAN.md) · [resultados](../../spikes/s3/results/) · [fuentes](../fuentes.md) (atlas y BigBrain) · D5 (revisión de Sofía, para el grado de las parejas)
 
 ## Contexto
 Neuro Atlas enseña el cerebro de la rata y el del humano **lado a lado**: al elegir una región en uno, el otro marca su equivalente (SCOPE §1). El visor tiene que cumplir:
 - funcionar en **GitHub Pages**, sin backend propio, a 0 €;
 - **regiones clicables por ID**, para enlazar con el glosario y con las fichas;
-- **licencias compatibles**: Waxholm (CC BY 4.0) y Julich-Brain (CC BY-NC-SA 4.0) nunca se combinan en un mismo dato derivado;
+- **licencias compatibles**: Waxholm (CC BY 4.0), Julich-Brain (CC BY-NC-SA 4.0) y CerebrA nunca se combinan en un mismo dato derivado;
 - **un peso razonable en móvil**: presupuesto inicial de unos 3 MB por atlas, comprimidos;
 - **los dos atlas a la vez**;
 - tras ver las maquetas, también un **corte 2D sincronizado con el 3D**, con el 3D como vista principal.
@@ -42,6 +42,14 @@ La fluidez es con WebGL **por software**, así que es una cota pesimista.
   - tres modos: color, atlas en blanco y negro con contornos, y tinción;
   - la tinción, dibujada o real (BigBrain en el humano);
   - y dos mejoras de Aday: buscador de áreas y área bajo el punto de los tres ejes.
+- **Revisión de Sofía (2026-11-12):**
+  - **Al humano le faltaban el cerebelo, el tronco y la médula.** Julich-Brain es citoarquitectónico: tampoco tiene casi nada del caudado, el putamen y el pálido, ni los ventrículos. Se añade **CerebrA** (Manera et al. 2020) como segunda capa, solo donde Julich-Brain no tiene nada ([cobertura](../../spikes/s3/results/cobertura.md)): tronco, cerebelo y vermis, caudado, putamen, pálido, ventrículos y quiasma óptico. Sigue habiendo un solo cerebro humano: los dos archivos se superponen en pantalla y el panel dice de qué atlas viene cada región. Pesa +164 KB.
+  - **Siguen faltando en el humano:**
+    - la médula, porque la plantilla MNI se corta en el bulbo;
+    - la sustancia blanca del cerebro;
+    - el hipotálamo;
+    - el bulbo olfatorio.
+  - **Tinción real de rata:** no existe un volumen 3D con licencia ([tinción](../../spikes/s3/results/tincion.md)); solo hay cortes registrados a Waxholm.
 
 **C después de los ajustes**, publicada en Pages y medida allí ([7.10](../../spikes/s3/results/maqueta-c.md#paso-710-publicación-en-github-pages-2026-11-12)):
 
@@ -93,13 +101,19 @@ En la Fase 1, el script de S3 (`spikes/s3/build_assets.py`) pasa a `src/synaptic
     - con el dedo, usaba la posición del gesto anterior.
 
     Se fija la versión, cada parche está comentado en el código, y subir de versión exige repetir las pruebas táctiles de S3.
-  - **Licencias:** el NIfTI de Julich-Brain y BigBrain es NC-SA y va en su propia carpeta, con su licencia junto al lienzo. SYNAPTICA ya acepta NC (CLAUDE.md).
-  - **Tinción de la rata:** no hay histología 3D con licencia alineada a Waxholm. Está en el backlog (SCOPE §10); mientras tanto, la tinción dibujada lleva el aviso en el propio lienzo.
+  - **Licencias:** cada fuente va en su propia carpeta, con su licencia junto al lienzo:
+    - Julich-Brain: CC BY-NC-SA 4.0;
+    - BigBrain reducido: CC BY 4.0, aunque BigBrain completo es NC-SA;
+    - CerebrA: CC0 1.0, pero sus etiquetas vienen de Mindboggle-101, que es CC BY-NC-SA 3.0, y se sigue la más estricta.
+
+    SYNAPTICA ya acepta NC (CLAUDE.md). Julich-Brain y CerebrA solo se superponen en pantalla.
+  - **Dos plantillas MNI:** CerebrA se hizo sobre la 2009c simétrica y Julich-Brain sobre la asimétrica. Es la misma rejilla, pero en la costura puede haber 1–2 mm de desajuste.
+  - **Tinción de la rata:** no hay histología 3D con licencia alineada a Waxholm. Se buscó otra vez el 2026-11-12 y solo hay cortes: Blixhavn 2023 (Nissl, CC BY) y Zhao et al. 2024 (plata de cuerpos celulares, como BigBrain, CC BY-NC-SA). Montar un volumen a partir de ellos está en el backlog (SCOPE §10). Mientras tanto, la tinción dibujada lleva el aviso en el propio lienzo.
 
 ## Pruebas
 - **Plan:** [`spikes/s3/PLAN.md`](../../spikes/s3/PLAN.md).
 - **Resultados por maqueta:** [A](../../spikes/s3/results/maqueta-a.md) · [B](../../spikes/s3/results/maqueta-b.md) · [C, pasos 5–7.10](../../spikes/s3/results/maqueta-c.md).
-- **Datos y licencias:** [`results/README.md`](../../spikes/s3/results/README.md) · [tinción](../../spikes/s3/results/tincion.md).
+- **Datos y licencias:** [`results/README.md`](../../spikes/s3/results/README.md) · [tinción](../../spikes/s3/results/tincion.md) · [cobertura de cada cerebro y CerebrA](../../spikes/s3/results/cobertura.md).
 - **Mediciones:** `spikes/s3/results/measure-*.json`. La última, contra Pages: `measure-c-pages.json`.
 - **Peticiones de Sofía:** [`peticiones-sofia.md`](../../spikes/s3/results/peticiones-sofia.md). **Notas de UX** para la Fase 2: [`notas-ux.md`](../../spikes/s3/results/notas-ux.md).
 - **Maqueta publicada:** https://adaycuestacorrea.github.io/synaptica/spikes/s3/c/ (workflow `.github/workflows/pages.yml`).

@@ -1,0 +1,12 @@
+{
+  "atlas": "CerebrA, Mindboggle-101 labels registered to MNI-ICBM2009c and corrected by hand",
+  "short": "CerebrA",
+  "version": "G-Node GIN release, DOI 10.12751/g-node.be5e62",
+  "licence": "CC0 1.0 (labels from Mindboggle-101, CC BY-NC-SA 3.0)",
+  "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "licence_note": "The CerebrA repository is CC0 1.0 (datacite.yml and LICENSE). Its labels derive from Mindboggle-101, which NITRC lists as CC BY-NC-SA 3.0; SYNAPTICA follows the stricter of the two, which it allows (NC licences are accepted).",
+  "source": "G-Node GIN, CerebrA.nii and CerebrA_LabelDetails.csv",
+  "source_url": "https://doi.org/10.12751/g-node.be5e62",
+  "citation": "Manera A. L., Dadar M., Fonov V., Collins D. L. 2020, CerebrA, registration and manual label correction of Mindboggle-101 atlas for MNI-ICBM152 template, Scientific Data 7:237, https://doi.org/10.1038/s41597-020-0557-9; Klein A., Tourville J. 2012, 101 labeled brain images and a consistent human cortical labeling protocol, Frontiers in Neuroscience 6:171, https://doi.org/10.3389/fnins.2012.00171",
+  "derived": "Only the structures with at least half of their voxels outside Julich-Brain, and only those voxels (cerebra.py); compact indices per structure and side; centred like the Julich-Brain label volume (same grid). Changes made by SYNAPTICA. Not combined with any Julich-Brain file: the viewer only shows one under the other."
+}

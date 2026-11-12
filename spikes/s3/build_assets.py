@@ -12,6 +12,8 @@ Writes spikes/s3/site/data/:
     waxholm/  labels.nii.gz, labels.json, licence.json, coords.json
     julich/   labels.nii.gz, labels.json, licence.json, coords.json
     bigbrain/ stain.nii.gz, licence.json   (step 7.8: real stain for the human, BigBrain)
+    cerebra/  labels.nii.gz, labels.json, licence.json   (Sofía's review: what Julich-Brain
+              lacks, from CerebrA: cerebellum, brainstem, striatum, ventricles; cerebra.py)
     equivalencias.json  test pairs between the two atlases, grade "pendiente de Sofía"
     manifest.json       sizes and the Waxholm resolution measurements
 
@@ -36,6 +38,7 @@ import csv
 import json
 from pathlib import Path
 
+import cerebra as cb
 import numpy as np
 import requests
 import requests.utils
@@ -104,6 +107,23 @@ BIGBRAIN_URL = "https://osf.io/download/6qmhj/"  # BigBrain-to-ICBM2009asym-nonl
 BIGBRAIN_FILE = CACHE / "bigbrain" / "BigBrain-to-ICBM2009asym-nonlin-1mm.nii"
 MPM_ORIGIN = np.array([-96.0, -132.0, -78.0])  # checked against the MPM in julich()
 
+# Sofía's review (2026-11-12): CerebrA for the parts Julich-Brain lacks (cerebra.py). G-Node GIN,
+# DOI 10.12751/g-node.be5e62; same grid as the MPM. Downloaded once to the cache.
+CEREBRA_URL = "https://gin.g-node.org/doi/CerebrA/raw/master/"
+CEREBRA_DIR = CACHE / "cerebra"
+CEREBRA_FILES = ("CerebrA.nii", "CerebrA_LabelDetails.csv")
+# Proposed pairs for what CerebrA adds: Waxholm id <-> CerebrA structures. Proposals only; the
+# grade (and whether they are pairs at all) is Sofía's.
+CEREBRA_PAIRS = [
+    ("cerebellum", 1047, ["Cerebellum Gray Matter", "Cerebellum White Matter",
+                          "Vermal lobules I-V", "Vermal lobules VI-VII", "Vermal lobules VIII-X"]),
+    ("brainstem", 47, ["Brainstem"]),
+    ("striatum", 197, ["Caudate", "Putamen"]),
+    ("pallidum", 1028, ["Pallidum"]),
+    ("ventricles", 1048, ["Lateral Ventricle", "Third Ventricle", "Fourth Ventricle"]),
+    ("optic chiasm", 42, ["Optic Chiasm"]),
+]  # fmt: skip
+
 LICENCES = {
     "bigbrain": {
         "atlas": "BigBrain, Merker-stained histology, in ICBM152 2009 nonlinear asymmetric space",
@@ -128,6 +148,34 @@ LICENCES = {
             "Converted to 8 bits; slide (white) and voxels without data set to 0 so that they "
             "are transparent; centred like the Julich-Brain label volume (same grid). Changes "
             "made by SYNAPTICA. Not combined with any atlas file."
+        ),
+    },
+    "cerebra": {
+        "atlas": "CerebrA, Mindboggle-101 labels registered to MNI-ICBM2009c and corrected by hand",
+        "short": "CerebrA",
+        "version": "G-Node GIN release, DOI 10.12751/g-node.be5e62",
+        "licence": "CC0 1.0 (labels from Mindboggle-101, CC BY-NC-SA 3.0)",
+        "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "licence_note": (
+            "The CerebrA repository is CC0 1.0 (datacite.yml and LICENSE). Its labels derive from "
+            "Mindboggle-101, which NITRC lists as CC BY-NC-SA 3.0; SYNAPTICA follows the stricter "
+            "of the two, which it allows (NC licences are accepted)."
+        ),
+        "source": "G-Node GIN, CerebrA.nii and CerebrA_LabelDetails.csv",
+        "source_url": "https://doi.org/10.12751/g-node.be5e62",
+        "citation": (
+            "Manera A. L., Dadar M., Fonov V., Collins D. L. 2020, CerebrA, registration and "
+            "manual label correction of Mindboggle-101 atlas for MNI-ICBM152 template, "
+            "Scientific Data 7:237, https://doi.org/10.1038/s41597-020-0557-9; Klein A., "
+            "Tourville J. 2012, 101 labeled brain images and a consistent human cortical "
+            "labeling protocol, Frontiers in Neuroscience 6:171, "
+            "https://doi.org/10.3389/fnins.2012.00171"
+        ),
+        "derived": (
+            "Only the structures with at least half of their voxels outside Julich-Brain, and only "
+            "those voxels (cerebra.py); compact indices per structure and side; centred like the "
+            "Julich-Brain label volume (same grid). Changes made by SYNAPTICA. Not combined with "
+            "any Julich-Brain file: the viewer only shows one under the other."
         ),
     },
     "waxholm": {
@@ -627,14 +675,78 @@ def bigbrain() -> dict:
     }
 
 
+def cerebra() -> dict:
+    """Sofía's review: CerebrA where Julich-Brain has nothing (cerebra.py), in its own folder.
+
+    Reads the Julich-Brain label volume written by julich() (same grid, centred) to know which
+    voxels are free. The CerebrA symmetric template and the asymmetric one of Julich-Brain are
+    the same space but not the same average brain: along the seam they can disagree by a voxel
+    or two.
+    """
+    import nibabel as nib
+
+    for name in CEREBRA_FILES:
+        path = CEREBRA_DIR / name
+        if not path.exists():
+            path.parent.mkdir(parents=True, exist_ok=True)
+            r = requests.get(CEREBRA_URL + name, timeout=300, headers={"User-Agent": USER_AGENT})
+            r.raise_for_status()
+            path.write_bytes(r.content)
+    img = nib.load(CEREBRA_DIR / "CerebrA.nii")
+    if img.shape != (193, 229, 193) or not np.allclose(img.affine[:3, :3], np.eye(3)) \
+            or not np.allclose(img.affine[:3, 3], MPM_ORIGIN):  # fmt: skip
+        raise SystemExit(f"unexpected CerebrA grid: {img.shape}\n{img.affine}")
+    cv = np.rint(np.asarray(img.dataobj)).astype(np.int64)
+    jimg = nib.load(OUT / "julich" / "labels.nii.gz")
+    jv = np.asarray(jimg.dataobj)
+    details = cb.read_details(CEREBRA_DIR / "CerebrA_LabelDetails.csv")
+    compact, rows, report = cb.select(cv, jv, details)
+
+    out = OUT / "cerebra"
+    out.mkdir(parents=True, exist_ok=True)
+    origin = jimg.affine[:3, 3]  # the centred origin of the Julich-Brain volume
+    size = save_nifti(out / "labels.nii.gz", compact, 1.0, origin)
+    add_centroids(rows, compact, 1.0, origin)
+    calm = calm_colours(list({r["area_id"]: (r["family"], [r["name"]], r["area_id"])
+                              for r in rows[1:]}.values()))  # fmt: skip
+    for r in rows[1:]:
+        r["color"] = None  # CerebrA ships no colours of its own
+        r["group"], r["color_calm"] = calm[r["area_id"]]
+        del r["family"]
+    labels = {
+        "atlas": "cerebra",
+        "value": "voxel value points to rows[index]; id and label are the CerebrA label value "
+        "(one per side), area_id the structure on both sides",
+        "rows": rows,
+    }
+    (out / "labels.json").write_text(json.dumps(labels, ensure_ascii=False) + "\n")
+    write_json(out / "licence.json", LICENCES["cerebra"])
+    return {"regions_with_side": len(rows) - 1, "bytes_nifti_gz": size, "selection": report}
+
+
 def equivalences() -> dict:
-    """Test pairs between the atlases: IDs and names only. The grade is Sofía's to give."""
+    """Test pairs between the atlases: IDs and names only. The grade is Sofía's to give.
+
+    The human side of a pair ("human") lists Julich-Brain areas or CerebrA structures, each with
+    its atlas; CerebrA's are proposals for what it adds (CEREBRA_PAIRS)."""
     with BG_TERMINOLOGY.open() as f:
         terms = {int(r["identifier"]): r for r in csv.DictReader(f)}
     jl = json.loads((OUT / "julich" / "labels.json").read_text())["rows"][1:]
-    areas = {r["name"]: r for r in jl}
+    cl = json.loads((OUT / "cerebra" / "labels.json").read_text())["rows"][1:]
+    areas = {("julich", r["name"]): r for r in jl} | {("cerebra", r["name"]): r for r in cl}
     pairs = []
-    for kind, wid, names in PAIRS:
+    todo = [(k, w, "julich", n) for k, w, n in PAIRS] + [
+        (k, w, "cerebra", n) for k, w, n in CEREBRA_PAIRS
+    ]
+    for kind, wid, atlas, names in todo:
+        human = [
+            {"atlas": atlas, "area_id": areas[atlas, n]["area_id"],
+             "label": areas[atlas, n]["label"], "name": n}
+            for n in names
+            if (atlas, n) in areas  # a CerebrA structure left out by the rule has no pair
+        ]  # fmt: skip
+        if not human:
+            continue
         pairs.append(
             {
                 "kind": kind,
@@ -643,17 +755,15 @@ def equivalences() -> dict:
                     "acronym": terms[wid]["abbreviation"],
                     "name": terms[wid]["name"],
                 },
-                "julich": [
-                    {"area_id": areas[n]["area_id"], "label": areas[n]["label"], "name": n}
-                    for n in names
-                ],
+                "human": human,
                 "same_side": True,
                 "grade": PENDING,
             }
         )
     return {
         "note": "Test data for spike S3 (PLAN.md): which regions the mock-ups pair. Only IDs and "
-        "names, no geometry. The grade of equivalence is pending Sofía's review.",
+        "names, no geometry. The grade of equivalence is pending Sofía's review; the pairs "
+        "with CerebrA structures are proposals too.",
         "grade_values": None,
         "pairs": pairs,
     }
@@ -661,7 +771,12 @@ def equivalences() -> dict:
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    report = {"waxholm": waxholm(), "julich": julich(), "bigbrain": bigbrain()}
+    report = {
+        "waxholm": waxholm(),
+        "julich": julich(),
+        "bigbrain": bigbrain(),
+        "cerebra": cerebra(),  # after julich(): it reads the Julich-Brain labels
+    }
     eq = equivalences()
     (OUT / "equivalencias.json").write_text(json.dumps(eq, indent=2, ensure_ascii=False) + "\n")
     files = {
@@ -670,7 +785,7 @@ def main() -> None:
         if p.is_file() and p.name != "manifest.json"
     }
     report["files_bytes"] = files
-    for atlas in ("waxholm", "julich", "bigbrain"):
+    for atlas in ("waxholm", "julich", "bigbrain", "cerebra"):
         total = sum(v for k, v in files.items() if k.startswith(atlas + "/"))
         report[atlas]["bytes_total"] = total
         report[atlas]["within_budget"] = total <= BUDGET_BYTES

@@ -112,6 +112,7 @@ const P = {
     both: "ambos hemisferios",
     id: "ID",
     mpm: "etiqueta del mapa",
+    atlas: "atlas",
     origName: "Nombre original del atlas, en inglés: la traducción la revisa Sofía en la Fase 2.",
     pairOf: "Pareja de",
     inOther: "En el otro cerebro",
@@ -128,6 +129,7 @@ const P = {
     both: "both hemispheres",
     id: "ID",
     mpm: "map label",
+    atlas: "atlas",
     origName: null,
     pairOf: "Counterpart of",
     inOther: "In the other brain",
@@ -238,10 +240,14 @@ function title(region) {
   return n.short === n.full ? h("h3", {}, abbr(region)) : h("h3", {}, abbr(region), " · ", n.full);
 }
 
+const ATLAS_NAME = { julich: "Julich-Brain v3.1", cerebra: "CerebrA" };
+
 function facts(region) {
   const p = h("p", { class: "facts" }, `${P.side[region.side] || P.both} · ${P.id}: `);
   p.append(h("code", {}, String(region.id)));
   if (region.label != null) p.append(` · ${P.mpm}: ${region.label}`);
+  // Sofía's review: the human brain has two atlases, so say which one this region comes from.
+  if (region.source) p.append(` · ${P.atlas}: ${ATLAS_NAME[region.source]}`);
   return p;
 }
 
@@ -254,7 +260,7 @@ function panelPicked(box, region, pair, empty = P.none) {
     box.append(h("p", { class: "muted" }, abbr(region), ": ", P.noPairHere));
   } else {
     const other = region.atlas === "waxholm"
-      ? pair.julich.map((j) => j.name).join(", ")
+      ? pair.human.map((j) => j.name).join(", ")
       : `${pair.waxholm.name} (${pair.waxholm.acronym})`;
     const p = h("p", { class: "pair" }, `${P.inOther}: ${other}. `);
     p.append(h("span", { class: "grade" }, `${P.grade}: ${pair.grade}`));
@@ -273,7 +279,7 @@ function panelPartner(box, source, pair) {
     return;
   }
   const shown = source.atlas === "waxholm"
-    ? pair.julich.map((j) => ({ name: j.name, id: j.area_id }))
+    ? pair.human.map((j) => ({ name: j.name, id: j.area_id }))
     : [{ name: pair.waxholm.name, acronym: pair.waxholm.acronym, id: pair.waxholm.id }];
   const head = h("h3", {}, `${P.pairOf} `, abbr(source), ` (${species})`);
   const list = h("p", {});
@@ -322,7 +328,9 @@ const STAIN = {
   },
   names: [
     [/molecular|layer 1\b/i, 0.22],
-    [/dentate gyrus|^DG |granule cell layer|granular layer|layer 2\b|cerebellum, unspecified/i, 0.9],
+    // CerebrA's cerebellar grey matter and vermis are mostly granular layer, like the rat's
+    // "Cerebellum, unspecified".
+    [/dentate gyrus|^DG |granule cell layer|granular layer|layer 2\b|cerebellum, unspecified|cerebellum gray matter|vermal lobules/i, 0.9],
     [/glomerular/i, 0.35],
   ],
 };
@@ -361,8 +369,9 @@ function hex(c) {
 }
 
 class VolumeViewer {
-  constructor(section, atlas, rows) {
+  constructor(section, atlas, rows, extra = null) {
     this.atlas = atlas;
+    this.extra = extra; // human: CerebrA's labels, laid under Julich-Brain's (loadData)
     this.section = section;
     this.rows = rows;
     this.canvas = section.querySelector("canvas");
@@ -394,6 +403,15 @@ class VolumeViewer {
     await this.nv.loadVolumes([{ url, name: url.split("/").pop() }]);
     this.vol = this.nv.volumes[0];
     const img = this.vol.img;
+    // Sofía's review: where Julich-Brain has no label, CerebrA's (same grid; built so that they
+    // never overlap). Done in memory, on screen: the two files stay apart.
+    if (this.extra) {
+      const ex = await NVImage.loadFromUrl({ url: this.extra.url });
+      if (ex.img.length !== img.length) throw new Error("CerebrA and Julich-Brain grids differ");
+      for (let i = 0; i < img.length; i++) {
+        if (!img[i] && ex.img[i]) img[i] = ex.img[i] + this.extra.from - 1;
+      }
+    }
     for (let i = 0; i < img.length; i++) if (img[i]) img[i] += OFFSET;
     this.vol.calMinMax();
     this.coords = await (await fetch(`../data/${this.atlas}/coords.json`)).json();
@@ -1118,7 +1136,9 @@ class VolumeViewer {
           add(`w${a}`, { atlas: "waxholm", side: null, id: a, name: t.name, acronym: t.acronym, path: t.path }, r.index);
         }
       } else {
-        add(`j${r.area_id}`, { atlas: "julich", side: null, id: r.area_id, name: r.name, label: r.label, areaId: r.area_id }, r.index);
+        // CerebrA's label value differs per side, so a both-sides entry shows none.
+        const label = r.source === "cerebra" ? null : r.label;
+        add(`j${r.area_id}`, { atlas: "julich", side: null, id: r.area_id, name: r.name, label, areaId: r.area_id, source: r.source }, r.index);
       }
     }
     return [...items.values()].map((it) => {
@@ -1152,10 +1172,11 @@ class VolumeViewer {
 const data = await loadData();
 const viewers = (window.__viewers = {
   waxholm: new VolumeViewer(document.getElementById("waxholm"), "waxholm", data.waxholm.labels.rows),
-  julich: new VolumeViewer(document.getElementById("julich"), "julich", data.julich.labels.rows),
+  julich: new VolumeViewer(document.getElementById("julich"), "julich", data.julich.labels.rows, data.julich.extra),
 });
 for (const [atlas, v] of Object.entries(viewers)) {
   renderLicence(v.section.querySelector(".licence"), data[atlas].licence);
+  if (data[atlas].extra) renderLicence(v.section.querySelector(".licence-atlas2"), data[atlas].extra.licence, { colours: false });
   panelPicked(v.panel, null);
   searchBox(v, v.searchIndex(data[atlas].labels.tree || {}));
   v.onPick = (region, { partner = true, atPoint = false } = {}) => {

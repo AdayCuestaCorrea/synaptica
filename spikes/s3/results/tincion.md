@@ -54,6 +54,25 @@ Hecho el 2026-11-11. La pregunta: ¿hay histología **real**, con licencia, ya *
 - **Por qué no se integra ahora:** no hay un volumen 3D. Habría que descargar la serie, que pesa muchos GB, y montar un volumen en la rejilla de Waxholm a partir de los registros corte a corte, aplicando también la deformación de VisuAlign. Además, el resultado tendría huecos entre cortes y sería de otra cepa. Es trabajo de días, no de un spike.
 - **Backlog:** volumen de Nissl de rata en Waxholm a partir del atlas Timm-Nissl (SCOPE §10).
 
+## Segunda búsqueda, tras la revisión de Sofía (2026-11-12)
+
+Sofía pidió una tinción real para la rata, porque le extrañaba que no la hubiera: lo normal es que haya más histología de rata que humana. Tiene razón en que hay mucha más, pero está en **cortes**, no en volúmenes 3D.
+
+- **Dónde se buscó:**
+  - DataCite, en todos los repositorios y en los conjuntos de EBRAINS (prefijo 10.25493): «rat» con Nissl, histología, citoarquitectura, plata, Merker o Timm, junto a 3D, volumen, plantilla o reconstrucción;
+  - la web general;
+  - y los recursos que ya conocíamos.
+
+  El catálogo de EBRAINS no tiene una API pública de búsqueda, por eso se fue por DataCite.
+- **Lo que hay:**
+  - **Zhao, Puchades, Zilles y Palomero-Gallagher 2024**, «Regional and laminar distribution of silver stained cell bodies in the rat brain» (v2, doi 10.25493/D8NF-B83, CC BY-NC-SA 4.0): cortes coronales con una tinción de plata de los cuerpos celulares, de la misma familia que la de BigBrain, y su registro a Waxholm. Son cortes, no un volumen. Es el mejor candidato si algún día se monta uno.
+  - Blixhavn 2023 (arriba), con sus coordenadas 3D por corte (doi 10.25493/QFFN-H67): son polígonos de dónde está cada corte, no imagen en 3D.
+  - Schubert et al. 2016: sigue sin conjunto de datos publicado.
+  - Atlas de rata en 3D que sí existen, como Waxholm, el de Fischer 344 o Sigma: son de **resonancia magnética**, no de tinción.
+  - El ratón sí tiene un Nissl en 3D (Allen), pero es otra especie.
+- **Por qué no hay un «BigBrain de rata»:** BigBrain fue un proyecto aparte, de años, que cortó un cerebro humano en 7404 secciones para reconstruirlo en 3D. Con la rata, los laboratorios publican series de cortes y su registro al atlas, pero nadie ha publicado el volumen reconstruido con licencia abierta.
+- **Decisión:** sin cambios. La rata sigue con la tinción dibujada y su aviso. El backlog pasa a incluir a Zhao 2024 como fuente alternativa a Blixhavn.
+
 ## Descartado
 
 - **Schubert et al. 2016** (*Front. Neuroanat.* 10:51, CC BY): citoarquitectura (plata de Merker), receptores y fibras de rata registrados a Waxholm. El artículo dice que las reconstrucciones 3D estarán en el portal del HBP, pero no da ningún enlace, formato ni licencia de los datos, y no se ha encontrado el conjunto en EBRAINS.

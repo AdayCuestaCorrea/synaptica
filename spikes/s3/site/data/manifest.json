@@ -292,10 +292,334 @@
     "bytes_total": 1616140,
     "within_budget": true
   },
+  "cerebra": {
+    "regions_with_side": 26,
+    "bytes_nifti_gz": 156548,
+    "selection": {
+      "min_free": 0.5,
+      "kept": [
+        "Brainstem",
+        "Caudate",
+        "Cerebellum Gray Matter",
+        "Cerebellum White Matter",
+        "Fourth Ventricle",
+        "Lateral Ventricle",
+        "Optic Chiasm",
+        "Pallidum",
+        "Putamen",
+        "Third Ventricle",
+        "Vermal lobules I-V",
+        "Vermal lobules VI-VII",
+        "Vermal lobules VIII-X"
+      ],
+      "left_out": [
+        "Accumbens Area",
+        "Amygdala",
+        "Basal Forebrain",
+        "Caudal Anterior Cingulate",
+        "Caudal Middle Frontal",
+        "Cuneus",
+        "Entorhinal",
+        "Fusiform",
+        "Hippocampus",
+        "Inferior Lateral Ventricle",
+        "Inferior Parietal",
+        "Inferior temporal",
+        "Insula",
+        "Isthmus Cingulate",
+        "Lateral Occipital",
+        "Lateral Orbitofrontal",
+        "Lingual",
+        "Medial Orbitofrontal",
+        "Middle Temporal",
+        "Paracentral",
+        "Parahippocampal",
+        "Pars Opercularis",
+        "Pars Orbitalis",
+        "Pars Triangularis",
+        "Pericalcarine",
+        "Postcentral",
+        "Posterior Cingulate",
+        "Precentral",
+        "Precuneus",
+        "Rostral Anterior Cingulate",
+        "Rostral Middle Frontal",
+        "Superior Frontal",
+        "Superior Parietal",
+        "Superior Temporal",
+        "Supramarginal",
+        "Thalamus",
+        "Transverse Temporal",
+        "Ventral Diencephalon"
+      ],
+      "structures": {
+        "Fourth Ventricle": {
+          "voxels": 1384,
+          "free": 1384,
+          "free_fraction": 1.0
+        },
+        "Cerebellum Gray Matter": {
+          "voxels": 142458,
+          "free": 142395,
+          "free_fraction": 1.0
+        },
+        "Vermal lobules I-V": {
+          "voxels": 8463,
+          "free": 8412,
+          "free_fraction": 0.994
+        },
+        "Vermal lobules VI-VII": {
+          "voxels": 4247,
+          "free": 4215,
+          "free_fraction": 0.992
+        },
+        "Lateral Ventricle": {
+          "voxels": 19140,
+          "free": 18751,
+          "free_fraction": 0.98
+        },
+        "Optic Chiasm": {
+          "voxels": 1534,
+          "free": 1498,
+          "free_fraction": 0.977
+        },
+        "Third Ventricle": {
+          "voxels": 1713,
+          "free": 1667,
+          "free_fraction": 0.973
+        },
+        "Brainstem": {
+          "voxels": 32593,
+          "free": 31647,
+          "free_fraction": 0.971
+        },
+        "Pallidum": {
+          "voxels": 3402,
+          "free": 3253,
+          "free_fraction": 0.956
+        },
+        "Caudate": {
+          "voxels": 11286,
+          "free": 10400,
+          "free_fraction": 0.921
+        },
+        "Vermal lobules VIII-X": {
+          "voxels": 4687,
+          "free": 4205,
+          "free_fraction": 0.897
+        },
+        "Cerebellum White Matter": {
+          "voxels": 25997,
+          "free": 22130,
+          "free_fraction": 0.851
+        },
+        "Putamen": {
+          "voxels": 13252,
+          "free": 10736,
+          "free_fraction": 0.81
+        },
+        "Ventral Diencephalon": {
+          "voxels": 12206,
+          "free": 5280,
+          "free_fraction": 0.433
+        },
+        "Inferior Lateral Ventricle": {
+          "voxels": 2118,
+          "free": 555,
+          "free_fraction": 0.262
+        },
+        "Postcentral": {
+          "voxels": 36388,
+          "free": 8784,
+          "free_fraction": 0.241
+        },
+        "Supramarginal": {
+          "voxels": 32066,
+          "free": 7402,
+          "free_fraction": 0.231
+        },
+        "Superior Parietal": {
+          "voxels": 38666,
+          "free": 8430,
+          "free_fraction": 0.218
+        },
+        "Cuneus": {
+          "voxels": 16138,
+          "free": 3024,
+          "free_fraction": 0.187
+        },
+        "Lateral Occipital": {
+          "voxels": 45614,
+          "free": 8222,
+          "free_fraction": 0.18
+        },
+        "Inferior Parietal": {
+          "voxels": 52372,
+          "free": 9376,
+          "free_fraction": 0.179
+        },
+        "Basal Forebrain": {
+          "voxels": 384,
+          "free": 68,
+          "free_fraction": 0.177
+        },
+        "Precentral": {
+          "voxels": 42786,
+          "free": 7287,
+          "free_fraction": 0.17
+        },
+        "Thalamus": {
+          "voxels": 20075,
+          "free": 3364,
+          "free_fraction": 0.168
+        },
+        "Medial Orbitofrontal": {
+          "voxels": 17648,
+          "free": 2882,
+          "free_fraction": 0.163
+        },
+        "Superior Temporal": {
+          "voxels": 50702,
+          "free": 8143,
+          "free_fraction": 0.161
+        },
+        "Hippocampus": {
+          "voxels": 9388,
+          "free": 1467,
+          "free_fraction": 0.156
+        },
+        "Pars Triangularis": {
+          "voxels": 16392,
+          "free": 2367,
+          "free_fraction": 0.144
+        },
+        "Lingual": {
+          "voxels": 24721,
+          "free": 3520,
+          "free_fraction": 0.142
+        },
+        "Paracentral": {
+          "voxels": 16476,
+          "free": 2298,
+          "free_fraction": 0.139
+        },
+        "Caudal Middle Frontal": {
+          "voxels": 26440,
+          "free": 3623,
+          "free_fraction": 0.137
+        },
+        "Precuneus": {
+          "voxels": 37543,
+          "free": 5125,
+          "free_fraction": 0.137
+        },
+        "Transverse Temporal": {
+          "voxels": 3764,
+          "free": 496,
+          "free_fraction": 0.132
+        },
+        "Pericalcarine": {
+          "voxels": 10060,
+          "free": 1240,
+          "free_fraction": 0.123
+        },
+        "Pars Opercularis": {
+          "voxels": 15346,
+          "free": 1857,
+          "free_fraction": 0.121
+        },
+        "Pars Orbitalis": {
+          "voxels": 7278,
+          "free": 874,
+          "free_fraction": 0.12
+        },
+        "Rostral Middle Frontal": {
+          "voxels": 43484,
+          "free": 5209,
+          "free_fraction": 0.12
+        },
+        "Lateral Orbitofrontal": {
+          "voxels": 30084,
+          "free": 3593,
+          "free_fraction": 0.119
+        },
+        "Superior Frontal": {
+          "voxels": 105638,
+          "free": 12193,
+          "free_fraction": 0.115
+        },
+        "Middle Temporal": {
+          "voxels": 56582,
+          "free": 6173,
+          "free_fraction": 0.109
+        },
+        "Accumbens Area": {
+          "voxels": 1106,
+          "free": 117,
+          "free_fraction": 0.106
+        },
+        "Isthmus Cingulate": {
+          "voxels": 8854,
+          "free": 931,
+          "free_fraction": 0.105
+        },
+        "Rostral Anterior Cingulate": {
+          "voxels": 7614,
+          "free": 789,
+          "free_fraction": 0.104
+        },
+        "Fusiform": {
+          "voxels": 26944,
+          "free": 2774,
+          "free_fraction": 0.103
+        },
+        "Caudal Anterior Cingulate": {
+          "voxels": 7304,
+          "free": 730,
+          "free_fraction": 0.1
+        },
+        "Inferior temporal": {
+          "voxels": 32448,
+          "free": 2809,
+          "free_fraction": 0.087
+        },
+        "Entorhinal": {
+          "voxels": 6410,
+          "free": 521,
+          "free_fraction": 0.081
+        },
+        "Parahippocampal": {
+          "voxels": 5416,
+          "free": 419,
+          "free_fraction": 0.077
+        },
+        "Insula": {
+          "voxels": 19042,
+          "free": 947,
+          "free_fraction": 0.05
+        },
+        "Posterior Cingulate": {
+          "voxels": 10713,
+          "free": 459,
+          "free_fraction": 0.043
+        },
+        "Amygdala": {
+          "voxels": 3300,
+          "free": 65,
+          "free_fraction": 0.02
+        }
+      }
+    },
+    "bytes_total": 164336,
+    "within_budget": true
+  },
   "files_bytes": {
     "bigbrain/licence.json": 1201,
     "bigbrain/stain.nii.gz": 1614939,
-    "equivalencias.json": 3213,
+    "cerebra/labels.json": 6339,
+    "cerebra/labels.nii.gz": 156548,
+    "cerebra/licence.json": 1449,
+    "equivalencias.json": 7145,
     "julich/coords.json": 363,
     "julich/labels.json": 145078,
     "julich/labels.nii.gz": 539219,

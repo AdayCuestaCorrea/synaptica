@@ -139,16 +139,30 @@ async function json(url) {
 }
 
 export async function loadData() {
-  const [wl, wlic, jl, jlic, eq] = await Promise.all([
+  const [wl, wlic, jl, jlic, cl, clic, eq] = await Promise.all([
     json("../data/waxholm/labels.json"),
     json("../data/waxholm/licence.json"),
     json("../data/julich/labels.json"),
     json("../data/julich/licence.json"),
+    json("../data/cerebra/labels.json"),
+    json("../data/cerebra/licence.json"),
     json("../data/equivalencias.json"),
   ]);
+  // Sofía's review: one human brain, two label files. CerebrA's rows go after Julich-Brain's, so
+  // the viewer reads CerebrA value k as row k + extraFrom - 1 (c.js, VolumeViewer.load). The
+  // files stay apart (licences); they only meet here, on screen.
+  const extraFrom = jl.rows.length;
+  const rows = [
+    ...jl.rows.map((r) => ({ ...r, source: r.index ? "julich" : null })),
+    ...cl.rows.slice(1).map((r) => ({ ...r, index: r.index + extraFrom - 1, source: "cerebra" })),
+  ];
   return {
     waxholm: { labels: wl, licence: wlic },
-    julich: { labels: jl, licence: jlic },
+    julich: {
+      labels: { ...jl, rows },
+      licence: jlic,
+      extra: { url: "../data/cerebra/labels.nii.gz", from: extraFrom, licence: clic },
+    },
     pairs: eq.pairs,
   };
 }
@@ -158,7 +172,10 @@ export function regionFromRow(atlas, row, data) {
   if (atlas === "waxholm") {
     return { atlas, side: row.side, id: row.id, name: row.name, acronym: row.acronym, path: row.path };
   }
-  return { atlas, side: row.side, id: row.id, name: row.name, label: row.label, areaId: row.area_id };
+  return {
+    atlas, side: row.side, id: row.id, name: row.name, label: row.label, areaId: row.area_id,
+    source: row.source,
+  };
 }
 
 // The test pair a region belongs to, if any. Waxholm matches through its ancestors (a click on
@@ -168,14 +185,14 @@ export function pairOf(region, pairs) {
     const path = region.path || [region.id];
     return pairs.find((p) => path.includes(p.waxholm.id)) || null;
   }
-  return pairs.find((p) => p.julich.some((j) => j.area_id === region.areaId)) || null;
+  return pairs.find((p) => p.human.some((j) => j.area_id === region.areaId)) || null;
 }
 
 // What the other viewer has to highlight: {atlas, side, waxholmId} or {atlas, side, areaIds}.
 export function partnerOf(region, pair) {
   if (!pair) return null;
   if (region.atlas === "waxholm") {
-    return { atlas: "julich", side: region.side, areaIds: pair.julich.map((j) => j.area_id) };
+    return { atlas: "julich", side: region.side, areaIds: pair.human.map((j) => j.area_id) };
   }
   return { atlas: "waxholm", side: region.side, waxholmId: pair.waxholm.id };
 }
