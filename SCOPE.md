@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 52** · 2026-11-12 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 53** · 2026-11-12 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -138,6 +138,8 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 
 ### Fase 1 — La base
 
+[Plan](docs/fases/plan-fase-1.md): 30 pasos en cuatro rebanadas verticales; se empieza a programar cuando cierre la Fase 0.
+
 - [ ] Ingesta de las fuentes de la Fase 1 (§5) en la rama `data`, con caché y respeto de límites
 - [ ] Modelos dbt con tests: claves, valores aceptados, relaciones y frescura de cada fuente
 - [ ] Filtro «¿es neurociencia?» para las revistas generalistas
@@ -213,7 +215,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 
 | ID | Decisión | Opciones | Recomendación inicial |
 |---|---|---|---|
-| D2 | Motor común con Paleo Atlas | Copiar y adaptar · extraer un paquete compartido | Copiar y adaptar ahora; extraer el paquete solo cuando ambos sean estables |
+| D2 | Motor común con Paleo Atlas | Copiar y adaptar · extraer un paquete compartido | Copiar y adaptar ahora; extraer el paquete solo cuando ambos sean estables. Elegida por Aday (v53); se cierra con su ADR en el paso 1 de la Fase 1 |
 | D3 | Visor 3D | siibra-explorer embebido o autohospedado (embebido: descartado en S3) · three.js con mallas de BrainGlobe · Niivue con volúmenes propios · otro | Lo decide S3: tiene que funcionar en GitHub Pages sin backend propio, con regiones clicables por ID, licencias compatibles, un peso razonable en móvil y **los dos atlas a la vez, lado a lado** (vista rata ↔ humano). Tras ver las maquetas, también un **corte 2D sincronizado con el 3D**, con el 3D como vista principal (§1). Sofía ha elegido C (Niivue); falta el ADR |
 | D5 | Flujo de revisión de Sofía | Editar en la web de GitHub · formulario de GitHub Issues · página de revisión generada · hoja de cálculo | Prototipo en S4 probado con ella. Requisitos: sin terminal, sin git y menos de 1 h al día. Cubre la revisión de textos y también la tabla rata ↔ humano: poner y cambiar el grado de equivalencia (clara, parcial o discutida) y su nota. La página de revisión de S5, que ella usó sin terminal ni git, cuenta como primera prueba de la opción «página de revisión generada». Sofía no tiene cuenta de GitHub; se la crea si el prototipo elegido la necesita |
 | D6 | Procesamiento a escala | Databricks Free Edition para una carga histórica de PubMed · solo APIs | Solo si el volumen lo justifica y se mide, como en el ADR D5 de Paleo. Si no, basta OpenAlex |
@@ -296,3 +298,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 50 | 2026-11-12 | Borrador del [ADR de D3](docs/adr/0003-visor.md) (propuesta): Niivue con volúmenes de etiquetas propios, uno por atlas, con las cifras de A, B y C y los parches de Niivue 0.69 que hay que repetir al cambiar de versión. D3 sigue abierta hasta la revisión de Sofía y la aceptación de Aday |
 | 51 | 2026-11-12 | Borrador de [`docs/fases/fase-0.md`](docs/fases/fase-0.md): los cinco spikes con sus cifras y decisiones, conceptos, cómo se comprueba, qué salió mal y lo que pasa a la Fase 1. Los huecos de D3 y D5 se completan tras la revisión y la prueba de Sofía |
 | 52 | 2026-11-12 | S4, antes de la prueba con Sofía: la página de revisión explica cada grupo (qué es y dónde sale en la web), qué representa cada lado de una pareja rata ↔ humano y qué significa cada grado (clara, parcial, discutida; definiciones propuestas por SYNAPTICA, que Sofía puede cambiar), y qué mirar en los términos de PubMed. Lo vio Aday: la página daba por hecho un contexto que ni él ni ella tenían. Ronda 1 regenerada; el guion aclara que se mide la herramienta y que la ayuda nunca es de contenido |
+| 53 | 2026-11-12 | [Plan de la Fase 1](docs/fases/plan-fase-1.md), sin código: 30 pasos con su commit, tests sin red y criterio de hecho, siguiendo Paleo Atlas; los que dependen de D5 (etiquetas de Sofía para el clasificador y el juez, aprobación de los Clásicos) quedan para después del ADR 0005. Decisiones de Aday: rebanada vertical (PubMed de punta a punta hasta la web y el pipeline, y después se amplía); D2 «copiar y adaptar», que se cierra con su ADR en el paso 1; las etiquetas de Sofía, por el flujo D5; filtro de neurociencia con reglas (MeSH u OpenAlex) y el LLM solo sin dato. Hueco señalado: SCOPE no dice de dónde sale el dato curioso del día |
