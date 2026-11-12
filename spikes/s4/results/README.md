@@ -97,3 +97,21 @@ Detalles:
   - cada envío lleva una línea `send:` (la misma en todas sus partes) y la respuesta de cada parte dice cuáles faltan; los Issues anteriores, sin ella, se siguen leyendo;
   - cada página lleva su ronda en el nombre del archivo y en la cabecera, y guarda sus respuestas aparte, así que una página de otra ronda ni las ve ni las reenvía; no se genera una página privada vacía.
 - **Ronda 3:** solo el dolutegravir, con los dos avisos: corregir o «Lo mantengo».
+
+## Prueba con Sofía, ronda 3 y preguntas (2026-11-12)
+
+- **Ronda 3 (#10):** esta vez corrigió el texto: sustituyó «es seguro durante el embarazo» por su frase prudente y quitó la de 2031. Su corrección pasa todas las comprobaciones y la cola queda vacía. Un solo envío, con su `send:`.
+- **Fallo nuestro que destapó** (corregido, con test): la recepción leía el Issue de la ronda 3 contra la cola del primer día, y una corrección retenida vuelve como otra versión con otro hash, así que se rechazó como «el texto cambió». Ahora `ronda.py` guarda junto a las páginas la cola que muestran (`ronda-N/queue.json`) y los Issues de esa ronda se leen contra ella. El ensayo en seco no lo vio porque nunca procesaba un Issue de una segunda ronda; ahora sí, con corrección y con «Lo mantengo».
+- **Preguntas finales** (respuestas de Sofía, recogidas por Aday):
+  1. *¿Qué te ha costado más?* Los resúmenes: decidir si se corrigen o se aprueban y, sobre todo, comprobar que todo es verdad. Lo demás, sencillo.
+  2. *¿A diario, en menos de 1 h? ¿10? ¿40?* Sí: ahora mismo puede con 40, y con 10 también los fines de semana.
+  3. *¿Te molesta que tus decisiones sean públicas?* No, si ayuda a que profesores y profesionales valoren la web. Aday: hace visible que hay un trabajo real detrás.
+  4. *¿Más fácil con una hoja de cálculo?* No, prefiere el sistema actual.
+  5. *¿Echas algo en falta?* Que las próximas fases se centren más en el laboratorio y menos en resúmenes y siglas.
+- **Criterios de D5** (GUION):
+  - ayudas: Aday no anotó ninguna;
+  - ronda 1 en 25 minutos o menos: **no** (38), pero hizo bastante más de lo pedido (un resumen reescrito entero y 17 siglas en vez de una);
+  - todos sus Issues se leen bien: sí; las únicas decisiones no aplicadas lo fueron por fallos nuestros, ya corregidos;
+  - el login sin sesión conserva el formulario: sí;
+  - cuenta de GitHub y decisiones públicas: le parecen bien, y prefiere esto a una hoja de cálculo.
+- **Para el ADR 0005:** qué hace la cadena con una sugerencia escrita en la nota (ronda 2); que la parte más costosa sea comprobar los resúmenes contra la fuente; y su petición de más laboratorio, que es de planificación, no de D5.

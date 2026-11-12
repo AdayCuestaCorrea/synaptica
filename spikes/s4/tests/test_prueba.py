@@ -87,3 +87,21 @@ def test_dry_run_of_the_two_rounds(tmp_path):
     assert (
         "Vuelve a tu cola por esto" in (tmp_path / "ronda-2" / "revision-ronda-2.html").read_text()
     )
+
+    # Round 2 is read against the queue its page showed (round 3 of the real test was
+    # refused as stale when read against the first one).
+    shown = Queue.model_validate_json((tmp_path / "ronda-2" / "queue.json").read_text("utf-8"))
+    held = shown.get(ItemType.NEWS, "pubmed-42997796")
+    assert held.content_sha256 != news["42997796"].content_sha256
+    fixed = [s.text for s in news["42997796"].content.es]
+    fixed[-1] = fixed[-1].replace("podría ser", "quizá sea")
+    for action, payload, number in (("edit", {"es": "\n".join(fixed)}, 21),
+                                    ("keep", {"reason": "Es correcto."}, 22)):  # fmt: skip
+        body = (
+            f"### Decisiones\n\n```text\n{encode('x', 'public', [d(held, action, payload)])}\n```"
+        )
+        event = {"action": "opened", "issue": {"number": number, "user": {"login": "sofia"},
+                 "created_at": "2026-11-21T18:00:00Z", "body": body}}  # fmt: skip
+        out = process(event, shown, "sofia")
+        assert not out.refused, out.refused
+        assert len(out.applied) == 1
