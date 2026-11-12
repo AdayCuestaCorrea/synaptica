@@ -1,0 +1,96 @@
+{# Imported "with context": t, lang, url, slug, date, sj, signals, figs, cajal, atlas, img and
+   gaps come from the page. Markup only; each style (g, n, l) draws these classes its own way. #}
+
+{# A gap or proposal: a short tag that links to the list at the bottom of the page. #}
+{% macro gap(key) -%}
+{% set g = gaps[key] %}
+<a class="gap-tag gap-tag--{{ g[0] }}" href="#gap-{{ key }}"><span aria-hidden="true">{{ t[g[0]] }}</span><span class="vh">{{ t[g[0]] }}: {{ g[1] }}</span></a>
+{%- endmacro %}
+
+{# The three signals as chips. Always the three, also «no notices». #}
+{% macro chips(s) -%}
+<ul class="chips">
+  {% for g in signals(s) %}
+  {% if g.provisional %}
+  <li class="chip chip--{{ g.key }} is-{{ g.state }} is-provisional"><a href="#gap-journal"><span class="vh">{{ g.label }}: </span>{{ g.short }}<span class="vh"> ({{ t.provisional }}: {{ gaps.journal[1] }})</span></a></li>
+  {% else %}
+  <li class="chip chip--{{ g.key }} is-{{ g.state }}"><span class="vh">{{ g.label }}: </span>{{ g.short }}</li>
+  {% endif %}
+  {% endfor %}
+</ul>
+{%- endmacro %}
+
+{# The signals with their labels, for the study page. #}
+{% macro signals_full(s) -%}
+<dl class="signals">
+  {% for g in signals(s) %}
+  <div class="signal is-{{ g.state }}">
+    <dt>{{ g.label }}</dt>
+    <dd>{{ g.text }}{% if g.provisional %} {{ gap("journal") }}{% endif %}
+      {% if g.notices %}<small class="notices">{{ g.notices | join("; ") }}</small>{% endif %}</dd>
+  </div>
+  {% endfor %}
+</dl>
+{%- endmacro %}
+
+{% macro kicker(s) -%}
+<p class="kicker">{% if s.journal %}<span class="journal">{{ sj(s.journal) }}</span> · {% endif %}<time datetime="{{ s.published_on }}">{{ date(s.published_on) or "—" }}</time>{% if s.type %} · <span class="type">{{ t["type_" ~ s.type] }}</span>{% endif %}</p>
+{%- endmacro %}
+
+{% macro fig_label(f) -%}{{ figure_label(f.label) or t.fig }}{%- endmacro %}
+
+{# Figure of a study (open access only). Never cropped: the box shows all of it. #}
+{% macro figure(s, size="full", lazy=True) -%}
+{% set f = figs.get(s.study_id) %}
+{% if f %}
+<figure class="fig fig--{{ size }}">
+  <img src="{{ img }}{{ f.thumb if size == 'thumb' else f.file }}" alt="{{ fig_label(f) }}: {{ s.title }}"{% if size != 'thumb' %} width="{{ f.width }}" height="{{ f.height }}"{% endif %}{% if lazy %} loading="lazy"{% endif %} decoding="async">
+  {% if size != "thumb" %}<figcaption class="credit"><a href="{{ f.source_url }}" rel="noopener" target="_blank">{{ t.fig_credit.format(label=fig_label(f), lic=f.license) }}</a></figcaption>{% endif %}
+</figure>
+{% endif %}
+{%- endmacro %}
+
+{% macro art(name) -%}{% include "art/" ~ name ~ ".svg.j2" %}{%- endmacro %}
+
+{# One study in a list: words left, thumbnail right (if the article is open access). #}
+{% macro row(s, thumb=True) -%}
+<article class="row{% if thumb and figs.get(s.study_id) %} row--img{% endif %}" data-type="{{ s.type or 'none' }}">
+  <div class="row-text">
+    {{ kicker(s) }}
+    <h3 class="row-title"><a href="{{ url('study', slug(s.study_id)) }}" lang="en">{{ s.title }}</a></h3>
+    {{ chips(s) }}
+  </div>
+  {% if thumb %}{{ figure(s, "thumb") }}{% endif %}
+</article>
+{%- endmacro %}
+
+{% macro fact() -%}
+<section class="fact" aria-labelledby="fact-h">
+  <h2 id="fact-h" class="label">{{ t.fact }} {{ gap("fact") }}</h2>
+  {% if fact_kind == "a" %}
+  {% set f = data.facts.a %}
+  <blockquote><p>{{ f[lang] }}</p></blockquote>
+  <p class="fact-src">{{ t.fact_source }}: <a href="{{ url('study', slug(f.study_id)) }}" lang="en">{{ sj(by_id[f.study_id].journal) }}</a></p>
+  {% elif fact_kind == "b" %}
+  {% set f = data.facts.b %}
+  <p class="fact-num"><strong>{{ f.total }}</strong></p>
+  <p>{{ t.fact_b.format(total=f.total, humans=f.humans, animals=f.animals, unknown=f.unknown, preprints=f.preprints) }} {{ gap("fact_noise") }}</p>
+  {% else %}
+  {% set f = data.facts.c %}
+  <p class="fact-big">{{ t.fact_c.format(year=f.born[:4], name=f["name_" ~ lang]) }}</p>
+  {% if f["desc_" ~ lang] %}<p class="fact-desc">{{ f["desc_" ~ lang] }}</p>
+  {% else %}<p class="fact-desc">{{ gap("fact_desc") }} <span lang="en">{{ f.desc_en }}</span></p>{% endif %}
+  <p class="fact-src">{{ t.fact_source }}: <a href="https://www.wikidata.org/wiki/{{ f.qid }}" rel="noopener" target="_blank">Wikidata</a> · {{ f.license }}</p>
+  {% endif %}
+</section>
+{%- endmacro %}
+
+{% macro gap_list() -%}
+<section class="gaps" id="gaps" aria-labelledby="gaps-h">
+  <h2 id="gaps-h">{{ t.gaps_title }}</h2>
+  <p>{{ t.gaps_intro }}</p>
+  <ul>
+    {% for k, g in gaps.items() %}<li id="gap-{{ k }}"><strong class="gap-tag gap-tag--{{ g[0] }}">{{ t[g[0]] }}</strong> {{ g[1] }}</li>{% endfor %}
+  </ul>
+</section>
+{%- endmacro %}

@@ -1,0 +1,103 @@
+{% extends "base.html.j2" %}
+{% block title %}{{ t.hub }}{% endblock %}
+{% block main %}
+{% set human = atlas.human %}
+<section class="hero">
+  <div class="hero-text">
+    <h1>{{ t.hub }}</h1>
+    <p>{{ t.hub_sub }}</p>
+    <a class="jump" href="#hoy">{{ t.jump_today }} ↓</a>
+  </div>
+  <figure class="hero-art">
+    <img class="hero-brain" src="{{ img }}{{ human.file }}" alt="" width="560" height="436" decoding="async">
+    <span class="hero-neuron">{{ m.art("learn") }}</span>
+    <figcaption class="credit">{{ t.atlas_hero_credit.format(atlas=human.short, lic=human.licence) }}</figcaption>
+  </figure>
+</section>
+
+<section class="sections" aria-label="{{ t.explore }}">
+  {% for sec in sections %}
+  {% if sec.key == "atlas" %}
+  <a class="card card--{{ sec.key }}" href="{{ atlas_url }}" rel="noopener" target="_blank">
+    <span class="card-title">{{ sec.name }}</span>
+    <span class="card-art card-art--atlas">
+      {% for k in ("rat", "human") %}<img src="{{ img }}{{ atlas[k].file }}" alt="{{ atlas[k].short }}" loading="lazy" decoding="async">{% endfor %}
+    </span>
+    <span class="card-text">{{ sec[lang] }} ↗</span>
+    <span class="tag tag--live">{{ t.preview }}</span>
+  </a>
+  {% else %}
+  <div class="card card--{{ sec.key }} card--soon">
+    <span class="card-title">{{ sec.name }}</span>
+    <span class="card-art">{{ m.art(sec.art) }}</span>
+    <span class="card-text">{{ sec[lang] }}</span>
+    <span class="tag">{{ t.soon_phase.format(n=sec.phase) }}<span class="soon-word"> · {{ t.soon_word }}</span></span>
+  </div>
+  {% endif %}
+  {% endfor %}
+  <p class="sections-note">{{ m.gap("illus") }}</p>
+</section>
+
+<section class="today" id="hoy" aria-labelledby="today-h">
+  <div class="sec-head">
+    <h2 id="today-h">{{ t.today }}</h2>
+    <span class="sec-date">{{ date(data.as_of, True) }}</span>
+    <a class="sec-more" href="{{ url('news') }}">{{ t.all_news }} ({{ latest | length }}) →</a>
+  </div>
+  <div class="today-grid">
+    <article class="lead">
+      {{ m.figure(lead, "lead") }}
+      <div class="lead-text">
+        {{ m.kicker(lead) }}
+        <h3 class="lead-title"><a href="{{ url('study', slug(lead.study_id)) }}" lang="en">{{ lead.title }}</a>{% if lang == "es" %} {{ m.gap("title_es") }}{% endif %}</h3>
+        {{ m.chips(lead) }}
+        <p class="lead-sum"><span class="label label--ok">✓ {{ t.verified }}</span> {{ lead.summary[lang].sentences[0] }} {{ m.gap("s5") }}</p>
+        <p><a class="more" href="{{ url('study', slug(lead.study_id)) }}">{{ t.read_more }} →</a></p>
+      </div>
+    </article>
+    <div class="today-list">
+      {% for s in today %}
+      <article class="headline-card" data-type="{{ s.type or 'none' }}">
+        {{ m.kicker(s) }}
+        <h3 class="row-title"><a href="{{ url('study', slug(s.study_id)) }}" lang="en">{{ s.title }}</a></h3>
+        {{ m.chips(s) }}
+      </article>
+      {% endfor %}
+    </div>
+    <div class="today-side">
+      {{ m.fact() }}
+      <a class="week-link" href="{{ url('week') }}">{{ t.week_link }} · {{ data.week }} →</a>
+    </div>
+  </div>
+</section>
+
+<section class="topics" aria-labelledby="topics-h">
+  <div class="sec-head"><h2 id="topics-h">{{ t.topics }}</h2> {{ m.gap("topics") }}
+    <span class="carousel-nav"><button type="button" class="tool" data-scroll="-1" aria-controls="topic-rail"><span aria-hidden="true">←</span><span class="vh">{{ t.prev }}</span></button><button type="button" class="tool" data-scroll="1" aria-controls="topic-rail"><span aria-hidden="true">→</span><span class="vh">{{ t.next }}</span></button></span>
+  </div>
+  <ul class="rail" id="topic-rail">
+    {% for k, tp in topics.items() %}
+    {% set n = topic_hits[k].studies | length + topic_hits[k].news | length %}
+    <li><a class="topic topic--{{ k }}" href="{{ url('topic', tslug(k)) }}">
+      <span class="topic-art">{{ m.art("t-" ~ k) }}</span>
+      <span class="topic-name">{{ tp[lang] }}</span>
+      <span class="topic-n">{{ t.topic_n.format(n=n) }}</span>
+    </a></li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="glossary" id="glosario" aria-labelledby="gl-h">
+  <div class="sec-head"><h2 id="gl-h">{{ t.glossary }}</h2> {{ m.gap("glossary") }}</div>
+  <p class="panel-note">{{ t.glossary_soon }}</p>
+  {% if lang == "es" %}
+  <div class="terms">
+    {% for g in terms %}
+    <details class="term"><summary>{{ g.term }}</summary><p><strong>{{ g.meaning }}</strong>. {{ g.what }}.</p></details>
+    {% endfor %}
+  </div>
+  {% else %}
+  <ul class="terms terms--plain">{% for g in terms %}<li class="term"><span lang="en">{{ g.term }}</span></li>{% endfor %}</ul>
+  {% endif %}
+</section>
+{% endblock %}

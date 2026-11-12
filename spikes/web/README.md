@@ -45,6 +45,23 @@ Imágenes (`v2/img/`, autoalojadas; autor y licencia en `data/images.json` y vis
 - **Figuras de los estudios**: solo artículos del subconjunto de acceso abierto de PMC con licencia CC, desde el bucket público de NLM en AWS (`pmc-oa-opendata`), que da la licencia de cada artículo. Se usa el resumen gráfico si lo hay y si no la primera figura, redimensionada y sin recortar (vale también para las licencias ND). Nunca de Nature, Science y Cell (solo metadatos y enlaces) ni de los medios (sus imágenes no tienen licencia clara). El texto completo se descarga solo a la caché, para leer el número de la figura, y no se publica.
 - **Neuro Atlas**: capturas de nuestro visor de S3 con Brave sin interfaz, una imagen por atlas (Waxholm, CC BY 4.0, y Julich-Brain, CC BY-NC-SA 4.0, nunca en la misma imagen), con la atribución que S3 guardó en `licence.json`.
 
+## Ronda 3 (`v3/`, SCOPE v78): el boceto de Sofía
+
+Un solo scroll, en su orden:
+
+1. Cabecera: Inicio, Neuro News (añadida: sin ella no se llega a la página de noticias), Cómo evaluamos, Sobre nosotros y un buscador.
+2. «Tu portal de neurociencia», con el cerebro humano del visor y una neurona dibujada.
+3. Las seis secciones en 3 × 2. Neuro Atlas enlaza al prototipo de S3; las demás dicen en qué fase llegan y no son enlaces. En el móvil van en 2 columnas compactas para que «Hoy» llegue antes.
+4. «Hoy»: noticia destacada (figura, título, resumen), tres titulares con sus señales y el dato curioso, más el enlace al resumen semanal.
+5. «Explora por temas»: carrusel con Memoria, Adicción, Neurodegeneración, Neuroinflamación, Sueño y Emoción. Cada tema tiene su página con los estudios y noticias de hoy. Regla de la maqueta (propuesta): palabras del título.
+6. «Glosario»: los 17 términos de ejemplo de la propuesta (solo en español, por revisar).
+
+Sin dibujos de Cajal: ilustraciones propias en SVG (`v3/templates/art/`, CC BY-SA 4.0), en línea para que tomen los colores de cada estilo y del modo claro u oscuro. Los temas van en tarjetas de color con dibujo blanco. Buscador en el navegador sobre un índice JSON por idioma (estudios, noticias, secciones, temas y siglas), con la coincidencia adaptada de Paleo Atlas (acentos, plurales, prefijos y erratas). Páginas nuevas: «Sobre nosotros» (borrador), «Buscar» y una por tema.
+
+```sh
+uv run python spikes/web/build3.py    # 438 páginas (las imágenes son las de v2/img)
+```
+
 ## De dónde sale cada dato
 
 - Estudios y noticias: el almacén del 2026-11-12 (`dim_study`, `fct_news_item`).
