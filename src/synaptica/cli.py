@@ -239,6 +239,23 @@ def ingest_biorxiv(
     )
 
 
+@ingest_app.command("journals")
+def ingest_journals() -> None:
+    """Nature, Science, Cell and sister journals: metadata and links (Crossref fallback)."""
+    from synaptica.http import make_client
+    from synaptica.ingest import journals
+
+    with make_client() as client:
+        result = journals.ingest(client)
+    listed = ", ".join(f"{k} {v}" for k, v in result.items.items())
+    typer.echo(f"Journals: {listed}; {result.new_versions} new or changed stored")
+    if result.via_crossref:
+        typer.echo(f"  via Crossref: {', '.join(result.via_crossref)}")
+    if result.failed:
+        typer.echo(f"  failed: {', '.join(result.failed)}", err=True)
+        raise typer.Exit(code=1)
+
+
 @app.command()
 def build(
     as_of: Annotated[
@@ -263,7 +280,7 @@ def check() -> None:
     import httpx
 
     from synaptica.http import HttpError, make_client
-    from synaptica.ingest import biorxiv, crossref, europepmc, pubmed
+    from synaptica.ingest import biorxiv, crossref, europepmc, journals, pubmed
 
     changed = []
     try:
@@ -276,6 +293,8 @@ def check() -> None:
                 changed.append("europepmc")
             if biorxiv.has_new_preprints(client):
                 changed.append("biorxiv")
+            if journals.has_new_items(client):
+                changed.append("journals")
     except (HttpError, httpx.HTTPError) as exc:
         typer.echo(f"check failed: {exc}", err=True)
         raise typer.Exit(2) from exc

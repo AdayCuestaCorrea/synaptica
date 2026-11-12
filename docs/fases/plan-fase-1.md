@@ -29,7 +29,7 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 depende de D5 (d
 | 3 ✅ | `syn ingest pubmed`: esearch y esummary en `raw/`; efetch (abstract) solo a la caché; `NCBI_API_KEY` opcional (3 o 10 req/s) | fixtures `pubmed/` | crudos deterministas y límite respetado (test con reloj) |
 | 4 ✅ | `syn ingest europepmc`: metadatos y licencia OA; el texto completo, bajo demanda a la caché desde el paso 16 (decisión de Aday, v62) | `europepmc/` | idem |
 | 5 ✅ | `syn ingest biorxiv` (bio y med): ventana hacia atrás y versiones deduplicadas por DOI | `biorxiv/`, `medrxiv/` | dos versiones → un estudio |
-| 6 🟢 | `syn ingest journals`: 7 RSS + Crossref por ISSN de respaldo, solo metadatos | `journals/` | sin texto de editores (amplía `test_fixtures.py`) |
+| 6 ✅ | `syn ingest journals`: 7 RSS + Crossref por ISSN de respaldo, solo metadatos | `journals/` | sin texto de editores (amplía `test_fixtures.py`) |
 | 7 🟢 | `syn ingest news`: SINC, The Conversation EN/ES y ScienceDaily desde la semilla `news_feeds.csv`, con licencia por feed | `news/` | `has_new_items` probado |
 | 8 🟢 | Crossref ✅ (`syn ingest crossref`: lista diaria de avisos de todas las disciplinas, no consulta DOI a DOI; falta cubrir las retractaciones que solo conoce Retraction Watch) y OpenAlex (citas, `filter`, nunca `search`) | `crossref/`, `openalex/` | cupos de §5 respetados |
 | 9 ✅ | `syn check`: detección barata, que sale 0, 1 o 2, y un error de red nunca cuenta como «sin cambios» (lección de Paleo) | MockTransport con errores | sin ADR propio: es el D10 de Paleo sin cambios, citado en el docstring |

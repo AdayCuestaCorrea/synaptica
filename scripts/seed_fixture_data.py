@@ -19,7 +19,7 @@ import httpx
 from synaptica import report
 from synaptica.config import get_paths
 from synaptica.http import Throttle, make_client
-from synaptica.ingest import biorxiv, crossref, europepmc, pubmed
+from synaptica.ingest import biorxiv, crossref, europepmc, journals, pubmed
 
 FIXTURES = Path(__file__).resolve().parents[1] / "tests" / "fixtures"
 DAY = dt.date(2026, 11, 9)  # the S1 fixtures were recorded that day
@@ -28,6 +28,11 @@ NO_WAIT = Throttle(1000, sleep=lambda _: None)
 
 def _json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+FEED_FIXTURES = {
+    **{j.rss: FIXTURES / "journals" / f"{j.journal}.rss.xml" for j in journals.load_journals()},
+}
 
 
 def answer(request: httpx.Request) -> httpx.Response:
@@ -43,6 +48,10 @@ def answer(request: httpx.Request) -> httpx.Response:
         if name == "esummary.fcgi":
             return httpx.Response(200, json=_json(FIXTURES / "pubmed" / "esummary.json"))
         return httpx.Response(200, text=(FIXTURES / "pubmed" / "efetch.xml").read_text("utf-8"))
+    if str(request.url) in FEED_FIXTURES:
+        return httpx.Response(200, text=FEED_FIXTURES[str(request.url)].read_text("utf-8"))
+    if request.url.host == "api.crossref.org" and request.url.path.startswith("/journals/"):
+        return httpx.Response(200, json={"message": {"items": []}})
     if request.url.host == "api.crossref.org":
         kind = params["filter"].split(",")[0].removeprefix("update-type:")
         path = FIXTURES / "crossref" / f"notices_{kind}.json"
@@ -70,6 +79,7 @@ def main() -> None:
         print(crossref.ingest(client, today=DAY, throttle=NO_WAIT))
         print(europepmc.ingest(client, today=DAY, throttle=NO_WAIT))
         print(biorxiv.ingest(client, today=DAY, throttle=NO_WAIT))
+        print(journals.ingest(client, today=DAY, throttle=NO_WAIT))
     moment = dt.datetime(2026, 11, 9, 6, 23, tzinfo=dt.UTC)
     report.start_run(data, trigger="manual", changed=True, now=moment)
     report.finish_run(data, now=moment)

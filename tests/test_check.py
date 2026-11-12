@@ -21,8 +21,15 @@ def crossref_page(dois):
     return {"message": {"items": [{"DOI": d} for d in dois]}}
 
 
+FEED_HOSTS = {"www.nature.com", "www.science.org", "www.cell.com", "www.sciencedaily.com",
+              "theconversation.com", "www.agenciasinc.es"}  # fmt: skip
+EMPTY_FEED = "<rss><channel></channel></rss>"
+
+
 def answer(pmids, dois):
     def handler(request):
+        if request.url.host in FEED_HOSTS:
+            return httpx.Response(200, text=EMPTY_FEED)
         if request.url.host == "eutils.ncbi.nlm.nih.gov":
             return httpx.Response(200, json=esearch(pmids))
         return httpx.Response(200, json=crossref_page(dois))
