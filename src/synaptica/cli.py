@@ -215,6 +215,30 @@ def ingest_europepmc(
     )
 
 
+@ingest_app.command("biorxiv")
+def ingest_biorxiv(
+    days: Annotated[
+        int, typer.Option(min=1, max=60, help="Preprints posted in the last N days.")
+    ] = 7,
+) -> None:
+    """Neuro preprints from bioRxiv and medRxiv, latest version per DOI."""
+    from synaptica.http import HttpError, make_client
+    from synaptica.ingest import biorxiv
+
+    try:
+        with make_client() as client:
+            result = biorxiv.ingest(client, days=days)
+    except HttpError as exc:
+        typer.echo(f"bioRxiv/medRxiv failed: {exc}", err=True)
+        raise typer.Exit(code=1) from exc
+    found = ", ".join(f"{k} {v}" for k, v in result.found.items())
+    stored = ", ".join(f"{k} {v}" for k, v in result.new_versions.items())
+    typer.echo(
+        f"Preprints in {days} day(s): {found}; new or changed stored: {stored}; "
+        f"{result.abstracts_cached} abstracts cached"
+    )
+
+
 @app.command()
 def build(
     as_of: Annotated[
@@ -239,7 +263,7 @@ def check() -> None:
     import httpx
 
     from synaptica.http import HttpError, make_client
-    from synaptica.ingest import crossref, europepmc, pubmed
+    from synaptica.ingest import biorxiv, crossref, europepmc, pubmed
 
     changed = []
     try:
@@ -250,6 +274,8 @@ def check() -> None:
                 changed.append("crossref")
             if europepmc.has_new_records(client):
                 changed.append("europepmc")
+            if biorxiv.has_new_preprints(client):
+                changed.append("biorxiv")
     except (HttpError, httpx.HTTPError) as exc:
         typer.echo(f"check failed: {exc}", err=True)
         raise typer.Exit(2) from exc

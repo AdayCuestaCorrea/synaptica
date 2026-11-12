@@ -19,7 +19,7 @@ import httpx
 from synaptica import report
 from synaptica.config import get_paths
 from synaptica.http import Throttle, make_client
-from synaptica.ingest import crossref, europepmc, pubmed
+from synaptica.ingest import biorxiv, crossref, europepmc, pubmed
 
 FIXTURES = Path(__file__).resolve().parents[1] / "tests" / "fixtures"
 DAY = dt.date(2026, 11, 9)  # the S1 fixtures were recorded that day
@@ -48,6 +48,13 @@ def answer(request: httpx.Request) -> httpx.Response:
         path = FIXTURES / "crossref" / f"notices_{kind}.json"
         items = _json(path)["message"]["items"] if path.exists() and params["cursor"] == "*" else []
         return httpx.Response(200, json={"message": {"items": items}})
+    if request.url.host == "api.biorxiv.org":
+        _, _, server, _, _, cursor = request.url.path.split("/")
+        body = _json(FIXTURES / server / f"details_{params['category']}.json")
+        if cursor != "0":
+            body["collection"] = []
+        body["messages"][0]["total"] = str(len(body["collection"]))
+        return httpx.Response(200, json=body)
     if request.url.host == "www.ebi.ac.uk":
         search = _json(FIXTURES / "europepmc" / "search_core.json")
         if params["cursorMark"] != "*":
@@ -62,6 +69,7 @@ def main() -> None:
         print(pubmed.ingest(client, today=DAY, api_key="", throttle=NO_WAIT))
         print(crossref.ingest(client, today=DAY, throttle=NO_WAIT))
         print(europepmc.ingest(client, today=DAY, throttle=NO_WAIT))
+        print(biorxiv.ingest(client, today=DAY, throttle=NO_WAIT))
     moment = dt.datetime(2026, 11, 9, 6, 23, tzinfo=dt.UTC)
     report.start_run(data, trigger="manual", changed=True, now=moment)
     report.finish_run(data, now=moment)
