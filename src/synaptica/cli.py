@@ -170,3 +170,23 @@ def ingest_pubmed(
         f"{result.medline_requested} MEDLINE records checked "
         f"({result.medline_new_versions} new versions, {result.abstracts_cached} abstracts cached)"
     )
+
+
+@ingest_app.command("crossref")
+def ingest_crossref(
+    days: Annotated[
+        int, typer.Option(min=1, max=60, help="Notices deposited in the last N days.")
+    ] = 3,
+) -> None:
+    """Retraction, correction and other notices from Crossref, for the study signals."""
+    from synaptica.http import HttpError, make_client
+    from synaptica.ingest import crossref
+
+    try:
+        with make_client() as client:
+            result = crossref.ingest(client, days=days)
+    except HttpError as exc:
+        typer.echo(f"Crossref failed: {exc}", err=True)
+        raise typer.Exit(code=1) from exc
+    listed = ", ".join(f"{k} {v}" for k, v in result.notices.items())
+    typer.echo(f"Crossref: {listed}; {result.new_versions} new or changed notices stored")
