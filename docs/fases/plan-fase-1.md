@@ -37,7 +37,7 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 depende de D5 (d
 ### C. Almacén (dbt + DuckDB, D1)
 | # | Paso | Tests | Hecho cuando |
 |---|---|---|---|
-| 10 🟢 | Proyecto dbt sobre DuckDB, macro `raw_store` (`read_json` con glob), staging por fuente; `syn build`; `scripts/seed_fixture_data.py` para la CI | unique, not_null y accepted_values; frescura con `stg_raw__checked` + `assert_*_is_fresh.sql` y cadencia en una semilla | `syn build` verde en la CI con fixtures |
+| 10 ✅ (PubMed y Crossref) | Proyecto dbt sobre DuckDB, macro `raw_store` (`read_json` con glob), staging por fuente; `syn build`; `scripts/seed_fixture_data.py` para la CI | unique, not_null y accepted_values; frescura con `stg_raw__checked` + `assert_*_is_fresh.sql` y cadencia en una semilla | `syn build` verde en la CI con fixtures |
 | 11 🟢 | Intermediate: estudio unificado por DOI, preprint ↔ publicado, versiones | relationships y test SQL «un DOI, un estudio» | marts `dim_study` y `fct_news_item` |
 
 ### D. Noticias

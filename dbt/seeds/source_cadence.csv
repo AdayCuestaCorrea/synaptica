@@ -1,0 +1,4 @@
+source,kind,max_age_days,why
+pubmed,summary,2,"~700 new records a day; a gap of 2 days means the ingestion stopped"
+pubmed,medline,2,"written together with the summaries"
+crossref,notices,2,"~800 notices a day across all disciplines"

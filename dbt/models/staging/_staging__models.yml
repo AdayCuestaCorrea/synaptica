@@ -1,0 +1,75 @@
+version: 2
+
+models:
+  - name: stg_pubmed__summary
+    description: PubMed esummary records, one row per PMID and version.
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "(pmid || '|' || version_date)"
+    columns:
+      - name: pmid
+        data_tests: [not_null]
+      - name: version_date
+        data_tests: [not_null]
+      - name: title
+        data_tests:
+          - not_null:
+              config: {severity: warn}
+
+  - name: stg_pubmed__medline
+    description: MEDLINE indexing of each PubMed record (status, MeSH), one row per version.
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "(pmid || '|' || version_date)"
+    columns:
+      - name: pmid
+        data_tests: [not_null]
+      - name: medline_status
+        description: NLM citation status; a new value is a warning, not a failure.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [MEDLINE, OLDMEDLINE, PubMed-not-MEDLINE, In-Process, In-Data-Review,
+                         Publisher, Completed]
+              config: {severity: warn}
+
+  - name: stg_crossref__notices
+    description: Crossref editorial notices, one row per notice, version and updated DOI.
+    columns:
+      - name: notice_doi
+        data_tests: [not_null]
+      - name: updated_doi
+        data_tests: [not_null]
+      - name: update_type
+        description: Crossref update type; other types inside a notice are a warning.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [retraction, partial_retraction, withdrawal, removal,
+                         expression_of_concern, correction, erratum]
+              config: {severity: warn}
+
+  - name: stg_raw__batches
+    description: Daily batch files present in the raw store.
+    columns:
+      - name: batch_date
+        data_tests: [not_null]
+
+  - name: stg_pipeline__runs
+    description: Runs recorded by `syn report`.
+    columns:
+      - name: trigger
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [schedule, backup, manual, local]
+
+seeds:
+  - name: source_cadence
+    description: Maximum days without a new batch for each source/kind before failing.
+    columns:
+      - name: max_age_days
+        data_tests: [not_null]

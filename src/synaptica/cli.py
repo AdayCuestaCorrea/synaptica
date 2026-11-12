@@ -9,6 +9,7 @@ from __future__ import annotations
 import logging
 import os
 import shutil
+import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -190,3 +191,18 @@ def ingest_crossref(
         raise typer.Exit(code=1) from exc
     listed = ", ".join(f"{k} {v}" for k, v in result.notices.items())
     typer.echo(f"Crossref: {listed}; {result.new_versions} new or changed notices stored")
+
+
+@app.command()
+def build(
+    as_of: Annotated[
+        str | None, typer.Option(help="Pin 'today' (YYYY-MM-DD) for date-based tests (CI).")
+    ] = None,
+) -> None:
+    """Rebuild the warehouse: ``dbt build`` (models and tests) on data/raw/."""
+    dbt_dir = config.project_root() / "dbt"
+    env = {**os.environ, "SYN_DATA_DIR": str(config.get_paths().data)}
+    cmd = ["dbt", "build", "--project-dir", str(dbt_dir), "--profiles-dir", str(dbt_dir)]
+    if as_of:
+        cmd += ["--vars", f"{{as_of: '{as_of}'}}"]
+    raise typer.Exit(subprocess.run(cmd, env=env, check=False).returncode)

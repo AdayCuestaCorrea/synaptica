@@ -33,3 +33,10 @@ jobs:
 
       - name: Environment check
         run: uv run syn doctor
+
+      - name: Ingest the fixtures (no network)
+        run: uv run python scripts/seed_fixture_data.py
+
+      - name: dbt build on the fixtures
+        # as_of pins "today" so date-based tests do not drift on fixture data.
+        run: uv run syn build --as-of 2026-11-09

@@ -8,6 +8,9 @@ authors = [{ name = "Aday Cuesta Correa" }]
 readme = "README.md"
 requires-python = ">=3.14,<3.15"
 dependencies = [
+    # dbt on DuckDB: the warehouse rebuilt from data/raw/ on every run (decision D1, as in
+    # Paleo Atlas; tried in spike S2). Brings duckdb itself.
+    "dbt-duckdb>=1.11.1",
     # HTTP client for the sources (spike S1, ingestion from Phase 1).
     "httpx>=0.28.1",
     # CLI framework for the `syn` commands (same as Paleo Atlas).

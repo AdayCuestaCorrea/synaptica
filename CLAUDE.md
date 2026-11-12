@@ -96,6 +96,8 @@ uv run syn ingest crossref --days 3       # avisos de retractación, corrección
 uv run pytest
 uv run ruff check . && uv run ruff format --check .
 uv run syn build                          # dbt build: modelos + tests (desde la Fase 1)
+SYN_DATA_DIR=/tmp/syn-ci uv run python scripts/seed_fixture_data.py   # fixtures como si vinieran de las fuentes
+SYN_DATA_DIR=/tmp/syn-ci uv run syn build --as-of 2026-11-09          # dbt sobre esas fixtures (como la CI)
 uv run syn site && uv run syn site --check
 ```
 
