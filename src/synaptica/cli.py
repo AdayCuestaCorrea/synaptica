@@ -11,6 +11,7 @@ import os
 import shutil
 import sys
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Annotated
 
 import typer
@@ -18,6 +19,8 @@ import typer
 from synaptica import __version__, config
 
 app = typer.Typer(help="SYNAPTICA data pipeline.", no_args_is_help=True)
+report_app = typer.Typer(help="Run log in data/runs/ (one record per pipeline run).")
+app.add_typer(report_app, name="report")
 
 REQUIRED_PYTHON = (3, 14)
 
@@ -97,3 +100,47 @@ def doctor() -> None:
         typer.echo(f"{mark} {c.name}{note}: {c.detail}")
     if any(c.required and not c.ok for c in checks):
         raise typer.Exit(code=1)
+
+
+@report_app.command("start")
+def report_start(
+    trigger: Annotated[str, typer.Option(help="schedule, backup, manual or local.")] = "local",
+    changed: Annotated[bool, typer.Option(help="Change detection found something new.")] = True,
+) -> None:
+    """Record that a run started and what change detection found (data/runs/)."""
+    from synaptica import report
+
+    try:
+        run = report.start_run(config.get_paths().data, trigger=trigger, changed=changed)
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc), param_hint="--trigger") from exc
+    typer.echo(f"Run started {run['started_at']} ({trigger}, changed={changed})")
+
+
+@report_app.command("finish")
+def report_finish(
+    jobs: Annotated[
+        Path | None, typer.Option(help="GitHub API dump of this run's jobs (step durations).")
+    ] = None,
+) -> None:
+    """Complete the current run record and print the report as Markdown."""
+    from synaptica import report
+
+    try:
+        run = report.finish_run(
+            config.get_paths().data,
+            run_results=config.project_root() / "dbt" / "target" / "run_results.json",
+            jobs=jobs,
+        )
+    except RuntimeError as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(code=1) from exc
+    typer.echo(report.markdown(run))
+
+
+@report_app.command("ran-today")
+def report_ran_today() -> None:
+    """Exit 0 if a run already finished without failures today (UTC), 1 otherwise."""
+    from synaptica import report
+
+    raise typer.Exit(0 if report.ran_today(config.get_paths().data) else 1)

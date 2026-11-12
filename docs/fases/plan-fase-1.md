@@ -21,7 +21,7 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 depende de D5 (d
 | # | Paso | Origen en Paleo / S | Tests sin red | Hecho cuando |
 |---|---|---|---|---|
 | 1 ✅ | `http.py` (reintentos 429/5xx, Retry-After, User-Agent con contacto de `config.py`) y `store.py` (`raw/<fuente>/<tipo>/<clave>/<fecha>.json`, solo escribe si cambia, `_checked.json`, fechas en UTC); ADR de D2. pydantic entra como dependencia cuando la use un módulo (16 o la cola de revisión) | `paleo/http.py`, `paleo/store.py` | reintentos y backoff con reloj falso; escribir dos veces lo mismo = 0 cambios | pytest verde; `docs/fuentes.md` aclara el User-Agent genérico de `spikes/s1/common.py` |
-| 2 🟢 | `report.py` y `syn report start/finish/ran-today` → `runs/<fecha>.json` | `paleo/report.py` | informe en tmp, idempotente | cada paso posterior puede anotar sus cifras |
+| 2 ✅ | `report.py` y `syn report start/finish/ran-today` → `runs/<fecha>.json` | `paleo/report.py` | informe en tmp, idempotente | cada paso posterior puede anotar sus cifras |
 
 ### B. Ingesta (un commit por familia de fuentes)
 | # | Paso | Tests | Hecho cuando |

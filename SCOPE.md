@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 54** · 2026-11-12 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 55** · 2026-11-12 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -300,3 +300,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 52 | 2026-11-12 | S4, antes de la prueba con Sofía: la página de revisión explica cada grupo (qué es y dónde sale en la web), qué representa cada lado de una pareja rata ↔ humano y qué significa cada grado (clara, parcial, discutida; definiciones propuestas por SYNAPTICA, que Sofía puede cambiar), y qué mirar en los términos de PubMed. Lo vio Aday: la página daba por hecho un contexto que ni él ni ella tenían. Ronda 1 regenerada; el guion aclara que se mide la herramienta y que la ayuda nunca es de contenido |
 | 53 | 2026-11-12 | [Plan de la Fase 1](docs/fases/plan-fase-1.md), sin código: 30 pasos con su commit, tests sin red y criterio de hecho, siguiendo Paleo Atlas; los que dependen de D5 (etiquetas de Sofía para el clasificador y el juez, aprobación de los Clásicos) quedan para después del ADR 0005. Decisiones de Aday: rebanada vertical (PubMed de punta a punta hasta la web y el pipeline, y después se amplía); D2 «copiar y adaptar», que se cierra con su ADR en el paso 1; las etiquetas de Sofía, por el flujo D5; filtro de neurociencia con reglas (MeSH u OpenAlex) y el LLM solo sin dato. Hueco señalado: SCOPE no dice de dónde sale el dato curioso del día |
 | 54 | 2026-11-12 | Excepción acotada, decidida por Aday: los pasos 1 y 2 del [plan de la Fase 1](docs/fases/plan-fase-1.md) empiezan antes de cerrar la Fase 0, en la rama `fase-1`, sin fusionar a `main` hasta que cierre (no dependen de D3 ni de D5). Paso 1: `synaptica.http` y `synaptica.store` copiados de Paleo (las fechas del almacén, en UTC), con tests sin red; D2 cerrada ([ADR](docs/adr/0002-motor-comun.md)). `docs/fuentes.md` aclara que los scripts de S1 usaban un User-Agent genérico. pydantic pasa a dependencia del paquete cuando lo use un módulo (paso 16 o cola de revisión), no antes |
+| 55 | 2026-11-12 | Fase 1, paso 2 (rama `fase-1`, excepción de la v54): informe de cada ejecución copiado de Paleo (`synaptica.report`) y comandos `syn report start`, `finish` y `ran-today` → `data/runs/<fecha>.json`. Sin las cifras propias de Paleo: los totales del almacén entran como `summary` cuando existan los marts (paso 10), así que no hace falta DuckDB todavía. Con este paso termina la excepción; lo siguiente espera al cierre de la Fase 0 |
