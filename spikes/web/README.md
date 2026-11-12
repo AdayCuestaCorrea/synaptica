@@ -67,6 +67,14 @@ Provisionales (Aday, v81): se replantean cuando haya más noticias. Opción B:
 - **Neuro Atlas**: capturas de nuestro visor de S3, una por atlas (Waxholm, CC BY 4.0; Julich-Brain, CC BY-NC-SA 4.0), con la atribución de su `licence.json`.
 - **Ilustraciones**: dibujos propios en SVG (`v3/templates/art/`, CC BY-SA 4.0), en línea para que tomen los colores del modo claro u oscuro.
 
+## Hoja de contactos (`contact.py` → `contact/`, no versionada)
+
+Para elegir las imágenes nuevas (SCOPE v82): 2–3 candidatas reales por hueco (cabecera, las seis tarjetas de sección y los seis temas), cada una sobre fondo oscuro y claro. Tarjetas y temas, de NIH BioArt (dominio público); la cabecera y los temas sin nada en BioArt, de Wikimedia Commons (CC0, dominio público, CC BY o CC BY-SA). Autor, licencia y enlace se leen de cada fuente y quedan en `data/contact.json`. La cabecera y Neuro Atlas dejan de usar la captura de nuestro cerebro (a Sofía no le gusta). Página interna, solo en español.
+
+```sh
+uv run python spikes/web/contact.py   # ver en http://127.0.0.1:8771/contact/
+```
+
 ## Fuentes tipográficas (`fonts/`)
 
 Atkinson Hyperlegible, © Braille Institute of America, SIL Open Font License 1.1 (`fonts/OFL-atkinson-hyperlegible.txt`). Autoalojada, subconjunto latino en woff2, copiada del paquete de Fontsource `@fontsource/atkinson-hyperlegible@5.2.5`.
