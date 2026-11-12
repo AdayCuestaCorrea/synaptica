@@ -19,7 +19,7 @@ import httpx
 from synaptica import report
 from synaptica.config import get_paths
 from synaptica.http import Throttle, make_client
-from synaptica.ingest import crossref, pubmed
+from synaptica.ingest import crossref, europepmc, pubmed
 
 FIXTURES = Path(__file__).resolve().parents[1] / "tests" / "fixtures"
 DAY = dt.date(2026, 11, 9)  # the S1 fixtures were recorded that day
@@ -48,6 +48,11 @@ def answer(request: httpx.Request) -> httpx.Response:
         path = FIXTURES / "crossref" / f"notices_{kind}.json"
         items = _json(path)["message"]["items"] if path.exists() and params["cursor"] == "*" else []
         return httpx.Response(200, json={"message": {"items": items}})
+    if request.url.host == "www.ebi.ac.uk":
+        search = _json(FIXTURES / "europepmc" / "search_core.json")
+        if params["cursorMark"] != "*":
+            search["resultList"]["result"] = []
+        return httpx.Response(200, json=search)
     return httpx.Response(404, text=f"no fixture for {request.url}")
 
 
@@ -56,6 +61,7 @@ def main() -> None:
     with make_client(transport=httpx.MockTransport(answer)) as client:
         print(pubmed.ingest(client, today=DAY, api_key="", throttle=NO_WAIT))
         print(crossref.ingest(client, today=DAY, throttle=NO_WAIT))
+        print(europepmc.ingest(client, today=DAY, throttle=NO_WAIT))
     moment = dt.datetime(2026, 11, 9, 6, 23, tzinfo=dt.UTC)
     report.start_run(data, trigger="manual", changed=True, now=moment)
     report.finish_run(data, now=moment)

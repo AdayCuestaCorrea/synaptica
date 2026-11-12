@@ -193,6 +193,28 @@ def ingest_crossref(
     typer.echo(f"Crossref: {listed}; {result.new_versions} new or changed notices stored")
 
 
+@ingest_app.command("europepmc")
+def ingest_europepmc(
+    days: Annotated[
+        int, typer.Option(min=1, max=30, help="Open-access records indexed in the last N days.")
+    ] = 3,
+) -> None:
+    """Open-access records from Europe PMC: metadata and licence (full text on demand)."""
+    from synaptica.http import HttpError, make_client
+    from synaptica.ingest import europepmc
+
+    try:
+        with make_client() as client:
+            result = europepmc.ingest(client, days=days)
+    except HttpError as exc:
+        typer.echo(f"Europe PMC failed: {exc}", err=True)
+        raise typer.Exit(code=1) from exc
+    typer.echo(
+        f"Europe PMC: {result.found} open-access records in {days} day(s); "
+        f"{result.new_versions} new or changed stored"
+    )
+
+
 @app.command()
 def build(
     as_of: Annotated[
@@ -217,7 +239,7 @@ def check() -> None:
     import httpx
 
     from synaptica.http import HttpError, make_client
-    from synaptica.ingest import crossref, pubmed
+    from synaptica.ingest import crossref, europepmc, pubmed
 
     changed = []
     try:
@@ -226,6 +248,8 @@ def check() -> None:
                 changed.append("pubmed")
             if crossref.has_new_notices(client):
                 changed.append("crossref")
+            if europepmc.has_new_records(client):
+                changed.append("europepmc")
     except (HttpError, httpx.HTTPError) as exc:
         typer.echo(f"check failed: {exc}", err=True)
         raise typer.Exit(2) from exc
