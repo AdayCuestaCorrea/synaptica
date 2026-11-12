@@ -1,0 +1,50 @@
+# GitHub Pages (S3 step 7.10). For now it only publishes mock-up C of spike S3, at
+# https://adaycuestacorrea.github.io/synaptica/spikes/s3/c/ (Aday, 2026-11-12: nothing at the
+# root until the Phase 1 site). The files are served as they are in the repository: the data
+# (spikes/s3/site/data) is built locally by spikes/s3/build_assets.py and committed.
+# mobile.html stays out: a local test frame without the medical notice or an English version.
+name: Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "spikes/s3/site/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - name: Assemble the site
+        run: |
+          mkdir -p _site/spikes/s3
+          cp -r spikes/s3/site/. _site/spikes/s3/
+          rm _site/spikes/s3/mobile.html
+          touch _site/.nojekyll
+          du -sh _site
+
+      - uses: actions/upload-pages-artifact@v5.0.0
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}spikes/s3/c/
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5.0.1
