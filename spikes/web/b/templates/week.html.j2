@@ -1,0 +1,16 @@
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m with context %}
+{% import "parts.html.j2" as p with context %}
+{% block title %}{{ t.week }}{% endblock %}
+{% block main %}
+<article class="prose">
+  <p class="mono muted">{{ t.week_of }} {{ data.week }}</p>
+  <h1>{{ t.week }}</h1>
+  <p>{{ p.gap(t, t.week_gap) }}</p>
+  <div class="panel"><p class="summary-kind">{{ t.fallback }}</p><p class="week-text">{{ data.weekly[lang] }}</p></div>
+</article>
+<section aria-labelledby="ws-h">
+  <h2 id="ws-h" class="prose-h">{{ t.week_studies }}</h2>
+  {{ m.table(data.s5, "week-rows") }}
+</section>
+{% endblock %}

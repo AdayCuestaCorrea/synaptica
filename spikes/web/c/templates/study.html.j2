@@ -1,0 +1,25 @@
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m with context %}
+{% import "parts.html.j2" as p with context %}
+{% block title %}{{ s.title | truncate(60) }}{% endblock %}
+{% block main %}
+<p><a class="back" href="{{ url('index') }}">← {{ t.back }}</a></p>
+<article class="study type-{{ s.type or 'none' }}">
+  <p class="card-type"><span class="swatch" aria-hidden="true"></span>{{ t["type_" ~ s.type] if s.type else t.type_none }}</p>
+  <h1 class="study-title" lang="en">{{ s.title }}</h1>
+  {% if lang == "es" %}<p class="card-meta">{{ t.title_original }} · {{ p.gap(t, t.gap_title_es) }}</p>{% endif %}
+  <p class="card-meta">{{ s.journal or "—" }} · {{ date(s.published_on) or "—" }}</p>
+  {{ m.pills(s, True) }}
+  {% for g in signals(s) %}{% if g.notices %}<p class="card-meta">{{ g.notices | join("; ") }}</p>{% endif %}{% endfor %}
+  {% if signals(s)[0].provisional %}<p>{{ p.gap(t, t.provisional_long) }}</p>{% endif %}
+  <div class="study-body">{{ p.summary(s, t, lang, True) }}</div>
+  <p><a class="button" href="{{ s.url }}" rel="noopener" target="_blank">{{ t.original }} ↗</a></p>
+</article>
+<div class="study-side">
+  <section class="tile">{{ p.meta_table(s, t, lang, date) }}</section>
+  <section class="tile" aria-labelledby="lic-h">
+    <h2 id="lic-h" class="tile-k">{{ t.license }}</h2>
+    {{ p.licences(licence(s), t) }}
+  </section>
+</div>
+{% endblock %}

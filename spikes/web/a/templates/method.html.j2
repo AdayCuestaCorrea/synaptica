@@ -1,0 +1,15 @@
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m with context %}
+{% block title %}{{ t.method }}{% endblock %}
+{% block main %}
+<article class="prose">
+  <h1>{{ t.method }}</h1>
+  {% include "method_" ~ lang ~ ".html.j2" %}
+  <h2>{{ t.examples }}</h2>
+  <div class="examples">
+    {% for s in [lead, data.examples.retracted, data.examples.corrected] + (latest | selectattr("review_status", "equalto", "preprint") | list)[:1] %}
+    {{ m.item(s, "item--example") }}
+    {% endfor %}
+  </div>
+</article>
+{% endblock %}

@@ -1,0 +1,187 @@
+{
+ "head": {
+  "vars": [
+   "p",
+   "es",
+   "en",
+   "des",
+   "den",
+   "born",
+   "links"
+  ]
+ },
+ "results": {
+  "bindings": [
+   {
+    "p": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q451727"
+    },
+    "den": {
+     "xml:lang": "en",
+     "type": "literal",
+     "value": "Scottish physician, painter and theologian (1774–1842)"
+    },
+    "en": {
+     "xml:lang": "en",
+     "type": "literal",
+     "value": "Charles Bell"
+    },
+    "es": {
+     "xml:lang": "es",
+     "type": "literal",
+     "value": "Charles Bell"
+    },
+    "born": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "1774-11-12T00:00:00Z"
+    },
+    "links": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+     "type": "literal",
+     "value": "40"
+    }
+   },
+   {
+    "p": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q451727"
+    },
+    "den": {
+     "xml:lang": "en",
+     "type": "literal",
+     "value": "Scottish physician, painter and theologian (1774–1842)"
+    },
+    "en": {
+     "xml:lang": "en",
+     "type": "literal",
+     "value": "Charles Bell"
+    },
+    "es": {
+     "xml:lang": "es",
+     "type": "literal",
+     "value": "Charles Bell"
+    },
+    "born": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "1774-11-12T00:00:00Z"
+    },
+    "links": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+     "type": "literal",
+     "value": "40"
+    }
+   },
+   {
+    "p": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q69794"
+    },
+    "den": {
+     "xml:lang": "en",
+     "type": "literal",
+     "value": "German neurologist (1862–1950)"
+    },
+    "en": {
+     "xml:lang": "en",
+     "type": "literal",
+     "value": "Theodor Ziehen"
+    },
+    "es": {
+     "xml:lang": "es",
+     "type": "literal",
+     "value": "Theodor Ziehen"
+    },
+    "born": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "1862-11-12T00:00:00Z"
+    },
+    "links": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+     "type": "literal",
+     "value": "11"
+    },
+    "des": {
+     "xml:lang": "es",
+     "type": "literal",
+     "value": "neurólogo alemán"
+    }
+   },
+   {
+    "p": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q5200769"
+    },
+    "den": {
+     "xml:lang": "en",
+     "type": "literal",
+     "value": "Czech physician, psychiatrist and university teacher (1949–2025)"
+    },
+    "en": {
+     "xml:lang": "en",
+     "type": "literal",
+     "value": "Cyril Höschl"
+    },
+    "es": {
+     "xml:lang": "es",
+     "type": "literal",
+     "value": "Cyril Höschl"
+    },
+    "born": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "1949-11-12T00:00:00Z"
+    },
+    "links": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+     "type": "literal",
+     "value": "5"
+    },
+    "des": {
+     "xml:lang": "es",
+     "type": "literal",
+     "value": "investigador"
+    }
+   },
+   {
+    "p": {
+     "type": "uri",
+     "value": "http://www.wikidata.org/entity/Q1878875"
+    },
+    "den": {
+     "xml:lang": "en",
+     "type": "literal",
+     "value": "American psychologist"
+    },
+    "en": {
+     "xml:lang": "en",
+     "type": "literal",
+     "value": "Lynn Nadel"
+    },
+    "es": {
+     "xml:lang": "es",
+     "type": "literal",
+     "value": "Lynn Nadel"
+    },
+    "born": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+     "type": "literal",
+     "value": "1942-11-12T00:00:00Z"
+    },
+    "links": {
+     "datatype": "http://www.w3.org/2001/XMLSchema#integer",
+     "type": "literal",
+     "value": "4"
+    },
+    "des": {
+     "xml:lang": "es",
+     "type": "literal",
+     "value": "psicólogo estadounidense"
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,53 @@
+{% import "parts.html.j2" as p %}
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{% endblock %} · SYNAPTICA</title>
+<meta name="description" content="{{ t.tagline }}">
+<meta name="color-scheme" content="light dark">
+<link rel="alternate" hreflang="{{ other_lang }}" href="{{ other_url }}">
+<link rel="stylesheet" href="{{ root }}static/c.css">
+<link rel="icon" href="{{ root }}static/favicon.svg" type="image/svg+xml">
+<script src="{{ root }}static/theme.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">{{ t.skip }}</a>
+<p class="mock">{{ t.mock.format(x="C · Calma") }}</p>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="logo" href="{{ url('index') }}">
+      <svg viewBox="0 0 40 32" aria-hidden="true" class="logo-mark"><path d="M20 4c-6-3-15 0-16 8-1 6 3 11 8 12 2 3 6 4 8 2 2 2 6 1 8-2 5-1 9-6 8-12-1-8-10-11-16-8z" fill="var(--t-hippocampus)" stroke="var(--accent)" stroke-width="2"/><path d="M20 5v20" stroke="var(--accent)" stroke-width="2"/></svg>
+      <span>SYNAPTICA</span>
+    </a>
+    <nav class="nav" aria-label="SYNAPTICA">
+      <a href="{{ url('index') }}"{% if page_kind in ("index", "study") %} aria-current="page"{% endif %}>{{ t.news }}</a>
+      <a href="{{ url('week') }}"{% if page_kind == "week" %} aria-current="page"{% endif %}>{{ t.week }}</a>
+      <a href="{{ url('method') }}"{% if page_kind == "method" %} aria-current="page"{% endif %}>{{ t.method }}</a>
+    </nav>
+    <span class="tools">
+      <a class="pill-btn" href="{{ other_url }}" hreflang="{{ other_lang }}" lang="{{ other_lang }}"><span aria-hidden="true">{{ t.lang_code }}</span><span class="vh">{{ t.lang_switch }}</span></a>
+      {{ p.theme_button(t) }}
+    </span>
+  </div>
+</header>
+<div class="wrap"><p class="disclaimer" role="note"><span aria-hidden="true" class="info">i</span>{{ t.disclaimer }}</p></div>
+<main id="main" class="wrap">
+{% block main %}{% endblock %}
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-card">
+      <p class="logo">SYNAPTICA</p>
+      <p class="disclaimer-foot">{{ t.disclaimer }}</p>
+      <h2>{{ t.footer_credits }}</h2>
+      <p>{{ t.footer_text }}</p>
+      <p>{{ t.footer_sources }}</p>
+      <p>{{ t.footer_fonts.format(fonts=fonts) }}</p>
+      <p>{{ t.footer_by }}</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

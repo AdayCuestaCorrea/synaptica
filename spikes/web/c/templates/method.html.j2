@@ -1,0 +1,15 @@
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m with context %}
+{% block title %}{{ t.method }}{% endblock %}
+{% block main %}
+<article class="prose tile">
+  <h1>{{ t.method }}</h1>
+  {% include "method_" ~ lang ~ ".html.j2" %}
+</article>
+<section class="block" aria-labelledby="ex-h">
+  <div class="block-head"><h2 id="ex-h">{{ t.examples }}</h2></div>
+  <div class="grid">
+    {% for s in [lead, data.examples.retracted, data.examples.corrected] + (latest | selectattr("review_status", "equalto", "preprint") | list)[:1] %}{{ m.card(s) }}{% endfor %}
+  </div>
+</section>
+{% endblock %}

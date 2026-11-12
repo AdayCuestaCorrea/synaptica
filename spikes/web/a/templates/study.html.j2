@@ -1,0 +1,20 @@
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m with context %}
+{% import "parts.html.j2" as p with context %}
+{% block title %}{{ s.title | truncate(60) }}{% endblock %}
+{% block main %}
+<article class="study">
+  <p class="kicker"><a href="{{ url('index') }}">← {{ t.back }}</a></p>
+  <p class="kicker">{% if s.journal %}<span class="journal">{{ s.journal }}</span> · {% endif %}<time datetime="{{ s.published_on }}">{{ date(s.published_on) or "—" }}</time>{% if s.type %} · {{ t["type_" ~ s.type] }}{% endif %}</p>
+  <h1 class="study-title" lang="en">{{ s.title }}</h1>
+  {% if lang == "es" %}<p class="title-note">{{ t.title_original }} · {{ p.gap(t, t.gap_title_es) }}</p>{% endif %}
+  {{ m.ficha(s, True) }}
+  <div class="study-body">{{ p.summary(s, t, lang, True) }}</div>
+  <p><a class="button" href="{{ s.url }}" rel="noopener" target="_blank">{{ t.original }} ↗</a></p>
+  {{ p.meta_table(s, t, lang, date) }}
+  <section class="study-lic" aria-labelledby="lic-h">
+    <h2 id="lic-h">{{ t.license }}</h2>
+    {{ p.licences(licence(s), t) }}
+  </section>
+</article>
+{% endblock %}

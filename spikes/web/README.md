@@ -1,0 +1,37 @@
+# Maquetas de la web (Fase 1, antes de los pasos 21–24 y 26)
+
+Tres direcciones para elegir (SCOPE v76), con datos reales y en español e inglés:
+
+- **A · Gaceta** (`a/`): un periódico científico. Newsreader + sans del sistema.
+- **B · Fluorescencia** (`b/`): un instrumento de laboratorio. Atkinson Hyperlegible + mono del sistema.
+- **C · Calma** (`c/`): la casa del visor de S3. Fuentes del sistema.
+
+Ninguna carga nada de otro dominio. Los huecos y las propuestas van marcados en amarillo con borde discontinuo.
+
+## Regenerar
+
+```sh
+# 1. Datos reales (almacén construido desde raw/ con `syn build`; solo 3 peticiones, cacheadas en data/sources/)
+SYN_DATA_DIR=<scratch> uv run python spikes/web/collect.py --warehouse <scratch>/warehouse.duckdb
+# 2. Páginas (Jinja2) de las tres maquetas, ES y EN
+uv run python spikes/web/build.py
+# 3. Contraste WCAG de cada par de colores, claro y oscuro
+uv run python spikes/web/contrast.py
+# Ver
+python -m http.server 8771 --bind 127.0.0.1 --directory spikes/web
+```
+
+## De dónde sale cada dato
+
+- Estudios y noticias: el almacén del 2026-11-12 (`dim_study`, `fct_news_item`).
+- Resúmenes verificados: S5, pareja de D4 (`spikes/s5/results/run_groq-qwen-qwen3.8-27b-groq-openai-gpt-oss-120b.json`), solo los que pasaron las comprobaciones y el juez; el resto, `synaptica.narrative.fallback`.
+- Ejemplos de retractado y corregido: avisos reales de nuestro lote de Crossref y metadatos de la API de Crossref.
+- Efeméride de C: Wikidata (CC0).
+- Selección para la maqueta: de los estudios «sin dato» de especie solo entran los que llevan un término de neuro en el título, porque el ruido lo quita el paso 14a, que aún no se ha ejecutado.
+
+## Fuentes tipográficas (`fonts/`)
+
+Autoalojadas, subconjunto latino en woff2, copiadas de los paquetes de Fontsource (`@fontsource-variable/newsreader@5.2.5`, `@fontsource/atkinson-hyperlegible@5.2.5`):
+
+- **Newsreader**: © The Newsreader Project Authors (Production Type). SIL Open Font License 1.1 (`fonts/OFL-newsreader.txt`).
+- **Atkinson Hyperlegible**: © Braille Institute of America. SIL Open Font License 1.1 (`fonts/OFL-atkinson-hyperlegible.txt`).

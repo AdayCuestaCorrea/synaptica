@@ -1,0 +1,991 @@
+{
+ "indexed": {
+  "date-parts": [
+   [
+    2026,
+    11,
+    12
+   ]
+  ],
+  "date-time": "2026-11-12T06:46:01Z",
+  "timestamp": 1794465961529,
+  "version": "4.9.1"
+ },
+ "update-to": [
+  {
+   "DOI": "10.1016/j.bbi.2018.02.015",
+   "type": "retraction",
+   "label": "Retraction",
+   "source": "publisher",
+   "updated": {
+    "date-parts": [
+     [
+      2018,
+      5,
+      1
+     ]
+    ],
+    "date-time": "2018-05-01T00:00:00Z",
+    "timestamp": 1525132800000
+   }
+  }
+ ],
+ "reference-count": 55,
+ "publisher": "Elsevier BV",
+ "license": [
+  {
+   "start": {
+    "date-parts": [
+     [
+      2018,
+      5,
+      1
+     ]
+    ],
+    "date-time": "2018-05-01T00:00:00Z",
+    "timestamp": 1525132800000
+   },
+   "content-version": "tdm",
+   "delay-in-days": 0,
+   "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+  },
+  {
+   "start": {
+    "date-parts": [
+     [
+      2018,
+      5,
+      1
+     ]
+    ],
+    "date-time": "2018-05-01T00:00:00Z",
+    "timestamp": 1525132800000
+   },
+   "content-version": "tdm",
+   "delay-in-days": 0,
+   "URL": "https://www.elsevier.com/legal/tdmrep-license"
+  }
+ ],
+ "funder": [
+  {
+   "DOI": "10.13039/100000065",
+   "name": "National Institute of Neurological Disorders and Stroke",
+   "doi-asserted-by": "publisher",
+   "award": [
+    "R01-NS078755"
+   ],
+   "award-info": [
+    {
+     "award-number": [
+      "R01-NS078755"
+     ]
+    }
+   ],
+   "id": [
+    {
+     "id": "10.13039/100000065",
+     "id-type": "DOI",
+     "asserted-by": "publisher"
+    }
+   ]
+  }
+ ],
+ "content-domain": {
+  "domain": [
+   "clinicalkey.com",
+   "clinicalkey.com.au",
+   "clinicalkey.es",
+   "clinicalkey.fr",
+   "clinicalkey.jp",
+   "elsevier.com",
+   "sciencedirect.com"
+  ],
+  "crossmark-restriction": true
+ },
+ "short-container-title": [
+  "Brain, Behavior, and Immunity"
+ ],
+ "published-print": {
+  "date-parts": [
+   [
+    2018,
+    5
+   ]
+  ]
+ },
+ "DOI": "10.1016/j.bbi.2018.02.015",
+ "type": "journal-article",
+ "created": {
+  "date-parts": [
+   [
+    2018,
+    3,
+    1
+   ]
+  ],
+  "date-time": "2018-03-01T17:53:56Z",
+  "timestamp": 1519926836000
+ },
+ "page": "179-193",
+ "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
+ "source": "Crossref",
+ "is-referenced-by-count": 84,
+ "special_numbering": "C",
+ "title": [
+  "RETRACTED: Chemerin suppresses neuroinflammation and improves neurological recovery via CaMKK2/AMPK/Nrf2 pathway after germinal matrix hemorrhage in neonatal rats"
+ ],
+ "prefix": "10.1016",
+ "volume": "70",
+ "author": [
+  {
+   "given": "Yixin",
+   "family": "Zhang",
+   "sequence": "first",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  },
+  {
+   "given": "Ningbo",
+   "family": "Xu",
+   "sequence": "additional",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  },
+  {
+   "given": "Yan",
+   "family": "Ding",
+   "sequence": "additional",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  },
+  {
+   "given": "Yiting",
+   "family": "Zhang",
+   "sequence": "additional",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  },
+  {
+   "given": "Qian",
+   "family": "Li",
+   "sequence": "additional",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  },
+  {
+   "given": "Jerry",
+   "family": "Flores",
+   "sequence": "additional",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  },
+  {
+   "given": "Mina",
+   "family": "Haghighiabyaneh",
+   "sequence": "additional",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  },
+  {
+   "given": "Desislava",
+   "family": "Doycheva",
+   "sequence": "additional",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  },
+  {
+   "given": "Jiping",
+   "family": "Tang",
+   "sequence": "additional",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  },
+  {
+   "given": "John H.",
+   "family": "Zhang",
+   "sequence": "additional",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  }
+ ],
+ "member": "78",
+ "reference": [
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0005",
+   "doi-asserted-by": "crossref",
+   "first-page": "1781",
+   "DOI": "10.1161/STROKEAHA.110.596718",
+   "article-title": "Molecular pathophysiology of cerebral hemorrhage: secondary brain injury",
+   "volume": "42",
+   "author": "Aronowski",
+   "year": "2011",
+   "journal-title": "Stroke"
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0010",
+   "doi-asserted-by": "crossref",
+   "first-page": "1",
+   "DOI": "10.1203/PDR.0b013e3181c1b176",
+   "article-title": "Intraventricular hemorrhage in premature infants: mechanism of disease",
+   "volume": "67",
+   "author": "Ballabh",
+   "year": "2010",
+   "journal-title": "Pediatr. Res."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0015",
+   "doi-asserted-by": "crossref",
+   "first-page": "47",
+   "DOI": "10.1016/j.clp.2013.09.007",
+   "article-title": "Pathogenesis and prevention of intraventricular hemorrhage",
+   "volume": "41",
+   "author": "Ballabh",
+   "year": "2014",
+   "journal-title": "Clin. Perinatol."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0020",
+   "doi-asserted-by": "crossref",
+   "first-page": "331",
+   "DOI": "10.1016/j.cytogfr.2011.11.004",
+   "article-title": "Chemerin and its receptors in leukocyte trafficking, inflammation and metabolism",
+   "volume": "22",
+   "author": "Bondue",
+   "year": "2011",
+   "journal-title": "Cytokine Growth Factor Rev."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0025",
+   "doi-asserted-by": "crossref",
+   "first-page": "242",
+   "DOI": "10.1007/s12035-010-8105-9",
+   "article-title": "Inflammatory neurodegeneration and mechanisms of microglial killing of neurons",
+   "volume": "41",
+   "author": "Brown",
+   "year": "2010",
+   "journal-title": "Mol. Neurobiol."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0030",
+   "doi-asserted-by": "crossref",
+   "first-page": "1866",
+   "DOI": "10.1016/j.peptides.2011.08.003",
+   "article-title": "Effects of vaspin, chemerin and omentin-1 on feeding behavior and hypothalamic peptide gene expression in the rat",
+   "volume": "32",
+   "author": "Brunetti",
+   "year": "2011",
+   "journal-title": "Peptides"
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0035",
+   "doi-asserted-by": "crossref",
+   "first-page": "1599",
+   "DOI": "10.1002/jbmr.1890",
+   "article-title": "Inhibition of Ca(2)(+)/calmodulin-dependent protein kinase kinase 2 stimulates osteoblast formation and inhibits osteoclast differentiation",
+   "volume": "28",
+   "author": "Cary",
+   "year": "2013",
+   "journal-title": "J. Bone Miner. Res."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0040",
+   "doi-asserted-by": "crossref",
+   "first-page": "999",
+   "DOI": "10.1038/embor.2013.138",
+   "article-title": "Chemerin15 inhibits neutrophil-mediated vascular inflammation and myocardial ischemia-reperfusion injury through ChemR23",
+   "volume": "14",
+   "author": "Cash",
+   "year": "2013",
+   "journal-title": "EMBO Rep."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0045",
+   "doi-asserted-by": "crossref",
+   "first-page": "5315",
+   "DOI": "10.4049/jimmunol.0903378",
+   "article-title": "Chemerin peptides promote phagocytosis in a ChemR23- and Syk-dependent manner",
+   "volume": "184",
+   "author": "Cash",
+   "year": "2010",
+   "journal-title": "J. Immunol."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0050",
+   "doi-asserted-by": "crossref",
+   "first-page": "767",
+   "DOI": "10.1084/jem.20071601",
+   "article-title": "Synthetic chemerin-derived peptides suppress inflammation through ChemR23",
+   "volume": "205",
+   "author": "Cash",
+   "year": "2008",
+   "journal-title": "J. Exp. Med."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0055",
+   "doi-asserted-by": "crossref",
+   "unstructured": "Chauhan, M.B., Chauhan, N.B., 2015. Brain Uptake of Neurotherapeutics after Intranasal versus Intraperitoneal Delivery in Mice. J. Neurol. Neurosurg. 2.",
+   "DOI": "10.19104/jnn.2015.91"
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0060",
+   "doi-asserted-by": "crossref",
+   "first-page": "362",
+   "DOI": "10.1007/s12975-017-0521-y",
+   "article-title": "Simvastatin Promotes Hematoma Absorption and Reduces Hydrocephalus Following Intraventricular Hemorrhage in Part by Upregulating CD36",
+   "volume": "8",
+   "author": "Chen",
+   "year": "2017",
+   "journal-title": "Transl. Stroke Res."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0065",
+   "doi-asserted-by": "crossref",
+   "first-page": "110",
+   "DOI": "10.1016/j.brainres.2015.05.004",
+   "article-title": "The evolving roles of pericyte in early brain injury after subarachnoid hemorrhage",
+   "volume": "1623",
+   "author": "Chen",
+   "year": "2015",
+   "journal-title": "Brain Res."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0070",
+   "doi-asserted-by": "crossref",
+   "first-page": "270",
+   "DOI": "10.1016/j.bbi.2016.11.005",
+   "article-title": "Genetic deletion of galectin-3 enhances neuroinflammation, affects microglial activation and contributes to sub-chronic injury in experimental neonatal focal stroke",
+   "volume": "60",
+   "author": "Chip",
+   "year": "2017",
+   "journal-title": "Brain Behav. Immun."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0075",
+   "doi-asserted-by": "crossref",
+   "unstructured": "Dixon, B.J., Chen, D., Zhang, Y., Flores, J., Malaguit, J., Nowrangi, D., Zhang, J.H., Tang, J., 2016. Intranasal Administration of Interferon Beta Attenuates Neuronal Apoptosis via the JAK1/STAT3/BCL-2 Pathway in a Rat Model of Neonatal Hypoxic-Ischemic Encephalopathy ASN Neuro 8.",
+   "DOI": "10.1177/1759091416670492"
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0080",
+   "doi-asserted-by": "crossref",
+   "first-page": "13385",
+   "DOI": "10.1074/jbc.M113.522680",
+   "article-title": "Development of a membrane-anchored chemerin receptor agonist as a novel modulator of allergic airway inflammation and neuropathic pain",
+   "volume": "289",
+   "author": "Doyle",
+   "year": "2014",
+   "journal-title": "J. Biol. Chem."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0085",
+   "doi-asserted-by": "crossref",
+   "first-page": "2555",
+   "DOI": "10.1177/0271678X16671147",
+   "article-title": "Intranasal administration of vitamin D attenuates blood-brain barrier disruption through endogenous upregulation of osteopontin and activation of CD44/P-gp glycosylation signaling after subarachnoid hemorrhage in rats",
+   "volume": "37",
+   "author": "Enkhjargal",
+   "year": "2017",
+   "journal-title": "J. Cereb. Blood Flow Metab."
+  },
+  {
+   "issue": "77–90",
+   "key": "10.1016/j.bbi.2018.02.015_b0090",
+   "first-page": "e72",
+   "article-title": "Intraventricular administration of urokinase as a novel therapeutic approach for communicating hydrocephalus",
+   "volume": "180",
+   "author": "Feng",
+   "year": "2017",
+   "journal-title": "Transl. Res."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0095",
+   "doi-asserted-by": "crossref",
+   "first-page": "2881",
+   "DOI": "10.1523/JNEUROSCI.0140-15.2016",
+   "article-title": "Microglial Cells Prevent Hemorrhage in Neonatal Focal Arterial Stroke",
+   "volume": "36",
+   "author": "Fernandez-Lopez",
+   "year": "2016",
+   "journal-title": "J. Neurosci."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0100",
+   "doi-asserted-by": "crossref",
+   "first-page": "124",
+   "DOI": "10.1016/j.nbd.2015.12.015",
+   "article-title": "PPARgamma-induced upregulation of CD36 enhances hematoma resolution and attenuates long-term neurological deficits after germinal matrix hemorrhage in neonatal rats",
+   "volume": "87",
+   "author": "Flores",
+   "year": "2016",
+   "journal-title": "Neurobiol. Dis."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0105",
+   "doi-asserted-by": "crossref",
+   "first-page": "3378",
+   "DOI": "10.1161/STROKEAHA.107.510883",
+   "article-title": "Characterization of acute brain injuries and neurobehavioral profiles in a rabbit model of germinal matrix hemorrhage",
+   "volume": "39",
+   "author": "Georgiadis",
+   "year": "2008",
+   "journal-title": "Stroke"
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0110",
+   "doi-asserted-by": "crossref",
+   "first-page": "6717",
+   "DOI": "10.4049/jimmunol.0803435",
+   "article-title": "Chemokine-like receptor-1 expression by central nervous system-infiltrating leukocytes and involvement in a model of autoimmune demyelinating disease",
+   "volume": "183",
+   "author": "Graham",
+   "year": "2009",
+   "journal-title": "J. Immunol."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0115",
+   "doi-asserted-by": "crossref",
+   "first-page": "e112925",
+   "DOI": "10.1371/journal.pone.0112925",
+   "article-title": "A novel CMKLR1 small molecule antagonist suppresses CNS autoimmune inflammatory disease",
+   "volume": "9",
+   "author": "Graham",
+   "year": "2014",
+   "journal-title": "PLoS One"
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0120",
+   "doi-asserted-by": "crossref",
+   "first-page": "2005",
+   "DOI": "10.1016/j.cellsig.2011.07.014",
+   "article-title": "Characterization of the CaMKKbeta-AMPK signaling complex",
+   "volume": "23",
+   "author": "Green",
+   "year": "2011",
+   "journal-title": "Cell Signal"
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0125",
+   "doi-asserted-by": "crossref",
+   "first-page": "997",
+   "DOI": "10.1038/nm.4361",
+   "article-title": "Inflammation-dependent cerebrospinal fluid hypersecretion by the choroid plexus epithelium in posthemorrhagic hydrocephalus",
+   "volume": "23",
+   "author": "Karimy",
+   "year": "2017",
+   "journal-title": "Nat. Med."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0130",
+   "doi-asserted-by": "crossref",
+   "first-page": "174",
+   "DOI": "10.1124/pr.116.013177",
+   "article-title": "International Union of Basic and Clinical Pharmacology CIII: Chemerin Receptors CMKLR1 (Chemerin1) and GPR1 (Chemerin2) Nomenclature, Pharmacology, and Function",
+   "volume": "70",
+   "author": "Kennedy",
+   "year": "2018",
+   "journal-title": "Pharmacol. Rev."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0135",
+   "doi-asserted-by": "crossref",
+   "unstructured": "Kennedy, A.J., Yang, P., Read, C., Kuc, R.E., Yang, L., Taylor, E.J., Taylor, C.W., Maguire, J.J., Davenport, A.P., 2016. Chemerin Elicits Potent Constrictor Actions via Chemokine-Like Receptor 1 (CMKLR1), not G-Protein-Coupled Receptor 1 (GPR1), in Human and Rat Vasculature. J. Am. Heart Assoc. 5.",
+   "DOI": "10.1161/JAHA.116.004421"
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0140",
+   "doi-asserted-by": "crossref",
+   "first-page": "2475",
+   "DOI": "10.1161/STROKEAHA.114.005079",
+   "article-title": "Acute and delayed deferoxamine treatment attenuates long-term sequelae after germinal matrix hemorrhage in neonatal rats",
+   "volume": "45",
+   "author": "Klebe",
+   "year": "2014",
+   "journal-title": "Stroke"
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0145",
+   "doi-asserted-by": "crossref",
+   "first-page": "576",
+   "DOI": "10.1007/s11481-015-9613-1",
+   "article-title": "Modulating the Immune Response Towards a Neuroregenerative Peri-injury Milieu After Cerebral Hemorrhage",
+   "volume": "10",
+   "author": "Klebe",
+   "year": "2015",
+   "journal-title": "J. Neuroimmune Pharmacol."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0150",
+   "doi-asserted-by": "crossref",
+   "first-page": "11624",
+   "DOI": "10.1038/ncomms11624",
+   "article-title": "Nrf2 suppresses macrophage inflammatory response by blocking proinflammatory cytokine transcription",
+   "volume": "7",
+   "author": "Kobayashi",
+   "year": "2016",
+   "journal-title": "Nat. Commun."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0155",
+   "doi-asserted-by": "crossref",
+   "first-page": "2596",
+   "DOI": "10.1523/JNEUROSCI.5360-06.2007",
+   "article-title": "Selective ablation of proliferating microglial cells exacerbates ischemic injury in the brain",
+   "volume": "27",
+   "author": "Lalancette-Hebert",
+   "year": "2007",
+   "journal-title": "J. Neurosci."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0160",
+   "doi-asserted-by": "crossref",
+   "first-page": "420",
+   "DOI": "10.1038/nrneurol.2017.69",
+   "article-title": "Modulators of microglial activation and polarization after intracerebral haemorrhage",
+   "volume": "13",
+   "author": "Lan",
+   "year": "2017",
+   "journal-title": "Nat. Rev. Neurol."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0165",
+   "doi-asserted-by": "crossref",
+   "first-page": "1710",
+   "DOI": "10.1161/STROKEAHA.114.007889",
+   "article-title": "Protease-activated receptor 1 and 4 signal inhibition reduces preterm neonatal hemorrhagic brain injury",
+   "volume": "46",
+   "author": "Lekic",
+   "year": "2015",
+   "journal-title": "Stroke"
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0170",
+   "doi-asserted-by": "crossref",
+   "first-page": "3599",
+   "DOI": "10.1038/onc.2016.516",
+   "article-title": "Chemerin has a protective role in hepatocellular carcinoma by inhibiting the expression of IL-6 and GM-CSF and MDSC accumulation",
+   "volume": "36",
+   "author": "Lin",
+   "year": "2017",
+   "journal-title": "Oncogene"
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0175",
+   "doi-asserted-by": "crossref",
+   "first-page": "355",
+   "DOI": "10.1038/cmi.2014.15",
+   "article-title": "Chemerin aggravates DSS-induced colitis by suppressing M2 macrophage polarization",
+   "volume": "11",
+   "author": "Lin",
+   "year": "2014",
+   "journal-title": "Cell Mol. Immunol."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0180",
+   "doi-asserted-by": "crossref",
+   "first-page": "833",
+   "DOI": "10.1038/sj.emboj.7600110",
+   "article-title": "LKB1 is a master kinase that activates 13 kinases of the AMPK subfamily, including MARK/PAR-1",
+   "volume": "23",
+   "author": "Lizcano",
+   "year": "2004",
+   "journal-title": "EMBO J."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0185",
+   "doi-asserted-by": "crossref",
+   "first-page": "6489",
+   "DOI": "10.4049/jimmunol.0901037",
+   "article-title": "Mouse ChemR23 is expressed in dendritic cell subsets and macrophages, and mediates an anti-inflammatory activity of chemerin in a lung disease model",
+   "volume": "183",
+   "author": "Luangsay",
+   "year": "2009",
+   "journal-title": "J. Immunol."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0190",
+   "doi-asserted-by": "crossref",
+   "first-page": "828",
+   "DOI": "10.1161/STROKEAHA.113.003754",
+   "article-title": "Inhibition of transforming growth factor-beta attenuates brain injury and neurological deficits in a rat model of germinal matrix hemorrhage",
+   "volume": "45",
+   "author": "Manaenko",
+   "year": "2014",
+   "journal-title": "Stroke"
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0195",
+   "doi-asserted-by": "crossref",
+   "first-page": "85",
+   "DOI": "10.1007/s00011-014-0792-7",
+   "article-title": "Chemerin/chemR23 axis in inflammation onset and resolution",
+   "volume": "64",
+   "author": "Mariani",
+   "year": "2015",
+   "journal-title": "Inflamm. Res."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0200",
+   "doi-asserted-by": "crossref",
+   "first-page": "1027",
+   "DOI": "10.1189/jlb.3MA0915-444RR",
+   "article-title": "CCRL2 regulates M1/M2 polarization during EAE recovery phase",
+   "volume": "99",
+   "author": "Mazzon",
+   "year": "2016",
+   "journal-title": "J. Leukoc. Biol."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0205",
+   "doi-asserted-by": "crossref",
+   "first-page": "956",
+   "DOI": "10.4049/jimmunol.1102871",
+   "article-title": "Expression, regulation, and function of atypical chemerin receptor CCRL2 on endothelial cells",
+   "volume": "189",
+   "author": "Monnier",
+   "year": "2012",
+   "journal-title": "J. Immunol."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0210",
+   "doi-asserted-by": "crossref",
+   "first-page": "1790",
+   "DOI": "10.1093/humrep/des089",
+   "article-title": "Chemerin inhibits IGF-1-induced progesterone and estradiol secretion in human granulosa cells",
+   "volume": "27",
+   "author": "Reverchon",
+   "year": "2012",
+   "journal-title": "Hum. Reprod."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0215",
+   "doi-asserted-by": "crossref",
+   "first-page": "378",
+   "DOI": "10.1007/s12975-016-0482-6",
+   "article-title": "Stem Cell Therapy and Administration Routes After Stroke",
+   "volume": "7",
+   "author": "Rodriguez-Frutos",
+   "year": "2016",
+   "journal-title": "Transl. Stroke Res."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0220",
+   "doi-asserted-by": "crossref",
+   "first-page": "8633",
+   "DOI": "10.4049/jimmunol.181.12.8633",
+   "article-title": "Adenosine 5'-monophosphate-activated protein kinase promotes macrophage polarization to an anti-inflammatory functional phenotype",
+   "volume": "181",
+   "author": "Sag",
+   "year": "2008",
+   "journal-title": "J. Immunol."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0225",
+   "doi-asserted-by": "crossref",
+   "first-page": "2731",
+   "DOI": "10.2337/db09-0277",
+   "article-title": "Chemerin is a novel adipocyte-derived factor inducing insulin resistance in primary human skeletal muscle cells",
+   "volume": "58",
+   "author": "Sell",
+   "year": "2009",
+   "journal-title": "Diabetes"
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0230",
+   "doi-asserted-by": "crossref",
+   "first-page": "73",
+   "DOI": "10.1016/j.freeradbiomed.2012.11.011",
+   "article-title": "Oxidative stress mediates chemerin-induced autophagy in endothelial cells",
+   "volume": "55",
+   "author": "Shen",
+   "year": "2013",
+   "journal-title": "Free Radic. Biol. Med."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0235",
+   "doi-asserted-by": "crossref",
+   "first-page": "1447",
+   "DOI": "10.1177/0271678X16656201",
+   "article-title": "Sestrin2, as a negative feedback regulator of mTOR, provides neuroprotection by activation AMPK phosphorylation in neonatal hypoxic-ischemic encephalopathy in rat pups",
+   "volume": "37",
+   "author": "Shi",
+   "year": "2017",
+   "journal-title": "J. Cereb. Blood Flow Metab."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0240",
+   "doi-asserted-by": "crossref",
+   "first-page": "1",
+   "DOI": "10.1186/1743-8454-6-1",
+   "article-title": "A review of the current treatment methods for posthaemorrhagic hydrocephalus of infants",
+   "volume": "6",
+   "author": "Shooman",
+   "year": "2009",
+   "journal-title": "Cerebrospinal Fluid Res."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0245",
+   "doi-asserted-by": "crossref",
+   "first-page": "118",
+   "DOI": "10.1016/j.bbi.2016.05.020",
+   "article-title": "Cannabinoid receptor-2 stimulation suppresses neuroinflammation by regulating microglial M1/M2 polarization through the cAMP/PKA pathway in an experimental GMH rat model",
+   "volume": "58",
+   "author": "Tao",
+   "year": "2016",
+   "journal-title": "Brain Behav. Immun."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0250",
+   "doi-asserted-by": "crossref",
+   "first-page": "3189",
+   "DOI": "10.1161/STROKEAHA.113.001574",
+   "article-title": "Nasal administration of recombinant osteopontin attenuates early brain injury after subarachnoid hemorrhage",
+   "volume": "44",
+   "author": "Topkoru",
+   "year": "2013",
+   "journal-title": "Stroke"
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0255",
+   "doi-asserted-by": "crossref",
+   "first-page": "478",
+   "DOI": "10.1007/s12975-016-0472-8",
+   "article-title": "Microglia Activation and Polarization After Intracerebral Hemorrhage in Mice: the Role of Protease-Activated Receptor-1",
+   "volume": "7",
+   "author": "Wan",
+   "year": "2016",
+   "journal-title": "Transl. Stroke Res."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0260",
+   "doi-asserted-by": "crossref",
+   "first-page": "298",
+   "DOI": "10.1016/j.bbi.2015.07.015",
+   "article-title": "Telmisartan prevention of LPS-induced microglia activation involves M2 microglia polarization via CaMKKbeta-dependent AMPK activation",
+   "volume": "50",
+   "author": "Xu",
+   "year": "2015",
+   "journal-title": "Brain Behav. Immun."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0265",
+   "doi-asserted-by": "crossref",
+   "first-page": "763",
+   "DOI": "10.1111/all.12408",
+   "article-title": "Chemerin suppresses murine allergic asthma by inhibiting CCL2 production and subsequent airway recruitment of inflammatory dendritic cells",
+   "volume": "69",
+   "author": "Zhao",
+   "year": "2014",
+   "journal-title": "Allergy"
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0270",
+   "doi-asserted-by": "crossref",
+   "first-page": "144",
+   "DOI": "10.1111/jnc.12974",
+   "article-title": "Cleaning up after ICH: the role of Nrf2 in modulating microglia function and hematoma clearance",
+   "volume": "133",
+   "author": "Zhao",
+   "year": "2015",
+   "journal-title": "J. Neurochem."
+  },
+  {
+   "key": "10.1016/j.bbi.2018.02.015_b0275",
+   "doi-asserted-by": "crossref",
+   "first-page": "25",
+   "DOI": "10.1016/j.pneurobio.2013.11.003",
+   "article-title": "Inflammation in intracerebral hemorrhage: from mechanisms to clinical translation",
+   "volume": "115",
+   "author": "Zhou",
+   "year": "2014",
+   "journal-title": "Prog. Neurobiol."
+  }
+ ],
+ "updated-by": [
+  {
+   "DOI": "10.1016/j.bbi.2025.05.017",
+   "type": "expression_of_concern",
+   "label": "Expression of concern",
+   "source": "publisher",
+   "updated": {
+    "date-parts": [
+     [
+      2025,
+      10,
+      1
+     ]
+    ],
+    "date-time": "2025-10-01T00:00:00Z",
+    "timestamp": 1759276800000
+   }
+  },
+  {
+   "DOI": "10.1016/j.bbi.2018.02.015",
+   "type": "retraction",
+   "label": "Retraction",
+   "source": "publisher",
+   "updated": {
+    "date-parts": [
+     [
+      2018,
+      5,
+      1
+     ]
+    ],
+    "date-time": "2018-05-01T00:00:00Z",
+    "timestamp": 1525132800000
+   }
+  }
+ ],
+ "container-title": [
+  "Brain, Behavior, and Immunity"
+ ],
+ "original-title": [],
+ "language": "en",
+ "link": [
+  {
+   "URL": "https://api.elsevier.com/content/article/PII:S0889159118300254?httpAccept=text/xml",
+   "content-type": "text/xml",
+   "content-version": "vor",
+   "intended-application": "text-mining"
+  },
+  {
+   "URL": "https://api.elsevier.com/content/article/PII:S0889159118300254?httpAccept=text/plain",
+   "content-type": "text/plain",
+   "content-version": "vor",
+   "intended-application": "text-mining"
+  }
+ ],
+ "deposited": {
+  "date-parts": [
+   [
+    2026,
+    11,
+    11
+   ]
+  ],
+  "date-time": "2026-11-11T23:04:01Z",
+  "timestamp": 1794438241000
+ },
+ "score": 1,
+ "resource": {
+  "primary": {
+   "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0889159118300254"
+  }
+ },
+ "subtitle": [],
+ "short-title": [],
+ "issued": {
+  "date-parts": [
+   [
+    2018,
+    5
+   ]
+  ]
+ },
+ "references-count": 55,
+ "alternative-id": [
+  "S0889159118300254"
+ ],
+ "URL": "https://doi.org/10.1016/j.bbi.2018.02.015",
+ "relation": {},
+ "ISSN": [
+  "0889-1591"
+ ],
+ "issn-type": [
+  {
+   "value": "0889-1591",
+   "type": "print"
+  }
+ ],
+ "subject": [],
+ "published": {
+  "date-parts": [
+   [
+    2018,
+    5
+   ]
+  ]
+ },
+ "assertion": [
+  {
+   "value": "Elsevier",
+   "name": "publisher",
+   "label": "This article is maintained by"
+  },
+  {
+   "value": "RETRACTED: Chemerin suppresses neuroinflammation and improves neurological recovery via CaMKK2/AMPK/Nrf2 pathway after germinal matrix hemorrhage in neonatal rats",
+   "name": "articletitle",
+   "label": "Article Title"
+  },
+  {
+   "value": "Brain, Behavior, and Immunity",
+   "name": "journaltitle",
+   "label": "Journal Title"
+  },
+  {
+   "value": "https://doi.org/10.1016/j.bbi.2018.02.015",
+   "name": "articlelink",
+   "label": "CrossRef DOI link to publisher maintained version"
+  },
+  {
+   "value": "article",
+   "name": "content_type",
+   "label": "Content Type"
+  },
+  {
+   "value": "© 2018 Elsevier Inc. All rights reserved.",
+   "name": "copyright",
+   "label": "Copyright"
+  }
+ ]
+}

@@ -1,0 +1,70 @@
+{# Pieces every mock-up uses. Markup only: each mock-up styles these classes its own way. #}
+
+{% macro gap(t, text, kind="gap") -%}
+<span class="gap gap--{{ kind }}"><strong>{{ t[kind] }}</strong> {{ text }}</span>
+{%- endmacro %}
+
+{% macro title(s, t, lang, tag="span", cls="") -%}
+<{{ tag }} class="{{ cls }}" lang="en">{{ s.title or "—" }}</{{ tag }}>
+{%- endmacro %}
+
+{% macro summary(s, t, lang, full=False) -%}
+{% set sm = s.summary[lang] %}
+{% if sm.kind == "verified" %}
+<div class="summary summary--verified">
+  <p class="summary-kind">✓ {{ t.verified }}</p>
+  {% if full %}
+  <ol class="sentences">
+    {% for line in sm.sentences %}<li>{{ line }} <a class="cite" href="{{ s.url }}" title="{{ t.cite }}" rel="noopener" target="_blank">[{{ loop.index }}]</a></li>{% endfor %}
+  </ol>
+  <p class="summary-note">{{ t.verified_note }} {{ t.cite }}</p>
+  {% else %}
+  <p class="summary-text">{{ sm.sentences[0] }}</p>
+  {% endif %}
+</div>
+{% else %}
+<div class="summary summary--fallback">
+  <p class="summary-kind">{{ t.fallback }}</p>
+  <p class="summary-text">{{ sm.text }}</p>
+  {% if full %}
+  <p class="summary-note">
+    {% if sm.get("why") == "rejected_by_judge" %}{{ t.fallback_judge }}{% if sm.get("reason") %}: <q lang="en">{{ sm.reason }}</q>{% endif %}.
+    {% elif sm.get("why") %}{{ t.fallback_failed }}.
+    {% else %}{{ t.fallback_note }}{% endif %}
+  </p>
+  {% endif %}
+</div>
+{% endif %}
+{%- endmacro %}
+
+{% macro licences(lines, t) -%}
+<ul class="licences">{% for l in lines %}<li>{{ l }}</li>{% endfor %}</ul>
+{%- endmacro %}
+
+{% macro meta_table(s, t, lang, date) -%}
+<dl class="meta">
+  {% if s.journal %}<dt>{{ t.journal }}</dt><dd>{{ s.journal }}</dd>{% endif %}
+  <dt>{{ t.date }}</dt><dd>{{ date(s.published_on) or "—" }}</dd>
+  {% if s.authors %}<dt>{{ t.authors }}</dt><dd>{{ s.authors[:3] | join(", ") }}{% if s.authors | length > 3 %} {{ t.et_al }}{% endif %}</dd>{% endif %}
+  {% if s.doi %}<dt>{{ t.doi }}</dt><dd><a href="https://doi.org/{{ s.doi }}" rel="noopener" target="_blank">{{ s.doi }}</a></dd>{% endif %}
+  {% if s.pmid %}<dt>{{ t.pmid }}</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/{{ s.pmid }}/" rel="noopener" target="_blank">{{ s.pmid }}</a></dd>{% endif %}
+</dl>
+{%- endmacro %}
+
+{# A media story: today one item; after step 15, every outlet that told the same story. #}
+{% macro story(n, t, lang, date) -%}
+<article class="story" data-story="{{ n.story_id }}">
+  <h3 class="story-title"><a href="{{ n.url }}" rel="noopener" target="_blank" lang="{{ n.lang }}">{{ n.title }}</a></h3>
+  <p class="story-count">{{ t.sources_n.format(n=1) }}</p>
+  <ul class="story-sources">
+    <li><span class="outlet">{{ n.outlet }}</span> <span class="langtag">{{ n.lang | upper }}</span> · <time datetime="{{ n.published_at }}">{{ date(n.published_at) }}</time> · <span class="lic">{{ n.license }}</span></li>
+  </ul>
+</article>
+{%- endmacro %}
+
+{% macro theme_button(t) -%}
+<button class="theme-toggle" type="button" data-theme-toggle aria-live="polite"
+  data-l-auto="{{ t.theme_auto }}" data-l-light="{{ t.theme_light }}" data-l-dark="{{ t.theme_dark }}">
+  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg> <span data-theme-label>{{ t.theme_auto }}</span>
+</button>
+{%- endmacro %}

@@ -1,0 +1,57 @@
+{% import "parts.html.j2" as p %}
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{% endblock %} · SYNAPTICA</title>
+<meta name="description" content="{{ t.tagline }}">
+<meta name="color-scheme" content="light dark">
+<link rel="alternate" hreflang="{{ other_lang }}" href="{{ other_url }}">
+<link rel="preload" href="{{ fonts_root }}fonts/atkinson-hyperlegible-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ root }}static/b.css">
+<link rel="icon" href="{{ root }}static/favicon.svg" type="image/svg+xml">
+<script src="{{ root }}static/theme.js"></script>
+<script src="{{ root }}static/tabs.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">{{ t.skip }}</a>
+<p class="mock">{{ t.mock.format(x="B · Fluorescencia") }}</p>
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="logo" href="{{ url('index') }}">
+      <svg class="trace" viewBox="0 0 64 20" aria-hidden="true"><polyline points="0,12 14,12 18,4 22,18 26,8 30,12 64,12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span>SYNAPTICA</span>
+    </a>
+    <nav class="nav" aria-label="SYNAPTICA">
+      <a href="{{ url('index') }}"{% if page_kind in ("index", "study") %} aria-current="page"{% endif %}>{{ t.news }}</a>
+      <a href="{{ url('week') }}"{% if page_kind == "week" %} aria-current="page"{% endif %}>{{ t.week }}</a>
+      <a href="{{ url('method') }}"{% if page_kind == "method" %} aria-current="page"{% endif %}>{{ t.method }}</a>
+    </nav>
+    <span class="tools">
+      <a class="chip-btn" href="{{ other_url }}" hreflang="{{ other_lang }}" lang="{{ other_lang }}"><span aria-hidden="true">{{ t.lang_code }}</span><span class="vh">{{ t.lang_switch }}</span></a>
+      {{ p.theme_button(t) }}
+    </span>
+  </div>
+</header>
+<p class="disclaimer" role="note"><span class="wrap"><span class="dot" aria-hidden="true"></span>{{ t.disclaimer }}</span></p>
+<main id="main" class="wrap">
+{% block main %}{% endblock %}
+</main>
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="logo logo--foot">SYNAPTICA</p>
+      <p class="disclaimer-foot">{{ t.disclaimer }}</p>
+      <p>{{ t.footer_by }}</p>
+    </div>
+    <div>
+      <h2>{{ t.footer_credits }}</h2>
+      <p>{{ t.footer_text }}</p>
+      <p>{{ t.footer_sources }}</p>
+      <p>{{ t.footer_fonts.format(fonts=fonts) }}</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

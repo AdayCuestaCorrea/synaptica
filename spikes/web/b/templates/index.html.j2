@@ -1,0 +1,62 @@
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m with context %}
+{% import "parts.html.j2" as p with context %}
+{% block title %}{{ t.news }}{% endblock %}
+{% block main %}
+<h1 class="vh">{{ t.news }}</h1>
+
+{% set f = data.facts.b %}
+<section class="readout" aria-labelledby="fact-h">
+  <div class="readout-head">
+    <h2 id="fact-h">{{ t.fact }}</h2>
+    <p class="mono">{{ data.as_of }}</p>
+  </div>
+  <dl class="stats">
+    <div><dt>{{ t.count_today }}</dt><dd class="mono">{{ f.total }}</dd></div>
+    <div class="is-humans"><dt>{{ t.sp_humans }}</dt><dd class="mono">{{ f.humans }}</dd></div>
+    <div class="is-animals"><dt>{{ t.sp_animals }}</dt><dd class="mono">{{ f.animals }}</dd></div>
+    <div><dt>{{ t.sp_unknown }}</dt><dd class="mono">{{ f.unknown }}</dd></div>
+    <div class="is-preprint"><dt>{{ t.rev_preprint_short }}</dt><dd class="mono">{{ f.preprints }}</dd></div>
+  </dl>
+  <p class="readout-text">{{ t.fact_b.format(**f) }} <span class="muted">{{ t.fact_b_caveat }}</span></p>
+  <p>{{ p.gap(t, t.fact_b_note, "proposal") }}</p>
+  <a class="week-link" href="{{ url('week') }}"><span class="mono">{{ data.week }}</span> {{ t.week_cta }} →</a>
+</section>
+
+<div class="tabs" data-tabs>
+  <div class="tablist" role="tablist" aria-label="{{ t.tab_label }}">
+    <button role="tab" id="tab-latest" aria-controls="panel-latest" aria-selected="true">{{ t.latest }} <span class="n mono">{{ latest | length }}</span></button>
+    <button role="tab" id="tab-nsc" aria-controls="panel-nsc" aria-selected="false" tabindex="-1">{{ t.nsc }} <span class="n mono">{{ data.nsc | length }}</span></button>
+    <button role="tab" id="tab-media" aria-controls="panel-media" aria-selected="false" tabindex="-1">{{ t.media }} <span class="n mono">{{ data.news | length }}</span></button>
+    <button role="tab" id="tab-classics" aria-controls="panel-classics" aria-selected="false" tabindex="-1">{{ t.classics }} <span class="n mono">0</span></button>
+  </div>
+
+  <section role="tabpanel" id="panel-latest" aria-labelledby="tab-latest">
+    <div class="filters" role="group" aria-label="{{ t.filter_label }}" data-filters="latest-rows">
+      <button type="button" data-filter="all" aria-pressed="true">{{ t.filter_all }} <span class="n mono">{{ latest | length }}</span></button>
+      {% for k in types %}<button type="button" data-filter="{{ k }}" aria-pressed="false" class="f-{{ k }}">{{ t["type_" ~ k] }} <span class="n mono">{{ type_counts[k] }}</span></button>{% endfor %}
+    </div>
+    <p>{{ p.gap(t, t.gap_types) }}</p>
+    <p>{{ p.gap(t, t.s5_note) }}</p>
+    {{ m.table(latest, "latest-rows") }}
+    <p class="empty" data-filter-empty hidden>{{ t.filter_empty }}</p>
+  </section>
+
+  <section role="tabpanel" id="panel-nsc" aria-labelledby="tab-nsc" hidden>
+    <p class="muted">{{ t.nsc_note }}</p>
+    {{ m.table(data.nsc, "nsc-rows") }}
+  </section>
+
+  <section role="tabpanel" id="panel-media" aria-labelledby="tab-media" hidden>
+    <p>{{ p.gap(t, t.gap_groups) }}</p>
+    <div class="stories">{% for n in data.news %}{{ p.story(n, t, lang, date) }}{% endfor %}</div>
+  </section>
+
+  <section role="tabpanel" id="panel-classics" aria-labelledby="tab-classics" hidden>
+    <div class="empty-state">
+      <p class="empty-ico mono" aria-hidden="true">0 / 0</p>
+      <p>{{ t.classics_empty }}</p>
+    </div>
+  </section>
+</div>
+{% endblock %}

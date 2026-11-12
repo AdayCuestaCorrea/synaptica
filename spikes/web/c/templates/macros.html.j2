@@ -1,0 +1,20 @@
+{% import "parts.html.j2" as p with context %}
+
+{# Signals as three pills, always in the same order, each with a word (never colour alone). #}
+{% macro pills(s, full=False) -%}
+<ul class="pills" aria-label="{{ t.sig_review }} · {{ t.sig_subject }} · {{ t.sig_integrity }}">
+  {% for g in signals(s) %}
+  <li class="pill pill--{{ g.key }} is-{{ g.state }}"><span class="pill-lab">{{ g.label }}</span> {{ g.text if full else g.short }}{% if g.provisional %} <span class="prov" title="{{ t.provisional_long }}">{{ t.provisional }}</span>{% endif %}</li>
+  {% endfor %}
+</ul>
+{%- endmacro %}
+
+{% macro card(s, cls="") -%}
+<article class="card {{ cls }} type-{{ s.type or 'none' }}" data-type="{{ s.type or 'none' }}">
+  <p class="card-type"><span class="swatch" aria-hidden="true"></span>{{ t["type_" ~ s.type] if s.type else t.type_none }}</p>
+  <h3 class="card-title"><a href="{{ url('study', slug(s.study_id)) }}" lang="en">{{ s.title }}</a></h3>
+  <p class="card-meta">{{ sj(s.journal) or "—" }} · <time datetime="{{ s.published_on }}">{{ date(s.published_on) or "—" }}</time></p>
+  {{ pills(s) }}
+  {{ p.summary(s, t, lang) }}
+</article>
+{%- endmacro %}
