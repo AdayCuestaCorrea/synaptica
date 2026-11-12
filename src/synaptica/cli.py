@@ -24,6 +24,25 @@ report_app = typer.Typer(help="Run log in data/runs/ (one record per pipeline ru
 app.add_typer(report_app, name="report")
 ingest_app = typer.Typer(help="Download new items from each source to data/raw/.")
 app.add_typer(ingest_app, name="ingest")
+news_app = typer.Typer(help="Neuro News: neuroscience filter, type and grouping.")
+app.add_typer(news_app, name="news")
+
+
+def _llm(provider: str | None, model: str | None):
+    """The LLM to use, or None: no model is called unless a provider is given."""
+    if provider is None:
+        return None
+    from synaptica.llm import LLM
+
+    return LLM(provider, model or DEFAULT_MODELS[provider])
+
+
+# Decision D4: Groq's writer model in Actions; Qwen 9B for the local initial load.
+DEFAULT_MODELS = {"groq": "qwen/qwen3.8-27b", "ollama": "paleo-qwen3.5-9b"}
+ProviderOption = Annotated[
+    str | None, typer.Option(help="groq or ollama; without it, no model is called.")
+]
+ModelOption = Annotated[str | None, typer.Option(help="Model name (default per provider).")]
 
 REQUIRED_PYTHON = (3, 14)
 
@@ -292,6 +311,29 @@ def ingest_openalex() -> None:
     )
 
 
+@news_app.command("neuro")
+def news_neuro(
+    provider: ProviderOption = None,
+    model: ModelOption = None,
+    limit: Annotated[int | None, typer.Option(help="Ask the model about N items at most.")] = None,
+) -> None:
+    """Which items of the general journals and feeds are neuroscience: OpenAlex rules, then
+    the LLM for the rest (derived/news/neuro.json)."""
+    from synaptica.llm import QuotaExhausted
+    from synaptica.news import neuro
+
+    try:
+        result = neuro.decide(_llm(provider, model), limit=limit)
+    except QuotaExhausted as exc:
+        typer.echo(f"LLM quota used up: {exc}; the rest stays undecided", err=True)
+        raise typer.Exit(code=0) from exc
+    basis = ", ".join(f"{k} {v}" for k, v in (result.by_basis or {}).items())
+    typer.echo(
+        f"Neuro filter: {result.items} items; {basis or 'nothing decided'}; "
+        f"{result.llm_asked} answered by the LLM; {result.undecided} undecided"
+    )
+
+
 @app.command()
 def build(
     as_of: Annotated[
@@ -301,7 +343,10 @@ def build(
     """Rebuild the warehouse: ``dbt build`` (models and tests) on data/raw/."""
     dbt_dir = config.project_root() / "dbt"
     env = {**os.environ, "SYN_DATA_DIR": str(config.get_paths().data)}
-    cmd = ["dbt", "build", "--project-dir", str(dbt_dir), "--profiles-dir", str(dbt_dir)]
+    # --full-refresh: the warehouse is rebuilt from data/ on every run (D1), so a seed whose
+    # columns changed is recreated instead of loaded into the old table.
+    cmd = ["dbt", "build", "--full-refresh", "--project-dir", str(dbt_dir),
+           "--profiles-dir", str(dbt_dir)]  # fmt: skip
     if as_of:
         cmd += ["--vars", f"{{as_of: '{as_of}'}}"]
     raise typer.Exit(subprocess.run(cmd, env=env, check=False).returncode)

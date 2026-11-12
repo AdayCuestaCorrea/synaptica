@@ -88,3 +88,20 @@
     {%- set as_of = var('as_of', none) -%}
     {{ "date '" ~ as_of ~ "'" if as_of else "cast(timezone('UTC', now()) as date)" }}
 {%- endmacro %}
+
+{#
+  A JSON array of our own derived data: $SYN_DATA_DIR/derived/<path> (LLM decisions,
+  labels). `columns` is a DuckDB columns map; an empty relation when the file is missing.
+#}
+{% macro read_derived(path, columns) -%}
+    {%- set full = data_dir() ~ "/derived/" ~ path -%}
+    {%- set found = 0 -%}
+    {%- if execute -%}
+        {%- set found = run_query("select count(*) from glob('" ~ full ~ "')").columns[0].values()[0] -%}
+    {%- endif -%}
+    {%- if found > 0 -%}
+    read_json('{{ full }}', format = 'array', columns = {{ columns }})
+    {%- else -%}
+    (select {% for name, type in columns.items() %}cast(null as {{ type }}) as {{ name }}{{ ", " if not loop.last }}{% endfor %} limit 0)
+    {%- endif -%}
+{%- endmacro %}

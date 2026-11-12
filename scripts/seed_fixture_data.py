@@ -20,6 +20,7 @@ from synaptica import report
 from synaptica.config import get_paths
 from synaptica.http import Throttle, make_client
 from synaptica.ingest import biorxiv, crossref, europepmc, journals, news, openalex, pubmed
+from synaptica.news import neuro
 
 FIXTURES = Path(__file__).resolve().parents[1] / "tests" / "fixtures"
 DAY = dt.date(2026, 11, 9)  # the S1 fixtures were recorded that day
@@ -91,6 +92,7 @@ def main() -> None:
         print(journals.ingest(client, today=DAY, throttle=NO_WAIT))
         print(news.ingest(client, today=DAY, throttle=NO_WAIT))
         print(openalex.ingest(client, today=DAY, throttle=NO_WAIT))
+    print(neuro.decide(today=DAY))  # rules only: CI never calls a model
     moment = dt.datetime(2026, 11, 9, 6, 23, tzinfo=dt.UTC)
     report.start_run(data, trigger="manual", changed=True, now=moment)
     report.finish_run(data, now=moment)

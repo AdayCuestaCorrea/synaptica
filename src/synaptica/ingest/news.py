@@ -42,6 +42,7 @@ class Feed:
     feed: str
     outlet: str
     lang: str
+    scope: str  # neuro: every item is neuroscience; general: filtered in step 13
     url: str
     license: str
     store_summary: bool
@@ -67,6 +68,7 @@ def load_feeds(seed: Path | None = None) -> list[Feed]:
                 r["feed"],
                 r["outlet"],
                 r["lang"],
+                r["scope"],
                 r["url"],
                 r["license"],
                 r["store_summary"] == "true",

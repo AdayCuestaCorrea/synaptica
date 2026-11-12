@@ -10,6 +10,9 @@
 --     descriptor names); never guessed from the title.
 --   integrity: retracted | partially_retracted | concern | corrected | none, from Crossref
 --     notices and from the "Retracted Publication" type of PubMed or Europe PMC.
+--   is_neuro / neuro_basis: every source but the general journals is neuroscience by its
+--     query or category; a general journal's paper needs the step 13 decision (OpenAlex
+--     or LLM). Not neuro, or not decided yet, is false: the website shows only true.
 --   Preprint and journal version are two studies, linked both ways (Aday, 2026-11-12):
 --     published_doi on the preprint, preprint_doi on the journal version.
 with candidates as (
@@ -35,7 +38,8 @@ merged as (
             as species,
         bool_or(flagged_retracted) as flagged_retracted,
         bool_or(is_open_access) as is_open_access,
-        arg_min(license, priority) filter (where license is not null) as license
+        arg_min(license, priority) filter (where license is not null) as license,
+        arg_min(neuro_basis, priority) filter (where neuro_basis is not null) as neuro_basis
     from candidates
     group by study_id
 ),
@@ -73,6 +77,8 @@ select
     coalesce(i.notice_dois, []) as integrity_notices,
     coalesce(m.is_open_access, false) as is_open_access,
     m.license,
+    m.neuro_basis is not null as is_neuro,
+    m.neuro_basis,
     p.published_doi,
     po.preprint_doi,
     o.primary_field as openalex_field

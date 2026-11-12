@@ -13,6 +13,9 @@ dependencies = [
     "dbt-duckdb>=1.11.1",
     # HTTP client for the sources (spike S1, ingestion from Phase 1).
     "httpx>=0.28.1",
+    # Validates the JSON answers of the LLM (decision D4, as in Paleo Atlas and spike S5).
+    # Same version as the spike groups; dbt already installs it, now it is declared.
+    "pydantic>=2.14.3",
     # CLI framework for the `syn` commands (same as Paleo Atlas).
     "typer>=0.27.3",
 ]

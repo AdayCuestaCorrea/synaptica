@@ -1,47 +1,64 @@
 -- One row per news item for Neuro News: popular-science articles (SINC, The Conversation,
 -- ScienceDaily) and the non-research items of the journal feeds (news, commentary,
 -- perspectives). Research papers and reviews are studies (dim_study); corrections are
--- neither. Which items are neuroscience is decided in step 13.
+-- neither. is_neuro: true for neuro feeds and journals by their scope; for the general
+-- ones (SINC's Noticias; Nature, Science, Cell) the step 13 decision, false until made.
 with news as (
     select
         *,
         min(version_date) over (partition by item_key) as entered_on,
         row_number() over (partition by item_key order by version_date desc) as rn
     from {{ ref('stg_news__items') }}
+),
+
+decisions as (
+    select * from {{ ref('stg_derived__neuro') }}
+),
+
+items as (
+    select
+        'news:' || n.item_key as news_item_id,
+        'outlet' as origin,
+        n.outlet,
+        n.feed,
+        n.lang,
+        n.url,
+        n.title,
+        n.authors,
+        n.published_at,
+        n.entered_on,
+        cast(null as varchar) as doi,
+        cast(null as varchar) as section,
+        n.feed_summary,
+        case when f.scope = 'neuro' then 'feed_scope' when d.is_neuro then d.neuro_basis end
+            as neuro_basis
+    from news as n
+    left join {{ ref('news_feeds') }} as f on f.feed = n.feed
+    left join decisions as d on d.item_source = 'news' and d.item_key = n.item_key
+    where n.rn = 1
+
+    union all
+
+    select
+        'journal:' || j.item_key,
+        'journal',
+        j.journal_name,
+        j.journal,
+        'en',
+        j.url,
+        j.title,
+        j.authors,
+        j.published_at,
+        j.entered_on,
+        j.doi,
+        j.section,
+        null,
+        case when j.journal_scope = 'neuro' then 'journal_scope'
+             when d.is_neuro then d.neuro_basis end
+    from {{ ref('int_journals__items') }} as j
+    left join decisions as d on d.item_source = 'journals' and d.item_key = j.item_key
+    where j.kind = 'news'
 )
 
-select
-    'news:' || item_key as news_item_id,
-    'outlet' as origin,
-    outlet,
-    feed,
-    lang,
-    url,
-    title,
-    authors,
-    published_at,
-    entered_on,
-    cast(null as varchar) as doi,
-    cast(null as varchar) as section,
-    feed_summary
-from news
-where rn = 1
-
-union all
-
-select
-    'journal:' || item_key,
-    'journal',
-    journal_name,
-    journal,
-    'en',
-    url,
-    title,
-    authors,
-    published_at,
-    entered_on,
-    doi,
-    section,
-    null
-from {{ ref('int_journals__items') }}
-where kind = 'news'
+select *, neuro_basis is not null as is_neuro
+from items

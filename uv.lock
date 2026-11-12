@@ -2683,6 +2683,7 @@ source = { editable = "." }
 dependencies = [
     { name = "dbt-duckdb" },
     { name = "httpx" },
+    { name = "pydantic" },
     { name = "typer" },
 ]
 
@@ -2712,6 +2713,7 @@ spike-s5 = [
 requires-dist = [
     { name = "dbt-duckdb", specifier = ">=1.11.1" },
     { name = "httpx", specifier = ">=0.28.1" },
+    { name = "pydantic", specifier = ">=2.14.3" },
     { name = "typer", specifier = ">=0.27.3" },
 ]
 

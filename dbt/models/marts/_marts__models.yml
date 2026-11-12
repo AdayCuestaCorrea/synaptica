@@ -29,6 +29,11 @@ models:
           - accepted_values:
               arguments:
                 values: [retracted, partially_retracted, concern, corrected, none]
+      - name: neuro_basis
+        description: Why it counts as neuroscience; null when it does not (or not yet).
+        data_tests:
+          - accepted_values:
+              arguments: {values: [source_query, journal_scope, openalex, llm]}
       - name: published_doi
         description: On a preprint, the DOI of its journal version (another study).
       - name: preprint_doi
@@ -52,6 +57,10 @@ models:
               arguments: {values: [es, en]}
       - name: url
         data_tests: [not_null]
+      - name: neuro_basis
+        data_tests:
+          - accepted_values:
+              arguments: {values: [feed_scope, journal_scope, openalex, llm]}
 
 unit_tests:
   - name: pubmed_candidate_signals
@@ -76,6 +85,8 @@ unit_tests:
       - input: ref('int_europepmc__records')
         rows: []
       - input: ref('int_journals__items')
+        rows: []
+      - input: ref('stg_derived__neuro')
         rows: []
     expect:
       rows:
