@@ -58,6 +58,8 @@ def answer(request: httpx.Request) -> httpx.Response:
         path = FIXTURES / "crossref" / f"notices_{kind}.json"
         items = _json(path)["message"]["items"] if path.exists() and params["cursor"] == "*" else []
         return httpx.Response(200, json={"message": {"items": items}})
+    if request.url.host == "api.biorxiv.org" and request.url.path.startswith("/pubs/"):
+        return httpx.Response(200, json={"collection": [], "messages": [{"total": "0"}]})
     if request.url.host == "api.biorxiv.org":
         _, _, server, _, _, cursor = request.url.path.split("/")
         body = _json(FIXTURES / server / f"details_{params['category']}.json")
@@ -85,6 +87,7 @@ def main() -> None:
         print(crossref.ingest(client, today=DAY, throttle=NO_WAIT))
         print(europepmc.ingest(client, today=DAY, throttle=NO_WAIT))
         print(biorxiv.ingest(client, today=DAY, throttle=NO_WAIT))
+        print(biorxiv.ingest_published(client, today=DAY, throttle=NO_WAIT))
         print(journals.ingest(client, today=DAY, throttle=NO_WAIT))
         print(news.ingest(client, today=DAY, throttle=NO_WAIT))
         print(openalex.ingest(client, today=DAY, throttle=NO_WAIT))

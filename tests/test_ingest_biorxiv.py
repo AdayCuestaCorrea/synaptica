@@ -116,3 +116,28 @@ def test_has_new_preprints_sees_new_dois_and_new_versions(tmp_path):
         assert not biorxiv.has_new_preprints(c, today=DAY, raw_root=tmp_path)
         item["version"] = "2"
         assert biorxiv.has_new_preprints(c, today=DAY, raw_root=tmp_path)
+
+
+def test_published_links_keep_neuro_categories_and_no_abstract(tmp_path):
+    def pubs(request):
+        server = request.url.path.split("/")[2]
+        items = [
+            {"preprint_doi": f"10.1101/{server}.1", "published_doi": "10.1016/J.NEURON.1",
+             "published_journal": "Neuron", "preprint_category": "neuroscience"
+             if server == "biorxiv" else "Psychiatry and Clinical Psychology",
+             "published_date": "2026-10-03", "preprint_abstract": "Authors' own words."},
+            {"preprint_doi": f"10.1101/{server}.2", "published_doi": "10.1/x",
+             "preprint_category": "microbiology"},
+        ]  # fmt: skip
+        return httpx.Response(200, json={"collection": items, "messages": [{"total": "2"}]})
+
+    with make_client(transport=httpx.MockTransport(pubs)) as client:
+        kwargs = {"today": DAY, "raw_root": tmp_path, "throttle": NO_WAIT}
+        assert biorxiv.ingest_published(client, **kwargs) == {"biorxiv": 1, "medrxiv": 1}
+        assert biorxiv.ingest_published(client, **kwargs) == {"biorxiv": 0, "medrxiv": 0}
+    link = biorxiv.BatchStore("biorxiv", "published", raw_root=tmp_path).read_day(DAY)
+    assert link == {"10.1101/biorxiv.1": {
+        "preprint_doi": "10.1101/biorxiv.1", "published_doi": "10.1016/j.neuron.1",
+        "published_journal": "Neuron", "published_date": "2026-10-03",
+        "category": "neuroscience",
+    }}  # fmt: skip

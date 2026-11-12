@@ -11,8 +11,14 @@ preprints *posted* in an interval, one category at a time, in pages of
 - **Past days keep growing** (a week went from 30 to 34 preprints days later), so the
   window looks back :data:`DEFAULT_DAYS` days, and unchanged DOIs are not written again.
 
-``published`` carries the DOI of the journal version once the preprint is published:
-that is the preprint ↔ published link for the unified study (plan, step 11).
+``published`` carries the DOI of the journal version once the preprint is published,
+but a week of new preprints almost never has it (1 of 364 on 2026-11-12). The link
+preprint ↔ published for the unified study (plan, step 11) comes instead from the
+``pubs`` API (:func:`ingest_published`), which lists the preprints published in a journal
+in an interval. It lags: on 2026-11-12, 2 bioRxiv publications dated in the last 12 days
+against 563 in the first half of October, so it looks back :data:`PUBS_DAYS` days, and
+keeps only the neuro categories, in ``raw/<server>/published/<date>.jsonl`` by preprint
+DOI.
 
 Abstracts are the authors' text under each preprint's licence (``cc_no`` allows no
 reuse): they go only to the local cache ``data/cache/<server>/abstract/``, as PubMed's.
@@ -44,6 +50,8 @@ CATEGORIES = {
     "medrxiv": ("neurology", "psychiatry_and_clinical_psychology"),
 }
 PAGE_SIZE = 30  # fixed by the API
+PUBS = "https://api.biorxiv.org/pubs"
+PUBS_DAYS = 45
 DEFAULT_DAYS = 7
 TIMEOUT = 120.0
 MAX_PAGES = 100  # safety cap per category and run (S1: ~400 a week in neuroscience)
@@ -177,6 +185,54 @@ def ingest(
         new_versions[server] = preprints.save(trimmed, today, previous=previous)
         abstracts += sum(_cache_abstract(cache_root, server, items[d]) for d in trimmed)
     return BiorxivResult(found, new_versions, abstracts)
+
+
+def _category(name: str | None) -> str:
+    return (name or "").strip().lower().replace(" ", "_")
+
+
+def ingest_published(
+    client: httpx.Client,
+    *,
+    days: int = PUBS_DAYS,
+    today: dt.date | None = None,
+    raw_root: Path | None = None,
+    throttle: Throttle | None = None,
+) -> dict[str, int]:
+    """Store the journal DOI of every neuro preprint published in the last ``days``
+    days; returns the lines written per server. Idempotent."""
+    today = today or utc_today()
+    throttle = throttle or Throttle(1)
+    since = today - dt.timedelta(days=days)
+    written = {}
+    for server, categories in CATEGORIES.items():
+        links: dict[str, dict[str, Any]] = {}
+        cursor = 0
+        for _ in range(MAX_PAGES):
+            throttle.wait()
+            body = get_json(client, f"{PUBS}/{server}/{since}/{today}/{cursor}", timeout=TIMEOUT)
+            items = body.get("collection") or []
+            for item in items:
+                if _category(item.get("preprint_category")) in categories and (
+                    item.get("preprint_doi") and item.get("published_doi")
+                ):
+                    doi = item["preprint_doi"].lower()
+                    links[doi] = {
+                        "preprint_doi": doi,
+                        "published_doi": item["published_doi"].lower(),
+                        "published_journal": item.get("published_journal"),
+                        "published_date": item.get("published_date"),
+                        "category": _category(item.get("preprint_category")),
+                    }  # never the abstract
+            cursor += len(items)
+            total = int(((body.get("messages") or [{}])[0]).get("total") or 0)
+            if not items or cursor >= total:
+                break
+        published = BatchStore(server, "published", raw_root=raw_root)
+        recent = published.recent(days + LOOKBACK_MARGIN, today)
+        previous = {k: e.payload for k, e in recent.items()}
+        written[server] = published.save(links, today, previous=previous)
+    return written
 
 
 def has_new_preprints(

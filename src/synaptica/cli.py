@@ -228,6 +228,7 @@ def ingest_biorxiv(
     try:
         with make_client() as client:
             result = biorxiv.ingest(client, days=days)
+            published = biorxiv.ingest_published(client)
     except HttpError as exc:
         typer.echo(f"bioRxiv/medRxiv failed: {exc}", err=True)
         raise typer.Exit(code=1) from exc
@@ -235,7 +236,8 @@ def ingest_biorxiv(
     stored = ", ".join(f"{k} {v}" for k, v in result.new_versions.items())
     typer.echo(
         f"Preprints in {days} day(s): {found}; new or changed stored: {stored}; "
-        f"{result.abstracts_cached} abstracts cached"
+        f"{result.abstracts_cached} abstracts cached; published links stored: "
+        + ", ".join(f"{k} {v}" for k, v in published.items())
     )
 
 
