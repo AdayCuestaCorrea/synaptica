@@ -6,7 +6,7 @@ Resultado del spike **S1** (`SCOPE.md` §5 y §7). Para cada fuente: cómo se ac
 
 ## Reglas comunes
 
-- Todas las peticiones llevan el User-Agent `synaptica-bot/<versión> (https://github.com/AdayCuestaCorrea/synaptica; adaycuestacorrea@gmail.com)` (`synaptica.config.USER_AGENT`). Donde la API lo admite, también `mailto` o `email`.
+- Todas las peticiones llevan el User-Agent `synaptica-bot/<versión> (https://github.com/AdayCuestaCorrea/synaptica; adaycuestacorrea@gmail.com)` (`synaptica.config.USER_AGENT`), desde `synaptica.http`; los scripts de S1 usaron uno genérico sin correo (`spikes/s1/common.py`). Donde la API lo admite, también `mailto` o `email`.
 - Las peticiones se hacen en serie, nunca en paralelo, con una pausa entre ellas.
 - **Las fixtures no guardan texto de los editores.** Abstracts, descripciones de los RSS y cuerpos de artículo se sustituyen por `[REDACTED in fixture…]`, porque el repositorio es público y ese texto no es nuestro. También se quitan las listas voluminosas que no se usan, como las referencias de Crossref, y se deja solo su recuento. Los textos completos que necesite la Fase 1 para escribir los resúmenes irán a una caché sin versionar, como en Paleo.
 
