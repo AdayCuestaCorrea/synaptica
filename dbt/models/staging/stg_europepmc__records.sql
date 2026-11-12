@@ -22,6 +22,7 @@ select
     try_cast(payload.first_published as date) as published_on,
     try_cast(payload.first_indexed as date) as indexed_on,
     coalesce(payload.pub_types, []) as publication_types,
+    payload.language as language,
     payload.is_open_access as is_open_access,
     nullif(payload.license, '') as license,
     coalesce(payload.mesh, []) as mesh_names

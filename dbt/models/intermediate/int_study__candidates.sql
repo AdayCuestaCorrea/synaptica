@@ -5,6 +5,8 @@
 --   neuro_basis: why the record counts as neuroscience — source_query (it came in
 --   through a neuroscience query or category), journal_scope (a neuro journal), openalex
 --   or llm (step 13 decision for the general journals) — or null if not (yet).
+--   publication_types / is_english / has_abstract: for the news prefilter (dim_study);
+--   null when the source does not say.
 --   review_status / species: what this source says, or 'unknown'. Species comes only from
 --   MeSH (PubMed's UIs, or Europe PMC's descriptor names): never guessed from the title.
 with pubmed as (
@@ -43,7 +45,10 @@ select
     list_contains(publication_types, 'Retracted Publication') as flagged_retracted,
     cast(null as boolean) as is_open_access,
     cast(null as varchar) as license,
-    'source_query' as neuro_basis
+    'source_query' as neuro_basis,
+    publication_types,
+    list_contains(languages, 'eng') as is_english,
+    has_abstract
 from pubmed
 
 union all
@@ -58,7 +63,10 @@ select
     false,
     license not in ('cc_no'),
     license,
-    'source_query'
+    'source_query',
+    ['Preprint'],
+    true,
+    true
 from {{ ref('int_preprints__latest') }}
 
 union all
@@ -80,7 +88,10 @@ select
     list_contains(publication_types, 'Retracted Publication'),
     is_open_access,
     license,
-    'source_query'
+    'source_query',
+    publication_types,
+    language = 'eng',
+    null
 from epmc
 
 union all
@@ -97,7 +108,10 @@ select
     null,
     null,
     case when j.journal_scope = 'neuro' then 'journal_scope'
-         when d.is_neuro then d.neuro_basis end
+         when d.is_neuro then d.neuro_basis end,
+    [j.kind],
+    true,
+    null
 from {{ ref('int_journals__items') }} as j
 left join {{ ref('stg_derived__neuro') }} as d
     on d.item_source = 'journals' and d.item_key = j.item_key

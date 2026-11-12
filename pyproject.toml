@@ -31,6 +31,13 @@ build-backend = "uv_build"
 dev = [
     "ruff",
     "pytest",
+    { include-group = "eval" },
+]
+# `syn eval news` (plan, step 14a): the classical baseline of the news classifier, TF-IDF
+# of character n-grams + logistic regression with cross-validation, as in Paleo Atlas.
+# Only for the evaluation and its tests (in `dev`); the daily pipeline does not install it.
+eval = [
+    "scikit-learn>=1.9.1",
 ]
 # Spike S2 (decision D1): the same dbt project on BigQuery sandbox and on DuckDB.
 # Only `uv sync --group spike-s2`; the regular CI does not install it.

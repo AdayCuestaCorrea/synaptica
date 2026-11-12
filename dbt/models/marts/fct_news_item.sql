@@ -60,5 +60,6 @@ items as (
     where j.kind = 'news'
 )
 
-select *, neuro_basis is not null as is_neuro
-from items
+select i.*, i.neuro_basis is not null as is_neuro, t.news_type
+from items as i
+left join {{ ref('stg_derived__news_types') }} as t on t.item_id = i.news_item_id

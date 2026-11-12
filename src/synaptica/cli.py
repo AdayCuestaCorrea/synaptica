@@ -26,6 +26,8 @@ ingest_app = typer.Typer(help="Download new items from each source to data/raw/.
 app.add_typer(ingest_app, name="ingest")
 news_app = typer.Typer(help="Neuro News: neuroscience filter, type and grouping.")
 app.add_typer(news_app, name="news")
+eval_app = typer.Typer(help="Evaluations against hand labels (eval/).")
+app.add_typer(eval_app, name="eval")
 
 
 def _llm(provider: str | None, model: str | None):
@@ -332,6 +334,56 @@ def news_neuro(
         f"Neuro filter: {result.items} items; {basis or 'nothing decided'}; "
         f"{result.llm_asked} answered by the LLM; {result.undecided} undecided"
     )
+
+
+@news_app.command("classify")
+def news_classify(
+    provider: ProviderOption = None,
+    model: ModelOption = None,
+    limit: Annotated[int | None, typer.Option(help="Classify N items at most.")] = None,
+) -> None:
+    """Type of the Neuro News items (studies that pass the prefilter and neuro news) with
+    the LLM -> derived/news/types.json. Reads the warehouse: run `syn build` first."""
+    from synaptica.llm import QuotaExhausted
+    from synaptica.news import classify
+
+    llm = _llm(provider, model)
+    if llm is None:
+        typer.echo("No --provider given: nothing classified.")
+        raise typer.Exit(0)
+    if not classify.warehouse_path().exists():
+        typer.echo("No warehouse yet: run `syn build` first.", err=True)
+        raise typer.Exit(1)
+    try:
+        result = classify.run(llm, limit=limit)
+    except QuotaExhausted as exc:
+        typer.echo(f"LLM quota used up: {exc}; the rest waits for the next run", err=True)
+        raise typer.Exit(0) from exc
+    typer.echo(
+        f"Classified {result.classified} of {result.total} items "
+        f"({result.up_to_date} up to date, {result.missing} left out by the model)"
+    )
+
+
+@eval_app.command("news")
+def eval_news(
+    gold: Annotated[Path, typer.Option(help="Hand labels: key,lang,text,type.")] = Path(
+        "eval/news/labels.csv"
+    ),
+    out: Annotated[Path | None, typer.Option(help="Write the Markdown report here.")] = None,
+) -> None:
+    """Macro F1 of the LLM's stored types and of the TF-IDF baseline on the hand labels."""
+    from synaptica.news import classify, evaluate
+
+    if not gold.exists():
+        typer.echo(f"No labels at {gold} yet (Sofía's labels arrive with step 14b).", err=True)
+        raise typer.Exit(1)
+    llm_types = {k: r["type"] for k, r in classify.load_types(classify.types_path()).items()}
+    report = evaluate.report_markdown(evaluate.evaluate(evaluate.load_gold(gold), llm_types))
+    if out:
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(report, encoding="utf-8")
+    typer.echo(report)
 
 
 @app.command()

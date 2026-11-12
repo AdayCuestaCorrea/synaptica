@@ -2691,6 +2691,10 @@ dependencies = [
 dev = [
     { name = "pytest" },
     { name = "ruff" },
+    { name = "scikit-learn" },
+]
+eval = [
+    { name = "scikit-learn" },
 ]
 spike-s2 = [
     { name = "dbt-bigquery" },
@@ -2721,7 +2725,9 @@ requires-dist = [
 dev = [
     { name = "pytest" },
     { name = "ruff" },
+    { name = "scikit-learn", specifier = ">=1.9.1" },
 ]
+eval = [{ name = "scikit-learn", specifier = ">=1.9.1" }]
 spike-s2 = [
     { name = "dbt-bigquery", specifier = ">=1.12.2" },
     { name = "dbt-duckdb", specifier = ">=1.11.1" },

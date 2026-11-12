@@ -96,6 +96,14 @@ uv run syn ingest pubmed --days 3         # registros nuevos de PubMed a data/ra
 uv run syn ingest crossref --days 3       # avisos de retractación, corrección… a data/raw/crossref/notices/
 uv run pytest
 uv run ruff check . && uv run ruff format --check .
+uv run syn ingest europepmc --days 3      # acceso abierto de Europe PMC (el texto completo, bajo demanda)
+uv run syn ingest biorxiv --days 7        # preprints de bioRxiv y medRxiv + enlaces a su versión publicada
+uv run syn ingest journals                # RSS de Nature, Science y Cell (Crossref por ISSN de respaldo)
+uv run syn ingest news                    # SINC, The Conversation y ScienceDaily
+uv run syn ingest openalex                # tema y citas por DOI de las revistas generalistas
+uv run syn news neuro [--provider groq]   # ¿es neurociencia? reglas de OpenAlex; el LLM solo con --provider
+uv run syn news classify --provider groq  # tipo de cada pieza de Neuro News (lee el almacén: antes syn build)
+uv run syn eval news --gold eval/news/labels.csv   # macro F1 del LLM y del baseline (grupo eval)
 uv run syn build                          # dbt build: modelos + tests (desde la Fase 1)
 SYN_DATA_DIR=/tmp/syn-ci uv run python scripts/seed_fixture_data.py   # fixtures como si vinieran de las fuentes
 SYN_DATA_DIR=/tmp/syn-ci uv run syn build --as-of 2026-11-09          # dbt sobre esas fixtures (como la CI)

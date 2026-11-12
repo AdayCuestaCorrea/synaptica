@@ -34,6 +34,11 @@ models:
         data_tests:
           - accepted_values:
               arguments: {values: [source_query, journal_scope, openalex, llm]}
+      - name: news_type
+        description: Type from `syn news classify` (step 14a); null if not classified.
+        data_tests:
+          - accepted_values:
+              arguments: {values: [healthy_brain, disease, clinical_trial, technique, noise]}
       - name: published_doi
         description: On a preprint, the DOI of its journal version (another study).
       - name: preprint_doi
@@ -61,6 +66,10 @@ models:
         data_tests:
           - accepted_values:
               arguments: {values: [feed_scope, journal_scope, openalex, llm]}
+      - name: news_type
+        data_tests:
+          - accepted_values:
+              arguments: {values: [healthy_brain, disease, clinical_trial, technique, noise]}
 
 unit_tests:
   - name: pubmed_candidate_signals
@@ -125,6 +134,8 @@ unit_tests:
       - input: ref('stg_openalex__works')
         rows: []
       - input: ref('stg_preprints__published')
+        rows: []
+      - input: ref('stg_derived__news_types')
         rows: []
     expect:
       rows:
