@@ -15,6 +15,7 @@ Nombre de archivo: `000N-titulo-corto.md`, donde N es el número de la decisión
 | ADR | Decisión | Estado |
 |---|---|---|
 | [D1](0001-almacen.md) | DuckDB como almacén y BigQuery como espejo semanal de los marts | Aceptada |
+| [D3](0003-visor.md) | Visor 3D: Niivue con volúmenes de etiquetas propios, uno por atlas | Propuesta |
 | [D4](0004-llm.md) | LLM: carga inicial en local; después, Groq gratis con redactor y juez de familias distintas | Aceptada |
 
 Restricciones comunes a todas:

@@ -91,7 +91,7 @@ Sofía propone que el contenido de la Fase 2 empiece por las estructuras de la s
        - En GitHub Pages, en `/synaptica/spikes/s3/`. **Se confirma con Aday antes de tocar Pages.**
        - ~~Además, como artifact de claude.ai~~ y ~~página de respuestas al estilo de S5~~: descartados por Aday el 2026-11-12. Con Pages, Sofía ya la abre en el móvil o en el ordenador; su opinión se apunta en `results/notas-ux.md`, y D5 se prueba con S4.
        - Cómo (Aday, 2026-11-12): workflow `.github/workflows/pages.yml`, que copia `site/` (sin `mobile.html`) a `/synaptica/spikes/s3/` al hacer push a `main` si cambia; en la raíz no hay nada hasta la web de la Fase 1.
-8. **ADR `0003-visor.md`.** Cifras de A, B y C (antes y después de los ajustes), licencias, la elección de Sofía, lo que elija en 7.10 y la casilla de SCOPE.
+8. **ADR `0003-visor.md`.** *Borrador escrito* ([ADR](../../docs/adr/0003-visor.md), propuesta); se acepta tras la revisión de Sofía y con el visto bueno de Aday. Cifras de A, B y C (antes y después de los ajustes), licencias, la elección de Sofía, lo que elija en 7.10 y la casilla de SCOPE.
 
 ## Licencias
 - Los datos derivados heredan la licencia de su atlas:
