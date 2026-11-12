@@ -64,7 +64,8 @@ LOGIN=<su usuario>; N=<número del Issue>
 uv run --group spike-s4 python spikes/s4/event_from_issue.py $N > /tmp/evento-$N.json
 uv run --group spike-s4 python spikes/s4/intake.py --event /tmp/evento-$N.json \
     --queue spikes/s4/prueba/queue.json --data-dir spikes/s4/prueba/datos \
-    --reviewer $LOGIN --reply /tmp/respuesta-$N.md
+    --reviewer $LOGIN --reply /tmp/respuesta-$N.md \
+    --efetch data/cache/s5/pubmed/efetch_20261102.xml   # los abstracts de las fuentes
 gh issue comment $N --body-file /tmp/respuesta-$N.md && gh issue close $N
 ```
 

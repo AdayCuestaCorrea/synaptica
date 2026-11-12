@@ -276,3 +276,56 @@ def test_a_short_fix_is_not_a_new_sentence(queue):
     es = _es(queue)
     es[3] = "Estos resultados no muestran más defectos del tubo neural con dolutegravir."
     assert edit_warnings(queue.get(*NEWS), {"es": "\n".join(es)}, {}) == []
+
+
+# ---- found in the test with Sofía (round 1) ------------------------------------------
+
+
+def test_the_first_word_of_each_sentence_is_not_a_name(queue):
+    """«Mediante» opened her second paragraph and was held as an unknown name."""
+    es = _es(queue)
+    es[1] = "Mediante registros de todo el país, el estudio siguió a 11 110 bebés."
+    w = edit_warnings(queue.get(*NEWS), {"es": "\n".join(es)}, {})
+    assert not [x for x in w if "Mediante" in x]
+
+
+def test_a_name_inside_a_sentence_is_still_held(queue):
+    es = _es(queue)
+    es[1] = "El estudio, financiado por Wellcome, siguió a 11 110 bebés."
+    w = edit_warnings(queue.get(*NEWS), {"es": "\n".join(es)}, {})
+    assert "(español) «Wellcome» no aparece en el texto revisado ni en su fuente." in w
+
+
+EFETCH = """<PubmedArticleSet><PubmedArticle><MedlineCitation><PMID>42971231</PMID>
+<Article><Abstract><AbstractText Label="METHODS">Fine particles (PM2.5) were measured.
+</AbstractText></Abstract></Article></MedlineCitation></PubmedArticle></PubmedArticleSet>"""
+
+
+def test_sources_come_from_the_cache_or_an_efetch_file(queue, tmp_path):
+    from intake import source_texts
+
+    (tmp_path / "efetch.xml").write_text(EFETCH, encoding="utf-8")
+    texts = source_texts(queue, tmp_path / "empty-cache", [tmp_path / "efetch.xml"])
+    assert "PM2.5" in texts["pubmed-42971231"]
+    es = _es(queue)
+    es[0] += " Se midieron las partículas finas (PM2,5)."
+    w = edit_warnings(queue.get(*NEWS), {"es": "\n".join(es)}, texts)
+    assert not [x for x in w if "2.5" in x]  # the source's own number, written «2,5»
+
+
+def test_an_edit_whose_source_has_no_text_waits(queue, tmp_path, monkeypatch, capsys):
+    """Checking it without the abstract would skip the copy check: exit 2, nothing written."""
+    import intake
+
+    event = _event([_d(queue, NEWS, "edit", {"es": "\n".join(_es(queue))})])
+    (tmp_path / "event.json").write_text(json.dumps(event), encoding="utf-8")
+    args = ["intake.py", "--event", str(tmp_path / "event.json"),
+            "--queue", str(FIXTURES / "queue.json"), "--data-dir", str(tmp_path / "data"),
+            "--reviewer", SOFIA, "--reply", str(tmp_path / "reply.md"),
+            "--cache-root", str(tmp_path / "empty-cache")]  # fmt: skip
+    monkeypatch.setattr("sys.argv", args)
+    with pytest.raises(SystemExit) as e:
+        intake.main()
+    assert e.value.code == 2
+    assert json.loads(capsys.readouterr().out)["sources_without_text"] == ["pubmed-42971231"]
+    assert not (tmp_path / "data").exists()

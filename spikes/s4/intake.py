@@ -37,6 +37,7 @@ import difflib
 import json
 import re
 import sys
+import xml.etree.ElementTree as ET
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -49,6 +50,11 @@ import checks  # noqa: E402
 from issue_block import BlockError, decode  # noqa: E402
 from models import Action, Decision, Queue, ReviewItem, TextContent, check_against  # noqa: E402
 from pydantic import ValidationError  # noqa: E402
+
+from synaptica.config import get_paths  # noqa: E402
+from synaptica.narrative.sources import abstract_for  # noqa: E402
+
+PUBMED = "pubmed-"
 
 # A sentence of hers "is" a reviewed sentence (and keeps its citations) above this ratio.
 SAME_SENTENCE = 0.5
@@ -138,7 +144,9 @@ def edit_warnings(item: ReviewItem, payload: dict, source_texts: dict[str, str])
         label = "español" if lang == "es" else "inglés"
         for n in sorted(checks.numbers(text) - known_numbers):
             out.append(f"({label}) La cifra {n} no está en el texto revisado ni en su fuente.")
-        for name in sorted(checks.names(text)):
+        # Per sentence: the first word of each one is capitalized anyway (seen in the test
+        # with Sofía: «Mediante» opening her second paragraph was taken for a name).
+        for name in sorted(set().union(*map(checks.names, sentences(text)))):
             if name.lower() not in known_names:
                 out.append(f"({label}) «{name}» no aparece en el texto revisado ni en su fuente.")
         for run in checks.copied_runs(text, source_grams):
@@ -150,6 +158,44 @@ def edit_warnings(item: ReviewItem, payload: dict, source_texts: dict[str, str])
                 if i is None:
                     out.append(f"({label}) Frase nueva sin fuente: «{_short(s)}».")
     return out
+
+
+def source_texts(queue: Queue, cache_root: Path, efetch: list[Path]) -> dict[str, str]:
+    """The text of each ``pubmed-<PMID>`` source of the queue: the pipeline's abstract
+    cache, else a PubMed efetch file (the S5 cache the test queue was built from). Read
+    only to check her edits; never written anywhere."""
+    pmids = {s.id.removeprefix(PUBMED) for i in queue.items if isinstance(i.content, TextContent)
+             for s in i.content.sources if s.id.startswith(PUBMED)}  # fmt: skip
+    out = {}
+    for pmid in sorted(pmids):
+        found = abstract_for({"pmid": pmid}, cache_root=cache_root)
+        if found:
+            out[PUBMED + pmid] = found[0]
+    for path in efetch:
+        for art in ET.parse(path).getroot().iter("PubmedArticle"):
+            pmid = art.findtext(".//MedlineCitation/PMID") or ""
+            text = "\n".join("".join(t.itertext()) for t in art.iter("AbstractText"))
+            if pmid in pmids and text and PUBMED + pmid not in out:
+                out[PUBMED + pmid] = text
+    return out
+
+
+def missing_sources(event: dict, queue: Queue, texts: dict[str, str]) -> list[str]:
+    """PubMed sources without text of the items her Issue edits. Checking those edits
+    without them would skip the copy check and flag the source's own numbers (seen in
+    the test with Sofía), so the Issue waits until the cache has them."""
+    try:
+        block = decode(event["issue"].get("body") or "")
+    except BlockError:
+        return []
+    items = {i.key: i for i in queue.items}
+    out = set()
+    for raw in block.decisions:
+        item = items.get((raw.get("item_type"), raw.get("item_id")))
+        if raw.get("action") == "edit" and item and isinstance(item.content, TextContent):
+            out |= {s.id for s in item.content.sources
+                    if s.id.startswith(PUBMED) and s.id not in texts}  # fmt: skip
+    return sorted(out)
 
 
 # ---- the Issue -----------------------------------------------------------------------
@@ -270,10 +316,19 @@ def main() -> None:
     ap.add_argument("--data-dir", type=Path, required=True)
     ap.add_argument("--reviewer", required=True)
     ap.add_argument("--reply", type=Path, required=True)
+    ap.add_argument("--cache-root", type=Path, help="abstract cache (default: SYN_DATA_DIR's)")
+    ap.add_argument("--efetch", type=Path, action="append", default=[],
+                    help="PubMed efetch XML with more abstracts (repeatable)")  # fmt: skip
     args = ap.parse_args()
     event = json.loads(args.event.read_text("utf-8"))
     queue = Queue.model_validate_json(args.queue.read_text("utf-8"))
-    out = process(event, queue, args.reviewer, done=_done_sources(args.data_dir))
+    texts = source_texts(queue, args.cache_root or get_paths().cache, args.efetch)
+    missing = missing_sources(event, queue, texts)
+    if missing:
+        print(json.dumps({"status": "error", "sources_without_text": missing}))
+        raise SystemExit(2)
+    out = process(event, queue, args.reviewer, done=_done_sources(args.data_dir),
+                  source_texts=texts)  # fmt: skip
     if out.status == "processed":
         write(out, args.data_dir)
     titles = {f"{i.item_type}/{i.item_id}": i.title_es for i in queue.items}

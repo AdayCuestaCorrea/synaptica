@@ -73,3 +73,17 @@ Detalles:
 - **Ensayo en seco** (`tests/test_prueba.py`): una ronda 1 simulada (corregir la exageración del dolutegravir solo en español, la frase de prueba de T7 y aprobar GABA) da justo lo que promete el guion: la corrección se aplica con el inglés por rehacer, GABA sale de la cola y T7 vuelve con sus dos avisos.
 - **Fallo encontrado por el ensayo y corregido:** la corrección de la exageración, más corta que la frase original, se quedaba por debajo de 0,5 de similitud y se retenía como «frase nueva sin fuente». Ahora las frases se alinean como secuencia (`intake.align`): una frase reescrita en su sitio corrige a la original y conserva su cita; solo las añadidas cuentan como nuevas. Las comprobaciones de cifras, nombres y copia siguen aplicándose a todas.
 
+
+## Prueba con Sofía, ronda 1 (2026-11-12)
+
+- **Cómo fue:** 38 minutos, sin problemas con el formato. Primer envío sin sesión iniciada en GitHub: el login conservó el formulario. Salieron 4 Issues (#2–#5), porque hizo más de lo pedido: reescribió un resumen entero y propuso 17 siglas en lugar de una. Las preguntas finales se hacen tras la ronda 2.
+- **Lectura:** 36 decisiones, todas válidas; ninguna rechazada.
+- **Fallos nuestros que destapó** (corregidos, con test):
+  - `intake.py` no cargaba el abstract de las fuentes: sin él no corría la comprobación de 8 palabras copiadas y la cifra de «PM2,5», que sí está en la fuente, salía como nueva. Ahora lo lee de la caché (o de un efetch con `--efetch`) y, si falta el de un texto que ella corrige, el Issue espera (salida 2) en vez de aplicarse sin comprobar.
+  - La comprobación de nombres solo ignoraba la primera palabra del texto: «Mediante», al empezar su segundo párrafo, salía como nombre desconocido. Ahora se mira frase a frase.
+  - Con los dos arreglos, las 36 decisiones se aplican y ninguna queda retenida.
+- **Cambios en la página:**
+  - «Proponer una sigla» lista las que ya están en el glosario y avisa al escribir una repetida (propuso EEG, AAV, GFAP y LTP, que ya estaban) o dos términos juntos («GPi/GPe»).
+  - Cada tema de noticias explica qué entra en él, con las definiciones que usa el clasificador (`src/synaptica/prompts/classify_news.md`): en «Cerebro sano» escribió «no entiendo este tema».
+- **Lo que no se hizo:** el resumen del dolutegravir (T6) quedó sin contestar; no añadió la frase de prueba de T7 (reescribió el resumen entero), así que el aviso y «Lo mantengo» no se han probado; no envió la página privada (T11).
+- **Contenido para más adelante** (no se aplica en la prueba): en sus notas propone detallar el hipocampo y la amígdala con el atlas de Paxinos y Watson. Ese atlas es un libro comercial y no se puede usar como datos; pero Waxholm ya separa CA1, CA2, CA3, giro dentado y subículo, así que el hipocampo puede emparejarse región a región con Julich-Brain. La amígdala de Waxholm es una sola etiqueta: se queda en «parcial».
