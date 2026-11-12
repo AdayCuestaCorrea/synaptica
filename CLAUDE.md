@@ -91,6 +91,7 @@ uv run syn doctor                         # entorno y variables necesarias (exit
 uv run syn report start --trigger local   # abre el registro de una ejecución en data/runs/
 uv run syn report finish                  # lo completa e imprime el informe en Markdown
 uv run syn report ran-today               # exit 0 si hoy (UTC) ya hubo una ejecución correcta
+uv run syn ingest pubmed --days 3         # registros nuevos de PubMed a data/raw/pubmed/ (abstracts solo a data/cache/)
 uv run pytest
 uv run ruff check . && uv run ruff format --check .
 uv run syn build                          # dbt build: modelos + tests (desde la Fase 1)

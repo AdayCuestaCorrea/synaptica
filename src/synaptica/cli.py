@@ -21,6 +21,8 @@ from synaptica import __version__, config
 app = typer.Typer(help="SYNAPTICA data pipeline.", no_args_is_help=True)
 report_app = typer.Typer(help="Run log in data/runs/ (one record per pipeline run).")
 app.add_typer(report_app, name="report")
+ingest_app = typer.Typer(help="Download new items from each source to data/raw/.")
+app.add_typer(ingest_app, name="ingest")
 
 REQUIRED_PYTHON = (3, 14)
 
@@ -144,3 +146,27 @@ def report_ran_today() -> None:
     from synaptica import report
 
     raise typer.Exit(0 if report.ran_today(config.get_paths().data) else 1)
+
+
+@ingest_app.command("pubmed")
+def ingest_pubmed(
+    days: Annotated[
+        int, typer.Option(min=1, max=30, help="Records that entered PubMed in the last N days.")
+    ] = 3,
+) -> None:
+    """New neuroscience records from PubMed: metadata, MeSH; abstracts only to the cache."""
+    from synaptica.http import HttpError, make_client
+    from synaptica.ingest import pubmed
+
+    try:
+        with make_client() as client:
+            result = pubmed.ingest(client, days=days)
+    except HttpError as exc:
+        typer.echo(f"PubMed failed: {exc}", err=True)
+        raise typer.Exit(code=1) from exc
+    typer.echo(
+        f"PubMed: {result.found} records in {days} day(s); "
+        f"{result.summaries_requested} new summaries ({result.summaries_new_versions} stored); "
+        f"{result.medline_requested} MEDLINE records checked "
+        f"({result.medline_new_versions} new versions, {result.abstracts_cached} abstracts cached)"
+    )

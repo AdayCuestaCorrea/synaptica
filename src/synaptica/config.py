@@ -38,6 +38,11 @@ class Paths:
     def raw(self) -> Path:
         return self.data / "raw"
 
+    @property
+    def cache(self) -> Path:
+        """Local-only inputs (abstracts, LLM answers): never committed to the data branch."""
+        return self.data / "cache"
+
 
 def get_paths() -> Paths:
     """Data paths, overridable with ``SYN_DATA_DIR`` (used by tests and CI)."""

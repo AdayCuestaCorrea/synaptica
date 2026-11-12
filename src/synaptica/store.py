@@ -15,6 +15,9 @@ lives in the ``data`` branch and the warehouse is rebuilt on every run; SCOPE §
 
 A small ``_checked.json`` per ``<source>/<kind>`` remembers when each key was last
 *checked*, so unchanged entities are not requested again on every run.
+
+High-volume sources (PubMed: ~700 new records a day) use :class:`BatchStore` instead, one
+file per day; see its docstring.
 """
 
 from __future__ import annotations
@@ -183,3 +186,95 @@ def _atomic_write(path: Path, text: str) -> None:
     tmp = path.with_suffix(path.suffix + ".tmp")
     tmp.write_text(text, encoding="utf-8")
     tmp.replace(path)
+
+
+# --- daily batches, for high-volume sources ------------------------------------------
+
+
+@dataclass(frozen=True)
+class BatchEntry:
+    first_seen: dt.date  # date of the oldest file (within the window) holding the key
+    last_seen: dt.date  # date of the newest one
+    payload: Any  # payload in the newest one
+
+
+class BatchStore:
+    """Daily batch files for sources with hundreds of new entities a day (PubMed).
+
+    Not in Paleo Atlas: added for SYNAPTICA, where one folder per entity (:class:`RawStore`)
+    would mean ~500 000 files and a ``_checked.json`` of several MB rewritten every day
+    after a year. Layout, one JSON object per line, sorted by key::
+
+        data/raw/<source>/<kind>/<YYYY-MM-DD>.jsonl   {"key": ..., "payload": ...}
+
+    A day's file holds the entities that were new or changed that day. What is already
+    stored is read from the files of the last few days only (:meth:`recent`), which is
+    enough when a source can be asked "what is new since date X". Same-day reruns merge
+    into the day's file, so saving the same records twice writes nothing new.
+    """
+
+    def __init__(
+        self,
+        source: str,
+        kind: str,
+        *,
+        volatile: Iterable[str] = (),
+        raw_root: Path | None = None,
+    ) -> None:
+        self.source = source
+        self.kind = kind
+        self.volatile = frozenset(volatile)
+        self.root = (raw_root if raw_root is not None else get_paths().raw) / source / kind
+
+    def path(self, day: dt.date) -> Path:
+        return self.root / f"{day.isoformat()}.jsonl"
+
+    def read_day(self, day: dt.date) -> dict[str, Any]:
+        path = self.path(day)
+        if not path.exists():
+            return {}
+        rows = (json.loads(line) for line in path.read_text(encoding="utf-8").splitlines())
+        return {row["key"]: row["payload"] for row in rows}
+
+    def recent(self, days: int, today: dt.date | None = None) -> dict[str, BatchEntry]:
+        """Every key stored in the files of the last ``days`` days (today included)."""
+        today = today or utc_today()
+        out: dict[str, BatchEntry] = {}
+        for offset in range(days - 1, -1, -1):  # oldest first, so the newest payload wins
+            day = today - dt.timedelta(days=offset)
+            for key, payload in self.read_day(day).items():
+                first = out[key].first_seen if key in out else day
+                out[key] = BatchEntry(first_seen=first, last_seen=day, payload=payload)
+        return out
+
+    def save(
+        self,
+        records: dict[str, Any],
+        today: dt.date | None = None,
+        *,
+        previous: dict[str, Any] | None = None,
+    ) -> int:
+        """Add to today's file the records that differ from ``previous`` (key -> payload
+        last stored, usually from :meth:`recent`). Returns how many lines were added or
+        changed; 0 leaves the file untouched."""
+        today = today or utc_today()
+        previous = previous or {}
+        day = self.read_day(today)
+        changed = 0
+        for key, payload in records.items():
+            payload = _strip(payload, self.volatile)
+            canonical = _canonical(payload, frozenset())
+            if key in previous and _canonical(previous[key], self.volatile) == canonical:
+                continue
+            if key in day and _canonical(day[key], frozenset()) == canonical:
+                continue
+            day[key] = payload
+            changed += 1
+        if changed:
+            self.root.mkdir(parents=True, exist_ok=True)
+            lines = (
+                json.dumps({"key": k, "payload": day[k]}, ensure_ascii=False, sort_keys=True)
+                for k in sorted(day)
+            )
+            _atomic_write(self.path(today), "\n".join(lines) + "\n")
+        return changed

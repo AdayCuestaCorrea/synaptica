@@ -102,3 +102,30 @@ def test_default_date_is_utc(tmp_path, monkeypatch):
     assert utc_today() == real_dt.date(2026, 11, 1)
     result = make(tmp_path).save_if_changed("41234567", {"found": True})
     assert result.path.name == "2026-11-01.json"
+
+
+def test_batch_store_writes_one_sorted_file_per_day_and_merges_reruns(tmp_path):
+    from synaptica.store import BatchStore
+
+    store = BatchStore("pubmed", "summary", raw_root=tmp_path)
+    assert store.save({"2": {"t": "b"}, "1": {"t": "a"}}, DAY1) == 2
+    assert store.save({"1": {"t": "a"}, "3": {"t": "c"}}, DAY1) == 1  # rerun adds only "3"
+    lines = store.path(DAY1).read_text(encoding="utf-8").splitlines()
+    assert [json.loads(line)["key"] for line in lines] == ["1", "2", "3"]
+    before = store.path(DAY1).read_bytes()
+    assert store.save({"1": {"t": "a"}}, DAY1) == 0
+    assert store.path(DAY1).read_bytes() == before
+
+
+def test_batch_store_recent_tracks_first_and_last_seen_and_skips_unchanged(tmp_path):
+    from synaptica.store import BatchStore
+
+    store = BatchStore("pubmed", "medline", raw_root=tmp_path, volatile={"score"})
+    store.save({"1": {"status": "Publisher"}}, DAY1)
+    previous = {k: e.payload for k, e in store.recent(30, DAY2).items()}
+    assert store.save({"1": {"status": "Publisher", "score": 3}}, DAY2, previous=previous) == 0
+    assert store.save({"1": {"status": "MEDLINE"}}, DAY2, previous=previous) == 1
+    entry = store.recent(30, DAY2)["1"]
+    assert (entry.first_seen, entry.last_seen) == (DAY1, DAY2)
+    assert entry.payload == {"status": "MEDLINE"}
+    assert store.recent(3, DAY2)["1"].first_seen == DAY2  # DAY1 is outside the window

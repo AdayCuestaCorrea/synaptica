@@ -23,6 +23,13 @@ Los textos de contenido de Paleo (fichas, recaps, glosario) no se copian: allí 
 - **En contra:** las correcciones no se propagan solas. Se mitiga con el docstring de origen en cada módulo: un `grep "paleo-atlas"` da la lista de lo que hay que revisar cuando se arregle algo en Paleo.
 - **Cuándo revisarla:** al cerrar la Fase 1, comparando los módulos copiados con sus originales. Si siguen casi iguales, se propone el paquete común con un ADR nuevo.
 
+## Primera divergencia: el almacén crudo de PubMed (2026-11-12)
+El almacén de Paleo guarda una carpeta por entidad y un archivo por cambio, más un `_checked.json` con la fecha de la última consulta de cada clave. Allí hay unos pocos miles de entidades. PubMed trae unos 700 registros al día. Medido con una ejecución real de un día (683 registros): **1 366 archivos y 2,6 MB al día**, unos 500 000 archivos y 950 MB al año en la rama `data`, más un `_checked.json` de varios MB que se reescribiría a diario.
+
+Decisión de Aday: para las fuentes de mucho volumen, un **lote diario** (`raw/<fuente>/<tipo>/<fecha>.jsonl`, `synaptica.store.BatchStore`) y solo los campos que se usan. Lo que ya está guardado se sabe leyendo los lotes de los últimos días, y la nueva consulta del MeSH depende solo de la edad del registro (7, 14… días), así que no hace falta `_checked.json`. Resultado medido con la misma ejecución: **2 archivos y 1,0 MB al día** (186 KB con gzip). `RawStore` se mantiene para las fuentes pequeñas.
+
+Es el tipo de divergencia que justifica copiar y no compartir: en Paleo el diseño era correcto para su volumen.
+
 ## Pruebas
 - Primeros módulos copiados: [`src/synaptica/http.py`](../../src/synaptica/http.py) (desde `paleo/http.py`) y [`src/synaptica/store.py`](../../src/synaptica/store.py) (desde `paleo/store.py`; las fechas pasan a UTC). Sus tests: [`tests/test_http.py`](../../tests/test_http.py) y [`tests/test_store.py`](../../tests/test_store.py), sin red.
 - Patrón ya usado en la Fase 0: `src/synaptica/config.py` y `cli.py` adaptados de Paleo; las cadenas de S5 copian `paleo/narrative/checks.py`.

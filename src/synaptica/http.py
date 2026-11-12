@@ -4,6 +4,9 @@ Copied and adapted from paleo-atlas ``src/paleo/http.py`` (same author, AGPL in 
 decision D2). Rules (CLAUDE.md, "Red y fuentes"): identifiable User-Agent with a contact,
 requests in series (never in parallel), gzip, and retries with exponential backoff on
 throttling or transient server errors. MediaWiki's ``maxlag`` errors are retried as well.
+
+Added here: :class:`Throttle`, for sources that publish a requests-per-second limit
+(PubMed: 3/s, or 10/s with an API key).
 """
 
 from __future__ import annotations
@@ -20,6 +23,31 @@ from synaptica.config import USER_AGENT
 log = logging.getLogger(__name__)
 
 RETRY_STATUS = {429, 500, 502, 503, 504}
+
+
+class Throttle:
+    """Keeps at least ``1 / per_second`` seconds between calls to :meth:`wait`.
+
+    ``clock`` and ``sleep`` are injectable so tests check the pacing without waiting."""
+
+    def __init__(
+        self,
+        per_second: float,
+        *,
+        clock: Callable[[], float] = time.monotonic,
+        sleep: Callable[[float], None] = time.sleep,
+    ) -> None:
+        self.interval = 1.0 / per_second
+        self.clock = clock
+        self.sleep = sleep
+        self._last: float | None = None
+
+    def wait(self) -> None:
+        if self._last is not None:
+            remaining = self._last + self.interval - self.clock()
+            if remaining > 0:
+                self.sleep(remaining)
+        self._last = self.clock()
 
 
 class HttpError(RuntimeError):

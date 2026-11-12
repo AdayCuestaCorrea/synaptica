@@ -26,7 +26,7 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 depende de D5 (d
 ### B. Ingesta (un commit por familia de fuentes)
 | # | Paso | Tests | Hecho cuando |
 |---|---|---|---|
-| 3 🟢 | `syn ingest pubmed`: esearch y esummary en `raw/`; efetch (abstract) solo a la caché; `NCBI_API_KEY` opcional (3 o 10 req/s) | fixtures `pubmed/` | crudos deterministas y límite respetado (test con reloj) |
+| 3 ✅ | `syn ingest pubmed`: esearch y esummary en `raw/`; efetch (abstract) solo a la caché; `NCBI_API_KEY` opcional (3 o 10 req/s) | fixtures `pubmed/` | crudos deterministas y límite respetado (test con reloj) |
 | 4 🟢 | `syn ingest europepmc`: metadatos y licencia OA; texto completo a la caché | `europepmc/` | idem |
 | 5 🟢 | `syn ingest biorxiv` (bio y med): ventana hacia atrás y versiones deduplicadas por DOI | `biorxiv/`, `medrxiv/` | dos versiones → un estudio |
 | 6 🟢 | `syn ingest journals`: 7 RSS + Crossref por ISSN de respaldo, solo metadatos | `journals/` | sin texto de editores (amplía `test_fixtures.py`) |
@@ -88,6 +88,7 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 depende de D5 (d
    - **Rebanada 4 (operación):** 27 → 28 con cron → 29 → 18 y 20 (🔵, cuando haya cupo o GPU).
    - **Tras D5:** pasar la cola de S4 a `src/synaptica/review/` → 14b → 24b.
    - **Cierre:** 30. El reloj de los 14 días arranca cuando estén todas las casillas.
+   - **Excepción (v54–v56):** antes de cerrar la Fase 0 se adelanta, en la rama `fase-1`, todo lo que no necesita a Sofía ni toca GitHub: la rebanada 1 sin el paso 28.
 2. **D2:** copiar y adaptar; se cierra con un ADR breve en el paso 1, el primer commit de la Fase 1, no antes.
 3. **Etiquetas de Sofía:** por el flujo D5, como un tipo más de elemento de su cola (14b).
 4. **Filtro de neurociencia:** primero reglas (MeSH de PubMed o temas de OpenAlex por DOI) y el LLM solo para los que quedan sin dato; se mide contra las etiquetas del 14b.
