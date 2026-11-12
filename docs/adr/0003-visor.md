@@ -7,7 +7,7 @@
 Neuro Atlas enseña el cerebro de la rata y el del humano **lado a lado**: al elegir una región en uno, el otro marca su equivalente (SCOPE §1). El visor tiene que cumplir:
 - funcionar en **GitHub Pages**, sin backend propio, a 0 €;
 - **regiones clicables por ID**, para enlazar con el glosario y con las fichas;
-- **licencias compatibles**: Waxholm (CC BY 4.0), Julich-Brain (CC BY-NC-SA 4.0) y CerebrA nunca se combinan en un mismo dato derivado;
+- **licencias compatibles**: Waxholm (CC BY 4.0), Julich-Brain (CC BY-NC-SA 4.0) y las capas humanas añadidas (CerebrA, CIT168, ICBM) nunca se combinan en un mismo dato derivado;
 - **un peso razonable en móvil**: presupuesto inicial de unos 3 MB por atlas, comprimidos;
 - **los dos atlas a la vez**;
 - tras ver las maquetas, también un **corte 2D sincronizado con el 3D**, con el 3D como vista principal.
@@ -44,11 +44,12 @@ La fluidez es con WebGL **por software**, así que es una cota pesimista.
   - y dos mejoras de Aday: buscador de áreas y área bajo el punto de los tres ejes.
 - **Revisión de Sofía (2026-11-12):**
   - **Al humano le faltaban el cerebelo, el tronco y la médula.** Julich-Brain es citoarquitectónico: tampoco tiene casi nada del caudado, el putamen y el pálido, ni los ventrículos. Se añade **CerebrA** (Manera et al. 2020) como segunda capa, solo donde Julich-Brain no tiene nada ([cobertura](../../spikes/s3/results/cobertura.md)): tronco, cerebelo y vermis, caudado, putamen, pálido, ventrículos y quiasma óptico. Sigue habiendo un solo cerebro humano: los dos archivos se superponen en pantalla y el panel dice de qué atlas viene cada región. Pesa +164 KB.
+  - **Huecos que dejaba CerebrA:** a petición de Aday se añaden dos capas más, con la misma regla y en orden. Una es **CIT168** (Pauli et al. 2018, CC BY 4.0): hipotálamo, núcleos mamilares y habénula. La otra es la **sustancia blanca** del mapa de tejidos de la plantilla ICBM 2009c (aviso de McGill: uso libre conservando el copyright), en una sola región por lado. Las cuatro capas humanas pesan 1,22 MB. En el móvil simulado, la página está lista en 19,3 s, frente a 16,8 s.
   - **Siguen faltando en el humano:**
-    - la médula, porque la plantilla MNI se corta en el bulbo;
-    - la sustancia blanca del cerebro;
-    - el hipotálamo;
-    - el bulbo olfatorio.
+    - la médula: la plantilla MNI se corta en el bulbo; PAM50 la tiene, pero en otra rejilla y sin licencia de datos clara;
+    - el tronco dividido en mesencéfalo, puente y bulbo: la única división en este espacio, la de FreeSurfer, no tiene licencia publicada;
+    - el bulbo olfatorio: no hay ningún atlas MNI que lo tenga;
+    - los tractos de la sustancia blanca: ENIGMA, CC BY 4.0, al backlog.
   - **Tinción real de rata:** no existe un volumen 3D con licencia ([tinción](../../spikes/s3/results/tincion.md)); solo hay cortes registrados a Waxholm.
 
 **C después de los ajustes**, publicada en Pages y medida allí ([7.10](../../spikes/s3/results/maqueta-c.md#paso-710-publicación-en-github-pages-2026-11-12)):
@@ -104,10 +105,12 @@ En la Fase 1, el script de S3 (`spikes/s3/build_assets.py`) pasa a `src/synaptic
   - **Licencias:** cada fuente va en su propia carpeta, con su licencia junto al lienzo:
     - Julich-Brain: CC BY-NC-SA 4.0;
     - BigBrain reducido: CC BY 4.0, aunque BigBrain completo es NC-SA;
-    - CerebrA: CC0 1.0, pero sus etiquetas vienen de Mindboggle-101, que es CC BY-NC-SA 3.0, y se sigue la más estricta.
+    - CerebrA: CC0 1.0, pero sus etiquetas vienen de Mindboggle-101, que es CC BY-NC-SA 3.0, y se sigue la más estricta;
+    - CIT168: CC BY 4.0;
+    - sustancia blanca: aviso de copyright de McGill (ICBM 2009c).
 
-    SYNAPTICA ya acepta NC (CLAUDE.md). Julich-Brain y CerebrA solo se superponen en pantalla.
-  - **Dos plantillas MNI:** CerebrA se hizo sobre la 2009c simétrica y Julich-Brain sobre la asimétrica. Es la misma rejilla, pero en la costura puede haber 1–2 mm de desajuste.
+    SYNAPTICA ya acepta NC (CLAUDE.md). Las capas humanas solo se superponen en pantalla.
+  - **Dos plantillas MNI:** CerebrA se hizo sobre la 2009c simétrica, y Julich-Brain, CIT168 y la sustancia blanca sobre la asimétrica. Es la misma rejilla, pero en la costura puede haber 1–2 mm de desajuste.
   - **Tinción de la rata:** no hay histología 3D con licencia alineada a Waxholm. Se buscó otra vez el 2026-11-12 y solo hay cortes: Blixhavn 2023 (Nissl, CC BY) y Zhao et al. 2024 (plata de cuerpos celulares, como BigBrain, CC BY-NC-SA). Montar un volumen a partir de ellos está en el backlog (SCOPE §10). Mientras tanto, la tinción dibujada lleva el aviso en el propio lienzo.
 
 ## Pruebas

@@ -271,6 +271,66 @@
       ],
       "same_side": true,
       "grade": "pendiente de Sofía"
+    },
+    {
+      "kind": "hypothalamus",
+      "waxholm": {
+        "id": 1034,
+        "acronym": "HY",
+        "name": "Hypothalamus"
+      },
+      "human": [
+        {
+          "atlas": "cit168",
+          "area_id": "CIT168_HYPOTHALAMUS_HTH",
+          "label": 29,
+          "name": "Hypothalamus (HTH)"
+        },
+        {
+          "atlas": "cit168",
+          "area_id": "CIT168_MAMMILLARY_NUCLEUS_MN",
+          "label": 31,
+          "name": "Mammillary nucleus (MN)"
+        }
+      ],
+      "same_side": true,
+      "grade": "pendiente de Sofía"
+    },
+    {
+      "kind": "epithalamus",
+      "waxholm": {
+        "id": 1083,
+        "acronym": "Thal-EPI",
+        "name": "Epithalamus"
+      },
+      "human": [
+        {
+          "atlas": "cit168",
+          "area_id": "CIT168_HABENULAR_NUCLEI_HN",
+          "label": 27,
+          "name": "Habenular nuclei (HN)"
+        }
+      ],
+      "same_side": true,
+      "grade": "pendiente de Sofía"
+    },
+    {
+      "kind": "white matter",
+      "waxholm": {
+        "id": 1001,
+        "acronym": "wmt",
+        "name": "White matter"
+      },
+      "human": [
+        {
+          "atlas": "icbm_wm",
+          "area_id": "ICBM_CEREBRAL_WHITE_MATTER_NOT_DIVIDED_INTO_TRACTS",
+          "label": 3,
+          "name": "Cerebral white matter (not divided into tracts)"
+        }
+      ],
+      "same_side": true,
+      "grade": "pendiente de Sofía"
     }
   ]
 }

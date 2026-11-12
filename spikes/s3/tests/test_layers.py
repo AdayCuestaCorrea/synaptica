@@ -1,5 +1,6 @@
-"""Sofía's review: CerebrA fills only what Julich-Brain lacks (cerebra.py), and the coverage
-audit counts families (coverage.py). Small synthetic volumes, no atlas files, no network."""
+"""Sofía's review: each human layer fills only what the ones before lack (layers.py), and
+the coverage audit counts families (coverage.py). Small synthetic volumes and the published
+files; no network."""
 
 import json
 
@@ -7,7 +8,7 @@ import pytest
 
 np = pytest.importorskip("numpy")
 
-import cerebra as cb  # noqa: E402
+import layers as cb  # noqa: E402
 from coverage import by_family, lowest_z  # noqa: E402
 
 from conftest import FIXTURES  # noqa: E402
@@ -104,4 +105,36 @@ def test_published_cerebra_files_are_consistent():
     assert all(r["area_id"].startswith("CEREBRA_") for r in rows[1:])
     pairs = json.loads((site / "equivalencias.json").read_text())["pairs"]
     assert all("human" in p and "julich" not in p for p in pairs)
-    assert {h["atlas"] for p in pairs for h in p["human"]} == {"julich", "cerebra"}
+    assert {h["atlas"] for p in pairs for h in p["human"]} == {
+        "julich",
+        "cerebra",
+        "cit168",
+        "icbm_wm",
+    }
+
+
+def test_cit168_sides_and_names():
+    details = cb.cit168_details("0   Pu\n13  HTH\n")
+    assert [(d["value"], d["side"], d["name"]) for d in details] == [
+        (2, "L", "Putamen (Pu)"), (3, "R", "Putamen (Pu)"),
+        (28, "L", "Hypothalamus (HTH)"), (29, "R", "Hypothalamus (HTH)"),
+    ]  # fmt: skip
+    vol = np.array([[[0, 14]], [[14, 1]]])
+    x = np.array([[[-1.0, -1.0]], [[0.0, 0.0]]])
+    assert cb.by_side(vol, x).tolist() == [[[0, 28]], [[29, 3]]]
+
+
+def test_published_layers_never_overlap():
+    """Each human layer only labels voxels the ones before leave empty."""
+    nib = pytest.importorskip("nibabel")
+    site = FIXTURES.parents[2] / "spikes" / "s3" / "site" / "data"
+    taken = None
+    for name in ("julich", "cerebra", "cit168", "icbm_wm"):
+        v = np.asarray(nib.load(site / name / "labels.nii.gz").dataobj) > 0
+        if taken is not None:
+            assert not np.any(v & taken), name
+            taken |= v
+        else:
+            taken = v
+        lic = json.loads((site / name / "licence.json").read_text())
+        assert lic["licence"] and lic["citation"] is not None

@@ -240,7 +240,9 @@ function title(region) {
   return n.short === n.full ? h("h3", {}, abbr(region)) : h("h3", {}, abbr(region), " · ", n.full);
 }
 
-const ATLAS_NAME = { julich: "Julich-Brain v3.1", cerebra: "CerebrA" };
+const ATLAS_NAME = {
+  julich: "Julich-Brain v3.1", cerebra: "CerebrA", cit168: "CIT168", icbm_wm: "ICBM152 2009c",
+};
 
 function facts(region) {
   const p = h("p", { class: "facts" }, `${P.side[region.side] || P.both} · ${P.id}: `);
@@ -369,9 +371,9 @@ function hex(c) {
 }
 
 class VolumeViewer {
-  constructor(section, atlas, rows, extra = null) {
+  constructor(section, atlas, rows, extras = []) {
     this.atlas = atlas;
-    this.extra = extra; // human: CerebrA's labels, laid under Julich-Brain's (loadData)
+    this.extras = extras; // human: further label layers, laid under Julich-Brain's (loadData)
     this.section = section;
     this.rows = rows;
     this.canvas = section.querySelector("canvas");
@@ -403,15 +405,14 @@ class VolumeViewer {
     await this.nv.loadVolumes([{ url, name: url.split("/").pop() }]);
     this.vol = this.nv.volumes[0];
     const img = this.vol.img;
-    // Sofía's review: where Julich-Brain has no label, CerebrA's (same grid; built so that they
-    // never overlap). Done in memory, on screen: the two files stay apart.
-    if (this.extra) {
-      const ex = await NVImage.loadFromUrl({ url: this.extra.url });
-      if (ex.img.length !== img.length) throw new Error("CerebrA and Julich-Brain grids differ");
-      for (let i = 0; i < img.length; i++) {
-        if (!img[i] && ex.img[i]) img[i] = ex.img[i] + this.extra.from - 1;
-      }
-    }
+    // Sofía's review: where Julich-Brain has no label, the next layer's, and so on (same grid;
+    // built so that they never overlap). Done in memory, on screen: the files stay apart.
+    const layers = await Promise.all(this.extras.map((x) => NVImage.loadFromUrl({ url: x.url })));
+    layers.forEach((ex, k) => {
+      if (ex.img.length !== img.length) throw new Error(`${this.extras[k].name}: other grid`);
+      const from = this.extras[k].from;
+      for (let i = 0; i < img.length; i++) if (!img[i] && ex.img[i]) img[i] = ex.img[i] + from - 1;
+    });
     for (let i = 0; i < img.length; i++) if (img[i]) img[i] += OFFSET;
     this.vol.calMinMax();
     this.coords = await (await fetch(`../data/${this.atlas}/coords.json`)).json();
@@ -1136,8 +1137,8 @@ class VolumeViewer {
           add(`w${a}`, { atlas: "waxholm", side: null, id: a, name: t.name, acronym: t.acronym, path: t.path }, r.index);
         }
       } else {
-        // CerebrA's label value differs per side, so a both-sides entry shows none.
-        const label = r.source === "cerebra" ? null : r.label;
+        // A further layer's label value differs per side, so a both-sides entry shows none.
+        const label = r.source === "julich" ? r.label : null;
         add(`j${r.area_id}`, { atlas: "julich", side: null, id: r.area_id, name: r.name, label, areaId: r.area_id, source: r.source }, r.index);
       }
     }
@@ -1172,11 +1173,16 @@ class VolumeViewer {
 const data = await loadData();
 const viewers = (window.__viewers = {
   waxholm: new VolumeViewer(document.getElementById("waxholm"), "waxholm", data.waxholm.labels.rows),
-  julich: new VolumeViewer(document.getElementById("julich"), "julich", data.julich.labels.rows, data.julich.extra),
+  julich: new VolumeViewer(document.getElementById("julich"), "julich", data.julich.labels.rows, data.julich.extras),
 });
 for (const [atlas, v] of Object.entries(viewers)) {
   renderLicence(v.section.querySelector(".licence"), data[atlas].licence);
-  if (data[atlas].extra) renderLicence(v.section.querySelector(".licence-atlas2"), data[atlas].extra.licence, { colours: false });
+  for (const x of data[atlas].extras || []) {
+    const box = document.createElement("div");
+    box.className = "licence";
+    v.section.querySelector(".licence-layers").append(box);
+    renderLicence(box, x.licence, { colours: false });
+  }
   panelPicked(v.panel, null);
   searchBox(v, v.searchIndex(data[atlas].labels.tree || {}));
   v.onPick = (region, { partner = true, atPoint = false } = {}) => {

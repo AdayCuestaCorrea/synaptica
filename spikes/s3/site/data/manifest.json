@@ -610,7 +610,138 @@
         }
       }
     },
-    "bytes_total": 164336,
+    "bytes_total": 164335,
+    "within_budget": true
+  },
+  "cit168": {
+    "regions_with_side": 6,
+    "bytes_nifti_gz": 76304,
+    "selection": {
+      "min_free": 0.5,
+      "kept": [
+        "Habenular nuclei (HN)",
+        "Hypothalamus (HTH)",
+        "Mammillary nucleus (MN)"
+      ],
+      "left_out": [
+        "Caudate nucleus (Ca)",
+        "Extended amygdala (EXA)",
+        "Globus pallidus, external segment (GPe)",
+        "Globus pallidus, internal segment (GPi)",
+        "Nucleus accumbens (NAC)",
+        "Parabrachial pigmented nucleus (PBP)",
+        "Putamen (Pu)",
+        "Red nucleus (RN)",
+        "Substantia nigra, pars compacta (SNc)",
+        "Substantia nigra, pars reticulata (SNr)",
+        "Subthalamic nucleus (STH)",
+        "Ventral pallidum (VeP)",
+        "Ventral tegmental area (VTA)"
+      ],
+      "structures": {
+        "Habenular nuclei (HN)": {
+          "voxels": 125,
+          "free": 86,
+          "free_fraction": 0.688
+        },
+        "Hypothalamus (HTH)": {
+          "voxels": 2199,
+          "free": 1410,
+          "free_fraction": 0.641
+        },
+        "Mammillary nucleus (MN)": {
+          "voxels": 223,
+          "free": 125,
+          "free_fraction": 0.561
+        },
+        "Extended amygdala (EXA)": {
+          "voxels": 489,
+          "free": 239,
+          "free_fraction": 0.489
+        },
+        "Globus pallidus, internal segment (GPi)": {
+          "voxels": 1257,
+          "free": 256,
+          "free_fraction": 0.204
+        },
+        "Globus pallidus, external segment (GPe)": {
+          "voxels": 2376,
+          "free": 430,
+          "free_fraction": 0.181
+        },
+        "Caudate nucleus (Ca)": {
+          "voxels": 13953,
+          "free": 2054,
+          "free_fraction": 0.147
+        },
+        "Putamen (Pu)": {
+          "voxels": 15585,
+          "free": 2274,
+          "free_fraction": 0.146
+        },
+        "Red nucleus (RN)": {
+          "voxels": 923,
+          "free": 124,
+          "free_fraction": 0.134
+        },
+        "Parabrachial pigmented nucleus (PBP)": {
+          "voxels": 277,
+          "free": 20,
+          "free_fraction": 0.072
+        },
+        "Subthalamic nucleus (STH)": {
+          "voxels": 476,
+          "free": 34,
+          "free_fraction": 0.071
+        },
+        "Nucleus accumbens (NAC)": {
+          "voxels": 1179,
+          "free": 44,
+          "free_fraction": 0.037
+        },
+        "Ventral tegmental area (VTA)": {
+          "voxels": 86,
+          "free": 3,
+          "free_fraction": 0.035
+        },
+        "Substantia nigra, pars reticulata (SNr)": {
+          "voxels": 874,
+          "free": 24,
+          "free_fraction": 0.027
+        },
+        "Ventral pallidum (VeP)": {
+          "voxels": 281,
+          "free": 2,
+          "free_fraction": 0.007
+        },
+        "Substantia nigra, pars compacta (SNc)": {
+          "voxels": 374,
+          "free": 2,
+          "free_fraction": 0.005
+        }
+      }
+    },
+    "bytes_total": 78901,
+    "within_budget": true
+  },
+  "icbm_wm": {
+    "regions_with_side": 2,
+    "bytes_nifti_gz": 290864,
+    "selection": {
+      "min_free": 0.5,
+      "kept": [
+        "Cerebral white matter (not divided into tracts)"
+      ],
+      "left_out": [],
+      "structures": {
+        "Cerebral white matter (not divided into tracts)": {
+          "voxels": 707205,
+          "free": 502017,
+          "free_fraction": 0.71
+        }
+      }
+    },
+    "bytes_total": 292912,
     "within_budget": true
   },
   "files_bytes": {
@@ -618,8 +749,14 @@
     "bigbrain/stain.nii.gz": 1614939,
     "cerebra/labels.json": 6339,
     "cerebra/labels.nii.gz": 156548,
-    "cerebra/licence.json": 1449,
-    "equivalencias.json": 7145,
+    "cerebra/licence.json": 1448,
+    "cit168/labels.json": 1683,
+    "cit168/labels.nii.gz": 76304,
+    "cit168/licence.json": 914,
+    "equivalencias.json": 8564,
+    "icbm_wm/labels.json": 829,
+    "icbm_wm/labels.nii.gz": 290864,
+    "icbm_wm/licence.json": 1219,
     "julich/coords.json": 363,
     "julich/labels.json": 145078,
     "julich/labels.nii.gz": 539219,

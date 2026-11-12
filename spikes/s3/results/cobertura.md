@@ -18,7 +18,7 @@ El visor solo dibuja lo que tiene etiqueta, así que esas partes no se veían.
 
 - **Qué es CerebrA:** Manera et al. 2020. Son las etiquetas de Mindboggle-101 registradas al MNI-ICBM2009c y corregidas a mano.
 - **Rejilla:** idéntica a la de Julich-Brain y BigBrain (193 × 229 × 193 a 1 mm, mismo origen), así que no hay que remuestrear.
-- **Regla, medida y no elegida a mano** (`cerebra.py`): se queda una estructura de CerebrA si al menos la mitad de sus vóxeles no tienen etiqueta de Julich-Brain. Y se quedan solo esos vóxeles. Donde los dos atlas tienen algo, gana Julich-Brain, y un vóxel nunca pertenece a dos regiones.
+- **Regla, medida y no elegida a mano** (`layers.py`): se queda una estructura de CerebrA si al menos la mitad de sus vóxeles no tienen etiqueta de Julich-Brain. Y se quedan solo esos vóxeles. Donde los dos atlas tienen algo, gana Julich-Brain, y un vóxel nunca pertenece a dos regiones.
 - **Entran 13 estructuras:**
   - tronco del encéfalo;
   - sustancia gris y sustancia blanca del cerebelo;
@@ -36,41 +36,61 @@ El visor solo dibuja lo que tiene etiqueta, así que esas partes no se veían.
 - **Aproximación:** CerebrA se hizo sobre la plantilla MNI 2009c simétrica y Julich-Brain sobre la asimétrica. Es el mismo espacio, pero no exactamente el mismo cerebro promedio. En la costura entre los dos puede haber 1–2 mm de desajuste.
 - **Peso:** +164 KB. En móvil emulado (Slow 4G, CPU ×4) la página tarda 17,2 s en estar lista, frente a 16,8 s antes (`measure-c-gzip-cerebra.json`). No se usan otros dominios.
 
-## Tabla por familia (después de añadir CerebrA)
+## Segunda ronda: CIT168 y la sustancia blanca (Aday, 2026-11-12)
+
+Aday pidió buscar otro atlas para los huecos que dejaba CerebrA. La misma regla se aplica por capas, en este orden: Julich-Brain, después CerebrA, después CIT168 y por último la sustancia blanca. Cada capa solo etiqueta lo que dejan vacío las anteriores. Un test comprueba con los archivos publicados que nunca se solapan.
+
+- **CIT168** (Pauli, Nili y Tyszka 2018; OSF jkzwp; **CC BY 4.0**):
+  - es un atlas de núcleos subcorticales en el MNI 2009c asimétrico, con la misma rejilla que Julich-Brain;
+  - entran el hipotálamo (64 % libre), los núcleos mamilares (56 %) y la habénula (69 %);
+  - el resto de sus 16 núcleos ya lo cubren Julich-Brain o CerebrA;
+  - no distingue lados, así que se separan por la línea media (x = 0).
+- **Sustancia blanca del cerebro:** es el mapa de tejidos de la propia plantilla ICBM 2009c asimétrica. Se toman los vóxeles donde la sustancia blanca es el tejido más probable (≥ 0,5).
+  - **Licencia:** el aviso de McGill permite usar, copiar, modificar y distribuir siempre que se conserve el aviso de copyright; se muestra en el pie.
+  - Es una sola región por lado, sin dividir en tractos. Los tractos existen con licencia CC BY 4.0: el atlas ENIGMA de 65 haces, sacado de HCP-1065. Pero son fibras de tractografía (525 MB) en la plantilla 2009a, y convertirlas en etiquetas por vóxel exige decidir qué haz gana donde se cruzan. Queda en el backlog.
+- **Peso de las cuatro capas humanas:** 1,22 MB comprimidos (Julich-Brain 0,69, CerebrA 0,16, CIT168 0,08 y sustancia blanca 0,29), dentro de los 3 MB. Con todo, en el móvil simulado:
+  - la descarga pasa de 1,96 a 2,49 MB;
+  - la página tarda en estar lista 19,3 s en vez de 16,8 s (`measure-c-gzip-capas.json`);
+  - no se usan otros dominios.
+
+  La sustancia blanca es la capa que más pesa.
+
+## Tabla por familia (con las cuatro capas)
 
 Entre paréntesis, el número de regiones sin contar el lado.
 
-| Familia | Rata (Waxholm) | Humano, Julich-Brain | Humano, CerebrA |
+| Familia | Rata (Waxholm) | Humano | De qué atlas |
 |---|---|---|---|
-| Corteza | sí (47) | sí (134 + 7 GapMaps) | — |
-| Hipocampo | sí (6) | sí (8) | — |
-| Amígdala | sí (3) | sí (7) | — |
-| Ganglios basales | sí (12) | parcial (10: estriado ventral, prosencéfalo basal…) | **sí** (caudado, putamen, pálido) |
-| Tálamo y subtálamo | sí (61) | sí (33) | — |
-| Hipotálamo | sí (1, sin dividir) | **no** | no (dentro del diencéfalo ventral, que se queda fuera) |
-| Mesencéfalo | sí (13) | parcial (sustancia negra, núcleo rojo) | sí, dentro de «Brainstem» |
-| Rombencéfalo: cerebelo, puente y bulbo | sí (22) | solo los 4 núcleos del cerebelo | **sí** (cerebelo y vermis; el tronco es una sola región) |
-| Sustancia blanca | sí (45 tractos) | **no** | solo la del cerebelo y el quiasma |
-| Ventrículos | sí (3) | **no** | **sí** (3) |
-| Bulbo olfatorio | sí (5) | **no** | no |
-| Médula espinal | sí (principio) | **no** | no |
-| Oído interno y nervios (cóclea, nervios coclear y vestibular) | sí | no | no |
+| Corteza | sí (47) | sí (134 + 7 GapMaps) | Julich-Brain |
+| Hipocampo | sí (6) | sí (8) | Julich-Brain |
+| Amígdala | sí (3) | sí (7) | Julich-Brain |
+| Ganglios basales | sí (12) | sí (13) | Julich-Brain y CerebrA (caudado, putamen, pálido) |
+| Tálamo, subtálamo y epitálamo | sí (61) | sí (34) | Julich-Brain y CIT168 (habénula) |
+| Hipotálamo | sí (1, sin dividir) | **sí** (2: hipotálamo y mamilares) | CIT168 |
+| Mesencéfalo | sí (13) | parcial: sustancia negra y núcleo rojo, más el resto dentro de «Brainstem» | Julich-Brain y CerebrA |
+| Rombencéfalo: cerebelo, puente y bulbo | sí (22) | sí, con el tronco en una sola región | Julich-Brain (núcleos del cerebelo) y CerebrA |
+| Sustancia blanca | sí (45 tractos) | **sí, sin tractos** (cerebro, cerebelo y quiasma) | ICBM 2009c y CerebrA |
+| Ventrículos | sí (3) | sí (3) | CerebrA |
+| Bulbo olfatorio | sí (5) | **no** | — |
+| Médula espinal | sí (principio) | **no** | — |
+| Oído interno y nervios | sí | no | — |
 
 ## Lo que sigue faltando en el humano, y por qué
 
-1. **Médula espinal.** La plantilla MNI acaba a z = −78 mm. El tronco de CerebrA llega justo hasta ese borde (`lowest_labelled_z_mm`), así que la médula queda fuera de la imagen. Ningún atlas en este espacio puede tenerla. Haría falta otra plantilla que la incluya (por ejemplo PAM50, de la médula), en otro espacio. No se ha buscado.
-2. **Sustancia blanca del cerebro.** Ni Julich-Brain ni CerebrA etiquetan los tractos: cuerpo calloso, cápsula interna… En 3D no se nota, porque está por dentro. En el corte sale como hueco blanco. La rata sí los tiene.
-3. **Hipotálamo.** Solo existe dentro del «diencéfalo ventral» de CerebrA, que mezcla hipotálamo, subtálamo y otras estructuras, y que la regla deja fuera porque Julich-Brain cubre más de la mitad. Rellenar solo el resto daría una mancha con un nombre que no le corresponde.
-4. **Bulbo olfatorio.** No está en ninguno de los dos atlas humanos.
-5. **Tronco sin dividir.** CerebrA tiene el tronco como una sola región, sin separar mesencéfalo, puente y bulbo. La rata sí los separa.
-
-Rellenar los puntos 2 a 5 exigiría otro atlas más, y cada uno trae su licencia y su costura. Queda a decisión de Aday y de Sofía.
+1. **Médula espinal.** La plantilla MNI acaba a z = −78 mm y el tronco de CerebrA llega justo hasta ese borde, así que la médula queda fuera de la imagen.
+   - La plantilla que la tiene es **PAM50** (De Leener et al. 2018), compatible con el espacio ICBM152 en el tronco. Pero es otra rejilla (0,5 mm) que sigue hacia abajo.
+   - Habría que ampliar la rejilla del humano y coser las dos plantillas.
+   - Su repositorio no declara licencia; el de su software (SCT) es LGPL-3.0. Antes de usarla habría que confirmar la licencia de los datos.
+   - Queda en el backlog.
+2. **Tronco sin dividir** en mesencéfalo, puente y bulbo. La división que existe en este espacio, la de FreeSurfer (Iglesias et al. 2015, en el ICBM 2009c simétrico), **no tiene licencia publicada**, ni en la página ni en el archivo. Sin licencia no se puede usar. Otras opciones (Brainstem Navigator) tienen una licencia propia restrictiva o ya no se pueden descargar.
+3. **Bulbo olfatorio.** No hay ningún atlas en el espacio MNI que lo etiquete. La plantilla apenas lo recoge, porque es muy fino y está bajo el lóbulo frontal.
+4. **Tractos de la sustancia blanca:** ver ENIGMA, arriba.
 
 ## Parejas nuevas (propuestas, con grado «pendiente de Sofía»)
 
-Están en `site/data/equivalencias.json`. Son solo propuestas: si son parejas, y con qué grado, lo decide Sofía.
+Rata ↔ humano. Están en `site/data/equivalencias.json`. Son solo propuestas: si son parejas, y con qué grado, lo decide Sofía.
 
-| Rata | Humano (CerebrA) |
+| Rata | Humano |
 |---|---|
 | Cerebellum (Cb) | sustancia gris y blanca del cerebelo y los tres bloques del vermis |
 | Brainstem, unspecified (BS-u) | Brainstem |
@@ -78,3 +98,6 @@ Están en `site/data/equivalencias.json`. Son solo propuestas: si son parejas, y
 | Pallidum (PAL) | Pallidum |
 | Ventricular system (V) | ventrículos lateral, tercero y cuarto |
 | optic tract and optic chiasm (opt-och) | Optic Chiasm |
+| Hypothalamus (HY) | Hypothalamus (HTH) y Mammillary nucleus (MN), de CIT168 |
+| Epithalamus (Thal-EPI) | Habenular nuclei (HN), de CIT168 |
+| White matter (wmt) | Cerebral white matter, de ICBM 2009c |

@@ -13,7 +13,7 @@ Writes spikes/s3/site/data/:
     julich/   labels.nii.gz, labels.json, licence.json, coords.json
     bigbrain/ stain.nii.gz, licence.json   (step 7.8: real stain for the human, BigBrain)
     cerebra/  labels.nii.gz, labels.json, licence.json   (Sofía's review: what Julich-Brain
-              lacks, from CerebrA: cerebellum, brainstem, striatum, ventricles; cerebra.py)
+              lacks, from CerebrA: cerebellum, brainstem, striatum, ventricles; layers.py)
     equivalencias.json  test pairs between the two atlases, grade "pendiente de Sofía"
     manifest.json       sizes and the Waxholm resolution measurements
 
@@ -38,7 +38,7 @@ import csv
 import json
 from pathlib import Path
 
-import cerebra as cb
+import layers as cb
 import numpy as np
 import requests
 import requests.utils
@@ -107,7 +107,7 @@ BIGBRAIN_URL = "https://osf.io/download/6qmhj/"  # BigBrain-to-ICBM2009asym-nonl
 BIGBRAIN_FILE = CACHE / "bigbrain" / "BigBrain-to-ICBM2009asym-nonlin-1mm.nii"
 MPM_ORIGIN = np.array([-96.0, -132.0, -78.0])  # checked against the MPM in julich()
 
-# Sofía's review (2026-11-12): CerebrA for the parts Julich-Brain lacks (cerebra.py). G-Node GIN,
+# Sofía's review (2026-11-12): CerebrA for the parts Julich-Brain lacks (layers.py). G-Node GIN,
 # DOI 10.12751/g-node.be5e62; same grid as the MPM. Downloaded once to the cache.
 CEREBRA_URL = "https://gin.g-node.org/doi/CerebrA/raw/master/"
 CEREBRA_DIR = CACHE / "cerebra"
@@ -123,6 +123,25 @@ CEREBRA_PAIRS = [
     ("ventricles", 1048, ["Lateral Ventricle", "Third Ventricle", "Fourth Ventricle"]),
     ("optic chiasm", 42, ["Optic Chiasm"]),
 ]  # fmt: skip
+
+# Same review, the gaps CerebrA leaves (results/cobertura.md). CIT168, OSF project jkzwp
+# (CC BY 4.0), deterministic map in MNI152 2009c nonlinear asymmetric: same grid.
+CIT168_URLS = {
+    "CIT168toMNI152-2009c_det.nii.gz": "https://osf.io/download/vak6p/",
+    "labels.txt": "https://osf.io/download/6qrcb/",
+}
+CIT168_DIR = CACHE / "cit168"
+# ICBM 2009c nonlinear asymmetric template: its tissue probability maps give the white matter
+# no atlas labels (McGill permission notice: free use with the copyright notice).
+ICBM_URL = "https://www.bic.mni.mcgill.ca/~vfonov/icbm/2009/mni_icbm152_nlin_asym_09c_nifti.zip"
+ICBM_ZIP = CACHE / "icbm2009c" / "mni_icbm152_nlin_asym_09c_nifti.zip"
+ICBM_WM_MIN = 0.5  # white matter probability, and higher than grey matter and CSF
+ICBM_WM_NAME = "Cerebral white matter (not divided into tracts)"
+LAYER_PAIRS = [
+    ("hypothalamus", 1034, "cit168", ["Hypothalamus (HTH)", "Mammillary nucleus (MN)"]),
+    ("epithalamus", 1083, "cit168", ["Habenular nuclei (HN)"]),
+    ("white matter", 1001, "icbm_wm", [ICBM_WM_NAME]),
+]
 
 LICENCES = {
     "bigbrain": {
@@ -173,9 +192,54 @@ LICENCES = {
         ),
         "derived": (
             "Only the structures with at least half of their voxels outside Julich-Brain, and only "
-            "those voxels (cerebra.py); compact indices per structure and side; centred like the "
+            "those voxels (layers.py); compact indices per structure and side; centred like the "
             "Julich-Brain label volume (same grid). Changes made by SYNAPTICA. Not combined with "
             "any Julich-Brain file: the viewer only shows one under the other."
+        ),
+    },
+    "cit168": {
+        "atlas": "CIT168 subcortical atlas (Reinforcement Learning Atlas), deterministic map in "
+        "MNI152 2009c nonlinear asymmetric",
+        "short": "CIT168",
+        "version": "v1.1.0",
+        "licence": "CC BY 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "OSF project jkzwp, CIT168toMNI152-2009c_det.nii.gz and labels.txt",
+        "source_url": "https://osf.io/jkzwp/",
+        "citation": (
+            "Pauli W. M., Nili A. N., Tyszka J. M. 2018, A high-resolution probabilistic in vivo "
+            "atlas of human subcortical brain nuclei, Scientific Data 5:180063, "
+            "https://doi.org/10.1038/sdata.2018.63"
+        ),
+        "derived": (
+            "Split into left and right at the midline; only the structures with at least half "
+            "of their voxels outside Julich-Brain and CerebrA, and only those voxels (layers.py); "
+            "compact indices; centred like the Julich-Brain label volume (same grid). Changes "
+            "made by SYNAPTICA. Not combined with any other atlas file."
+        ),
+    },
+    "icbm_wm": {
+        "atlas": "ICBM 2009c nonlinear asymmetric template, white matter probability map",
+        "short": "ICBM152 2009c",
+        "version": "2009c nonlinear asymmetric, 1 mm",
+        "licence": "Copyright (C) 1993-2004 Louis Collins, McConnell Brain Imaging Centre, "
+        "Montreal Neurological Institute, McGill University (free use with this notice)",
+        "licence_url": "https://nist.mni.mcgill.ca/icbm-152-nonlinear-atlases-2009/",
+        "licence_note": (
+            "COPYING of the template: permission to use, copy, modify, and distribute for any "
+            "purpose and without fee, provided that the copyright notice appears in all copies."
+        ),
+        "source": "mni_icbm152_nlin_asym_09c_nifti.zip, mni_icbm152_wm_tal_nlin_asym_09c.nii",
+        "source_url": "https://nist.mni.mcgill.ca/icbm-152-nonlinear-atlases-2009/",
+        "citation": (
+            "Fonov V. et al. 2011, Unbiased average age-appropriate atlases for pediatric "
+            "studies, NeuroImage 54:313-327, https://doi.org/10.1016/j.neuroimage.2010.07.033"
+        ),
+        "derived": (
+            "Voxels where white matter is the most probable tissue (and at least "
+            f"{ICBM_WM_MIN}), outside every other human layer; split into left and right at the "
+            "midline; centred like the Julich-Brain label volume (same grid). It is a tissue "
+            "map, not tracts. Changes made by SYNAPTICA."
         ),
     },
     "waxholm": {
@@ -676,7 +740,7 @@ def bigbrain() -> dict:
 
 
 def cerebra() -> dict:
-    """Sofía's review: CerebrA where Julich-Brain has nothing (cerebra.py), in its own folder.
+    """Sofía's review: CerebrA where Julich-Brain has nothing (layers.py), in its own folder.
 
     Reads the Julich-Brain label volume written by julich() (same grid, centred) to know which
     voxels are free. The CerebrA symmetric template and the asymmetric one of Julich-Brain are
@@ -724,6 +788,100 @@ def cerebra() -> dict:
     return {"regions_with_side": len(rows) - 1, "bytes_nifti_gz": size, "selection": report}
 
 
+def write_layer(name: str, compact: np.ndarray, rows: list[dict], origin: np.ndarray,
+                report: dict) -> dict:  # fmt: skip
+    """One human layer in its own folder: labels.nii.gz, labels.json and licence.json."""
+    out = OUT / name
+    out.mkdir(parents=True, exist_ok=True)
+    size = save_nifti(out / "labels.nii.gz", compact, 1.0, origin)
+    add_centroids(rows, compact, 1.0, origin)
+    calm = calm_colours(list({r["area_id"]: (r["family"], [r["name"]], r["area_id"])
+                              for r in rows[1:]}.values()))  # fmt: skip
+    for r in rows[1:]:
+        r["color"] = None  # these layers ship no colours of their own
+        r["group"], r["color_calm"] = calm[r["area_id"]]
+        del r["family"]
+    labels = {
+        "atlas": name,
+        "value": "voxel value points to rows[index]; id and label are the source label value "
+        "(one per side), area_id the structure on both sides",
+        "rows": rows,
+    }
+    (out / "labels.json").write_text(json.dumps(labels, ensure_ascii=False) + "\n")
+    write_json(out / "licence.json", LICENCES[name])
+    return {"regions_with_side": len(rows) - 1, "bytes_nifti_gz": size, "selection": report}
+
+
+def taken_by(*names: str) -> tuple[np.ndarray, np.ndarray]:
+    """Voxels with a label in any of these human layers, and the centred origin of the grid."""
+    import nibabel as nib
+
+    imgs = [nib.load(OUT / n / "labels.nii.gz") for n in names]
+    taken = np.zeros(imgs[0].shape, dtype=bool)
+    for img in imgs:
+        taken |= np.asarray(img.dataobj) > 0
+    return taken, imgs[0].affine[:3, 3]
+
+
+def mni_x(shape: tuple[int, ...]) -> np.ndarray:
+    """MNI x (mm) of every voxel of the MPM grid."""
+    return MPM_ORIGIN[0] + np.indices(shape)[0]
+
+
+def cit168() -> dict:
+    """CIT168 where Julich-Brain and CerebrA leave nothing (hypothalamus and neighbours)."""
+    import nibabel as nib
+
+    for name, url in CIT168_URLS.items():
+        path = CIT168_DIR / name
+        if not path.exists():
+            path.parent.mkdir(parents=True, exist_ok=True)
+            r = requests.get(url, timeout=300)
+            r.raise_for_status()
+            path.write_bytes(r.content)
+    img = nib.load(CIT168_DIR / "CIT168toMNI152-2009c_det.nii.gz")
+    if img.shape != (193, 229, 193) or not np.allclose(img.affine[:3, 3], MPM_ORIGIN):
+        raise SystemExit(f"unexpected CIT168 grid: {img.shape}\n{img.affine}")
+    vol = cb.by_side(np.rint(np.asarray(img.dataobj)).astype(np.int64), mni_x(img.shape))
+    details = cb.cit168_details((CIT168_DIR / "labels.txt").read_text())
+    taken, origin = taken_by("julich", "cerebra")
+    compact, rows, report = cb.select(vol, taken, details, family=cb.CIT168_FAMILY,
+                                      prefix="CIT168_")  # fmt: skip
+    return write_layer("cit168", compact, rows, origin, report)
+
+
+def icbm_wm() -> dict:
+    """White matter of the ICBM 2009c template where no other human layer has a label."""
+    import zipfile
+
+    import nibabel as nib
+
+    if not ICBM_ZIP.exists():
+        ICBM_ZIP.parent.mkdir(parents=True, exist_ok=True)
+        r = requests.get(ICBM_URL, timeout=600)
+        r.raise_for_status()
+        ICBM_ZIP.write_bytes(r.content)
+    z = zipfile.ZipFile(ICBM_ZIP)
+
+    def tissue(t: str) -> nib.Nifti1Image:
+        return nib.Nifti1Image.from_bytes(
+            z.read(f"mni_icbm152_nlin_asym_09c/mni_icbm152_{t}_tal_nlin_asym_09c.nii")
+        )
+
+    wm_img = tissue("wm")
+    if wm_img.shape != (193, 229, 193) or not np.allclose(wm_img.affine[:3, 3], MPM_ORIGIN):
+        raise SystemExit(f"unexpected ICBM grid: {wm_img.shape}\n{wm_img.affine}")
+    wm, gm, csf = (np.asarray(x.dataobj) for x in (wm_img, tissue("gm"), tissue("csf")))
+    mask = (wm >= ICBM_WM_MIN) & (wm >= gm) & (wm >= csf)
+    vol = cb.by_side(mask.astype(np.int64), mni_x(wm.shape))
+    details = [{"value": 2, "name": ICBM_WM_NAME, "side": "L", "abbr": "WM"},
+               {"value": 3, "name": ICBM_WM_NAME, "side": "R", "abbr": "WM"}]  # fmt: skip
+    taken, origin = taken_by("julich", "cerebra", "cit168")
+    compact, rows, report = cb.select(vol, taken, details, family={"WM": "white_matter"},
+                                      prefix="ICBM_")  # fmt: skip
+    return write_layer("icbm_wm", compact, rows, origin, report)
+
+
 def equivalences() -> dict:
     """Test pairs between the atlases: IDs and names only. The grade is Sofía's to give.
 
@@ -732,12 +890,16 @@ def equivalences() -> dict:
     with BG_TERMINOLOGY.open() as f:
         terms = {int(r["identifier"]): r for r in csv.DictReader(f)}
     jl = json.loads((OUT / "julich" / "labels.json").read_text())["rows"][1:]
-    cl = json.loads((OUT / "cerebra" / "labels.json").read_text())["rows"][1:]
-    areas = {("julich", r["name"]): r for r in jl} | {("cerebra", r["name"]): r for r in cl}
+    areas = {("julich", r["name"]): r for r in jl}
+    for layer in ("cerebra", "cit168", "icbm_wm"):
+        rows = json.loads((OUT / layer / "labels.json").read_text())["rows"][1:]
+        areas |= {(layer, r["name"]): r for r in rows}
     pairs = []
-    todo = [(k, w, "julich", n) for k, w, n in PAIRS] + [
-        (k, w, "cerebra", n) for k, w, n in CEREBRA_PAIRS
-    ]
+    todo = (
+        [(k, w, "julich", n) for k, w, n in PAIRS]
+        + [(k, w, "cerebra", n) for k, w, n in CEREBRA_PAIRS]
+        + [(k, w, a, n) for k, w, a, n in LAYER_PAIRS]
+    )
     for kind, wid, atlas, names in todo:
         human = [
             {"atlas": atlas, "area_id": areas[atlas, n]["area_id"],
@@ -776,6 +938,8 @@ def main() -> None:
         "julich": julich(),
         "bigbrain": bigbrain(),
         "cerebra": cerebra(),  # after julich(): it reads the Julich-Brain labels
+        "cit168": cit168(),  # after cerebra(): each layer fills what the ones before leave
+        "icbm_wm": icbm_wm(),
     }
     eq = equivalences()
     (OUT / "equivalencias.json").write_text(json.dumps(eq, indent=2, ensure_ascii=False) + "\n")
@@ -785,7 +949,7 @@ def main() -> None:
         if p.is_file() and p.name != "manifest.json"
     }
     report["files_bytes"] = files
-    for atlas in ("waxholm", "julich", "bigbrain", "cerebra"):
+    for atlas in ("waxholm", "julich", "bigbrain", "cerebra", "cit168", "icbm_wm"):
         total = sum(v for k, v in files.items() if k.startswith(atlas + "/"))
         report[atlas]["bytes_total"] = total
         report[atlas]["within_budget"] = total <= BUDGET_BYTES

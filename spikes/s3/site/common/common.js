@@ -138,31 +138,34 @@ async function json(url) {
   return r.json();
 }
 
+// Human layers, in order (Sofía's review): each one only labels what the ones before leave empty
+// (spikes/s3/layers.py). Julich-Brain is the base.
+const HUMAN_LAYERS = ["cerebra", "cit168", "icbm_wm"];
+
 export async function loadData() {
-  const [wl, wlic, jl, jlic, cl, clic, eq] = await Promise.all([
+  const [wl, wlic, jl, jlic, eq, ...layers] = await Promise.all([
     json("../data/waxholm/labels.json"),
     json("../data/waxholm/licence.json"),
     json("../data/julich/labels.json"),
     json("../data/julich/licence.json"),
-    json("../data/cerebra/labels.json"),
-    json("../data/cerebra/licence.json"),
     json("../data/equivalencias.json"),
+    ...HUMAN_LAYERS.map((n) =>
+      Promise.all([json(`../data/${n}/labels.json`), json(`../data/${n}/licence.json`)])),
   ]);
-  // Sofía's review: one human brain, two label files. CerebrA's rows go after Julich-Brain's, so
-  // the viewer reads CerebrA value k as row k + extraFrom - 1 (c.js, VolumeViewer.load). The
-  // files stay apart (licences); they only meet here, on screen.
-  const extraFrom = jl.rows.length;
-  const rows = [
-    ...jl.rows.map((r) => ({ ...r, source: r.index ? "julich" : null })),
-    ...cl.rows.slice(1).map((r) => ({ ...r, index: r.index + extraFrom - 1, source: "cerebra" })),
-  ];
+  // One human brain, several label files: the rows of each layer go after the ones before, so
+  // the viewer reads value k of a layer as row k + from - 1 (c.js, VolumeViewer.load). The files
+  // stay apart (licences); they only meet here, on screen.
+  const rows = jl.rows.map((r) => ({ ...r, source: r.index ? "julich" : null }));
+  const extras = [];
+  HUMAN_LAYERS.forEach((name, i) => {
+    const [labels, licence] = layers[i];
+    const from = rows.length;
+    rows.push(...labels.rows.slice(1).map((r) => ({ ...r, index: r.index + from - 1, source: name })));
+    extras.push({ name, url: `../data/${name}/labels.nii.gz`, from, licence });
+  });
   return {
     waxholm: { labels: wl, licence: wlic },
-    julich: {
-      labels: { ...jl, rows },
-      licence: jlic,
-      extra: { url: "../data/cerebra/labels.nii.gz", from: extraFrom, licence: clic },
-    },
+    julich: { labels: { ...jl, rows }, licence: jlic, extras },
     pairs: eq.pairs,
   };
 }

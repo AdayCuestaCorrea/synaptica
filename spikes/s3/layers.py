@@ -1,4 +1,9 @@
-"""Spike S3, Sofía's review of the viewer (2026-11-12): CerebrA fills what Julich-Brain lacks.
+"""Spike S3, Sofía's review of the viewer (2026-11-12): the human brain in layers.
+
+Julich-Brain first; then each further atlas fills only what the ones before it leave empty:
+CerebrA, then CIT168 (hypothalamus, mammillary nuclei, habenula) and last the white matter of
+the ICBM 2009c template. All four share one grid. The CerebrA notes below were the first layer;
+the rule is the same for every layer.
 
 Julich-Brain v3.1 maps the cortex and some deep structures. It has no cerebellar cortex, no
 pons or medulla, and barely any caudate, putamen or pallidum (results/cobertura.md). CerebrA
@@ -64,12 +69,53 @@ def read_details(path: Path) -> list[dict]:
     return out
 
 
-def area_id(name: str) -> str:
-    return "CEREBRA_" + re.sub(r"[^A-Z0-9]+", "_", name.upper()).strip("_")
+def area_id(name: str, prefix: str = "CEREBRA_") -> str:
+    return prefix + re.sub(r"[^A-Z0-9]+", "_", name.upper()).strip("_")
+
+
+# CIT168 (Pauli, Nili and Tyszka 2018, Scientific Data 5:180063): its labels.txt gives the
+# abbreviations; the full names are the ones of that paper. Value in the deterministic map =
+# position in labels.txt + 1. The atlas has no sides: they are split at the midline (x = 0).
+CIT168_NAMES = {
+    "Pu": "Putamen", "Ca": "Caudate nucleus", "NAC": "Nucleus accumbens",
+    "EXA": "Extended amygdala", "GPe": "Globus pallidus, external segment",
+    "GPi": "Globus pallidus, internal segment", "SNc": "Substantia nigra, pars compacta",
+    "RN": "Red nucleus", "SNr": "Substantia nigra, pars reticulata",
+    "PBP": "Parabrachial pigmented nucleus", "VTA": "Ventral tegmental area",
+    "VeP": "Ventral pallidum", "HN": "Habenular nuclei", "HTH": "Hypothalamus",
+    "MN": "Mammillary nucleus", "STH": "Subthalamic nucleus",
+}  # fmt: skip
+CIT168_FAMILY = {"HTH": "hypothalamus", "MN": "hypothalamus", "HN": "thalamus",
+                 "EXA": "amygdala", "VeP": "basal_ganglia", "NAC": "basal_ganglia",
+                 "Pu": "basal_ganglia", "Ca": "basal_ganglia", "GPe": "basal_ganglia",
+                 "GPi": "basal_ganglia", "SNc": "midbrain", "SNr": "midbrain", "RN": "midbrain",
+                 "PBP": "midbrain", "VTA": "midbrain", "STH": "thalamus"}  # fmt: skip
+
+
+def cit168_details(labels_txt: str) -> list[dict]:
+    """Details of CIT168 with sides: value 2k is structure k on the left, 2k + 1 on the right
+    (see by_side)."""
+    out = []
+    for line in labels_txt.splitlines():
+        if not line.strip():
+            continue
+        idx, abbr = line.split()[:2]
+        k = int(idx) + 1
+        name = f"{CIT168_NAMES[abbr]} ({abbr})"
+        out.append({"value": 2 * k, "name": name, "side": "L", "abbr": abbr})
+        out.append({"value": 2 * k + 1, "name": name, "side": "R", "abbr": abbr})
+    return out
+
+
+def by_side(vol: np.ndarray, x_mm: np.ndarray) -> np.ndarray:
+    """A label volume without sides -> value 2k (left, x < 0) or 2k + 1 (right), 0 stays 0."""
+    right = (x_mm >= 0).astype(np.int64)
+    return np.where(vol > 0, 2 * vol + right, 0)
 
 
 def free_fractions(cv: np.ndarray, jv: np.ndarray, details: list[dict]) -> dict[str, dict]:
-    """Per structure (both sides): voxels in CerebrA and the share without a Julich-Brain label."""
+    """Per structure (both sides): voxels in this layer and the share left empty by the layers
+    before it (jv: any non-zero voxel is taken)."""
     counts = np.bincount(cv.ravel(), minlength=max(d["value"] for d in details) + 1)
     free = np.bincount(cv[jv == 0].ravel(), minlength=len(counts))
     out: dict[str, dict] = {}
@@ -83,7 +129,12 @@ def free_fractions(cv: np.ndarray, jv: np.ndarray, details: list[dict]) -> dict[
 
 
 def select(
-    cv: np.ndarray, jv: np.ndarray, details: list[dict], min_free: float = MIN_FREE
+    cv: np.ndarray,
+    jv: np.ndarray,
+    details: list[dict],
+    min_free: float = MIN_FREE,
+    family: dict[str, str] | None = None,
+    prefix: str = "CEREBRA_",
 ) -> tuple[np.ndarray, list[dict], dict]:
     """Compact label volume (1..N, 0 = nothing) of the kept structures, where Julich has none.
 
@@ -113,8 +164,10 @@ def select(
                 "side": d["side"],
                 "label": d["value"],
                 "name": d["name"],
-                "area_id": area_id(d["name"]),
-                "family": FAMILY.get(d["name"], "other"),
+                "area_id": area_id(d["name"], prefix),
+                "family": (FAMILY if family is None else family).get(
+                    d.get("abbr", d["name"]), "other"
+                ),
             }
         )
     compact = np.where(jv == 0, lut[cv], 0).astype(np.uint16)
