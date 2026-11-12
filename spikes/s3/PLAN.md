@@ -86,7 +86,7 @@ Sofía propone que el contenido de la Fase 2 empiece por las estructuras de la s
      - **M1, buscador de áreas:** uno por cerebro; cada resultado resalta los dos hemisferios. *Hecho* (`results/maqueta-c.md`, mejora M1).
      - **M2, el punto marca el área:** el área bajo el punto de los tres ejes sale en el panel en vivo, y su pareja en el otro cerebro al soltar. *Hecho* (`results/maqueta-c.md`, mejora M2).
      - **Estudio de UX y UI:** en la Fase 2 (decisión de Aday). Aquí solo [notas](results/notas-ux.md).
-   9. **Móvil.** Resolución del 3D limitada en móviles, nuevas mediciones y prueba en un móvil real.
+   9. ✅ **Móvil.** Resolución del 3D limitada en móviles, nuevas mediciones y prueba en un móvil real ([resultados](results/maqueta-c.md#paso-79-móvil-2026-11-12)).
    10. **Publicación.**
        - En GitHub Pages, en `/synaptica/spikes/s3/`. **Se confirma con Aday antes de tocar Pages.**
        - Además, como artifact de claude.ai para que Sofía lo vea cómodamente.

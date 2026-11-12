@@ -248,3 +248,31 @@ Hecho el 2026-11-11, solo en C. Decisión de Aday: el panel se actualiza en vivo
   - el clic en el corte sigue igual (DG y su pareja);
   - sin errores en la consola.
 
+
+## Paso 7.9: móvil (2026-11-12)
+
+**Resolución del 3D limitada en pantallas táctiles.** El 3D de Niivue lanza un rayo por píxel, así que su coste crece con la resolución del lienzo. Mismo método que el paso 6: móvil simulado de 390 × 844 con DPR 3, «Slow 4G», CPU ×4, WebGL por software y 2 ejecuciones (`measure-c-gzip-dpr2.json`, `measure-c-gzip-dpr1.5.json`, `measure-c-gzip-movil.json`).
+
+| Resolución del 3D | Fluidez al girar (CPU ×4) | Píxeles frente a DPR 3 |
+|---|---|---|
+| DPR 3 (la del móvil; antes del paso) | 3 fps | 100 % |
+| DPR 2 | 6 fps | 44 % |
+| **DPR 1,5 (el tope elegido)** | **9–10 fps** | 25 % |
+| DPR 1 | 22 fps | 11 % |
+
+- **Qué se hace:** con `pointer: coarse` (pantalla táctil), el 3D se pinta como mucho a DPR 1,5. El escritorio sigue con su resolución, y `?dpr=N` la fuerza para comparar.
+- **Por qué 1,5 y no 2:** en el móvil real, Aday no notó diferencia de nitidez y le pareció algo más fluido. Además deja margen para móviles peores.
+- **Lo demás no cambia:** 1,96 MB, unos 16 s hasta poder usarla y todas las peticiones a la propia web.
+
+**Prueba en un móvil real** (Aday: Samsung Galaxy S23 Ultra, Chrome, por la wifi de casa contra un servidor temporal en el portátil):
+- **Brave en el móvil no llegó a conectar** (`ERR_TOO_MANY_RETRIES`). No llegó ni una petición al portátil, y Chrome en el mismo móvil sí cargaba, así que es cosa de Brave con las direcciones de la red local. Publicada en Pages no debería pasar; se comprueba en el 7.10.
+- **Los deslizadores iban a tirones.** Con la M2, cada vez que el punto cambiaba de área se rehacía el resaltado (`apply()`, unos 50 ms en el escritorio y varias veces más en el móvil).
+  - Ahora, al arrastrar, el panel cambia en vivo, y el resaltado espera a que el dedo se pare 150 ms o lo suelte. La pareja del otro cerebro, al soltar, como antes (decisión de Aday).
+  - En el escritorio, al pasar por 12 áreas el resaltado se rehizo 3 veces en vez de 12.
+- **Toques que no contaban y giros que «reiniciaban» el cerebro boca abajo.** La causa es la misma:
+  - Niivue gira según la diferencia con la última posición del puntero que guardó. Al tocar, solo la actualiza en una tarea posterior al `touchstart`, y en un doble toque (dos toques en menos de 500 ms), nunca.
+  - Si el primer movimiento llega antes, el cerebro gira todo el salto desde el gesto anterior. Reproducido en el simulador con el primer movimiento pegado al toque: la inclinación saltaba de −78° a +117°. Con el arreglo, gira solo lo que se mueve el dedo.
+  - En un doble toque, la búsqueda en profundidad leía esa posición vieja, y a menudo caía en el fondo.
+  - **El arreglo:** al tocar (`pointerdown`), la maqueta le da a Niivue la posición del dedo. Además, un toque admite 12 px de temblor (6 con el ratón).
+- Después de los arreglos, Aday: «parece que está todo bien ya».
+- **Giro a propósito, que puede confundir:** al elegir una región en un cerebro, el otro gira para enseñar la pareja de lado (paso 7.4), y si está en el hemisferio derecho, desde el otro lado. Apuntado en las [notas de UX](notas-ux.md).

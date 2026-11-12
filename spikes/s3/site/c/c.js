@@ -12,6 +12,18 @@ const dark = matchMedia("(prefers-color-scheme: dark)").matches;
 const BACK = dark ? [0.106, 0.106, 0.125, 1] : [0.949, 0.945, 0.933, 1];
 // Step 7.3 (Sofía, P2): a true side view, no diagonal. Azimuth 90 looks at the left side.
 const AZIMUTH = 90;
+// Step 7.9: the 3D is a ray cast per pixel, so its cost grows with the canvas resolution. On an
+// emulated phone (software WebGL, CPU x4) spinning went 3 fps at DPR 3, 6 at 2, 10 at 1.5 and 22
+// at 1 (results/maqueta-c.md); on a real phone 1.5 felt a little smoother than 2 and no less sharp
+// (Aday). Touch devices are capped at MOBILE_DPR; desktops keep theirs. ?dpr=N forces a ratio.
+const MOBILE_DPR = 1.5;
+const APPLY_PAUSE = 150; // ms without moving a slider before the highlight is repainted
+function pixelRatio() {
+  const forced = Number(new URLSearchParams(location.search).get("dpr"));
+  if (forced > 0) return forced;
+  const device = window.devicePixelRatio || 1;
+  return matchMedia("(pointer: coarse)").matches ? Math.min(device, MOBILE_DPR) : 0; // 0 = device
+}
 // Niivue 0.69 lifts every value above the scale minimum to at least 2/256 of the colour table
 // (its issue 1139): with ~450 labels, background and the first labels all land on entry 3-4,
 // opaque. So, in this viewer only, labels move up by OFFSET when the volume is loaded: entries
@@ -372,8 +384,7 @@ class VolumeViewer {
       isOrientCube: false,
       clipPlaneColor: [0, 0, 0, 0], // cut without drawing the plane
       logLevel: "error",
-      // ?dpr=1 renders at one pixel per CSS pixel (measured in results/maqueta-c.md); 0 = device.
-      forceDevicePixelRatio: Number(new URLSearchParams(location.search).get("dpr") || 0),
+      forceDevicePixelRatio: pixelRatio(),
     });
   }
 
@@ -413,17 +424,25 @@ class VolumeViewer {
       const box = this.canvas.getBoundingClientRect();
       return { x: e.clientX - box.left, y: e.clientY - box.top };
     };
+    // Step 7.9 (real phone): Niivue keeps the pointer position (nv.mousePos) from mouse moves, and
+    // a finger sends none between gestures. So a tap picked at the end of the previous gesture
+    // (often background: "the tap did not register"), and the first move of a new drag turned by
+    // the whole jump from there (the brain "reset" upside down). The press sets it first.
+    // A finger also wobbles more than a mouse: SLOP CSS px still count as a tap.
+    const SLOP = (e) => (e.pointerType === "mouse" ? 6 : 12);
     this.canvas.addEventListener("pointerdown", (e) => {
-      down = { x: e.clientX, y: e.clientY, t: performance.now() };
+      down = { x: e.clientX, y: e.clientY, t: performance.now(), slop: SLOP(e) };
       this.lastClick = at(e);
+      const dpr = this.nv.uiData.dpr || 1;
+      this.nv.mousePos = [this.lastClick.x * dpr, this.lastClick.y * dpr];
     });
     this.canvas.addEventListener("pointermove", (e) => {
-      if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > 6) this.tag.hidden = true;
+      if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > down.slop) this.tag.hidden = true;
     });
     this.canvas.addEventListener("pointerup", (e) => {
       if (!down) return;
       const quick = performance.now() - down.t < 600;
-      const still = Math.hypot(e.clientX - down.x, e.clientY - down.y) <= 6;
+      const still = Math.hypot(e.clientX - down.x, e.clientY - down.y) <= down.slop;
       down = null;
       if (!quick || !still) return;
       const r = this.canvas.getBoundingClientRect();
@@ -649,7 +668,7 @@ class VolumeViewer {
       name.textContent = F.axes[key];
       range.addEventListener("input", () => {
         this.setPlane(axis, range.value / 1000);
-        this.pickAtPoint({ partner: false }); // M2: live in this brain only
+        this.pickAtPoint({ partner: false, defer: true }); // M2: live in this brain only
       });
       range.addEventListener("change", () => this.pickAtPoint({ partner: true })); // on release
       // Applied on Enter or when the field loses focus, so typing "-3.2" does not jump at "-".
@@ -994,16 +1013,31 @@ class VolumeViewer {
   // Select region index v (0 = none). partner: also tell the other brain (pair, panel, point).
   // While a slider is dragged the other brain waits (partner false) and catches up on release,
   // so the same region is picked again with partner true if it was not passed on yet.
-  pick(v, { partner = true, atPoint = false } = {}) {
+  // defer (step 7.9, slider drags): repainting the highlight (apply) is what stuttered on a real
+  // phone, so while dragging it waits until the finger stops for APPLY_PAUSE ms or lets go; the
+  // panel still follows live.
+  pick(v, { partner = true, atPoint = false, defer = false } = {}) {
     const same = v === (this.selectedIndex || 0);
-    if (same && (!partner || this.passedOn)) return;
     if (!same) {
       this.selectedIndex = v || null;
       this.focus = new Set(v ? [v] : []);
-      this.apply();
-    }
+      if (defer) this.applySoon();
+      else this.applyNow();
+    } else if (!defer && this.applyTimer) this.applyNow();
+    if (same && (!partner || this.passedOn)) return;
     this.passedOn = partner;
     this.onPick(v ? regionFromRow(this.atlas, this.rows[v]) : null, { partner, atPoint });
+  }
+
+  applySoon() {
+    clearTimeout(this.applyTimer);
+    this.applyTimer = setTimeout(() => this.applyNow(), APPLY_PAUSE);
+  }
+
+  applyNow() {
+    clearTimeout(this.applyTimer);
+    this.applyTimer = null;
+    this.apply();
   }
 
   // Improvement M2 (Aday): the point where the three axes meet picks the region there.

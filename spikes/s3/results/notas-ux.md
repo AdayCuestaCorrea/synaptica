@@ -22,6 +22,10 @@ Recogidas el 2026-11-11, al terminar las mejoras M1 y M2. **No son un estudio:**
   - el primer paso al modo Atlas tarda unos 0,4 s en un móvil (cálculo de contornos).
 - **Etiqueta flotante:** el nombre junto al punto solo sale al hacer clic, no con el buscador ni con el punto de los ejes.
 - **Tema oscuro:** el corte de la tinción es claro (portaobjetos) sobre un fondo oscuro.
+- **Móvil (paso 7.9, S23 Ultra):**
+  - el otro cerebro gira solo para enseñar la pareja de lado (7.4). Si lo estabas mirando de frente, parece que «se reinicia», y una pareja del hemisferio derecho se ve desde el otro lado;
+  - los dos cerebros van uno encima del otro: el que gira puede no estar a la vista;
+  - Brave en el móvil no abre direcciones de la red local (probado con Chrome).
 
 ## Lo que diga Sofía (2026-11-12)
 
