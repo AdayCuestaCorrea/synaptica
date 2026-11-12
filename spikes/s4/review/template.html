@@ -37,6 +37,7 @@ header.intro { padding-block: 2.5rem 1.5rem; display: grid; gap: 0.9rem; }
 h1 { font-family: var(--serif); font-weight: 600; font-size: 2rem; line-height: 1.2; margin: 0; text-wrap: balance; }
 h2 { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; line-height: 1.3; margin: 0; text-wrap: balance; }
 h3.group { font: 600 0.8rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; margin: 0.5rem 0 -0.75rem; color: var(--accent); }
+.group-hint { margin-top: -0.75rem; max-width: 65ch; }
 p { margin: 0; max-width: 65ch; }
 .intro ul { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; max-width: 65ch; }
 .bar { position: sticky; top: 0; z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line); }
@@ -69,6 +70,7 @@ details.en div { margin-top: 0.5rem; font-size: 0.95rem; color: var(--muted); di
 .q > span { font-weight: 500; font-size: 0.95rem; }
 .q > span em { font-weight: 400; color: var(--muted); font-style: normal; }
 .opts { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.opts.stacked { flex-direction: column; align-items: flex-start; }
 .opts label, .cands label { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.75rem; border: 1px solid var(--line); border-radius: 6px; cursor: pointer; font-size: 0.95rem; }
 .cands { display: grid; gap: 0.5rem; }
 .cands label { display: flex; align-items: flex-start; }
@@ -102,7 +104,8 @@ footer { color: var(--muted); font-size: 0.85rem; padding-block: 0 3rem; }
   <p id="lead"></p>
   <ul>
     <li>Cada tarjeta es una cosa que revisar. Las marcadas como <strong>obligatorias</strong> no se publican sin tu aprobación.</li>
-    <li>En los textos puedes <strong>aprobar</strong>, <strong>corregir</strong> (cambias el texto tú misma) o <strong>rechazar</strong>.</li>
+    <li>En los textos puedes <strong>aprobar</strong>, <strong>corregir</strong> (cambias el texto tú misma) o <strong>rechazar</strong> (no se publica). Revisas el contenido: de cómo se busca o se publica se encarga el programa.</li>
+    <li>Cada grupo empieza con una línea que explica qué es y dónde sale en la web.</li>
     <li>Lo que dejes sin contestar se queda en la cola para otro día. No pasa nada por no terminar.</li>
     <li>Las notas <strong>se verán en público</strong> junto a tu decisión. Si es un comentario para Aday, mándaselo por WhatsApp.</li>
   </ul>
@@ -146,7 +149,24 @@ footer { color: var(--muted); font-size: 0.85rem; padding-block: 0 3rem; }
 <script>
 const PAGE = /*DATA*/{};
 const STORE = `synaptica-revision-s4-${PAGE.variant}`;
-const GRADES = [["clear", "Clara"], ["partial", "Parcial"], ["disputed", "Discutida"]];
+// The definitions are SYNAPTICA's proposal (2026-11-12): Sofía can change them, and hers go to
+// the web.
+const GRADES = [
+  ["clear", "Clara", "es la misma estructura en las dos especies."],
+  ["partial", "Parcial", "se solapan, pero a un lado le sobra o le falta alguna parte."],
+  ["disputed", "Discutida", "la literatura no se pone de acuerdo."],
+];
+// What each kind of card is, where it ends up and what to look at (added 2026-11-12, when Aday
+// saw that the page took for granted context that neither he nor Sofía had).
+const GROUP_HINTS = {
+  disease: "La ficha de una enfermedad para Neuro Diseases. No se publica hasta que la apruebes.",
+  classics: "Estudios de hace años, muy citados, que salen en el bloque «Clásicos» de Neuro News. El programa los propone por número de citas; tú eliges cuáles se publican esta semana.",
+  equivalence: "Qué región del cerebro humano corresponde a una región de la rata, para la vista lado a lado de Neuro Atlas. Los dos atlas dividen el cerebro de forma distinta: a veces una región de la rata se corresponde con varias áreas humanas. Tu grado y tu nota se verán en la web.",
+  search_terms: "Para traer los estudios nuevos de cada región, el programa busca en PubMed los artículos que mencionan estas palabras.",
+  glossary: "Definiciones cortas del glosario, pensadas para alguien sin formación en neurociencia. Comprueba que son correctas y que se entienden.",
+  news_topic: "Las noticias se agrupan por temas, que el lector usa como filtro. Si ocultas un tema, sus noticias no salen en la web.",
+  news: "Resúmenes que escribió la IA a partir de un estudio (enlace debajo de cada uno) y que ya se pueden publicar. Comprueba que dicen lo mismo que el estudio, sin exagerar, y que el español suena natural. Revisarlos es opcional; si rechazas uno, no se publica.",
+};
 const GROUPS = {
   disease: "Neuro Diseases · obligatoria", classics: "Clásicos de la semana",
   equivalence: "Rata ↔ humano", atlas: "Neuro Atlas", search_terms: "Búsquedas por región",
@@ -179,14 +199,16 @@ const keyOf = (item) => `${item.item_type}/${item.item_id}@${item.content_sha256
 const ans = (item) => (answers[keyOf(item)] = answers[keyOf(item)] || {});
 
 function radios(item, field, options, onChange) {
-  const box = el("div", { class: "opts" });
+  const box = el("div", { class: options.some((o) => o[2]) ? "opts stacked" : "opts" });
   const name = `${keyOf(item)}-${field}`;
-  options.forEach(([value, label], i) => {
+  options.forEach(([value, label, meaning], i) => {
     const id = `${name}-${i}`;
     const input = el("input", { type: "radio", name, id, value });
     if (ans(item)[field] === value) input.checked = true;
     input.addEventListener("change", () => { ans(item)[field] = value; save(); if (onChange) onChange(); });
-    box.append(el("label", { for: id }, input, document.createTextNode(label)));
+    const text = meaning ? el("span", {}, el("strong", { text: label }), document.createTextNode(`: ${meaning}`))
+                         : document.createTextNode(label);
+    box.append(el("label", { for: id }, input, text));
   });
   return box;
 }
@@ -242,8 +264,10 @@ function termsControls(item) {
   const show = () => { edit.hidden = ans(item).action !== "edit"; };
   const r = radios(item, "action", [["approve", "Están bien"], ["edit", "Corregir"]], show);
   show();
-  return [el("p", { class: "hint", text: "Lo que se busca en PubMed para traer los estudios de esta región:" }), list,
-    question("¿Son los términos correctos?", "", r), edit];
+  return [el("p", { class: "hint", text: "Palabras que se buscan en PubMed para esta región:" }), list,
+    question("¿Con estas palabras se encuentran los estudios de esta región?",
+      "Añade las que usen los investigadores y falten (sinónimos, nombres de sus partes) y quita las que traerían otra cosa, por ejemplo una sigla que en otros campos significa algo distinto.", r),
+    edit];
 }
 
 function pairControls(item) {
@@ -253,7 +277,10 @@ function pairControls(item) {
     el("div", { class: "arrow", "aria-hidden": "true", text: "↔" }),
     el("div", {}, el("strong", { text: "Humano · Julich-Brain" }), el("ul", {}, ...c.human.map((h) => el("li", { text: h.name })))));
   return [pair,
-    question("Grado de equivalencia", "", radios(item, "grade", GRADES)),
+    el("p", { class: "hint", text: c.human.length > 1
+      ? "A la izquierda, la región de la rata; a la derecha, las áreas humanas que proponemos como su equivalente, tomadas en conjunto."
+      : "A la izquierda, la región de la rata; a la derecha, el área humana que proponemos como su equivalente." }),
+    question("¿Hasta qué punto se corresponden?", "", radios(item, "grade", GRADES)),
     question("Nota", "(opcional; se verá en la web, en español y en inglés)", textbox(item, "note_es", "Por qué este grado", ""))];
 }
 
@@ -279,11 +306,11 @@ function candidatesControls(item) {
         el("a", { href: `https://doi.org/${cand.doi}`, target: "_blank", rel: "noopener", text: "abrir ↗" })))));
   });
   sync();
-  return [question(`Elige hasta ${c.max_picks}`, "(si no eliges ninguno, esta semana no hay Clásicos)", box)];
+  return [question(`Elige hasta ${c.max_picks} que publicarías`, "(si no eliges ninguno, esta semana no hay Clásicos; «abrir» lleva al artículo)", box)];
 }
 
 function toggleControls(item) {
-  return [question("¿Se muestran las noticias de este tema?", "",
+  return [question("¿Se muestran las noticias de este tema?", "(se puede cambiar en cualquier momento)",
     radios(item, "action", [["enable", "Mostrar"], ["disable", "Ocultar"]]))];
 }
 
@@ -297,6 +324,7 @@ function render() {
     if (item.item_type !== group) {
       group = item.item_type;
       list.append(el("h3", { class: "group", text: GROUPS[group] || group }));
+      if (GROUP_HINTS[group]) list.append(el("p", { class: "hint group-hint", text: GROUP_HINTS[group] }));
     }
     const chip = el("span", { class: "chip", id: `chip-${keyOf(item)}`, text: "pendiente" });
     const meta = el("div", { class: "meta" }, chip);

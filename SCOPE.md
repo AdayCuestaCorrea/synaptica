@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 51** · 2026-11-12 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 52** · 2026-11-12 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -295,3 +295,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 49 | 2026-11-12 | S3, paso 7.10: la maqueta C, publicada en GitHub Pages (https://adaycuestacorrea.github.io/synaptica/spikes/s3/c/) con el workflow `pages.yml`, sin nada en la raíz hasta la Fase 1 ([resultados](spikes/s3/results/maqueta-c.md#paso-710-publicación-en-github-pages-2026-11-12)). Medida contra Pages: 1,96 MB, unos 16 s en un móvil con red lenta y ningún otro dominio. En un móvil real (Brave y Chrome) funciona; al tocar tarda un poco, apuntado para la Fase 2. Decisión de Aday: ni artifact ni página de respuestas |
 | 50 | 2026-11-12 | Borrador del [ADR de D3](docs/adr/0003-visor.md) (propuesta): Niivue con volúmenes de etiquetas propios, uno por atlas, con las cifras de A, B y C y los parches de Niivue 0.69 que hay que repetir al cambiar de versión. D3 sigue abierta hasta la revisión de Sofía y la aceptación de Aday |
 | 51 | 2026-11-12 | Borrador de [`docs/fases/fase-0.md`](docs/fases/fase-0.md): los cinco spikes con sus cifras y decisiones, conceptos, cómo se comprueba, qué salió mal y lo que pasa a la Fase 1. Los huecos de D3 y D5 se completan tras la revisión y la prueba de Sofía |
+| 52 | 2026-11-12 | S4, antes de la prueba con Sofía: la página de revisión explica cada grupo (qué es y dónde sale en la web), qué representa cada lado de una pareja rata ↔ humano y qué significa cada grado (clara, parcial, discutida; definiciones propuestas por SYNAPTICA, que Sofía puede cambiar), y qué mirar en los términos de PubMed. Lo vio Aday: la página daba por hecho un contexto que ni él ni ella tenían. Ronda 1 regenerada; el guion aclara que se mide la herramienta y que la ayuda nunca es de contenido |

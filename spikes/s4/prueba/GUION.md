@@ -30,6 +30,8 @@ Para Aday. Se hace **cuando termine S3** (la elección entre las maquetas B y C 
 
 Mándale los dos archivos (WhatsApp o correo) y que los abra **en el ordenador**. Tú miras y cronometras; no ayudes salvo que se atasque más de un minuto (y apúntalo).
 
+**Se mide la herramienta, no a Sofía.** El tiempo sirve para comprobar el requisito de D5 (menos de 1 h al día). Si cronometrar cada tarea resulta incómodo, basta con la hora de inicio y fin de cada ronda y una nota donde le cueste algo. La ayuda es solo con la página o con GitHub (dónde pulsar, qué hace un botón, el login); **nunca con el contenido**. Si pregunta algo de neurociencia, dile que conteste con su criterio y apunta la duda: una pregunta que genera dudas ya es un resultado.
+
 Página pública, `revision.html`:
 
 | # | Tarea | Qué se observa |
