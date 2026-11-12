@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 50** · 2026-11-12 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 51** · 2026-11-12 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -294,3 +294,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 48 | 2026-11-12 | S3, paso 7.9 (móvil), solo en C ([resultados](spikes/s3/results/maqueta-c.md#paso-79-móvil-2026-11-12)): en pantallas táctiles el 3D se pinta como mucho a DPR 1,5 (de 3 a 9–10 fps en el móvil simulado). Probado en un móvil real (S23 Ultra, Chrome): el resaltado ya no se rehace a cada área al arrastrar los deslizadores, solo al parar o soltar; y arreglados los toques que no contaban y los giros que daban la vuelta al cerebro (Niivue usaba la posición del gesto anterior). Brave en el móvil no abre la red local |
 | 49 | 2026-11-12 | S3, paso 7.10: la maqueta C, publicada en GitHub Pages (https://adaycuestacorrea.github.io/synaptica/spikes/s3/c/) con el workflow `pages.yml`, sin nada en la raíz hasta la Fase 1 ([resultados](spikes/s3/results/maqueta-c.md#paso-710-publicación-en-github-pages-2026-11-12)). Medida contra Pages: 1,96 MB, unos 16 s en un móvil con red lenta y ningún otro dominio. En un móvil real (Brave y Chrome) funciona; al tocar tarda un poco, apuntado para la Fase 2. Decisión de Aday: ni artifact ni página de respuestas |
 | 50 | 2026-11-12 | Borrador del [ADR de D3](docs/adr/0003-visor.md) (propuesta): Niivue con volúmenes de etiquetas propios, uno por atlas, con las cifras de A, B y C y los parches de Niivue 0.69 que hay que repetir al cambiar de versión. D3 sigue abierta hasta la revisión de Sofía y la aceptación de Aday |
+| 51 | 2026-11-12 | Borrador de [`docs/fases/fase-0.md`](docs/fases/fase-0.md): los cinco spikes con sus cifras y decisiones, conceptos, cómo se comprueba, qué salió mal y lo que pasa a la Fase 1. Los huecos de D3 y D5 se completan tras la revisión y la prueba de Sofía |
