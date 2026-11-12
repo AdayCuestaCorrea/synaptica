@@ -87,7 +87,7 @@ Sofía propone que el contenido de la Fase 2 empiece por las estructuras de la s
      - **M2, el punto marca el área:** el área bajo el punto de los tres ejes sale en el panel en vivo, y su pareja en el otro cerebro al soltar. *Hecho* (`results/maqueta-c.md`, mejora M2).
      - **Estudio de UX y UI:** en la Fase 2 (decisión de Aday). Aquí solo [notas](results/notas-ux.md).
    9. ✅ **Móvil.** Resolución del 3D limitada en móviles, nuevas mediciones y prueba en un móvil real ([resultados](results/maqueta-c.md#paso-79-móvil-2026-11-12)).
-   10. **Publicación.**
+   10. ✅ **Publicación** ([resultados](results/maqueta-c.md#paso-710-publicación-en-github-pages-2026-11-12)).
        - En GitHub Pages, en `/synaptica/spikes/s3/`. **Se confirma con Aday antes de tocar Pages.**
        - ~~Además, como artifact de claude.ai~~ y ~~página de respuestas al estilo de S5~~: descartados por Aday el 2026-11-12. Con Pages, Sofía ya la abre en el móvil o en el ordenador; su opinión se apunta en `results/notas-ux.md`, y D5 se prueba con S4.
        - Cómo (Aday, 2026-11-12): workflow `.github/workflows/pages.yml`, que copia `site/` (sin `mobile.html`) a `/synaptica/spikes/s3/` al hacer push a `main` si cambia; en la raíz no hay nada hasta la web de la Fase 1.

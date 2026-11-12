@@ -26,6 +26,7 @@ Recogidas el 2026-11-11, al terminar las mejoras M1 y M2. **No son un estudio:**
   - el otro cerebro gira solo para enseñar la pareja de lado (7.4). Si lo estabas mirando de frente, parece que «se reinicia», y una pareja del hemisferio derecho se ve desde el otro lado;
   - los dos cerebros van uno encima del otro: el que gira puede no estar a la vista;
   - Brave en el móvil no abre direcciones de la red local (probado con Chrome).
+  - **al tocar una región aún tarda un poco** (paso 7.10, publicada): un toque lee en profundidad y rehace la tabla de colores de los dos cerebros. En la Fase 2 se puede medir qué parte pesa más (p. ej. pintar primero el cerebro tocado y después el otro).
 
 ## Lo que diga Sofía (2026-11-12)
 

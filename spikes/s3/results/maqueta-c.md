@@ -276,3 +276,30 @@ Hecho el 2026-11-11, solo en C. Decisión de Aday: el panel se actualiza en vivo
   - **El arreglo:** al tocar (`pointerdown`), la maqueta le da a Niivue la posición del dedo. Además, un toque admite 12 px de temblor (6 con el ratón).
 - Después de los arreglos, Aday: «parece que está todo bien ya».
 - **Giro a propósito, que puede confundir:** al elegir una región en un cerebro, el otro gira para enseñar la pareja de lado (paso 7.4), y si está en el hemisferio derecho, desde el otro lado. Apuntado en las [notas de UX](notas-ux.md).
+
+## Paso 7.10: publicación en GitHub Pages (2026-11-12)
+
+**URL:** https://adaycuestacorrea.github.io/synaptica/spikes/s3/c/
+
+**Cómo se publica:** el workflow `.github/workflows/pages.yml` copia `spikes/s3/site` (sin `mobile.html`, que es un marco de pruebas local sin aviso ni inglés) a `/synaptica/spikes/s3/`.
+- Se lanza al hacer push a `main` si cambia esa carpeta, o a mano.
+- En la raíz no hay nada hasta la web de la Fase 1: la raíz y `mobile.html` dan 404.
+- No se cambió ningún ajuste de GitHub: Pages ya estaba con origen «GitHub Actions» y solo `main` puede publicar.
+- Decisiones de Aday: no se publica como artifact de claude.ai ni se hace página de respuestas. La opinión de Sofía va a las [notas de UX](notas-ux.md), y D5 se prueba con S4.
+
+**Medido contra Pages** (`measure-c-pages.json`; mismo método: móvil simulado, «Slow 4G», CPU ×4, 2 ejecuciones):
+
+| Medida | Resultado |
+|---|---|
+| Peso | 1,96 MB, lo mismo que con nuestro servidor con gzip |
+| Hasta poder usarla | unos 16,3 s |
+| Fluidez al girar | 9–10 fps, con el tope de 1,5 del 7.9 |
+| Otros dominios | ninguno: todo va a `adaycuestacorrea.github.io` |
+
+- El toque, el giro y el pellizco funcionan.
+- En el Brave de escritorio: unos 2 s y 13 peticiones, sin errores.
+
+**En el móvil real** (Aday: S23 Ultra), **Brave sí la abre** publicada. En la red de casa no conectaba (paso 7.9).
+- Al tocar una región todavía tarda un poco en responder. Aday lo ve como un límite del móvil.
+- Probablemente pesa lo que hace un toque: leer en profundidad (dos `drawScene`), rehacer la tabla de colores (`apply()`) en los dos cerebros y mover el otro.
+- Se apunta en las [notas de UX](notas-ux.md) para la Fase 2. En la maqueta no se toca.
