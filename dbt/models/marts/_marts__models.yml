@@ -49,6 +49,12 @@ models:
       One row per news item: popular-science articles and the news, commentary and
       perspectives of the journal feeds.
     columns:
+      - name: story_id
+        description: Same-story group (step 15); the item itself when never grouped.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('fct_news_item'), field: news_item_id}
       - name: news_item_id
         data_tests: [unique, not_null]
       - name: origin

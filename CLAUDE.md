@@ -103,7 +103,8 @@ uv run syn ingest news                    # SINC, The Conversation y ScienceDail
 uv run syn ingest openalex                # tema y citas por DOI de las revistas generalistas
 uv run syn news neuro [--provider groq]   # ¿es neurociencia? reglas de OpenAlex; el LLM solo con --provider
 uv run syn news classify --provider groq  # tipo de cada pieza de Neuro News (lee el almacén: antes syn build)
-uv run syn eval news --gold eval/news/labels.csv   # macro F1 del LLM y del baseline (grupo eval)
+uv run syn news group --provider groq     # misma noticia entre medios e idiomas (pares al LLM)
+uv run syn eval news --gold eval/news/labels.csv [--pairs eval/news/pairs.csv]   # macro F1 del LLM y del baseline (grupo eval)
 uv run syn build                          # dbt build: modelos + tests (desde la Fase 1)
 SYN_DATA_DIR=/tmp/syn-ci uv run python scripts/seed_fixture_data.py   # fixtures como si vinieran de las fuentes
 SYN_DATA_DIR=/tmp/syn-ci uv run syn build --as-of 2026-11-09          # dbt sobre esas fixtures (como la CI)

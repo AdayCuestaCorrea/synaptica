@@ -365,21 +365,55 @@ def news_classify(
     )
 
 
+@news_app.command("group")
+def news_group(provider: ProviderOption = None, model: ModelOption = None) -> None:
+    """Group the neuro news items that tell the same story (LLM on each candidate pair)
+    -> derived/news/groups.json. Reads the warehouse: run `syn build` first."""
+    from synaptica.llm import QuotaExhausted
+    from synaptica.news import classify, group
+
+    llm = _llm(provider, model)
+    if llm is None:
+        typer.echo("No --provider given: nothing grouped.")
+        raise typer.Exit(0)
+    if not classify.warehouse_path().exists():
+        typer.echo("No warehouse yet: run `syn build` first.", err=True)
+        raise typer.Exit(1)
+    try:
+        result = group.run(llm)
+    except QuotaExhausted as exc:
+        typer.echo(f"LLM quota used up: {exc}; the rest waits for the next run", err=True)
+        raise typer.Exit(0) from exc
+    typer.echo(
+        f"Grouping: {result['items']} items, {result['candidates']} candidate pairs, "
+        f"{result['same']} same story; {result['groups']} groups ({result['grouped']} items "
+        "in groups of two or more)"
+    )
+
+
 @eval_app.command("news")
 def eval_news(
     gold: Annotated[Path, typer.Option(help="Hand labels: key,lang,text,type.")] = Path(
         "eval/news/labels.csv"
     ),
+    pairs: Annotated[
+        Path | None, typer.Option(help="Hand-labelled pairs: key_a,key_b,text_a,text_b,same.")
+    ] = None,
     out: Annotated[Path | None, typer.Option(help="Write the Markdown report here.")] = None,
 ) -> None:
-    """Macro F1 of the LLM's stored types and of the TF-IDF baseline on the hand labels."""
-    from synaptica.news import classify, evaluate
+    """Macro F1 of the LLM's stored types and of the TF-IDF baseline on the hand labels;
+    with --pairs, precision and recall of the same-story pairs."""
+    from synaptica.news import classify, evaluate, group
 
     if not gold.exists():
         typer.echo(f"No labels at {gold} yet (Sofía's labels arrive with step 14b).", err=True)
         raise typer.Exit(1)
     llm_types = {k: r["type"] for k, r in classify.load_types(classify.types_path()).items()}
     report = evaluate.report_markdown(evaluate.evaluate(evaluate.load_gold(gold), llm_types))
+    if pairs is not None:
+        answers = evaluate.load_answers(group.pairs_path())
+        result = evaluate.evaluate_pairs(evaluate.load_pairs(pairs), answers)
+        report += "\n" + evaluate.pairs_markdown(result)
     if out:
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(report, encoding="utf-8")

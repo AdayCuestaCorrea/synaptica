@@ -47,7 +47,7 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 depende de D5 (d
 | 13 ✅ | **Filtro «¿es neurociencia?»** para las revistas generalistas: reglas (MeSH u OpenAlex por DOI) y el LLM solo cuando no hay dato | casos de las fixtures `journals/` | medido sobre los RSS de S1 (v69: OpenAlex decide la mitad; MeSH no sirve como regla, ver SCOPE v69) |
 | 14a ✅ | **Clasificación** por tipo con LLM (lotes de 20, caché por hash + versión del prompt) + baseline TF-IDF con regresión logística, y `syn eval news` | FakeLLM; métricas sobre un gold de prueba | comando listo, a falta de etiquetas reales |
 | 14b 🟡 | ~100 titulares etiquetados por Sofía → macro F1 del LLM frente al baseline; con los mismos ~100 se valida el juez (ADR D4) | validación del gold | cifras en el informe y en `fase-1.md` |
-| 15 🟢 | **Agrupación**: primero DOI exacto; después pares candidatos en una ventana de 5 días, decididos por el LLM y cacheados en `pairs.json`, con union-find; entre idiomas | pares de las fixtures; gold de pares etiquetado por Aday (no es contenido de salud) | precisión y recall de los pares en el informe |
+| 15 ✅ | **Agrupación**: primero DOI exacto; después pares candidatos en una ventana de 5 días, decididos por el LLM y cacheados en `pairs.json`, con union-find; entre idiomas | pares de las fixtures; gold de pares etiquetado por Aday (no es contenido de salud) | precisión y recall de los pares en el informe |
 
 ### E. Textos LLM
 | # | Paso | Tests | Hecho cuando |

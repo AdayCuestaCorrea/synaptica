@@ -60,6 +60,12 @@ items as (
     where j.kind = 'news'
 )
 
-select i.*, i.neuro_basis is not null as is_neuro, t.news_type
+-- story_id: same-story group (step 15); an item never grouped is its own story.
+select
+    i.*,
+    i.neuro_basis is not null as is_neuro,
+    t.news_type,
+    coalesce(g.story_id, i.news_item_id) as story_id
 from items as i
 left join {{ ref('stg_derived__news_types') }} as t on t.item_id = i.news_item_id
+left join {{ ref('stg_derived__news_groups') }} as g on g.news_item_id = i.news_item_id
