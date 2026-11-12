@@ -1,10 +1,7 @@
-"""Images for the second round of mock-ups (v2), self-hosted so the site loads nothing from
+"""Images for the web mock-ups, self-hosted so the site loads nothing from
 other domains at run time. Writes ``data/images.json`` (who made each image and its licence)
-and the WebP files in ``v2/img/``.
+and the WebP files in ``img/``.
 
-- Cajal's drawings: Wikimedia Commons (API ``imageinfo``), public domain or Wellcome CC BY 4.0;
-  author and licence are read from Commons, never typed by hand. Cleaned to greys so the
-  page can print them as ink (light) or as light on dark (``filter: invert``).
 - Study figures: only articles in PMC's open-access subset, from NLM's open-data bucket on
   AWS (``pmc-oa-opendata``), whose per-article JSON carries the licence. Figure 1, resized
   and re-encoded, never cropped (also fine for ND licences). Not for Nature, Science or Cell
@@ -13,7 +10,7 @@ and the WebP files in ``v2/img/``.
   atlas in its own image, because Waxholm (CC BY 4.0) and Julich-Brain (CC BY-NC-SA 4.0)
   never share a derived file. Done once by hand; see README.
 
-    uv run python spikes/web/images.py   # network: Commons API and the PMC bucket, cached
+    uv run python spikes/web/images.py   # network: the PMC bucket, cached
 """
 
 from __future__ import annotations
@@ -27,17 +24,9 @@ from typing import Any
 from synaptica.http import make_client
 
 HERE = Path(__file__).parent
-OUT = HERE / "v2/img"
+OUT = HERE / "img"
 CACHE = HERE / "data/sources/images"
-COMMONS = "https://commons.wikimedia.org/w/api.php"
 BUCKET = "https://pmc-oa-opendata.s3.amazonaws.com"
-CAJAL = {
-    "purkinje": "File:Purkinje cell by Cajal.png",
-    "cortex": "File:Cajal actx inter.jpg",
-    "hippocampus": "File:CajalHippocampus.jpeg",
-    "cerebellum": "File:CajalCerebellum.jpg",
-    "tectum": "File:SparrowTectum.jpg",
-}
 S3_DATA = HERE.parent / "s3/site/data"
 # Captures of our viewer: the attribution is the one S3 recorded for each atlas.
 ATLAS = {"rat": ("atlas-rata-waxholm.webp", "waxholm"),
@@ -66,35 +55,6 @@ def webp(src: Path, dst: Path, width: int, *extra: str) -> tuple[int, int]:
     w, h = subprocess.run(["magick", "identify", "-format", "%w %h", str(dst)], check=True,
                           capture_output=True, text=True).stdout.split()  # fmt: skip
     return int(w), int(h)
-
-
-def cajal(client: Any) -> dict[str, Any]:
-    out = {}
-    for key, title in CAJAL.items():
-        body = json.loads(cached(client, COMMONS, f"commons-{key}.json", action="query",
-                                 titles=title, prop="imageinfo", format="json",
-                                 iiprop="url|extmetadata", iiurlwidth=1100))  # fmt: skip
-        info = next(iter(body["query"]["pages"].values()))["imageinfo"][0]
-        meta = info["extmetadata"]
-        raw = CACHE / f"cajal-{key}{Path(info['thumburl']).suffix}"
-        if not raw.exists():
-            raw.write_bytes(cached(client, info["thumburl"], raw.name))
-        # Greys, paper to white and ink to black: the page decides how to print it.
-        w, h = webp(raw, OUT / f"cajal-{key}.webp", 640, "-colorspace", "gray",
-                    "-level", "18%,82%")  # fmt: skip
-        out[key] = {
-            "file": f"cajal-{key}.webp", "width": w, "height": h,
-            "title": strip_html(meta.get("ObjectName", {}).get("value")) or title[5:],
-            # Chosen from Commons' «Scientific works by Santiago Ramón y Cajal»; its Artist
-            # field is sometimes empty or names the uploader, so it is kept apart.
-            "author": "Santiago Ramón y Cajal",
-            "commons_artist": strip_html(meta.get("Artist", {}).get("value")),
-            "date": strip_html(meta.get("DateTimeOriginal", {}).get("value")),
-            "license": meta.get("LicenseShortName", {}).get("value"),
-            "credit": strip_html(meta.get("Credit", {}).get("value")),
-            "source_url": info["descriptionurl"],
-        }  # fmt: skip
-    return out
 
 
 def fig_label(xml: str, stem: str) -> str | None:
@@ -156,7 +116,7 @@ def main() -> None:
     data = json.loads((HERE / "data/mockup.json").read_text(encoding="utf-8"))
     studies = data["latest"] + data["s5"]  # never data["nsc"]: Nature, Science, Cell
     with make_client() as client:
-        result = {"cajal": cajal(client), "figures": figures(client, studies)}
+        result = {"figures": figures(client, studies)}
     result["atlas"] = {
         k: {"file": f, **json.loads((S3_DATA / d / "licence.json").read_text(encoding="utf-8"))}
         for k, (f, d) in ATLAS.items()
@@ -164,7 +124,7 @@ def main() -> None:
     (HERE / "data/images.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=1) + "\n", encoding="utf-8"
     )
-    print(f"cajal {len(result['cajal'])}, figures {len(result['figures'])}")
+    print(f"figures {len(result['figures'])}")
 
 
 if __name__ == "__main__":

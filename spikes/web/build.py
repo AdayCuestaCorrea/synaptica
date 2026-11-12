@@ -1,35 +1,17 @@
-"""Render the three web mock-ups (A «Gaceta», B «Fluorescencia», C «Calma») from the real
-data in ``data/mockup.json`` (see ``collect.py``), in Spanish and English.
-
-Same shape as the future ``src/synaptica/site/``: Jinja2 templates, one folder per language,
-relative URLs (they work under any path on GitHub Pages) and plain JavaScript. Each mock-up
-has its own templates and CSS; what they share is the data, the strings and the rules of
-what a study shows (its three signals, its text and its licence).
-
-    uv run python spikes/web/build.py
+"""Shared rules and strings of the web mock-ups: what a study shows (its three signals, its
+text and its licence), dates and every visible string in Spanish and English. Used by
+``build3.py``; the round-one pages that this file rendered were removed in SCOPE v79.
 """
 
 from __future__ import annotations
 
 import datetime as dt
-import functools
-import json
 import re
-import shutil
 from pathlib import Path
 from typing import Any
 
-from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
-
 HERE = Path(__file__).parent
-MOCKUPS = tuple(x for x in ("a", "b", "c") if (HERE / x / "templates").exists())
 LANGS = ("es", "en")
-ROUTES = {
-    "es": {"index": "index.html", "study": "estudio/{}.html", "method": "como-evaluamos.html",
-           "week": "semana.html"},
-    "en": {"index": "index.html", "study": "study/{}.html", "method": "how-we-evaluate.html",
-           "week": "week.html"},
-}  # fmt: skip
 MONTHS = {
     "es": ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sept", "oct", "nov", "dic"],
     "en": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
@@ -233,16 +215,6 @@ T: dict[str, dict[str, str]] = {
         "of": "of", "count_today": "today",
     },
 }  # fmt: skip
-FONTS = {
-    "a": "Newsreader (Production Type, SIL OFL 1.1) y la sans del sistema",
-    "b": "Atkinson Hyperlegible (Braille Institute, SIL OFL 1.1) y la monoespaciada del sistema",
-    "c": "las del sistema",
-}
-FONTS_EN = {
-    "a": "Newsreader (Production Type, SIL OFL 1.1) and the system sans",
-    "b": "Atkinson Hyperlegible (Braille Institute, SIL OFL 1.1) and the system monospace",
-    "c": "the system's own",
-}
 META_SOURCES = {"pubmed": "PubMed (NLM)", "europepmc": "Europe PMC", "biorxiv": "bioRxiv",
                 "medrxiv": "medRxiv", "journals": "RSS de la revista / journal RSS",
                 "crossref": "Crossref"}  # fmt: skip
@@ -309,78 +281,3 @@ def licence_lines(study: dict[str, Any], lang: str) -> list[str]:
     lic = LICENSES.get((study.get("license") or "").lower())
     lines.append(t["lic_original"].format(lic=lic) if lic else t["lic_original_none"])
     return lines
-
-
-def render_page(
-    env: Environment,
-    x: str,
-    lang: str,
-    template: str,
-    kind: str,
-    arg: str | None,
-    out: Path,
-    **ctx: Any,
-) -> None:
-    """Render one page of mock-up ``x``; URLs are relative to the page."""
-    other = "en" if lang == "es" else "es"
-    rel = ROUTES[lang][kind].format(arg) if arg else ROUTES[lang][kind]
-    other_rel = ROUTES[other][kind].format(arg) if arg else ROUTES[other][kind]
-    up = "../" * rel.count("/")  # from the page to its language folder
-
-    def url(k: str, a: str | None = None) -> str:
-        return up + (ROUTES[lang][k].format(a) if a else ROUTES[lang][k])
-
-    html = env.get_template(template).render(
-        lang=lang, t=T[lang], x=x, X=x.upper(), up=up, root=up + "../",
-        fonts_root=up + "../../", other_lang=other,
-        other_url=up + "../" + other + "/" + other_rel, url=url, slug=slug,
-        date=functools.partial(_date, lang=lang), sj=short_journal,
-        signals=functools.partial(signals, lang=lang),
-        licence=functools.partial(licence_lines, lang=lang), types=TYPES,
-        fonts=(FONTS if lang == "es" else FONTS_EN)[x], **ctx,
-    )  # fmt: skip
-    path = out / lang / rel
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(html, encoding="utf-8")
-
-
-def _date(value: str | None, long: bool = False, *, lang: str) -> str | None:
-    return fmt_date(value, lang, long)
-
-
-def main() -> None:
-    data = json.loads((HERE / "data/mockup.json").read_text(encoding="utf-8"))
-    studies = {s["study_id"]: s for s in data["latest"] + data["s5"] + data["nsc"]}
-    studies |= {s["study_id"]: s for s in data["examples"].values()}
-    # Sorted by the day each study entered (PubMed's print date can be months ahead).
-    latest = sorted(data["latest"] + data["s5"],
-                    key=lambda s: (s["entered_on"] or "", s["published_on"] or ""),
-                    reverse=True)  # fmt: skip
-    lead = next(s for s in data["s5"] if s["summary"]["en"]["kind"] == "verified"
-                and s["species"] != "unknown")  # fmt: skip
-    type_counts = {k: sum(s["type"] == k for s in latest) for k in TYPES}
-    common = {"latest": latest, "lead": lead, "type_counts": type_counts, "data": data,
-              "by_id": studies}  # fmt: skip
-
-    for x in MOCKUPS:
-        out = HERE / x
-        for lang in LANGS:
-            shutil.rmtree(out / lang, ignore_errors=True)
-        shutil.copy(HERE / "shared/theme.js", out / "static/theme.js")
-        env = Environment(
-            loader=FileSystemLoader([out / "templates", HERE / "shared"]),
-            autoescape=select_autoescape(["html", "j2"]),
-            undefined=StrictUndefined, trim_blocks=True, lstrip_blocks=True,
-        )  # fmt: skip
-        for lang in LANGS:
-            for kind in ("index", "method", "week"):
-                render_page(env, x, lang, f"{kind}.html.j2", kind, None, out,
-                            page_kind=kind, **common)  # fmt: skip
-            for sid, s in studies.items():
-                render_page(env, x, lang, "study.html.j2", "study", slug(sid), out,
-                            page_kind="study", s=s, **common)  # fmt: skip
-        print(f"{x}: {sum(1 for _ in out.rglob('*.html'))} pages")
-
-
-if __name__ == "__main__":
-    main()

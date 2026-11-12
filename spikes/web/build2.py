@@ -1,38 +1,17 @@
-"""Second round of web mock-ups (SCOPE v77): Aday chose the mixed option, a hub as the home
-page with today's news in the first screen and Neuro News on its own page, and asked for
-several styles of it. One set of templates (``v2/templates``), three stylesheets:
-
-- G «Gaceta»: mock-up A tidied up (light, Newsreader, Prussian blue), Cajal printed as ink.
-- N «Noche»: dark by default (light on request), Atkinson Hyperlegible, Cajal as light lines.
-- L «Lámina»: an atlas plate: tinted tiles, system fonts, the calm palette of the S3 viewer.
-
-Same data, strings and rules as round one (``build.py``); images from ``images.py``.
-
-    uv run python spikes/web/build2.py
+"""Strings, gaps and the fact-of-the-day choice added in round two of the mock-ups (SCOPE
+v77), still used by ``build3.py``. Its pages were removed in SCOPE v79.
 """
 
 from __future__ import annotations
 
-import functools
-import json
 import re
-import shutil
 from pathlib import Path
-from typing import Any
 
-from build import LANGS, TYPES, T, fmt_date, licence_lines, short_journal, signals, slug
-from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
+from build import T
 
 HERE = Path(__file__).parent
-V2 = HERE / "v2"
-STYLES = {"g": "Gaceta", "n": "Noche", "l": "Lámina"}
+STYLES = {"n": "Noche"}  # chosen in v79; G «Gaceta» and L «Lámina» removed
 FACT = {"g": "a", "n": "b", "l": "c"}  # each style carries one proposal for step 26
-ROUTES = {
-    "es": {"index": "index.html", "news": "noticias.html", "study": "estudio/{}.html",
-           "method": "como-evaluamos.html", "week": "semana.html"},
-    "en": {"index": "index.html", "news": "news.html", "study": "study/{}.html",
-           "method": "how-we-evaluate.html", "week": "week.html"},
-}  # fmt: skip
 ATLAS_URL = "https://adaycuestacorrea.github.io/synaptica/spikes/s3/c/"
 FONTS = {
     "es": {"g": "Newsreader (Production Type, SIL OFL 1.1) y la sans del sistema",
@@ -156,71 +135,3 @@ def gaps(lang: str, x: str) -> dict[str, tuple[str, str]]:
     if FACT[x] == "b":
         out["fact_noise"] = ("gap", t["fact_b_caveat"])
     return out
-
-
-def render(env: Environment, x: str, lang: str, template: str, kind: str, arg: str | None,
-           **ctx: Any) -> None:  # fmt: skip
-    other = "en" if lang == "es" else "es"
-    rel = ROUTES[lang][kind].format(arg) if arg else ROUTES[lang][kind]
-    other_rel = ROUTES[other][kind].format(arg) if arg else ROUTES[other][kind]
-    up = "../" * rel.count("/")
-
-    def url(k: str, a: str | None = None) -> str:
-        return up + (ROUTES[lang][k].format(a) if a else ROUTES[lang][k])
-
-    html = env.get_template(template).render(
-        lang=lang, t=T[lang] | T2[lang], x=x, style=STYLES[x], up=up, root=up + "../",
-        fonts_root=up + "../../../", img=up + "../../img/", other_lang=other,
-        other_url=up + "../" + other + "/" + other_rel, url=url, slug=slug, page_kind=kind,
-        date=lambda v, long=False: fmt_date(v, lang, long), sj=short_journal,
-        signals=functools.partial(signals, lang=lang),
-        licence=functools.partial(licence_lines, lang=lang), types=TYPES,
-        fonts=FONTS[lang][x], gaps=gaps(lang, x), fact_kind=FACT[x], atlas_url=ATLAS_URL,
-        coming=COMING, lic_name=lambda v: LIC_NAMES[lang].get(v, v),
-        figure_label=functools.partial(figure_label, lang=lang), **ctx,
-    )  # fmt: skip
-    path = V2 / x / lang / rel
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(html, encoding="utf-8")
-
-
-def main() -> None:
-    data = json.loads((HERE / "data/mockup.json").read_text(encoding="utf-8"))
-    images = json.loads((HERE / "data/images.json").read_text(encoding="utf-8"))
-    studies = {s["study_id"]: s for s in data["latest"] + data["s5"] + data["nsc"]}
-    studies |= {s["study_id"]: s for s in data["examples"].values()}
-    latest = sorted(data["latest"] + data["s5"],
-                    key=lambda s: (s["entered_on"] or "", s["published_on"] or ""),
-                    reverse=True)  # fmt: skip
-    lead = next(s for s in data["s5"] if s["summary"]["en"]["kind"] == "verified"
-                and s["species"] != "unknown" and s["study_id"] in images["figures"])  # fmt: skip
-    common = {
-        "data": data, "by_id": studies, "latest": latest, "lead": lead,
-        "today": [s for s in latest if s["study_id"] != lead["study_id"]][:4],
-        "type_counts": {k: sum(s["type"] == k for s in latest) for k in TYPES},
-        "figs": images["figures"], "cajal": images["cajal"], "atlas": images["atlas"],
-    }  # fmt: skip
-    for x in STYLES:
-        out = V2 / x
-        for lang in LANGS:
-            shutil.rmtree(out / lang, ignore_errors=True)
-        (out / "static").mkdir(parents=True, exist_ok=True)
-        css = (V2 / "styles" / f"{x}.css").read_text() + (V2 / "styles/base.css").read_text()
-        (out / "static" / f"{x}.css").write_text(css, encoding="utf-8")
-        shutil.copy(V2 / "styles" / "site.js", out / "static" / "site.js")
-        shutil.copy(HERE / "a/static/favicon.svg", out / "static" / "favicon.svg")
-        env = Environment(
-            loader=FileSystemLoader([V2 / "templates", HERE / "shared"]),
-            autoescape=select_autoescape(["html", "j2"]),
-            undefined=StrictUndefined, trim_blocks=True, lstrip_blocks=True,
-        )  # fmt: skip
-        for lang in LANGS:
-            for kind in ("index", "news", "method", "week"):
-                render(env, x, lang, f"{kind}.html.j2", kind, None, **common)
-            for sid, s in studies.items():
-                render(env, x, lang, "study.html.j2", "study", slug(sid), s=s, **common)
-        print(f"{x}: {sum(1 for _ in out.rglob('*.html'))} pages")
-
-
-if __name__ == "__main__":
-    main()

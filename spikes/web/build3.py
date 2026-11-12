@@ -3,8 +3,8 @@ scroll: header with search, «your neuroscience hub» hero, six section cards, �
 three headlines, fact of the day), topics carousel and glossary. No Cajal drawings (Sofía
 did not like them): our own line illustrations and the captures of our S3 viewer.
 
-Same three skins as round two (G Gaceta, N Noche, L Lámina) so Aday and Sofía can still pick
-one; same data and rules (``build.py``, ``build2.py``).
+Style: N «Noche» (dark by default), chosen by Aday and Sofía in v79. Same data and rules as
+before (``build.py``, ``build2.py``).
 
     uv run python spikes/web/build3.py
 """
@@ -222,7 +222,7 @@ def render(env: Any, x: str, lang: str, template: str, kind: str, arg: str | Non
           "illus": ("proposal", T3[lang]["gap_illus"])}  # fmt: skip
     html = env.get_template(template).render(
         lang=lang, t=T[lang] | T2[lang] | T3[lang], x=x, style=STYLES[x], up=up,
-        root=up + "../", fonts_root=up + "../../../", img=up + "../../../v2/img/",
+        root=up + "../", fonts_root=up + "../../../", img=up + "../../../img/",
         other_lang=other, other_url=up + "../" + other + "/" + other_rel, url=url, slug=slug,
         page_kind=kind, date=lambda v, long=False: fmt_date(v, lang, long), sj=short_journal,
         signals=functools.partial(signals, lang=lang),
@@ -268,7 +268,7 @@ def main() -> None:
         (out / "static" / f"{x}.css").write_text(css, encoding="utf-8")
         for name in ("site.js", "search.js"):
             shutil.copy(V3 / "styles" / name, out / "static" / name)
-        shutil.copy(HERE / "a/static/favicon.svg", out / "static" / "favicon.svg")
+        shutil.copy(V3 / "styles/favicon.svg", out / "static" / "favicon.svg")
         env = Environment(
             loader=FileSystemLoader([V3 / "templates", HERE / "shared"]),
             autoescape=select_autoescape(["html", "j2"]),

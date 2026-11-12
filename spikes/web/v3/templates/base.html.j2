@@ -9,8 +9,7 @@
 <meta name="description" content="{{ t.tagline }}">
 <meta name="color-scheme" content="{{ 'dark light' if x == 'n' else 'light dark' }}">
 <link rel="alternate" hreflang="{{ other_lang }}" href="{{ other_url }}">
-{% if x == "g" %}<link rel="preload" href="{{ fonts_root }}fonts/newsreader-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
-{% elif x == "n" %}<link rel="preload" href="{{ fonts_root }}fonts/atkinson-hyperlegible-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+{% if x == "n" %}<link rel="preload" href="{{ fonts_root }}fonts/atkinson-hyperlegible-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 {% endif %}
 <link rel="stylesheet" href="{{ root }}static/{{ x }}.css">
 <link rel="icon" href="{{ root }}static/favicon.svg" type="image/svg+xml">
