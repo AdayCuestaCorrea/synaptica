@@ -38,12 +38,12 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 depende de D5 (d
 | # | Paso | Tests | Hecho cuando |
 |---|---|---|---|
 | 10 ✅ (PubMed y Crossref) | Proyecto dbt sobre DuckDB, macro `raw_store` (`read_json` con glob), staging por fuente; `syn build`; `scripts/seed_fixture_data.py` para la CI | unique, not_null y accepted_values; frescura con `stg_raw__checked` + `assert_*_is_fresh.sql` y cadencia en una semilla | `syn build` verde en la CI con fixtures |
-| 11 🟢 | Intermediate: estudio unificado por DOI, preprint ↔ publicado, versiones | relationships y test SQL «un DOI, un estudio» | marts `dim_study` y `fct_news_item` |
+| 11 ✅ (PubMed) | Intermediate: estudio unificado por DOI, preprint ↔ publicado, versiones | relationships y test SQL «un DOI, un estudio» | marts `dim_study` y `fct_news_item` |
 
 ### D. Noticias
 | # | Paso | Tests | Hecho cuando |
 |---|---|---|---|
-| 12 🟢 | **Señales**: revisado o preprint (fuente y tipo de Crossref), humanos o animales (MeSH Humans/Animals de PubMed; si no hay, «sin dato», nunca se inventa), retractado o corregido | accepted_values; test SQL «todo estudio mostrado tiene sus 3 señales (o "sin dato")» | señales en el mart |
+| 12 ✅ (PubMed + Crossref) | **Señales**: revisado o preprint (fuente y tipo de Crossref), humanos o animales (MeSH Humans/Animals de PubMed; si no hay, «sin dato», nunca se inventa), retractado o corregido | accepted_values; test SQL «todo estudio mostrado tiene sus 3 señales (o "sin dato")» | señales en el mart |
 | 13 🟢 | **Filtro «¿es neurociencia?»** para las revistas generalistas: reglas (MeSH u OpenAlex por DOI) y el LLM solo cuando no hay dato | casos de las fixtures `journals/` | medido sobre los RSS de S1 |
 | 14a 🟢 | **Clasificación** por tipo con LLM (lotes de 20, caché por hash + versión del prompt) + baseline TF-IDF con regresión logística, y `syn eval news` | FakeLLM; métricas sobre un gold de prueba | comando listo, a falta de etiquetas reales |
 | 14b 🟡 | ~100 titulares etiquetados por Sofía → macro F1 del LLM frente al baseline; con los mismos ~100 se valida el juez (ADR D4) | validación del gold | cifras en el informe y en `fase-1.md` |

@@ -1,0 +1,70 @@
+version: 2
+
+models:
+  - name: dim_study
+    description: >
+      One row per study (PubMed records that are not editorial notices), with its three
+      signals: review status, species and integrity.
+    columns:
+      - name: pmid
+        data_tests: [unique, not_null]
+      - name: entered_on
+        data_tests: [not_null]
+      - name: review_status
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: {values: [preprint, journal, unknown]}
+      - name: species
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: {values: [humans, animals, both, unknown]}
+      - name: integrity
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [retracted, partially_retracted, concern, corrected, none]
+
+unit_tests:
+  - name: dim_study_signals
+    description: Each signal from its source, and notices left out of the studies.
+    model: dim_study
+    given:
+      - input: ref('int_pubmed__records')
+        rows:
+          - {pmid: "1", doi: "10.1/a", journal: "J", publication_types: ['Journal Article'],
+             mesh_uis: ['D006801'], entered_on: 2026-11-09}
+          - {pmid: "2", doi: "10.1/b", journal: "J", publication_types: ['Preprint'],
+             mesh_uis: ['D006801', 'D000818'], entered_on: 2026-11-09}
+          - {pmid: "3", doi: "10.1/c", journal: "J", publication_types: ['Journal Article'],
+             mesh_uis: [], entered_on: 2026-11-09}
+          - {pmid: "4", doi: "10.1/d", journal: "J",
+             publication_types: ['Journal Article', 'Retracted Publication'],
+             mesh_uis: ['D000818'], entered_on: 2026-11-09}
+          - {pmid: "5", doi: "10.1/e", journal: "J", publication_types: ['Published Erratum'],
+             mesh_uis: [], entered_on: 2026-11-09}
+      - input: ref('int_study__integrity')
+        rows:
+          - {doi: "10.1/c", integrity: concern, notice_dois: ['10.1/notice']}
+    expect:
+      rows:
+        - {pmid: "1", review_status: journal, species: humans, integrity: none}
+        - {pmid: "2", review_status: preprint, species: both, integrity: none}
+        - {pmid: "3", review_status: journal, species: unknown, integrity: concern}
+        - {pmid: "4", review_status: journal, species: animals, integrity: retracted}
+
+  - name: int_study__integrity_most_serious_wins
+    model: int_study__integrity
+    given:
+      - input: ref('stg_crossref__notices')
+        rows:
+          - {notice_doi: "10.9/n1", updated_doi: "10.1/a", update_type: correction}
+          - {notice_doi: "10.9/n2", updated_doi: "10.1/a", update_type: retraction}
+          - {notice_doi: "10.9/n3", updated_doi: "10.1/b", update_type: erratum}
+          - {notice_doi: "10.9/n4", updated_doi: "10.1/c", update_type: new_version}
+    expect:
+      rows:
+        - {doi: "10.1/a", integrity: retracted, notice_dois: ['10.9/n1', '10.9/n2']}
+        - {doi: "10.1/b", integrity: corrected, notice_dois: ['10.9/n3']}
