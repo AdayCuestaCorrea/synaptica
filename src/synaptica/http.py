@@ -89,12 +89,13 @@ def _request(
     timeout: float | None = None,
     retries: int = 5,
     backoff: float = 2.0,
-    sleep: Callable[[float], None] = time.sleep,
+    sleep: Callable[[float], None] | None = None,
 ) -> Any:
     """Send a request and return what ``read`` makes of the response, retrying
     transient failures: HTTP 429/5xx, network errors and whatever ``read`` reports as
     not ready (``(False, None, reason)``). ``Retry-After`` is honoured. Client errors
     (4xx) are raised at once with the start of the response body, for debugging."""
+    sleep = sleep or time.sleep  # looked up at call time, so tests can patch time.sleep
     last_error = "unknown error"
     for attempt in range(retries + 1):
         wait = backoff * 2**attempt

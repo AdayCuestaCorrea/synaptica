@@ -296,3 +296,26 @@ def ingest(
         medline_new_versions=medline_versions,
         abstracts_cached=abstracts,
     )
+
+
+def has_new_records(
+    client: httpx.Client,
+    *,
+    api_key: str | None = None,
+    today: dt.date | None = None,
+    raw_root: Path | None = None,
+) -> bool:
+    """Cheap change detection for ``syn check``: one esearch page of the last day; True if
+    any PMID in it is not stored yet. Errors propagate (``syn check`` exits 2)."""
+    today = today or utc_today()
+    if api_key is None:
+        api_key = os.environ.get("NCBI_API_KEY") or None
+    body = get_json(client, f"{BASE}/esearch.fcgi", params={
+        **base_params(api_key), "term": TERM, "datetype": "edat", "reldate": 1,
+        "retmax": PAGE, "retmode": "json",
+    })  # fmt: skip
+    result = body.get("esearchresult", {})
+    if "ERROR" in result:
+        raise HttpError(f"PubMed esearch error: {result['ERROR']}")
+    stored = summary_store(raw_root).recent(1 + LOOKBACK_MARGIN, today)
+    return any(p not in stored for p in result.get("idlist", []))

@@ -206,3 +206,31 @@ def build(
     if as_of:
         cmd += ["--vars", f"{{as_of: '{as_of}'}}"]
     raise typer.Exit(subprocess.run(cmd, env=env, check=False).returncode)
+
+
+@app.command()
+def check() -> None:
+    """Exit 0 if any source has something new, 1 if nothing changed and 2 if the check
+    itself failed (adapted from paleo-atlas, its ADR D10). On 2 the workflow runs
+    everything, so the error surfaces in the ingestion and the run report instead of
+    passing for "no changes" (a lesson from Paleo)."""
+    import httpx
+
+    from synaptica.http import HttpError, make_client
+    from synaptica.ingest import crossref, pubmed
+
+    changed = []
+    try:
+        with make_client() as client:
+            if pubmed.has_new_records(client):
+                changed.append("pubmed")
+            if crossref.has_new_notices(client):
+                changed.append("crossref")
+    except (HttpError, httpx.HTTPError) as exc:
+        typer.echo(f"check failed: {exc}", err=True)
+        raise typer.Exit(2) from exc
+    if changed:
+        typer.echo("changed: " + ", ".join(changed))
+        raise typer.Exit(0)
+    typer.echo("no changes")
+    raise typer.Exit(1)

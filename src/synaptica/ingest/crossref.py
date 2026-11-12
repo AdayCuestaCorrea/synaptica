@@ -121,3 +121,18 @@ def ingest(
             found[item["DOI"].lower()] = trim_notice(item)
     previous = {k: e.payload for k, e in notices.recent(days + LOOKBACK_MARGIN, today).items()}
     return CrossrefResult(counts, notices.save(found, today, previous=previous))
+
+
+def has_new_notices(
+    client: httpx.Client, *, today: dt.date | None = None, raw_root: Path | None = None
+) -> bool:
+    """Cheap change detection for ``syn check``: the first page of retraction notices of
+    the last day; True if any is not stored yet. Errors propagate (``syn check`` exits 2)."""
+    today = today or utc_today()
+    body = get_json(client, WORKS, params={
+        "filter": f"update-type:retraction,from-update-date:{(today - dt.timedelta(days=1))}",
+        "select": "DOI", "rows": ROWS, "mailto": CONTACT_EMAIL,
+    })  # fmt: skip
+    stored = store(raw_root).recent(1 + LOOKBACK_MARGIN, today)
+    items = body.get("message", {}).get("items", [])
+    return any(i["DOI"].lower() not in stored for i in items if i.get("DOI"))
