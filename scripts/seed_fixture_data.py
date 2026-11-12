@@ -19,7 +19,7 @@ import httpx
 from synaptica import report
 from synaptica.config import get_paths
 from synaptica.http import Throttle, make_client
-from synaptica.ingest import biorxiv, crossref, europepmc, journals, pubmed
+from synaptica.ingest import biorxiv, crossref, europepmc, journals, news, pubmed
 
 FIXTURES = Path(__file__).resolve().parents[1] / "tests" / "fixtures"
 DAY = dt.date(2026, 11, 9)  # the S1 fixtures were recorded that day
@@ -32,6 +32,7 @@ def _json(path: Path):
 
 FEED_FIXTURES = {
     **{j.rss: FIXTURES / "journals" / f"{j.journal}.rss.xml" for j in journals.load_journals()},
+    **{f.url: FIXTURES / "news" / f"{f.feed}.xml" for f in news.load_feeds()},
 }
 
 
@@ -80,6 +81,7 @@ def main() -> None:
         print(europepmc.ingest(client, today=DAY, throttle=NO_WAIT))
         print(biorxiv.ingest(client, today=DAY, throttle=NO_WAIT))
         print(journals.ingest(client, today=DAY, throttle=NO_WAIT))
+        print(news.ingest(client, today=DAY, throttle=NO_WAIT))
     moment = dt.datetime(2026, 11, 9, 6, 23, tzinfo=dt.UTC)
     report.start_run(data, trigger="manual", changed=True, now=moment)
     report.finish_run(data, now=moment)

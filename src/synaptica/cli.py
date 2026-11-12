@@ -256,6 +256,23 @@ def ingest_journals() -> None:
         raise typer.Exit(code=1)
 
 
+@ingest_app.command("news")
+def ingest_news() -> None:
+    """Popular-science news feeds (SINC, The Conversation, ScienceDaily)."""
+    from synaptica.http import make_client
+    from synaptica.ingest import news
+
+    with make_client() as client:
+        result = news.ingest(client)
+    typer.echo(
+        f"News: {result.items} articles in {result.feeds} feeds; "
+        f"{result.new_versions} new or changed stored"
+    )
+    if result.failed:
+        typer.echo(f"  failed: {', '.join(result.failed)}", err=True)
+        raise typer.Exit(code=1)
+
+
 @app.command()
 def build(
     as_of: Annotated[
@@ -280,7 +297,7 @@ def check() -> None:
     import httpx
 
     from synaptica.http import HttpError, make_client
-    from synaptica.ingest import biorxiv, crossref, europepmc, journals, pubmed
+    from synaptica.ingest import biorxiv, crossref, europepmc, journals, news, pubmed
 
     changed = []
     try:
@@ -295,6 +312,8 @@ def check() -> None:
                 changed.append("biorxiv")
             if journals.has_new_items(client):
                 changed.append("journals")
+            if news.has_new_items(client):
+                changed.append("news")
     except (HttpError, httpx.HTTPError) as exc:
         typer.echo(f"check failed: {exc}", err=True)
         raise typer.Exit(2) from exc
