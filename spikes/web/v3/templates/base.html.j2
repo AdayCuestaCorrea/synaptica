@@ -15,6 +15,7 @@
 <link rel="icon" href="{{ root }}static/favicon.svg" type="image/svg+xml">
 <script src="{{ root }}static/site.js"></script>
 <script src="{{ root }}static/search.js" defer></script>
+<script src="{{ root }}static/glossary.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">{{ t.skip }}</a>
@@ -26,6 +27,7 @@
       <a href="{{ url('index') }}"{% if page_kind == "index" %} aria-current="page"{% endif %}>{{ t.home }}</a>
       <a href="{{ url('news') }}"{% if page_kind in ("news", "study", "topic") %} aria-current="page"{% endif %}>{{ t.news }}</a>
       <a href="{{ url('method') }}"{% if page_kind == "method" %} aria-current="page"{% endif %}>{{ t.method }}</a>
+      <a href="{{ url('glossary') }}"{% if page_kind == "glossary" %} aria-current="page"{% endif %}>{{ t.glossary }}</a>
       <a href="{{ url('about') }}"{% if page_kind == "about" %} aria-current="page"{% endif %}>{{ t.about }}</a>
     </nav>
     <form class="search" role="search" action="{{ url('search') }}" data-search data-index="{{ url('search_index') }}" data-base="{{ up }}" data-all="{{ t.search_all }}" data-none="{{ t.search_none }}">
@@ -59,5 +61,6 @@
     <p class="footer-disclaimer">{{ t.disclaimer }}</p>
   </div>
 </footer>
+{{ gl_data() }}
 </body>
 </html>

@@ -35,6 +35,8 @@ PAIRS = [
     ("gap-ink", "gap-bg", "gaps, provisional"), ("ink", "atlas-bg", "Atlas tile"),
     ("link", "atlas-bg", "Atlas tile link"), ("muted", "atlas-bg", "Atlas credit"),
     ("muted", "foot-bg", "footer"), ("ink", "accent-soft", "tags"),
+    ("link", "accent-soft", "glossary term (hover), glossary target"),
+    ("link", "surface", "glossary popover link"),
 ]  # fmt: skip
 
 

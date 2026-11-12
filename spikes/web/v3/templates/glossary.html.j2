@@ -1,0 +1,34 @@
+{# Copied and adapted from Paleo Atlas, site/templates/glossary.html.j2: same A–Z and search;
+   no categories; an entry without a definition in this language shows the gap label. #}
+{% extends "base.html.j2" %}
+{% block title %}{{ t.glossary }}{% endblock %}
+{% block main %}
+{% set entries = gl_entries() %}
+{% set letters = entries | map(attribute="letter") | unique | list %}
+<article class="gl-page">
+  <div class="sec-head"><h1>{{ t.glossary }}</h1> {{ m.gap("glossary") }}</div>
+  <p class="gl-intro">{{ t.gl_intro.format(n=entries | length) }}</p>
+  <div class="gl-tools">
+    <input type="search" id="gl-q" placeholder="{{ t.gl_search }}" aria-label="{{ t.gl_search }}" autocomplete="off" hidden>
+    <nav class="gl-az" aria-label="A–Z">{% for l in letters %}<a href="#l-{{ l }}">{{ l }}</a>{% endfor %}</nav>
+  </div>
+  <p class="gl-none" hidden>{{ t.search_none }}</p>
+  {% for l in letters %}
+  <section class="gl-letter" id="l-{{ l }}">
+    <h2>{{ l }}</h2>
+    <dl>
+      {% for e in entries if e.letter == l %}
+      <div class="gl-entry" id="{{ e.id }}" data-q="{{ e.search }}">
+        <dt>{{ e.term }}</dt>
+        {% if e.pending %}
+        <dd><span class="gl-pending">{{ t.gl_pending }}</span> {{ m.gap("glossary") }}</dd>
+        {% else %}
+        <dd>{{ e.html | safe }} <small class="gl-review">{{ t.gl_review }}</small></dd>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </dl>
+  </section>
+  {% endfor %}
+</article>
+{% endblock %}

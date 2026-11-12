@@ -330,13 +330,37 @@ a.card:hover .card-text { text-decoration: underline; }
 .topic--sleep { --t1: #3b3f99; --t2: #171a4a; }
 .topic--emotion { --t1: #9a2445; --t2: #4b0f20; }
 
-/* Glossary */
-.terms { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
-.term { border: 1px solid var(--rule); border-radius: var(--radius-s); background: var(--surface); }
-.term summary, .terms--plain .term { padding: 6px 12px; font-weight: 700; cursor: pointer; list-style: none; }
-.term summary::-webkit-details-marker { display: none; }
-.term[open] { flex-basis: 100%; }
-.term p { margin: 0; padding: 0 12px 10px; font-size: 0.92rem; }
+/* Glossary: marked terms, popovers and the glossary page. Adapted from Paleo Atlas,
+   site/static/style.css (glossary block), with this site's colour tokens. */
+a.gl { color: inherit; text-decoration: underline dotted var(--link); text-decoration-thickness: 2px; text-underline-offset: 3px; cursor: help; }
+a.gl:hover, a.gl:focus-visible { color: var(--link); background: var(--accent-soft); border-radius: 3px; }
+.gl-pop { position: absolute; z-index: 30; max-width: min(23rem, calc(100vw - 16px)); box-sizing: border-box; overflow: hidden; background: var(--surface); color: var(--ink); border: 1px solid var(--rule); box-shadow: 0 8px 24px rgb(0 0 0 / 0.28); border-radius: var(--radius-s); padding: 10px 13px; font-size: 0.9rem; line-height: 1.45; }
+.gl-pop p { margin: 0; }
+.gl-pop__term { font-weight: 700; font-size: 1rem; margin-bottom: 3px !important; }
+.gl-pop__also { font-weight: 400; color: var(--muted); font-size: 0.82rem; }
+.gl-pop__def.is-pending, .gl-pending { color: var(--gap-ink); background: var(--gap-bg); border-left: 3px solid var(--gap-line); padding: 2px 8px; display: inline-block; }
+.gl-pop__foot { color: var(--muted); font-size: 0.8rem; margin-top: 7px !important; }
+.gl-pop__foot a { color: var(--link); }
+.gl-pop__lock { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: var(--accent); }
+.gl-pop.is-locking .gl-pop__lock { animation: gl-lock linear forwards; }
+.gl-pop.is-locked .gl-pop__lock { width: 100%; animation: none; opacity: 0.55; }
+@keyframes gl-lock { from { width: 0; } to { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .gl-pop.is-locking .gl-pop__lock { animation: none; width: 100%; opacity: 0.3; } }
+.gl-page h1 { margin: 0; }
+.gl-intro { color: var(--muted); max-width: 46rem; }
+.gl-tools { background: var(--bg); padding: 10px 0; border-bottom: 1px solid var(--rule); margin-bottom: 8px; }
+@media (min-width: 700px) { .gl-tools { position: sticky; top: 0; z-index: 4; } }
+#gl-q { width: 100%; max-width: 26rem; box-sizing: border-box; padding: 9px 14px; border-radius: 999px; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); font: inherit; margin-bottom: 8px; }
+.gl-az { display: flex; flex-wrap: wrap; gap: 2px 4px; font-weight: 700; }
+.gl-az a { text-decoration: none; color: var(--link); min-width: 32px; min-height: 32px; display: inline-grid; place-items: center; border-radius: 6px; }
+.gl-az a:hover, .gl-az a:focus-visible { background: var(--accent-soft); }
+.gl-letter h2 { border-bottom: 1px solid var(--rule); padding-bottom: 3px; margin: 22px 0 4px; font: var(--h2-font); }
+.gl-letter dl { margin: 0; }
+.gl-entry { padding: 9px 0; border-bottom: 1px dashed var(--rule); scroll-margin-top: 9rem; }
+.gl-entry dt { font-weight: 700; font-size: 1.08rem; }
+.gl-entry dd { margin: 2px 0 0; }
+.gl-entry:target { background: var(--accent-soft); }
+.gl-review { display: block; color: var(--muted); font-size: 0.8rem; margin-top: 2px; }
 
 /* Search page, topic pages */
 .results { padding-left: 1.2em; }
@@ -360,7 +384,7 @@ a.card:hover .card-text { text-decoration: underline; }
 @media (max-width: 700px) {
   .top-in { gap: 6px 12px; }
   .tools { margin-left: auto; }
-  .nav { order: 4; flex-basis: 100%; }
+  .nav { order: 4; flex-basis: 100%; flex-wrap: wrap; gap: 0 16px; }
   [data-theme-label] { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .brand { font-size: 1.1rem; }
   .hero { grid-template-columns: minmax(0, 1fr) 104px; padding: 12px 0 4px; gap: 10px; align-items: start; }

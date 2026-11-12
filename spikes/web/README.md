@@ -6,14 +6,23 @@ Datos reales, en español e inglés; nada se carga de otro dominio. Los huecos y
 
 ## La portada (un solo scroll)
 
-1. Cabecera: Inicio, Neuro News, Cómo evaluamos, Sobre nosotros y el buscador.
+1. Cabecera: Inicio, Neuro News, Cómo evaluamos, Glosario, Sobre nosotros y el buscador (en el móvil, el menú en dos líneas).
 2. «Tu portal de neurociencia», con el cerebro humano del visor y una neurona dibujada.
 3. Las seis secciones en 3 × 2: Neuro Atlas enlaza al prototipo de S3; las demás dicen en qué fase llegan.
 4. «Hoy»: noticia destacada (figura, título, resumen), tres titulares con sus señales, el dato curioso y el enlace al resumen semanal.
 5. «Explora por temas»: Memoria, Adicción, Neurodegeneración, Neuroinflamación, Sueño y Emoción, cada uno con su página (regla de la maqueta: palabras del título).
-6. «Glosario»: los 17 términos de ejemplo de la propuesta (se moverá a su propia página).
 
-Además: Neuro News (pestañas, filtros, «Ver más»), página de cada estudio, «Cómo evaluamos», resumen semanal, «Sobre nosotros» (borrador), «Buscar» y una página por tema.
+Además: Neuro News (pestañas, filtros, «Ver más»), página de cada estudio, «Cómo evaluamos», resumen semanal, «Sobre nosotros» (borrador), «Buscar», una página por tema y el «Glosario».
+
+## Glosario (`glossary.py`, `v3/styles/glossary.js`, `v3/templates/glossary.html.j2`)
+
+Copiado y adaptado de Paleo Atlas (`src/paleo/site/glossary.py`, `site/static/glossary.js`, `site/templates/glossary.html.j2`; cada archivo lo dice en su cabecera).
+
+- Términos: los 17 de ejemplo de `docs/propuesta.md` (significado y definición, solo en español, por revisar). Las formas que se buscan en los textos están en `data/glossary_forms.csv`: la sigla, que solo coincide con sus mayúsculas exactas (`DA` es dopamina y «da» es un verbo), y su nombre completo en español o en inglés, sin distinguir mayúsculas. Las formas salen solo de la tabla de la propuesta.
+- Se marca la primera aparición de cada término en la página: título y resumen (verificado o de respaldo) de la página de cada estudio, y resumen de la destacada de «Hoy». Nunca dentro de un enlace (los títulos de las tarjetas ya lo son).
+- Sin JavaScript, el término es un enlace a su entrada. Con JavaScript, al pasar el ratón, enfocarlo o tocarlo se abre una ventanita con la definición; si el puntero se queda, se fija y los términos de dentro abren otra encima.
+- En inglés no hay definiciones: el término se marca igual, y la ventanita y la entrada dicen «Definition pending», con la etiqueta de hueco.
+- Hoy se marcan 10 apariciones en 8 páginas por idioma: Alzheimer, Parkinson, corteza prefrontal, fMRI, GFAP y DREADDs.
 
 ## Regenerar
 

@@ -4,12 +4,12 @@
 <article class="study">
   <p class="back"><a href="{{ url('news') }}">← {{ t.back }}</a></p>
   {{ m.kicker(s) }}
-  <h1 class="study-title" lang="en">{{ s.title }}</h1>
+  <h1 class="study-title" lang="en">{{ gl(s.title) }}</h1>
   {% if lang == "es" %}<p class="title-note">{{ t.title_original }} {{ m.gap("title_es") }}</p>{% endif %}
   {{ m.signals_full(s) }}
   <div class="study-grid">
     <div class="study-body">
-      {{ p.summary(s, t, lang, True) }}
+      {{ p.summary(s, t, lang, True, gl) }}
       {% if s.summary[lang].kind == "verified" %}<p>{{ m.gap("s5") }}</p>{% endif %}
       <p><a class="button" href="{{ s.url }}" rel="noopener" target="_blank">{{ t.original }} ↗</a></p>
     </div>

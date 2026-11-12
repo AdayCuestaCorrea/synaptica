@@ -1,7 +1,8 @@
 """Third round of web mock-ups (SCOPE v78): Sofía's sketch of the home page, one continuous
 scroll: header with search, «your neuroscience hub» hero, six section cards, «Today» (lead,
-three headlines, fact of the day), topics carousel and glossary. No Cajal drawings (Sofía
-did not like them): our own line illustrations and the captures of our S3 viewer.
+three headlines, fact of the day) and topics carousel; the glossary has its own page, and its
+terms are marked in the summaries and titles (``glossary.py``, from Paleo Atlas). No Cajal
+drawings (Sofía did not like them): our own line illustrations and the captures of our S3 viewer.
 
 Style: N «Noche» (dark by default), chosen by Aday and Sofía in v79. Same data and rules as
 before (``build.py``, ``build2.py``).
@@ -12,6 +13,7 @@ before (``build.py``, ``build2.py``).
 from __future__ import annotations
 
 import functools
+import html
 import json
 import re
 import shutil
@@ -20,6 +22,8 @@ from typing import Any
 
 from build import LANGS, TYPES, T, fmt_date, licence_lines, short_journal, signals, slug
 from build2 import ATLAS_URL, FACT, FONTS, LIC_NAMES, STYLES, T2, figure_label, gaps
+from glossary import Glossary, load_rows
+from markupsafe import Markup
 
 HERE = Path(__file__).parent
 V3 = HERE / "v3"
@@ -27,10 +31,11 @@ ROUTES = {
     "es": {"index": "index.html", "news": "noticias.html", "study": "estudio/{}.html",
            "method": "como-evaluamos.html", "week": "semana.html",
            "about": "sobre-nosotros.html", "search": "buscar.html", "topic": "temas/{}.html",
-           "search_index": "buscar.json"},
+           "glossary": "glosario.html", "search_index": "buscar.json"},
     "en": {"index": "index.html", "news": "news.html", "study": "study/{}.html",
            "method": "how-we-evaluate.html", "week": "week.html", "about": "about.html",
-           "search": "search.html", "topic": "topics/{}.html", "search_index": "search.json"},
+           "search": "search.html", "topic": "topics/{}.html", "glossary": "glossary.html",
+           "search_index": "search.json"},
 }  # fmt: skip
 
 # Sofía's six sections, in her order; the phase each arrives in comes from SCOPE §4.
@@ -89,8 +94,15 @@ T3: dict[str, dict[str, str]] = {
         "topics": "Explora por temas", "topic_n": "{n} hoy", "topic_none": "Hoy no hay "
                                                                           "estudios de este tema.",
         "topic_intro": "Estudios y noticias de hoy sobre {t}.",
-        "glossary": "Glosario", "glossary_soon": "Neuro Glossary llega en la Fase 2. Estos son "
-                                                 "los primeros términos de la propuesta.",
+        "glossary": "Glosario",
+        "gl_intro": "Neuro Glossary llega en la Fase 2. Estos son los {n} términos de ejemplo "
+                    "de la propuesta, con sus definiciones por revisar. En los resúmenes y "
+                    "títulos de la web, los términos del glosario aparecen subrayados: "
+                    "pasa el ratón o tócalos para leer su definición.",
+        "gl_search": "Buscar en el glosario", "gl_review": "Definición de ejemplo, por revisar "
+                                                         "(Sofía)",
+        "gl_pending": "Definición pendiente.", "gl_see": "Ver en el glosario",
+        "gl_also": "aquí:",
         "prev": "Anterior", "next": "Siguiente",
         "atlas_hero_credit": "Cerebro: captura de nuestro visor · {atlas} · {lic}",
         "art_credit": "Ilustraciones: SYNAPTICA, CC BY-SA 4.0.",
@@ -101,8 +113,13 @@ T3: dict[str, dict[str, str]] = {
                       "emocionales como función principal»): como tema de noticias parece "
                       "válido, pero lo confirma Sofía.",
         "gap_glossary": "Glosario: los 17 términos de ejemplo de la propuesta, con sus "
-                        "definiciones por revisar. En inglés aún no existen: llegan con el "
-                        "glosario (Fase 2).",
+                        "definiciones por revisar (Sofía). En inglés aún no existen: el término "
+                        "se marca igual y su definición queda vacía. Las formas que se buscan "
+                        "en los textos (la sigla, en mayúsculas exactas, y su nombre completo "
+                        "en español o inglés, en cualquier caja) están en "
+                        "data/glossary_forms.csv. Marcado copiado de Paleo Atlas: solo la "
+                        "primera aparición de cada término en la página, y nunca dentro de un "
+                        "enlace.",
         "gap_about": "Borrador: Aday y Sofía escriben su presentación. Aquí solo va lo que "
                      "ya dicen SCOPE y la propuesta.",
         "gap_search": "Buscador: busca en lo que hay en la web hoy (estudios, noticias, "
@@ -134,7 +151,16 @@ T3: dict[str, dict[str, str]] = {
         "topics": "Explore by topic", "topic_n": "{n} today", "topic_none": "No studies on "
                                                                           "this topic today.",
         "topic_intro": "Today's studies and news about {t}.",
-        "glossary": "Glossary", "glossary_soon": "Neuro Glossary arrives in Phase 2.",
+        "glossary": "Glossary",
+        "gl_intro": "Neuro Glossary arrives in Phase 2. These are the {n} sample terms of the "
+                    "proposal. Their definitions exist only in Spanish and are still under "
+                    "review, so here they are left empty. In the site's summaries and titles, "
+                    "glossary terms are underlined: hover or tap them.",
+        "gl_search": "Search the glossary", "gl_review": "Sample definition, to be reviewed "
+                                                       "(Sofía)",
+        "gl_pending": "Definition pending: for now the glossary exists only in Spanish, under "
+                      "review.", "gl_see": "See in the glossary",
+        "gl_also": "here:",
         "prev": "Previous", "next": "Next",
         "atlas_hero_credit": "Brain: capture of our viewer · {atlas} · {lic}",
         "art_credit": "Illustrations: SYNAPTICA, CC BY-SA 4.0.",
@@ -145,8 +171,12 @@ T3: dict[str, dict[str, str]] = {
                       "systems as a main feature»): as a news topic it looks fine, but Sofía "
                       "confirms.",
         "gap_glossary": "Glossary: the 17 sample terms of the proposal exist only in Spanish, "
-                        "with definitions still to review; the English ones arrive with the "
-                        "glossary (Phase 2).",
+                        "with definitions still to review (Sofía). In English the term is "
+                        "marked all the same and its definition is left empty. The forms "
+                        "searched in the texts (the acronym, in its exact case, and its full "
+                        "name in Spanish or English, in any case) are in "
+                        "data/glossary_forms.csv. Marking copied from Paleo Atlas: only the "
+                        "first appearance of each term on the page, and never inside a link.",
         "gap_about": "Draft: Aday and Sofía write their own introduction. Only what SCOPE and "
                      "the proposal already say is here.",
         "gap_search": "Search: over what the site has today (studies, news, sections, topics "
@@ -164,14 +194,6 @@ T3: dict[str, dict[str, str]] = {
 }  # fmt: skip
 
 
-def glossary() -> list[dict[str, str]]:
-    """The sample terms of docs/propuesta.md (Spanish only; definitions still to review)."""
-    text = (HERE.parent.parent / "docs/propuesta.md").read_text(encoding="utf-8")
-    block = text.split("## Neuro Glossary: primeros términos", 1)[1].split("\n## ", 1)[0]
-    rows = re.findall(r"^\| (?!Término|---)(.+?) \| (.+?) \| (.+?) \|$", block, re.M)
-    return [{"term": a, "meaning": b, "what": c} for a, b, c in rows]
-
-
 def topic_items(rx: str, latest: list, nsc: list, news: list) -> dict[str, list]:
     hit = lambda s: re.search(rx, s.get("title") or "", re.I)  # noqa: E731
     return {"studies": [s for s in latest + nsc if hit(s)], "news": [n for n in news if hit(n)]}
@@ -186,10 +208,8 @@ def search_index(lang: str, ctx: dict[str, Any], url: Any) -> list[list[str]]:
     out += [[t["kind_section"], s["name"], s[lang], ATLAS_URL if s["key"] == "atlas" else ""]
             for s in SECTIONS]  # fmt: skip
     out += [[t["kind_topic"], v[lang], k, url("topic", tslug(k, lang))] for k, v in TOPICS.items()]
-    if lang == "es":
-        gl = url("index") + "#glosario"
-        out += [[t["kind_term"], g["term"], f"{g['meaning']} {g['what']}", gl]
-                for g in ctx["terms"]]  # fmt: skip
+    out += [[t["kind_term"], r["term"], " ".join([r[f"meaning_{lang}"], *r["forms_any_case"]]),
+             url("glossary") + "#" + r["term_id"]] for r in ctx["terms"]]  # fmt: skip
     out += [[t["kind_study"], s["title"], f"{s.get('journal') or ''} {s.get('type') or ''}",
              url("study", slug(s["study_id"]))] for s in ctx["by_id"].values()]  # fmt: skip
     out += [[t["kind_news"], n["title"], n["outlet"], n["url"]] for n in ctx["data"]["news"]]
@@ -220,7 +240,25 @@ def render(env: Any, x: str, lang: str, template: str, kind: str, arg: str | Non
           "about": ("gap", T3[lang]["gap_about"]),
           "search": ("proposal", T3[lang]["gap_search"]),
           "illus": ("proposal", T3[lang]["gap_illus"])}  # fmt: skip
-    html = env.get_template(template).render(
+    gl, used = Glossary(ctx["terms"], lang, url("glossary")), set()
+
+    def mark(text: str) -> Markup:
+        """Glossary terms in a text of the page (escaped here), first appearance only."""
+        return Markup(gl.mark(html.escape(text, quote=False), used))
+
+    def gl_data(extra: set[str] = frozenset()) -> Markup:
+        """The popovers' JSON (empty when the page marks no term)."""
+        ids = used | set(extra)
+        if not ids:
+            return Markup("")
+        tt = T3[lang]
+        labels = {k: tt[k] for k in ("gl_also", "gl_see", "gl_review", "gl_pending")}
+        doc = json.dumps({"glossary": gl.page_data(ids), "labels": labels},
+                         ensure_ascii=False, separators=(",", ":"))  # fmt: skip
+        doc = doc.replace("</", "<\\/")
+        return Markup(f'<script type="application/json" id="page-data">{doc}</script>')
+
+    page = env.get_template(template).render(
         lang=lang, t=T[lang] | T2[lang] | T3[lang], x=x, style=STYLES[x], up=up,
         root=up + "../", fonts_root=up + "../../../", img=up + "../../../img/",
         other_lang=other, other_url=up + "../" + other + "/" + other_rel, url=url, slug=slug,
@@ -230,11 +268,12 @@ def render(env: Any, x: str, lang: str, template: str, kind: str, arg: str | Non
         gaps=g, fact_kind=FACT[x], atlas_url=ATLAS_URL,
         lic_name=lambda v: LIC_NAMES[lang].get(v, v),
         figure_label=functools.partial(figure_label, lang=lang), sections=SECTIONS,
-        topics=TOPICS, tslug=functools.partial(tslug, lang=lang), **ctx,
+        topics=TOPICS, tslug=functools.partial(tslug, lang=lang), gl=mark, gl_data=gl_data,
+        gl_entries=gl.entries, **ctx,
     )  # fmt: skip
     path = V3 / x / lang / rel
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(html, encoding="utf-8")
+    path.write_text(page, encoding="utf-8")
 
 
 def main() -> None:
@@ -254,7 +293,7 @@ def main() -> None:
         "today": [s for s in latest if s["study_id"] != lead["study_id"]][:3],
         "type_counts": {k: sum(s["type"] == k for s in latest) for k in TYPES},
         "figs": images["figures"], "atlas": images["atlas"], "topic_hits": topic_hits,
-        "terms": glossary(),
+        "terms": load_rows(),
     }  # fmt: skip
     from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
 
@@ -266,7 +305,7 @@ def main() -> None:
         css = "".join((V3 / "styles" / n).read_text(encoding="utf-8")
                       for n in (f"{x}.css", "base.css"))  # fmt: skip
         (out / "static" / f"{x}.css").write_text(css, encoding="utf-8")
-        for name in ("site.js", "search.js"):
+        for name in ("site.js", "search.js", "glossary.js"):
             shutil.copy(V3 / "styles" / name, out / "static" / name)
         shutil.copy(V3 / "styles/favicon.svg", out / "static" / "favicon.svg")
         env = Environment(
@@ -275,7 +314,7 @@ def main() -> None:
             undefined=StrictUndefined, trim_blocks=True, lstrip_blocks=True,
         )  # fmt: skip
         for lang in LANGS:
-            for kind in ("index", "news", "method", "week", "about", "search"):
+            for kind in ("index", "news", "method", "week", "about", "search", "glossary"):
                 render(env, x, lang, f"{kind}.html.j2", kind, None, **common)
             for sid, s in studies.items():
                 render(env, x, lang, "study.html.j2", "study", slug(sid), s=s, **common)

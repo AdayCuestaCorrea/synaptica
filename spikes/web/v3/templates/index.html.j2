@@ -51,7 +51,7 @@
         {{ m.kicker(lead) }}
         <h3 class="lead-title"><a href="{{ url('study', slug(lead.study_id)) }}" lang="en">{{ lead.title }}</a>{% if lang == "es" %} {{ m.gap("title_es") }}{% endif %}</h3>
         {{ m.chips(lead) }}
-        <p class="lead-sum"><span class="label label--ok">✓ {{ t.verified }}</span> {{ lead.summary[lang].sentences[0] }} {{ m.gap("s5") }}</p>
+        <p class="lead-sum"><span class="label label--ok">✓ {{ t.verified }}</span> {{ gl(lead.summary[lang].sentences[0]) }} {{ m.gap("s5") }}</p>
         <p><a class="more" href="{{ url('study', slug(lead.study_id)) }}">{{ t.read_more }} →</a></p>
       </div>
     </article>
@@ -85,19 +85,5 @@
     </a></li>
     {% endfor %}
   </ul>
-</section>
-
-<section class="glossary" id="glosario" aria-labelledby="gl-h">
-  <div class="sec-head"><h2 id="gl-h">{{ t.glossary }}</h2> {{ m.gap("glossary") }}</div>
-  <p class="panel-note">{{ t.glossary_soon }}</p>
-  {% if lang == "es" %}
-  <div class="terms">
-    {% for g in terms %}
-    <details class="term"><summary>{{ g.term }}</summary><p><strong>{{ g.meaning }}</strong>. {{ g.what }}.</p></details>
-    {% endfor %}
-  </div>
-  {% else %}
-  <ul class="terms terms--plain">{% for g in terms %}<li class="term"><span lang="en">{{ g.term }}</span></li>{% endfor %}</ul>
-  {% endif %}
 </section>
 {% endblock %}

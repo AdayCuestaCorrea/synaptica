@@ -8,24 +8,24 @@
 <{{ tag }} class="{{ cls }}" lang="en">{{ s.title or "—" }}</{{ tag }}>
 {%- endmacro %}
 
-{% macro summary(s, t, lang, full=False) -%}
+{% macro summary(s, t, lang, full=False, mark=None) -%}
 {% set sm = s.summary[lang] %}
 {% if sm.kind == "verified" %}
 <div class="summary summary--verified">
   <p class="summary-kind">✓ {{ t.verified }}</p>
   {% if full %}
   <ol class="sentences">
-    {% for line in sm.sentences %}<li>{{ line }} <a class="cite" href="{{ s.url }}" title="{{ t.cite }}" rel="noopener" target="_blank">[{{ loop.index }}]</a></li>{% endfor %}
+    {% for line in sm.sentences %}<li>{{ mark(line) if mark else line }} <a class="cite" href="{{ s.url }}" title="{{ t.cite }}" rel="noopener" target="_blank">[{{ loop.index }}]</a></li>{% endfor %}
   </ol>
   <p class="summary-note">{{ t.verified_note }} {{ t.cite }}</p>
   {% else %}
-  <p class="summary-text">{{ sm.sentences[0] }}</p>
+  <p class="summary-text">{{ mark(sm.sentences[0]) if mark else sm.sentences[0] }}</p>
   {% endif %}
 </div>
 {% else %}
 <div class="summary summary--fallback">
   <p class="summary-kind">{{ t.fallback }}</p>
-  <p class="summary-text">{{ sm.text }}</p>
+  <p class="summary-text">{{ mark(sm.text) if mark else sm.text }}</p>
   {% if full %}
   <p class="summary-note">
     {% if sm.get("why") == "rejected_by_judge" %}{{ t.fallback_judge }}{% if sm.get("reason") %}: <q lang="en">{{ sm.reason }}</q>{% endif %}.

@@ -12,6 +12,7 @@
 <link rel="icon" href="../static/favicon.svg" type="image/svg+xml">
 <script src="../static/site.js"></script>
 <script src="../static/search.js" defer></script>
+<script src="../static/glossary.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Saltar al contenido</a>
@@ -23,6 +24,7 @@
       <a href="index.html" aria-current="page">Inicio</a>
       <a href="noticias.html">Neuro News</a>
       <a href="como-evaluamos.html">Cómo evaluamos</a>
+      <a href="glosario.html">Glosario</a>
       <a href="sobre-nosotros.html">Sobre nosotros</a>
     </nav>
     <form class="search" role="search" action="buscar.html" data-search data-index="buscar.json" data-base="" data-all="Ver todos los resultados" data-none="Nada coincide con «{q}».">
@@ -196,35 +198,11 @@
     </a></li>
   </ul>
 </section>
-
-<section class="glossary" id="glosario" aria-labelledby="gl-h">
-  <div class="sec-head"><h2 id="gl-h">Glosario</h2> <a class="gap-tag gap-tag--gap" href="#gap-glossary"><span aria-hidden="true">Hueco</span><span class="vh">Hueco: Glosario: los 17 términos de ejemplo de la propuesta, con sus definiciones por revisar. En inglés aún no existen: llegan con el glosario (Fase 2).</span></a></div>
-  <p class="panel-note">Neuro Glossary llega en la Fase 2. Estos son los primeros términos de la propuesta.</p>
-  <div class="terms">
-    <details class="term"><summary>AAV</summary><p><strong>Virus adenoasociado</strong>. Vector viral para llevar genes a las neuronas (trazado, optogenética, DREADDs).</p></details>
-    <details class="term"><summary>AD</summary><p><strong>Alzheimer&#39;s disease (enfermedad de Alzheimer)</strong>. Enfermedad neurodegenerativa, la causa más frecuente de demencia.</p></details>
-    <details class="term"><summary>BOLD</summary><p><strong>Blood-oxygen-level dependent</strong>. Señal de la fMRI que depende del oxígeno en la sangre.</p></details>
-    <details class="term"><summary>ChR2</summary><p><strong>Channelrhodopsin-2 (canalrodopsina-2)</strong>. Proteína sensible a la luz con la que se activan neuronas en optogenética.</p></details>
-    <details class="term"><summary>DA</summary><p><strong>Dopamina</strong>. Neurotransmisor ligado al movimiento, la recompensa y la motivación.</p></details>
-    <details class="term"><summary>DREADDs</summary><p><strong>Designer Receptors Exclusively Activated by Designer Drugs</strong>. Receptores modificados que solo responden a un fármaco diseñado; base de la quimiogenética.</p></details>
-    <details class="term"><summary>EEG</summary><p><strong>Electroencefalograma</strong>. Registro de la actividad eléctrica del cerebro con electrodos en el cuero cabelludo.</p></details>
-    <details class="term"><summary>fMRI</summary><p><strong>Resonancia magnética funcional</strong>. Detecta cambios en el flujo de sangre para ver qué zonas se activan.</p></details>
-    <details class="term"><summary>GABA</summary><p><strong>Ácido gamma-aminobutírico</strong>. Principal neurotransmisor inhibidor del cerebro.</p></details>
-    <details class="term"><summary>GFAP</summary><p><strong>Proteína ácida fibrilar glial</strong>. Proteína típica de los astrocitos, usada como marcador en inmunofluorescencia.</p></details>
-    <details class="term"><summary>LTP</summary><p><strong>Long-term potentiation (potenciación a largo plazo)</strong>. Refuerzo duradero de una sinapsis, mecanismo celular relacionado con el aprendizaje.</p></details>
-    <details class="term"><summary>NAc</summary><p><strong>Núcleo accumbens</strong>. Zona del estriado ventral, central en el circuito de recompensa.</p></details>
-    <details class="term"><summary>PD</summary><p><strong>Parkinson&#39;s disease (enfermedad de Parkinson)</strong>. Enfermedad neurodegenerativa con pérdida de neuronas dopaminérgicas.</p></details>
-    <details class="term"><summary>PFC</summary><p><strong>Corteza prefrontal</strong>. Región de la planificación, la toma de decisiones y el control de impulsos.</p></details>
-    <details class="term"><summary>SNc</summary><p><strong>Sustancia negra pars compacta</strong>. Parte de la sustancia negra con las neuronas dopaminérgicas que degeneran en el Parkinson.</p></details>
-    <details class="term"><summary>SNr</summary><p><strong>Sustancia negra pars reticulata</strong>. Parte de la sustancia negra, en los ganglios basales, que envía señales inhibidoras a otras zonas.</p></details>
-    <details class="term"><summary>VTA</summary><p><strong>Área tegmental ventral</strong>. Región del mesencéfalo con neuronas dopaminérgicas, clave en recompensa y adicción.</p></details>
-  </div>
-</section>
 <section class="gaps" id="gaps" aria-labelledby="gaps-h">
   <h2 id="gaps-h">Huecos y propuestas de esta maqueta</h2>
   <p>Lo que aún falta o está por decidir. En la página se marca con una etiqueta que enlaza aquí.</p>
   <ul>
-<li id="gap-types"><strong class="gap-tag gap-tag--gap">Hueco</strong> Tipo de cada pieza: lo decide el clasificador (paso 14a), que aún no se ha ejecutado. Solo «Ensayo clínico» sale ya del tipo de publicación de PubMed.</li><li id="gap-groups"><strong class="gap-tag gap-tag--gap">Hueco</strong> Agrupación: «la misma historia en varios medios» la decide el LLM (paso 15), que aún no se ha ejecutado. Cada noticia sale sola, en el mismo componente que mostrará el grupo.</li><li id="gap-s5"><strong class="gap-tag gap-tag--gap">Hueco</strong> Los resúmenes verificados son los de S5 (estudios del 2 al 8 de noviembre); la cadena nueva aún no se ha ejecutado.</li><li id="gap-week"><strong class="gap-tag gap-tag--gap">Hueco</strong> El resumen semanal verificado no existe aún (requiere el LLM): se muestra su texto de respaldo, construido con los datos.</li><li id="gap-figs"><strong class="gap-tag gap-tag--proposal">Propuesta</strong> Imágenes de las noticias: la figura 1 (o el resumen gráfico) de los artículos de acceso abierto de PMC con licencia CC, redimensionada y sin recortar. Muchas son gráficas: está por decidir si se elige otra o la elige Sofía. Nature, Science y Cell y los medios van sin imagen.</li><li id="gap-fact"><strong class="gap-tag gap-tag--proposal">Propuesta</strong> Propuesta para el paso 26: una cifra calculada del almacén, sin LLM.</li><li id="gap-journal"><strong class="gap-tag gap-tag--gap">Hueco</strong> Texto provisional: «publicado en revista» no prueba la revisión por pares. El nombre de esta señal lo decide Sofía.</li><li id="gap-title_es"><strong class="gap-tag gap-tag--gap">Hueco</strong> Títulos: traducción del título pendiente (la hace el LLM, paso 16).</li><li id="gap-fact_noise"><strong class="gap-tag gap-tag--gap">Hueco</strong> Incluye ruido aún sin filtrar (paso 14a).</li><li id="gap-topics"><strong class="gap-tag gap-tag--proposal">Propuesta</strong> Temas: en la maqueta, palabras del título (por ejemplo «hippocamp» para Memoria). La versión real usaría los términos MeSH de PubMed y el clasificador. «Emoción» roza lo que se dejó fuera en v13 («sistemas emocionales como función principal»): como tema de noticias parece válido, pero lo confirma Sofía.</li><li id="gap-glossary"><strong class="gap-tag gap-tag--gap">Hueco</strong> Glosario: los 17 términos de ejemplo de la propuesta, con sus definiciones por revisar. En inglés aún no existen: llegan con el glosario (Fase 2).</li><li id="gap-about"><strong class="gap-tag gap-tag--gap">Hueco</strong> Borrador: Aday y Sofía escriben su presentación. Aquí solo va lo que ya dicen SCOPE y la propuesta.</li><li id="gap-search"><strong class="gap-tag gap-tag--proposal">Propuesta</strong> Buscador: busca en lo que hay en la web hoy (estudios, noticias, secciones, temas y siglas), en el navegador y sin servicios externos. Adaptado del de Paleo Atlas.</li><li id="gap-illus"><strong class="gap-tag gap-tag--proposal">Propuesta</strong> Ilustraciones: dibujos propios en SVG, provisionales. Se pueden cambiar por fotos de Commons con licencia o por capturas de cada sección cuando exista.</li>  </ul>
+<li id="gap-types"><strong class="gap-tag gap-tag--gap">Hueco</strong> Tipo de cada pieza: lo decide el clasificador (paso 14a), que aún no se ha ejecutado. Solo «Ensayo clínico» sale ya del tipo de publicación de PubMed.</li><li id="gap-groups"><strong class="gap-tag gap-tag--gap">Hueco</strong> Agrupación: «la misma historia en varios medios» la decide el LLM (paso 15), que aún no se ha ejecutado. Cada noticia sale sola, en el mismo componente que mostrará el grupo.</li><li id="gap-s5"><strong class="gap-tag gap-tag--gap">Hueco</strong> Los resúmenes verificados son los de S5 (estudios del 2 al 8 de noviembre); la cadena nueva aún no se ha ejecutado.</li><li id="gap-week"><strong class="gap-tag gap-tag--gap">Hueco</strong> El resumen semanal verificado no existe aún (requiere el LLM): se muestra su texto de respaldo, construido con los datos.</li><li id="gap-figs"><strong class="gap-tag gap-tag--proposal">Propuesta</strong> Imágenes de las noticias: la figura 1 (o el resumen gráfico) de los artículos de acceso abierto de PMC con licencia CC, redimensionada y sin recortar. Muchas son gráficas: está por decidir si se elige otra o la elige Sofía. Nature, Science y Cell y los medios van sin imagen.</li><li id="gap-fact"><strong class="gap-tag gap-tag--proposal">Propuesta</strong> Propuesta para el paso 26: una cifra calculada del almacén, sin LLM.</li><li id="gap-journal"><strong class="gap-tag gap-tag--gap">Hueco</strong> Texto provisional: «publicado en revista» no prueba la revisión por pares. El nombre de esta señal lo decide Sofía.</li><li id="gap-title_es"><strong class="gap-tag gap-tag--gap">Hueco</strong> Títulos: traducción del título pendiente (la hace el LLM, paso 16).</li><li id="gap-fact_noise"><strong class="gap-tag gap-tag--gap">Hueco</strong> Incluye ruido aún sin filtrar (paso 14a).</li><li id="gap-topics"><strong class="gap-tag gap-tag--proposal">Propuesta</strong> Temas: en la maqueta, palabras del título (por ejemplo «hippocamp» para Memoria). La versión real usaría los términos MeSH de PubMed y el clasificador. «Emoción» roza lo que se dejó fuera en v13 («sistemas emocionales como función principal»): como tema de noticias parece válido, pero lo confirma Sofía.</li><li id="gap-glossary"><strong class="gap-tag gap-tag--gap">Hueco</strong> Glosario: los 17 términos de ejemplo de la propuesta, con sus definiciones por revisar (Sofía). En inglés aún no existen: el término se marca igual y su definición queda vacía. Las formas que se buscan en los textos (la sigla, en mayúsculas exactas, y su nombre completo en español o inglés, en cualquier caja) están en data/glossary_forms.csv. Marcado copiado de Paleo Atlas: solo la primera aparición de cada término en la página, y nunca dentro de un enlace.</li><li id="gap-about"><strong class="gap-tag gap-tag--gap">Hueco</strong> Borrador: Aday y Sofía escriben su presentación. Aquí solo va lo que ya dicen SCOPE y la propuesta.</li><li id="gap-search"><strong class="gap-tag gap-tag--proposal">Propuesta</strong> Buscador: busca en lo que hay en la web hoy (estudios, noticias, secciones, temas y siglas), en el navegador y sin servicios externos. Adaptado del de Paleo Atlas.</li><li id="gap-illus"><strong class="gap-tag gap-tag--proposal">Propuesta</strong> Ilustraciones: dibujos propios en SVG, provisionales. Se pueden cambiar por fotos de Commons con licencia o por capturas de cada sección cuando exista.</li>  </ul>
 </section>
 </main>
 <footer class="footer">
@@ -239,5 +217,6 @@
     <p class="footer-disclaimer">Información divulgativa: no es consejo médico. Ante cualquier duda de salud, consulta a un profesional sanitario.</p>
   </div>
 </footer>
+
 </body>
 </html>
