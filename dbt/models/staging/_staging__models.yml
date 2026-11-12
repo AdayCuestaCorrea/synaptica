@@ -52,6 +52,92 @@ models:
                          expression_of_concern, correction, erratum]
               config: {severity: warn}
 
+  - name: stg_europepmc__records
+    description: Europe PMC open-access records, one row per record and version.
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "(epmc_key || '|' || version_date)"
+    columns:
+      - name: epmc_source
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: {values: [MED, PMC, PPR, AGR, CBA, CTX, ETH, HIR, PAT]}
+              config: {severity: warn}
+      - name: is_open_access
+        data_tests:
+          - accepted_values:
+              arguments: {values: [true]}
+
+  - name: stg_preprints
+    description: bioRxiv / medRxiv preprints, one row per DOI and version.
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "(doi || '|' || version_date)"
+    columns:
+      - name: doi
+        data_tests: [not_null]
+      - name: server
+        data_tests:
+          - accepted_values:
+              arguments: {values: [biorxiv, medrxiv]}
+      - name: version
+        data_tests: [not_null]
+      - name: license
+        description: Licence of the preprint; a new value is a warning.
+        data_tests:
+          - accepted_values:
+              arguments: {values: [cc_by, cc_by_nc, cc_by_nd, cc_by_nc_nd, cc0, cc0_ng, cc_no]}
+              config: {severity: warn}
+
+  - name: stg_preprints__published
+    description: Journal version of each neuro preprint ("pubs" list).
+    columns:
+      - name: published_doi
+        data_tests: [not_null]
+
+  - name: stg_journals__items
+    description: Journal feed items (metadata and links), one row per item and version.
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "(item_key || '|' || version_date)"
+    columns:
+      - name: journal
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('journals'), field: journal}
+      - name: via
+        data_tests:
+          - accepted_values:
+              arguments: {values: [rss, crossref]}
+
+  - name: stg_news__items
+    description: Popular-science news articles, one row per article and version.
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "(item_key || '|' || version_date)"
+    columns:
+      - name: feed
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('news_feeds'), field: feed}
+      - name: lang
+        data_tests:
+          - accepted_values:
+              arguments: {values: [es, en]}
+
+  - name: stg_openalex__works
+    description: OpenAlex topic and citations by DOI, one row per DOI and version.
+    columns:
+      - name: doi
+        data_tests: [not_null]
+
   - name: stg_raw__batches
     description: Daily batch files present in the raw store.
     columns:
