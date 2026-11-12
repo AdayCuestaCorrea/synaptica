@@ -87,3 +87,13 @@ Detalles:
   - Cada tema de noticias explica qué entra en él, con las definiciones que usa el clasificador (`src/synaptica/prompts/classify_news.md`): en «Cerebro sano» escribió «no entiendo este tema».
 - **Lo que no se hizo:** el resumen del dolutegravir (T6) quedó sin contestar; no añadió la frase de prueba de T7 (reescribió el resumen entero), así que el aviso y «Lo mantengo» no se han probado; no envió la página privada (T11).
 - **Contenido para más adelante** (no se aplica en la prueba): en sus notas propone detallar el hipocampo y la amígdala con el atlas de Paxinos y Watson. Ese atlas es un libro comercial y no se puede usar como datos; pero Waxholm ya separa CA1, CA2, CA3, giro dentado y subículo, así que el hipocampo puede emparejarse región a región con Julich-Brain. La amígdala de Waxholm es una sola etiqueta: se queda en «parcial».
+
+## Prueba con Sofía, ronda 2 (2026-11-12)
+
+- **Qué pasó:** abrió el archivo de la ronda 1 en lugar del de la ronda 2. Los dos se llamaban `revision.html`, llevaban la misma fecha en la cabecera y el navegador aún guardaba sus respuestas de ayer, así que volvió a enviar las 18 de la ronda 1 y las 24 siglas, en 4 partes. Mandó la 4, la 3 y la 2 (#6–#8) y perdió la pista de la 1, que solo repetía decisiones. La privada (#9) la aprobó sin entenderla: es un texto de relleno y ni la página ni el guion lo decían (tampoco Aday la entendió).
+- **Lo que sí se midió:** en el dolutegravir detectó la exageración, pero no la corrigió en el texto: dejó «es seguro» y escribió en la nota una frase alternativa, más prudente. Prefiere sugerir a reescribir; con el diseño actual, si eligiera «Lo mantengo», se publicaría el texto con la exageración. Para el ADR 0005: qué hace la cadena con una sugerencia en la nota. La frase de 2031 volvió con sus dos avisos, como se esperaba.
+- **Arreglos (con test):**
+  - la recepción no vuelve a apuntar una decisión idéntica a otra ya registrada (mismo elemento, versión, acción, contenido y nota) y lo dice en la respuesta: de #6–#8, 26 repetidas;
+  - cada envío lleva una línea `send:` (la misma en todas sus partes) y la respuesta de cada parte dice cuáles faltan; los Issues anteriores, sin ella, se siguen leyendo;
+  - cada página lleva su ronda en el nombre del archivo y en la cabecera, y guarda sus respuestas aparte, así que una página de otra ronda ni las ve ni las reenvía; no se genera una página privada vacía.
+- **Ronda 3:** solo el dolutegravir, con los dos avisos: corregir o «Lo mantengo».

@@ -329,3 +329,39 @@ def test_an_edit_whose_source_has_no_text_waits(queue, tmp_path, monkeypatch, ca
     assert e.value.code == 2
     assert json.loads(capsys.readouterr().out)["sources_without_text"] == ["pubmed-42971231"]
     assert not (tmp_path / "data").exists()
+
+
+# ---- found in round 2 of the test ----------------------------------------------------
+
+
+def test_a_decision_already_recorded_is_not_applied_twice(queue, tmp_path):
+    """She opened the round-1 page again and sent all its answers a second time."""
+    from intake import _recorded
+
+    first = _d(queue, NEWS, "approve")
+    out = process(_event([first], number=7), queue, SOFIA)
+    write(out, tmp_path)
+    changed = _d(queue, NEWS, "approve", note="otra nota")
+    again = process(_event([first, changed], number=8), queue, SOFIA, recorded=_recorded(tmp_path))
+    assert again.repeated == [f"{NEWS[0].value}/{NEWS[1]}"]
+    assert len(again.applied) == 1  # a different answer still counts
+    assert "1 ya estaba aplicada" in reply(again, {})
+
+
+def test_missing_parts_are_named(queue, tmp_path):
+    from intake import parts_note
+
+    def part(n: int, number: int) -> dict:
+        ev = _event([_d(queue, NEWS, "approve")], number=number)
+        body = encode("2026-11-11T06:00:00Z", "public", [_d(queue, NEWS, "approve")], (n, 3),
+                      "0badc0de")  # fmt: skip
+        ev["issue"]["body"] = f"### Decisiones\n\n```text\n{body}\n```"
+        return ev
+
+    assert "Aún no han llegado: 1, 2." in parts_note(part(3, 10), tmp_path)
+    assert "Aún no han llegado: 1." in parts_note(part(2, 11), tmp_path)
+    assert parts_note(part(2, 11), tmp_path).endswith(
+        "Aún no han llegado: 1. Si no las enviaste, vuelve a la página y pulsa sus botones."
+    )  # same Issue twice: no change
+    assert parts_note(part(1, 12), tmp_path) == "Con esta parte han llegado las 3 de este envío."
+    assert parts_note(_event([_d(queue, NEWS, "approve")]), tmp_path) == ""  # one part

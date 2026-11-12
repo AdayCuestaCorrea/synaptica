@@ -84,4 +84,6 @@ def test_dry_run_of_the_two_rounds(tmp_path):
     ]
     assert sts[("news", "pubmed-42971231")].awaiting_en  # the English is rewritten by the LLM
     assert len(waiting.items) == 19 - 2  # T6 and GABA settled; T7 back with its warnings
-    assert "Vuelve a tu cola por esto" in (tmp_path / "ronda-2" / "revision.html").read_text()
+    assert (
+        "Vuelve a tu cola por esto" in (tmp_path / "ronda-2" / "revision-ronda-2.html").read_text()
+    )

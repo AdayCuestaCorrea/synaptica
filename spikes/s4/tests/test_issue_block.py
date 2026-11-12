@@ -101,3 +101,16 @@ def test_real_issue_from_the_form(queue):
     }
     for d in block.decisions:
         assert check_against(Decision.model_validate(d | intake), queue) == []
+
+
+def test_send_id_is_optional_and_round_trips():
+    d = {"item_type": "glossary", "item_id": "gaba", "content_sha256": "x" * 64,
+         "action": "approve", "payload": {}, "note": None}  # fmt: skip
+    assert decode(encode("q", "public", [d], (2, 4), "3f9a01c2")).send == "3f9a01c2"
+    assert decode(encode("q", "public", [d], (2, 4))).send is None
+
+
+def test_a_wrong_send_id_is_refused():
+    body = "synaptica-review v1\nqueue: q\npage: public\npart: 1/2\nsend: nope\n{}"
+    with pytest.raises(BlockError, match="send"):
+        decode(body)

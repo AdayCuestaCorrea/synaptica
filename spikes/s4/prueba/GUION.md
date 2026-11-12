@@ -98,7 +98,7 @@ Se procesa igual que la ronda 1. Lo esperado: el dolutegravir vuelve con dos avi
 
 ## Ronda 3 (unos 5 min)
 
-Las páginas de `ronda-3/` (se generan como la ronda 2, con `--out spikes/s4/prueba/ronda-3`).
+Solo `ronda-3/revision-ronda-3.html` (se genera como la ronda 2, con `--out spikes/s4/prueba/ronda-3`; desde la ronda 3 cada archivo lleva su ronda en el nombre y en la cabecera, y no se genera la página privada si no tiene nada).
 
 | # | Tarea | Qué se observa |
 |---|---|---|

@@ -8,11 +8,16 @@ with ``decode``. Plain text, so Sofía can see what she sends::
     queue: 2026-11-11T06:00:00Z
     page: public
     part: 1/1
+    send: 3f9a01c2
     {"item_type":"glossary","item_id":"gaba","content_sha256":"…","action":"approve",…}
 
 One compact JSON object per decision line, with the fields of ``models.Decision`` except
 the three that the intake fills in from the Issue itself (``reviewed_by``,
 ``reviewed_at``, ``source``): nothing typed in the page can claim who or when.
+
+``send`` (optional, added after round 2 of the test with Sofía) names one send: every part
+of it carries the same value, so the intake can tell which parts have not arrived. Blocks
+without it (the first Issues) still decode.
 """
 
 from __future__ import annotations
@@ -38,11 +43,20 @@ class Block:
     page: str  # public | private
     part: tuple[int, int]
     decisions: list[dict]
+    send: str | None = None
 
 
-def encode(queue: str, page: str, decisions: list[dict], part: tuple[int, int] = (1, 1)) -> str:
+def encode(
+    queue: str,
+    page: str,
+    decisions: list[dict],
+    part: tuple[int, int] = (1, 1),
+    send: str | None = None,
+) -> str:
     """Same text as the page's ``blockOf`` (the tests and the intake share this format)."""
     lines = [MAGIC, f"queue: {queue}", f"page: {page}", f"part: {part[0]}/{part[1]}"]
+    if send:
+        lines.append(f"send: {send}")
     for d in decisions:
         ordered = {k: d.get(k) for k in DECISION_KEYS}
         lines.append(json.dumps(ordered, ensure_ascii=False, separators=(",", ":")))
@@ -76,8 +90,14 @@ def decode(body: str) -> Block:
     m = re.fullmatch(r"(\d+)/(\d+)", header["part"])
     if not m or not 1 <= int(m.group(1)) <= int(m.group(2)):
         raise BlockError(f"wrong part: {header['part']!r}")
+    rest, send = lines[4:], None
+    if rest and rest[0].startswith("send: "):
+        send = rest[0].removeprefix("send: ").strip()
+        if not re.fullmatch(r"[0-9a-f]{8}", send):
+            raise BlockError(f"wrong send: {send!r}")
+        rest = rest[1:]
     decisions = []
-    for n, line in enumerate(lines[4:], start=1):
+    for n, line in enumerate(rest, start=1):
         try:
             d = json.loads(line)
         except json.JSONDecodeError as e:
@@ -87,4 +107,5 @@ def decode(body: str) -> Block:
         decisions.append(d)
     if not decisions:
         raise BlockError("the block has no decisions")
-    return Block(header["queue"], header["page"], (int(m.group(1)), int(m.group(2))), decisions)
+    part = (int(m.group(1)), int(m.group(2)))
+    return Block(header["queue"], header["page"], part, decisions, send)

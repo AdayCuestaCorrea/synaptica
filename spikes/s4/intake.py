@@ -75,6 +75,7 @@ class Outcome:
     applied: list[Decision] = field(default_factory=list)
     held: list[Held] = field(default_factory=list)
     refused: list[tuple[str, str]] = field(default_factory=list)  # (what, why)
+    repeated: list[str] = field(default_factory=list)  # identical to one already recorded
     advice: list[tuple[str, str]] = field(default_factory=list)  # (what, the judge's remark)
     reason: str = ""
 
@@ -212,12 +213,33 @@ def _done_sources(data_dir: Path) -> set[str]:
     return seen
 
 
+def signature(d: dict) -> str:
+    """What makes two decisions the same answer: item, version, action, payload and note
+    (not who, when or which Issue)."""
+    keys = ("item_type", "item_id", "content_sha256", "action", "payload", "note")
+    return json.dumps({k: d.get(k) for k in keys}, ensure_ascii=False, sort_keys=True)
+
+
+def _recorded(data_dir: Path) -> set[str]:
+    """Signatures of every decision already applied or held. Seen in round 2 of the test:
+    she opened the round-1 page again and sent all its answers a second time."""
+    out = set()
+    for name in ("decisions.jsonl", "held.jsonl"):
+        path = data_dir / name
+        if path.exists():
+            for line in path.read_text("utf-8").splitlines():
+                row = json.loads(line)
+                out.add(signature(row.get("decision") or row))
+    return out
+
+
 def process(
     event: dict,
     queue: Queue,
     reviewer: str,
     *,
     done: set[str] = frozenset(),
+    recorded: set[str] = frozenset(),
     source_texts: dict[str, str] | None = None,
     judge: Judge | None = None,
 ) -> Outcome:
@@ -237,6 +259,9 @@ def process(
     intake = {"reviewed_by": author, "reviewed_at": issue["created_at"], "source": source}
     for raw in block.decisions:
         what = f"{raw.get('item_type')}/{raw.get('item_id')}"
+        if signature(raw) in recorded:
+            out.repeated.append(what)
+            continue
         try:
             decision = Decision.model_validate(raw | intake)
         except ValidationError as e:
@@ -284,6 +309,10 @@ def reply(out: Outcome, titles: dict[str, str]) -> str:
                 f"Detalle técnico: {out.reason}")  # fmt: skip
     t = lambda what: titles.get(what, what)  # noqa: E731
     lines = [f"Aplicadas: {len(out.applied)}."]
+    if out.repeated:
+        n = len(out.repeated)
+        lines.append(f"{n} {'ya estaba aplicada' if n == 1 else 'ya estaban aplicadas'} "
+                     "(las habías enviado antes): no se apuntan dos veces.")  # fmt: skip
     if out.held:
         lines += ["", "Vuelven a tu cola con un aviso (corrígelas o elige «Lo mantengo»):"]
         for h in out.held:
@@ -296,6 +325,32 @@ def reply(out: Outcome, titles: dict[str, str]) -> str:
         lines += ["", "El revisor automático comenta (no bloquea nada, solo por si te sirve):"]
         lines += [f"- {t(what)}: {remark}" for what, remark in out.advice]
     return "\n".join(lines)
+
+
+def parts_note(event: dict, data_dir: Path) -> str:
+    """Record this part of its send and say which parts have not arrived (round 2 of the
+    test: she sent parts 4, 3 and 2 and lost track of part 1). Empty for a one-part send
+    or a block without ``send``."""
+    block = decode(event["issue"].get("body") or "")
+    if not block.send or block.part[1] == 1:
+        return ""
+    path = data_dir / "parts.jsonl"
+    rows = [json.loads(x) for x in path.read_text("utf-8").splitlines()] if path.exists() else []
+    source = f"issue#{event['issue']['number']}"
+    if not any(r["source"] == source for r in rows):
+        rows.append({"send": block.send, "part": block.part[0], "of": block.part[1],
+                     "source": source})  # fmt: skip
+        data_dir.mkdir(parents=True, exist_ok=True)
+        with path.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(rows[-1]) + "\n")
+    got = {r["part"] for r in rows if r["send"] == block.send}
+    total = block.part[1]
+    missing = [n for n in range(1, total + 1) if n not in got]
+    if not missing:
+        return f"Con esta parte han llegado las {total} de este envío."
+    names = ", ".join(map(str, missing))
+    return (f"Esta es la parte {block.part[0]} de {total}. Aún no han llegado: {names}. "
+            "Si no las enviaste, vuelve a la página y pulsa sus botones.")  # fmt: skip
 
 
 def write(out: Outcome, data_dir: Path) -> None:
@@ -328,14 +383,17 @@ def main() -> None:
         print(json.dumps({"status": "error", "sources_without_text": missing}))
         raise SystemExit(2)
     out = process(event, queue, args.reviewer, done=_done_sources(args.data_dir),
-                  source_texts=texts)  # fmt: skip
+                  recorded=_recorded(args.data_dir), source_texts=texts)  # fmt: skip
+    note = ""
     if out.status == "processed":
         write(out, args.data_dir)
+        note = parts_note(event, args.data_dir)
     titles = {f"{i.item_type}/{i.item_id}": i.title_es for i in queue.items}
     if out.status in ("processed", "refused"):
-        args.reply.write_text(reply(out, titles) + "\n", encoding="utf-8")
+        text = reply(out, titles) + (f"\n\n{note}" if note else "")
+        args.reply.write_text(text + "\n", encoding="utf-8")
     print(json.dumps({"status": out.status, "applied": len(out.applied), "held": len(out.held),
-                      "refused": len(out.refused)}))  # fmt: skip
+                      "refused": len(out.refused), "repeated": len(out.repeated)}))  # fmt: skip
 
 
 if __name__ == "__main__":

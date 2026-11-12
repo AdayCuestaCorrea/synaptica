@@ -151,7 +151,9 @@ footer { color: var(--muted); font-size: 0.85rem; padding-block: 0 3rem; }
 
 <script>
 const PAGE = /*DATA*/{};
-const STORE = `synaptica-revision-s4-${PAGE.variant}`;
+// One store per page: a page of another round never shares (or resends) its answers. Seen in
+// round 2 of the test: she opened the round-1 file, whose answers were still saved.
+const STORE = `synaptica-revision-s4-${PAGE.variant}-${PAGE.generated_at}-${PAGE.label || ""}`;
 // The definitions are SYNAPTICA's proposal (2026-11-12): Sofía can change them, and hers go to
 // the web.
 const GRADES = [
@@ -445,8 +447,17 @@ const DECISION_KEYS = ["item_type", "item_id", "content_sha256", "action", "payl
 // Longest URL GitHub still prefills (measured in step 3, spikes/s4/results/README.md).
 const MAX_URL = PAGE.max_url;
 
-function blockOf(ds, part, total) {
+// Same value in every part of one send (FNV-1a of all its decisions): the intake says which
+// parts have not arrived.
+function sendId(ds) {
+  let h = 0x811c9dc5;
+  for (const ch of JSON.stringify(ds)) { h ^= ch.codePointAt(0); h = Math.imul(h, 0x01000193) >>> 0; }
+  return h.toString(16).padStart(8, "0");
+}
+
+function blockOf(ds, part, total, send) {
   const lines = [MAGIC, `queue: ${PAGE.generated_at}`, `page: ${PAGE.variant}`, `part: ${part}/${total}`];
+  if (send) lines.push(`send: ${send}`);
   for (const d of ds) lines.push(JSON.stringify(Object.fromEntries(DECISION_KEYS.map((k) => [k, d[k] ?? null]))));
   return lines.join("\n");
 }
@@ -462,7 +473,7 @@ function issueUrl(block, part, total) {
 function parts(ds) {
   const out = [];
   let current = [];
-  const fits = (group) => issueUrl(blockOf(group, 99, 99), 99, 99).length <= MAX_URL;
+  const fits = (group) => issueUrl(blockOf(group, 99, 99, "00000000"), 99, 99).length <= MAX_URL;
   for (const d of ds) {
     if (fits([...current, d])) { current.push(d); continue; }
     if (current.length) out.push(current);
@@ -478,10 +489,11 @@ async function copyText(text) {
 
 function renderParts(ds) {
   const ps = parts(ds);
+  const send = sendId(ds);
   answers.sent = answers.sent || {};
   const box = document.getElementById("parts");
   box.replaceChildren(...ps.map((p, n) => {
-    const block = blockOf(p.group, n + 1, ps.length);
+    const block = blockOf(p.group, n + 1, ps.length, send);
     const label = ps.length > 1 ? `Enviar parte ${n + 1} de ${ps.length}` : "Enviar";
     const a = el("a", { class: `button${answers.sent[block] ? " sent" : ""}`, target: "_blank", rel: "noopener",
       href: issueUrl(p.paste ? null : block, n + 1, ps.length),
@@ -533,10 +545,14 @@ function refresh() {
   }));
 }
 
-document.getElementById("eyebrow").textContent = `SYNAPTICA · revisión · ${PAGE.generated_at.slice(0, 10)}`;
+const round = PAGE.label ? ` · ${PAGE.label.replace("-", " ")}` : "";
+document.getElementById("eyebrow").textContent = `SYNAPTICA · revisión · ${PAGE.generated_at.slice(0, 10)}${round}`;
+document.title = `Revisión SYNAPTICA${round}`;
+const count = `${PAGE.items.length} ${PAGE.items.length === 1 ? "elemento" : "elementos"}`;
 document.getElementById("lead").textContent = PAGE.variant === "private"
-  ? "Hola, Sofía. Este archivo es privado: tiene las fichas de Neuro Diseases, que no se publican hasta que las apruebes. No lo reenvíes."
-  : "Hola, Sofía. Esto es lo que espera tu revisión hoy, ordenado por prioridad.";
+  ? `Hola, Sofía. Este archivo es privado: tiene las fichas de Neuro Diseases (${count}), que no se publican hasta que las apruebes. No lo reenvíes.`
+  : PAGE.items.length === 1 ? `Hola, Sofía. Hoy espera tu revisión ${count}.`
+  : `Hola, Sofía. Hoy esperan tu revisión ${count}, ordenados por prioridad.`;
 render();
 refresh();
 </script>

@@ -71,9 +71,10 @@ def page_items(queue: Queue, variant: str) -> list[ReviewItem]:
     return sorted(chosen, key=lambda i: (ORDER.index(i.item_type), i.item_id))
 
 
-def page_data(queue: Queue, variant: str) -> dict:
+def page_data(queue: Queue, variant: str, label: str = "") -> dict:
     return {
         "variant": variant,
+        "label": label,  # the round («ronda-3»): in the header, the file name and the store
         "generated_at": queue.generated_at.isoformat().replace("+00:00", "Z"),
         "propose": variant == "public",  # new glossary terms: not health content
         "glossary_terms": glossary_terms(queue) if variant == "public" else [],
@@ -92,11 +93,11 @@ def embed(data: dict) -> str:
     return text.replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
 
 
-def render(queue: Queue, variant: str) -> str:
+def render(queue: Queue, variant: str, label: str = "") -> str:
     template = TEMPLATE.read_text("utf-8")
     if template.count(MARKER) != 1:
         raise ValueError("the template must have exactly one data marker")
-    return template.replace(MARKER, embed(page_data(queue, variant)))
+    return template.replace(MARKER, embed(page_data(queue, variant, label)))
 
 
 def main() -> None:
