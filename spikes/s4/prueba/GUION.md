@@ -80,17 +80,32 @@ Lo esperado (comprobado en `spikes/s4/tests/test_prueba.py`): T7 vuelve con dos 
 
 Las decisiones de la prueba se quedan en `spikes/s4/prueba/datos/`, **no** en la rama `data`: son de prueba. Lo que diga de verdad (grados, glosario, temas) se reutiliza más adelante solo si ella lo confirma.
 
-## Ronda 2 (unos 5 min; puede ser otro día)
+## Ronda 2 (unos 10 min; puede ser otro día)
 
-Mándale los archivos de `ronda-2/`.
+Cambiada tras la ronda 1 (2026-11-12, opción A de Aday): Sofía no hizo T6, T7 ni T11, así que nunca vio un aviso ni «Lo mantengo». La ronda 2 recoge esas tareas y una ronda 3 corta prueba el aviso.
+
+Mándale los dos archivos de `ronda-2/`. En la pública solo queda el resumen del dolutegravir; en la privada, la ficha de prueba.
 
 | # | Tarea | Qué se observa |
 |---|---|---|
-| T12 | Leer la respuesta que dejó el sistema en su Issue de la ronda 1 | ¿La entiende? ¿Le llegó un correo de GitHub? |
-| T13 | El resumen de T7: elegir entre corregirlo o «Lo mantengo» con un motivo | ¿Entiende el aviso y la opción? |
-| T14 | Enviar | |
+| T12 | Leer la respuesta que dejó el sistema en sus Issues de la ronda 1 | ¿La entiende? ¿Le llegó un correo de GitHub? |
+| T6 | Resumen del dolutegravir: corregir la exageración **solo en español** | El inglés lo rehará la IA: ¿le parece bien no tocarlo? |
+| T7 | En el mismo resumen, **añadir al final** «El seguimiento se repetirá en 2031.» | Prueba a propósito: la cifra no está en la fuente. Díselo después, no antes |
+| T11 | Página privada: aprobar la ficha de prueba y enviar | ¿Entiende por qué va en un archivo aparte? |
+| T14 | Enviar las dos | |
 
-Se procesa igual que la ronda 1. Si quiere, una ronda 3 comprueba que la cola se vacía.
+Se procesa igual que la ronda 1. Lo esperado: el dolutegravir vuelve con dos avisos, «La cifra 2031 no está en el texto revisado ni en su fuente» y «Frase nueva sin fuente»; la ficha queda aprobada.
+
+## Ronda 3 (unos 5 min)
+
+Las páginas de `ronda-3/` (se generan como la ronda 2, con `--out spikes/s4/prueba/ronda-3`).
+
+| # | Tarea | Qué se observa |
+|---|---|---|
+| T13 | El resumen con aviso: corregirlo o elegir «Lo mantengo» con un motivo | ¿Entiende el aviso y la opción? |
+| T15 | Enviar | |
+
+Tras procesarla, la cola debe quedar vacía. Después, las preguntas finales.
 
 ## Preguntas al final (5 min)
 
