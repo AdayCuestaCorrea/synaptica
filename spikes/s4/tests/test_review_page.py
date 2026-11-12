@@ -95,3 +95,12 @@ def test_warnings_do_not_change_the_hash(queue):
         item.model_dump() | {"warnings": ["Una frase copia 9 palabras."]}
     )
     assert warned.content_sha256 == item.content_sha256
+
+
+def test_the_public_page_lists_the_glossary_terms(queue):
+    """Round 1: she proposed EEG, AAV, GFAP and LTP, already in the glossary."""
+    from review_page import page_data
+
+    terms = page_data(queue, "public")["glossary_terms"]
+    assert {"EEG", "AAV", "GFAP", "LTP", "GABA", "SNr"} <= set(terms)
+    assert page_data(queue, "private")["glossary_terms"] == []
