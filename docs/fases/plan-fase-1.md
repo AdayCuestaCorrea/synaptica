@@ -66,7 +66,7 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 depende de D5 (d
 | 23 🟢 | Neuro News: Última hora y Nature · Science · Cell, con sus señales | idem | portada con datos de fixtures |
 | 24a 🟢 | Clásicos: propuesta semanal por citas de OpenAlex, que entra en la cola de Sofía; mientras no esté aprobado, el bloque no muestra nada | test «nada sin aprobar» | propuesta generada |
 | 24b 🟡 | Aprobación de los Clásicos por el flujo D5 | — | bloque con los aprobados |
-| 25 🟢 | Resumen semanal (misma cadena y comprobaciones) | FakeLLM | página semanal ES y EN |
+| 25 ✅ (sin página) | Resumen semanal (misma cadena y comprobaciones) | FakeLLM | página semanal ES y EN |
 | 26 🟢 | Dato curioso del día (**hueco en SCOPE**: no dice de dónde sale; propuesta: un hecho ya verificado de los resúmenes del día, con su cita) | test «el dato tiene fuente» | se decide con Aday antes del paso |
 | 27 🔵 | Pages: el sitio en la raíz, con la maqueta de S3 en `/spikes/s3/c/` (fusionar `pages.yml`; lo confirma Aday) | — | publicado y medido |
 

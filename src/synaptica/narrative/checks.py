@@ -177,6 +177,9 @@ def check_text(
     sentences: list[tuple[str, list[str]]],
     facts: dict[str, str],
     source_texts: Iterable[str],
+    *,
+    min_words: int = MIN_WORDS,
+    max_words: int = MAX_WORDS,
 ) -> TextReport:
     """Check sentences ``[(text, fact_ids)]`` against facts ``{fact_id: fact text}``."""
     source_grams: set[tuple[str, ...]] = set()
@@ -204,10 +207,10 @@ def check_text(
         reports.append(report)
     word_count = sum(len(words(t)) for t, _ in sentences)
     problems = []
-    if word_count > MAX_WORDS:
-        problems.append(f"too long: {word_count} words (max {MAX_WORDS})")
-    if word_count < MIN_WORDS:
-        problems.append(f"too short: {word_count} words (min {MIN_WORDS})")
+    if word_count > max_words:
+        problems.append(f"too long: {word_count} words (max {max_words})")
+    if word_count < min_words:
+        problems.append(f"too short: {word_count} words (min {min_words})")
     return TextReport(reports, problems, word_count)
 
 

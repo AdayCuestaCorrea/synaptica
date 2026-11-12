@@ -94,15 +94,24 @@ def _public(problems: list[str]) -> list[str]:
     return [re.sub(r" \('.*?'\)|: '.*'$", "", p) for p in problems]
 
 
-def write_en(llm: LLM, facts: dict[str, str], feedback: list[str]) -> list[tuple[str, list[str]]]:
-    system = prompt("write_en")[0]
-    lines = ["VERIFIED FACTS:", *(f"{k} {v}" for k, v in facts.items())]
+def write_en(
+    llm: LLM,
+    facts: dict[str, str],
+    feedback: list[str],
+    prompt_name: str = "write_en",
+    *,
+    fact_lines: list[str] | None = None,
+) -> list[tuple[str, list[str]]]:
+    """English sentences with their fact ids. ``fact_lines`` replaces the plain list of
+    facts (the weekly summary groups them by study)."""
+    system = prompt(prompt_name)[0]
+    lines = ["VERIFIED FACTS:", *(fact_lines or [f"{k} {v}" for k, v in facts.items()])]
     if feedback:
         lines += ["", "Your previous answer failed these automatic checks. Fix every one:",
                   *feedback,
                   "A number must be written exactly as in a cited fact or dropped; a name must "
                   "appear in the facts; a copied run of words must be rephrased."]  # fmt: skip
-    out = llm.complete_json(system, "\n".join(lines), Summary, max_tokens=1_500)
+    out = llm.complete_json(system, "\n".join(lines), Summary, max_tokens=2_500)
     return [(s.text.strip(), s.fact_ids) for s in out.sentences]
 
 

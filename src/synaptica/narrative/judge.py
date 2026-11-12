@@ -78,6 +78,44 @@ def pending(study_id: str, derived_root: Path | None = None) -> dict[str, dict] 
     return texts
 
 
+def ask(
+    judge: LLM,
+    *,
+    writer: str,
+    title: str,
+    abstract: str,
+    en: list[str],
+    es: list[str] | None,
+    now: dt.datetime | None = None,
+) -> tuple[Verdict, dict[str, Any]]:
+    """The judge's verdict on a summary, and the record kept with each text."""
+    if same_family(judge.label, writer):
+        raise ValueError(f"judge {judge.label} is of the writer's family ({writer})")
+    system, version = prompt("judge")
+    lines = [f"EN {i}. {t}" for i, t in enumerate(en, 1)]
+    if es is not None:
+        lines += [f"ES {i}. {t}" for i, t in enumerate(es, 1)]
+    else:
+        lines.append("(No Spanish version: judge spanish_matches as true.)")
+    verdict = judge.complete_json(
+        system,
+        f"TITLE: {title}\n\nABSTRACT:\n{abstract}\n\nSUMMARY:\n" + "\n".join(lines),
+        Verdict,
+        max_tokens=800,
+    )
+    stamp = (now or dt.datetime.now(dt.UTC)).isoformat(timespec="seconds")
+    record = {**verdict.model_dump(), "generator": judge.label, "prompt_version": version,
+              "judged_at": stamp}  # fmt: skip
+    return verdict, record
+
+
+def public_reason(verdict: Verdict) -> str:
+    """The judge's reason as a problem line: first sentence, quotes removed (they may
+    come from the abstract)."""
+    reason = re.sub(r'["\u201c\u201d].*?["\u201c\u201d]', "…", verdict.reason)
+    return f"judge: {reason.split('. ')[0]}".rstrip()
+
+
 def judge_study(
     judge: LLM,
     study: dict[str, Any],
@@ -89,35 +127,19 @@ def judge_study(
 ) -> Verdict:
     """Ask the judge and record its verdict in each text; a failed verdict moves the
     texts to ``texts_review``."""
-    if same_family(judge.label, texts["en"]["generator"]):
-        raise ValueError(f"judge {judge.label} is of the writer's family "
-                         f"({texts['en']['generator']})")  # fmt: skip
-    system, version = prompt("judge")
-    lines = [f"EN {i}. {s['text']}" for i, s in enumerate(texts["en"]["sentences"], 1)]
-    if "es" in texts:
-        lines += [f"ES {i}. {s['text']}" for i, s in enumerate(texts["es"]["sentences"], 1)]
-    else:
-        lines.append("(No Spanish version: judge spanish_matches as true.)")
-    verdict = judge.complete_json(
-        system,
-        f"TITLE: {study['title']}\n\nABSTRACT:\n{abstract}\n\nSUMMARY:\n" + "\n".join(lines),
-        Verdict,
-        max_tokens=800,
-    )
-    stamp = (now or dt.datetime.now(dt.UTC)).isoformat(timespec="seconds")
-    record = {**verdict.model_dump(), "generator": judge.label, "prompt_version": version,
-              "judged_at": stamp}  # fmt: skip
+    es = texts.get("es")
+    verdict, record = ask(
+        judge, writer=texts["en"]["generator"], title=study["title"], abstract=abstract,
+        en=[s["text"] for s in texts["en"]["sentences"]],
+        es=[s["text"] for s in es["sentences"]] if es else None, now=now,
+    )  # fmt: skip
     for lang, text in texts.items():
         text = {**text, "judge": record}
         if verdict.passed:
             _dump(text_path(study["study_id"], lang, verified=True, derived_root=derived_root),
                   text)  # fmt: skip
             continue
-        # The reason may quote the abstract: keep only the first sentence, unquoted.
-        reason = re.sub(r'["\u201c\u201d].*?["\u201c\u201d]', "…", verdict.reason)
-        reason = reason.split(". ")[0]
-        text = {**text, "status": "rejected_by_judge",
-                "problems": [f"judge: {reason}".rstrip()]}  # fmt: skip
+        text = {**text, "status": "rejected_by_judge", "problems": [public_reason(verdict)]}
         _dump(text_path(study["study_id"], lang, verified=False, derived_root=derived_root),
               text)  # fmt: skip
         text_path(study["study_id"], lang, verified=True, derived_root=derived_root).unlink()

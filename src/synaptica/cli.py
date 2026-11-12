@@ -530,6 +530,51 @@ def judge(
 
 
 @app.command()
+def weekly(
+    provider: ProviderOption = None,
+    model: ModelOption = None,
+    judge_model: Annotated[
+        str | None, typer.Option(help="Judge model (default per provider, D4).")
+    ] = None,
+    week: Annotated[
+        str | None, typer.Option(help="ISO week such as 2026-W45 (default: last week).")
+    ] = None,
+) -> None:
+    """Weekly summary of the studies whose summaries were published that week: same
+    chain, checks and judge -> derived/weekly/ (or weekly_review/, with the fallback)."""
+    from synaptica.llm import LLM, QuotaExhausted
+    from synaptica.narrative import weekly as weekly_mod
+    from synaptica.news import classify
+    from synaptica.store import utc_today
+
+    llm = _llm(provider, model)
+    if llm is None:
+        typer.echo("No --provider given: nothing written.")
+        raise typer.Exit(0)
+    judge_name = judge_model or DEFAULT_JUDGE_MODELS.get(provider)
+    if judge_name is None:
+        typer.echo(f"No default judge for {provider}: pass --judge-model.", err=True)
+        raise typer.Exit(1)
+    if not classify.warehouse_path().exists():
+        typer.echo("No warehouse yet: run `syn build` first.", err=True)
+        raise typer.Exit(1)
+    key = week or weekly_mod.last_week(utc_today())
+    chosen = weekly_mod.choose(weekly_mod.candidates(key))
+    if weekly_mod.is_up_to_date(key, chosen):
+        typer.echo(f"Weekly summary {key}: up to date ({len(chosen)} studies)")
+        raise typer.Exit(0)
+    try:
+        status = weekly_mod.write_weekly(llm, LLM(provider, judge_name), key, chosen)
+    except QuotaExhausted as exc:
+        typer.echo(f"LLM quota used up: {exc}; the weekly summary waits", err=True)
+        raise typer.Exit(0) from exc
+    except ValueError as exc:  # judge of the writer's family
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(1) from exc
+    typer.echo(f"Weekly summary {key}: {status} ({len(chosen)} studies)")
+
+
+@app.command()
 def build(
     as_of: Annotated[
         str | None, typer.Option(help="Pin 'today' (YYYY-MM-DD) for date-based tests (CI).")
