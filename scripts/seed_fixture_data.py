@@ -19,7 +19,7 @@ import httpx
 from synaptica import report
 from synaptica.config import get_paths
 from synaptica.http import Throttle, make_client
-from synaptica.ingest import biorxiv, crossref, europepmc, journals, news, pubmed
+from synaptica.ingest import biorxiv, crossref, europepmc, journals, news, openalex, pubmed
 
 FIXTURES = Path(__file__).resolve().parents[1] / "tests" / "fixtures"
 DAY = dt.date(2026, 11, 9)  # the S1 fixtures were recorded that day
@@ -65,6 +65,11 @@ def answer(request: httpx.Request) -> httpx.Response:
             body["collection"] = []
         body["messages"][0]["total"] = str(len(body["collection"]))
         return httpx.Response(200, json=body)
+    if request.url.host == "api.openalex.org":
+        asked = set(params["filter"].removeprefix("doi:").split("|"))
+        works = _json(FIXTURES / "openalex" / "works_most_cited_2016.json")["results"]
+        found = [w for w in works if w["doi"].removeprefix("https://doi.org/") in asked]
+        return httpx.Response(200, json={"results": found})
     if request.url.host == "www.ebi.ac.uk":
         search = _json(FIXTURES / "europepmc" / "search_core.json")
         if params["cursorMark"] != "*":
@@ -82,6 +87,7 @@ def main() -> None:
         print(biorxiv.ingest(client, today=DAY, throttle=NO_WAIT))
         print(journals.ingest(client, today=DAY, throttle=NO_WAIT))
         print(news.ingest(client, today=DAY, throttle=NO_WAIT))
+        print(openalex.ingest(client, today=DAY, throttle=NO_WAIT))
     moment = dt.datetime(2026, 11, 9, 6, 23, tzinfo=dt.UTC)
     report.start_run(data, trigger="manual", changed=True, now=moment)
     report.finish_run(data, now=moment)

@@ -273,6 +273,23 @@ def ingest_news() -> None:
         raise typer.Exit(code=1)
 
 
+@ingest_app.command("openalex")
+def ingest_openalex() -> None:
+    """OpenAlex topics and citations for the general-journal items (by DOI, filter only)."""
+    from synaptica.http import HttpError, make_client
+    from synaptica.ingest import openalex
+
+    try:
+        with make_client() as client:
+            result = openalex.ingest(client)
+    except HttpError as exc:
+        typer.echo(f"OpenAlex failed: {exc}", err=True)
+        raise typer.Exit(code=1) from exc
+    typer.echo(
+        f"OpenAlex: {result.asked} DOIs asked, {result.found} found; {result.new_versions} stored"
+    )
+
+
 @app.command()
 def build(
     as_of: Annotated[
