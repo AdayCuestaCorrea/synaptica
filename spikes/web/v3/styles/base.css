@@ -276,6 +276,7 @@ a.gl:hover, a.gl:focus-visible { color: var(--link); background: var(--accent-so
 .gl-review { display: block; color: var(--muted); font-size: 0.8rem; margin-top: 2px; }
 
 /* Search page, topic pages */
+.row-note { margin: 4px 0 0; color: var(--muted); font-size: 0.82rem; }
 .results { padding-left: 1.2em; }
 .results li { margin: 8px 0; }
 .results a { text-decoration: none; }

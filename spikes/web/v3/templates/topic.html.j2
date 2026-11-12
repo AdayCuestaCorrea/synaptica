@@ -13,7 +13,7 @@
 {% set hits = topic_hits[topic] %}
 {% if not hits.studies and not hits.news %}<p class="empty-state">{{ t.topic_none }}</p>{% endif %}
 <div class="list">
-  {% for s in hits.studies %}{{ m.row(s) }}{% endfor %}
+  {% for s in hits.studies %}{{ m.row(s, note=t["topic_" ~ hits.basis[s.study_id]]) }}{% endfor %}
 </div>
 {% if hits.news %}
 <h2 class="sub-h">{{ t.media }}</h2>

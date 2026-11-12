@@ -15,7 +15,6 @@ from __future__ import annotations
 import functools
 import html
 import json
-import re
 import shutil
 from pathlib import Path
 from typing import Any
@@ -60,21 +59,14 @@ SECTIONS = [
 # Topics from Sofía's sketch. Mock-up rule (a proposal): words in the title. The real one
 # would use MeSH terms and the classifier.
 TOPICS = {
-    "memory": {"es": "Memoria", "en": "Memory", "slug_es": "memoria",
-               "rx": r"memor|hippocamp|learning|recall|amnes"},
-    "addiction": {"es": "Adicción", "en": "Addiction", "slug_es": "adiccion",
-                  "rx": r"addict|substance use|alcohol|opioid|cocaine|nicotine|smok|cannabis"},
+    "memory": {"es": "Memoria", "en": "Memory", "slug_es": "memoria"},
+    "addiction": {"es": "Adicción", "en": "Addiction", "slug_es": "adiccion"},
     "neurodegeneration": {"es": "Neurodegeneración", "en": "Neurodegeneration",
-                          "slug_es": "neurodegeneracion",
-                          "rx": r"alzheimer|parkinson|dementia|neurodegener|huntington|"
-                                r"amyotrophic|\btau\b|amyloid|synuclein"},
+                          "slug_es": "neurodegeneracion"},
     "neuroinflammation": {"es": "Neuroinflamación", "en": "Neuroinflammation",
-                          "slug_es": "neuroinflamacion",
-                          "rx": r"neuroinflam|microglia|astrocyt|cytokine|inflamm"},
-    "sleep": {"es": "Sueño", "en": "Sleep", "slug_es": "sueno",
-              "rx": r"sleep|insomnia|circadian|apnea|narcolep"},
-    "emotion": {"es": "Emoción", "en": "Emotion", "slug_es": "emocion",
-                "rx": r"emotion|fear|anxiety|amygdala|mood|depress|affective"},
+                          "slug_es": "neuroinflamacion"},
+    "sleep": {"es": "Sueño", "en": "Sleep", "slug_es": "sueno"},
+    "emotion": {"es": "Emoción", "en": "Emotion", "slug_es": "emocion"},
 }  # fmt: skip
 
 T3: dict[str, dict[str, str]] = {
@@ -107,11 +99,17 @@ T3: dict[str, dict[str, str]] = {
         "atlas_hero_credit": "Cerebro: captura de nuestro visor · {atlas} · {lic}",
         "art_credit": "Ilustraciones: SYNAPTICA, CC BY-SA 4.0.",
         "week_link": "Resumen de la semana",
-        "gap_topics": "Temas: en la maqueta, palabras del título (por ejemplo «hippocamp» "
-                      "para Memoria). La versión real usaría los términos MeSH de PubMed y el "
-                      "clasificador. «Emoción» roza lo que se dejó fuera en v13 («sistemas "
-                      "emocionales como función principal»): como tema de noticias parece "
-                      "válido, pero lo confirma Sofía.",
+        "gap_topics": "Temas provisionales (se replantean cuando haya más noticias). Cada "
+                      "tema es una rama del vocabulario MeSH de la National Library of "
+                      "Medicine de EE. UU. Un estudio indexado en PubMed o Europe PMC toma "
+                      "los temas de sus MeSH; los demás (los registros recientes y todos los "
+                      "preprints), los sinónimos MeSH que salen en su título o sus palabras "
+                      "clave, o al menos dos veces en su resumen. Medido contra los MeSH en "
+                      "178 estudios: la regla de texto acierta entre el 60 % (Emoción) y el "
+                      "100 % (Memoria, Sueño), con pocos casos por tema. Las noticias de "
+                      "medios solo tienen título. «Emoción» roza lo que se dejó fuera en "
+                      "v13: lo confirma Sofía.",
+        "topic_mesh": "Tema según sus MeSH", "topic_text": "Tema según su texto",
         "gap_glossary": "Glosario: los 17 términos de ejemplo de la propuesta, con sus "
                         "definiciones por revisar (Sofía). En inglés aún no existen: el término "
                         "se marca igual y su definición queda vacía. Las formas que se buscan "
@@ -165,11 +163,16 @@ T3: dict[str, dict[str, str]] = {
         "atlas_hero_credit": "Brain: capture of our viewer · {atlas} · {lic}",
         "art_credit": "Illustrations: SYNAPTICA, CC BY-SA 4.0.",
         "week_link": "This week's summary",
-        "gap_topics": "Topics: in the mock-up, words in the title (for example «hippocamp» "
-                      "for Memory). The real version would use PubMed's MeSH terms and the "
-                      "classifier. «Emotion» brushes against what v13 left out («emotional "
-                      "systems as a main feature»): as a news topic it looks fine, but Sofía "
-                      "confirms.",
+        "gap_topics": "Provisional topics (to be revisited when there is more news). Each "
+                      "topic is a branch of the MeSH vocabulary of the U.S. National Library "
+                      "of Medicine. A study indexed in PubMed or Europe PMC takes the topics "
+                      "of its MeSH; the rest (recent records and every preprint), the MeSH "
+                      "synonyms in its title or keywords, or at least twice in its abstract. "
+                      "Measured against MeSH on 178 studies: the text rule is right between "
+                      "60 % (Emotion) and 100 % (Memory, Sleep) of the time, with few cases "
+                      "per topic. Media news only have a title. «Emotion» brushes against "
+                      "what v13 left out: Sofía confirms.",
+        "topic_mesh": "Topic from its MeSH", "topic_text": "Topic from its text",
         "gap_glossary": "Glossary: the 17 sample terms of the proposal exist only in Spanish, "
                         "with definitions still to review (Sofía). In English the term is "
                         "marked all the same and its definition is left empty. The forms "
@@ -194,9 +197,14 @@ T3: dict[str, dict[str, str]] = {
 }  # fmt: skip
 
 
-def topic_items(rx: str, latest: list, nsc: list, news: list) -> dict[str, list]:
-    hit = lambda s: re.search(rx, s.get("title") or "", re.I)  # noqa: E731
-    return {"studies": [s for s in latest + nsc if hit(s)], "news": [n for n in news if hit(n)]}
+def topic_items(key: str, latest: list, nsc: list, news: list, tags: dict) -> dict[str, Any]:
+    """Studies and news of a topic, from data/topics.json (topics.py: MeSH or text)."""
+    basis = {sid: b for sid, tg in tags["studies"].items() for t, b in tg if t == key}
+    return {
+        "studies": [s for s in latest + nsc if s["study_id"] in basis],
+        "basis": basis,
+        "news": [n for n in news if any(t == key for t, _ in tags["news"].get(n["url"], []))],
+    }
 
 
 def search_index(lang: str, ctx: dict[str, Any], url: Any) -> list[list[str]]:
@@ -286,7 +294,8 @@ def main() -> None:
                     reverse=True)  # fmt: skip
     lead = next(s for s in data["s5"] if s["summary"]["en"]["kind"] == "verified"
                 and s["species"] != "unknown" and s["study_id"] in images["figures"])  # fmt: skip
-    topic_hits = {k: topic_items(v["rx"], latest, data["nsc"], data["news"])
+    tags = json.loads((HERE / "data/topics.json").read_text(encoding="utf-8"))
+    topic_hits = {k: topic_items(k, latest, data["nsc"], data["news"], tags)
                   for k, v in TOPICS.items()}  # fmt: skip
     common = {
         "data": data, "by_id": studies, "latest": latest, "lead": lead,

@@ -53,12 +53,13 @@
 {% macro art(name) -%}{% include "art/" ~ name ~ ".svg.j2" %}{%- endmacro %}
 
 {# One study in a list: words left, thumbnail right (if the article is open access). #}
-{% macro row(s, thumb=True) -%}
+{% macro row(s, thumb=True, note=None) -%}
 <article class="row{% if thumb and figs.get(s.study_id) %} row--img{% endif %}" data-type="{{ s.type or 'none' }}">
   <div class="row-text">
     {{ kicker(s) }}
     <h3 class="row-title"><a href="{{ url('study', slug(s.study_id)) }}" lang="en">{{ s.title }}</a></h3>
     {{ chips(s) }}
+    {% if note %}<p class="row-note">{{ note }}</p>{% endif %}
   </div>
   {% if thumb %}{{ figure(s, "thumb") }}{% endif %}
 </article>
