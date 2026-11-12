@@ -279,6 +279,8 @@ a:hover { text-decoration-thickness: 2px; }
 .art .a-line { stroke: var(--art-line); }
 .art .a-acc { stroke: var(--accent); }
 .art .a-dot { fill: var(--accent); }
+.art .a-thin { fill: none; stroke: var(--art-line); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.75; }
+.art .a-soft { fill: var(--accent); opacity: 0.14; stroke: none; }
 .art .a-solid { fill: var(--art-line); }
 .art .a-blob { fill: var(--alert); opacity: 0.55; }
 .art .a-text { fill: var(--art-line); font: 700 12px var(--body); }
@@ -290,7 +292,7 @@ a:hover { text-decoration-thickness: 2px; }
 .hero p { margin: 0 0 12px; color: var(--muted); font-size: 1.05rem; max-width: 34rem; }
 .jump { font-weight: 700; text-decoration: none; }
 .hero-art { position: relative; margin: 0; height: 210px; }
-.hero-brain { position: absolute; left: 4%; bottom: 18px; height: 180px; width: auto; }
+.hero-brain { position: absolute; left: 0; bottom: 0; height: 200px; width: 58%; }
 .hero-neuron { position: absolute; right: 0; top: 0; width: 46%; height: 150px; --art-line: var(--ink); }
 .hero-art .credit { position: absolute; left: 0; right: 0; bottom: 0; text-align: right; }
 
@@ -391,7 +393,7 @@ a.gl:hover, a.gl:focus-visible { color: var(--link); background: var(--accent-so
   .hero { grid-template-columns: minmax(0, 1fr) 104px; padding: 12px 0 4px; gap: 10px; align-items: start; }
   .hero p { font-size: 0.95rem; }
   .hero-art { height: auto; display: flex; flex-direction: column; }
-  .hero-brain { position: static; height: auto; width: 100%; }
+  .hero-brain { position: static; height: 150px; width: 100%; }
   .hero-neuron { display: none; }
   .hero-art .credit { position: static; font-size: 0.6rem; text-align: left; }
   .soon-word { display: none; }

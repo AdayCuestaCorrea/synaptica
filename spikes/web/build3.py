@@ -13,6 +13,7 @@ before (``build.py``, ``build2.py``).
 from __future__ import annotations
 
 import functools
+import hashlib
 import html
 import json
 import shutil
@@ -123,13 +124,12 @@ T3: dict[str, dict[str, str]] = {
         "gap_search": "Buscador: busca en lo que hay en la web hoy (estudios, noticias, "
                       "secciones, temas y siglas), en el navegador y sin servicios externos. "
                       "Adaptado del de Paleo Atlas.",
-        "gap_illus": "Ilustraciones: dibujos propios en SVG, provisionales. Se pueden "
-                     "cambiar por fotos de Commons con licencia o por capturas de cada sección "
-                     "cuando exista.",
-        "footer_images": "Imágenes: ilustraciones propias (CC BY-SA 4.0); capturas de nuestro "
-                         "visor, una por atlas: Waxholm (CC BY 4.0) y Julich-Brain (CC "
-                         "BY-NC-SA 4.0); figuras de estudios de acceso abierto de PMC, cada una "
-                         "con su licencia.",
+        "gap_illus": "Ilustraciones: dibujos propios en SVG (CC BY-SA 4.0), con el estilo "
+                     "que eligió Sofía y algo más de detalle; también el cerebro de la "
+                     "cabecera y el de Neuro Atlas, que sustituyen a las capturas del visor. "
+                     "Son esquemas, no anatomía exacta.",
+        "footer_images": "Imágenes: ilustraciones propias (CC BY-SA 4.0); figuras de "
+                         "estudios de acceso abierto de PMC, cada una con su licencia.",
         "about_title": "Sobre nosotros",
         "draft": "Borrador",
     },
@@ -185,12 +185,12 @@ T3: dict[str, dict[str, str]] = {
         "gap_search": "Search: over what the site has today (studies, news, sections, topics "
                       "and acronyms), in the browser, with no outside service. Adapted from "
                       "Paleo Atlas.",
-        "gap_illus": "Illustrations: our own SVG drawings, provisional. They can become "
-                     "licensed Commons photos, or captures of each section once it exists.",
-        "footer_images": "Images: our own illustrations (CC BY-SA 4.0); captures of our "
-                         "viewer, one per atlas: Waxholm (CC BY 4.0) and Julich-Brain (CC "
-                         "BY-NC-SA 4.0); figures from PMC open-access studies, each with its "
-                         "licence.",
+        "gap_illus": "Illustrations: our own SVG drawings (CC BY-SA 4.0), in the style Sofía "
+                     "chose with a bit more detail; also the brains of the header and of Neuro "
+                     "Atlas, which replace the viewer captures. They are sketches, not exact "
+                     "anatomy.",
+        "footer_images": "Images: our own illustrations (CC BY-SA 4.0); figures from PMC "
+                         "open-access studies, each with its licence.",
         "about_title": "About us",
         "draft": "Draft",
     },
@@ -316,6 +316,13 @@ def main() -> None:
         (out / "static" / f"{x}.css").write_text(css, encoding="utf-8")
         for name in ("site.js", "search.js", "glossary.js"):
             shutil.copy(V3 / "styles" / name, out / "static" / name)
+        # A fingerprint of CSS and JS in their URLs: a browser never keeps an old copy.
+        common["asset_v"] = hashlib.sha256(
+            b"".join(
+                (out / "static" / n).read_bytes()
+                for n in (f"{x}.css", "site.js", "search.js", "glossary.js")
+            )
+        ).hexdigest()[:10]
         shutil.copy(V3 / "styles/favicon.svg", out / "static" / "favicon.svg")
         env = Environment(
             loader=FileSystemLoader([V3 / "templates", HERE / "shared"]),

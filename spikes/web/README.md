@@ -64,8 +64,7 @@ Provisionales (Aday, v81): se replantean cuando haya más noticias. Opción B:
 ## Imágenes (`img/`, autoalojadas; autor y licencia en `data/images.json` y visibles en la página)
 
 - **Figuras de los estudios**: solo artículos del subconjunto de acceso abierto de PMC con licencia CC, desde el bucket público de NLM en AWS (`pmc-oa-opendata`), que da la licencia de cada artículo. Resumen gráfico si lo hay; si no, la primera figura, redimensionada y sin recortar. Nunca de Nature, Science y Cell ni de los medios.
-- **Neuro Atlas**: capturas de nuestro visor de S3, una por atlas (Waxholm, CC BY 4.0; Julich-Brain, CC BY-NC-SA 4.0), con la atribución de su `licence.json`.
-- **Ilustraciones**: dibujos propios en SVG (`v3/templates/art/`, CC BY-SA 4.0), en línea para que tomen los colores del modo claro u oscuro.
+- **Ilustraciones**: dibujos propios en SVG (`v3/templates/art/`, CC BY-SA 4.0), en línea para que tomen los colores del modo claro u oscuro. Desde v83 tienen más detalle (rellenos suaves `a-soft` y líneas finas `a-thin`), y la cabecera y la tarjeta de Neuro Atlas usan cerebros dibujados (`brain`, `atlas`) en lugar de las capturas del visor, que ya no se muestran en la portada. CSS y JS llevan una huella de su contenido en la URL (`?v=`), para que el navegador no use una copia vieja.
 
 ## Hoja de contactos (`contact.py` → `contact/`, no versionada)
 

@@ -1,7 +1,6 @@
 {% extends "base.html.j2" %}
 {% block title %}{{ t.hub }}{% endblock %}
 {% block main %}
-{% set human = atlas.human %}
 <section class="hero">
   <div class="hero-text">
     <h1>{{ t.hub }}</h1>
@@ -9,9 +8,8 @@
     <a class="jump" href="#hoy">{{ t.jump_today }} ↓</a>
   </div>
   <figure class="hero-art">
-    <img class="hero-brain" src="{{ img }}{{ human.file }}" alt="" width="560" height="436" decoding="async">
+    <span class="hero-brain">{{ m.art("brain") }}</span>
     <span class="hero-neuron">{{ m.art("learn") }}</span>
-    <figcaption class="credit">{{ t.atlas_hero_credit.format(atlas=human.short, lic=human.licence) }}</figcaption>
   </figure>
 </section>
 
@@ -20,9 +18,7 @@
   {% if sec.key == "atlas" %}
   <a class="card card--{{ sec.key }}" href="{{ atlas_url }}" rel="noopener" target="_blank">
     <span class="card-title">{{ sec.name }}</span>
-    <span class="card-art card-art--atlas">
-      {% for k in ("rat", "human") %}<img src="{{ img }}{{ atlas[k].file }}" alt="{{ atlas[k].short }}" loading="lazy" decoding="async">{% endfor %}
-    </span>
+    <span class="card-art">{{ m.art("atlas") }}</span>
     <span class="card-text">{{ sec[lang] }} ↗</span>
     <span class="tag tag--live">{{ t.preview }}</span>
   </a>

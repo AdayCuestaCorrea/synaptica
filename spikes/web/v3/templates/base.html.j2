@@ -11,11 +11,11 @@
 <link rel="alternate" hreflang="{{ other_lang }}" href="{{ other_url }}">
 {% if x == "n" %}<link rel="preload" href="{{ fonts_root }}fonts/atkinson-hyperlegible-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 {% endif %}
-<link rel="stylesheet" href="{{ root }}static/{{ x }}.css">
+<link rel="stylesheet" href="{{ root }}static/{{ x }}.css?v={{ asset_v }}">
 <link rel="icon" href="{{ root }}static/favicon.svg" type="image/svg+xml">
-<script src="{{ root }}static/site.js"></script>
-<script src="{{ root }}static/search.js" defer></script>
-<script src="{{ root }}static/glossary.js" defer></script>
+<script src="{{ root }}static/site.js?v={{ asset_v }}"></script>
+<script src="{{ root }}static/search.js?v={{ asset_v }}" defer></script>
+<script src="{{ root }}static/glossary.js?v={{ asset_v }}" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">{{ t.skip }}</a>
