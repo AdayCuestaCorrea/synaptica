@@ -34,6 +34,7 @@ Documentos de referencia:
 **Textos generados con LLM.**
 - Pasan las mismas comprobaciones que en Paleo Atlas: cada frase cita su fuente, las cifras y los nombres coinciden con ella, y nunca hay 8 o más palabras seguidas copiadas.
 - Un texto que no pasa no se publica; en su lugar se muestra el texto de respaldo construido con datos.
+- Las correcciones de Sofía pasan también las comprobaciones mecánicas (el juez solo avisa). Si una falla, vuelve a su cola con el aviso y ella la corrige o la mantiene con un motivo registrado (ADR D5).
 - No se publican abstracts ni párrafos de los artículos, solo resúmenes propios con enlace al original.
 
 **Licencias.**
