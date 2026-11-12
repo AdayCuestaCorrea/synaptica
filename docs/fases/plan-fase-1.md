@@ -88,6 +88,7 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 depende de D5 (d
    - **Rebanada 4 (operación):** 27 → 28 con cron → 29 → 18 y 20 (🔵, cuando haya cupo o GPU).
    - **Tras D5:** pasar la cola de S4 a `src/synaptica/review/` → 14b → 24b.
    - **Cierre:** 30. El reloj de los 14 días arranca cuando estén todas las casillas.
+   - **Cambio de orden (v61, Aday):** tras la rebanada 1 sin la web, primero todo lo que no es web: ingesta y modelos de la rebanada 2 (4–7, OpenAlex del 8, 10–11 ampliados, 13) y la parte de datos y textos de la rebanada 3 (14a, 15, 16, 17, 19, 25 sin página). La web (21–24, 26) va después, de una vez, cuando Aday pida su diseño.
    - **Excepción (v54–v56):** antes de cerrar la Fase 0 se adelanta, en la rama `fase-1`, todo lo que no necesita a Sofía ni toca GitHub: la rebanada 1 sin el paso 28.
 2. **D2:** copiar y adaptar; se cierra con un ADR breve en el paso 1, el primer commit de la Fase 1, no antes.
 3. **Etiquetas de Sofía:** por el flujo D5, como un tipo más de elemento de su cola (14b).
