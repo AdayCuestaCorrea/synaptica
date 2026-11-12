@@ -74,6 +74,15 @@ class FakeLLM:
         return output.model_validate(data)
 
 
+class PassingJudge:
+    label = "fake/judge"
+
+    def complete_json(self, system, user, output, max_tokens):
+        return output.model_validate({"faithful": True, "no_overclaim": True,
+                                      "no_medical_advice": True, "spanish_matches": True,
+                                      "passed": True, "spanish_natural": 4})  # fmt: skip
+
+
 STUDY = {"study_id": "10.1/spindles", "doi": "10.1/spindles", "pmid": "111", "pmcid": None,
          "title": "Spindles and memory in mice", "journal": "Neuron",
          "published_on": dt.date(2026, 11, 5), "entered_on": dt.date(2026, 11, 8),
@@ -177,6 +186,8 @@ def test_chain_publishes_verified_texts_and_skips_what_is_up_to_date(tmp_path):
     result = pipeline.run_write(llm, studies, **kw)
     assert result.counts == {"no_facts": 1, "en_verified": 1, "es_verified": 1}
     assert llm.calls == ["Extraction", "Summary", "AdaptedText"]
+    assert fallback.summary_for(STUDY, "en", derived_root=derived)["kind"] == "fallback"
+    assert pipeline.run_judge(PassingJudge(), studies, **kw).counts == {"passed": 1}
     for lang in ("en", "es"):
         shown = fallback.summary_for(STUDY, lang, derived_root=derived)
         assert shown["kind"] == "verified" and len(shown["sentences"]) == 3
@@ -260,5 +271,6 @@ def test_spanish_that_fails_twice_keeps_the_english_and_falls_back_in_spanish(tm
     review = json.loads(write_mod.text_path("10.1/spindles", "es", verified=False,
                                             derived_root=derived).read_text())  # fmt: skip
     assert review["problems"] == ["sentence 2: words not in the Spanish dictionary ['animlaes']"]
+    pipeline.run_judge(PassingJudge(), [STUDY], **kw)  # judges the English alone
     assert fallback.summary_for(STUDY, "en", derived_root=derived)["kind"] == "verified"
     assert fallback.summary_for(STUDY, "es", derived_root=derived)["kind"] == "fallback"

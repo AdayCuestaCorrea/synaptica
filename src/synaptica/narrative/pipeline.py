@@ -26,6 +26,7 @@ import httpx
 
 from synaptica.llm import LLM, LLMOutputError
 from synaptica.narrative import facts as facts_mod
+from synaptica.narrative import judge as judge_mod
 from synaptica.narrative import write as write_mod
 from synaptica.narrative.sources import abstract_for
 from synaptica.news.classify import warehouse_path
@@ -141,6 +142,38 @@ def run_write(
         result.add("en_" + status["en"])
         if "es" in status:
             result.add("es_" + status["es"])
+    return result
+
+
+def run_judge(
+    judge: LLM,
+    studies: list[dict[str, Any]],
+    *,
+    limit: int | None = None,
+    derived_root: Path | None = None,
+    cache_root: Path | None = None,
+    now: dt.datetime | None = None,
+) -> RunResult:
+    """Verdict of the judge on each study whose texts are verified and not judged yet."""
+    result = RunResult(total=len(studies))
+    for study in studies:
+        if limit is not None and result.done >= limit:
+            break
+        texts = judge_mod.pending(study["study_id"], derived_root)
+        if texts is None:
+            continue
+        found = abstract_for(study, cache_root=cache_root)
+        if found is None:
+            result.add("no_cache")
+            continue
+        result.done += 1
+        try:
+            verdict = judge_mod.judge_study(judge, study, found[0], texts,
+                                            derived_root=derived_root, now=now)  # fmt: skip
+        except LLMOutputError:
+            result.add("model_error")
+            continue
+        result.add("passed" if verdict.passed else "rejected")
     return result
 
 

@@ -157,6 +157,33 @@ def llm_usage(data: Path, day: dt.date) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8")).get(day.isoformat(), {})
 
 
+def texts_summary(data: Path, day: dt.date) -> dict[str, Any]:
+    """Summaries written and judged on ``day`` (plan, steps 16 and 19): text records by
+    language and status, and the judge's verdicts with the mean ``spanish_natural``."""
+    written: dict[str, int] = {}
+    verdicts: dict[str, dict[str, Any]] = {}
+    for folder in ("texts", "texts_review"):
+        for path in sorted((data / "derived" / folder).glob("*.json")):
+            record = json.loads(path.read_text(encoding="utf-8"))
+            if record.get("generated_at", "")[:10] == day.isoformat():
+                key = f"{record['lang']}_{record['status']}"
+                written[key] = written.get(key, 0) + 1
+            verdict = record.get("judge")
+            if verdict and verdict["judged_at"][:10] == day.isoformat():
+                verdicts[record["study_id"]] = verdict
+    if not written and not verdicts:
+        return {}
+    out: dict[str, Any] = {"written": written}
+    if verdicts:
+        scores = [v["spanish_natural"] for v in verdicts.values()]
+        out["judge"] = {
+            "passed": sum(v["passed"] for v in verdicts.values()),
+            "rejected": sum(not v["passed"] for v in verdicts.values()),
+            "spanish_natural_mean": round(sum(scores) / len(scores), 2),
+        }
+    return out
+
+
 def _changes(now: dict[str, Any] | None, before: dict[str, Any] | None) -> dict[str, int]:
     if not now or not before:
         return {}
@@ -207,6 +234,7 @@ def finish_run(
             "changes_since_previous": _changes(summary, previous and previous.get("summary")),
             "dbt": dbt,
             "llm_tokens": llm_usage(data, day),
+            "texts": texts_summary(data, day),
         }
     )
     runs[index] = run
@@ -250,6 +278,13 @@ def markdown(run: dict[str, Any]) -> str:
             "**LLM tokens today:** "
             + ", ".join(f"{m} {u.get('tokens', 0)}" for m, u in run["llm_tokens"].items())
         )
+    if texts := run.get("texts"):
+        written = ", ".join(f"{k.replace('_', ' ')} {v}" for k, v in texts["written"].items())
+        line = f"**Summaries today:** {written or 'none written'}"
+        if judge := texts.get("judge"):
+            line += (f" · judge: {judge['passed']} passed, {judge['rejected']} rejected "
+                     f"(Spanish {judge['spanish_natural_mean']}/5)")  # fmt: skip
+        lines.append(line)
     if run.get("steps"):
         lines += ["", "| Step | Result | Seconds |", "|---|---|---|"]
         lines += [f"| {s['name']} | {s['conclusion']} | {s['seconds']} |" for s in run["steps"]]

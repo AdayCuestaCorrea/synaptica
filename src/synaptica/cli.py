@@ -494,6 +494,41 @@ def write(
     typer.echo(_outcomes("Wrote", result))
 
 
+# Decision D4: the judge is of another family than the writer.
+DEFAULT_JUDGE_MODELS = {"groq": "openai/gpt-oss-120b"}
+
+
+@app.command()
+def judge(
+    provider: ProviderOption = None,
+    model: ModelOption = None,
+    limit: LimitOption = None,
+    study: StudyOption = None,
+) -> None:
+    """Independent judge (another model family) on the verified summaries: a text is
+    published only if it passes; a rejected one goes to derived/texts_review/."""
+    from synaptica.llm import LLM, QuotaExhausted
+    from synaptica.narrative import pipeline
+
+    if provider is None:
+        typer.echo("No --provider given: nothing judged.")
+        raise typer.Exit(0)
+    name = model or DEFAULT_JUDGE_MODELS.get(provider)
+    if name is None:
+        typer.echo(f"No default judge for {provider}: pass --model.", err=True)
+        raise typer.Exit(1)
+    studies = _narrative_studies(study)
+    try:
+        result = pipeline.run_judge(LLM(provider, name), studies, limit=limit)
+    except QuotaExhausted as exc:
+        typer.echo(f"LLM quota used up: {exc}; the rest waits for the next run", err=True)
+        raise typer.Exit(0) from exc
+    except ValueError as exc:  # same family as the writer
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(1) from exc
+    typer.echo(_outcomes("Judged", result))
+
+
 @app.command()
 def build(
     as_of: Annotated[

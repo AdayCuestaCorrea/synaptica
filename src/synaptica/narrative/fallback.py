@@ -74,11 +74,14 @@ def summary_for(
     study: dict[str, Any], lang: str, *, derived_root: Path | None = None
 ) -> dict[str, Any]:
     """``{"kind": "verified", "sentences": [...], "generator": …}`` when the text of that
-    language passed its checks, else ``{"kind": "fallback", "text": …}``."""
+    language passed its checks and the judge (step 19), else ``{"kind": "fallback",
+    "text": …}``. A text waiting for the judge is not shown yet."""
     path = text_path(study["study_id"], lang, verified=True, derived_root=derived_root)
     if path.exists():
         record = json.loads(path.read_text(encoding="utf-8"))
-        if record["status"] == "verified" and record["sentences"]:
+        judged = (record.get("judge") or {}).get("passed") is True
+        if record["status"] == "verified" and record["sentences"] and judged:
             return {"kind": "verified", "sentences": record["sentences"],
-                    "generator": record["generator"]}  # fmt: skip
+                    "generator": record["generator"],
+                    "judge": record["judge"]["generator"]}  # fmt: skip
     return {"kind": "fallback", "text": fallback_text(study, lang)}
