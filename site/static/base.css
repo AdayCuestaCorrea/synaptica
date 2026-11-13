@@ -23,12 +23,12 @@ a:hover { text-decoration-thickness: 2px; }
 .gap-tag { display: inline; font: 400 0.8em/1.4 var(--body); color: var(--muted); text-decoration: underline dotted; text-underline-offset: 3px; white-space: nowrap; }
 .gap-tag:hover, .gap-tag:focus-visible { color: var(--ink); }
 .gap-tag--proposal { font-style: italic; }
-.gaps { margin: 48px 0 0; padding: 16px; border: 1px dashed var(--gap-line); background: var(--gap-bg); color: var(--gap-ink); border-radius: var(--radius); font-size: 0.9rem; }
+.gaps { margin: 48px 0 0; padding: 16px; border: 1px dashed var(--rule); background: var(--surface); color: var(--muted); border-radius: var(--radius); font-size: 0.9rem; }
 .gaps h2 { margin: 0 0 4px; font: 700 1rem var(--body); }
 .gaps p { margin: 0 0 8px; }
 .gaps ul { margin: 0; padding-left: 1.1em; }
 .gaps li { margin-bottom: 6px; }
-.gaps li:target { outline: 2px solid var(--gap-line); outline-offset: 2px; }
+.gaps li:target { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* Section heads */
 .sec-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin: 18px 0 12px; padding-bottom: 8px; border-bottom: var(--sec-rule); }
@@ -372,3 +372,6 @@ a.gl:hover, a.gl:focus-visible { color: var(--link); background: var(--accent-so
 .classic { margin: 0 0 14px; }
 .classic-title { font-weight: 700; }
 .classic-meta { margin: 2px 0 0; font-size: 0.88rem; color: var(--muted); }
+/* Fact of the day (step 26). */
+.fact-day { margin: 0 0 16px; padding: 14px 16px; border: var(--card-border); border-radius: var(--radius); background: var(--surface); }
+.fact-text { margin: 4px 0 8px; }

@@ -68,14 +68,14 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 necesita la cola
 | 24b 🟡 | Aprobación de los Clásicos por el flujo D5 | — | bloque con los aprobados |
 | 25 ✅ | Resumen semanal (misma cadena y comprobaciones) | FakeLLM | página semanal ES y EN |
 | R ✅ | Cola de revisión: pasar `spikes/s4/` (models, intake, apply, review_page) a `src/synaptica/review/` según el ADR 0005; aplicar la frase que sugiera Sofía en la nota; activar `review-intake.yml` y la variable `REVIEWER_LOGIN` (🔵, ajustes de GitHub: con el OK de Aday) | tests de S4 pasados al paquete, sin red | la página de revisión sale del paquete y un Issue de prueba se aplica |
-| 26 🟢 | Dato curioso del día (**hueco en SCOPE**: no dice de dónde sale; propuesta: un hecho ya verificado de los resúmenes del día, con su cita) | test «el dato tiene fuente» | se decide con Aday antes del paso |
+| 26 ✅ | Dato curioso del día (**hueco en SCOPE**: no dice de dónde sale; propuesta: un hecho ya verificado de los resúmenes del día, con su cita) | test «el dato tiene fuente» | se decide con Aday antes del paso |
 | 23b | Figuras de PMC de acceso abierto en las tarjetas y en la página de cada estudio, cada una con su licencia (`spikes/web/images.py`); va después del 28, porque hay que decidir si los binarios van a la rama `data` (v101) | que cada figura lleve su licencia | figuras con crédito y `site --check` |
-| 27 🔵 | Pages: el sitio en la raíz, con la maqueta de S3 en `/spikes/s3/c/` (fusionar `pages.yml`; lo confirma Aday) | — | publicado y medido |
+| 27 ✅ | Pages: el sitio en la raíz, con la maqueta de S3 en `/spikes/s3/c/` (fusionar `pages.yml`; lo confirma Aday) | — | publicado y medido |
 
 ### G. Operación
 | # | Paso | Tests | Hecho cuando |
 |---|---|---|---|
-| 28 🔵 | `pipeline.yml`: cron y respaldo, `syn check`, ingesta, LLM con `continue-on-error`, build, site + check, informe y commit en la rama `data` (rechaza `cache/` y `.duckdb`); secretos `NCBI_API_KEY` y `GROQ_API_KEY` con el OK de Aday; activar `review-intake.yml` y la variable `REVIEWER_LOGIN` (paso R; hasta aquí, `syn review intake` a mano) | ejecución manual en seco | primera ejecución verde |
+| 28 ✅ | `pipeline.yml`: cron y respaldo, `syn check`, ingesta, LLM con `continue-on-error`, build, site + check, informe y commit en la rama `data` (rechaza `cache/` y `.duckdb`); secretos `NCBI_API_KEY` y `GROQ_API_KEY` con el OK de Aday; activar `review-intake.yml` y la variable `REVIEWER_LOGIN` (paso R; hasta aquí, `syn review intake` a mano) | ejecución manual en seco | primera ejecución verde |
 | 29 🔵 | Espejo semanal de los marts en BigQuery (load jobs, WIF ya creado; cupo de 10 GiB de por vida medido en el informe) | test de la selección de marts y del tamaño | consumo anotado |
 | 30 | 14 días autónomos, visto bueno de Sofía y `fase-1.md` | — | cierre |
 

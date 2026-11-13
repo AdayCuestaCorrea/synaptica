@@ -106,6 +106,27 @@ class NewsData:
         return (verified or self.latest or self.nsc or [None])[0]
 
     @property
+    def fact(self) -> dict[str, Any] | None:
+        """The fact of the day (plan, step 26; Aday, 2026-11-13: a fact already verified,
+        with its source). One sentence of a summary verified in both languages and passed
+        by the judge, from a study other than the lead: its second sentence (where the
+        summaries give the result) or the only one. Which study changes with the day and
+        is the same on every rebuild of that day. None without such a summary."""
+        lead = self.lead
+        pool = sorted((s for s in self.nsc + self.latest if s is not lead
+                       and all(v["kind"] == "verified" and v.get("sentences")
+                               for v in s["summary"].values())),
+                      key=lambda s: s["study_id"])  # fmt: skip
+        if not pool:
+            return None
+        study = pool[self.as_of.toordinal() % len(pool)]
+        text = {}
+        for lang, summary in study["summary"].items():
+            sentences = summary["sentences"]
+            text[lang] = sentences[min(1, len(sentences) - 1)]["text"]
+        return {"study": study, "text": text}
+
+    @property
     def headlines(self) -> list[dict[str, Any]]:
         lead = self.lead
         return [s for s in self.latest if s is not lead][:TODAY_HEADLINES]
