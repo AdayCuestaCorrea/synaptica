@@ -13,7 +13,7 @@
 | 15 · Precisión y recall de la agrupación con un LLM real | pendiente: primera ejecución con Groq |
 | 20 · Juicio de los 101 estudios de la carga que quedaron pendientes | pendiente: ejecución programada del 2026-11-14 |
 | Retractaciones que solo conoce Retraction Watch (casilla de ingesta) | pendiente |
-| 23b · Figuras de PMC | decidido (opción B: metadatos en la rama `data` y binarios en la caché de Actions); se construye en una rama y se fusiona después del 2026-11-17 |
+| 23b · Figuras de PMC | hecho en la rama `fase-1-figuras-titulos` (v125–v128: Pillow, `syn figures`, dbt, web y pipeline); se fusiona después del 2026-11-17. Cobertura medida: 25 de 200 estudios de Última hora con figura (solo 32 con PMCID) |
 
 **Qué cuenta como intervención** (Aday, 2026-11-13): una ejecución programada en rojo, o un commit de Aday que arregle el pipeline para que vuelva a correr. Agotar el cupo de Groq no cuenta, porque es lo normal cada día (D10). Los cambios de contenido o de diseño y las decisiones de Sofía tampoco: son trabajo, no rescates.
 

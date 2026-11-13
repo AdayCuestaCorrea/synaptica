@@ -149,6 +149,16 @@ jobs:
             uv run syn weekly --provider groq
           fi
 
+      - name: Study figures (PMC)
+        # Step 23b: Figure 1 of the «Latest» studies from PMC's open-access bucket. No LLM,
+        # so it runs without Groq too. The WebP files go to the private cache (saved below);
+        # the metadata to derived/, read by the dbt build that follows. If the bucket fails,
+        # the site is published with the figures it already has.
+        if: ${{ !cancelled() && env.SKIP != 'true' }}
+        continue-on-error: true
+        timeout-minutes: 15
+        run: uv run syn figures
+
       - name: dbt build
         if: ${{ !cancelled() && env.SKIP != 'true' }}
         run: uv run syn build
