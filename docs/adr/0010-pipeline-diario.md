@@ -83,7 +83,7 @@ La decisión es la de D1 (DuckDB como almacén y BigQuery como espejo semanal de
 
 ## Pruebas
 
-- Tests sin red: reintento de 429 y 5xx con `retry-after` (`tests/test_http.py`); parada inmediata del 429 diario y reintento de los demás, y `check_key` sin clave, con 401 y con 200 y `syn doctor --llm groq` (`tests/test_cli.py`); `syn mirror export` y `record` (`tests/test_mirror.py`). **Hueco:** el tope diario del contador propio (`RateLimiter.acquire`) no tiene test todavía.
+- Tests sin red: reintento de 429 y 5xx con `retry-after` (`tests/test_http.py`); parada inmediata del 429 diario y reintento de los demás, y `check_key` sin clave, con 401 y con 200 y `syn doctor --llm groq` (`tests/test_cli.py`); `syn mirror export` y `record` (`tests/test_mirror.py`); el tope diario del contador propio: para antes de llamar, por tokens y por peticiones; lo lee una ejecución nueva el mismo día; va por modelo, y vuelve a empezar el día siguiente en UTC (`tests/test_llm_quota.py`).
 - Tres ejecuciones manuales sin LLM en verde el 2026-11-13: [43445443061](https://github.com/AdayCuestaCorrea/synaptica/actions/runs/43445443061) (la primera, con la caché de Actions vacía, que destapó lo arreglado en la v116), [43451355876](https://github.com/AdayCuestaCorrea/synaptica/actions/runs/43451355876) y [43453985082](https://github.com/AdayCuestaCorrea/synaptica/actions/runs/43453985082).
 - Juez en local el día 1 (v111): se paró solo al agotar el cupo, tras 83 estudios.
 - **Pendiente de verificar:** la primera ejecución con Groq (la programada del 2026-11-14) y el primer espejo real (un lunes, o a mano con el OK de Aday). Sus cifras se añadirán aquí como «Revisión».
