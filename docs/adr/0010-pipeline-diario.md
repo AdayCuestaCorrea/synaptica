@@ -52,6 +52,7 @@ La decisión es la de D1 (DuckDB como almacén y BigQuery como espejo semanal de
 - `syn mirror export` saca solo los marts (`dim_study`, `fct_news_item`) a Parquet con el `COPY` de DuckDB y se niega por encima de 1 GiB. Después, `bq load --replace` por tabla: las cargas son gratis y no necesitan DML.
 - `syn mirror record` anota filas, bytes en Parquet y bytes almacenados (`bq show`) en `mirror/bigquery.jsonl` de la rama `data`, porque los 10 GiB del sandbox son para siempre.
 - Va con `continue-on-error`: si el sandbox cambia o se agota, la web no se entera.
+- La autenticación (WIF) también va con `continue-on-error`, y el espejo solo corre si salió bien (v139). Antes no lo llevaba: un fallo de la federación habría puesto en rojo la ejecución del lunes y contado como intervención en el reloj de cierre. El informe de la ejecución sigue marcando el paso como fallido.
 
 ## Alternativas consideradas
 
