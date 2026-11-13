@@ -131,7 +131,9 @@ class SiteBuilder:
         self.written: list[Path] = []
         self.news_data: news_mod.NewsData | None = None
         if data_dir is not None and {"home", "news", "week", "method"} & set(self.kinds):
-            self.news_data = news_mod.load(data_dir / "warehouse.duckdb", data_dir / "derived")
+            self.news_data = news_mod.load(
+                data_dir / "warehouse.duckdb", data_dir / "derived", data_dir / "review"
+            )
 
     # -- files ---------------------------------------------------------------------------
 

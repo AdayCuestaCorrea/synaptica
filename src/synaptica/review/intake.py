@@ -2,8 +2,11 @@
 
 Moved from the spike ``spikes/s4/intake.py`` (plan, step R; ADR 0005).
 
-The workflow ``review-intake.yml`` (draft in this folder, not active) runs it on every
-``issues: opened`` event. It never trusts what the Issue says about who or when:
+The workflow ``spikes/s4/review-intake.yml`` (a draft, not active) will run it on every
+``issues: opened`` event. Until the ``data`` branch exists (step 28) her Issues are read by
+hand with ``syn review intake`` (decision of Aday, 2026-11-13); the workflow, and its
+``REVIEWER_LOGIN`` variable, are switched on with step 28 and his OK. It never trusts
+what the Issue says about who or when:
 
 1. **Author**: only Issues by the reviewer's login (a repository *variable*, not a
    secret) are read; anything else is ignored without a word, so a stranger's Issue
@@ -48,6 +51,23 @@ from synaptica.review.issue_block import BlockError, decode
 from synaptica.review.models import Action, Decision, Queue, ReviewItem, TextContent, check_against
 
 PUBMED = "pubmed-"
+# The other sources of a study's abstract (step R: the spot-check of published summaries),
+# named by where its facts were read: the abstract cache answers for each one.
+STUDY_SOURCES = {
+    PUBMED: lambda v: {"pmid": v},
+    "biorxiv-": lambda v: {"doi": v, "sources": ["biorxiv"]},
+    "medrxiv-": lambda v: {"doi": v, "sources": ["medrxiv"]},
+    "pmc-": lambda v: {"pmcid": v},
+}
+
+
+def study_source(source_id: str) -> dict | None:
+    """The ``dim_study`` fields ``abstract_for`` needs to read that source, or None."""
+    for prefix, fields in STUDY_SOURCES.items():
+        if source_id.startswith(prefix):
+            return fields(source_id.removeprefix(prefix))
+    return None
+
 
 # A sentence of hers "is" a reviewed sentence (and keeps its citations) above this ratio.
 SAME_SENTENCE = 0.5
@@ -155,16 +175,17 @@ def edit_warnings(item: ReviewItem, payload: dict, source_texts: dict[str, str])
 
 
 def source_texts(queue: Queue, cache_root: Path, efetch: list[Path]) -> dict[str, str]:
-    """The text of each ``pubmed-<PMID>`` source of the queue: the pipeline's abstract
-    cache, else a PubMed efetch file (the S5 cache the test queue was built from). Read
-    only to check her edits; never written anywhere."""
-    pmids = {s.id.removeprefix(PUBMED) for i in queue.items if isinstance(i.content, TextContent)
-             for s in i.content.sources if s.id.startswith(PUBMED)}  # fmt: skip
+    """The text of each study source of the queue (``STUDY_SOURCES``): the pipeline's
+    abstract cache, else a PubMed efetch file (the S5 cache the test queue was built from).
+    Read only to check her edits; never written anywhere."""
+    ids = {s.id for i in queue.items if isinstance(i.content, TextContent)
+           for s in i.content.sources if study_source(s.id)}  # fmt: skip
+    pmids = {x.removeprefix(PUBMED) for x in ids if x.startswith(PUBMED)}
     out = {}
-    for pmid in sorted(pmids):
-        found = abstract_for({"pmid": pmid}, cache_root=cache_root)
+    for sid in sorted(ids):
+        found = abstract_for(study_source(sid), cache_root=cache_root)
         if found:
-            out[PUBMED + pmid] = found[0]
+            out[sid] = found[0]
     for path in efetch:
         for art in ET.parse(path).getroot().iter("PubmedArticle"):
             pmid = art.findtext(".//MedlineCitation/PMID") or ""
@@ -175,7 +196,7 @@ def source_texts(queue: Queue, cache_root: Path, efetch: list[Path]) -> dict[str
 
 
 def missing_sources(event: dict, queue: Queue, texts: dict[str, str]) -> list[str]:
-    """PubMed sources without text of the items her Issue edits. Checking those edits
+    """Study sources without text of the items her Issue edits. Checking those edits
     without them would skip the copy check and flag the source's own numbers (seen in
     the test with Sofía), so the Issue waits until the cache has them."""
     try:
@@ -188,7 +209,7 @@ def missing_sources(event: dict, queue: Queue, texts: dict[str, str]) -> list[st
         item = items.get((raw.get("item_type"), raw.get("item_id")))
         if raw.get("action") == "edit" and item and isinstance(item.content, TextContent):
             out |= {s.id for s in item.content.sources
-                    if s.id.startswith(PUBMED) and s.id not in texts}  # fmt: skip
+                    if study_source(s.id) and s.id not in texts}  # fmt: skip
     return sorted(out)
 
 

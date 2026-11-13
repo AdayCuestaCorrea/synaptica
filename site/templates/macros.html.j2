@@ -84,6 +84,7 @@
     {% for line in sm.sentences %}<li>{{ line.text }}{% if s.url %} <a class="cite" href="{{ s.url }}" title="{{ t.cite }}" rel="noopener" target="_blank">[{{ loop.index }}]</a>{% endif %}</li>{% endfor %}
   </ol>
   <p class="summary-note">{{ t.verified_note }} {{ t.cite }}</p>
+  {% if sm.get("reviewed") %}<p class="summary-note">{{ t["reviewed_" ~ sm.reviewed] }}</p>{% endif %}
   {% else %}
   <p class="summary-text">{{ sm.sentences[0].text }}</p>
   {% endif %}

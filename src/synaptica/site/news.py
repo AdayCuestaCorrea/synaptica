@@ -27,6 +27,8 @@ import duckdb
 from synaptica.narrative import weekly
 from synaptica.narrative.fallback import print_issue, summary_for
 from synaptica.narrative.write import slug
+from synaptica.review.apply import Event, read_log
+from synaptica.review.collect import reviewed
 
 # How much each block shows (Aday, step 23, option 1A).
 LATEST_DAYS = 7  # «Latest»: studies that entered in the last 7 days…
@@ -135,9 +137,12 @@ def study_type(row: dict[str, Any]) -> str | None:
     return kind if kind in TYPES else None
 
 
-def study_record(row: dict[str, Any], derived_root: Path | None) -> dict[str, Any]:
+def study_record(
+    row: dict[str, Any], derived_root: Path | None, events: list[Event] | None = None
+) -> dict[str, Any]:
     row = {k: iso(v) for k, v in row.items()}
     summary = {lang: summary_for(row, lang, derived_root=derived_root) for lang in ("es", "en")}
+    summary = reviewed(row, summary, events or [], derived_root)  # Sofía's spot-check (step R)
     issue = print_issue(row)
     # The card's date: the publication day, or the day it entered when the publication date
     # is a print issue still to come (shown apart, as «issue of January 2027»; SCOPE v102).
@@ -295,10 +300,14 @@ def week_rows(con: duckdb.DuckDBPyConnection, ids: list[str]) -> list[dict[str, 
     return [rows[i] for i in ids if i in rows]
 
 
-def load(warehouse: Path, derived_root: Path | None = None) -> NewsData | None:
-    """The news data, or None when there is no warehouse (``syn build`` has not run)."""
+def load(
+    warehouse: Path, derived_root: Path | None = None, review_dir: Path | None = None
+) -> NewsData | None:
+    """The news data, or None when there is no warehouse (``syn build`` has not run).
+    ``review_dir``: Sofía's decision log, applied to the summaries shown."""
     if not warehouse.exists():
         return None
+    events = read_log(review_dir) if review_dir else []
     with duckdb.connect(str(warehouse), read_only=True) as con:
         con.execute("set TimeZone = 'UTC'")  # dates in UTC, whatever the machine's zone
         (as_of,) = con.execute("select max(entered_on) from main.dim_study").fetchone()
@@ -306,7 +315,7 @@ def load(warehouse: Path, derived_root: Path | None = None) -> NewsData | None:
             return None
 
         def records(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
-            return [study_record(r, derived_root) for r in rows]
+            return [study_record(r, derived_root, events) for r in rows]
 
         key = weekly.last_week(as_of)
         chosen = weekly.choose(weekly.candidates(key, warehouse), derived_root)
@@ -319,7 +328,8 @@ def load(warehouse: Path, derived_root: Path | None = None) -> NewsData | None:
             nsc=records(nature_science_cell(con, as_of)),
             stories=media_stories(con, as_of),
             examples={
-                k: (study_record(v, derived_root) if v else None) for k, v in examples(con).items()
+                k: (study_record(v, derived_root, events) if v else None)
+                for k, v in examples(con).items()
             },
             week=key,
             week_studies=records(week_rows(con, ids)),

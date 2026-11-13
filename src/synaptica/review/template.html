@@ -30,6 +30,9 @@
   --warn: #e7a06c; --warn-soft: #3a281b; color-scheme: dark;
 }
 * { box-sizing: border-box; }
+/* The hidden attribute wins over display rules such as .q (found in step R: the edit and
+   «lo mantengo» boxes of every text card were always shown, since S4). */
+[hidden] { display: none !important; }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.55; }
 .wrap { max-width: 46rem; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 header.intro { padding-block: 2.5rem 1.5rem; display: grid; gap: 0.9rem; }
@@ -59,6 +62,9 @@ article.item.blocking { border-left: 4px solid var(--warn); }
 .chip.is-done { background: var(--ok-soft); color: var(--ok); }
 .chip.is-blocking { background: var(--warn-soft); color: var(--warn); }
 .es { font-family: var(--serif); font-size: 1.08rem; line-height: 1.65; display: grid; gap: 0.5rem; }
+.sent { display: grid; gap: 0.3rem; }
+button.link { justify-self: start; font-size: 0.85rem; border: 0; padding: 0.15rem 0; background: none; text-decoration: underline; }
+.no-props .sent-prop { display: none; }
 details.en summary { cursor: pointer; color: var(--muted); font-size: 0.9rem; }
 details.en div { margin-top: 0.5rem; font-size: 0.95rem; color: var(--muted); display: grid; gap: 0.35rem; }
 .sources { font-size: 0.85rem; color: var(--muted); display: flex; gap: 0.75rem; flex-wrap: wrap; }
@@ -105,7 +111,7 @@ footer { color: var(--muted); font-size: 0.85rem; padding-block: 0 3rem; }
   <p id="lead"></p>
   <ul>
     <li>Cada tarjeta es una cosa que revisar. Las marcadas como <strong>obligatorias</strong> no se publican sin tu aprobación.</li>
-    <li>En los textos puedes <strong>aprobar</strong>, <strong>corregir</strong> (cambias el texto tú misma) o <strong>rechazar</strong> (no se publica). Revisas el contenido: de cómo se busca o se publica se encarga el programa.</li>
+    <li>En los textos puedes <strong>aprobar</strong>, <strong>corregir</strong> (cambias el texto tú misma) o <strong>rechazar</strong> (no se publica). Si solo quieres cambiar una frase, pulsa <strong>«Proponer otra frase»</strong> debajo de ella: tu frase sustituye a la nuestra y pasa las mismas comprobaciones. Revisas el contenido: de cómo se busca o se publica se encarga el programa.</li>
     <li>Cada grupo empieza con una línea que explica qué es y dónde sale en la web.</li>
     <li>Lo que dejes sin contestar se queda en la cola para otro día. No pasa nada por no terminar.</li>
     <li>Las notas <strong>se verán en público</strong> junto a tu decisión. Si es un comentario para Aday, mándaselo por WhatsApp.</li>
@@ -243,9 +249,20 @@ function textbox(item, field, label, initial, cls = "") {
 
 const joined = (sentences) => sentences.map((s) => s.text).join("\n");
 
+// «Proponer otra frase»: her sentence replaces ours and is sent as an edit (Aday's decision
+// 2026-11-13, step R). In the S4 test she wrote her alternative in the note, which changes
+// nothing: a «lo mantengo» would have published the exaggeration she had seen.
 function textBody(item) {
   const c = item.content;
-  const box = el("div", { class: "es" }, ...c.es.map((s) => el("p", { text: s.text })));
+  const box = el("div", { class: "es" }, ...c.es.map((s, i) => {
+    const field = `prop-${i}`;
+    const area = textbox(item, field, "Tu frase", s.text, "sent-prop");
+    area.hidden = !(field in ans(item));
+    const open = el("button", { type: "button", class: "link sent-prop", text: "Proponer otra frase" });
+    open.hidden = !area.hidden;
+    open.addEventListener("click", () => { area.hidden = false; open.hidden = true; area.focus(); });
+    return el("div", { class: "sent" }, el("p", { text: s.text }), open, area);
+  }));
   const en = el("details", { class: "en" }, el("summary", { text: "Ver la versión en inglés" }),
     el("div", {}, ...c.en.map((s) => el("p", { text: s.text }))));
   const src = el("div", { class: "sources" }, ...c.sources.map((s) =>
@@ -331,7 +348,18 @@ function toggleControls(item) {
     radios(item, "action", [["enable", "Mostrar"], ["disable", "Ocultar"]]))];
 }
 
-const CONTROLS = { text: (i) => [...textBody(i), ...textControls(i)], terms: termsControls, pair: pairControls,
+function textItem(item) {
+  const body = textBody(item);
+  // Her proposals go with «aprobar» or «lo mantengo»; «corregir» has the whole text and
+  // «rechazar» publishes nothing, so there the boxes are hidden (and not sent).
+  const sync = () => body[0].classList.toggle("no-props", ["edit", "reject"].includes(ans(item).action));
+  const controls = textControls(item);
+  controls[0].addEventListener("change", sync);
+  sync();
+  return [...body, ...controls];
+}
+
+const CONTROLS = { text: textItem, terms: termsControls, pair: pairControls,
   candidates: candidatesControls, toggle: toggleControls };
 
 function render() {
@@ -354,6 +382,9 @@ function render() {
     card.append(...CONTROLS[item.content.kind](item));
     if (item.content.kind !== "pair") {  // the pair's note is its public text
       card.append(question("Nota", "(opcional; pública)", textbox(item, "note", "Nota pública sobre tu decisión", "")));
+      if (item.content.kind === "text") {
+        card.append(el("p", { class: "hint", text: "La nota no cambia el texto. Para cambiar una frase, usa «Proponer otra frase»." }));
+      }
     }
     list.append(card);
   }
@@ -398,6 +429,12 @@ function decisionOf(item) {
   }
   if (kind === "candidates") {
     return a.dois && a.dois.length ? { ...base, action: "pick", payload: { dois: a.dois }, note } : null;
+  }
+  if (kind === "text" && !["edit", "reject"].includes(a.action)) {
+    const es = item.content.es.map((s, i) => (a[`prop-${i}`] ?? "").trim() || s.text);
+    if (es.some((t, i) => t !== item.content.es[i].text)) {
+      return { ...base, action: "edit", payload: { es: es.join("\n") }, note };
+    }
   }
   if (!a.action) return null;
   if (a.action === "edit" && kind === "terms") {

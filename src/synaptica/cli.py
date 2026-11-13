@@ -667,6 +667,26 @@ def _review_dir() -> Path:
     return config.get_paths().data / "review"
 
 
+@review_app.command("queue")
+def review_queue(
+    out: Annotated[Path, typer.Option(help="Write the queue (JSON) here.")],
+    today: Annotated[str | None, typer.Option(help="Day (ISO, UTC); default today.")] = None,
+) -> None:
+    """Today's queue: every source of items, minus what she decided, capped (40 on a
+    weekday, 10 at the weekend). Then ``syn review page --queue`` on the same file."""
+    import datetime as dt
+
+    from synaptica.review.collect import collect
+
+    paths = config.get_paths()
+    day = dt.date.fromisoformat(today) if today else dt.datetime.now(dt.UTC).date()
+    q = collect(paths.data / "warehouse.duckdb", paths.derived, _review_dir(), day)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(q.model_dump_json(indent=1) + "\n", encoding="utf-8")
+    held = sum(bool(i.warnings) for i in q.items)
+    typer.echo(f"queue: {len(q.items)} items ({held} held edits) -> {out}")
+
+
 @review_app.command("page")
 def review_page(
     queue: QueueOption,

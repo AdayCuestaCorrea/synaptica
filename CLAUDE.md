@@ -111,6 +111,7 @@ uv run syn write --provider groq [--limit 40]   # resumen EN → ES con comproba
 uv run syn judge --provider groq [--limit 40]   # juez de otra familia (gpt-oss-120b): sin su aprobado no se publica
 uv run syn weekly --provider groq [--week 2026-W45]   # resumen semanal: misma cadena, comprobaciones y juez
 uv run syn build                          # dbt build: modelos + tests (desde la Fase 1)
+uv run syn review queue --out Q                 # cola del día: resúmenes por muestreo (peor español primero), tope 40/10
 uv run syn review page --queue Q --out DIR      # páginas de revisión de Sofía (pública y privada)
 uv run syn review round --queue Q --out DIR     # siguiente ronda: aplica su registro y deja lo pendiente
 uv run syn review intake --event E --queue Q --reviewer LOGIN --reply R   # lee un Issue suyo (exit 2: espera fuente)

@@ -106,3 +106,10 @@ def test_the_public_page_lists_the_glossary_terms(queue):
     terms = page_data(queue, "public")["glossary_terms"]
     assert {"EEG", "AAV", "GFAP", "LTP", "GABA", "SNr"} <= set(terms)
     assert page_data(queue, "private")["glossary_terms"] == []
+
+
+def test_text_cards_can_propose_one_sentence(queue):
+    # Step R: in S4 she wrote her alternative in the note, which changes nothing.
+    page = render(queue, "public")
+    assert "Proponer otra frase" in page and "La nota no cambia el texto." in page
+    assert 'action: "edit", payload: { es: es.join("\\n") }' in page
