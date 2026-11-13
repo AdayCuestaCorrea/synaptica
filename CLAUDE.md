@@ -111,6 +111,9 @@ uv run syn write --provider groq [--limit 40]   # resumen EN → ES con comproba
 uv run syn judge --provider groq [--limit 40]   # juez de otra familia (gpt-oss-120b): sin su aprobado no se publica
 uv run syn weekly --provider groq [--week 2026-W45]   # resumen semanal: misma cadena, comprobaciones y juez
 uv run syn build                          # dbt build: modelos + tests (desde la Fase 1)
+uv run syn review page --queue Q --out DIR      # páginas de revisión de Sofía (pública y privada)
+uv run syn review round --queue Q --out DIR     # siguiente ronda: aplica su registro y deja lo pendiente
+uv run syn review intake --event E --queue Q --reviewer LOGIN --reply R   # lee un Issue suyo (exit 2: espera fuente)
 SYN_DATA_DIR=/tmp/syn-ci uv run python scripts/seed_fixture_data.py   # fixtures como si vinieran de las fuentes
 SYN_DATA_DIR=/tmp/syn-ci uv run syn build --as-of 2026-11-09          # dbt sobre esas fixtures (como la CI)
 uv run syn site && uv run syn site --check

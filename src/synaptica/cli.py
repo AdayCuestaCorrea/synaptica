@@ -28,6 +28,8 @@ news_app = typer.Typer(help="Neuro News: neuroscience filter, type and grouping.
 app.add_typer(news_app, name="news")
 eval_app = typer.Typer(help="Evaluations against hand labels (eval/).")
 app.add_typer(eval_app, name="eval")
+review_app = typer.Typer(help="Sofía's review queue: her page and her Issues (ADR 0005).")
+app.add_typer(review_app, name="review")
 
 
 def _llm(provider: str | None, model: str | None):
@@ -653,3 +655,69 @@ def check() -> None:
         raise typer.Exit(0)
     typer.echo("no changes")
     raise typer.Exit(1)
+
+
+# --- review queue (plan, step R; ADR 0005) -------------------------------------------------
+
+QueueOption = Annotated[Path, typer.Option(help="Review queue (JSON) the page shows.")]
+
+
+def _review_dir() -> Path:
+    """Her decision log: ``review/`` in the data folder (the data branch, from step 28)."""
+    return config.get_paths().data / "review"
+
+
+@review_app.command("page")
+def review_page(
+    queue: QueueOption,
+    out: Annotated[Path, typer.Option(help="Folder for the pages.")],
+    label: Annotated[str, typer.Option(help="Round label, in the file names.")] = "",
+) -> None:
+    """Her two review pages (public, and private for Neuro Diseases) from a queue."""
+    from synaptica.review.models import Queue
+    from synaptica.review.page import OUT, page_items, render
+
+    q = Queue.model_validate_json(queue.read_text("utf-8"))
+    out.mkdir(parents=True, exist_ok=True)
+    for variant, default in OUT.items():
+        items = page_items(q, variant)
+        if not items:
+            continue  # no empty page to send her
+        name = f"{default.stem}-{label}{default.suffix}" if label else default.name
+        (out / name).write_text(render(q, variant, label), encoding="utf-8")
+        typer.echo(f"{variant}: {len(items)} items -> {out / name}")
+
+
+@review_app.command("round")
+def review_round(
+    queue: QueueOption, out: Annotated[Path, typer.Option(help="Folder of the round.")]
+) -> None:
+    """Next round: apply her log to the queue and write what still waits for her."""
+    from synaptica.review.apply import publishable
+    from synaptica.review.models import Queue
+    from synaptica.review.rounds import round_pages
+
+    q = Queue.model_validate_json(queue.read_text("utf-8"))
+    waiting, sts = round_pages(q, _review_dir(), out)
+    published = sum(publishable(st) for st in sts.values())
+    typer.echo(f"waiting: {len(waiting.items)} · publishable: {published} -> {out}")
+
+
+@review_app.command("intake")
+def review_intake(
+    event: Annotated[Path, typer.Option(help="The GitHub `issues` event (JSON).")],
+    queue: QueueOption,
+    reviewer: Annotated[str, typer.Option(help="Her GitHub login (a repository variable).")],
+    reply: Annotated[Path, typer.Option(help="Write the reply for the Issue here.")],
+    cache_root: Annotated[Path | None, typer.Option(help="Abstract cache.")] = None,
+) -> None:
+    """Read one of her Issues: applied, held (back to her queue) or refused; exit 2 when an
+    edited text has no source to check it against (the Issue waits)."""
+    import json
+
+    from synaptica.review.intake import run
+
+    result = run(event, queue, _review_dir(), reviewer, reply, cache_root=cache_root)
+    typer.echo(json.dumps(result))
+    if result["status"] == "error":
+        raise typer.Exit(2)
