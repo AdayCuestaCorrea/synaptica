@@ -23,12 +23,15 @@ MAY = "The authors say spindles may help store memories in mice."
     [
         ("The drug is safe during pregnancy.", [NO_EXCESS], "says 'safe'"),
         ("Air pollution contributes to anxiety.", [ASSOCIATED], "says 'causal'"),
+        ("The gel resulted in less tissue damage.", [ASSOCIATED], "says 'causal'"),  # step 18
+        ("Protein levels triggered gene changes.", [ASSOCIATED], "says 'causal'"),
         ("Pollution levels could predict anxiety.", [ASSOCIATED], "says 'predicts'"),
         ("The marker is specific to brain injury.", [TRIAL], "says 'specific'"),
         ("It works where standard tests fail.", [TRIAL], "says 'fail'"),
         ("This devastating disease affects millions.", [TRIAL], "says 'alarm'"),
         ("The findings prove that spindles store memories.", [MAY], "says 'proves'"),
         ("Spindles help mice store memories.", [MAY], "drops the caution"),
+        ("Spindles could be measured in mice.", [MAY], "drops the caution"),  # ability
     ],
 )
 def test_claims_the_facts_do_not_make_fail(sentence, facts, problem):
@@ -43,6 +46,8 @@ def test_claims_the_facts_do_not_make_fail(sentence, facts, problem):
         ("In the trial, the drug caused fewer seizures than placebo.", [TRIAL]),  # authors' word
         ("Spindles may help mice store memories.", [MAY]),
         ("The team counted seizures over a year.", [TRIAL, MAY]),  # not every fact hedged
+        # Step 18: "could be" + a noun is a caution, as "may" in the abstract.
+        ("Red imaging could be a helpful tool for this surgery.", [MAY]),
     ],
 )
 def test_claims_the_facts_make_pass(sentence, facts):
@@ -101,6 +106,11 @@ def test_typos_are_caught(es, en, unknown):
         ("Las vías sensoriomotoras y los neuroprotectores.", "Pathways."),  # its inflections
         ("El gen UNC-51 actúa en Caenorhabditis elegans.", "The gene unc-51 acts in worms."),
         ("La proteína tau aumentó.", "The protein tau rose."),  # kept from English
+        # Step 18 (v2 run): valid words the dictionary lacks, added to our list.
+        ("Tras un traumatismo craneoencefálico.", "After a traumatic brain injury."),
+        ("Los síntomas autoinformados.", "The symptoms they reported."),
+        ("Siguen despejándolos del tejido.", "They keep clearing them."),  # pronouns
+        ("En el ictus isquémico agudo.", "In acute stroke."),
     ],
 )
 def test_terms_names_and_english_twins_pass(es, en):
@@ -110,3 +120,12 @@ def test_terms_names_and_english_twins_pass(es, en):
 def test_spelling_is_part_of_the_spanish_checks():
     problems = check_spelling_es(["Emotional responses."], ["Respuestas emocinales."])
     assert problems == ["sentence 1: words not in the Spanish dictionary ['emocinales']"]
+
+
+def test_spanish_causality_named_as_a_limit_is_not_a_causal_claim():
+    # Step 18: «no establece causalidad» translates «does not establish causality».
+    en = ["The study does not establish causality."]
+    assert check_claims_es(en, ["El estudio no establece causalidad."]) == []
+    assert check_claims_es(["Pollution was linked to anxiety."],
+                           ["La contaminación causó ansiedad."]) == [
+        "sentence 1: 'causal' is not in the English sentence"]  # fmt: skip
