@@ -76,7 +76,7 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 necesita la cola
 | # | Paso | Tests | Hecho cuando |
 |---|---|---|---|
 | 28 ✅ | `pipeline.yml`: cron y respaldo, `syn check`, ingesta, LLM con `continue-on-error`, build, site + check, informe y commit en la rama `data` (rechaza `cache/` y `.duckdb`); secretos `NCBI_API_KEY` y `GROQ_API_KEY` con el OK de Aday; activar `review-intake.yml` y la variable `REVIEWER_LOGIN` (paso R; hasta aquí, `syn review intake` a mano) | ejecución manual en seco | primera ejecución verde |
-| 29 🔵 | Espejo semanal de los marts en BigQuery (load jobs, WIF ya creado; cupo de 10 GiB de por vida medido en el informe) | test de la selección de marts y del tamaño | consumo anotado |
+| 29 ✅ | Espejo semanal de los marts en BigQuery (load jobs, WIF ya creado; cupo de 10 GiB de por vida medido en el informe) | test de la selección de marts y del tamaño | consumo anotado |
 | 30 | 14 días autónomos, visto bueno de Sofía y `fase-1.md` | — | cierre |
 
 **Cola de revisión (paso R):** la necesitan el 14b y el 24b. Nada más de la Fase 1 depende de D5, porque solo Neuro Diseases bloquea la publicación, y es de la Fase 3.

@@ -28,8 +28,10 @@ news_app = typer.Typer(help="Neuro News: neuroscience filter, type and grouping.
 app.add_typer(news_app, name="news")
 eval_app = typer.Typer(help="Evaluations against hand labels (eval/).")
 app.add_typer(eval_app, name="eval")
+mirror_app = typer.Typer(help="Weekly mirror of the marts in BigQuery (D1, step 29).")
 review_app = typer.Typer(help="Sofía's review queue: her page and her Issues (ADR 0005).")
 app.add_typer(review_app, name="review")
+app.add_typer(mirror_app, name="mirror")
 
 
 def _llm(provider: str | None, model: str | None):
@@ -818,3 +820,47 @@ def review_intake(
     typer.echo(json.dumps(result))
     if result["status"] == "error":
         raise typer.Exit(2)
+
+
+@mirror_app.command("export")
+def mirror_export(
+    out: Annotated[Path, typer.Option(help="Folder for the Parquet files.")],
+) -> None:
+    """The marts to Parquet for `bq load` (refused above the size limit), and a manifest."""
+    import json
+
+    from synaptica import mirror
+
+    warehouse = config.get_paths().data / "warehouse.duckdb"
+    if not warehouse.exists():
+        typer.echo("No warehouse yet: run `syn build` first.", err=True)
+        raise typer.Exit(1)
+    try:
+        tables = mirror.export(warehouse, out)
+    except mirror.TooBig as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(1) from exc
+    manifest = [{"name": t.name, "rows": t.rows, "bytes": t.bytes} for t in tables]
+    (out / "manifest.json").write_text(json.dumps(manifest, indent=1) + "\n", encoding="utf-8")
+    for t in tables:
+        typer.echo(f"{t.name}: {t.rows} rows, {t.bytes} bytes")
+
+
+@mirror_app.command("record")
+def mirror_record(
+    folder: Annotated[Path, typer.Option("--dir", help="The folder of `syn mirror export`.")],
+    stored: Annotated[
+        Path | None, typer.Option(help="JSON {table: bytes} that BigQuery reports as stored.")
+    ] = None,
+) -> None:
+    """Append the mirror to mirror/bigquery.jsonl in the data folder (the measured usage)."""
+    import json
+
+    from synaptica import mirror
+
+    rows = json.loads((folder / "manifest.json").read_text("utf-8"))
+    tables = [mirror.Table(r["name"], r["rows"], r["bytes"], folder / f"{r['name']}.parquet")
+              for r in rows]  # fmt: skip
+    sizes = json.loads(stored.read_text("utf-8")) if stored and stored.exists() else None
+    entry = mirror.record(config.get_paths().data / "mirror" / "bigquery.jsonl", tables, sizes)
+    typer.echo(json.dumps(entry))
