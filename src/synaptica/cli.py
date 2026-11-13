@@ -690,16 +690,21 @@ def _review_dir() -> Path:
 def review_queue(
     out: Annotated[Path, typer.Option(help="Write the queue (JSON) here.")],
     today: Annotated[str | None, typer.Option(help="Day (ISO, UTC); default today.")] = None,
+    run: Annotated[
+        list[Path] | None,
+        typer.Option(help="Also a past run's texts (its derived/ and summary.json); repeatable."),
+    ] = None,
 ) -> None:
     """Today's queue: every source of items, minus what she decided, capped (40 on a
     weekday, 10 at the weekend). Then ``syn review page --queue`` on the same file."""
     import datetime as dt
 
-    from synaptica.review.collect import collect
+    from synaptica.review.collect import collect, run_spot_checks
 
     paths = config.get_paths()
     day = dt.date.fromisoformat(today) if today else dt.datetime.now(dt.UTC).date()
-    q = collect(paths.data / "warehouse.duckdb", paths.derived, _review_dir(), day)
+    extra = [item for r in run or [] for item in run_spot_checks(r)]
+    q = collect(paths.data / "warehouse.duckdb", paths.derived, _review_dir(), day, extra)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(q.model_dump_json(indent=1) + "\n", encoding="utf-8")
     held = sum(bool(i.warnings) for i in q.items)
@@ -749,6 +754,10 @@ def review_intake(
     reviewer: Annotated[str, typer.Option(help="Her GitHub login (a repository variable).")],
     reply: Annotated[Path, typer.Option(help="Write the reply for the Issue here.")],
     cache_root: Annotated[Path | None, typer.Option(help="Abstract cache.")] = None,
+    efetch: Annotated[
+        list[Path] | None,
+        typer.Option(help="PubMed efetch XML for abstracts not in the cache; repeatable."),
+    ] = None,
 ) -> None:
     """Read one of her Issues: applied, held (back to her queue) or refused; exit 2 when an
     edited text has no source to check it against (the Issue waits)."""
@@ -756,7 +765,7 @@ def review_intake(
 
     from synaptica.review.intake import run
 
-    result = run(event, queue, _review_dir(), reviewer, reply, cache_root=cache_root)
+    result = run(event, queue, _review_dir(), reviewer, reply, cache_root=cache_root, efetch=efetch)
     typer.echo(json.dumps(result))
     if result["status"] == "error":
         raise typer.Exit(2)

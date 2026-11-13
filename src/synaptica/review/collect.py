@@ -23,6 +23,7 @@ older version of a summary changes nothing (the hash, as everywhere in the revie
 from __future__ import annotations
 
 import datetime as dt
+import json
 from pathlib import Path
 from typing import Any
 
@@ -109,9 +110,40 @@ def news_spot_checks(warehouse: Path, derived_root: Path) -> list[ReviewItem]:
     return [item for _, item in sorted(found, key=lambda x: x[0])]
 
 
-def collect(warehouse: Path, derived_root: Path, review_dir: Path, today: dt.date) -> Queue:
-    """Today's queue: every source, minus what she decided, her held edits first, capped."""
-    items = news_spot_checks(warehouse, derived_root)
+def run_spot_checks(run_dir: Path) -> list[ReviewItem]:
+    """Spot-check items of a past run kept outside ``derived/``: its ``derived/`` folder and
+    the ``summary.json`` with each article's title (step 18, the S5 chain with the v2
+    prompts; Aday, 2026-11-13, so she rates their Spanish, which the judge does not tell
+    apart). The run's folder name goes in ``item_id``, so the texts of two writers on the
+    same study are two items; her decisions on them change nothing on the site, which
+    looks items up by ``slug(study_id)`` alone. Worst Spanish first, as the spot-check."""
+    derived = run_dir / "derived"
+    articles = json.loads((run_dir / "summary.json").read_text("utf-8"))["articles"]
+    titles = {f"pmid:{a['pmid']}": a["title"] for a in articles}
+    found = []
+    for sid in summarized(derived):
+        if sid not in titles:
+            continue
+        study = {"study_id": sid, "title": titles[sid], "pmid": sid.removeprefix("pmid:"),
+                 "doi": None, "pmcid": None}  # fmt: skip
+        built = news_item(study, derived)
+        if built:
+            item, score = built
+            item = item.model_copy(update={"item_id": f"{item.item_id}-{slug(run_dir.name)}"})
+            found.append(((score, item.item_id), item))
+    return [item for _, item in sorted(found, key=lambda x: x[0])]
+
+
+def collect(
+    warehouse: Path,
+    derived_root: Path,
+    review_dir: Path,
+    today: dt.date,
+    extra: list[ReviewItem] | None = None,
+) -> Queue:
+    """Today's queue: every source, minus what she decided, her held edits first, capped.
+    ``extra`` (``run_spot_checks``) goes before the day's spot-check."""
+    items = [*(extra or []), *news_spot_checks(warehouse, derived_root)]
     # Midnight UTC of the day: the same inputs give the same file (``syn`` is idempotent).
     queue = Queue(generated_at=dt.datetime.combine(today, dt.time(), dt.UTC), items=items)
     waiting = next_queue(queue, states(queue, read_log(review_dir)))

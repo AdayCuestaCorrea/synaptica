@@ -174,3 +174,19 @@ def test_a_decision_on_an_older_text_changes_nothing(tmp_path: Path) -> None:
     finally:
         TEXTS["es"][0] = "Los ratones durmieron más."
     assert "bastante más" in html and "summary--verified" in html
+
+
+def test_a_past_runs_texts_join_the_queue_as_items_of_their_own(tmp_path: Path) -> None:
+    data = data_dir(tmp_path, today=4)
+    runs = []
+    for name, natural in (("qwen9b", 3), ("qwen27b", 4)):
+        run = tmp_path / "runs" / name
+        summarize(run, "pmid:77", natural)
+        (run / "summary.json").write_text(json.dumps({"articles": [
+            {"pmid": "77", "title": "Sleep in mice"}]}))  # fmt: skip
+        runs.append(run)
+    extra = [i for r in runs for i in collect.run_spot_checks(r)]
+    q = collect.collect(data / "warehouse.duckdb", data / "derived", data / "review", MONDAY,
+                        extra)  # fmt: skip
+    assert [i.item_id for i in q.items] == ["pmid_77-qwen9b", "pmid_77-qwen27b", "doi_10.1_today"]
+    assert q.items[0].content.sources[0].id == "pubmed-77"
