@@ -106,13 +106,26 @@ select
     coalesce(t.news_type, tj.news_type) as news_type,
     p.published_doi,
     po.preprint_doi,
-    o.primary_field as openalex_field
+    o.primary_field as openalex_field,
+    -- Figure 1 from PMC's open-access bucket (step 23b), null without one.
+    f.figure_pmcid,
+    f.figure_label,
+    f.figure_file,
+    f.figure_thumb,
+    f.figure_width,
+    f.figure_height,
+    f.figure_license,
+    f.figure_license_url,
+    f.figure_credit,
+    f.figure_citation,
+    f.figure_source_url
 from merged as m
 left join {{ ref('int_study__integrity') }} as i on i.doi = m.doi
 left join {{ ref('stg_derived__news_types') }} as t on t.item_id = 'study:' || m.study_id
 left join {{ ref('stg_derived__news_types') }} as tj on tj.item_id = 'journal:' || m.doi
 left join {{ ref('int_preprints__latest') }} as p on p.doi = m.doi and p.published_doi is not null
 left join preprint_of as po on po.published_doi = m.doi
+left join {{ ref('stg_derived__figures') }} as f on f.study_id = m.study_id
 left join (
     select doi, arg_max(primary_field, version_date) as primary_field
     from {{ ref('stg_openalex__works') }} group by doi

@@ -143,17 +143,24 @@ unit_tests:
         rows: []
       - input: ref('stg_derived__news_types')
         rows: []
+      - input: ref('stg_derived__figures')
+        rows:
+          - {study_id: "10.1/a", figure_pmcid: "PMC1", figure_file: "pmc1.webp",
+             figure_license: "CC BY 4.0", figure_credit: "Smith et al."}
     expect:
       rows:
         - {study_id: "10.1/a", title: "From PubMed", pmcid: "PMC1", entered_on: 2026-11-08,
            review_status: journal, species: humans, is_open_access: true, license: "cc by",
-           integrity: none, published_doi: null, preprint_doi: null}
+           integrity: none, published_doi: null, preprint_doi: null,
+           figure_file: "pmc1.webp", figure_license: "CC BY 4.0"}
         - {study_id: "10.1101/p", title: "Preprint", pmcid: null, entered_on: 2026-11-01,
            review_status: preprint, species: unknown, is_open_access: false, license: null,
-           integrity: none, published_doi: "10.1/j", preprint_doi: null}
+           integrity: none, published_doi: "10.1/j", preprint_doi: null,
+           figure_file: null, figure_license: null}
         - {study_id: "10.1/j", title: "Journal version", pmcid: null, entered_on: 2026-11-09,
            review_status: journal, species: unknown, is_open_access: false, license: null,
-           integrity: corrected, published_doi: null, preprint_doi: "10.1101/p"}
+           integrity: corrected, published_doi: null, preprint_doi: "10.1101/p",
+           figure_file: null, figure_license: null}
 
   - name: int_study__integrity_most_serious_wins
     model: int_study__integrity
