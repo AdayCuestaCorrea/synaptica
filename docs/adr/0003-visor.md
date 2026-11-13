@@ -1,6 +1,6 @@
 # D3: Visor 3D de Neuro Atlas
 
-- **Estado:** propuesta (2026-11-12, Fase 0, spike S3). Sofía eligió la maqueta C (Niivue) el 2026-11-11 y revisó los ajustes el 2026-11-12. Hay que conservar las dos tinciones, completar el humano (añadido CerebrA) y buscar una tinción real de rata (no la hay). Falta que Aday la acepte; hasta entonces D3 sigue en «Abiertas».
+- **Estado:** aceptada (2026-11-13, Fase 0, spike S3). Sofía eligió la maqueta C (Niivue) el 2026-11-11. El 2026-11-12 revisó los ajustes y pidió conservar las dos tinciones, completar el humano y buscar una tinción real de rata. Con eso hecho le gusta como está, y Aday cierra D3.
 - **Relacionadas:** [SCOPE §8 D3](../../SCOPE.md#8-decisiones) · [plan de S3](../../spikes/s3/PLAN.md) · [resultados](../../spikes/s3/results/) · [fuentes](../fuentes.md) (atlas y BigBrain) · D5 (revisión de Sofía, para el grado de las parejas)
 
 ## Contexto

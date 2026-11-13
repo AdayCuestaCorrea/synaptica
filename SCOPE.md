@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 79** · 2026-11-12 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 95** · 2026-11-13 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -97,7 +97,7 @@ En la Fase 0 se verifica el acceso, los límites, si hace falta clave y la licen
 
 ## 6. Arquitectura (propuesta)
 
-Se confirma en la Fase 0 con D1–D4 (cerradas D1, DuckDB + espejo en BigQuery, y D4, Groq + juez de otra familia). Sigue el diseño de Paleo Atlas.
+Confirmada en la Fase 0 con D1, D3, D4 y D5, todas cerradas: DuckDB con espejo en BigQuery, visor Niivue, Groq con juez de otra familia y revisión por Issues de GitHub. Sigue el diseño de Paleo Atlas.
 
 ```mermaid
 flowchart LR
@@ -118,7 +118,7 @@ flowchart LR
 
 Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md`: el porqué, los conceptos, cómo se comprueba, qué salió mal y cómo defenderlo en una entrevista. Al acabar cada fase la web sigue publicada, aunque falten secciones.
 
-### Fase 0 — Cimientos
+### Fase 0 — Cimientos (cerrada el 2026-11-13)
 
 - [x] Repositorio `synaptica` en local y en GitHub (visibilidad: D9)
 - [x] `pyproject.toml` (uv, Python 3.14, ruff, pytest), `.gitignore`, `.editorconfig`, `.python-version`
@@ -130,7 +130,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 - [x] `docs/propuesta.md`, exportada del documento aprobado
 - [x] **S1 Fuentes:** script mínimo por fuente que descarga unos 10 elementos, guardados como fixtures, y `docs/fuentes.md` con acceso, límites, clave y licencia
 - [x] **S2 Almacén:** prueba de BigQuery sandbox desde GitHub Actions con dbt-bigquery → ADR de D1
-- [ ] **S3 Visor 3D:** dos maquetas (three.js con mallas propias y Niivue con volúmenes propios; siibra-explorer embebido, medido y descartado) con los dos atlas lado a lado y regiones clicables por ID, en GitHub Pages; entre las que cumplan D3 elige Sofía ([plan](spikes/s3/PLAN.md)) → ADR de D3. Hechos los pasos 0 (preparación), 1 (datos y licencias, [resultados](spikes/s3/results/README.md)), 2 (maqueta A, descartada: [resultados](spikes/s3/results/maqueta-a.md)), 3 (datos para B y C, [resultados](spikes/s3/results/README.md#s3--paso-3-datos-para-las-maquetas-b-y-c)), 4 (maqueta B, borrada el 2026-11-11 tras elegir Sofía C), 5 (maqueta C, `spikes/s3/site/c/`) y 6 (mediciones: [B](spikes/s3/results/maqueta-b.md), [C](spikes/s3/results/maqueta-c.md)). Sofía elige C y pide ajustes ([peticiones](spikes/s3/results/peticiones-sofia.md)): pasos 7.1–7.10 antes del ADR. Hechos el 7.1, el 7.2 (paleta) el 7.3 (corte sincronizado), el 7.4 (clic sincronizado), el 7.5 (mm desde Bregma, cráneo plano) el 7.6 (modos y atlas en blanco y negro), el 7.7 (tinción dibujada) y el 7.8 (tinción real: BigBrain en el humano; la rata, al backlog). Antes del 7.9, las mejoras de UX y UI de Aday: hechas la M1 (buscador de áreas) y la M2 (el punto marca el área). Hechos el 7.9 (móvil) y el 7.10 ([publicada en Pages](https://adaycuestacorrea.github.io/synaptica/spikes/s3/c/)). Revisión de Sofía (2026-11-12): conservar las dos tinciones; al humano le faltaban el cerebelo, el tronco y la médula → CerebrA como segunda capa ([cobertura](spikes/s3/results/cobertura.md)); tinción real de rata: no existe en 3D; se muestra en el corte 2D con los cortes de Nissl registrados de Blixhavn 2023 ([tinción](spikes/s3/results/tincion.md)). [ADR](docs/adr/0003-visor.md) en borrador: falta que Aday lo acepte
+- [x] **S3 Visor 3D:** dos maquetas (three.js con mallas propias y Niivue con volúmenes propios; siibra-explorer embebido, medido y descartado) con los dos atlas lado a lado y regiones clicables por ID, en GitHub Pages; entre las que cumplan D3 elige Sofía ([plan](spikes/s3/PLAN.md)) → ADR de D3. Hechos los pasos 0 (preparación), 1 (datos y licencias, [resultados](spikes/s3/results/README.md)), 2 (maqueta A, descartada: [resultados](spikes/s3/results/maqueta-a.md)), 3 (datos para B y C, [resultados](spikes/s3/results/README.md#s3--paso-3-datos-para-las-maquetas-b-y-c)), 4 (maqueta B, borrada el 2026-11-11 tras elegir Sofía C), 5 (maqueta C, `spikes/s3/site/c/`) y 6 (mediciones: [B](spikes/s3/results/maqueta-b.md), [C](spikes/s3/results/maqueta-c.md)). Sofía elige C y pide ajustes ([peticiones](spikes/s3/results/peticiones-sofia.md)): pasos 7.1–7.10 antes del ADR. Hechos el 7.1, el 7.2 (paleta) el 7.3 (corte sincronizado), el 7.4 (clic sincronizado), el 7.5 (mm desde Bregma, cráneo plano) el 7.6 (modos y atlas en blanco y negro), el 7.7 (tinción dibujada) y el 7.8 (tinción real: BigBrain en el humano; la rata, al backlog). Antes del 7.9, las mejoras de UX y UI de Aday: hechas la M1 (buscador de áreas) y la M2 (el punto marca el área). Hechos el 7.9 (móvil) y el 7.10 ([publicada en Pages](https://adaycuestacorrea.github.io/synaptica/spikes/s3/c/)). Revisión de Sofía (2026-11-12): conservar las dos tinciones; al humano le faltaban el cerebelo, el tronco y la médula → CerebrA como segunda capa ([cobertura](spikes/s3/results/cobertura.md)); tinción real de rata: no existe en 3D; se muestra en el corte 2D con los cortes de Nissl registrados de Blixhavn 2023 ([tinción](spikes/s3/results/tincion.md)). Sofía da por buena la maqueta → [ADR de D3](docs/adr/0003-visor.md), aceptado el 2026-11-13
 - [x] **S4 Revisión:** prototipo del flujo de revisión probado con Sofía ([plan](spikes/s4/PLAN.md)) → [ADR de D5](docs/adr/0005-revision.md)
 - [x] **S5 LLM:** límites actuales del plan gratuito de Groq y de Ollama local, y elección de un juez de otra familia de modelos para el contenido de salud → ADR de D4
 
@@ -210,6 +210,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 | Repositorio público en GitHub; Sofía no es colaboradora por ahora | Por el portfolio, y en público Actions no tiene límite de minutos y Pages es gratis. Sofía entra como colaboradora solo si el flujo de revisión (D5) lo necesita |
 | D1 · Almacén: DuckDB reconstruido cada día; espejo semanal de los marts en BigQuery sandbox (load jobs, WIF) | S2: el sandbox funciona sin tarjeta, pero su cupo de 10 GiB es de por vida y no se recupera al borrar, así que no aguanta una reconstrucción diaria. El espejo suma BigQuery al CV sin poner en riesgo el pipeline ([ADR D1](docs/adr/0001-almacen.md)) |
 | D2 · Motor común con Paleo Atlas: copiar y adaptar cada módulo, con su origen en el docstring; sin paquete compartido por ahora | Paleo está en producción y no se toca desde aquí, y el dominio de SYNAPTICA aún cambia piezas que parecían genéricas. Se revisa al cerrar la Fase 1 ([ADR D2](docs/adr/0002-motor-comun.md)) |
+| D3 · Visor 3D: Niivue 0.69 con volúmenes de etiquetas propios, uno por atlas, servido desde la web; rata Waxholm y humano Julich-Brain con capas debajo (CerebrA, CIT168, sustancia blanca de ICBM 2009c); tinción dibujada o real (BigBrain en el humano; Nissl en el corte 2D de la rata) ([ADR](docs/adr/0003-visor.md)) | S3: todo el atlas clicable sin una malla por región, corte 2D sincronizado de serie, sin otros dominios ni seguimiento; ~2,5 MB y ~19 s en móvil con red lenta. Elegida por Sofía, revisada por ella y cerrada por Aday (2026-11-13) |
 | D4 · LLM: carga inicial con el modelo local de Aday (Qwen 9B en Ollama); después, Groq gratis en Actions con redactor `qwen3.8-27b` y juez `gpt-oss-120b` (otra familia) | S5: Groq da unos 40–60 resúmenes al día por modelo, y el juez de otra familia cazó 3 errores reales que las comprobaciones dejaban pasar. La carga inicial va en local para no gastar cupo; se hace cuando terminen los lotes de Paleo ([ADR D4](docs/adr/0004-llm.md)) |
 | D5 · Revisión: página de revisión generada cada día y envío como Issue de GitHub; un workflow valida autor, versión y comprobaciones y lo añade a un registro en la rama `data` ([ADR](docs/adr/0005-revision.md)) | S4, probado con Sofía en 3 rondas (2026-11-12): sin terminal ni git, cumple los criterios salvo el tiempo de la primera ronda (38 min, con más trabajo del pedido); prefiere esto a una hoja de cálculo y no le importa que sus decisiones sean públicas. La prueba destapó 6 fallos, corregidos |
 
@@ -217,7 +218,6 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 
 | ID | Decisión | Opciones | Recomendación inicial |
 |---|---|---|---|
-| D3 | Visor 3D | siibra-explorer embebido o autohospedado (embebido: descartado en S3) · three.js con mallas de BrainGlobe · Niivue con volúmenes propios · otro | Lo decide S3: tiene que funcionar en GitHub Pages sin backend propio, con regiones clicables por ID, licencias compatibles, un peso razonable en móvil y **los dos atlas a la vez, lado a lado** (vista rata ↔ humano). Tras ver las maquetas, también un **corte 2D sincronizado con el 3D**, con el 3D como vista principal (§1). Sofía ha elegido C (Niivue) y la ha revisado; ADR en borrador, falta que Aday lo acepte |
 | D6 | Procesamiento a escala | Databricks Free Edition para una carga histórica de PubMed · solo APIs | Solo si el volumen lo justifica y se mide, como en el ADR D5 de Paleo. Si no, basta OpenAlex |
 | D7 | Dominio | Dominio propio · `adaycuestacorrea.github.io/synaptica` | Empezar en GitHub Pages y comprobar el nombre antes de registrar nada (ya existe Synaptica B.V., una empresa neerlandesa de neurociencia computacional) |
 
@@ -341,3 +341,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 92 | 2026-11-13 | S3, tinción real de rata en 2D (Aday; el 3D, al backlog): el corte coronal de la rata muestra el corte de Nissl real más cercano de la serie H108c de Blixhavn et al. 2023 (CC BY 4.0, 146 cortes, rata Wistar). Cada corte se coloca en el plano del visor con su registro publicado QuickNII y VisuAlign (`nissl.py`, tests) desde un nivel reducido de su pirámide, nunca los TIFF completos; color de la tionina con contraste lineal y portaobjetos transparente. El aviso dice a cuántos mm está del plano (la serie tiene un hueco entre −5,67 y −3,73 mm); el 3D sigue dibujado con su aviso. Solo se descarga el corte que se ve (~35 KB). Nueva dependencia declarada en `spike-s3`: Pillow (ya venía con otras), para leer las teselas y escribir WebP |
 | 93 | 2026-11-13 | S3, tinción real de rata en 2D: debajo del corte real solo se pinta el portaobjetos, no la tinción dibujada, que asomaba como un halo por los bordes y las roturas del corte y podía pasar por tejido (decisión de Aday) |
 | 94 | 2026-11-13 | Maqueta web «Noche»: la cabecera «Tu portal de neurociencia» usa la imagen que aportó Aday (cerebro de perfil y neurona ampliada) en lugar de los dibujos SVG; enmarcada en los dos temas y, en móvil, a todo el ancho bajo el texto. Falta confirmar su origen y su licencia: la web lo dice en el pie de la imagen y en los huecos |
+| 95 | 2026-11-13 | **Fase 0 cerrada** por Aday. D3 cerrada: Sofía da por buena la maqueta C con la tinción doble, el humano completado y el Nissl de rata en 2D ([ADR 0003](docs/adr/0003-visor.md), aceptado); casilla de S3 marcada; [`docs/fases/fase-0.md`](docs/fases/fase-0.md) completo. La rama `fase-1` puede fusionarse en `main` (excepción de la fila 54) |

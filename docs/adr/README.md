@@ -16,7 +16,7 @@ Nombre de archivo: `000N-titulo-corto.md`, donde N es el número de la decisión
 |---|---|---|
 | [D1](0001-almacen.md) | DuckDB como almacén y BigQuery como espejo semanal de los marts | Aceptada |
 | [D2](0002-motor-comun.md) | Motor común con Paleo Atlas: copiar y adaptar, sin paquete compartido | Aceptada |
-| [D3](0003-visor.md) | Visor 3D: Niivue con volúmenes de etiquetas propios, uno por atlas | Propuesta |
+| [D3](0003-visor.md) | Visor 3D: Niivue con volúmenes de etiquetas propios, uno por atlas | Aceptada |
 | [D4](0004-llm.md) | LLM: carga inicial en local; después, Groq gratis con redactor y juez de familias distintas | Aceptada |
 | [D5](0005-revision.md) | Revisión de Sofía: página generada y envío como Issue de GitHub | Aceptada |
 

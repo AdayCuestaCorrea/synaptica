@@ -20,7 +20,7 @@ Cada documento se escribe al cerrar su fase, con el visto bueno de Sofía. Va en
 
 | Fase | Documento | Estado |
 |---|---|---|
-| 0 — Cimientos | [`fase-0.md`](fase-0.md) | Borrador: faltan la revisión de Sofía de S3 y la prueba de S4 (D3 y D5) |
+| 0 — Cimientos | [`fase-0.md`](fase-0.md) | Cerrada (2026-11-13) |
 | 1 — La base | `fase-1.md` | Pendiente |
 | 2 — Prioridades de Sofía | `fase-2.md` | Pendiente |
 | 3 — Aprender | `fase-3.md` | Pendiente |

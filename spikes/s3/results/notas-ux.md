@@ -30,4 +30,8 @@ Recogidas el 2026-11-11, al terminar las mejoras M1 y M2. **No son un estudio:**
 
 ## Lo que diga Sofía (2026-11-12)
 
-_Pendiente: su revisión de los modos (atlas en blanco y negro, tinción dibujada y real), del buscador y del punto._
+Lo transmitió Aday:
+- **Tinción:** quiere las dos, la real y la dibujada.
+- **Rata:** le extrañaba que no hubiera tinción real, porque debería haber más histología de rata que humana. La hay, pero en cortes, no en 3D. Ahora el corte 2D muestra el Nissl real más cercano ([tinción](tincion.md)).
+- **Humano:** le faltaban el cerebelo entero, el tronco y el principio de la médula. Se añadieron capas debajo de Julich-Brain ([cobertura](cobertura.md)). La médula sigue sin atlas.
+- **Resultado (2026-11-13):** le gustan el cerebelo, el tronco y el resultado final. Se deja así.
