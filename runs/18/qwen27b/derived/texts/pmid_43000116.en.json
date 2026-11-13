@@ -1,0 +1,60 @@
+{
+ "study_id": "pmid:43000116",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "5b9730f000b34900",
+ "generated_at": "2026-11-13T12:56:31+00:00",
+ "word_count": 156,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A prospective observational pilot study conducted in Sweden from 2021 to 2024 analyzed blood samples from 21 patients with acute ischaemic stroke and 19 control participants undergoing non-brain surgery under general anesthesia.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Researchers measured levels of three brain injury markers in blood before the procedure and again at 2 and 24 hours afterward.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "While the marker GFAP rose significantly in stroke patients and remained higher than in the control group at every time point, the control group did not show a significant rise in GFAP levels over the 24-hour period.",
+   "fact_ids": [
+    "f5",
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "In contrast, the other two markers, NfL and tau, increased significantly in both the stroke patients and the control group.",
+   "fact_ids": [
+    "f8"
+   ]
+  },
+  {
+   "text": "Because GFAP did not rise in the control group, the authors suggest it may be less affected by anesthesia and surgery than the other markers, supporting the need for further evaluation of GFAP as a potential blood marker for acute brain injury in hospital settings.",
+   "fact_ids": [
+    "f9",
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:56:32+00:00"
+ }
+}

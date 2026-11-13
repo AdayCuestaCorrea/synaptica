@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1021/acsami.6c20077",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "a745940854cef849",
+ "generated_at": "2026-11-13T13:42:40+00:00",
+ "word_count": 71,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed thin semiconductor channels connected directly to metallic-like electrodes without extra metal engineering, creating interfaces that allowed reliable electrical flow while maintaining flexibility without special contact adjustments.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "These devices exhibited consistent synaptic behaviors even when physically deformed, a property the authors note could improve pattern recognition in artificial neural networks.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors suggest this approach offers a new way to combine atom-thin material properties with large-scale manufacturing for future computing.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

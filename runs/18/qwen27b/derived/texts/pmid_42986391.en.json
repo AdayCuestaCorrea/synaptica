@@ -1,0 +1,52 @@
+{
+ "study_id": "pmid:42986391",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "b518c6550786f544",
+ "generated_at": "2026-11-13T12:54:56+00:00",
+ "word_count": 121,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "In a mouse model, researchers engineered rod cells to express a glowing marker that illuminates upon glutamate release, allowing them to track neurotransmitter output under dim and bright lighting.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "When light flashed at these rods, the marker dimmed, indicating reduced glutamate release, while the signal strength dropped off as the light flickered faster between 1 and 10 times per second.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The cells released glutamate in random bursts at a steady pace of 20 to 40 tiny packets per second, a speed confirmed by a second electrical measurement method showing about 38 packets per second.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Because this release speed remains constant across different light levels, the rod cells pass on their light-adjustment signals to the next neurons in the eye without distortion.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:54:58+00:00"
+ }
+}

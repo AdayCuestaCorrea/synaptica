@@ -1,0 +1,47 @@
+{
+ "study_id": "pmid:42997793",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "e80972d2d4fb032f",
+ "generated_at": "2026-11-13T12:34:57+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Una revisión sistemática de la investigación existente sobre la conectividad cerebral y el tratamiento de la depresión examinó cómo la conectividad funcional, es decir, en qué medida la actividad de dos regiones se mueve de forma conjunta, se relaciona con los resultados clínicos. En algunos casos, una mayor conectividad entre el cíngulo subgenual y la corteza prefrontal derecha se asoció con peores resultados del tratamiento, mientras que conexiones más fuertes hacia la corteza orbitofrontal medial se vincularon con mejores resultados.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Las asociaciones más sólidas entre la conectividad cerebral y el éxito del tratamiento se hallaron en estudios que emplearon estimulación magnética transcraneal repetitiva, especialmente cuando la focalización se personalizó para cada paciente, aunque las localizaciones cerebrales específicas utilizadas fueron seleccionadas principalmente por los investigadores con antelación en lugar de identificarse como picos de actividad. La calidad de los métodos de imagen cerebral empleados en los estudios incluidos se consideró generalmente adecuada.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Dado que los resultados variaron ampliamente entre los estudios, los datos no permitieron un análisis matemático preciso de dónde en el cerebro se localizaban los efectos. Los autores señalan que se requieren estudios más amplios y prospectivos para confirmar estos hallazgos y determinar si pueden aplicarse en la práctica clínica.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:35:03+00:00"
+ }
+}

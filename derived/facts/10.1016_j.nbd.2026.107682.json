@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1016/j.nbd.2026.107682",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "3946126ce41beed5",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:23:49+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a transgenic mouse model where one copy of the Arid1b gene was removed from the cells that create specific inhibitory interneurons.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers measured how inhibitory interneurons connected with excitatory neurons in brain slices taken from baby and teenage mice.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The study found that the signals sent to the inhibitory interneurons were weaker than usual, while the signals sent from those interneurons remained normal.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Weak signals reaching the interneurons during early life prevented normal spontaneous brain activity needed for the neural circuits to mature.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The weak signals to a specific type of inhibitory neuron persisted into adolescence, likely hindering the brain's ability to process sensory and spatial information correctly.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors conclude that the reduced excitation of inhibitory interneurons is a key cause of the neural circuit problems seen in mice with one missing copy of Arid1b.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1093/bioinformatics/btag827",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "44aff905844d44d1",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:16:27+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study introduces a new computational method called scAdaG2M that uses a teacher-student model approach to improve cell clustering.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "A complex graph neural network acts as a teacher to learn complex connections between cells before passing information to simpler models.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "Simpler machine learning models learn cell features without relying on the complex graph structure used by the teacher.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The new method is designed to better identify hard-to-distinguish cells, cells with unclear boundaries, and rare cell types.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The approach aims to prevent the loss of distinct cell differences that often happens when standard graph methods smooth out data too much.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The method separates the complex graph calculations from the final analysis, reducing the need for pre-built graphs and lowering computational costs.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "The researchers used publicly available single-cell RNA sequencing datasets to test their method.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

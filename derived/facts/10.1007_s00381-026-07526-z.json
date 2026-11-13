@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s00381-026-07526-z",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "9a9a9e14e2bfe57b",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:19:47+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study was a retrospective cohort study involving 34 children between the ages of 6 and 16.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers measured baseline cognitive function using specific tests for block design, digit span, visual attention, and narrative memory.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Children reporting symptoms performed significantly worse on visual attention tests compared to those without symptoms.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "For the 15 children with cysts located in the temporal area, their block design scores varied depending on the Galassi classification type of the cyst.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Seven children who underwent surgery showed immediate improvements in block design and visual attention scores after the procedure.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The size of the cyst did not correlate with any of the baseline neuropsychological test results in this group.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors state that the observed improvements after surgery are preliminary and need to be confirmed by larger, prospective studies.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

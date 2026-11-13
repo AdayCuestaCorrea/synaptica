@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1055/s-0046-1829453",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "284974b49c99cd5d",
+ "generated_at": "2026-11-13T13:43:00+00:00",
+ "word_count": 83,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed a special mathematical algorithm that combined features from two networks to improve classification accuracy, achieving a success rate of 94.71% on test images.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "In the final test set, one specific model identified 99 out of 105 actual cases and 80 out of 84 non-cases, though the study found this top-performing model was not statistically better than other tested models.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors warn that the system requires testing on much larger groups of patients from different hospitals before doctors can use it.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1021/acs.jpclett.6c03081",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "422cb15d1f1c5f4e",
+ "generated_at": "2026-11-13T13:42:17+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores construyeron una sinapsis artificial específica combinando dos óxidos modificados en su interfaz, creando un dispositivo que imita de forma estable las sinapsis biológicas al responder tanto a la luz como a la electricidad.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Al aplicar este sistema para entrenar un programa informático que lee números escritos a mano, se logró una precisión del 93,5 por ciento y se resaltaron automáticamente los bordes de la imagen al filtrar los cambios lentos de la señal.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que este enfoque ofrece un nuevo método para fabricar circuitos informáticos más rápidos y eficientes que imiten al cerebro.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

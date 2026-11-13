@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.012",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "cd5c90d242f00e32",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:11:01+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers built a multiomic atlas using 1.8 million nuclei samples taken from humans, macaques, and marmosets across eight different basal ganglia structures.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "By comparing data across species and existing atlases, the study identified 61 homologous cell types that have remained unchanged for over 76 million years.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The study found that the spatial arrangement of dorsal and ventral regions is more evolutionarily conserved than the identity of specific receptor types or striosome/matrix patterns.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "A specific group of neurons in the striatum, defined by D2, SMYD2, and HTR7 markers, shows unique characteristics in their molecules, electrical activity, and physical shape.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Analysis of DNA regulatory sequences uncovered shared genetic patterns that define cell identity and could help guide future viral targeting strategies.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The study mapped genetic risks for psychiatric and neurodegenerative diseases to specific populations of cells within the basal ganglia.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors state that this atlas serves as a foundational resource for understanding the evolution, function, and disease mechanisms of the basal ganglia.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

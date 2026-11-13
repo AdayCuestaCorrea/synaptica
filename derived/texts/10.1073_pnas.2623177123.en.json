@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1073/pnas.2623177123",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "c720e56b1e22f2be",
+ "generated_at": "2026-11-13T13:32:04+00:00",
+ "word_count": 111,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers applied spatially resolved single-cell transcriptomic profiling to examine the adult mouse spinal cord, revealing that distinct neuron types are arranged in specific spatial and layer patterns that vary by spinal level and sex. Many neuron types were found close together within these layers, suggesting they may connect in a region-specific manner.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "In the dorsal horn, neurons displayed predicted communication patterns based on signaling molecules like neuropeptides, while a neuropathic pain model showed altered gene expression profiles and predicted communication patterns in several neuron types compared to normal conditions.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors conclude that this new map will assist researchers in understanding how spinal circuits function in both healthy states and disease.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:07:35+00:00"
+ }
+}

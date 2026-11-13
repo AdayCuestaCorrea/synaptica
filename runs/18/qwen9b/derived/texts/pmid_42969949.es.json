@@ -1,0 +1,42 @@
+{
+ "study_id": "pmid:42969949",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "eae49460587fb79c",
+ "generated_at": "2026-11-13T12:33:40+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores examinaron cómo la proteína ALMS1, situada en el extremo proximal de los centríolos, sostiene la estructura celular. En las células que carecen de esta proteína, los centríolos se acortan y suelen fracturarse en su base, lo que provoca que pierdan la capacidad de organizar los microtúbulos. En consecuencia, elementos de carga específicos del aparato de Golgi no pueden desplazarse adecuadamente hacia el centrosoma para construir la zona de transición, una estructura necesaria para formar los cilios y gestionar los materiales de la membrana ciliar.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "En ratones con genes de ALMS1 alterados, los cilios en la retina, el riñón y el cerebro desaparecen progresivamente a medida que envejecen los animales. Los autores sugieren que el síndrome de Alström resulta de bases de centríolos rotas y un transporte de proteínas defectuoso, lo que impide que los cilios se formen y permanezcan intactos, aunque esta explicación se basa en los datos celulares y animales observados.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:33:45+00:00"
+ }
+}

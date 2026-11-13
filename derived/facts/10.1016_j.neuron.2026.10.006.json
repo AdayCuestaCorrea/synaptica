@@ -1,0 +1,39 @@
+{
+ "study_id": "10.1016/j.neuron.2026.10.006",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "ae1c9d75354d2918",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:24:09+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The analysis identified 111 distinct cell type groups that were consistent across human, macaque, and mouse samples.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "While the identity and layer organization of spinal cord cells are similar across species, the number of cells and their gene expression levels differ, with the largest differences found in the dorsal horn region.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The study found a specific switch in glycine receptor subunits that occurs only in primates.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Computational models revealed a shared pattern of transcription factors and identified specific DNA sequences that control how viral vectors access a unique population of cells in the dorsal horn.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "Before this study, there was no common molecular system connecting human spinal cord cell types with the animal models scientists use to research them.",
+   "subject": "other"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

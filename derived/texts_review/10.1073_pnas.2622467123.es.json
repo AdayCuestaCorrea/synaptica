@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1073/pnas.2622467123",
+ "lang": "es",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "f85d4ce559b8e56c",
+ "generated_at": "2026-11-13T13:31:56+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: 'causal' is not in the English sentence"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores llevaron a cabo un experimento aleatorizado y a ciegas con 11 218 empleados para determinar si la pérdida de sueño provocada por el cambio de horario de verano altera la susceptibilidad a enlaces de phishing. Los participantes se dividieron en dos grupos: uno recibió correos electrónicos el lunes siguiente al cambio de hora y el otro una semana antes.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Quienes estuvieron expuestos al cambio de horario fueron aproximadamente un 13 por ciento más propensos a hacer clic en un enlace sospechoso que los del grupo anterior, aunque sus tasas de abrir el correo o marcarlo como spam permanecieron inalteradas.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que pequeñas cantidades repentinas de sueño perdido pueden aumentar significativamente el riesgo de errores cognitivos en situaciones reales, aunque el estudio no establece una relación causal.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

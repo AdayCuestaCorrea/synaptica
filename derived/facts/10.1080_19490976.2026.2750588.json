@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1080/19490976.2026.2750588",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "d0839384443e92b9",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:15:47+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers analyzed cognitive test scores and gut bacteria samples from 867 older adults.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study measured how well the mice learned and remembered locations by testing them in a water maze.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Mice that received gut bacteria from humans with faster thinking skills showed better memory and more brain cells than mice receiving bacteria from slower thinkers.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Better cognitive performance in both people and mice was linked to specific chemical pathways involving arginine, proline, and pterins.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Mice given bacteria from high-performing humans showed brain changes related to dopamine, including more dopamine receptors and less reuptake of the chemical.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest that gut bacteria may influence thinking speed and memory specifically in older people.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "By combining data from people and mice, the study proposes that changes in bacterial metabolism drive improvements in brain function.",
+   "subject": "other"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source"
+ ]
+}

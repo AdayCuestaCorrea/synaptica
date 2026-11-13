@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1007/s12021-026-09827-9",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "a1a99eb0323facfc",
+ "generated_at": "2026-11-13T13:37:45+00:00",
+ "word_count": 109,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers modified a standard machine learning method by removing a specific penalty to allow the model to learn more detailed information from brain scans, addressing the issue that existing deep learning tools are often too complex to explain clearly.",
+   "fact_ids": [
+    "f1",
+    "f5"
+   ]
+  },
+  {
+   "text": "The new approach successfully identified patterns related to participants' sex and the total volume of grey and white matter, producing better results than other similar models at reconstructing brain images and predicting brain age and cognitive test scores, especially when analyzing data from multiple sclerosis patients.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors conclude that this specific framework can generate useful internal representations from brain scans for both healthy people and those with multiple sclerosis.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ]
+}

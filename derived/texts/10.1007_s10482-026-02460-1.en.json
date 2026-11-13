@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1007/s10482-026-02460-1",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "f21f49945c14364d",
+ "generated_at": "2026-11-13T13:37:02+00:00",
+ "word_count": 109,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers conducted a clinical trial involving 113 college students to determine if a specific probiotic could reduce anxiety and insomnia, with participants split between those taking the supplement and those receiving a placebo.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Students in the probiotic group reported lower scores for both anxiety and insomnia compared to the placebo group, while gut analysis revealed distinct changes in microbial composition, including higher levels of Bifidobacterium and Lactobacillus alongside reduced diversity and lower levels of Bacteroides and Prevotella.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors suggest these findings could support using this probiotic as a treatment for anxiety and insomnia in future clinical settings, though the study does not confirm efficacy beyond this specific trial.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "study_id": "10.1080/19490976.2026.2753247",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "4f0becdf0d700e61",
+ "generated_at": "2026-11-13T13:32:54+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores utilizaron moscas de la fruta modificadas genéticamente para expresar genes de la enfermedad de Alzheimer específicamente en sus células gliales, con el fin de explorar la conexión intestino-cerebro; las moscas tratadas con antibióticos para eliminar sus bacterias intestinales mostraron una inflamación más grave, mayor muerte celular y acumulación de proteínas relacionadas con el Alzheimer en comparación con las moscas normales, además de presentar ciclos de sueño alterados, déficits en el movimiento y capacidades de aprendizaje comprometidas.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "El estudio reveló que la enfermedad de Alzheimer modifica tanto los tipos como las cantidades de bacterias específicas que habitan en el intestino de estas moscas, y los autores concluyen que la pérdida de bacterias intestinales agrava la enfermedad en estos insectos al alterar los sistemas de inflamación, metabolismo y eliminación de proteínas, observando que los efectos negativos variaron según el tipo de mosca modificada genéticamente.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:09:42+00:00"
+ }
+}

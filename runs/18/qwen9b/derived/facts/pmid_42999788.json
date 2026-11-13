@@ -1,0 +1,42 @@
+{
+ "study_id": "pmid:42999788",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "ba8db14e65263f84",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T12:34:00+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a cross-sectional design comparing brain tissue from 17 people with major depressive disorder to 20 matched controls.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers measured specific chemical modifications on ribosomal RNA located in the dorsolateral prefrontal cortex.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The general pattern of ribosomal RNA modifications was largely the same in both the depression group and the control group.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Despite the overall similarity, the researchers found exactly eight specific locations on the ribosomal RNA that were significantly different between the two groups.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors conclude that these differences represent targeted changes rather than a broad disruption of the ribosome structure.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest that these specific changes might affect how brain cells control protein production in people with depression.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

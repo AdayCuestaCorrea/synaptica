@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1016/j.jphs.2026.10.003",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "1f56ced6b8af7ba9",
+ "generated_at": "2026-11-13T13:31:14+00:00",
+ "word_count": 92,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers used proteomic analysis to compare human brain microvascular endothelial cells grown from stem cells that were frozen against those that were freshly made to assess differences in protein levels and functions.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The analysis revealed a very strong match in protein expression between the frozen and fresh cells, and the drug permeability numbers from the frozen cells lined up closely with actual data from humans and monkeys.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors suggest these frozen cells could be a useful tool for testing how drugs cross the human blood-brain barrier outside of a living body.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:04:35+00:00"
+ }
+}

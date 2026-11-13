@@ -1,0 +1,54 @@
+{
+ "study_id": "10.1093/bioinformatics/btag827",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "6676810bbd74ccb1",
+ "generated_at": "2026-11-13T13:33:33+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores introdujeron scAdaG2M, un método computacional que utiliza un enfoque de modelo maestro-alumno, para analizar conjuntos de datos de secuenciación de ARN de células individuales disponibles públicamente.",
+   "fact_ids": [
+    "f1",
+    "f7"
+   ]
+  },
+  {
+   "text": "En este diseño, una red neuronal compleja basada en grafos actúa como maestro para aprender las conexiones antes de transmitir información a modelos más sencillos que analizan las características sin depender de la estructura del grafo, reduciendo la necesidad de grafos preelaborados y disminuyendo los costes computacionales.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f6"
+   ]
+  },
+  {
+   "text": "El método fue concebido para identificar mejor las células difíciles de distinguir, aquellas con límites poco claros y los tipos celulares raros, evitando al mismo tiempo la pérdida de diferencias distintivas que suele producirse cuando los métodos estándar suavizan demasiado los datos.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyeron que este enfoque mejora el agrupamiento de células, aunque el estudio se centró exclusivamente en el rendimiento computacional utilizando conjuntos de datos existentes.",
+   "fact_ids": [
+    "f1"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00",
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:11:43+00:00"
+ }
+}

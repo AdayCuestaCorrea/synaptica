@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1016/j.psychsport.2026.103284",
+ "lang": "en",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "b3cf93e4dbddcca4",
+ "generated_at": "2026-11-13T13:40:56+00:00",
+ "word_count": 96,
+ "problems": [
+  "sentence 3: drops the caution of its facts (may, suggests, possibly…)"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers measured prefrontal cortex activity while participants with obesity either passively viewed emotional pictures or actively described them, reporting lower positive feelings and showing reduced activity in the right orbitofrontal cortex during the active task.",
+   "fact_ids": [
+    "f1",
+    "f3"
+   ]
+  },
+  {
+   "text": "The same students then performed 30 minutes of moderate-intensity cycling before reassessment, after which they reported higher positive feelings and exhibited increased activity in the right orbitofrontal cortex during the active picture description task.",
+   "fact_ids": [
+    "f2",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors note that because the study design lacked a control group, the observed changes cannot be definitively attributed to exercise, and further randomized trials are needed.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

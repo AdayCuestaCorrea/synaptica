@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1016/j.vascn.2026.108584",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "cb1f254f8f528158",
+ "generated_at": "2026-11-13T13:41:07+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron datos públicos de expresión génica del repositorio GEO mediante tres métodos de aprendizaje automático para identificar factores genéticos compartidos entre el trastorno bipolar y la osteoporosis, seleccionando finalmente tres genes específicos de una lista de 20 para su estudio ulterior.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f4"
+   ]
+  },
+  {
+   "text": "En un modelo de laboratorio en el que se expusieron células óseas de ratón a peróxido de hidrógeno, dos de estos genes mostraron una actividad reducida mientras que el tercero aumentó, y el análisis vinculó estos cambios genéticos al desarrollo cerebral, el metabolismo y el sistema inmunitario.",
+   "fact_ids": [
+    "f3",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que estos resultados son preliminares y requieren pruebas adicionales en organismos vivos y pacientes antes de poder formular interpretaciones más amplias.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1212/wnl.0000000000218738",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "bd5b9e23877a50d9",
+ "generated_at": "2026-11-13T13:34:59+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores llevaron a cabo un estudio de cohorte retrospectivo con 533 personas que presentaban amiloide, de las cuales 148 cumplían los criterios de Boston para una probable angiopatía amiloide cerebral, con el fin de comparar los grupos según estos estándares diagnósticos específicos.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "El análisis mostró que el grupo con probable angiopatía amiloide cerebral presentaba una acumulación cortical de amiloide más elevada en las imágenes cerebrales y una asociación más fuerte entre niveles bajos de amiloide-beta en el líquido cefalorraquídeo y una mayor carga de microhemorragias lobar.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que la probable angiopatía amiloide cerebral refleja una carga de amiloide más elevada en lugar de ser una categoría clínica distinta con síntomas únicos, lo que sugiere que marcadores de imagen específicos como la siderosis superficial podrían ofrecer más utilidad que los sistemas de clasificación actuales.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

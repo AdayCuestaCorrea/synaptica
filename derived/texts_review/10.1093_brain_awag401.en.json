@@ -1,0 +1,50 @@
+{
+ "study_id": "10.1093/brain/awag401",
+ "lang": "en",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "a277c10fa81aa28c",
+ "generated_at": "2026-11-13T13:33:41+00:00",
+ "word_count": 116,
+ "problems": [
+  "judge: Overstates confidence in treatment pathway"
+ ],
+ "sentences": [
+  {
+   "text": "In a randomized, double-blind, placebo-controlled crossover trial, twenty-one adults with persistent post-traumatic headache and no prior migraine history received intravenous infusions of adrenomedullin or saline on two separate days in a random order.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The main measure was whether participants developed migraine-like headaches after receiving the drug or placebo, with eighty-one percent developing symptoms after adrenomedullin compared to nineteen percent after saline, and headaches starting much faster after the drug at thirty minutes versus three hundred ninety minutes after placebo, while most participants reported the pain felt like their usual migraine attacks.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "The authors note that their results need to be confirmed by other studies and animal research before the pathway can be fully trusted for treatment.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": false,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Overstates confidence in treatment pathway",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:12:42+00:00"
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1073/pnas.2622467123",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "f85d4ce559b8e56c",
+ "generated_at": "2026-11-13T13:31:56+00:00",
+ "word_count": 113,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers conducted a randomized, blinded experiment involving 11,218 employees to determine if sleep loss from daylight saving time alters susceptibility to phishing links. Participants were divided into two groups, with one receiving emails on the Monday following the time change and the other receiving them one week earlier.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Those exposed to the time change were approximately 13 percent more likely to click a suspicious link than those in the earlier group, although their rates of opening the email or marking it as spam remained unchanged.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "The authors suggest that small, sudden amounts of lost sleep may significantly increase the risk of cognitive errors in real-world situations, though the study does not establish causation.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:06:39+00:00"
+ }
+}

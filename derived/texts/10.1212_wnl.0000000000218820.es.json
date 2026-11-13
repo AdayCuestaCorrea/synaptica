@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1212/wnl.0000000000218820",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "2c2b27da196af0f5",
+ "generated_at": "2026-11-13T13:35:25+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores llevaron a cabo un estudio retrospectivo con 111 pacientes con demencia frontotemporal variante conductual en etapas tempranas, de una edad media de 63,03 años, para evaluar rasgos de personalidad y habilidades para la vida diaria mediante datos de informantes conocedores.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Aunque los pacientes mostraron cambios significativos en la personalidad, como una menor conscienciosidad y un mayor neuroticismo, no se encontró asociación entre la personalidad previa a la enfermedad y la independencia funcional actual, aunque una mayor conscienciosidad actual se vinculó con un mejor desempeño en las tareas diarias.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores concluyeron que el diseño transversal del estudio y la dependencia de la información recordada limitan estos hallazgos, indicando que se requieren futuros estudios longitudinales con pruebas de desempeño directas para confirmar los resultados.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

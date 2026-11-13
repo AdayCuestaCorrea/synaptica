@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1007/s11064-026-04910-8",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "d23e2c470dc744d7",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:13:25+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers created a Parkinson's disease model in C57BL/6 J mice by injecting alpha-synuclein pre-formed fibrils into the striatum.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The study compared a control group, a group receiving fibrils alone, and two groups receiving fibrils plus low or high doses of echinacoside.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The control mice received a saline injection, while the experimental mice received alpha-synuclein fibrils.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Scientists measured motor skills and levels of specific proteins related to neurons and lysosomes in the brain six months after the initial injection.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Giving mice echinacoside orally, especially at a higher dose, helped restore motor function and reduced harmful protein buildup and lysosome issues.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Researchers tested how echinacoside affected lysosome shape, acidity, and cleaning ability in human-derived nerve cells exposed to fibrils.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "Blocking lysosome acidification with a chemical reduced the benefits that echinacoside provided to cell function and protein levels.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors conclude that echinacoside may help clear harmful proteins and fix lysosome problems, but they say more research is needed to confirm it as a treatment.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

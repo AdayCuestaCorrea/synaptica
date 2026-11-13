@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1007/s00431-026-07609-8",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "9da17318d93850e9",
+ "generated_at": "2026-11-13T13:36:22+00:00",
+ "word_count": 99,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers employed a cohort design involving 141 treatment-naive neuroblastoma patients to evaluate eleven machine-learning models that combined six non-invasive clinical and blood-based markers for predicting disease risk.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "During the training phase, the random forest algorithm correctly classified 91 percent of patients, with image-defined risk factors, neuron-specific enolase, and lactate dehydrogenase emerging as the most important variables for the prediction.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "When tested on a separate group, the final model maintained high accuracy with a sensitivity of 84.2 percent, leading the authors to conclude that this method offers a practical way to classify neuroblastoma risk without needing to analyze tumor tissue.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ]
+}

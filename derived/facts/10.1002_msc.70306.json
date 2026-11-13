@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1002/msc.70306",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "11994ee53513debe",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:12:46+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a single-blind randomized controlled trial design with 40 stroke survivors split into two equal groups of 20.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The intervention group wore a standardized shoulder support during their waking hours, while the control group did not receive this specific addition.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Researchers measured outcomes at three specific time points: before the treatment started, at the midpoint of the seven-week period, and at the end of the seven weeks.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The study measured shoulder subluxation using ultrasound distance, pain levels on a visual scale, arm movement ability, and daily living independence.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "There was no statistically significant difference in improvement between the group wearing the shoulder support and the group that did not.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors note that it is impossible to tell if the improvements were caused by the shoulder support, the general rehabilitation, natural recovery, or other time-related factors.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source"
+ ]
+}

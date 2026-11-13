@@ -1,0 +1,28 @@
+{
+ "study_id": "10.1016/j.celrep.2026.118132",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "3880391913408ae9",
+ "generated_at": "2026-11-13T13:39:23+00:00",
+ "word_count": 95,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers identified the loss of dopamine neurons and low dopamine levels as the root cause of Parkinson's disease, then tested a specific viral delivery method in mice and non-human primates. This virus uses genetic enhancers to target specific cell types for AADC production, reducing motor problems and dyskinesia more effectively than delivery to all cells. The study confirmed that this targeted approach works similarly in non-human primates as it did in mice.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors suggest that combining this targeted viral delivery with L-DOPA could offer a less invasive and better-tolerated treatment for Parkinson's motor symptoms.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

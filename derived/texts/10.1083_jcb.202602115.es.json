@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1083/jcb.202602115",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "373f2a224eb3ef64",
+ "generated_at": "2026-11-13T13:33:23+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores examinaron cómo se eliminan las conexiones eléctricas transitorias a medida que maduran los circuitos neuronales, analizando los mecanosensores PLM del gusano Caenorhabditis elegans.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Una criba genética identificó la quinasa UNC-51 como necesaria para eliminar estos enlaces temporales, un proceso en el que la proteína UNC-51 modifica a UNC-76 para transportar y eliminar las innexinas que construyen las sinapsis eléctricas; cuando esta vía falla, las sinapsis eléctricas permanecen activas y las neuronas se vuelven excesivamente excitadas.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que este mecanismo ofrece un modelo general para cómo se eliminan los enlaces eléctricos transitorios durante el desarrollo.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:11:40+00:00"
+ }
+}

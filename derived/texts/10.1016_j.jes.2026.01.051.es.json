@@ -1,0 +1,48 @@
+{
+ "study_id": "10.1016/j.jes.2026.01.051",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "aace233be5a6dfd0",
+ "generated_at": "2026-11-13T13:31:06+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores expusieron a peces cebra a microplásticos de poliestireno, a microplásticos de poliestireno envejecidos o a cadmio por separado o combinados durante tres semanas, constatando que la exposición conjunta provocó el daño neurológico más grave frente a las exposiciones individuales.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Este severo daño cerebral se vinculó a mayores niveles de cadmio en los cerebros de los peces, a alteraciones intestinales que redujeron la síntesis de biotina y arginina, disminuyeron los compuestos intestinales necesarios para neurotransmisores como la colina y la dopamina, y redujeron una proteína específica que podría debilitar la barrera protectora del cerebro.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "El análisis genético reveló vías alteradas relacionadas con la señalización nerviosa, la muerte celular y el metabolismo de lípidos, lo que indica daño en las células nerviosas, mientras que los autores señalan que estos hallazgos ofrecen una base para comprender cómo los microplásticos y los metales pesados actúan conjuntamente para perjudicar el sistema nervioso.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:04:32+00:00"
+ }
+}

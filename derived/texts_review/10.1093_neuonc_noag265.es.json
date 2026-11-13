@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1093/neuonc/noag265",
+ "lang": "es",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "0e115a25cf0df056",
+ "generated_at": "2026-11-13T13:33:56+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 2: numbers differ (['14', '17', '182', '4', '40', '89'] vs [])",
+  "sentence 2: the English sentence is cautious and this is not"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores seleccionaron pacientes con progresión de la enfermedad confirmada que hubieran realizado al menos dos tomografías por emisión de positrones (PET) en un periodo de seis meses para medir métricas estáticas, como la relación tumor-cerebro y el volumen tumoral metabólico, así como la evolución de estos valores con el tiempo.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Cuando la enfermedad avanzaba, la relación media tumor-cerebro, la relación máxima tumor-cerebro y el volumen tumoral metabólico aumentaban de forma significativa.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

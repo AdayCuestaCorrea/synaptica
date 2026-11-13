@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.jphs.2026.10.004",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "26ec7f812cccd35b",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:14:22+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers first used computer modeling to find common targets for the two drugs and the disease.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The study tested the drugs in human cell lines and in genetically modified mice that model ALS.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "In the lab-grown human cells, the drug mix changed the activity of specific proteins and reduced cell damage.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "In the mouse models, the treatment slowed the disease, helped the mice live longer, improved their movement, and saved motor neurons.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors found the drugs worked by turning on a specific signaling pathway that stops inflammation and cell death.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The analysis pinpointed six specific proteins as the main points where the drugs and disease interact.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors conclude that this specific drug mix is a promising strategy for treating ALS.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

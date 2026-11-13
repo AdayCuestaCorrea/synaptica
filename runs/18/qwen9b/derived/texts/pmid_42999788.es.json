@@ -1,0 +1,46 @@
+{
+ "study_id": "pmid:42999788",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "7a5beae1e58937bd",
+ "generated_at": "2026-11-13T12:54:03+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Este estudio transversal comparó tejido cerebral de 17 personas con trastorno depresivo mayor con 20 controles emparejados, midiendo modificaciones químicas específicas en el ARN ribosómico de la corteza prefrontal dorsolateral.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Aunque el patrón general de estas modificaciones fue mayoritariamente similar entre los grupos, los investigadores identificaron exactamente ocho ubicaciones específicas que diferían significativamente, lo que lleva a los autores a concluir que representan cambios dirigidos en lugar de una alteración amplia de la estructura del ribosoma.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que estas alteraciones específicas podrían afectar la forma en que las células cerebrales controlan la producción de proteínas en personas con depresión, aunque el estudio no establece causalidad.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:54:03+00:00"
+ }
+}

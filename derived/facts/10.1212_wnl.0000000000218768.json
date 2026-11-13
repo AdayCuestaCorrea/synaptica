@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1212/wnl.0000000000218768",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "5d3b8cc81d37370d",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:18:16+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a case-control study design involving people with epilepsy from nationwide Swedish registers.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The final group consisted of 111 individuals who died by suicide and 1,147 matched controls.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "People who lived alone had a higher risk of suicide than those who did not.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Having four to ten tonic-clonic seizures in the year before death was associated with the highest suicide risk.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Taking antiseizure medications was linked to lower suicide risk, while not taking them properly was linked to higher risk.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Suicide risk was higher in people whose epilepsy was caused by structural brain issues or unknown causes.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors note that the small number of suicide cases and missing data on past suicide attempts limit the study's conclusions.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source"
+ ]
+}

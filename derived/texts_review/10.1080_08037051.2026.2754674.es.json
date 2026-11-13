@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1080/08037051.2026.2754674",
+ "lang": "es",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "d7a991b2b7cea466",
+ "generated_at": "2026-11-13T13:32:20+00:00",
+ "word_count": null,
+ "problems": [
+  "judge: Mentions short-acting drugs, which the abstract does not specify."
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores realizaron una revisión de alcance buscando en dos bases de datos médicas principales para examinar cómo la adherencia al tratamiento y la estabilidad de la presión arterial se relacionan con la salud cerebral.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El análisis indicó que el uso irregular de medicamentos y los fármacos de acción corta se asocian con mayores fluctuaciones diarias de la presión arterial, las cuales se conectan con daños cerebrales y problemas cognitivos incluso cuando los niveles medios de presión están controlados.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores proponen un nuevo marco conceptual para evaluar los riesgos individuales y concluyen que la gestión de la hipertensión debe priorizar la estabilidad a lo largo del tiempo, sugiriendo que vigilar esta estabilidad podría ser una importante adición a los tratamientos actuales para prevenir lesiones cerebrales a largo plazo.",
+   "fact_ids": [
+    "f5",
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Mentions short-acting drugs, which the abstract does not specify.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:07:40+00:00"
+ }
+}

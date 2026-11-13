@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1002/glia.70252",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "2de00944306f619d",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:12:05+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Previous research suggests that the PLCG2 gene is linked to Alzheimer's disease risk and that removing this gene changes amyloid buildup in mice.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers used single-cell RNA sequencing to compare brains from mice with normal, partial, and complete loss of the Plcg2 gene, ensuring none had Alzheimer's-like plaques.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Further analysis showed that the networks of signals between glial cells also varied by sex in ways linked to the genetic changes.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The authors conclude that their findings offer a new way to understand how PLCG2 variations affect brain support cells and disease pathways differently in males and females.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote",
+  "numbers not in the quote",
+  "numbers not in the quote"
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "study_id": "10.1002/glia.70252",
+ "lang": "es",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "95adf1fd848e6f20",
+ "generated_at": "2026-11-13T13:29:01+00:00",
+ "word_count": null,
+ "problems": [
+  "judge: Summary claims PLCG2 loss alters amyloid buildup, which the abstract does not address."
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron cómo la eliminación del gen PLCG2 modifica la acumulación de amiloide en ratones, empleando secuenciación de ARN de célula única para comparar cerebros con pérdida normal, parcial y completa del gen, asegurando que ninguno desarrolló placas similares a las de la enfermedad de Alzheimer.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Un análisis posterior mostró que las redes de señalización entre las células gliales varían según el sexo de formas vinculadas a estos cambios genéticos, lo que lleva a los autores a concluir que las variaciones en PLCG2 afectan de manera distinta a las células de soporte cerebral y a las vías de la enfermedad en machos y hembras.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": false,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Summary claims PLCG2 loss alters amyloid buildup, which the abstract does not address.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:57:29+00:00"
+ }
+}

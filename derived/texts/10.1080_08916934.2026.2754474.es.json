@@ -1,0 +1,48 @@
+{
+ "study_id": "10.1080/08916934.2026.2754474",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "913a22fc58290625",
+ "generated_at": "2026-11-13T13:32:33+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores combinaron un reanálisis de conjuntos públicos de transcriptómica de células individuales y espaciales con el examen de registros archivados de una línea celular específica de timoma, utilizando una muestra de timo adulto normal como referencia descriptiva.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El análisis de datos de células individuales resueltos por donante reveló que los genes de presentación de antígenos se expresaban en diversos compartimentos de células presentadoras de antígenos, mientras que las correlaciones entre la presentación de antígenos y la maduración en dos secciones de tejido de timoma se debilitaron al aplicar ajustes estadísticos para otras variables.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "El estudio determinó que los cambios observados en la preparación de células derivadas de THP-1 se debían al proceso inicial de inducción y no a ningún efecto de las células de timoma Thy0517, y los datos sobre los niveles de IL-21 e IL-6 no pudieron utilizarse debido a que las unidades de concentración no estaban verificadas; los autores afirman que sus hallazgos ofrecen un contexto descriptivo pero no demuestran que la condicionamiento con Thy0517 o la IL-21 causen el mecanismo específico de la miastenia gravis asociada al timoma.",
+   "fact_ids": [
+    "f5",
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00",
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:08:41+00:00"
+ }
+}

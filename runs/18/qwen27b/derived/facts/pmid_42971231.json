@@ -1,0 +1,44 @@
+{
+ "study_id": "pmid:42971231",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "47fdfe1931499098",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-13T12:35:05+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study is a large, ongoing surveillance project in Botswana that tracks birth outcomes in public hospitals, covering more than two-thirds of the country's births.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "As part of routine care, every live-born infant and stillbirth in the study underwent a physical surface examination.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Between August 2014 and August 2022, the study evaluated 235,286 deliveries, with 11,110 involving dolutegravir exposure at conception and 24,368 involving other antiretroviral drugs.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The researchers compared the rates of neural tube defects and major structural abnormalities between pregnancies exposed to dolutegravir and those exposed to other antiretroviral drugs at conception, adjusting for maternal age.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The prevalence of neural tube defects was 0.11% in the dolutegravir group and 0.10% in the non-dolutegravir group, showing no significant difference between the two.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Rates of major external structural abnormalities were also similar, at 0.75% for dolutegravir exposure and 0.76% for other antiretroviral drugs.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

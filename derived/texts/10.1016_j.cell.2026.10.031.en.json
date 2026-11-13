@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.031",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "0990735d7a42bd68",
+ "generated_at": "2026-11-13T13:28:31+00:00",
+ "word_count": 114,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A computational network is building a unified system to classify brain cells in humans, macaques, marmosets, and mice, with a specific focus on creating a detailed map of the basal ganglia region across these multiple species.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The resulting atlas combines data from single-cell gene analysis with epigenomic, spatial, and developmental information, while researchers mapped cell types to specific anatomical locations in each species and connected these maps using shared structural definitions.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Creating the atlas required establishing strict standards for how tissue was collected, processed, and how data was stored and shared, serving as a demonstration that current methods can be expanded to create a complete cell map for the entire human and mammalian brain.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:56:26+00:00"
+ }
+}

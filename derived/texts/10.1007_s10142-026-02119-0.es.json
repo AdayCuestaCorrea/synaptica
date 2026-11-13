@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1007/s10142-026-02119-0",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "10a0e6ffc2bff298",
+ "generated_at": "2026-11-13T13:36:48+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores estudiaron la recuperación de lesiones cerebrales utilizando un modelo de ratón con flujo sanguíneo temporalmente bloqueado y luego restaurado, junto con modelos in vitro de células cerebrales que simulaban la pérdida y el retorno de oxígeno.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Los científicos aumentaron los niveles de la proteína RORα y administraron melatonina a los ratones, mientras que en los experimentos celulares trataron las células con melatonina y añadieron material genético para potenciar RORα, lo que reforzó los efectos protectores de la melatonina contra la muerte celular y el estrés.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f6"
+   ]
+  },
+  {
+   "text": "El tratamiento con melatonina mejoró las puntuaciones de función cerebral, protegió la barrera hematoencefálica y orientó a las células inmunitarias hacia un estado de reparación al activar una vía de señalización interna que facilita la curación; los autores concluyen que este mecanismo podría servir como objetivo potencial para futuros tratamientos de lesiones cerebrales.",
+   "fact_ids": [
+    "f5",
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.007",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "28c1c68ea3940132",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:10:51+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers created a detailed map of cell types and their gene regulation in the subcortex of common marmosets.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "By combining dense sampling with comparisons to other species, the study found specific groups of neurons organized in precise locations within complex midbrain and diencephalic areas.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The study measured how open chromatin and gene expression patterns change depending on location within and between different subcortical brain regions.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The research found that smooth changes in gene expression across parts of the hippocampus are controlled by specific transcription factors working through specific enhancer regions.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "A specific group of GABAergic neurons in the primate thalamus shares genetic and regulatory features with midbrain neurons, showing an evolutionary difference from rodents.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The study observed that different cell types in the telencephalon can show similar gene expression patterns even though they are built using different regulatory structures.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "Despite being in different brain regions and having different neurotransmitters, two distant types of neurons were found to share a common regulatory program for postsynaptic functions.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

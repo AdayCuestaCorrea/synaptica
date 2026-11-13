@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1016/j.aca.2026.346394",
+ "lang": "en",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "f53326d15dc326b4",
+ "generated_at": "2026-11-13T13:31:01+00:00",
+ "word_count": 129,
+ "problems": [
+  "judge: Summary misdescribes mechanism, saying magnetic beads break apart the protein, which is not stated in the abstract."
+ ],
+ "sentences": [
+  {
+   "text": "Researchers built a new sensor using manganese-doped quantum dots to detect amyloid-beta oligomers, a specific marker for Alzheimer's disease, which emit light at two specific wavelengths, 425 nm and 628 nm, serving as internal references to cancel out errors that often affect older methods relying on a single signal.",
+   "fact_ids": [
+    "f1",
+    "f4",
+    "f7"
+   ]
+  },
+  {
+   "text": "When the sensor found the target protein, magnetic beads attached to DNA strands caused the protein to break apart and release those DNA strands, which triggered a chain reaction called catalytic hairpin assembly that amplified the signal by changing the light emission from the quantum dots.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The sensor could detect the target biomarker at concentrations as low as 5.2 femtomolar and successfully told Alzheimer's patients apart from healthy people, with results matching those from standard diagnostic tests used in medicine.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Summary misdescribes mechanism, saying magnetic beads break apart the protein, which is not stated in the abstract.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:03:37+00:00"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1016/j.wneu.2026.125480",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "f6b43fb2bd2bde32",
+ "generated_at": "2026-11-13T13:41:11+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un estudio de cohorte prospectivo reclutó a treinta y cinco pacientes sospechosos de tener hidrocefalia de presión normal idiopática entre 2014 y 2018 para investigar posibles indicadores quirúrgicos.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Los investigadores midieron parámetros clínicos e imagenológicos antes y después de la eliminación temporal de líquido cefalorraquídeo, observando que las mediciones por ultrasonido mostraron que la pulsatilidad cerebral media disminuyó significativamente tras el procedimiento.",
+   "fact_ids": [
+    "f3",
+    "f6"
+   ]
+  },
+  {
+   "text": "Aunque un comité de neurocirujanos a ciegas decidió sobre la cirugía basándose únicamente en pruebas estándar, procediendo en el 46,8 por ciento de los participantes, los autores señalan que, dado que el estudio fue exploratorio, estos hallazgos requieren confirmación mediante investigaciones más amplias y multicéntricas.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

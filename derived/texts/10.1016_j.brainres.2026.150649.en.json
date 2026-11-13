@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1016/j.brainres.2026.150649",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "9ab9f68e1eb59633",
+ "generated_at": "2026-11-13T13:38:53+00:00",
+ "word_count": 120,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "This study investigated how varying oxygen levels influence motor cortex excitability in thirty-seven people who underwent a randomized test involving breathing air with low, normal, and high oxygen concentrations. Researchers applied magnetic pulses to measure the ease with which motor signals traveled from the brain to muscles under these different conditions.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Results indicated that low-oxygen air increased sensitivity to weak signals while reducing responsiveness to strong ones, whereas high-oxygen air strengthened the response at high signal levels and increased the overall speed of the response curve.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors suggest that adjusting oxygen levels might assist in improving recovery treatments for patients with brain injuries or diseases, though the study could not determine the absolute maximum limit of the motor response.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ]
+}

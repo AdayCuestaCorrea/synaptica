@@ -1,0 +1,36 @@
+{
+ "study_id": "10.23736/s0390-5616.26.06811-6",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "db0597fb4a5ac481",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:18:32+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers analyzed data from 325 patients who had brain metastases removed surgically.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "About one-third of the patients in this group experienced seizures.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Patients who had seizures when their disease first started lived longer than those who did not.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The authors caution that these results are preliminary and need to be checked in bigger groups of patients.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source"
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "study_id": "10.1080/0886022x.2026.2753863",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "0bd464a05f7bdefe",
+ "generated_at": "2026-11-13T13:32:24+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Investigadores llevaron a cabo un estudio transversal con 562 personas que reciben diálisis peritoneal para examinar cómo la calidad del sueño, medida con el Índice de Calidad del Sueño de Pittsburgh, y la duración del sueño se relacionan con la sarcopenia, una condición de pérdida muscular identificada mediante los criterios del Grupo de Trabajo Asiático de 2025.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "El análisis reveló una relación en forma de U entre la duración del sueño y la sarcopenia, con el menor riesgo occurring a unas 7,29 horas por noche, mientras que una peor calidad del sueño se asoció con una mayor probabilidad de padecer la condición, en parte a través de conexiones con un porcentaje de grasa corporal elevado.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Aunque los niveles de albúmina interactuaron con la grasa corporal en el análisis, esto no alteró significativamente la vía indirecta que vincula el sueño con la sarcopenia, lo que lleva a los autores a concluir que estos hallazgos sugieren asociaciones en lugar de demostrar que los problemas de sueño causan la pérdida muscular.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:08:37+00:00"
+ }
+}

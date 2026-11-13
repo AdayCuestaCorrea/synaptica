@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1016/j.biopha.2026.120007",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "c6b3e1b392f2f7ad",
+ "generated_at": "2026-11-13T13:38:33+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores utilizaron un modelo de ratones con enfermedad de Parkinson inducido por rotenona para probar un probiótico concreto, que invirtió el crecimiento excesivo de células enteroendocrinas en el colon y redujo la acumulación de alfa-sinucleína tanto en el intestino como en el cerebro.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los experimentos con peces cebra mostraron que el probiótico activa directamente las células enteroendocrinas, mientras que el análisis indicó que los cambios en la composición de la microbiota intestinal se relacionaban con los niveles de alfa-sinucleína y la regulación del calcio en los ratones.",
+   "fact_ids": [
+    "f4",
+    "f6"
+   ]
+  },
+  {
+   "text": "El tratamiento elevó los niveles de calcio y vitamina D en la sangre, lo que llevó a los autores a concluir que el probiótico podría ayudar a reducir síntomas parecidos al Parkinson al influir en la conexión entre el intestino y el cerebro.",
+   "fact_ids": [
+    "f5",
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

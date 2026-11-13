@@ -1,0 +1,33 @@
+{
+ "study_id": "10.31661/jbpe.v0i0.2508-1976",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "229609458c8eaa0b",
+ "generated_at": "2026-11-13T13:35:35+00:00",
+ "word_count": 92,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers conducted an experimental study using rabbits as an animal model to test a new flexible electrode made of graphene and polyacrylonitrile for sacral nerve stimulation therapy aimed at treating constipation.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The electrodes demonstrated high charge injection capacity, low electrical resistance, and good flexibility, while stimulation with these devices gradually increased stool output over four days to levels approaching those seen before the injury.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors conclude that these materials serve only as a proof-of-concept and represent promising candidates for future devices, noting that the results do not yet support clinical application.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

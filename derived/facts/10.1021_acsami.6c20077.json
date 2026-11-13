@@ -1,0 +1,40 @@
+{
+ "study_id": "10.1021/acsami.6c20077",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "a89c2926879f98ae",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:25:55+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The devices consist of thin semiconductor channels connected directly to metallic-like electrodes without extra metal engineering.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The interfaces allowed reliable electrical flow and maintained flexibility without needing special contact metal adjustments.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The devices showed synaptic behaviors that remained consistent even when the material was physically deformed.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "These consistent synaptic properties can be used to improve pattern recognition in artificial neural networks.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors suggest this approach offers a new way to combine atom-thin material properties with large-scale manufacturing for future computing.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source"
+ ]
+}

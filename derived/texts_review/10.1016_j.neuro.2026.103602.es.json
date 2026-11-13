@@ -1,0 +1,50 @@
+{
+ "study_id": "10.1016/j.neuro.2026.103602",
+ "lang": "es",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "9f064901b3e41c9c",
+ "generated_at": "2026-11-13T13:31:25+00:00",
+ "word_count": null,
+ "problems": [
+  "judge: Summary mentions brain scans/MRI, which the abstract does not report."
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron un modelo de cobayas para estudiar los daños cerebrales provocados por el agente nervioso DFP, observando que, si bien las dosis de 3, 4 o 6 mg/kg no causaban o producían convulsiones no convulsivas, una dosis de 8 mg/kg generaba de forma fiable convulsiones graves que duraban más de 40 minutos sin matar a los animales.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Ocho semanas después de la exposición, los animales mostraron altos niveles en sangre de nitrito y especies reactivas de oxígeno junto con bajo glutatión, proteínas inflamatorias elevadas en sangre y líquido cefalorraquídeo, y resonancias magnéticas que revelaban inflamación y muerte de neuronas en múltiples regiones cerebrales.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que 8 mg/kg es la dosis óptima para generar un modelo que muestre síntomas fuertes de convulsión, inflamación y daño sin mortalidad, lo que sugiere que el modelo de cobayas es útil para probar nuevos tratamientos contra la intoxicación por agentes nerviosos.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Summary mentions brain scans/MRI, which the abstract does not report.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:05:33+00:00"
+ }
+}

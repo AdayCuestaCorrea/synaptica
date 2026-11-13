@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.jpain.2026.106501",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "a6c9903075e98877",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:23:44+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used live electrical recording methods to study the spinal cord of mice with a specific model of atopic dermatitis.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Mice with the atopic dermatitis model showed spontaneous electrical activity in their spinal cords that was not seen in healthy control mice.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The spontaneous electrical activity stopped when a drug blocking glutamate receptors was applied, but it did not stop when drugs blocking gastrin-releasing peptide or natriuretic peptide receptors were used.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Detailed electrical measurements showed that neurons in the spinal cords of the atopic dermatitis mice had more excitatory signals and fewer inhibitory signals than normal.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Tests of the spinal cord tissue found higher levels of gastrin-releasing peptide and a marker for a type of immune cell called microglia in the atopic dermatitis mice.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest that an imbalance between excitatory and inhibitory signals in the spinal cord contributes to the heightened sensitivity to itch seen in this chronic condition.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors state that this is the first study to directly show changes in the balance of excitatory and inhibitory signals in a mouse model of chronic itch.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

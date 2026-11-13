@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.neuron.2026.10.017",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "2dba4a6c74bcec38",
+ "generated_at": "2026-11-13T13:40:46+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores examinaron cómo el virus SARS-CoV-2 desencadena estornudos, tos y dolor mediante el uso de ratones y células humanas derivadas de células madre, para comprobar si una enzima específica del virus activa directamente los nervios del dolor de las vías respiratorias.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Cuando la enzima viral actuaba sobre los nervios, provocaba estornudos, tos, dolor y la liberación de una señal química específica; este proceso requería tanto la enzima como un canal nervioso concreto, además de modificar los genes expresados por los nervios para potenciar la vía que conecta la enzima con el canal del dolor.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f7"
+   ]
+  },
+  {
+   "text": "Otros coronavirus que infectan a ratones también causaron estornudos en los animales, y dicho estornudo requirió igualmente el mismo canal nervioso específico.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores concluyeron que la enzima viral y un canal nervioso concreto son necesarios para que ocurra el reflejo estornutatorio, señalando que estos hallazgos se observaron tanto en ratones como en células humanas.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1007/s12035-026-06343-4",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "1693ffcd252a2fc4",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:21:44+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study investigates how RNA-binding proteins contribute to the development of metabolic syndrome, a condition linked to diabetes and heart disease.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers used two models to study metabolic stress: treating hypothalamic cells with TNF-α and feeding mice a high-fat diet for either 8 or 12 weeks.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The proteins NOVA1 and hnRNP U changed the splicing patterns of specific genes, SNAP 25 and MDM2, as metabolic stress progressed over time.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "A strong effect of the protein hnRNP U on gene splicing was specifically observed in a type of diabetic mouse known as db/db.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "When the amount of hnRNP U was reduced in cells, it caused a specific gene splicing error, triggered cell death pathways, and reduced the cells' ability to take up glucose.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest that these RNA-binding proteins could serve as early targets for future treatments of metabolic syndrome.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

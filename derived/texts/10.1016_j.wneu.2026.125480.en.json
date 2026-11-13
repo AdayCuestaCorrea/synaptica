@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1016/j.wneu.2026.125480",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "f6b43fb2bd2bde32",
+ "generated_at": "2026-11-13T13:41:11+00:00",
+ "word_count": 86,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A prospective cohort study enrolled thirty-five patients suspected of having idiopathic normal pressure hydrocephalus between 2014 and 2018 to investigate potential surgical indicators.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Researchers measured clinical and imaging parameters before and after temporary cerebrospinal fluid removal, finding that ultrasound measurements showed average brain pulsatility dropped significantly following the procedure.",
+   "fact_ids": [
+    "f3",
+    "f6"
+   ]
+  },
+  {
+   "text": "Although a blinded committee of neurosurgeons decided on surgery based only on standard tests, proceeding for 46.8 percent of participants, the authors note that because the study was exploratory, these findings require confirmation by larger, multi-center research.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f7"
+   ]
+  }
+ ]
+}

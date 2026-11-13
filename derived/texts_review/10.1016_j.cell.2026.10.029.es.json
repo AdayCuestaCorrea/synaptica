@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.029",
+ "lang": "es",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "2a750d4b37081ae4",
+ "generated_at": "2026-11-13T13:28:27+00:00",
+ "word_count": null,
+ "problems": [
+  "judge: Misdescribes dorsal zones as 'back part' of striatum, not supported by abstract."
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron 1,1 millones de células de 19 donantes humanos mediante una técnica específica de transcriptómica espacial para revelar que el estriado humano se divide en seis zonas distintas basadas en grupos únicos de neuronas proyección espinosas, donde cada zona alberga redes específicas en las que las neuronas y los astrocitos interactúan siguiendo un patrón espacial coordinado.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f6"
+   ]
+  },
+  {
+   "text": "Un estudio separado en ratones identificó cuatro zonas que corresponden a las seis halladas en humanos, lo que llevó a los autores a concluir que la organización espacial del estriado es similar a través de diferentes especies de mamíferos.",
+   "fact_ids": [
+    "f3",
+    "f7"
+   ]
+  },
+  {
+   "text": "El análisis de 131 donantes humanos mostró que la parte posterior del estriado es la que más cambia con la edad, ya que las diferencias moleculares que definen estas zonas se vuelven menos nítidas conforme las personas envejecen.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Misdescribes dorsal zones as 'back part' of striatum, not supported by abstract.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:56:25+00:00"
+ }
+}

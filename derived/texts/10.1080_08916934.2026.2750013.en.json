@@ -1,0 +1,48 @@
+{
+ "study_id": "10.1080/08916934.2026.2750013",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "fe9070d4a0627372",
+ "generated_at": "2026-11-13T13:32:29+00:00",
+ "word_count": 117,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "In kidney podocyte cells, high glucose conditions triggered an increase in the protein EIF4A3 and the circular RNA circ_0000285, which bound together to halt cell growth while promoting death, inflammation, and oxidative stress.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Because the protein Cyclin F, which attaches to EIF4A3 to facilitate its breakdown, decreased under high glucose exposure, researchers found that adding extra Cyclin F reduced inflammation, lowered oxidative stress, and improved kidney function in both living animals and cells.",
+   "fact_ids": [
+    "f5",
+    "f7",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors suggest that the Cyclin F pathway could be a future target for treating diabetic kidney disease, noting that reducing EIF4A3 levels partially fixed the problems caused by high glucose in the cells.",
+   "fact_ids": [
+    "f4",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:08:38+00:00"
+ }
+}

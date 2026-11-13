@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1016/j.gene.2026.150493",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "3769079f11c07777",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:23:31+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers asked if adding valproic acid to temozolomide improves treatment for brain tumors by changing how specific genes are regulated.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The study used an animal model involving 60 male rats that had brain tumor cells implanted into their brains.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The rats were split into six groups, including those with tumors treated with temozolomide alone, valproic acid alone, or both drugs together.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Scientists measured the levels of specific RNA and protein markers in the brain tissue of the rats.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Using both drugs together raised the level of miR-124-3p and lowered the level of Sp1 more than using either drug by itself.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors note that it is not yet proven whether targeting these specific molecules will work as a therapy or if epigenetic changes caused the results.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source"
+ ]
+}

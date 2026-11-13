@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1073/pnas.2623177123",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "9ca91966726099b2",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:15:02+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a spatially resolved single-cell transcriptomic profiling method to examine the adult mouse spinal cord.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers found that different types of neurons are arranged in specific spatial and layer patterns, with variations depending on the spinal level and the animal's sex.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Many neuron types were found close to each other within specific layers, which suggests they may connect with each other in a region-specific way.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Neurons in the dorsal horn showed many predicted patterns of communication between cells, based on the locations of specific signaling molecules like neuropeptides.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "In a model of neuropathic pain, several neuron types showed changes in their gene expression profiles and predicted communication patterns compared to normal conditions.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors state that this new map will help researchers understand how spinal circuits work in both healthy states and disease.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

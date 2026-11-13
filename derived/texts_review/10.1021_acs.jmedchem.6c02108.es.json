@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1021/acs.jmedchem.6c02108",
+ "lang": "es",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "5039ae687b361de9",
+ "generated_at": "2026-11-13T13:41:53+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 2: 'proves' is not in the English sentence"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores identificaron la neurolysin, una proteína que aumenta tras un ictus para ayudar a activar los sistemas protectores propios del cerebro, y posteriormente desarrollaron los primeros fármacos no peptídicos que la activan basándose en una estructura química específica; los nuevos compuestos 7c y 7g permanecieron activos más tiempo en el laboratorio, atravesaron mejor el cerebro de ratones y mantuvieron su estabilidad en la sangre de estos animales en comparación con versiones anteriores.",
+   "fact_ids": [
+    "f1",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Hacer que los ratones produjeran neurolysin extra antes de un ictus llevó a mejores resultados de recuperación, y probar el compuesto 7g en ratones con ictus inducidos demostró que protegía el tejido cerebral al reducir el tamaño del tejido muerto y disminuir el edema; este estudio es el primero que muestra que un fármaco de pequeña molécula que activa la neurolysin funciona para proteger el cerebro en un modelo animal preclínico.",
+   "fact_ids": [
+    "f2",
+    "f5",
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

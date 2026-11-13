@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1002/pro.70849",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "eb6c04a89a754fd0",
+ "generated_at": "2026-11-13T13:29:55+00:00",
+ "word_count": 108,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers examined extracellular vesicles from human and non-human cells and found that all slowed the formation of amyloid-beta fibrils at similar rates, implying that inhibiting amyloid-beta clumping is a shared characteristic across many cell types.",
+   "fact_ids": [
+    "f1",
+    "f6"
+   ]
+  },
+  {
+   "text": "When enzymes stripped surface proteins from these vesicles, their ability to stop aggregation increased significantly, whereas removing attached sugar chains caused only a small but reliable rise in inhibition, suggesting that surface proteins act as a switch to tune the process.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors suggest that lipids are the main drivers of this inhibition, while surface proteins modulate its strength, though they note these results are based on cellular models rather than human patients.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:59:32+00:00"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1002/glia.70257",
+ "lang": "es",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "d768b9f7e1f7233b",
+ "generated_at": "2026-11-13T13:29:04+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 3: words not in the Spanish dictionary ['carecientes']"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron si una infección crónica por parásitos en el cerebro protege a los ratones de la malaria letal, vinculando dicha protección con un patrón específico de actividad génica que incrementa la TGF-beta y el par de señalización IL-33/ST2.",
+   "fact_ids": [
+    "f1",
+    "f5"
+   ]
+  },
+  {
+   "text": "El análisis de las células cerebrales reveló que el parásito crónico transforma a los astrocitos en un tipo mixto que muestra tanto marcadores inflamatorios como calmantes, convirtiéndose en una fuente principal de proteínas IL-33 y atrayendo células inmunitarias específicas llamadas ILC2.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que, dado que los ratones carecientes del gen de la IL-33 aún mostraron cierta protección, el mecanismo protector podría no depender enteramente de esta molécula específica.",
+   "fact_ids": [
+    "f2"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

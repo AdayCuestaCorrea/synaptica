@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1016/j.wneu.2026.125480",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "9aa929056dc00f14",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:24:38+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a prospective cohort design to investigate patients suspected of having idiopathic normal pressure hydrocephalus.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Thirty-five patients were enrolled in the study between 2014 and 2018.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Researchers measured various clinical and imaging parameters before and after a temporary removal of cerebrospinal fluid via lumbar puncture.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "A blinded committee of neurosurgeons made the final decision on surgery using only standard clinical tests, ignoring the new ultrasound and MRI data collected for the study.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The committee decided to proceed with shunt surgery for 46.8 percent of the participants.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Ultrasound measurements showed that the average brain pulsatility dropped significantly after the temporary fluid removal.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors state that because the study was exploratory, these findings need to be confirmed by larger, multi-center research before they can be used definitively.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source"
+ ]
+}

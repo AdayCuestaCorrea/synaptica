@@ -1,0 +1,51 @@
+{
+ "study_id": "pmid:42985707",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "4f0c367b39372a8b",
+ "generated_at": "2026-11-13T12:38:08+00:00",
+ "word_count": 121,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A case report described a 57-year-old woman undergoing a minimally invasive endoscopic procedure to remove a small, shallow growth on the pharyngoepiglottic fold, where red dichromatic imaging was used to visualize a nerve structure.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The nerve appeared sharper and easier to see with the red imaging method than with standard white light, both before cutting the tissue and after injecting fluid under the surface.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "The lesion was removed in one piece without visible signs of nerve damage, and the patient did not experience difficulty swallowing, a hoarse voice, or other complications after the operation.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors suggest that this red imaging technique could be a helpful tool for seeing the nerve and supporting efforts to preserve it during similar surgeries.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:39:47+00:00"
+ }
+}

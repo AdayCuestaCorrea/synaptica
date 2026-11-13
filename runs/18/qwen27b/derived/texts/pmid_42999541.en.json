@@ -1,0 +1,51 @@
+{
+ "study_id": "pmid:42999541",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "db3c7135d7430759",
+ "generated_at": "2026-11-13T12:56:30+00:00",
+ "word_count": 102,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed a gelatin-based hydrogel designed to encapsulate vesicles derived from stem cells cultured in a three-dimensional structure.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "In a mouse model of brain injury, this delivery system was injected into the damaged region, with recovery assessed through behavioral tests, cell staining, and gene analysis.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "The gel remained in the brain longer than controls, resulted in less tissue damage, and was associated with improved movement and memory over time.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "The treatment increased the number of dividing cells showing markers for nerve cells or their support cells, a process linked to elevated protein levels that triggered gene changes supporting new nerve cell growth.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:56:31+00:00"
+ }
+}

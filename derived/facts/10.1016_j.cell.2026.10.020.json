@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.020",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "66892d1cbfdc90ff",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:22:39+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used two separate atlases to measure both gene activity and histone changes in many individual cells from the adult human brain.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers found that different types of brain cells have unique patterns of gene regulation.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The data showed that epigenetic marks from earlier development persist in adult brain cells.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The new data helps scientists better understand how genetic changes linked to neurological disorders affect specific brain cells.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors state that these findings create a new framework for studying how brain cells are defined, how they evolve, and how diseases arise.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

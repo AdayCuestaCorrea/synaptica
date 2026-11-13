@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1007/s10014-026-00553-3",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "e2859059e0e4d778",
+ "generated_at": "2026-11-13T13:36:38+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores informaron sobre el caso de una niña de 13 meses con un tumor sangrante en la región parietal izquierda que mostraba rasgos embrionarios, como una alta densidad celular y una expresión nuclear generalizada de la proteína BCOR.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Aunque las pruebas iniciales de RT-PCR dirigido y los análisis genómicos basados en paneles no identificaron la mutación, el seguimiento mediante secuenciación del genoma completo y de ARN confirmó una duplicación en marco de 126 pares de bases en el exón 15 del gen BCOR.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores señalaron que, tras la extirpación quirúrgica completa y una terapia multimodal, la paciente permaneció libre de progresión de la enfermedad durante 18 meses.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1080/07853890.2026.2753847",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "7ef324ac88bc0857",
+ "generated_at": "2026-11-13T13:32:13+00:00",
+ "word_count": 118,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers employed a single-center, retrospective cohort design to investigate adults suffering from pneumonia following an ischemic stroke.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "The baseline group comprised patients without treatment failure by the 48-hour mark, where failure was defined as requiring stronger antibiotics, remaining clinically unstable, or dying within 72 hours; prior to treatment, those already on mechanical ventilation or exhibiting a higher platelet-to-lymphocyte ratio showed greater likelihood of failure.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The model's predictive ability improved significantly, rising from a score of 0.697 to 0.889 after 48 hours, as patients with failure stayed in the hospital longer and incurred higher costs; the authors note that the model requires testing in other hospitals and real-world trials before doctors can rely on it for patient care.",
+   "fact_ids": [
+    "f5",
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:07:37+00:00"
+ }
+}

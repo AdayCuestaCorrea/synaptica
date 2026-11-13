@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.012",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "66ac4cd3ffbccbd0",
+ "generated_at": "2026-11-13T13:27:51+00:00",
+ "word_count": 129,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers constructed a multiomic atlas using 1.8 million nuclei samples from humans, macaques, and marmosets across eight basal ganglia structures. By comparing these data, they identified 61 homologous cell types unchanged for over 76 million years, finding that the spatial arrangement of dorsal and ventral regions is more evolutionarily conserved than specific receptor identities or striosome/matrix patterns.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "A specific neuronal group in the striatum, marked by D2, SMYD2, and HTR7, displays unique molecular, electrical, and physical traits. Analysis of DNA regulatory sequences revealed shared genetic patterns defining cell identity and mapping genetic risks for psychiatric and neurodegenerative diseases to specific cell populations.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors conclude that this atlas serves as a foundational resource for understanding the evolution, function, and disease mechanisms of the basal ganglia.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:54:26+00:00"
+ }
+}

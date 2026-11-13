@@ -1,0 +1,41 @@
+{
+ "study_id": "10.1055/s-0046-1829453",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "4e51aa6ea6fa9391",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:26:16+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "A special mathematical algorithm combined the features from the two networks and improved them before the final classification step.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The best-performing classifiers correctly identified the condition in 94.71% of the test images.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "One specific model successfully spotted 99 out of 105 actual cases and 80 out of 84 non-cases in the final test set.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The study found that the top-performing model was not statistically better than the other tested models.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors warn that the system needs testing on much larger groups of patients from different hospitals before doctors can use it.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source"
+ ]
+}

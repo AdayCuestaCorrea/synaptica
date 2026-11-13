@@ -1,0 +1,46 @@
+{
+ "study_id": "pmid:42999788",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "7a5beae1e58937bd",
+ "generated_at": "2026-11-13T12:54:03+00:00",
+ "word_count": 91,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "This cross-sectional study compared brain tissue from 17 individuals with major depressive disorder to 20 matched controls, measuring specific chemical modifications on ribosomal RNA within the dorsolateral prefrontal cortex.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Although the general pattern of these modifications was largely similar between groups, researchers identified exactly eight specific locations that differed significantly, leading authors to conclude these represent targeted changes rather than a broad disruption of ribosome structure.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors suggest these specific alterations might affect how brain cells control protein production in people with depression, though the study does not establish causality.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:54:03+00:00"
+ }
+}

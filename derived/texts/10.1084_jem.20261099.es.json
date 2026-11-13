@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1084/jem.20261099",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "21606e3df91477c5",
+ "generated_at": "2026-11-13T13:33:27+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron ratones infectados con el virus LCMV Armstrong mediante secuenciación de ARN y de receptores de células T a nivel de célula única, para seguir la evolución de cientos de clones individuales de células T a lo largo del tiempo.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El número de precursores de memoria central temprana dentro de un clon predijo si ese clon se convertiría en dominante durante la fase de memoria, y los clones que compartían secuencias idénticas de receptores de células T tenían más probabilidades de diferenciarse en tipos celulares similares de lo que sugeriría el azar, a pesar de la variabilidad significativa en cómo se diferenciaban los clones individuales.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Según la conclusión de los autores, patrones específicos en las secuencias de receptores de células T se asociaban con un crecimiento celular más rápido y una mayor orientación hacia las respuestas inmunitarias inmediatas, ya que estas características de la secuencia influyen en los resultados de la diferenciación en este modelo animal.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00",
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:11:41+00:00"
+ }
+}

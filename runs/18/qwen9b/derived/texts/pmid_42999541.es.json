@@ -1,0 +1,46 @@
+{
+ "study_id": "pmid:42999541",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "13caef9da92abf62",
+ "generated_at": "2026-11-13T12:53:53+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores diseñaron un sistema de hidrogeles impreso en 3D capaz de liberar lentamente vesículas derivadas de células madre en el lugar de la lesión cerebral y probaron este tratamiento en un modelo animal de traumatismo craneoencefálico.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Los animales tratados con el gel mostraron una mejor coordinación y memoria a largo plazo, menor daño en el tejido cerebral y un aumento en el crecimiento de células que se diferencian en neuronas y células de soporte, resultado impulsado por la activación de una cadena específica de señales moleculares dentro de las células madre que promueve la formación de nuevas células cerebrales.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que esta estrategia de gel sin células ofrece un enfoque prometedor para reparar el tejido cerebral tras una lesión.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:53:54+00:00"
+ }
+}

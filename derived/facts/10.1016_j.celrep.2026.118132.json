@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1016/j.celrep.2026.118132",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "1d1add2acdec4709",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:22:52+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study identifies the loss of dopamine neurons and low dopamine levels in the brain as the root cause of Parkinson's disease.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Using two different delivery methods in mice with Parkinson's, the researchers found that targeting specific cell types to produce AADC reduced motor problems and dyskinesia more effectively or equally well compared to producing AADC in all cells.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The team created a specific type of virus that uses genetic enhancers to deliver the AADC enzyme only to selected brain cells while being able to cross the blood-brain barrier.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The study confirmed that this specific targeting method works similarly in non-human primates as it did in mice.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors suggest that combining this targeted viral delivery with L-DOPA could offer a less invasive and better-tolerated treatment for Parkinson's motor symptoms.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1007/s12035-026-06314-9",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "8505aa6708e24b17",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:13:48+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used an animal model of stroke involving male mice.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers compared three groups: mice that underwent a sham surgery, mice that had the stroke model induced, and mice that had the stroke model plus treadmill exercise.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Scientists measured how well the mice moved using a standard neurological scoring test.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Mice that exercised showed better recovery of movement skills than those that did not.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The study found that exercise helped restore a specific cellular cleanup process for mitochondria.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest these cellular changes might help keep mitochondrial function stable after a stroke.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source"
+ ]
+}

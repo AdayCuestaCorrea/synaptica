@@ -1,0 +1,47 @@
+{
+ "study_id": "pmid:42997793",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "e80972d2d4fb032f",
+ "generated_at": "2026-11-13T12:34:57+00:00",
+ "word_count": 173,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A systematic review of existing research on brain connectivity and depression treatment examined how functional connectivity, how much the activity of two regions moves together, related to clinical results. Higher connectivity between the subgenual cingulate and the right prefrontal cortex was linked to worse treatment outcomes in some cases, while stronger connections to the medial orbitofrontal cortex were linked to better outcomes.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The strongest links between brain connectivity and treatment success were found in studies using repetitive transcranial magnetic stimulation, especially when targeting was customized for each patient, though the specific brain locations used were mostly chosen by the researchers beforehand rather than identified as peaks of activity. The quality of the brain imaging methods used across the included studies was generally considered adequate.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Because the results varied widely between studies, the data did not allow for a precise mathematical analysis of where in the brain the effects were located. The authors state that bigger, forward-looking studies are required to confirm these findings and determine if they can be used in clinical practice.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:35:03+00:00"
+ }
+}

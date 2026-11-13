@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.028",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "9f3a667776180832",
+ "generated_at": "2026-11-13T13:28:23+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores aplicaron un método multimodal Patch-seq a tejido cerebral de macacos para vincular los perfiles de expresión génica con la morfología celular y la actividad eléctrica, con el objetivo de abordar lagunas de conocimiento sobre las neuronas estriadas en primates, más relevantes para los trastornos humanos que los modelos de roedores.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El análisis identificó una diversidad sorprendente entre las neuronas de proyección espinosa, incluyendo tipos raros que varían según gradientes funcionales, mientras que las interneuronas mostraron una variación significativa entre ubicaciones, con una diversidad aún mayor en su forma y propiedades eléctricas que en otras células, revelando características específicas de los primates que difieren de los roedores a pesar de contar con rasgos conservados.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyeron que combinar datos moleculares con propiedades celulares ofrece nuevas perspectivas sobre cómo se organiza funcionalmente el estriado primates.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:55:28+00:00"
+ }
+}

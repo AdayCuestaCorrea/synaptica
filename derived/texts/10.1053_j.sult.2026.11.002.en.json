@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1053/j.sult.2026.11.002",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "a3314c18c7db2c19",
+ "generated_at": "2026-11-13T13:42:56+00:00",
+ "word_count": 108,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "This cross-sectional study examined 218 healthy adults aged 18 to 88 by measuring how often their brains switched between six different activity patterns and how long they remained in each pattern.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "While participants performed tasks requiring them to match finger force and learn new motor movements, researchers tracked their errors and found that individuals who showed more frequent switching between brain states made fewer errors during these motor learning tasks.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors conclude that the ability to switch between brain states is more important for motor skills than how much time is spent in any single state, though this finding is limited to the specific adult population studied.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.008",
+ "lang": "es",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "781eed165e3ada85",
+ "generated_at": "2026-11-13T13:27:44+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 2: numbers differ (['3'] vs [])"
+ ],
+ "sentences": [
+  {
+   "text": "Este estudio en humanos rastreó el origen de las neuronas de los ganglios basales hasta las eminencias ganglionares del cerebro prenatal mediante secuenciación de metil-3C de núcleos individuales, transcriptómica espacial e imagen de molécula única.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Aunque las distintas subregiones de las eminencias ganglionares mostraron tiempos variados en su progresión del desarrollo, las neuronas principales de los ganglios basales dieron lugar a subtipos distintos a través de cambios coordinados en su estructura tridimensional de la cromatina, a diferencia de otros tipos neuronales que maduraron en momentos diferentes; además, se observó un estado específico y temporal de la cromatina durante el desarrollo de los oligodendrocitos en la infancia, y la parte temporal de la corteza mostró una maduración epigenética más rápida comparada con otras áreas.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los investigadores encontraron que las neuronas de proyección espinosas contienen una mayor concentración de factores de riesgo genéticos asociados a trastornos neuropsiquiátricos, un resultado que los autores señalan requiere más investigación para comprender sus implicaciones.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

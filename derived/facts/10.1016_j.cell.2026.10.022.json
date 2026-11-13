@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.022",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "f31d09fad6f6b2e8",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:11:10+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Patterns of active histone marks were better at identifying functional DNA regions called enhancers than looking at DNA accessibility by itself.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "Specific marks on histones known as H3K27me3 and H3K9me3 helped identify different ways that genes are turned off in specific cell types.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The new data allowed the creation of computer models that can guess how genes are regulated and expressed based solely on DNA sequences.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The authors state this resource offers a complete system for labeling the brain's regulatory DNA and understanding genetic risks for diseases.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording",
+  "numbers not in the quote"
+ ]
+}

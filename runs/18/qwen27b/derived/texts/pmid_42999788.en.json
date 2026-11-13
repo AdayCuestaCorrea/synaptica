@@ -1,0 +1,52 @@
+{
+ "study_id": "pmid:42999788",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "046614c9933ce0b1",
+ "generated_at": "2026-11-13T12:48:24+00:00",
+ "word_count": 111,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers analyzed brain tissue from 17 people with major depressive disorder and 20 matched individuals without psychiatric illness, focusing on the dorsolateral prefrontal cortex, a region involved in thinking and decision-making.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Using a sequencing method called RiboMeth-seq, they identified specific locations of chemical modifications on ribosomal RNA.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "While the general pattern of these modifications was largely the same in both groups, eight specific sites on the ribosomal RNA showed significant differences in modification levels.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors conclude that major depressive disorder is associated with targeted changes at specific ribosomal positions rather than a general breakdown of ribosome function, suggesting these changes may contribute to problems with protein production in the brain.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:49:17+00:00"
+ }
+}

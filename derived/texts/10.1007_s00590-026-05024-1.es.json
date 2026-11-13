@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1007/s00590-026-05024-1",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "412db2e2b85e4f3f",
+ "generated_at": "2026-11-13T13:36:34+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un diseño de cohorte retrospectivo para examinar si la cirugía de fusión espinal altera la trayectoria del deterioro de la función pulmonar y de la fuerza de los músculos respiratorios en dieciséis niños con condiciones espinales no ambulatorias, con una edad media de 17,9 años.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Se evaluó la capacidad pulmonar antes del procedimiento, aproximadamente cinco a seis meses después de la operación y nuevamente tras unos dos años, revelando que el grado de rectificación de la curvatura espinal no se correlacionaba con resultados respiratorios mejorados.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que no cabe esperar que la corrección de la curvatura espinal detenga el deterioro natural de la función pulmonar, señalando el enfoque específico del estudio en esta intervención quirúrgica para esta demografía.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ]
+}

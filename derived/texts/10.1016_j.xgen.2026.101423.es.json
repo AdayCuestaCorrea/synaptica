@@ -1,0 +1,27 @@
+{
+ "study_id": "10.1016/j.xgen.2026.101423",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "e6de4eaf9db4f319",
+ "generated_at": "2026-11-13T13:41:23+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores diseñaron un sistema basado en la web llamado NIMP para gestionar cómo el tejido cerebral humano se convierte en datos digitales, manteniendo un registro completo de cada paso. La plataforma integra el registro de donantes, la etiquetado anatómico, la distribución del tejido, los pasos de secuenciación, los controles de calidad y el almacenamiento de datos en un único sistema unificado.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Los autores señalan que este sistema ofrece una vía escalable y reutilizable para gestionar los recursos con un historial completo y para generar datos fáciles de localizar y compartir para futuros proyectos de gran envergadura.",
+   "fact_ids": [
+    "f3"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

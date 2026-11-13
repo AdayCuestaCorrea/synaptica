@@ -1,0 +1,52 @@
+{
+ "study_id": "pmid:42997796",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "24cae1c0e48b44bf",
+ "generated_at": "2026-11-13T12:49:32+00:00",
+ "word_count": 129,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers examined 102 adolescents aged 10 to 17, dividing them into two groups based on recent exposure to fine air particles relative to a 9 micrograms per cubic meter limit, while measuring fear through sweat levels, avoidance behaviors, and self-reported feelings.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Participants with higher exposure exhibited a stronger return of fear when the threat was absent, indicated by elevated sweat levels and persistent feelings of fear.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Brain imaging performed on a smaller group of 68 participants revealed that the high-exposure group had more activity in the right amygdala during learning and safety phases, and in the left insula during the recall phase.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors suggest that higher air pollution exposure is linked to changes in how fear is processed, which may be a way air pollution contributes to anxiety.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 3,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:50:40+00:00"
+ }
+}

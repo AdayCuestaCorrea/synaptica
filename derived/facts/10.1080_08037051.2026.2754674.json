@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1080/08037051.2026.2754674",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "ad4423fa82e2f0b1",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:15:16+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a scoping review design to gather and summarize existing research on how blood pressure fluctuations affect the brain.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers searched two major medical databases to find studies that looked at how well patients take their blood pressure medication and how stable their blood pressure remains over time.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "The review found that irregular medication use and drugs that wear off quickly are likely linked to greater swings in blood pressure throughout the day.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "Blood pressure variability is connected to brain damage and cognitive issues even when average blood pressure levels are controlled.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors created a new conceptual framework to help doctors better assess individual risks and plan future studies on blood pressure stability.",
+   "subject": "other"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors conclude that managing hypertension should focus not just on average pressure but also on keeping blood pressure stable over time.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The study suggests that monitoring blood pressure stability could be an important addition to current treatments for preventing long-term brain injury.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

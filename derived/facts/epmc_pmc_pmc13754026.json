@@ -1,0 +1,52 @@
+{
+ "study_id": "epmc:PMC:PMC13754026",
+ "status": "ok",
+ "abstract_from": "europepmc",
+ "abstract_hash": "5cf70d5074bad56a",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:19:35+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study addresses radiation-induced brain injury, a complication that occurs in up to 30% of patients who receive cranial radiotherapy.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers used a mouse model where animals received 6 gray of whole-body irradiation to test the treatment.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The study design involved combining the new nanomaterial with live electrical recording of brain activity to measure changes in neural function.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The metal-selenomelanin nanonetworks successfully restored the electrical firing patterns of medium spiny neurons and the activity of striatal brain circuits.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Treatment with the nanonetworks led to improvements in the mice's movement and anxiety-related behaviors.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The treatment ensured that all treated mice survived for 30 days, protected sensitive organs from radiation damage, and helped blood cell production recover.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors suggest that neuronal excitability is a previously underexplored target for treating radiation-induced brain injury.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors note that previous research has been limited because drugs struggle to cross the blood-brain barrier and existing methods cannot track dynamic changes in brain function.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

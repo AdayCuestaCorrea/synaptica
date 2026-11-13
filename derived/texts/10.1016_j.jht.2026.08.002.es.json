@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1016/j.jht.2026.08.002",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "7090878dbd72fab6",
+ "generated_at": "2026-11-13T13:40:09+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Esta revisión experta resume la literatura existente para examinar cómo la actividad física influye en las capacidades cognitivas y en la salud cerebral global.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Los autores explican las teorías biológicas detrás de estos efectos y abordan específicamente cómo los hallazgos se aplican a los grupos que sufren pérdida de memoria o deterioro cognitivo.",
+   "fact_ids": [
+    "f3",
+    "f5"
+   ]
+  },
+  {
+   "text": "Aunque discuten los posibles beneficios para los programas de rehabilitación, los autores señalan explícitamente las limitaciones del conocimiento actual, destacando que garantizar el acceso equitativo a esta información para todas las personas sigue siendo un objetivo clave.",
+   "fact_ids": [
+    "f4",
+    "f6",
+    "f7"
+   ]
+  }
+ ]
+}

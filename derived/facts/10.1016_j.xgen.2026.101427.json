@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1016/j.xgen.2026.101427",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "63e3c2f1630ba224",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:24:50+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study examined 41 human donors to map Alzheimer's pathology in the anterior caudate.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers used digital pathology combined with single-nucleus and spatial gene expression data to analyze the tissue.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "A specific population of microglial cells marked by FLT1 and IL1B increased as tau burden grew.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "Fast-spiking PTHLH-PVALB interneurons displayed altered gene expression involving ion channels, cellular trafficking, and phosphorylation.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors state that their results provide a reference for studying Alzheimer's effects on subcortical areas.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

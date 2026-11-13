@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.031",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "581c6d42cf9bc9a3",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:11:37+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "A network is building a unified system to classify brain cells in humans, macaques, marmosets, and mice.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The study focuses on creating a detailed map of the basal ganglia region in multiple species.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The atlas combines data from single-cell gene analysis with epigenomic, spatial, and developmental information.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "Researchers mapped cell types to specific anatomical locations in each species and connected these maps using shared structural definitions.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "Creating the atlas required establishing strict standards for how tissue was collected, processed, and how data was stored and shared.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "This project serves as a demonstration that current methods can be expanded to create a complete cell map for the entire human and mammalian brain.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

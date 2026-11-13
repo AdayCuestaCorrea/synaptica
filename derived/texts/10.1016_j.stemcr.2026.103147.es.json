@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1016/j.stemcr.2026.103147",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "79e82b9361c6c503",
+ "generated_at": "2026-11-13T13:41:00+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron si los modelos de organoides pueden reproducir los cambios dinámicos observados en el desarrollo natural del oído interno, utilizando imagenología de alta resolución en 3D para rastrear las variaciones en el número, tamaño y forma de las cintas presinápticas a medida que maduraban los organoides del oído interno humano.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El estudio señala que el desarrollo natural de las células ciliadas implica que las cintas crecen en tamaño mientras disminuye su número total, un patrón en el que la cantidad de fibras nerviosas en contacto con las células ciliadas también se redujo con el tiempo, algo que los autores interpretan como una señal de afinación de las conexiones.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los cambios observados en los organoides humanos coincidieron con los patrones vistos en las células ciliadas de ratón, lo que sugiere que el modelo humano imita el proceso de ensamblaje y refinamiento, aunque los autores precisan que se trata de una comparación de modelos y no de un resultado directo en humanos.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1080/19490976.2026.2756699",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "03aaab62132d57e8",
+ "generated_at": "2026-11-13T13:33:03+00:00",
+ "word_count": 80,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers used a mouse model of necrotizing enterocolitis to test the effects of beta-glucan treatment, finding that both low and high doses improved cognitive function in these animals.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The treatment fixed gut bacteria imbalances and increased levels of the metabolite indole-3-acetic acid, which protected the brain by activating a specific chain of cellular signaling proteins and restoring synaptic connections.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors state these results offer preclinical evidence that could help prevent long-term brain problems in human NEC survivors.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:10:40+00:00"
+ }
+}

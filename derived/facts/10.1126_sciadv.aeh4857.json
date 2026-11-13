@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1126/sciadv.aeh4857",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "d022a46f1189ada1",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:10:04+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study asks whether the need for the RIM protein is the same at all synapses that have different natural release probabilities.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers used a neurotoxin to silence specific nerve inputs in fruit flies to test the role of RIM.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Removing RIM stopped nerve signals at the fast, high-release synapse but did not stop signals at the slow, low-release synapse nearby.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The protein is needed for short-term signal strengthening at the fast synapse but not for long-term strengthening at the slow synapse.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "High-resolution pictures showed the RIM protein sits closer to calcium channels at the fast synapses than at the slow ones.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "During short-term strengthening, RIM helps rearrange calcium channels to quickly increase the number of vesicles ready to release.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors note that understanding how RIM works at synapses with different release rates has been hard to figure out before this work.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

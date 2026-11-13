@@ -1,0 +1,48 @@
+{
+ "study_id": "10.1080/08916934.2026.2750013",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "fe9070d4a0627372",
+ "generated_at": "2026-11-13T13:32:29+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "En las células podocíticas renales, las condiciones de glucosa elevada provocaron un aumento de la proteína EIF4A3 y del ARN circular circ_0000285, que se unieron para detener el crecimiento celular mientras promovían la muerte, la inflamación y el estrés oxidativo.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Dado que la proteína Cyclin F, que se une a EIF4A3 para facilitar su degradación, disminuye ante la exposición a glucosa elevada, los investigadores observaron que añadir Cyclin F adicional redujo la inflamación, disminuyó el estrés oxidativo y mejoró la función renal tanto en animales vivos como en células.",
+   "fact_ids": [
+    "f5",
+    "f7",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que la vía de Cyclin F podría ser un objetivo futuro para tratar la enfermedad renal diabética, señalando que reducir los niveles de EIF4A3 corrigió parcialmente los problemas causados por la glucosa elevada en las células.",
+   "fact_ids": [
+    "f4",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:08:38+00:00"
+ }
+}

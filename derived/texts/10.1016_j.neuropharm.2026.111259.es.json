@@ -1,0 +1,31 @@
+{
+ "study_id": "10.1016/j.neuropharm.2026.111259",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "1ff83f97bee4a084",
+ "generated_at": "2026-11-13T13:40:51+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "El estudio buscaba determinar si la activación de los receptores de GLP-1 en la parte media del núcleo paraventricular del tálamo modifica la respuesta de los animales al alcohol.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Los investigadores emplearon un fármaco específico para bloquear los receptores de GLP-1 en el PVT medio de ratones, lo que debilitó la capacidad de otro fármaco para impedir que el alcohol aumentara la locomoción de los animales.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "En un grupo separado de ratas que consumían alcohol pero no habían recibido tratamiento previo, no se observó diferencia en la cantidad de material génico del receptor de GLP-1 en el PVT entre machos y hembras.",
+   "fact_ids": [
+    "f3"
+   ]
+  }
+ ]
+}

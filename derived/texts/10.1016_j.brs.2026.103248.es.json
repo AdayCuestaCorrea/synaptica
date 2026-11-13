@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1016/j.brs.2026.103248",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "d0d558d68c1fb1b4",
+ "generated_at": "2026-11-13T13:39:06+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores aplicaron estimulación magnética transcraneal repetitiva de alta frecuencia a la corteza precentral en humanos, empleando tanto una bobina focal F8 como una bobina H más grande, y observaron que ambos métodos redujeron significativamente el dolor neuropático crónico.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Aunque las variaciones en la frecuencia, la intensidad, el número de pulsos y las sesiones no mostraron diferencias estadísticamente significativas en el alivio, surgió una excepción en los tratamientos más largos, donde el efecto más fuerte se produjo al 80% del umbral motor en reposo.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores advierten que estos hallazgos específicos sobre los parámetros de estimulación son preliminares y deben considerarse como hipótesis en lugar de hechos probados, debido a las limitaciones del estudio.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

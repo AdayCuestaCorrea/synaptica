@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1021/acs.jmedchem.6c01265",
+ "lang": "es",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "0ddc899e99259a99",
+ "generated_at": "2026-11-13T13:41:35+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: 'causal' is not in the English sentence"
+ ],
+ "sentences": [
+  {
+   "text": "Para abordar los efectos secundarios relacionados con la sangre provocados por inhibidores anteriores de PARP, que bloqueaban tanto la enzima PARP1 como la PARP2, los investigadores diseñaron un estudio para identificar nuevos fármacos que actúen específicamente sobre PARP1 en el tratamiento de tumores cerebrales.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Utilizando pruebas con células Caco-2 para evaluar el cruce de barreras, el equipo observó que el compuesto 33 detuvo y redujo el tamaño de los tumores en modelos animales cuando se administró a una dosis de 0,2 mg por kilogramo una vez al día.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los modelos informáticos sugirieron que los humanos necesitarían menos de 150 mg del fármaco una vez al día para lograr la eficacia, según la conclusión de los autores basada en estas predicciones computacionales.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

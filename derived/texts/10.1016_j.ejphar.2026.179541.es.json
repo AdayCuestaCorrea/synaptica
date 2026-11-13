@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1016/j.ejphar.2026.179541",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "1f6deb15212fb8e9",
+ "generated_at": "2026-11-13T13:39:56+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron si combinar brivaracetam y sertralina es más eficaz que usarlos por separado para detener las convulsiones y corregir los problemas de conducta asociados en un modelo de lesión cerebral en ratones. El estudio empleó ratones macho BALB/c a los que se administró pentylenetetrazol para generar un modelo de convulsiones conocido como kindling.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Los científicos midieron los niveles de estrés oxidativo en muestras de tejido cerebral y examinaron la estructura física del hipocampo al microscopio. Los ratones tratados con ambas drogas presentaron menos convulsiones y obtuvieron mejores resultados en pruebas de memoria y aprendizaje que aquellos tratados con un solo fármaco. La combinación de medicamentos redujo significativamente las señales de ansiedad y depresión, además de disminuir el estrés cerebral y el daño tisular en comparación con los tratamientos con un único fármaco.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores señalan que sus resultados sugieren que esta combinación podría ayudar a los pacientes, pero subrayan que se necesitan más estudios en animales y humanos para confirmar los beneficios.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ]
+}

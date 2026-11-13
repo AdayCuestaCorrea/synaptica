@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1016/j.celrep.2026.118278",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "06dec623a2f8f1b5",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:23:00+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers created a new genetic method called mArc that can label two separate groups of neurons at once.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The study used this new method to examine how different contexts, timing, and emotional tones affect memory retrieval in the dentate gyrus.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Neurons that store memories with similar settings and emotional tones tend to overlap significantly.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Memories that happen close together in time are stored in more overlapping groups of neurons than those far apart.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors conclude that these findings show memory groups change over time and that their new tagging system is a strong tool for studying multiple memories.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

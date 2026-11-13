@@ -1,0 +1,48 @@
+{
+ "study_id": "10.1111/gbb.70079",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "dbd0a604de4c1faa",
+ "generated_at": "2026-11-13T13:34:12+00:00",
+ "word_count": 101,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers employed a systematic Mendelian randomization analysis using genetic summary statistics from the FinnGen R9 database alongside blood and brain tissue data to identify drug targets for major depressive disorder.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "From a pool of 6,889 potential drug targets, the analysis narrowed the list to six genes, with MAPK3, MST1, and SIGLEC9 showing the most consistent evidence as candidates for future development.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "These six genes demonstrated a significant causal link to the disorder and are associated with functions involving brain inflammation, immune control, and cell death, though broader associations require further research before new treatments can be developed.",
+   "fact_ids": [
+    "f3",
+    "f6",
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:13:45+00:00"
+ }
+}

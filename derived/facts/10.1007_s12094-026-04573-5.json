@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1007/s12094-026-04573-5",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "1bb49436d40fc4dc",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:21:49+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a retrospective design to look at patients who received repeat stereotactic radiosurgery between 2016 and 2025.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers analyzed data from 96 patients who had a total of 132 recurrent brain metastases.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Patients receiving a second course of radiation had a 78.7% local control rate at 12 months, while those receiving a third course had a 67.0% rate.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The median time without local tumor progression after the second radiation course was 47.1 months.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Radiological signs of radiation-induced brain damage occurred in 40.9% of patients after the second treatment course.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Symptoms caused by radiation damage appeared in 14.6% of patients, but all of them got better after taking corticosteroids.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The study found no deaths directly caused by the treatment.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors note that future forward-looking studies are required to better select patients and predict risks.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

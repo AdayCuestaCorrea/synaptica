@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1016/j.aca.2026.346383",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "127226dc0bf09028",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:13:58+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study created a sensor that detects glutamate by turning its binding into an electrical signal without using enzymes.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The device combines a polydopamine recognition layer with a Prussian Blue transducer on a carbon fiber electrode.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The sensor works linearly for glutamate concentrations between 0.10 and 400 micromolar and can detect as little as 31 nanomolar.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "Other substances caused less than 14% of the electrical response seen with 10 micromolar glutamate.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The sensor gave consistent readings when switching between 100 nanomolar and 1 micromolar glutamate and resisted buildup from proteins.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The device successfully tracked changing levels of glutamate release in a gel that mimics a brain hematoma.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1007/s11064-026-04910-8",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "358b736e2a61b376",
+ "generated_at": "2026-11-13T13:30:21+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores crearon un modelo de enfermedad de Parkinson en ratones C57BL/6 J mediante la inyección de fibrilas preformadas de alfa-sinucleína en el estriado, comparando un grupo control tratado con solución salina con grupos que recibieron solo fibrilas o combinadas con dosis bajas o altas de equinacósido.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Seis meses después, los científicos midieron las habilidades motoras y los niveles de proteínas en el cerebro, y evaluaron cómo el equinacósido afectaba la forma, la acidez y la capacidad de limpieza de los lisosomas en neuronas derivadas de humanos, descubriendo que la administración oral, especialmente a dosis más altas, restauraba la función motora y reducía la acumulación de proteínas, aunque bloquear la acidificación de los lisosomas disminuía estos beneficios.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que el equinacósido podría ayudar a eliminar proteínas nocivas y corregir problemas de los lisosomas, pero señalan que se necesita más investigación para confirmar su eficacia como tratamiento.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00",
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:01:29+00:00"
+ }
+}

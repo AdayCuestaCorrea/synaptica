@@ -1,0 +1,38 @@
+{
+ "study_id": "10.1002/glia.70249",
+ "lang": "es",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "6fed3b96dc875189",
+ "generated_at": "2026-11-13T13:28:53+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: 'causal' is not in the English sentence"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores examinaron el papel de Tmem119 en el ictus mediante cultivos celulares y un modelo de ratón adulto joven; tras silenciar este gen en microglia cultivada y someterla a condiciones que imitan el ictus o la inflamación, observaron que su ausencia provocaba un aumento de marcadores inflamatorios específicos.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f4"
+   ]
+  },
+  {
+   "text": "En un experimento paralelo, ratones macho modificados genéticamente para sobreexpresar Tmem119 o una proteína de control sufrieron una inducción de ictus de 60 minutos, mostrando que aquellos con niveles elevados de Tmem119 antes del evento presentaron menor señalización inflamatoria, mayores concentraciones de la proteína antiinflamatoria IL-10, daños cerebrales más reducidos y un mejor rendimiento en pruebas de función cerebral respecto al grupo control.",
+   "fact_ids": [
+    "f3",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que Tmem119 protege el cerebro en las fases iniciales del ictus al calmar la inflamación y potenciar señales protectoras, basándose en estos hallazgos experimentales concretos.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

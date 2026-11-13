@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1212/wnl.0000000000218756",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "c5a0db56ec8beed8",
+ "generated_at": "2026-11-13T13:35:11+00:00",
+ "word_count": 96,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers employed a retrospective cohort design to examine health records from Ontario, Canada, covering the period from 1992 to 2017.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "The analysis revealed that women, individuals infected between ages 10 and 25, and those using mental health services were more likely to develop multiple sclerosis after infectious mononucleosis, whereas being an immigrant was linked to a reduced rate of developing the condition following the diagnosis.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The authors note that because the study only included diagnosed cases, the findings might not apply to people who had the virus but did not show symptoms or seek medical care.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ]
+}

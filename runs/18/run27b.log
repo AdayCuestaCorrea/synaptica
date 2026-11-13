@@ -1,0 +1,43 @@
+HTTP 429, retrying in 19.0s
+groq/qwen/qwen3.8-27b: invalid output, retrying with more tokens (HTTP 400: {"error":{"message":"Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.","type":"invalid_request_error","code":"json_validate_failed","failed_generation":"{\u003c\"sentences\": [\n    {\n        \"text\": \"Researchers created a mouse line where rod cells in the eye produce a glowing marker that lights up when glutamate, a chemical messenger, is released.\",\n        \"fact_ids\": [\"f1\"]\n    },\n    {\n        \"text\": \"By tracking this marker unde)
+HTTP 429, retrying in 42.0s
+HTTP 429, retrying in 35.0s
+groq/qwen/qwen3.8-27b: invalid output, retrying with more tokens (HTTP 400: {"error":{"message":"Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.","type":"invalid_request_error","code":"json_validate_failed","failed_generation":"{typically\n  \"facts\": [\n    {\n      \"statement\": \"The study investigates how the protein ALMS1 affects the formation and function of cilia, a question that was previously unclear.\",\n      \"quote\": \"How ALMS1 contributes to cilia function has been unclear.\",\n      \"subject\": \"cells_or)
+HTTP 429, retrying in 33.0s
+HTTP 429, retrying in 2.0s
+HTTP 429, retrying in 4.0s
+HTTP 429, retrying in 8.0s
+HTTP 429, retrying in 18.0s
+HTTP 429, retrying in 13.0s
+HTTP 429, retrying in 19.0s
+HTTP 429, retrying in 13.0s
+HTTP 429, retrying in 14.0s
+HTTP 429, retrying in 2.0s
+HTTP 429, retrying in 17.0s
+groq/qwen/qwen3.8-27b: invalid output, retrying with more tokens (HTTP 400: {"error":{"message":"Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.","type":"invalid_request_error","code":"json_validate_failed","failed_generation":"{_sentences\": [\\n  {\\n    \"index\": 1,\\n    \"text\": \"Un estudio piloto observacional prospectivo realizado en Suecia entre 2021 y 2024 analizó muestras de sangre de 21 pacientes con ictus isquémico agudo y 19 participantes de control que se sometieron a cirugías no cerebrales bajo anestesia ge)
+HTTP 429, retrying in 32.0s
+HTTP 429, retrying in 9.0s
+HTTP 429, retrying in 27.0s
+HTTP 429, retrying in 39.0s
+HTTP 429, retrying in 12.0s
+HTTP 429, retrying in 6.0s
+HTTP 429, retrying in 7.0s
+HTTP 429, retrying in 27.0s
+HTTP 429, retrying in 8.0s
+HTTP 429, retrying in 12.0s
+HTTP 429, retrying in 15.0s
+HTTP 429, retrying in 14.0s
+HTTP 429, retrying in 11.0s
+HTTP 429, retrying in 9.0s
+HTTP 429, retrying in 14.0s
+  42971231: facts ok, texts ('verified', 'verified')
+  42999541: facts ok, texts ('verified', 'failed')
+  42985707: facts ok, texts ('verified', 'verified')
+  42993056: facts ok, texts ('verified', 'failed')
+  42986391: invalid output from the model
+  42969949: facts ok, texts ('verified', 'verified')
+  43000116: invalid output from the model
+  42999788: facts ok, texts ('verified', 'verified')
+  42997796: facts ok, texts ('verified', 'verified')
+  42997793: facts ok, texts ('verified', 'verified')
+elapsed 555 s

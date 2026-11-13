@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1080/19490976.2026.2753908",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "30870665207b525c",
+ "generated_at": "2026-11-13T13:32:58+00:00",
+ "word_count": 128,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "This cross-sectional investigation examined 221 outpatients with liver cirrhosis to determine if gut bacteria patterns associated with brain fog vary by location. Participants, who had an average age of 58 and a median liver disease score of 12, underwent cognitive testing and stool DNA analysis to identify bacterial species.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "After adjusting for medical history, thinking skill scores differed by country, yet higher levels of the bacterium Streptococcus were consistently found in patients with worse cognitive results, independent of liver disease severity. These findings suggest a stable biological link between the gut, liver, and brain involving oral bacteria movement and nitrogen processing.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f7"
+   ]
+  },
+  {
+   "text": "The authors conclude that these specific gut bacteria changes linked to brain fog are consistent across nations and are separate from the general progression of liver failure.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 3,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:10:39+00:00"
+ }
+}

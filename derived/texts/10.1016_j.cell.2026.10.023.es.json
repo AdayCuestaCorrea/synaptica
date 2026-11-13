@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.023",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "a56c3c92fb35ea02",
+ "generated_at": "2026-11-13T13:28:04+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores elaboraron un mapa de alta resolución de los ganglios basales en humanos, macacos rhesus y marmosetas comunes analizando más de un millón de células de cada especie, integrando mapas de expresión génica espacial con un sistema compartido de clasificación de tipos celulares para revelar cómo se organizan las moléculas dentro y entre estas estructuras cerebrales.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Una muestra detallada a lo largo del eje anteroposterior mostró que el estriado presenta patrones complejos pero altamente consistentes de expresión génica multidireccionales superpuestos a regiones distintas, mientras que el análisis también identificó una disposición estructural específica de núcleo y cápsula dentro de la región del globo pálido interno.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores señalan que este nuevo atlas funciona como una herramienta fundamental para futuras investigaciones sobre los roles moleculares y funcionales de los ganglios basales tanto en la salud como en la enfermedad.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00",
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:55:25+00:00"
+ }
+}

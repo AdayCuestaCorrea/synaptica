@@ -1,0 +1,29 @@
+{
+ "study_id": "10.1016/j.xgen.2026.101423",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "82df3b5168c7fa93",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:24:46+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers built a web-based system called NIMP to manage how human brain tissue is turned into digital data while keeping a complete record of every step.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The platform combines donor registration, anatomical labeling, tissue distribution, sequencing steps, quality checks, and data storage into one unified system.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The authors state that this system offers a scalable and reusable way to manage resources with full history records and to generate data that is easy to find and share for future large projects.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

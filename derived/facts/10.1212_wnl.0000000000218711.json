@@ -1,0 +1,41 @@
+{
+ "study_id": "10.1212/wnl.0000000000218711",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "e4973090b56a44c7",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:17:50+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers conducted a prospective cohort study following participants over several years.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The final study group consisted of 4,822 people who met the specific inclusion criteria.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Scientists measured walking ability and balance using a tool called the Performance-Oriented Mobility Assessment (POMA).",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Over the study period, 251 participants were diagnosed with dementia while 458 died.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors note that the study results may not apply to other groups because all participants shared the same ethnic background.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source"
+ ]
+}

@@ -1,0 +1,49 @@
+{
+ "study_id": "pmid:42997796",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "acb43d421d8fd13e",
+ "generated_at": "2026-11-13T12:54:03+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron si la exposición reciente a altos niveles de contaminación por partículas finas altera cómo aprenden y regulan el miedo los adolescentes, estudiando a 102 participantes de 10 a 17 años divididos en grupos según sus niveles de contaminación del mes pasado, conforme a los estándares de la EPA.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Mediante una tarea que implicaba aprender a temer una señal y recordar esa experiencia, el estudio midió el miedo a través de la respuesta de conductancia de la piel, el comportamiento de evitación y los sentimientos autoinformados, observando que quienes tuvieron una exposición elevada mostraron reacciones iniciales más intensas y tuvieron más dificultades para olvidar el miedo una vez que la amenaza se consideró segura.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Las imágenes cerebrales de un subgrupo menor de 68 participantes revelaron un aumento de la actividad en regiones específicas del procesamiento del miedo durante las fases de aprendizaje y recuerdo, lo que lleva a los autores a sugerir que esto podría explicar cómo la contaminación atmosférica se vincula con la ansiedad, aunque advierten que esta posible conexión requiere una confirmación adicional.",
+   "fact_ids": [
+    "f7",
+    "f8",
+    "f9"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:54:55+00:00"
+ }
+}

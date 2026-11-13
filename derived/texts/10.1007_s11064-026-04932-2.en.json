@@ -1,0 +1,31 @@
+{
+ "study_id": "10.1007/s11064-026-04932-2",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "835c9023b95c73df",
+ "generated_at": "2026-11-13T13:37:14+00:00",
+ "word_count": 152,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers used a rat model designed to exhibit post-stroke headache symptoms, finding that giving rats different amounts of gastrodin reduced pain-related behaviors in a dose-dependent manner. This relief disappeared when the animals were treated with a drug blocking the PI3K pathway, and gastrodin treatment increased the activity of the PI3K/Akt pathway in the brain area surrounding the stroke, as shown by higher levels of specific proteins.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3",
+    "f6"
+   ]
+  },
+  {
+   "text": "In a separate study involving 80 people who had had an acute ischemic stroke and 50 healthy people for comparison, lower levels of PI3K and Akt proteins in the blood were linked to more severe headaches and worse neurological outcomes. The authors note that post-stroke headaches and other neurological problems make the overall recovery from stroke much worse, and before this research, it was not known if gastrodin could stop post-stroke headaches or how it worked to do so.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f7",
+    "f8"
+   ]
+  }
+ ]
+}

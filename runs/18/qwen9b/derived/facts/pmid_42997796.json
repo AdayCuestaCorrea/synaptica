@@ -1,0 +1,57 @@
+{
+ "study_id": "pmid:42997796",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "ebdd9575cf4e1d98",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T12:34:42+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study asked if recent exposure to high levels of fine particulate air pollution changes how teenagers learn about and regulate fear.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers studied 102 teenagers between the ages of 10 and 17 using a task that involved learning to fear a signal, learning that the signal was safe, and recalling that experience later.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Participants were split into two groups based on their past-month air pollution levels: those with low exposure and those with high exposure, defined by EPA standards.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The study measured fear by recording physical sweating responses, observing how much participants avoided the threat, and asking them how scared they felt.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Teenagers with high air pollution exposure showed stronger physical and reported fear reactions when first learning to fear the threat signal compared to those with low exposure.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Those with high pollution exposure struggled more to forget the fear, showing renewed physical fear responses and continued feelings of fear even after the threat was supposed to be safe.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "A smaller group of 68 participants had their brain activity scanned to see which areas lit up during the fear tasks.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "Brain scans revealed that teens with high pollution exposure had more activity in specific fear-processing brain regions during both the learning phase and the recall phase.",
+   "subject": "humans"
+  },
+  {
+   "id": "f9",
+   "statement": "The authors suggest that these changes in fear learning might explain how air pollution leads to anxiety, but note this is a potential link that needs further confirmation.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

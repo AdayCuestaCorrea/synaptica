@@ -1,0 +1,31 @@
+{
+ "study_id": "10.1016/j.neuint.2026.106289",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "c6e5546c01aa5727",
+ "generated_at": "2026-11-13T13:40:27+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un modelo de rata de migraña crónica, generado mediante la infusión repetida de una sopa inflamatoria en la duramadre, para estudiar cómo el mGluR5 activa la PKCγ, lo que provoca que GluA2 abandone la superficie celular, se acumule GluA1 y se añada un grupo fosfato a GluA1 en un sitio concreto; los autores sugieren que esta cadena específica de eventos moleculares podría ser responsable del estado de dolor exacerbado observado en la migraña crónica.",
+   "fact_ids": [
+    "f1",
+    "f7",
+    "f8"
+   ]
+  },
+  {
+   "text": "En estas ratas, niveles elevados de mGluR5 en el núcleo caudal del trigémino se asociaron con una mayor proporción de receptores GluA1 frente a GluA2 en la superficie celular, sin que variara la cantidad total de estas proteínas en el interior de las células; administrar a las ratas un fármaco que activa el mGluR5 agravó este desequilibrio y aumentó su sensibilidad al dolor, mientras que reducir la actividad del mGluR5 corrigió el desequilibrio y disminuyó la sensibilidad al dolor, un efecto anulado al activar la enzima PKC con un fármaco específico.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  }
+ ]
+}

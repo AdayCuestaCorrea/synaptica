@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1021/acs.jmedchem.6c01265",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "36cf7e87d829f73a",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:24:59+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Previous PARP inhibitors caused blood-related side effects because they blocked both PARP1 and PARP2 enzymes.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers designed a study to find new drugs that specifically target PARP1 to treat brain tumors.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "The team used Caco-2 cell tests to measure how well drug candidates could cross the brain barrier.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "A specific drug called compound 33 stopped and shrank tumors in animal models when given at a dose of 0.2 mg per kilogram once daily.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Computer models suggested that humans would need to take less than 150 mg of the drug once a day to be effective.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

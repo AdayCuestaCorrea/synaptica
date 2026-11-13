@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1016/j.celrep.2026.118269",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "c6812eba7a679621",
+ "generated_at": "2026-11-13T13:39:29+00:00",
+ "word_count": 116,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers created a dataset combining electrical and morphological data with gene expression profiles for human neurons in the outer brain layer, analyzing 39 out of 42 known types of excitatory neurons found in the human neocortex.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "This approach identified distinct features in previously poorly understood groups of neurons, specifically those in layers 4, 5/6, and 6, while comparisons across humans, macaques, and mice showed that electrical and shape differences depended on the specific subtype of the neuron.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors note that looking only at gene lists is not enough to understand how neurons actually work, so the final result is a comprehensive reference tool designed to help scientists study how human brain circuits are built.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ]
+}

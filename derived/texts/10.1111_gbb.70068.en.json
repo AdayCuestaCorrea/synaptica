@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1111/gbb.70068",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "c8a861b39ee9fb16",
+ "generated_at": "2026-11-13T13:34:07+00:00",
+ "word_count": 131,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A longitudinal cohort study involving 837 people who experienced childhood trauma measured how frontal alpha brain wave connectivity, a measure of synchronized activity between brain regions, changed from adolescence into young adulthood.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Specific patterns emerged where childhood sexual assault was associated with higher initial connectivity but less improvement over time, while carrying the APOEε4 gene was linked to lower starting levels in the left frontocentral region followed by a steeper increase, and in gene carriers, assault correlated with higher starting levels and slower growth in frontal connections.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "These connectivity patterns were strongly linked to symptoms of posttraumatic stress disorder and alcohol use disorder, yet no direct connection was found between the gene and developing these symptoms, leading authors to suggest the results could help identify at-risk groups for prevention efforts.",
+   "fact_ids": [
+    "f7",
+    "f8",
+    "f9"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:13:43+00:00"
+ }
+}

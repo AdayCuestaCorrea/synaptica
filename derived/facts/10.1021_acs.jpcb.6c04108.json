@@ -1,0 +1,39 @@
+{
+ "study_id": "10.1021/acs.jpcb.6c04108",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "f8b2e7e64134ffc8",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:25:26+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used computer simulations to model an Aβ-42 tetramer inserted into a synthetic lipid membrane.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The simulation results were compared against a control model containing only the synthetic lipid membrane without the peptide.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The researchers modeled a specific Aβ-42 structure consisting of eight antiparallel beta strands arranged in a barrel shape.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The simulations showed that the peptide tetramer disrupts the membrane structure by causing the lipid chains to change their shape and arrangement.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors suggest these findings may help explain the molecular mechanisms behind the harmful effects of Aβ-42 on membranes in Alzheimer's disease.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

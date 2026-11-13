@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1016/j.celrep.2026.118278",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "7a8b2f0982922f15",
+ "generated_at": "2026-11-13T13:39:35+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron un método genético llamado mArc para etiquetar simultáneamente dos grupos distintos de neuronas, aplicándolo para investigar cómo el contexto, el momento y el tono emocional influyen en la recuperación de la memoria en el giro dentado de sujetos animales.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El análisis reveló que las neuronas que almacenan memorias con configuraciones o tonos emocionales similares se superponen significativamente, mientras que aquellas que ocurren próximas en el tiempo forman grupos más superpuestos que las separadas por intervalos más largos.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que estos resultados demuestran cómo evolucionan los grupos de memoria con el tiempo e indican que su nuevo sistema de etiquetado sirve como una herramienta robusta para examinar múltiples memorias.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

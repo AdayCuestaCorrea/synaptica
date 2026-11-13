@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1016/j.celrep.2026.118092",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "2d640715e634d183",
+ "generated_at": "2026-11-13T13:39:20+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un modelo de gusanos para estudiar cómo la bacteria Comamonas aquatica protege a las neuronas motoras de la degeneración provocada por elevados niveles de la proteína TIR-1/SARM1.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Al alimentar a los gusanos con esta bacteria, se redujo el daño nervioso al suministrar vitamina B12, lo que disminuyó los niveles de homocisteína nociva en sus intestinos.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que estos hallazgos ayudan a explicar cómo las bacterias intestinales podrían proteger contra enfermedades neurodegenerativas humanas, aunque el estudio se llevó a cabo en animales.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ]
+}

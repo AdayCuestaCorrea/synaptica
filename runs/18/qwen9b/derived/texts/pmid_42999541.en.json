@@ -1,0 +1,46 @@
+{
+ "study_id": "pmid:42999541",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "13caef9da92abf62",
+ "generated_at": "2026-11-13T12:53:53+00:00",
+ "word_count": 98,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers created a 3D-printed hydrogel system designed to release stem cell-derived vesicles slowly at the site of brain injury and tested this treatment in an animal model of traumatic brain injury.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Animals treated with the gel showed better long-term coordination and memory, less brain tissue damage, and increased growth of cells developing into neurons and support cells, a result driven by the activation of a specific chain of molecular signals inside stem cells that drives new brain cell formation.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors conclude that this cell-free gel strategy offers a promising approach for repairing brain tissue after injury.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:53:54+00:00"
+ }
+}

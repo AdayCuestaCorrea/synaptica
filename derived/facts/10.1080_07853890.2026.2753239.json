@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1080/07853890.2026.2753239",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "700d35dcba7b8064",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:15:05+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers built a new brain map by averaging MRI scans from 80 female mice.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The new map was tested by checking how much external mouse brain scans had to be warped to fit it compared to older maps.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The new female-specific map fits female mouse brain scans better than existing standard maps.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The authors note that more research is needed to fully understand differences between specific mouse strains and sexes.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1016/j.crmeth.2026.101664",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "f3df2bbe286af87d",
+ "generated_at": "2026-11-13T13:39:53+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron multiVIB, un método computacional que emplea aprendizaje contrastivo probabilístico para alinear conjuntos de datos de células individuales diversos.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Las pruebas en bancos de datos confirmaron que el enfoque integra la información de manera efectiva sin generar coincidencias erróneas, y se aplicó a nueve tipos moleculares de la corteza motora primaria del ratón para construir un atlas exhaustivo.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "El marco integró además datos de expresión génica del ganglio basal de primates para identificar tipos celulares compartidos y únicos, lo que llevó a los autores a concluir que ofrece una vía fiable para elaborar mapas a gran escala de las células cerebrales.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  }
+ ]
+}

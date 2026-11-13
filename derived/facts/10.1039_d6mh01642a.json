@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1039/d6mh01642a",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "7b92b765159c034f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:26:05+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers built a new type of transistor using a specific combination of inorganic oxides and a sputtering method.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The device could switch between short-term and long-term plasticity modes by adjusting the gate voltage while keeping the light input constant.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The system maintained stable multiple conductance levels using a very low read voltage of 1 mV and optical pulses of 0.0645 mW per square centimeter.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The transistor successfully powered a neural network to recognize handwritten digits from the MNIST dataset with high accuracy.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "Applying a negative gate voltage caused the device to show short-term plasticity behaviors like paired-pulse facilitation.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "By tuning the gate, the device could analyze time-based signals and recognize human motion sequences consisting of four frames.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors claim this design solves problems found in older single-mode strategies and offers a practical way to build low-power devices that handle multiple types of input.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

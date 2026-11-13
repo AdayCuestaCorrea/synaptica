@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1212/wnl.0000000000218820",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "2c2b27da196af0f5",
+ "generated_at": "2026-11-13T13:35:25+00:00",
+ "word_count": 100,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers conducted a retrospective study involving 111 patients with early-stage behavioral variant frontotemporal dementia, a mean age of 63.03 years, to evaluate personality traits and daily living abilities using data from knowledgeable informants.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "While patients exhibited significant shifts in personality, including reduced conscientiousness and increased neuroticism, no association was found between pre-disease personality and current functional independence, though higher current conscientiousness was linked to better performance in daily tasks.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors concluded that the study's cross-sectional design and reliance on recalled information limit these findings, stating that future longitudinal studies with direct performance tests are required to confirm the results.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.jht.2026.08.002",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "31612509801f4a17",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:23:34+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study is an expert review that summarizes existing literature on how exercise affects the brain.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "The authors examined how physical activity influences cognitive abilities and overall brain health.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "The review also explains the biological theories that might cause exercise to improve brain function.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "The authors discuss how these cognitive benefits could help patients in rehabilitation programs.",
+   "subject": "other"
+  },
+  {
+   "id": "f5",
+   "statement": "The review specifically addresses how these findings apply to groups suffering from memory loss or cognitive decline.",
+   "subject": "other"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors explicitly state the current limits of the knowledge and suggest areas for future research.",
+   "subject": "other"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors note that ensuring fair access to this knowledge for all people is a key limitation and goal.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

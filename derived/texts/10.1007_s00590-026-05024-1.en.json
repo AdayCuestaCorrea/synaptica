@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1007/s00590-026-05024-1",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "412db2e2b85e4f3f",
+ "generated_at": "2026-11-13T13:36:34+00:00",
+ "word_count": 100,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers employed a retrospective cohort design to examine whether spinal fusion surgery alters the trajectory of lung function and breathing muscle strength decline in sixteen boys with non-ambulatory spinal conditions, averaging 17.9 years of age.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Lung capacity was assessed before the procedure, approximately five to six months post-operation, and again after roughly two years, revealing that the degree of spinal curvature straightening did not correlate with improved respiratory outcomes.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors conclude that correcting spinal curvature should not be expected to halt the natural decline in lung function, noting the study's specific focus on this surgical intervention in this demographic.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ]
+}

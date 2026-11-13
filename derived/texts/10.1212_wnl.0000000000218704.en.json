@@ -1,0 +1,26 @@
+{
+ "study_id": "10.1212/wnl.0000000000218704",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "d0d82257628e1b36",
+ "generated_at": "2026-11-13T13:34:47+00:00",
+ "word_count": 65,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers conducted a prospective study comparing people diagnosed with Parkinson disease to control patients who had surgery on their submandibular glands for other reasons, using a method called RT-QuIC to find alpha-synuclein clumps in fresh tissue samples taken from the submandibular gland.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The authors note that their results need to be confirmed by testing larger groups of people before the method can be fully trusted.",
+   "fact_ids": [
+    "f3"
+   ]
+  }
+ ]
+}

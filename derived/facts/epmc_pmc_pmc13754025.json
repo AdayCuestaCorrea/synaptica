@@ -1,0 +1,42 @@
+{
+ "study_id": "epmc:PMC:PMC13754025",
+ "status": "ok",
+ "abstract_from": "europepmc",
+ "abstract_hash": "8e301fe4052f43a0",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:19:14+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study asks whether the need for the RIM scaffold protein is the same for all synapses that have different natural release probabilities.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers used a neurotoxin to block specific nerve inputs in fruit flies to test how the RIM protein affects different synapses.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The RIM protein is strictly necessary for nerve signals to pass at one type of synapse but is not needed at a nearby synapse of a different type.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The need for RIM also depends on the type of long-term change: it is required for rapid adjustments at the high-probability synapse but not for slow adjustments at the low-probability synapse.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "High-resolution images show that the RIM protein sits physically closer to calcium channels at the synapse that releases neurotransmitters more frequently.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "During rapid changes in activity, RIM helps rearrange calcium channels at a tiny scale to increase the number of vesicles ready for release.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

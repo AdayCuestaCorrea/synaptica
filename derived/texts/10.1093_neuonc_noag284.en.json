@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1093/neuonc/noag284",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "56da83876c23ffbe",
+ "generated_at": "2026-11-13T13:34:03+00:00",
+ "word_count": 118,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers combined data from 33 separate groups of patients to compare how well MGMT promoter methylation and MGMT protein expression predict survival outcomes, finding that tests measuring DNA methylation showed a stronger link to patient survival than tests measuring the amount of MGMT protein.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "In just over half of the studies reviewed, the level of DNA methylation did not match the level of protein expression, suggesting these two measures might affect prognosis in different ways, while using both protein levels and methylation status together helps doctors better identify tumors that will not respond to the drug temozolomide.",
+   "fact_ids": [
+    "f3",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors warn that different testing methods and thresholds used across studies make it hard to compare results and need standardization.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:13:42+00:00"
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "study_id": "10.1212/wnl.0000000000218704",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "d0d82257628e1b36",
+ "generated_at": "2026-11-13T13:34:47+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores llevaron a cabo un estudio prospectivo que comparaba a personas diagnosticadas con enfermedad de Parkinson con pacientes de control que habían intervenido quirúrgicamente sus glándulas submandibulares por otras razones, empleando un método denominado RT-QuIC para detectar agregados de alfa-sinucleína en muestras de tejido fresco extraídas de dichas glándulas.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Los autores señalan que sus resultados requieren confirmación mediante la prueba de grupos más amplios antes de que el método pueda considerarse plenamente fiable.",
+   "fact_ids": [
+    "f3"
+   ]
+  }
+ ]
+}

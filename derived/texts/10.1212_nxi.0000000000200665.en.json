@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1212/nxi.0000000000200665",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "75d158accbd4d116",
+ "generated_at": "2026-11-13T13:34:27+00:00",
+ "word_count": 134,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers analyzed blood samples from 2,370 people with multiple sclerosis across three Phase 3 trials to understand how B-cell levels before and after ocrelizumab treatment relate to disease outcomes.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Treatment with ocrelizumab quickly reduced the total number of B cells in people with relapsing multiple sclerosis, while those who still had detectable B cells faced a higher risk of developing new or enlarging brain lesions, and individuals with both high B-cell counts and high neurofilament light protein levels were at significantly increased risk of worsening disability.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Switching to ocrelizumab for those with high B-cell and neurofilament light levels nearly cut the risk of disability progression by four times, and the authors state that their findings regarding the link between detectable B cells and new lesions are robust based on the double-blind treatment period data.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ]
+}

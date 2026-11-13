@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1016/j.cell.2026.09.008",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "361c3b28bf77ed95",
+ "generated_at": "2026-11-13T13:27:19+00:00",
+ "word_count": 107,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers constructed a single-cell atlas integrating histone modification data and gene expression profiles from eight distinct areas of the human basal ganglia to map patterns of active and repressive genetic control elements.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The study identified specific combinations of homeobox transcription factors as unique molecular markers for different neuron types and revealed regional differences in genetic and epigenetic activity when combined with spatial transcriptomics data.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "By applying this atlas to analyze genetic risk variants linked to neuropsychiatric diseases, the authors created a machine learning model to predict how these variants affect gene regulation, offering a comprehensive framework for studying the organization and genetic basis of basal ganglia-related diseases.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:53:23+00:00"
+ }
+}

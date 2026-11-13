@@ -1,0 +1,42 @@
+{
+ "study_id": "pmid:42969949",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "eae49460587fb79c",
+ "generated_at": "2026-11-13T12:33:40+00:00",
+ "word_count": 125,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers examined how the protein ALMS1, located at the near end of centrioles, supports cellular structure. In cells lacking this protein, centrioles become shorter and often fracture at their base, causing them to lose the ability to organize microtubules. Consequently, specific cargo items from the Golgi apparatus cannot travel properly to the centrosome to build the transition zone, a structure required for forming cilia and managing ciliary membrane materials.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "In mice with disrupted ALMS1 genes, cilia in the retina, kidney, and brain gradually disappear as the animals age. The authors suggest that Alström syndrome results from broken centriole bases and faulty protein transport, which prevents cilia from forming and staying intact, though this explanation is based on the observed cellular and animal data.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:33:45+00:00"
+ }
+}

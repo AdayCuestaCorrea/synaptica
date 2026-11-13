@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1007/s00381-026-07526-z",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "1ffaa541f55a7edd",
+ "generated_at": "2026-11-13T13:36:08+00:00",
+ "word_count": 105,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A retrospective cohort study involving 34 children aged 6 to 16 assessed baseline cognitive function using tests for block design, digit span, visual attention, and narrative memory.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Children reporting symptoms performed significantly worse on visual attention tests, while block design scores in those with temporal cysts varied by Galassi classification type, and seven children who underwent surgery showed immediate improvements in block design and visual attention scores after the procedure.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The size of the cyst did not correlate with any baseline neuropsychological test results, and the authors state that the observed improvements after surgery are preliminary and need to be confirmed by larger, prospective studies.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ]
+}

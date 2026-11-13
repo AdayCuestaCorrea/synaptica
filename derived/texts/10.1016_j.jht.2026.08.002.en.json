@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1016/j.jht.2026.08.002",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "7090878dbd72fab6",
+ "generated_at": "2026-11-13T13:40:09+00:00",
+ "word_count": 72,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "This expert review summarizes existing literature to examine how physical activity influences cognitive abilities and overall brain health.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The authors explain the biological theories behind these effects and specifically address how the findings apply to groups suffering from memory loss or cognitive decline.",
+   "fact_ids": [
+    "f3",
+    "f5"
+   ]
+  },
+  {
+   "text": "While discussing potential benefits for rehabilitation programs, the authors explicitly state current knowledge limits, noting that ensuring fair access to this information for all people remains a key goal.",
+   "fact_ids": [
+    "f4",
+    "f6",
+    "f7"
+   ]
+  }
+ ]
+}

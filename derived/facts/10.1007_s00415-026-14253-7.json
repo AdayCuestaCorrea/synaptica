@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s00415-026-14253-7",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "25246475baae6e2d",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:19:56+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers analyzed a specific group of 67 video recordings to test their utility.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The study was designed as a feasibility assessment to see if nystagmus could be detected from videos taken in emergency departments.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The method used a computer algorithm to track eye and face landmarks frame by frame to extract movement signals.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The researchers identified nystagmus by analyzing the extracted movement signals and then checking them against the original videos.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The system successfully captured clear eye movement data even when videos had poor lighting, shaky cameras, or other real-world issues.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The digital signals accurately matched the nystagmus seen on video, including very faint movements that humans could barely see.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors state that the current results need confirmation through larger future studies and full automation.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

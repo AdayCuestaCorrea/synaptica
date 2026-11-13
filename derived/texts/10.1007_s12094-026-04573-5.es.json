@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1007/s12094-026-04573-5",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "109968c886f4cccd",
+ "generated_at": "2026-11-13T13:38:05+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un estudio retrospectivo examinó a 96 pacientes que recibieron radiocirugía estereotáctica repetida para metástasis cerebrales recurrentes entre 2016 y 2025.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Quienes recibieron un segundo curso de radiación mostraron una tasa de control local del 78,7% a los 12 meses, con un tiempo mediano libre de progresión de 47,1 meses, mientras que signos radiológicos de daño aparecieron en el 40,9% de los casos y síntomas en el 14,6%, todos los cuales mejoraron tras el tratamiento con corticoides.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "No hubo muertes causadas directamente por el tratamiento, aunque los autores concluyen que se requieren estudios prospectivos futuros para seleccionar mejor a los pacientes y predecir los riesgos.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

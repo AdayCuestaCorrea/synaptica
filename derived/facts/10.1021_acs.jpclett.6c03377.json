@@ -1,0 +1,40 @@
+{
+ "study_id": "10.1021/acs.jpclett.6c03377",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "c8e3468191746bca",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:25:39+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study tested a new model called FlyCrysNet against 17 other existing crystal machine learning models using 357 specific types of hybrid halide perovskite monolayers.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "Among the existing models, ReciNet achieved the lowest prediction error with a mean absolute error of 0.171 electron volts.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The researchers used a specific high-accuracy calculation method to verify two new material candidates found by the machine learning model.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The two verified materials were found to have direct energy gaps of 1.61 and 1.40 electron volts, with their electronic properties driven by the tin-iodine structure.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The study found that the new model's approach remains stable even when the internal connections are changed in several different ways.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote",
+  "quote not found verbatim in the source"
+ ]
+}

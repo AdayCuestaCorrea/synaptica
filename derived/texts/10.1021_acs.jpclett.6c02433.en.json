@@ -1,0 +1,27 @@
+{
+ "study_id": "10.1021/acs.jpclett.6c02433",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "6e351ada811acb07",
+ "generated_at": "2026-11-13T13:42:13+00:00",
+ "word_count": 49,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers focused on halting amyloid deposits caused by alpha-synuclein aggregation in Parkinson's disease by creating virtual molecules and testing purchasable versions in the lab.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "One compound slowed alpha-synuclein aggregation specifically when secondary nucleation was the primary driver, suggesting this computational approach is useful for identifying new protein aggregation inhibitors.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1083/jcb.202505164",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "b92a289a50d29f05",
+ "generated_at": "2026-11-13T13:33:19+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un modelo animal de C. elegans para estudiar cómo las células no neuronales afectan la muerte de las neuronas dopaminérgicas, descubriendo que las células gliales similares a astrocitos reducen los niveles protectores de dopamina al modificar la actividad de enzimas y transportadores, mientras que las neuronas en proceso de muerte exponen un marcador superficial llamado fosfatidilserina mediante transportadores específicos.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Las células epiteliales y musculares consumieron estas neuronas muertas mediante un receptor que se une a la fosfatidilserina, provocando una mayor pérdida neuronal; sin embargo, la eliminación del gen del receptor CED-1 redujo la pérdida de neuronas y mejoró los comportamientos motores en el modelo de la enfermedad.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que, dado que estos mecanismos se conservan en distintos modelos, la participación de múltiples tipos de órganos podría ser una característica común de la enfermedad de Parkinson, aunque esta hipótesis se basa únicamente en el alcance del estudio.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:11:40+00:00"
+ }
+}

@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1080/19490976.2026.2753908",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "49961f9b6556d098",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:15:57+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study was a cross-sectional investigation designed to check if specific gut bacteria patterns linked to brain fog are the same in different places.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers studied 221 outpatients with liver cirrhosis who had an average age of 58 and a median liver disease score of 12.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Participants were tested on their cognitive performance using a specific scoring system and had their stool DNA analyzed to identify bacteria.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Even after accounting for medical history and other factors, the patients' test scores for thinking skills differed depending on which country they were from.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Patients with worse cognitive test results consistently had higher levels of a specific type of bacteria called Streptococcus, regardless of their liver disease severity or other medications.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors conclude that the specific gut bacteria changes linked to brain fog are consistent across nations and are separate from the general progression of liver failure.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The results suggest a stable biological link between the gut, liver, and brain involving the movement of oral bacteria into the gut and changes in nitrogen processing.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

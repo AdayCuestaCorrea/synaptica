@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1007/s11060-026-05850-7",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "5b1f7f4dab60fb63",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:20:40+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a retrospective design where two blinded neurosurgeons evaluated MRI scans from 53 patients.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Two neurosurgeons independently reviewed the MRI images to ensure their assessments were separate and unbiased.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The Knosp grade was the strongest predictor for whether the tumor was completely removed during surgery.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "None of the 16 patients who had a wide tumor-arachnoid cleft larger than 2 millimeters experienced fluid leakage during surgery.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors state that their finding about the cleft grade is a preliminary hypothesis that needs to be tested in future studies.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The study concludes that it is not yet proven whether the new cleft grade adds useful information beyond existing height measurements.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording",
+  "quote not found verbatim in the source"
+ ]
+}

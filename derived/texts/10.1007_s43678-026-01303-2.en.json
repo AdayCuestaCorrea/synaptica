@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1007/s43678-026-01303-2",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "3b29857feb5f84ad",
+ "generated_at": "2026-11-13T13:38:18+00:00",
+ "word_count": 116,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers conducted a retrospective observational cohort study of adults aged 50 and older who underwent emergency CT scans for non-stroke reasons at two hospitals with round-the-clock scanning capabilities.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Among 6,535 eligible patients, 102 individuals (1.6%) showed covert brain infarction, a condition prevalent in this group which consisted mostly of older adults with high rates of hypertension, dyslipidemia, atrial fibrillation, diabetes, and smoking.",
+   "fact_ids": [
+    "f3",
+    "f6"
+   ]
+  },
+  {
+   "text": "Although more than nine out of ten patients with this finding received no changes to their treatment plans, the group later experienced one stroke or transient ischemic attack, four heart attacks, two new atrial fibrillation diagnoses, and fourteen deaths within one year, leading authors to call for more specific research and dedicated management pathways.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f7",
+    "f8"
+   ]
+  }
+ ]
+}

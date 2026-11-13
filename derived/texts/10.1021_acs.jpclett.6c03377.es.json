@@ -1,0 +1,29 @@
+{
+ "study_id": "10.1021/acs.jpclett.6c03377",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "23ecdd88919c2f45",
+ "generated_at": "2026-11-13T13:42:20+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores evaluaron un nuevo modelo computacional llamado FlyCrysNet frente a 17 otros modelos de aprendizaje automático para cristales, utilizando 357 tipos específicos de monocapas de perovskitas de haluro híbrido, y descubrieron que el modelo establecido ReciNet logró el menor error de predicción, con un error absoluto medio de 0,171 electronvoltios.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El equipo empleó un método de cálculo de alta precisión para verificar dos nuevos candidatos a materiales identificados por el modelo, los cuales mostraron brechas de energía directas de 1,61 y 1,40 electronvoltios impulsadas por la estructura estaño-yodo, mientras que el enfoque del nuevo modelo se mantuvo estable incluso cuando se alteraron las conexiones internas de varias maneras diferentes.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

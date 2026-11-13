@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1212/wnl.0000000000218703",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "67913939d2fdb465",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:17:39+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used an exploratory secondary analysis of a large randomized trial.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The analysis included 816 adults with acute stroke who received clot removal surgery.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Researchers compared patients assigned to an intensive blood pressure lowering plan against those on a standard plan.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The team tracked blood pressure readings taken over the first three days to calculate average levels and how much they fluctuated.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Men who received intensive blood pressure control had worse long-term recovery scores than those on the standard plan.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Women showed no clear difference in long-term recovery between the intensive and standard blood pressure plans.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "For men, higher average blood pressure in the first three days was linked to poorer recovery outcomes.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors note that results for other health measures were similar but require further testing.",
+   "subject": "humans"
+  },
+  {
+   "id": "f9",
+   "statement": "The researchers state these results are preliminary and need confirmation in new studies before guiding treatment.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

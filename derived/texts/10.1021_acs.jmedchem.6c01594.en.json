@@ -1,0 +1,28 @@
+{
+ "study_id": "10.1021/acs.jmedchem.6c01594",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "395782f6fac62a45",
+ "generated_at": "2026-11-13T13:41:41+00:00",
+ "word_count": 110,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Scientists systematically changed the chemical structure of two specific drugs to understand how those changes affect their ability to inhibit BAX, a key protein that controls cell death and links its abnormal activity to diseases like heart and brain disorders. Researchers used computer-based screening to find existing drugs that could be modified to stop BAX activity.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The new drug series showed better ability to stop BAX in lab tests, living cells, and human brain organoids while losing most of their original ability to target EGFR. The authors state that these new compounds are a good starting point for creating future treatments but do not claim they are ready for use.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  }
+ ]
+}

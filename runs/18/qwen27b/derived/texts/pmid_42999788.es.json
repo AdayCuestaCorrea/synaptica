@@ -1,0 +1,52 @@
+{
+ "study_id": "pmid:42999788",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "046614c9933ce0b1",
+ "generated_at": "2026-11-13T12:48:24+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron tejido cerebral de 17 personas con trastorno depresivo mayor y 20 individuos emparejados sin enfermedad psiquiátrica, centrándose en la corteza prefrontal dorsolateral, una región implicada en el pensamiento y la toma de decisiones.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Mediante un método de secuenciación denominado RiboMeth-seq, identificaron ubicaciones específicas de modificaciones químicas en el ARN ribosómico.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Aunque el patrón general de estas modificaciones fue mayoritariamente el mismo en ambos grupos, ocho sitios específicos del ARN ribosómico mostraron diferencias significativas en los niveles de modificación.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que el trastorno depresivo mayor se asocia con cambios dirigidos en posiciones ribosómicas concretas, en lugar de con un fallo general de la función ribosómica, lo que sugiere que estas alteraciones podrían contribuir a los problemas en la producción de proteínas en el cerebro.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:49:17+00:00"
+ }
+}

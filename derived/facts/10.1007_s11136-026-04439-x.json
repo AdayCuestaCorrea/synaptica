@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1007/s11136-026-04439-x",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "1c3db5c54cfdb925",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:21:01+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers used statistical regression to see how adverse life experiences and mood symptoms predicted quality of life.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The analysis showed that mood symptoms acted as a key link between adverse life experiences and lower quality of life.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Adverse life experiences did not directly predict quality of life on their own in this group.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Higher levels of mood symptoms were linked to lower quality of life scores.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The study found no direct connection between past adverse events and current quality of life without considering mood.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors note that it was previously unclear if adverse life experiences affect quality of life in adults with Down syndrome or if mood symptoms drive that link.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

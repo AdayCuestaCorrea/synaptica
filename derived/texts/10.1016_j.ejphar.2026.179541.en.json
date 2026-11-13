@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1016/j.ejphar.2026.179541",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "1f6deb15212fb8e9",
+ "generated_at": "2026-11-13T13:39:56+00:00",
+ "word_count": 134,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers investigated whether combining brivaracetam and sertraline works better than using them separately to stop seizures and fix related behavior problems in a mouse model of brain injury. The study used male BALB/c mice given pentylenetetrazol to create a seizure model known as kindling.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Scientists measured oxidative stress levels in brain tissue samples and examined the physical structure of the hippocampus under a microscope. Mice treated with both drugs showed fewer seizures and performed better on memory and learning tests than those treated with single drugs. The drug combination significantly reduced signs of anxiety and depression while lowering brain stress and tissue damage compared to single-drug treatments.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors state that their results suggest this combination could help patients but emphasize that more animal and human studies are needed to confirm the benefits.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ]
+}

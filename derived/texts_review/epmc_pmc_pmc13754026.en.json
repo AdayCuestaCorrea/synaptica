@@ -1,0 +1,14 @@
+{
+ "study_id": "epmc:PMC:PMC13754026",
+ "lang": "en",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "812162947e88b416",
+ "generated_at": "2026-11-13T13:35:59+00:00",
+ "word_count": 99,
+ "problems": [
+  "sentence 1: copies 8+ words from a source"
+ ],
+ "sentences": []
+}

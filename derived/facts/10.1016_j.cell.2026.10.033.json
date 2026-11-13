@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.033",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "c2536bb361679906",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:11:40+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used an iterative method to build shared structural and cellular definitions for the basal ganglia in humans, macaques, and marmosets.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The study produced a new resource called the Harmonized Ontology of Mammalian Brain Anatomy (HOMBA).",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The created atlases allow scientists to analyze how cells and molecules vary based on their specific location in the brain.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The system enables researchers to compare cellular, molecular, and functional differences between different primate species.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The project aims to connect large-scale brain imaging data with detailed cellular and tissue-level data.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

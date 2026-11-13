@@ -1,0 +1,50 @@
+{
+ "study_id": "10.1016/j.neuro.2026.103602",
+ "lang": "en",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "9f064901b3e41c9c",
+ "generated_at": "2026-11-13T13:31:25+00:00",
+ "word_count": 126,
+ "problems": [
+  "judge: Summary mentions brain scans/MRI, which the abstract does not report."
+ ],
+ "sentences": [
+  {
+   "text": "Researchers developed a guinea pig model to investigate brain damage from the nerve agent DFP, finding that while doses of 3, 4, or 6 mg/kg caused no or non-convulsive seizures, an 8 mg/kg dose reliably produced severe seizures lasting over 40 minutes without killing the animals.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Eight weeks after exposure, the animals exhibited high blood levels of nitrite and reactive oxygen species alongside low glutathione, increased inflammatory proteins in blood and spinal fluid, and brain scans revealing inflammation and nerve cell death in multiple regions.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors conclude that 8 mg/kg is the optimal dose for generating a model displaying strong seizure, inflammation, and damage symptoms without mortality, suggesting the guinea pig model is useful for testing new treatments for nerve agent poisoning.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Summary mentions brain scans/MRI, which the abstract does not report.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:05:33+00:00"
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s12035-026-06348-z",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "cf52e51cb22aac53",
+ "generated_at": "2026-11-13T13:30:50+00:00",
+ "word_count": 119,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers utilized two types of diabetic mouse models to investigate the condition, observing that these animals exhibited memory deficits, diminished new neuron growth in the hippocampus, and activated brain immune cells.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Analysis of brain immune cells cultured under high-sugar conditions revealed that elevated blood glucose triggered a shift in energy production, resulting in a specific chemical modification on the protein HIF-1α, which the study identifies as a key link between sugar metabolism and observed brain impairments.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f6"
+   ]
+  },
+  {
+   "text": "Administering a drug that inhibited this altered energy pathway restored metabolic function, decreased brain inflammation, and enhanced memory in the mice, leading the authors to propose that blocking this specific pathway may represent a future treatment option for diabetes-related brain issues.",
+   "fact_ids": [
+    "f5",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:03:31+00:00"
+ }
+}

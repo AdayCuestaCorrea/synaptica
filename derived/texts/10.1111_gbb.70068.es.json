@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1111/gbb.70068",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "c8a861b39ee9fb16",
+ "generated_at": "2026-11-13T13:34:07+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un estudio de cohorte longitudinal que involucró a 837 personas que experimentaron trauma infantil midió cómo cambió la conectividad funcional de las ondas cerebrales alfa frontales, una medida de la actividad sincronizada entre regiones cerebrales, desde la adolescencia hasta la adultez temprana.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Se observaron patrones específicos: el asalto sexual infantil se asoció con una conectividad inicial más elevada pero con una menor mejora a lo largo del tiempo, mientras que portar el gen APOEε4 estuvo vinculado a niveles iniciales más bajos en la región frontocentral izquierda seguidos de un aumento más pronunciado; además, en los portadores del gen, el asalto se correlacionó con niveles iniciales más altos y un crecimiento más lento de las conexiones frontales.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Estos patrones de conectividad se vincularon fuertemente con síntomas de trastorno de estrés postraumático y trastorno por uso de alcohol, aunque no se encontró una conexión directa entre el gen y el desarrollo de dichos síntomas, lo que lleva a los autores a sugerir que los resultados podrían ayudar a identificar grupos de riesgo para esfuerzos de prevención.",
+   "fact_ids": [
+    "f7",
+    "f8",
+    "f9"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:13:43+00:00"
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "study_id": "10.1007/s00285-026-02492-1",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "4496087c9dc53132",
+ "generated_at": "2026-11-13T13:30:05+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Este estudio computacional aborda la brecha existente en los modelos que asumen una estructura de red cerebral fija, en lugar de tratar la red como una variable desconocida por descubrir. Los investigadores desarrollaron un nuevo marco matemático que infiere un grafo o flujo de corriente específico que vincula dónde comienza un estímulo con dónde se produce una reacción. El modelo propuesto utiliza un tipo concreto de problema de transporte óptimo en el que la función de coste fomenta la formación de vías agrupadas y ramificadas.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los autores demostraron matemáticamente que existen soluciones tanto para las versiones discretas como continuas de su modelo y añadieron una nueva extensión estocástica que combina el transporte ramificado con costes de control basados en trayectorias. El hallazgo principal es que este método ofrece una vía para descubrir cómo viajan las señales a través del cerebro, en lugar de simplemente controlarlas en una trayectoria predefinida.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:00:28+00:00"
+ }
+}

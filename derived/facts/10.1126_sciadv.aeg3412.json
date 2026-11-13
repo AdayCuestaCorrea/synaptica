@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1126/sciadv.aeg3412",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "a3f132962d0214b8",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:09:56+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a cross-sectional design analyzing MRI scans from 2187 people with multiple sclerosis and normative data.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Gray matter shrinkage was linked to how central a brain region is in functional networks and was limited by both physical and functional brain connections.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Damage to connections caused by lesions and genetic vulnerability had only minor effects on the observed brain atrophy.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The study found that network mechanisms drive neurodegeneration in MS and might work differently depending on the specific disease subtype or phase.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The patterns of brain shrinkage were tied to connectivity issues in specific areas including the visual, sensorimotor, and temporal cortex, as well as the hippocampus, amygdala, and thalamus.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Measuring network connectivity improved the ability to explain how brain atrophy progresses over time in people with MS.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1111/jns.70178",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "30cd5777e2df32e4",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:17:10+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers studied adult patients with Charcot-Marie-Tooth disease in Romania and France.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study used a cross-sectional design to test the new questionnaire's reliability and ability to distinguish between different levels of disability.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The new tool measures four specific areas including symptoms, work impact, social life, and healthcare needs using a total of 38 items.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The questionnaire showed strong reliability in most areas, but the section on healthcare needs was less consistent among French participants.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Results indicated that the tool can detect differences in unmet needs based on the country's healthcare system.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The new questionnaire produced results that matched those from standard generic quality-of-life measures.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors note that the study needs confirmation in larger groups of patients before the tool is fully established.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

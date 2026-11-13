@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1080/21688370.2026.2762719",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "f2eb8e89c0b5d1b0",
+ "generated_at": "2026-11-13T13:33:12+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores utilizaron un modelo de ratas dividido en tres grupos: controles, ratas con fibromialgia inducida y ratas con fibromialgia tratadas con células madre. El grupo con fibromialgia mostró comportamientos similares a la ansiedad, neurodegeneración y daño en la barrera hematoencefálica, junto con niveles elevados de las proteínas NLRP3 e IL-1β y mastocitos activos. Estas ratas también presentaron niveles reducidos de proteínas de salud cerebral, incluyendo Calbindin D-28k, Beclin-1 y LC3.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Las ratas que recibieron células madre mesenquimales derivadas de la médula ósea mostraron una mejora en el comportamiento, una restauración de la estructura tisular y una normalización de los marcadores inflamatorios y de las proteínas protectoras. Los autores sugieren que este es uno de los primeros estudios que demuestran que la terapia con células madre puede ayudar potenciando la autofagia, calmando los mastocitos y reduciendo vías inflamatorias específicas en el cerebelo.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00",
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:10:42+00:00"
+ }
+}

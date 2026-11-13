@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1007/s10616-026-01105-5",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "41589e66894319a1",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:13:11+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a cell culture model where HT22 neurons were subjected to oxygen and glucose deprivation to simulate injury.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "Scientists measured the levels of COX1 protein and RNA in the injured cells using standard laboratory techniques.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The researchers tested how well the cells survived, how many divided, and how many died after the injury.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The injury caused a significant drop in the amount of COX1 protein inside the neurons.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Forcing the cells to produce more COX1 helped them survive better, stopped them from dying, lowered harmful chemicals, and boosted protective enzymes.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest that COX1 protects neurons by turning on a specific signaling pathway that fights stress and cell death.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source",
+  "numbers not in the quote"
+ ]
+}

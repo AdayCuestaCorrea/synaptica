@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1007/s11538-026-01792-3",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "32a4b2774e4c1a21",
+ "generated_at": "2026-11-13T13:37:36+00:00",
+ "word_count": 94,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers employed a computational model of the lateral habenula and ventral tegmental area to simulate neural circuits, adjusting specific ion channels and receptors to represent distinct firing patterns for normal and depressed states.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The study measured how varying deep brain stimulation settings altered the mathematical distance between circuit states, using a clustering method to classify the circuit as normal or depressed and finding that specific parameters could shift the state from depressed to normal.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors conclude that these results offer potential insights for future research but do not claim to identify depression directly.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ]
+}

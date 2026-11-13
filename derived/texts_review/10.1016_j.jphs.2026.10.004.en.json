@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1016/j.jphs.2026.10.004",
+ "lang": "en",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "b75e4af375e1ef93",
+ "generated_at": "2026-11-13T13:31:20+00:00",
+ "word_count": 81,
+ "problems": [
+  "judge: Calls the cells 'human cell lines' which is not stated in the abstract."
+ ],
+ "sentences": [
+  {
+   "text": "Researchers first used computer modeling to identify common targets for two drugs and ALS, pinpointing six specific proteins as the main interaction points.",
+   "fact_ids": [
+    "f1",
+    "f6"
+   ]
+  },
+  {
+   "text": "The study tested the drugs in human cell lines and genetically modified mice that model ALS, where the treatment slowed disease progression, extended survival, improved movement, and saved motor neurons.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors found the drugs worked by activating a specific signaling pathway that stops inflammation and cell death, concluding this mix is a promising strategy for treating ALS.",
+   "fact_ids": [
+    "f5",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Calls the cells 'human cell lines' which is not stated in the abstract.",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:04:38+00:00"
+ }
+}

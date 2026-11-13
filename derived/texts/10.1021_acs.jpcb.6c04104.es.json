@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1021/acs.jpcb.6c04104",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "82e1747b2a84b79b",
+ "generated_at": "2026-11-13T13:42:05+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron modelos computacionales entrenados con 32 455 puntos de datos experimentales de 4 796 pares distintos de líquidos iónicos, empleando una división estricta a nivel de par para evitar la contaminación que habría introducido una división estándar al incluir incorrectamente el 59,6% de los datos de prueba en el conjunto de entrenamiento.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El pipeline evaluó seis tipos de algoritmos, incluyendo regresión y redes neuronales, y observó que combinar los cuatro modelos superiores alcanzó una precisión media de predicción de 0,752, prediciendo con mayor exactitud la densidad y el índice de refracción.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Como concluyeron los autores, el sistema final cribó 80 000 pares virtuales de líquidos iónicos para generar una lista priorizada de futuros experimentos basada en puntuaciones de incertidumbre y novedad.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

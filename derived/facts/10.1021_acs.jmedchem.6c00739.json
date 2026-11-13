@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1021/acs.jmedchem.6c00739",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "ce6de3e7d0d8da0d",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:24:55+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers created a library of 23 different chemical compounds based on alpha-lipoic acid.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "One specific compound, D14, showed a massive improvement in stopping iron-related cell death compared to the original drug, while keeping its ability to fight inflammation.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The study found that D14 works by cleaning up harmful free radicals and boosting a specific internal pathway to protect cells from dying.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The compound also blocked a signaling chain that triggers inflammation and lowered the release of specific inflammatory proteins.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "When tested on rats with induced strokes, the new compound reduced brain damage and improved behavior better than the original drug and an existing medical treatment.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Early safety checks suggested that the compound does not appear to be highly toxic.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors conclude that this specific molecule is a strong candidate for developing new stroke treatments.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

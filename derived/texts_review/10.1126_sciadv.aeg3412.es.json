@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1126/sciadv.aeg3412",
+ "lang": "es",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "4bebb2f221e53886",
+ "generated_at": "2026-11-13T13:26:37+00:00",
+ "word_count": null,
+ "problems": [
+  "judge: Mischaracterizes the study as purely cross‑sectional, omitting its longitudinal prediction component."
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron resonancias magnéticas de 2187 personas con esclerosis múltiple junto a datos de referencia mediante un diseño transversal.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "La pérdida de materia gris se vinculó con el grado de centralidad de una región cerebral en las redes funcionales y fue limitada tanto por las conexiones físicas como por las funcionales del cerebro, mientras que el daño derivado de las lesiones y la vulnerabilidad genética tuvieron efectos menores sobre la atrofia cerebral observada, con patrones asociados a problemas de conectividad en áreas que incluyen la corteza visual, la corteza somatosensorial, la corteza temporal, así como el hipocampo, la amígdala y el tálamo.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f5"
+   ]
+  },
+  {
+   "text": "El estudio encontró que los mecanismos de red impulsan la neurodegeneración en la esclerosis múltiple y podrían funcionar de manera distinta según el subtipo o fase de la enfermedad específica, destacando que medir la conectividad de la red mejoró la capacidad para explicar cómo progresa la atrofia cerebral a lo largo del tiempo en personas con esta patología.",
+   "fact_ids": [
+    "f4",
+    "f6"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00",
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Mischaracterizes the study as purely cross‑sectional, omitting its longitudinal prediction component.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:51:21+00:00"
+ }
+}

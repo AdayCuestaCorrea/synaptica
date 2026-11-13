@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1080/19490976.2026.2753908",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "30870665207b525c",
+ "generated_at": "2026-11-13T13:32:58+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Esta investigación transversal examinó a 221 pacientes externos con cirrosis hepática para determinar si los patrones de bacterias intestinales asociados al brain fog varían según la ubicación; los participantes, con una edad media de 58 años y una puntuación mediana de enfermedad hepática de 12, sometieron a pruebas cognitivas y análisis de ADN fecal para identificar especies bacterianas.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Tras ajustar por el historial médico, las puntuaciones de habilidades cognitivas difirieron según el país, aunque se encontraron consistentemente niveles más altos de la bacteria Streptococcus en pacientes con peores resultados cognitivos, independientemente de la gravedad de la enfermedad hepática; estos hallazgos sugieren un vínculo biológico estable entre el intestino, el hígado y el cerebro que implica el movimiento de bacterias orales y el procesamiento de nitrógeno.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f7"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que estos cambios específicos de bacterias intestinales vinculados al brain fog son consistentes a nivel internacional y se separan de la progresión general del fallo hepático.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 3,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:10:39+00:00"
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1016/j.celrep.2026.118092",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "ce58f7dbca7451e0",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:22:49+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a worm model to investigate how specific bacteria protect motor neurons from degeneration.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Feeding worms the bacterium Comamonas aquatica reduced nerve damage caused by high levels of the TIR-1/SARM1 protein.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The bacteria worked by supplying vitamin B12, which lowered harmful homocysteine levels in the worms' intestines.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The authors suggest these findings help explain how gut bacteria might protect against human neurodegenerative diseases.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

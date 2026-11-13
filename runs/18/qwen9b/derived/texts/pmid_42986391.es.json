@@ -1,0 +1,42 @@
+{
+ "study_id": "pmid:42986391",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "57a43194cc077f10",
+ "generated_at": "2026-11-13T12:33:09+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron un modelo de ratón en el que las células fotorreceptoras de bastón expresan un sensor fluorescente para detectar glutamato, lo que les permite identificar eventos de liberación de vesículas individuales; estas mediciones revelaron que la liberación de glutamato desde las células de bastón ocurre de forma aleatoria a una tasa comprendida entre 20 y 40 vesículas por segundo por cinta, un hallazgo coherente con mediciones eléctricas independientes que sugieren una tasa de aproximadamente 38 vesículas por segundo por cinta.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "El estudio encontró que la liberación de glutamato desde los bastones filtra los cambios rápidos, con una caída en la potencia de la señal a medida que la frecuencia aumenta de 1 a 10 Hz; los autores sugieren que mantener tasas de liberación constantes frente a diferentes niveles de luz ayuda a transmitir señales de adaptación a la luz hacia las neuronas siguientes, afirmando que esta línea específica de ratones es una herramienta útil para estudiar cómo se procesa la información lumínica en la primera sinapsis de la retina.",
+   "fact_ids": [
+    "f5",
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:33:35+00:00"
+ }
+}

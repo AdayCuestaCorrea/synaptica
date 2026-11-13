@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1126/sciadv.aeh4857",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "13fed22c9104f8e9",
+ "generated_at": "2026-11-13T13:26:52+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores comprobaron si la proteína RIM es necesaria en igual medida en sinapsis con probabilidades de liberación natural distintas, silenciando entradas nerviosas específicas en moscas de la fruta mediante una neurotoxina; observaron que eliminar RIM detuvo las señales nerviosas en sinapsis rápidas de alta liberación, pero no en las sinapsis lentas de baja liberación cercanas.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Imágenes de alta resolución mostraron que la proteína se sitúa más cerca de los canales de calcio en las sinapsis rápidas que en las lentas, donde ayuda a reorganizar estos canales para aumentar la preparación de las vesículas durante el fortalecimiento a corto plazo, aunque no es necesaria para el fortalecimiento a largo plazo en el sitio lento.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores señalan que comprender cómo funciona la RIM en sinapsis con tasas de liberación variables ha sido difícil de resolver antes de este trabajo.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:51:23+00:00"
+ }
+}

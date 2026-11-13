@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1007/s11571-026-10577-2",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "901b085a83e05de4",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:13:29+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study proposes a mathematical framework called Geometro-Diffusion Theory to describe how color experiences are geometrically organized.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The model was trained using data from a human brain network map containing 76 regions, using 16 specific colors to learn how color information is distributed.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "When tested on 256 new colors, the model's predictions matched human perception standards almost as well as direct mathematical color distance calculations.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The study found that simulating specific types of nonlinear neuron activity produced results that closely matched the model's geometric predictions.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors conclude that the brain likely uses nonlinear neuron activity to transfer and express the geometric relationships between different colors.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors state that their findings offer a computational candidate for how color is organized, supported by comparisons to empirical data, but do not prove the theory is the final answer.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

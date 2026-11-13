@@ -1,0 +1,59 @@
+{
+ "study_id": "10.1073/pnas.2611353123",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "ade1cdc89fb5de98",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:14:50+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a large cohort study design that combined data from 42,039 people in two major databases.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study measured white matter free water using diffusion MRI to track extracellular water levels and tissue microstructure.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Genetic analysis found 27 specific gene locations linked to white matter free water and highlighted 88 genes for further study.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The study found that both inherited genetic risks and actual MRI measurements of white matter water were linked to various neurological conditions.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Higher levels of white matter free water on scans were strongly connected to stroke and dementia.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "People with higher initial levels of white matter free water were more likely to progress from mild cognitive impairment to Alzheimer's disease.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "Special genetic analysis suggested a two-way link between high blood pressure and white matter free water levels.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "Protein analysis identified two specific proteins that might explain how blood pressure affects white matter water levels.",
+   "subject": "humans"
+  },
+  {
+   "id": "f9",
+   "statement": "The authors conclude that white matter free water is a useful imaging marker for assessing genetic and vascular risks for neurological disorders.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

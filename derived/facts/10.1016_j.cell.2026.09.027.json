@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1016/j.cell.2026.09.027",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "f87b18b426668715",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:10:41+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers built a detailed map of the human basal ganglia by combining two specific sequencing technologies on tissue from four healthy people.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Specific types of neurons and non-neuronal cells showed unique molecular and location patterns that varied depending on which part of the basal ganglia they were in.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The location of RNA inside individual cells helped reveal the physical size of the cell bodies and the direction of their connections within the brain's pathways.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Certain groups of support cells were found mostly at the edges between two brain zones, while a specific type of interneuron was found only inside one of those zones.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Comparing human data with other primates showed that some brain structures are organized similarly across species, while other details are unique to humans.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors note that before this work, the complete list of cell types and their exact arrangement in the human basal ganglia was not fully understood.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1212/nxi.0000000000200665",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "9c5e8d961e93d854",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:17:21+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study aimed to understand how B-cell levels before and after ocrelizumab treatment relate to disease outcomes in people with relapsing or primary progressive multiple sclerosis.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers analyzed blood samples from 2,370 people with multiple sclerosis across three Phase 3 trials to track changes in B-cell populations.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Treatment with ocrelizumab quickly reduced the total number of B cells in people with relapsing multiple sclerosis.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "People with relapsing multiple sclerosis who still had detectable B cells after treatment faced a higher risk of developing new or enlarging brain lesions.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "In people with primary progressive multiple sclerosis, higher levels of a specific B-cell type called plasmablasts were linked to greater loss of volume in the thalamus.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "People with relapsing multiple sclerosis treated with interferon beta-1a who had both high B-cell counts and high neurofilament light protein levels were at significantly increased risk of worsening disability.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "Switching to ocrelizumab for those with high B-cell and neurofilament light levels nearly cut the risk of disability progression by four times.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The study authors state that their findings regarding the link between detectable B cells and new lesions are robust based on the double-blind treatment period data.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,46 @@
+{
+ "study_id": "pmid:42971231",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "42edb4ac5ed72cf1",
+ "generated_at": "2026-11-13T12:32:29+00:00",
+ "word_count": 107,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers analyzed data from 235,727 deliveries in public hospitals across Botswana between August 2014 and August 2022, where staff performed surface examinations on every live infant and stillbirth within a large birth outcomes surveillance study design.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "While neural tube defects were more common when conception occurred during the early dry season compared to the late dry season, the authors found no evidence of increased risk for these defects or major structural abnormalities in over 11,000 cases of dolutegravir exposure at conception.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors conclude that their findings offer reassurance regarding the safety of using dolutegravir during pregnancy, though they do not generalize beyond the specific population studied.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:32:34+00:00"
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1038/s41593-026-02514-7",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "d2af47048fc8284d",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:11:54+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study compared two specific brain regions: the middle temporal area, which handles visual motion, and the dorsolateral prefrontal cortex, which handles decisions and rewards.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Monkeys performed a task requiring them to combine motion and reward information while researchers recorded activity in both brain regions.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The middle temporal area kept motion and reward information separate, while the dorsolateral prefrontal cortex combined them into a single decision-related format.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Researchers used a computer model trained to mimic the brain's data formatting to predict how stimulating these areas would affect behavior.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "Stimulating the middle temporal area influenced specific choices, while stimulating the dorsolateral prefrontal cortex led to outcomes where one option dominated completely.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest that the brain's modular structure allows it to flexibly change how information is formatted to support complex actions.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

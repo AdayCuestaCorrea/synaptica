@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1016/j.freeradbiomed.2026.11.025",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "26bfe8326cc63879",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:23:25+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a mouse model with postnatal neuronal GPX4 deficiency to investigate its role in traumatic brain injury.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Mice lacking neuronal GPX4 showed worse brain swelling, higher intracranial pressure, and greater blood leakage than control mice after injury.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Giving the drug ferrostatin-1 one and six hours after injury reduced cell death and brain damage in the deficient mice.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The researchers note that their genetic model starts losing GPX4 early in development, so it does not show the effects of losing the enzyme only in adulthood.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors state that while their results strongly suggest ferroptosis is a key cause of damage, other injury mechanisms might also be involved.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

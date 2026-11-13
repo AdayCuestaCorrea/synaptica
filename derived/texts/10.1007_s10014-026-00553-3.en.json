@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1007/s10014-026-00553-3",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "e2859059e0e4d778",
+ "generated_at": "2026-11-13T13:36:38+00:00",
+ "word_count": 88,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers reported a case of a 13-month-old girl with a bleeding tumor in her left parietal region that exhibited embryonal-like traits, including high cell density and widespread nuclear expression of the BCOR protein.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Although initial targeted RT-PCR and panel-based genomic tests failed to identify the mutation, follow-up whole-genome and RNA sequencing confirmed an in-frame duplication of 126 base pairs in exon 15 of the BCOR gene.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors noted that after complete surgical removal and multimodal therapy, the patient remained free of disease progression for 18 months.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

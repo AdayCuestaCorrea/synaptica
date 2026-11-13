@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1016/j.cell.2026.09.027",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "65cc8a2728fef3bf",
+ "generated_at": "2026-11-13T13:27:27+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores elaboraron un mapa detallado de los ganglios basales humanos combinando dos tecnologías de secuenciación en tejido de cuatro individuos sanos, abordando así una falta previa de conocimiento completo sobre los tipos celulares y su disposición precisa en esta región.",
+   "fact_ids": [
+    "f1",
+    "f6"
+   ]
+  },
+  {
+   "text": "El estudio reveló que tipos celulares neuronales y no neuronales específicos mostraron patrones moleculares y de ubicación únicos, donde la posición del ARN indicaba el tamaño del cuerpo celular y la dirección de las conexiones, mientras que ciertas células de soporte se agrupaban en los límites de las zonas y un tipo específico de interneurona residía únicamente dentro de una sola zona.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Las comparaciones con otros primates indicaron que, aunque algunas estructuras cerebrales comparten una organización similar entre especies, otros detalles permanecen exclusivos de los humanos, como concluyeron los autores.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:53:25+00:00"
+ }
+}

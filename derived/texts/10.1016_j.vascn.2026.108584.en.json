@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1016/j.vascn.2026.108584",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "cb1f254f8f528158",
+ "generated_at": "2026-11-13T13:41:07+00:00",
+ "word_count": 101,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers analyzed public gene expression data from the GEO database using three machine learning methods to identify shared genetic factors between bipolar disorder and osteoporosis, ultimately selecting three specific genes from a list of 20 for further investigation.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f4"
+   ]
+  },
+  {
+   "text": "In a laboratory model where mouse bone cells were exposed to hydrogen peroxide, two of these genes showed decreased activity while the third increased, and the analysis linked these genetic changes to brain development, metabolism, and the immune system.",
+   "fact_ids": [
+    "f3",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors conclude that these results are preliminary and require additional testing in living organisms and patients before any broader interpretations can be made.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ]
+}

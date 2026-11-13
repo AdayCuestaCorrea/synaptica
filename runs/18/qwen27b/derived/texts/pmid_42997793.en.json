@@ -1,0 +1,53 @@
+{
+ "study_id": "pmid:42997793",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "6fa390d1bd8199ac",
+ "generated_at": "2026-11-13T12:50:57+00:00",
+ "word_count": 135,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A systematic review examined brain connectivity in adults aged 18 to 70 with major depressive disorder to determine if pre-treatment activity patterns were linked to changes in symptoms.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "In some studies, stronger initial connections between the subgenual cingulate and the right prefrontal cortex were linked to less improvement, whereas stronger connections with the medial orbitofrontal cortex were linked to greater symptom improvement.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "These associations were most frequently observed in studies using repetitive transcranial magnetic stimulation, particularly with personalized targeting, although the quality of the brain scans was rated as adequate with an average score of 16.1 out of 20.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Because the results varied across studies and did not allow for detailed statistical analysis of specific brain locations, the authors state that larger future studies are required to confirm these findings and determine their clinical utility.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:51:46+00:00"
+ }
+}

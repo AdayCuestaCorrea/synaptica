@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1212/wnl.0000000000218703",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "13b1c3be8029016f",
+ "generated_at": "2026-11-13T13:34:43+00:00",
+ "word_count": 121,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers conducted an exploratory secondary analysis of a large randomized trial involving 816 adults with acute stroke who underwent clot removal surgery, comparing those assigned to an intensive blood pressure lowering plan against those on a standard plan.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The team tracked blood pressure readings over the first three days to calculate average levels and fluctuations, finding that men receiving intensive control had worse long-term recovery scores than those on the standard plan, while women showed no clear difference between the two approaches.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "For men, higher average blood pressure during the initial three days was linked to poorer recovery outcomes, though the authors note that results for other health measures require further testing and state these findings are preliminary before guiding treatment.",
+   "fact_ids": [
+    "f7",
+    "f8",
+    "f9"
+   ]
+  }
+ ]
+}

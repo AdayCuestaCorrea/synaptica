@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1016/j.neulet.2026.138793",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "33fb5c8604455719",
+ "generated_at": "2026-11-13T13:40:37+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores probaron ocho versiones distintas de la proteína CXCL9 y péptidos para separar el núcleo N-terminal de la cola C-terminal, descubriendo que la CXCL9 fomenta el crecimiento de fibras nerviosas y la supervivencia celular en células PC12 y neuronas simpáticas sin necesidad del receptor CXCR3.",
+   "fact_ids": [
+    "f2",
+    "f1"
+   ]
+  },
+  {
+   "text": "Las versiones de la proteína que carecen de la cola C-terminal no mostraron capacidad para sostener el crecimiento nervioso ni activar las vías de señalización ERK1/2 y Akt, mientras que la cola C-terminal por sí sola fue suficiente para restaurar el crecimiento nervioso, la supervivencia celular y el rescate neuronal, independientemente del vehículo proteico empleado.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que los efectos neurotróficos de la CXCL9 provienen específicamente de su cola C-terminal básica y no de su dominio N-terminal estándar.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ]
+}

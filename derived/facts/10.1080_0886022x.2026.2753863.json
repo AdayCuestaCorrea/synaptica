@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1080/0886022x.2026.2753863",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "092ea15374ca82c8",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:15:22+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a cross-sectional study design to examine 562 people who were receiving peritoneal dialysis.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Sleep quality was measured using the Pittsburgh Sleep Quality Index, while sleep duration was recorded in hours per night.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Sarcopenia was identified using the 2025 Asian Working Group criteria.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Sleep duration had a U-shaped relationship with sarcopenia, where the risk was lowest at about 7.29 hours of sleep per night.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Poorer sleep quality, indicated by a higher PSQI score, was linked to a higher likelihood of sarcopenia.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Poor sleep quality and short sleep duration were linked to sarcopenia partly through their connection to higher body fat percentage, but long sleep duration showed no such indirect link.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "While albumin levels interacted with body fat in the analysis, this interaction did not significantly change the indirect pathway linking sleep to sarcopenia.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors state that because the study was cross-sectional, the results suggest associations but cannot prove that sleep problems cause sarcopenia.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

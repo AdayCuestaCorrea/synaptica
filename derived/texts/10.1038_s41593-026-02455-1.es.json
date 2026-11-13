@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1038/s41593-026-02455-1",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "99e8ad28eb2af348",
+ "generated_at": "2026-11-13T13:28:41+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un metaanálisis de datos de genoma completo en humanos identificó 343 ubicaciones genéticas independientes vinculadas al dolor multidimensional, que incluyen 92 sitios previamente no asociados; al analizar por separado según el sexo, 115 de estas ubicaciones se encontraron en hombres frente a solo 12 en mujeres.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Un análisis posterior identificó 490 genes específicos que influyen en el dolor mediante su actividad en el cerebro y la sangre, mientras que las pruebas estadísticas sugieren un vínculo causal entre estas variantes del dolor y trastornos como los psiquiátricos, los de uso de sustancias y niveles elevados de proteína C reactiva, junto con conexiones con rasgos observados en las imágenes de resonancia magnética cerebral.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores señalan que sus hallazgos amplían la comprensión actual de la genética del dolor, pero subrayan que las conexiones complejas con otros trastornos y vías biológicas requieren más investigación.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:56:29+00:00"
+ }
+}

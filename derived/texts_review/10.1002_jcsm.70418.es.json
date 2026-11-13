@@ -1,0 +1,39 @@
+{
+ "study_id": "10.1002/jcsm.70418",
+ "lang": "es",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "589994681911ae7c",
+ "generated_at": "2026-11-13T13:29:25+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: 'causal' is not in the English sentence"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores diseñaron un nanotransportador de ZIF-8 para administrar el fármaco tectorigenina de manera más eficaz, probándolo en un modelo de laboratorio de células musculares en ayunas y en un modelo de ratón en el que se lesionó el nervio ciático para provocar atrofia.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "En el modelo celular, el tratamiento con el nanotransportador restauró el ancho del tubo muscular hasta el 92% de los niveles normales, mientras que en los ratones, la lesión nerviosa provocó que la masa muscular de las piernas cayera un 35% y el tamaño de las fibras se redujera un 41% antes de que el nanotransportador aumentara la masa al 74% y el tamaño de las fibras al 93%, observándose además en los ratones tratados una mejor capacidad de movimiento.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que el tratamiento funciona al calmar los sistemas de degradación específicos en las células musculares, potenciar las señales de construcción de proteínas y reducir el estrés oxidativo y la inflamación, concluyendo que este enfoque de nanotecnología ofrece una estrategia prometedora para tratar la pérdida muscular causada por daños nerviosos.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

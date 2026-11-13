@@ -1,0 +1,27 @@
+{
+ "study_id": "10.1212/wnl.0000000000218742",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "4a1256c01fe4fb9e",
+ "generated_at": "2026-11-13T13:35:06+00:00",
+ "word_count": 87,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers conducted a retrospective study examining patients who underwent mechanical thrombectomy for large vessel blockages in the front part of the brain, requiring each participant to have a specific type of MRI scan taken before the clot-removal procedure.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Having this bleeding pattern before treatment was linked to a much higher chance of needing help with daily activities three months later, though the authors note that because the study looked back at past records and the bleeding events were rare, the results need more research to confirm them.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  }
+ ]
+}

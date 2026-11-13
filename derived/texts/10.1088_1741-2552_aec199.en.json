@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1088/1741-2552/aec199",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "39e123e54a51a234",
+ "generated_at": "2026-11-13T13:43:17+00:00",
+ "word_count": 136,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers conducted a randomized, sham-controlled crossover study with ten healthy human participants who performed a P300 speller task before and after stimulation while an attention-demanding task was active. The team measured P300 peak amplitudes, the ability to distinguish targets from non-targets, and offline classification accuracy across different brain channels.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Real stimulation led to a statistically significant improvement in offline discrimination accuracy specifically at the P4 brain channel compared to sham stimulation, yet it did not result in improved real-time character selection performance. Participants with lower initial performance showed larger improvements, though these gains were not statistically significant, suggesting tDCS might help this specific group more.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors conclude that while the method is feasible for modulating brain activity, more research is needed to understand how these local changes affect the full decoding process.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.biopha.2026.120007",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "60d1edf5e87032d7",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:22:12+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a mouse model of Parkinson's disease created by rotenone exposure to test the effects of a specific probiotic.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The probiotic treatment reversed the overgrowth of enteroendocrine cells in the colon and lowered alpha-synuclein buildup in both the gut and the brain.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "High levels of phosphorylated alpha-synuclein were found in specific gut and brain regions, and the probiotic reduced these levels.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Researchers used zebrafish to show that the probiotic directly triggers activity in enteroendocrine cells.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The probiotic treatment raised levels of calcium and vitamin D in the blood of the mice.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Analysis showed that the probiotic changed the composition of gut bacteria, and these changes were linked to alpha-synuclein levels and calcium regulation.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors conclude that the probiotic helps reduce Parkinson's-like symptoms by influencing the connection between the gut and the brain.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

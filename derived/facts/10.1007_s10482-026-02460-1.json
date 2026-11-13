@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s10482-026-02460-1",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "e5ce11a54d112159",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:20:35+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers ran a clinical trial to see if a specific probiotic could reduce anxiety and insomnia in college students.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "A total of 113 students finished the study, split between a group taking a placebo and a group taking the probiotic.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Students taking the probiotic showed lower scores for both anxiety and insomnia compared to those taking the placebo.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Analysis of gut bacteria revealed distinct changes in composition and diversity between the two groups after the trial.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The probiotic group had lower overall microbial diversity but higher levels of Bifidobacterium and Lactobacillus bacteria.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The probiotic group also showed significantly lower levels of Bacteroides and Prevotella bacteria.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors suggest these results could support using this probiotic as a treatment for anxiety and insomnia in future clinical settings.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

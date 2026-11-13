@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1016/j.neuron.2026.10.006",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "50468d7ab217d1ec",
+ "generated_at": "2026-11-13T13:40:42+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Para abordar la falta de un sistema molecular común que conecte los tipos celulares de la médula espinal humana con los modelos animales, los investigadores analizaron muestras de humanos, macacos y ratones, identificando 111 grupos distintos de tipos celulares que resultaron consistentes entre estas especies.",
+   "fact_ids": [
+    "f5",
+    "f1"
+   ]
+  },
+  {
+   "text": "Aunque la identidad y la organización en capas de las células de la médula espinal son similares entre especies, el número de células y sus niveles de expresión génica difieren, encontrándose las mayores diferencias en la región del cuerno dorsal, donde ocurre un cambio específico en los subunidades de los receptores de glicina que solo se da en los primates.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los modelos computacionales revelaron un patrón compartido de factores de transcripción e identificaron secuencias de ADN específicas que controlan cómo los vectores virales acceden a una población única de células en el cuerno dorsal.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "study_id": "10.1016/j.crmeth.2026.101567",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "3e0f162fe27c68b3",
+ "generated_at": "2026-11-13T13:39:43+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores crearon una plataforma computacional en línea para visualizar y comparar datos de células individuales del ganglio basal, empleando cuatro tecnologías específicas, entre ellas 10X Multiome y secuenciación del metiloma de núcleos únicos, para generar conjuntos de datos multi-ómicas. Este recurso permite comparar los patrones de regulación génica en cuatro especies: humanos, macacos, marmosetos y ratones.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los análisis de muestras en la plataforma muestran cómo la regulación génica varía según el tipo celular, revelan elementos epigenómicos compartidos o únicos entre especies y vinculan los cambios epigenómicos con la transcripción génica. Los autores concluyen que este recurso sirve de base para futuras investigaciones sobre la función cerebral y los mecanismos de las enfermedades.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  }
+ ]
+}

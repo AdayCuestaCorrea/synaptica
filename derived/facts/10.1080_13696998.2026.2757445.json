@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1080/13696998.2026.2757445",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "6bd5aa28db8e91de",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:15:42+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used indirect treatment comparisons to evaluate how well nusinersen and onasemnogene abeparvovec-brve work compared to each other.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers compared data from nusinersen trials against the STEER trial for patients who had never taken a disease-modifying drug before.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "For patients who had previously taken a treatment, data from the DEVOTE Part C trial was matched against the STRENGTH trial.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The study measured motor function changes using specific scales called HFMSE and RULM.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "In young children aged 2 to under 5 years who had not taken prior treatment, the analysis showed a numerical advantage for nusinersen over the gene therapy on motor function scores.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "In patients under 18 years who had taken prior treatment, the analysis showed a numerical advantage for nusinersen over the gene therapy on motor function scores.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The researchers found it impossible to make a valid comparison between the DEVOTE Part B trial and the STEER trial.",
+   "subject": "computational"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors warn that the small number of patients in these rare disease trials makes the results less precise.",
+   "subject": "humans"
+  },
+  {
+   "id": "f9",
+   "statement": "The authors state that direct studies are needed to confirm if one treatment is truly better than the other.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

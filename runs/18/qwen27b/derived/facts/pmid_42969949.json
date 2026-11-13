@@ -1,0 +1,52 @@
+{
+ "study_id": "pmid:42969949",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "a4da26f7dc070435",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-13T12:45:02+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Mutations in the ALMS1 gene are the cause of Alström syndrome, a human ciliopathy.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The ALMS1 protein is located at the proximal end of centrioles, suggesting it may affect cilia through a unique mechanism.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "In the absence of ALMS1, centrioles become shorter and often fracture at their proximal ends.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "Centrioles lacking ALMS1 show decreased microtubule-organizing activity and damaged centriole linkers.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The transport of Golgi-derived cargo, including transition zone components, to the centrosome is impaired when ALMS1 is missing.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "ALMS1 plays a key role in assembling the transition zone, forming cilia, and regulating the composition of the ciliary membrane.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "In mice, disrupting ALMS1 leads to a progressive, age-dependent loss of cilia in the retina, kidney, and brain.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors conclude that Alström syndrome results from disrupted proximal centriole integrity and impaired protein trafficking to the centrosome, which compromises ciliary assembly and maintenance.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

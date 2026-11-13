@@ -1,0 +1,47 @@
+{
+ "study_id": "pmid:43000116",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "9a316fd912f93e0e",
+ "generated_at": "2026-11-13T12:33:51+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Investigadores llevaron a cabo un estudio piloto prospectivo en un hospital sueco durante tres años para determinar si proteínas específicas en sangre podían distinguir entre una lesión cerebral y los efectos de la anestesia general por sí solos; el estudio analizó muestras de sangre de 21 pacientes con ictus y de 19 personas sometidas a cirugía no cerebral.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los científicos analizaron tres proteínas concretas en sangre extraída antes del procedimiento y nuevamente dos y veinticuatro horas después, observando que los niveles de GFAP no aumentaron en pacientes que solo habían sido sometidos a cirugía no cerebral.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que la GFAP es un marcador más adecuado porque sus niveles no aumentaron en pacientes sometidos únicamente a cirugía no cerebral, aunque aclaran que se requiere más investigación para confirmar a la GFAP como una herramienta fiable para detectar lesiones cerebrales en entornos hospitalarios.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:33:56+00:00"
+ }
+}

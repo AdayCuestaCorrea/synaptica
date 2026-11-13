@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1212/nxi.0000000000200645",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "a9c1c1f748f402a6",
+ "generated_at": "2026-11-13T13:34:23+00:00",
+ "word_count": 114,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers employed a longitudinal design to track immune changes in five people with multiple sclerosis before and after their disease flares, comparing their immune profiles against a group of healthy individuals.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "After separating different types of T cells, including those that regulate the immune response, the study found that cells targeting the Epstein-Barr virus and those recognizing multiple viruses were elevated before flares and expanded sharply afterward in every measured category.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors suggest that the rise in these specific immune cells occurs simultaneously with disease flares and general immune system activation, though they note their small group of five patients is too limited to fully understand how these immune changes cause the disease.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ]
+}

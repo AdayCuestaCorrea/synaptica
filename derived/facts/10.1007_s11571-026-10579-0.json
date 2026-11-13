@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1007/s11571-026-10579-0",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "4cf5ccf9ef3f52ef",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:13:33+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a cohort design involving 172 healthy human adults.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The analysis found that the way brain network connections fluctuated over time differed significantly between resting states and the language task.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Some brain networks showed clear changes in connection strength during the task, while others behaved similarly whether the person was resting or doing the task.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The results suggest that tracking these changing connection patterns can help separate brain networks specific to language from those involved in general cognition.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source"
+ ]
+}

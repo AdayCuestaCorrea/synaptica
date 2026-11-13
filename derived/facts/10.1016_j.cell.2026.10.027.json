@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.027",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "195875e3995544fe",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:11:24+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers used a mouse model with a specific 16p11.2 deletion to trace cell lineages and found major changes in the striatum.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "A study comparing human brain tissue from people with autism and neurotypical individuals found specific gene changes in a particular type of neuron called D1 striosome SPNs.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The analysis measured changes in gene expression that impacted genes responsible for synapses and energy metabolism.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "By combining data on gene expression and chromatin accessibility, the study identified EGR1 and EGR3 as key regulators that showed reduced activity in the affected neurons.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "Removing EGR1 or EGR3 in human brain organoids caused gene expression changes that partially matched those seen in the autism samples.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors state that these results define the striatum as a key location for molecular convergence in autism and offer a resource for further research.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

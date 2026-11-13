@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1016/j.cell.2026.09.008",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "6b6e9d162a25cb52",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:10:31+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers built a single-cell atlas combining histone modification data and gene expression profiles from eight different areas of the human basal ganglia.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "The study mapped specific patterns of active and repressive genetic control elements to identify the gene networks that define cell identities in these brain regions.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The study found that specific combinations of homeobox transcription factors serve as unique molecular markers for different types of neurons in the basal ganglia.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "By combining the atlas with spatial transcriptomics data, the researchers revealed differences in genetic and epigenetic activity across specific sub-regions of the basal ganglia.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors applied their atlas to analyze genetic risk variants linked to neuropsychiatric diseases and created a machine learning model to predict how these variants affect gene regulation.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors state that this work offers a comprehensive framework for studying the organization, evolutionary history, and genetic basis of diseases related to the human basal ganglia.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

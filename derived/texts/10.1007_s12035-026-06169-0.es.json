@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1007/s12035-026-06169-0",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "32b7a9dd69367c2e",
+ "generated_at": "2026-11-13T13:37:49+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron catorce conjuntos de datos que contenían 262 muestras de cerebro humano mediante un pipeline computacional estandarizado para comparar la expresión génica entre distintos trastornos.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Aunque el análisis inicial detectó miles de genes alterados, un método más estricto identificó únicamente dos genes compartidos para la enfermedad de Alzheimer, lo que sugiere que la transcriptómica de bulk del cerebro tiene una fiabilidad limitada para comparaciones entre cohortes.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "La visualización estadística mostró que las diferencias entre los conjuntos de datos eran factores más determinantes que las categorías de enfermedad, aunque 465 genes mostraron patrones alterados tanto en trastornos neurodegenerativos como neuropsiquiátricos, lo que impulsó la creación de una base de datos pública para futuras comparaciones.",
+   "fact_ids": [
+    "f6",
+    "f7",
+    "f8"
+   ]
+  }
+ ]
+}

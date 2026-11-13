@@ -1,0 +1,33 @@
+{
+ "study_id": "10.31661/jbpe.v0i0.2508-1976",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "229609458c8eaa0b",
+ "generated_at": "2026-11-13T13:35:35+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores llevaron a cabo un estudio experimental con conejos como modelo animal para probar un nuevo electrodo flexible de grafeno y poliacrilonitrilo destinado a la estimulación del nervio sacro para el tratamiento del estreñimiento.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Estos electrodos mostraron una alta capacidad de inyección de carga, baja resistencia eléctrica y buena flexibilidad, mientras que la estimulación con estos dispositivos aumentó progresivamente la expulsión de heces durante cuatro días hasta alcanzar niveles cercanos a los observados antes de la lesión.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que estos materiales sirven únicamente como demostración de concepto y representan candidatos prometedores para futuros dispositivos, señalando que los resultados actuales no avalan aún su aplicación clínica.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

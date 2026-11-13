@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.aanat.2026.153402",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "3345a1bd913892f2",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:22:07+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a mouse model of Saethre-Chotzen syndrome to measure skull and brain shapes from birth until two weeks old.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "While normal mice kept their front skull seam open, every mutant mouse had that seam fully closed by day 14.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Mutant mice started with a shortened front-to-back skull width, which developed into a distinct short-and-wide head shape by day 7.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The abnormal head shape in mutant mice was linked to the widening of specific back-of-the-head skull seams.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The back parts of the mutant mice's brains bulged upward and backward between days 7 and 14, happening a bit later than the skull changes.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest that the brain bulging is caused by pressure from the fused front skull seam and might be pushing the back skull seams apart.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "Eventually, the widened back skull seams returned to normal size through extra growth of a specific bone in that area.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1007/s12094-026-04573-5",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "109968c886f4cccd",
+ "generated_at": "2026-11-13T13:38:05+00:00",
+ "word_count": 88,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A retrospective study examined 96 patients who received repeat stereotactic radiosurgery for recurrent brain metastases between 2016 and 2025.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Those receiving a second radiation course showed a 78.7% local control rate at 12 months with a median progression-free time of 47.1 months, while radiological signs of damage appeared in 40.9% of cases and symptoms in 14.6%, all of which improved after corticosteroid treatment.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "No deaths were directly caused by the treatment, though the authors conclude that future forward-looking studies are required to better select patients and predict risks.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ]
+}

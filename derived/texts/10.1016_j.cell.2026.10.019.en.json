@@ -1,0 +1,39 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.019",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "9837fd4819454380",
+ "generated_at": "2026-11-13T13:27:59+00:00",
+ "word_count": 70,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Scientists identified a specific neuron type in the basal ganglia and striatum that displayed consistent genetic and structural features across different measurement methods, yet behaved differently depending on its location within the striatum.",
+   "fact_ids": [
+    "f2",
+    "f4"
+   ]
+  },
+  {
+   "text": "The team found millions of DNA methylation differences between cell types and connected these patterns to genetic risks for various diseases, proposing specific mechanisms that might explain why certain genetic variants increase the risk of Parkinson's disease.",
+   "fact_ids": [
+    "f1",
+    "f3"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:54:27+00:00"
+ }
+}

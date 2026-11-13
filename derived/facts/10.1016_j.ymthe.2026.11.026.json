@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1016/j.ymthe.2026.11.026",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "d2bcd8f7994a09ac",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:14:33+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study asks whether inhibiting the FLT3 kinase can boost the expression of KCC2, a transporter that helps neurons maintain inhibitory signals.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers used a functional genomics approach to study how FLT3 inhibitors change gene activity in neurons taken from mice and neurons grown from human stem cells.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "A genetic screen using CRISPR technology found that FLT3 controls specific networks of genes involved in how DNA is packaged and in brain inflammation.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The drug KW-2449 crosses into the brain, raises KCC2 levels for up to 24 hours, and lowers how easily seizures occur in mice treated with kainic acid.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors state that these results show FLT3 has a new role in brain function and provide initial proof that blocking it could lead to new anti-seizure drugs, but more development is needed.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

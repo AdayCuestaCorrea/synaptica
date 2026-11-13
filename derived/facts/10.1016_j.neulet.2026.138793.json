@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1016/j.neulet.2026.138793",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "e53c9047ba3b4f30",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:24:05+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study found that CXCL9 encourages nerve fiber growth and cell survival in PC12 cells and sympathetic neurons without needing the CXCR3 receptor.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers tested a group of eight different CXCL9 protein versions and peptides to separate the N-terminal core from the C-terminal tail.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "Protein versions missing the C-terminal tail showed no ability to support nerve growth or activate the ERK1/2 and Akt signaling pathways.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The C-terminal tail alone, whether attached to a protein carrier or made as a short peptide, was enough to restore nerve growth, cell survival, and neuron rescue.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The protein carrier used to test the tail had no effect on any of the measured outcomes.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The study concludes that the neurotrophic effects of CXCL9 come specifically from its basic C-terminal tail and not from its standard N-terminal domain.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

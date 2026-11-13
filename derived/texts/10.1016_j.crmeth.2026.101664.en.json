@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1016/j.crmeth.2026.101664",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "f3df2bbe286af87d",
+ "generated_at": "2026-11-13T13:39:53+00:00",
+ "word_count": 80,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed multiVIB, a computational method using probabilistic contrastive learning to align diverse single-cell datasets.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Testing on benchmarks confirmed the approach integrates data effectively while avoiding false matches, and it was applied to nine molecular data types from mouse primary motor cortex to construct a comprehensive atlas.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The framework further integrated gene expression data from primate basal ganglia to identify shared and unique cell types, leading authors to conclude it offers a reliable way to build large-scale brain cell maps.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  }
+ ]
+}

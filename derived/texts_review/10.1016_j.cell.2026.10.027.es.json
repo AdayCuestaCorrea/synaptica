@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.027",
+ "lang": "es",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "cb4b5c38f2a6626b",
+ "generated_at": "2026-11-13T13:28:16+00:00",
+ "word_count": null,
+ "problems": [
+  "judge: Summary states mouse model shows D1 striosome SPN changes, which the abstract does not specify."
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores examinaron un modelo de ratón con una deleción específica en 16p11.2 y analizaron tejido cerebral humano de individuos con autismo y controles neurotípicos, ambos revelando cambios importantes en el estriado que involucran a las SPN estriosomáticas D1.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El análisis midió cambios en la expresión génica que afectan a las sinapsis y el metabolismo energético, mientras que la combinación de datos sobre expresión génica y accesibilidad de la cromatina identificó a EGR1 y EGR3 como reguladores clave que muestran una actividad reducida en estas neuronas.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "La eliminación de EGR1 o EGR3 en organoides cerebrales humanos provocó cambios en la expresión génica que coincidían parcialmente con los observados en las muestras de autismo, lo que lleva a los autores a concluir que estos resultados definen al estriado como un lugar clave para la convergencia molecular en el autismo y ofrecen un recurso para futuras investigaciones.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00",
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Summary states mouse model shows D1 striosome SPN changes, which the abstract does not specify.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:55:27+00:00"
+ }
+}

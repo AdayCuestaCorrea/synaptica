@@ -1,0 +1,34 @@
+{
+ "study_id": "10.3892/mmr.2026.14064",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "7e441b0080942f9c",
+ "generated_at": "2026-11-13T13:35:45+00:00",
+ "word_count": 125,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers investigated brain ischemia followed by restored blood flow using laboratory dish models and living animal models. After the injury, activated microglia produced more reactive oxygen species and released higher levels of the proteins SPI1 and CCL9.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The extra CCL9 secreted by microglia drew macrophages to the damaged area and pushed them to become a type that causes inflammation. Researchers blocked the CCL9 signal using antibodies and genetic tools to prove it was necessary for the process, and stopping the specific signal chain between ROS, SPI1, and CCL9 successfully lowered the number of macrophages arriving at the injury site.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors suggest this specific pathway could be a target for future treatments to reduce brain inflammation after a stroke.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1126/sciadv.aej3501",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "a02246a2cb34ef2c",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:10:22+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a lab dish experiment with two-photon imaging to check how local connections in the CA1 brain area actually work.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "When the cells fired a series of signals, the chemical signals released at different spots varied wildly in strength and timing.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "Microscopic checks after the experiment showed that spots connecting to different structures behaved differently even though they looked structurally similar.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "About one-quarter of the connection spots targeted other pyramidal cells but either released very little chemical signal or did not release any at all.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Treating the cells with specific chemicals that boost the readiness of signal packets turned the silent connections into working ones.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The study concludes that these brain cells are physically connected and ready to send signals, but a failure in the final preparation step stops the signals from leaving.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1080/07853890.2026.2753847",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "7ef324ac88bc0857",
+ "generated_at": "2026-11-13T13:32:13+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un diseño de cohorte retrospectivo en un único centro para estudiar a adultos que sufrieron neumonía tras un ictus isquémico.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "El grupo de referencia estaba formado por pacientes sin fallo terapéutico a las 48 horas, definiéndose como tal la necesidad de antibióticos más potentes, la inestabilidad clínica persistente o la muerte en las 72 horas; antes del tratamiento, quienes ya requerían ventilación mecánica o presentaban una relación plaquetas-linfocitos más elevada mostraban una mayor probabilidad de fracaso.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "La capacidad predictiva del modelo mejoró de forma significativa, pasando de una puntuación de 0,697 a 0,889 tras 48 horas, dado que los pacientes con fallo permanecieron más tiempo ingresados y generaron costes superiores; los autores señalan que el modelo necesita validarse en otros hospitales y ensayos en la práctica real antes de que los médicos puedan confiar en él para la atención al paciente.",
+   "fact_ids": [
+    "f5",
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:07:37+00:00"
+ }
+}

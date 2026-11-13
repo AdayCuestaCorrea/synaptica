@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1093/neuonc/noag284",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "c7a38bdd8dbb23f0",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:16:52+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study combined data from 33 separate groups of patients to compare how well MGMT promoter methylation and MGMT protein expression predict survival outcomes.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Tests measuring DNA methylation showed a stronger link to patient survival than tests measuring the amount of MGMT protein.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "In just over half of the studies reviewed, the level of DNA methylation did not match the level of protein expression, suggesting these two measures might affect prognosis in different ways.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The authors warn that different testing methods and thresholds used across studies make it hard to compare results and need standardization.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Using both protein levels and methylation status together helps doctors better identify tumors that will not respond to the drug temozolomide.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

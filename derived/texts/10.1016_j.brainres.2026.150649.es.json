@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1016/j.brainres.2026.150649",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "9ab9f68e1eb59633",
+ "generated_at": "2026-11-13T13:38:53+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Este estudio investigó cómo los niveles variables de oxígeno influyen en la excitabilidad de la corteza motora en treinta y siete personas que participaron en una prueba aleatorizada que implicó respirar aire con concentraciones bajas, normales y altas de oxígeno. Los investigadores aplicaron pulsos magnéticos para medir la facilidad con la que los señales motoras viajaban desde el cerebro hasta los músculos bajo estas diferentes condiciones.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los resultados indicaron que el aire con bajo contenido de oxígeno aumentó la sensibilidad a señales débiles mientras reducía la respuesta a las fuertes, mientras que el aire con alto contenido de oxígeno fortaleció la respuesta a niveles elevados de señal y aumentó la velocidad global de la curva de respuesta.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que ajustar los niveles de oxígeno podría ayudar a mejorar los tratamientos de recuperación para pacientes con lesiones o enfermedades cerebrales, aunque el estudio no pudo determinar el límite absoluto máximo de la respuesta motora.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "study_id": "10.1002/jhbs.70078",
+ "lang": "es",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "7924b53d5e634aee",
+ "generated_at": "2026-11-13T13:29:40+00:00",
+ "word_count": null,
+ "problems": [
+  "judge: Spanish version omits key points and adds different content"
+ ],
+ "sentences": [
+  {
+   "text": "Este informe de caso examinó a un participante humano que podía oír sonidos pero fallaba al distinguir entre diferentes alturas musicales, mientras que su capacidad para percibir el tiempo y la intensidad del sonido se mantenía normal.",
+   "fact_ids": [
+    "f1",
+    "f4"
+   ]
+  },
+  {
+   "text": "El sujeto presentaba un desarrollo típico en otros aspectos, lo que demuestra que el déficit musical era selectivo y no una alteración sensorial general.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "El investigador registró la historia vital del sujeto en relación con la formación musical y descubrió que los parientes también mostraban una capacidad musical deficiente.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": false,
+  "passed": false,
+  "reason": "Spanish version omits key points and adds different content",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:59:27+00:00"
+ }
+}

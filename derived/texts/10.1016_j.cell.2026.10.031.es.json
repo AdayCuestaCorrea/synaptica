@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.031",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "0990735d7a42bd68",
+ "generated_at": "2026-11-13T13:28:31+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Una red computacional está construyendo un sistema unificado para clasificar células cerebrales en humanos, macacos, marmosetos y ratones, con un enfoque específico en elaborar un mapa detallado de la región de los ganglios basales en estas múltiples especies.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El atlas resultante combina datos del análisis génico de células individuales con información epigenómica, espacial y de desarrollo, mientras que los investigadores asignaron tipos celulares a ubicaciones anatómicas específicas en cada especie y conectaron estos mapas mediante definiciones estructurales compartidas.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "La creación del atlas requirió establecer estándares estrictos sobre cómo se recolectó, procesó el tejido y cómo se almacenó y compartió la información, sirviendo como demostración de que los métodos actuales pueden ampliarse para generar un mapa celular completo del cerebro humano y mamífero.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:56:26+00:00"
+ }
+}

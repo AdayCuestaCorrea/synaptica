@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1088/1741-2552/aec197",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "0f1bc2b527176fc2",
+ "generated_at": "2026-11-13T13:43:09+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron las redes cerebrales de dos monos implantando electrodos en seis zonas específicas implicadas en el alcance y el agarre, y estimulando luego una a una cinco de estas regiones.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Este método midió si los impulsos eléctricos en una zona provocaban cambios inmediatos en la actividad neuronal de otras, revelando que estimular cualquier región activa generaba cambios rápidos y sincronizados en la mayoría de las zonas registradas, con efectos más intensos y frecuentes en el lóbulo frontal, especialmente en la corteza motora primaria.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los programas informáticos entrenados para leer las señales cerebrales siguieron funcionando correctamente incluso cuando se estimulaba la corteza motora primaria en la vecindad, lo que llevó a los autores a concluir que dicha estimulación no necesariamente altera las capacidades de decodificación aguas abajo.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ]
+}

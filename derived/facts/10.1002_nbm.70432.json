@@ -1,0 +1,39 @@
+{
+ "study_id": "10.1002/nbm.70432",
+ "status": "ok",
+ "abstract_from": "europepmc",
+ "abstract_hash": "8d99077dbfb274d4",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:12:52+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a computer program called a 2D U-Net to automatically identify and measure specific brain parts, stroke damage, and tumors in rats.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The computer program was tested on three specific tasks: mapping healthy brain areas, finding stroke lesions, and locating brain tumors.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The accuracy of the computer's work was checked by comparing its results to manual measurements and previous computer models.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The researchers fixed a data error that would have let the computer cheat, and then the model performed well on all tasks.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors say this new method is better than older ways because it is more accurate, works in different MRI setups, and saves time.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1007/s43678-026-01303-2",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "27de266746135082",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:22:02+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a retrospective observational cohort design involving patients from two hospitals that had round-the-clock CT scanning.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study focused on adults aged 50 and older who received emergency CT scans for non-stroke reasons between January and December 2022.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Out of 6,535 eligible patients, 102 (1.6%) were found to have covert brain infarction on their CT scans.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "More than nine out of ten patients with covert brain infarction who were discharged from the emergency department received no changes to their medication or treatment plans.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Within one year of the initial visit, the group experienced 1 stroke or TIA, 4 heart attacks, 2 new diagnoses of atrial fibrillation, and 14 deaths.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The patients with covert brain infarction were mostly older adults with high rates of hypertension, dyslipidemia, atrial fibrillation, diabetes, and smoking.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors note that the current understanding of how common covert brain infarction is in the emergency department and how it is managed remains unclear.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The study concludes that more specific research and dedicated management pathways for this group of patients are needed.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1016/j.xgen.2026.101420",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "0f09c1fcbb2476d6",
+ "generated_at": "2026-11-13T13:41:19+00:00",
+ "word_count": 85,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed the SPIN tool, a computational system constructed from three components: creating networks, predicting clinical results via Bayesian regression, and visualizing data.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "When applied to a breast cancer protein dataset, the tool successfully predicted survival outcomes by identifying two specific groups of proteins linked to patient survival, while separate analysis uncovered groups of genes that work together in brain tissue and made sense biologically.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The authors conclude that this method represents a clear and useful way to predict health outcomes using large-scale spatial data.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ]
+}

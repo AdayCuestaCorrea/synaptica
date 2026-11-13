@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1063/5.0354130",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "88936163d5aaf789",
+ "generated_at": "2026-11-13T13:31:36+00:00",
+ "word_count": 148,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "This computational study investigated transitions between reactant and product states using molecular dynamics simulations, identifying the committor function as a key metric that calculates the probability of a system reaching a product state before returning to a reactant state. The authors noted that learning this function is difficult because of the high dimensionality of the molecular configuration space.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "To address this, researchers proposed a new method using a loss function derived from Itō's formula to train a neural network for approximating the committor function. They compared the new approach against existing methods using the Müller-Brown potential as a test case and introduced a strategy that couples their method with Adaptive Multilevel Splitting to improve the sampling of reactive trajectories.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The proposed methodology requires only the initial knowledge of reactant and product states to iteratively learn the committor function, offering a streamlined computational framework for analyzing complex molecular transitions.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:05:38+00:00"
+ }
+}

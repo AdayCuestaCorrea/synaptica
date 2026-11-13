@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1007/s10278-026-02472-3",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "b6e4d8a3062c9db5",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:20:30+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Previous semi-supervised segmentation methods used broad, non-pixel-specific strategies that failed to account for local variations in label reliability.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The authors developed a new framework that uses a learnable system to estimate pixel-level reliability and mixes pixel probabilities to improve segmentation.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The study replaced standard heuristic confidence scores with a data-driven map that calculates reliability for every individual pixel.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The system converted reliability scores into specific weights for each pixel, allowing the training process to focus optimization on individual pixels rather than whole samples.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "Testing on the ACDC, BUSI, and Synapse datasets showed that the new method consistently outperformed existing approaches when few labeled images were available.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The framework included a specific safety measure to ignore unlabeled samples that the model predicted contained almost no foreground objects.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

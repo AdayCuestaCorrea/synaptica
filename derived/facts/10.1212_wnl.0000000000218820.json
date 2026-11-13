@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1212/wnl.0000000000218820",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "cbe959b517d8a88c",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:18:28+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a retrospective study design to evaluate patients with early-stage behavioral variant frontotemporal dementia who had a Mini-Mental State Examination score above 18 and a knowledgeable informant.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study included 111 patients with behavioral variant frontotemporal dementia, with a mean age of 63.03 years and 33.33% female participants.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "A knowledgeable informant provided data on both past and current personality traits and on the patient's ability to perform instrumental activities of daily living.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Patients showed significant changes in personality due to the disease, with decreases in conscientiousness, openness, extraversion, and agreeableness, and an increase in neuroticism.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The study found no link between a patient's personality before the disease started and their current level of functional independence.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Among current personality traits, higher conscientiousness was specifically linked to better functional status in daily living tasks.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors note that the study's cross-sectional nature, reliance on recalled past personality, and use of a single informant for all data are limitations.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors state that future studies tracking patients over time using direct performance tests are required to confirm these results.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

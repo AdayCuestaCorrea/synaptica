@@ -1,0 +1,30 @@
+{
+ "study_id": "10.1021/acs.jmedchem.6c02108",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "5039ae687b361de9",
+ "generated_at": "2026-11-13T13:41:53+00:00",
+ "word_count": 125,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers identified neurolysin, a protein that rises after a stroke to help trigger the brain's own protective systems, and subsequently developed the first non-peptide drugs that activate it based on a specific chemical structure. New compounds 7c and 7g stayed active longer in the lab, crossed into mouse brains better, and remained stable in mouse blood compared to older versions.",
+   "fact_ids": [
+    "f1",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Making mice produce extra neurolysin before a stroke led to better recovery results, and testing compound 7g in mice with induced strokes showed it protected the brain tissue by lowering the size of the dead brain tissue and reducing swelling. This study is the first to show a small-molecule drug activating neurolysin works to protect the brain in a preclinical animal model.",
+   "fact_ids": [
+    "f2",
+    "f5",
+    "f6",
+    "f7"
+   ]
+  }
+ ]
+}

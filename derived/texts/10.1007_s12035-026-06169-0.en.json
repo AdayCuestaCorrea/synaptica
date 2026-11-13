@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1007/s12035-026-06169-0",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "32b7a9dd69367c2e",
+ "generated_at": "2026-11-13T13:37:49+00:00",
+ "word_count": 84,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers analyzed fourteen datasets containing 262 human brain samples using a standardized computational pipeline to compare gene expression across different disorders.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "While initial analysis found thousands of altered genes, a stricter method identified only two shared genes for Alzheimer's disease, suggesting bulk brain transcriptomics has limited reliability for cross-cohort comparisons.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Statistical visualization showed that dataset differences were larger factors than disease categories, yet 465 genes showed altered patterns in both neurodegenerative and neuropsychiatric disorders, prompting the creation of a public database for future comparisons.",
+   "fact_ids": [
+    "f6",
+    "f7",
+    "f8"
+   ]
+  }
+ ]
+}

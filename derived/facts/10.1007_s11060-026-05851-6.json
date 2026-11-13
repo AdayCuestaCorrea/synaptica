@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1007/s11060-026-05851-6",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "097871a3a58cb635",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:20:45+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers tested three specific MRI techniques to see if they could predict which way a brain tumor would grow after surgery.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Doctors looked at follow-up scans to determine if the tumor grew sideways, upward, downward, or in other directions away from the surgical site.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The diffusion anisotropy method correctly predicted the direction of tumor growth in about 75% of cases, outperforming the other two imaging methods.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Mixing the diffusion anisotropy data with the other imaging types did not make the prediction any better than using the diffusion anisotropy method by itself.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The study looked back at data from patients who had a specific aggressive brain tumor limited to the temporal lobe and who had their entire visible tumor removed.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest this imaging tool could help surgeons plan operations by showing them the likely path of tumor growth before the surgery happens.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

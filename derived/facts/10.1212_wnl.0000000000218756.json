@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1212/wnl.0000000000218756",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "da1894a9d24f56be",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:18:11+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a retrospective cohort design to analyze health records from Ontario, Canada, spanning from 1992 to 2017.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Women, those infected between ages 10 and 25, and individuals who used mental health services were more likely to develop multiple sclerosis after having infectious mononucleosis.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Being an immigrant was linked to a reduced rate of developing multiple sclerosis following an infectious mononucleosis diagnosis.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The authors note that because the study only included diagnosed cases, the findings might not apply to people who had the virus but did not show symptoms or seek medical care.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote",
+  "numbers not in the quote"
+ ]
+}

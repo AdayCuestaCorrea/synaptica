@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1016/j.cell.2026.09.041",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "a85cb1e337beca22",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:10:46+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers combined single-nucleus transcriptomic, epigenomic, and spatial transcriptomic methods to find three distinct groups of astrocytes based on their location in the brain.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "The identified molecular differences between astrocyte groups apply across the whole brain and distinguish telencephalic astrocytes from others using the marker LHX2.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "Inside the striatum, dorsal and ventral astrocyte groups match specific neural circuits, with a ventral group found in the nucleus accumbens shell, a pattern also seen in nonhuman primates.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "A deep learning model was used to find specific genetic codes for each astrocyte subgroup and recover transcription factor logic from existing data to help design targeted viral vectors.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors note that the diversity of astrocytes within the human basal ganglia was previously not well understood.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The study provides a new framework for analyzing human astrocyte specialization and dissecting basal ganglia circuits by cell type.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

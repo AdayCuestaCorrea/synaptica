@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1111/gbb.70079",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "70779b0ea7cb526f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:17:05+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a Mendelian randomization approach combined with genetic expression and protein data to find genes that could be targeted by drugs for major depressive disorder.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The study design was a systematic Mendelian randomization analysis that used genetic summary statistics from the FinnGen R9 database along with data from blood and brain tissues.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "Six specific genes were identified as having a significant causal link to major depressive disorder across multiple genetic datasets.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "Out of a pool of 6,889 potential drug targets, the analysis narrowed the list down to six genes that showed strong associations with the disorder.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "Three of the six genes, MAPK3, MST1, and SIGLEC9, demonstrated the most consistent evidence and are highlighted as the strongest candidates for future drug development.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The identified genes are linked to biological functions involving brain inflammation, immune system control, and cell death processes.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "The researchers performed a broad analysis to see if these genes were linked to other diseases and traits beyond major depressive disorder.",
+   "subject": "computational"
+  },
+  {
+   "id": "f8",
+   "statement": "The study notes that while the genetic links to depression are supported, the broader associations with other conditions require further research to be useful for developing new treatments.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

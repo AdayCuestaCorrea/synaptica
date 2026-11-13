@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1212/nxi.0000000000200645",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "a9c1c1f748f402a6",
+ "generated_at": "2026-11-13T13:34:23+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un diseño longitudinal para rastrear los cambios inmunológicos en cinco personas con esclerosis múltiple antes y después de sus brotes, comparando sus perfiles inmunológicos con un grupo de individuos sanos.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Tras separar los distintos tipos de células T, incluidas las que regulan la respuesta inmunitaria, el estudio observó que las células dirigidas contra el virus de Epstein-Barr y aquellas que reconocen múltiples virus estaban elevadas antes de los brotes y se expandieron bruscamente después en todas las categorías medidas.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que el aumento de estas células inmunitarias específicas ocurre simultáneamente con los brotes de la enfermedad y la activación general del sistema inmunitario, aunque advierten que su pequeño grupo de cinco pacientes es demasiado limitado para comprender plenamente cómo estos cambios inmunológicos causan la enfermedad.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ]
+}

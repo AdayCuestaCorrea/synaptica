@@ -1,0 +1,24 @@
+== qwen9b
+  42971231: facts ok, texts ('verified', 'verified')
+  42999541: facts ok, texts ('verified', 'verified')
+  42985707: facts ok, texts ('verified', 'verified')
+  42993056: facts ok, texts ('verified', 'verified')
+  42986391: facts ok, texts ('verified', 'verified')
+  42969949: facts ok, texts ('verified', 'verified')
+  43000116: facts ok, texts ('verified', 'verified')
+  42999788: facts ok, texts ('verified', 'verified')
+  42997796: facts ok, texts ('verified', 'verified')
+  42997793: facts ok, texts ('verified', 'verified')
+== qwen27b
+HTTP 429, retrying in 11.0s
+  42971231: facts ok, texts ('verified', 'verified')
+  42999541: facts ok, texts ('verified', 'failed')
+  42985707: facts ok, texts ('verified', 'verified')
+  42993056: facts ok, texts ('verified', 'verified')
+  42986391: facts ok, texts ('verified', 'verified')
+  42969949: facts ok, texts ('verified', 'verified')
+  43000116: facts ok, texts ('verified', 'failed')
+  42999788: facts ok, texts ('verified', 'verified')
+  42997796: facts ok, texts ('verified', 'verified')
+  42997793: facts ok, texts ('verified', 'verified')
+elapsed 81 s

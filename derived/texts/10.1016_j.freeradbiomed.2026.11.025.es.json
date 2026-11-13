@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1016/j.freeradbiomed.2026.11.025",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "4f88626d0dbfcece",
+ "generated_at": "2026-11-13T13:40:01+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un modelo de ratón con deficiencia neuronal de GPX4 postnatal para estudiar su papel en el traumatismo craneoencefálico, observando que, tras la lesión, estos animales mostraban un edema cerebral más severo, una presión intracraneal elevada y una mayor fuga sanguínea en comparación con los ratones de control.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "La administración del fármaco ferrostatina-1 una y seis horas después de la lesión redujo la muerte celular y el daño cerebral en los ratones deficientes, aunque los autores señalan que su modelo genético pierde GPX4 al inicio del desarrollo y no únicamente en la edad adulta.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores indican que, si bien sus resultados sugieren fuertemente que la ferroptosis es una causa clave del daño, otros mecanismos de lesión podrían también estar implicados.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

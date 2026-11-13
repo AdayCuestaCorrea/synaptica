@@ -1,0 +1,51 @@
+{
+ "study_id": "pmid:42985707",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "4f0c367b39372a8b",
+ "generated_at": "2026-11-13T12:38:08+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un informe de caso describe a una mujer de 57 años que se sometió a un procedimiento endoscópico mínimamente invasivo para extirpar una pequeña y superficial lesión en el pliegue faringoepiglótico, en el que se empleó la imagen dicromática en rojo para visualizar una estructura nerviosa.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El nervio apareció más nítido y fácil de distinguir con el método de imagen en rojo que con la luz blanca estándar, tanto antes de cortar el tejido como después de inyectar líquido bajo la superficie.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "La lesión fue extirpada en un solo fragmento sin signos visibles de daño nervioso, y la paciente no experimentó dificultades para tragar, voz ronca ni otras complicaciones tras la operación.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que esta técnica de imagen en rojo podría ser una herramienta útil para visualizar el nervio y respaldar los esfuerzos por preservarlo durante cirugías similares.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:39:47+00:00"
+ }
+}

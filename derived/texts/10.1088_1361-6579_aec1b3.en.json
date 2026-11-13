@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1088/1361-6579/aec1b3",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "904d19a7041bb280",
+ "generated_at": "2026-11-13T13:43:04+00:00",
+ "word_count": 91,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers measured brain activity, heart rate, blood flow, skin conductivity, and breathing patterns simultaneously in humans, then used statistical methods to identify hidden patterns and individual reaction differences to the same emotions.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "While biological data alone could not distinguish between opposite emotions like happiness and sadness, combining three specific signals allowed the team to perfectly differentiate all seven emotional states.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors conclude that analyzing data without pre-set categories reveals new ways to understand the biological organization of emotions, though this approach remains a methodological suggestion rather than a clinical tool.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

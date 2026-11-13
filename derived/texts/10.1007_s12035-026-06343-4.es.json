@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1007/s12035-026-06343-4",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "eab0f71fd10893d3",
+ "generated_at": "2026-11-13T13:38:01+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Este estudio investigó cómo las proteínas que se unen al ARN contribuyen al síndrome metabólico, una condición vinculada a la diabetes y las enfermedades cardiovasculares, mediante dos modelos: tratar células hipotalámicas con TNF-α y alimentar ratones con una dieta alta en grasas durante 8 o 12 semanas.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "A medida que avanzaba el estrés metabólico, las proteínas NOVA1 y hnRNP U alteraron los patrones de splicing de genes específicos, SNAP 25 y MDM2, observándose un efecto marcado de hnRNP U específicamente en ratones diabéticos db/db; la reducción de los niveles de hnRNP U en las células provocó un error específico en el splicing de un gen, activó vías de muerte celular y disminuyó la capacidad de las células para captar glucosa.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que estas proteínas que se unen al ARN podrían servir como objetivos tempranos para futuros tratamientos del síndrome metabólico, señalando que estos hallazgos requieren una validación adicional antes de su aplicación clínica.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,39 @@
+{
+ "study_id": "10.1073/pnas.2621534123",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "7c252a2fe9a14f21",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:14:55+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study found that mGlu2 receptors are able to trigger calcium signals inside neurons.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "These calcium signals happen because another receptor naturally found in the same neuron is active, without the two receptors needing to stick together.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "A specific receptor called PAFR, which is always active, is necessary for this calcium signaling to occur in hippocampal neurons.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The interaction between mGlu2 and PAFR is needed for drugs targeting mGlu2 to fix cognitive and behavioral problems in a mouse model of schizophrenia.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors say these results show that understanding how these receptors talk to each other is important for treating mental health conditions.",
+   "subject": "other"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

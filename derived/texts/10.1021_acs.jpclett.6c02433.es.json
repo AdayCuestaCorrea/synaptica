@@ -1,0 +1,28 @@
+{
+ "study_id": "10.1021/acs.jpclett.6c02433",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "6e351ada811acb07",
+ "generated_at": "2026-11-13T13:42:13+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores se centraron en detener los depósitos de amiloide provocados por la agregación de alfa-sinucleína en la enfermedad de Parkinson, creando moléculas virtuales y probando versiones comercializables en el laboratorio.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Un compuesto ralentizó la agregación de alfa-sinucleína específicamente cuando la nucleación secundaria era el motor principal, lo que sugiere que este enfoque computacional es útil para identificar nuevos inhibidores de la agregación proteica.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

@@ -1,0 +1,40 @@
+{
+ "study_id": "10.1021/acs.jpcb.6c04104",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "4e1dbbdb2aa7eff6",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:25:21+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The models were trained using 32,455 experimental data points collected from 4,796 distinct ionic liquid pairs.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The study used a strict pair-level data split to avoid contamination, finding that a standard split would have incorrectly included 59.6% of test data in the training set.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The pipeline tested six different types of algorithms, including regression, random forests, neural networks, and LightGBM, using various molecular representations.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "Combining the top four models resulted in a prediction accuracy of 0.752 on average, with density and refractive index predicted most accurately.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The final system screened 80,000 virtual ionic liquid pairs to generate a prioritized list for future experiments based on uncertainty and novelty scores.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source"
+ ]
+}

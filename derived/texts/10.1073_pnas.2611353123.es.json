@@ -1,0 +1,50 @@
+{
+ "study_id": "10.1073/pnas.2611353123",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "89be3a93738d60f0",
+ "generated_at": "2026-11-13T13:31:45+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores llevaron a cabo un gran estudio de cohorte que combinó datos de 42 039 personas de dos bases de datos principales para medir el agua libre de la materia blanca mediante resonancia magnética por difusión, una técnica que rastrea los niveles de agua extracelular y la microestructura tisular.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El análisis genético identificó 27 ubicaciones génicas específicas vinculadas al agua libre de la materia blanca, revelando que tanto los riesgos genéticos heredados como las mediciones reales de esta agua en las resonancias magnéticas se asocian con diversas condiciones neurológicas, como el accidente cerebrovascular, la demencia y la progresión del deterioro cognitivo leve a la enfermedad de Alzheimer.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Un análisis genético especial sugirió una relación bidireccional entre la hipertensión arterial y los niveles de agua libre de la materia blanca, mientras que el análisis de proteínas identificó dos proteínas concretas que podrían explicar esta relación, lo que lleva a los autores a concluir que el agua libre de la materia blanca es un marcador de imagen útil para evaluar los riesgos genéticos y vasculares de los trastornos neurológicos.",
+   "fact_ids": [
+    "f7",
+    "f8",
+    "f9"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00",
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:06:36+00:00"
+ }
+}

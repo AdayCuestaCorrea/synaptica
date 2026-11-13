@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1212/wnl.0000000000218738",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "9f46bdf0d6949979",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:18:01+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a retrospective cohort study design to examine patients who had already been diagnosed with amyloid pathology.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study included 533 amyloid-positive individuals, of whom 148 were classified as having probable cerebral amyloid angiopathy.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Participants were divided into two groups based on whether they met the specific Boston criteria for probable cerebral amyloid angiopathy.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The study found a link between lower levels of amyloid-beta in cerebrospinal fluid and a higher burden of cerebral microbleeds in the lobes.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Brain imaging showed that the group with probable CAA had higher levels of amyloid accumulation in the cortex compared to the other group.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest that having probable CAA indicates a heavier load of amyloid but does not define a separate clinical category with different symptoms.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors note that focusing on specific imaging markers like superficial siderosis and lobar microbleeds might be more useful than the current classification system.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source"
+ ]
+}

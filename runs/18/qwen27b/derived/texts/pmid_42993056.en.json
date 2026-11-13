@@ -1,0 +1,55 @@
+{
+ "study_id": "pmid:42993056",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "d5fb596698201cc6",
+ "generated_at": "2026-11-13T12:54:55+00:00",
+ "word_count": 107,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers investigated the development of sensory neurons in the roundworm C. elegans to understand how electrical connections appear and disappear.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Blocking these early electrical connections stopped calcium signals from firing and prevented the formation of chemical synapses, although restoring the calcium signals resolved the issue.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "A genetic screen identified that a specific protein named UNC-51 is required for the removal of these electrical connections.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "The UNC-51 protein functions with other molecules to move the components of the electrical connection away from the synapse, gradually clearing them out.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "When this removal process is blocked, the electrical connections remain in place and the neurons become overly active.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:54:56+00:00"
+ }
+}

@@ -1,0 +1,29 @@
+== qwen9b
+  42971231: facts ok, texts ('verified', 'verified')
+  42999541: facts ok, texts ('verified', 'failed')
+  42985707: facts ok, texts ('failed', None)
+  42993056: facts ok, texts ('verified', 'verified')
+  42986391: facts ok, texts ('verified', 'verified')
+  42969949: facts ok, texts ('verified', 'verified')
+  43000116: facts ok, texts ('verified', 'verified')
+  42999788: facts ok, texts ('verified', 'failed')
+  42997796: facts ok, texts ('verified', 'failed')
+  42997793: facts ok, texts ('verified', 'verified')
+elapsed 164 s
+== qwen27b
+  File "/home/adaycc/Proyectos/synaptica/spikes/s5/rerun_v2.py", line 121, in <module>
+    main()
+    ~~~~^^
+  File "/home/adaycc/Proyectos/synaptica/spikes/s5/rerun_v2.py", line 103, in main
+    row = run_article(art, writer, judge, args.out)
+  File "/home/adaycc/Proyectos/synaptica/spikes/s5/rerun_v2.py", line 81, in run_article
+    write_mod.write_study(writer, doc, quotes, abstract, derived_root=derived)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adaycc/Proyectos/synaptica/src/synaptica/narrative/write.py", line 182, in write_study
+    en = write_en(llm, shown, feedback)
+  File "/home/adaycc/Proyectos/synaptica/src/synaptica/narrative/write.py", line 114, in write_en
+    out = llm.complete_json(system, "\n".join(lines), Summary, max_tokens=2_500)
+  File "/home/adaycc/Proyectos/synaptica/src/synaptica/llm.py", line 367, in complete_json
+    raise LLMOutputError(f"{self.label}: invalid output ({exc})") from exc
+synaptica.llm.LLMOutputError: groq/qwen/qwen3.8-27b: invalid output (HTTP 400: {"error":{"message":"Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.","type":"invalid_request_error","code":"json_validate_failed","failed_generation":"{\u003c\"sentences\": [\n    {\"text\": \"Researchers created a mouse line where rod cells in the eye produce a glowing marker that lights up when glutamate, a chemical messenger, is released.\", \"fact_ids\": [\"f1\"]},\n    {\"text\": \"By tracking this marker under dim and bright lighting, they obs)
+elapsed 434 s

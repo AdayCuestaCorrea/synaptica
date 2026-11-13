@@ -1,0 +1,51 @@
+{
+ "study_id": "pmid:42999541",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "db3c7135d7430759",
+ "generated_at": "2026-11-13T12:56:30+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron un hidrogel a base de gelatina diseñado para encapsular vesículas derivadas de células madre cultivadas en una estructura tridimensional.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "En un modelo de ratón con lesión cerebral, este sistema de administración se inyectó en la zona dañada, evaluando la recuperación mediante pruebas de comportamiento, tinción celular y análisis de genes.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "El gel permaneció en el cerebro más tiempo que los controles, provocó menos daño tisular y se asoció con una mejora progresiva del movimiento y la memoria.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "El tratamiento aumentó el número de células en división que mostraban marcadores de células nerviosas o de sus células de soporte, un proceso vinculado a niveles elevados de proteínas que desencadenaban cambios genéticos que favorecen el crecimiento de nuevas células nerviosas.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:56:31+00:00"
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.022",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "30f4be20dfd1bb40",
+ "generated_at": "2026-11-13T13:28:02+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron los patrones computacionales de las marcas de histonas activas para identificar regiones funcionales del ADN denominadas potenciadores y distinguir las formas específicas en que los genes se apagan en distintos tipos celulares.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Este enfoque permitió crear modelos informáticos que predicen la regulación génica basándose únicamente en las secuencias de ADN, ofreciendo un sistema completo para etiquetar el ADN regulador del cerebro y comprender los riesgos genéticos de las enfermedades.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:55:24+00:00"
+ }
+}

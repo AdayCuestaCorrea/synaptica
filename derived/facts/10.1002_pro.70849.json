@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1002/pro.70849",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "f9d55e67e539d07d",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:12:56+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study found that extracellular vesicles from both human and non-human cells all slowed down the formation of amyloid-beta fibrils at similar rates.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "When researchers used enzymes to strip surface proteins off the vesicles, the vesicles became much better at stopping amyloid-beta aggregation.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "Removing the sugar chains (glycans) attached to surface proteins also changed the vesicles' ability to inhibit aggregation, but the effect was much smaller than removing the proteins themselves.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The authors suggest that lipids are the main drivers of the inhibition, while surface proteins act like a switch to tune how strong that inhibition is.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Taking off proteoglycans (a type of sugar-protein complex) caused a small but reliable increase in the vesicles' ability to stop aggregation.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The results imply that slowing down amyloid-beta clumping is a shared characteristic of extracellular vesicles from many different cell types.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

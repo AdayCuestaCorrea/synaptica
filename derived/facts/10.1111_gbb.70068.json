@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1111/gbb.70068",
+ "status": "ok",
+ "abstract_from": "europepmc",
+ "abstract_hash": "bc4e1f97f527a304",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:16:59+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a longitudinal cohort study design involving 837 people who had experienced childhood trauma.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study measured how frontal alpha brain wave connectivity changed over time from adolescence into young adulthood.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Experiencing childhood sexual assault and carrying the APOEε4 gene were both connected to specific patterns in brain connectivity.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Participants who suffered childhood sexual assault showed higher initial brain connectivity but less improvement in three specific brain connections over time.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Carriers of the APOEε4 gene started with lower connectivity in the left frontocentral brain region but showed a steeper increase in connectivity over time.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "In people with the APOEε4 gene, childhood sexual assault was linked to higher starting levels and slower growth in specific frontal brain connections.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The observed brain connectivity patterns were strongly linked to symptoms of posttraumatic stress disorder and alcohol use disorder.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The study found no direct connection between carrying the APOEε4 gene and developing PTSD or alcohol use disorder symptoms.",
+   "subject": "humans"
+  },
+  {
+   "id": "f9",
+   "statement": "The authors suggest these results could help identify at-risk groups and guide prevention efforts, though they frame this as a potential application rather than a proven outcome.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

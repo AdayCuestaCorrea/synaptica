@@ -1,0 +1,48 @@
+{
+ "study_id": "10.1016/j.jes.2026.01.051",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "aace233be5a6dfd0",
+ "generated_at": "2026-11-13T13:31:06+00:00",
+ "word_count": 115,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers exposed zebrafish to polystyrene microplastics, aged polystyrene microplastics, or cadmium alone or together for three weeks, finding that combined exposure caused the worst neurological damage compared to single exposures.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "This severe brain damage was linked to higher cadmium levels in the fish brains and gut changes that reduced biotin and arginine creation, lowered gut chemicals needed for neurotransmitters like choline and dopamine, and decreased a specific protein potentially weakening the brain's protective barrier.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Gene analysis revealed altered pathways related to nerve signaling, cell death, and fat metabolism, indicating nerve cell damage, while the authors state these findings offer a foundation for understanding how microplastics and heavy metals work together to harm the nervous system.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:04:32+00:00"
+ }
+}

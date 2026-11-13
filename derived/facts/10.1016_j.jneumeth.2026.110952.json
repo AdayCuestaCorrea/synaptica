@@ -1,0 +1,39 @@
+{
+ "study_id": "10.1016/j.jneumeth.2026.110952",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "c37cd0b4d81b0db5",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:23:38+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used an animal model of transgenic mice to test a new automated method for detecting eye blink reflexes.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Three wild-type mice showed little to no blinking when exposed to the same blue light stimulation.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Researchers used computer vision software to track six movement features and apply automated algorithms to identify blinks.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The automated detection system reached very high accuracy rates when tested using different validation methods.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors state that this new method offers more precise timing and automated analysis compared to traditional air puff tests.",
+   "subject": "other"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source"
+ ]
+}

@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1212/wnl.0000000000218686",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "e10d8e5182c41961",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:17:34+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers conducted a prospective longitudinal study involving people with Lewy body disease, Alzheimer disease, and healthy controls.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study included 501 participants, comprising 131 with Lewy body disease, 133 with Alzheimer disease, and 237 healthy controls.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Scientists measured how changes in blood pTau217 levels over two to five years linked to changes in daily functioning and cognitive test scores over two to eight years.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Researchers categorized participants as having abnormal or normal pTau217 levels based on a specific threshold derived from amyloid PET scans to compare their rates of clinical decline.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The study found that a quicker rise in pTau217 levels over time was connected to a more rapid increase in scores measuring daily functional impairment.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors conclude that pTau217 is a useful tool for predicting and monitoring disease progression in Lewy body disease, especially in groups with mixed brain pathologies.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source"
+ ]
+}

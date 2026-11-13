@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1093/neuonc/noag265",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "464bddb553b498ca",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:16:48+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers selected patients who had confirmed disease progression and at least two PET scans taken within a six-month window.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study measured static PET metrics like tumor-to-brain ratios and metabolic tumor volume, as well as how these values changed over time.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "When the disease progressed, the average tumor-to-brain ratio, maximum tumor-to-brain ratio, and metabolic tumor volume all increased significantly.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "While the average and maximum tumor-to-brain ratios rose by only 4% and 17% respectively, the metabolic tumor volume expanded by 182%.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "For patients with unclear scan results, using a rule that required a 40% or greater increase in metabolic tumor volume improved the detection of progression to 89%.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "This longitudinal approach resulted in a 14% higher rate of correctly identifying disease progression compared to looking at a single scan.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source",
+  "numbers not in the quote"
+ ]
+}

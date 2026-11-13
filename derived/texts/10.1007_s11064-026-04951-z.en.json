@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1007/s11064-026-04951-z",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "a9f96af80a77e7e2",
+ "generated_at": "2026-11-13T13:37:19+00:00",
+ "word_count": 152,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers used a mouse model of asphyxial cardiac arrest followed by cardiopulmonary resuscitation to measure blood-brain barrier leakage, a measure of how well the barrier prevents substances from entering the brain, over a period from three hours to 14 days after the procedure. The resuscitation caused temporary damage to the blood-brain barrier that was worst three days later.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f6"
+   ]
+  },
+  {
+   "text": "Scientists collected serum exosomes from the mice at one day and three days after the procedure, then injected them into other mice or treated brain immune cells in lab dishes to assess effects on barrier integrity and inflammatory markers. Giving exosomes from three days after CPR made brain barrier leakage worse and pushed immune cells toward a harmful inflammatory state more than exosomes from one day after.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f7"
+   ]
+  },
+  {
+   "text": "The authors conclude that these findings point to exosomes as a possible cause of brain injury after CPR and suggest they are a target for future study.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ]
+}

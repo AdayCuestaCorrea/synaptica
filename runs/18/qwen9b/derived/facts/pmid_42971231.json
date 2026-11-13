@@ -1,0 +1,45 @@
+{
+ "study_id": "pmid:42971231",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "47fdfe1931499098",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T12:32:29+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a large birth outcomes surveillance study design conducted in public hospitals across Botswana.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Study staff performed surface examinations on every live infant and stillbirth during routine care.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The study included data from 235,727 deliveries occurring between August 2014 and August 2022.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Neural tube defects were more common when conception happened during the early dry season (May to July) compared to the late dry season (August to October).",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors found no evidence of increased risk for neural tube defects or major structural abnormalities in over 11,000 cases of dolutegravir exposure at conception.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors state that their findings offer reassurance regarding the safety of using dolutegravir during pregnancy.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source"
+ ]
+}

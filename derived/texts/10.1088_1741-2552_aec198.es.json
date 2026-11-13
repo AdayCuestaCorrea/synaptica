@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1088/1741-2552/aec198",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "33de5f22b36196a8",
+ "generated_at": "2026-11-13T13:43:13+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores diseñaron un sistema abierto para evaluar rápidamente interfaces cerebro-máquina y métodos de neuromodulación mediante un enfoque de tres partes: pruebas de laboratorio, estudios a largo plazo en animales y una demostración en humanos con electrodos externos.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Las pruebas de laboratorio midieron factores técnicos como el ruido de registro, mientras que cinco perros con el dispositivo implantado mostraron registros estables durante hasta tres años, logrando funciones como decodificar pensamientos y detectar signos de epilepsia más de dos años después de la implantación.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Un único participante humano utilizó la versión de laboratorio para controlar un cursor, y los autores pusieron a disposición pública los métodos quirúrgicos, los datos y el software para facilitar que otros investigadores repliquen el trabajo.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ]
+}

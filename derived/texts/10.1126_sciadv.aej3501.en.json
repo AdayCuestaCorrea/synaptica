@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1126/sciadv.aej3501",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "f6fe098480176592",
+ "generated_at": "2026-11-13T13:27:11+00:00",
+ "word_count": 131,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers used a lab dish experiment with two-photon imaging to examine local connections in the CA1 brain area, discovering that when cells fired signals, the chemical signals released at different spots varied wildly in strength and timing. Microscopic checks after the experiment revealed that spots connecting to different structures behaved differently even though they appeared structurally similar.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "About one-quarter of the connection spots targeted other pyramidal cells but either released very little chemical signal or did not release any at all, yet treating the cells with specific chemicals that boost the readiness of signal packets turned these silent connections into working ones.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors conclude that these brain cells are physically connected and ready to send signals, but a failure in the final preparation step stops the signals from leaving.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:52:24+00:00"
+ }
+}

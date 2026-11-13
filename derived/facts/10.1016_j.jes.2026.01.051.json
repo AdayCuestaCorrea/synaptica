@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1016/j.jes.2026.01.051",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "03a4cbf917b23c67",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:14:09+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used an animal model where zebrafish were exposed to polystyrene microplastics, aged polystyrene microplastics, or cadmium alone or together for three weeks.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Exposure to both aged polystyrene microplastics and cadmium together resulted in the worst neurological damage compared to single exposures.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The severe brain damage observed was linked to higher levels of cadmium building up in the fish brains.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Fish exposed to the combined pollutants showed changes in their gut metabolism, particularly affecting the creation of biotin and arginine.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The levels of gut chemicals needed to make neurotransmitters like choline and dopamine dropped significantly in the exposed fish.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The gut changes caused a drop in a specific protein that may have weakened the barrier protecting the brain.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "Gene analysis showed that pathways related to nerve signaling, cell death, and fat metabolism were altered, indicating damage to nerve cells.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors state that their findings offer a foundation for understanding how microplastics and heavy metals work together to harm the nervous system.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

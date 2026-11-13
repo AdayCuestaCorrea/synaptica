@@ -1,0 +1,43 @@
+{
+ "study_id": "10.1016/j.jes.2026.05.025",
+ "lang": "en",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "85d27f6b3c4fd50d",
+ "generated_at": "2026-11-13T13:31:11+00:00",
+ "word_count": 112,
+ "problems": [
+  "judge: Overstates causal direction: claims necroptosis inhibition reduces ER stress, which is not supported by the abstract."
+ ],
+ "sentences": [
+  {
+   "text": "Researchers used RNA sequencing and biological tests on mice and cells to investigate how fluoride exposure affects brain health. In lab dish experiments, reducing the protein TEX264 caused the cell's cleanup system for protein-making machinery to fail, while adding extra copies of this protein fixed the failure and reduced cellular stress and cell death.",
+   "fact_ids": [
+    "f1",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Stopping the necroptosis process, a form of programmed cell death, protected the mice from brain cell damage and memory problems by reducing stress in the cell's protein-making machinery. The authors conclude that these results suggest new ways to prevent or treat brain damage from fluoride exposure, though they note the study was conducted in animals and cells.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": false,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Overstates causal direction: claims necroptosis inhibition reduces ER stress, which is not supported by the abstract.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:04:34+00:00"
+ }
+}

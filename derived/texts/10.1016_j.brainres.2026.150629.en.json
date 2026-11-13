@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1016/j.brainres.2026.150629",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "0292c7ac8ba7e010",
+ "generated_at": "2026-11-13T13:38:42+00:00",
+ "word_count": 88,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers utilized a mouse model of experimental autoimmune encephalomyelitis induced by MOG35-55 and administered recombinant L1CAM, subsequently evaluating results through behavioral tests, tissue analysis, and molecular techniques.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "This treatment reduced the loss of the protective myelin sheath in the spinal cord and sciatic nerve while lowering inflammation in the brain's hippocampus and improving cognitive function in the mice.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors conclude that these findings suggest L1CAM could be a potential treatment for multiple sclerosis, though the study was conducted exclusively in animals.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

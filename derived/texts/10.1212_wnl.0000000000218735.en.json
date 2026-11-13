@@ -1,0 +1,31 @@
+{
+ "study_id": "10.1212/wnl.0000000000218735",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "1f7858fafe1bf698",
+ "generated_at": "2026-11-13T13:34:55+00:00",
+ "word_count": 68,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "This longitudinal study examined a nationally representative sample of community-dwelling adults aged 60 and older across two waves.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Researchers classified dementia using an algorithm based on cognitive tests, functional status, and informant reports, identifying cases as undiagnosed when no prior physician diagnosis of Alzheimer disease existed.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "The authors note that substantial regional inequalities remain and that further targeted policies are needed to close diagnostic gaps in isolated areas.",
+   "fact_ids": [
+    "f3"
+   ]
+  }
+ ]
+}

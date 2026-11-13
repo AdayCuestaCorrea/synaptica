@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1016/j.gene.2026.150493",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "6fdcfde8f7492e23",
+ "generated_at": "2026-11-13T13:40:05+00:00",
+ "word_count": 92,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers investigated whether adding valproic acid to temozolomide improves brain tumor treatment by altering gene regulation, using a model of 60 male rats with implanted tumor cells divided into six groups receiving various drug combinations.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Scientists measured specific RNA and protein markers in the brain tissue, finding that the combined drug use raised miR-124-3p levels and lowered Sp1 levels more than either drug alone.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors conclude that it remains unproven whether targeting these molecules will function as a therapy or if epigenetic changes caused the observed results.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ]
+}

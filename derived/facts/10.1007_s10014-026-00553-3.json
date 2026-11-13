@@ -1,0 +1,40 @@
+{
+ "study_id": "10.1007/s10014-026-00553-3",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "6c1d2e6805505ce4",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:20:15+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study describes a single 13-month-old female patient with a bleeding tumor in the left parietal region of her brain.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Microscopic examination showed the tumor had embryonal-like traits such as high cell density, frequent cell divisions, perivascular pseudorosettes, and widespread nuclear expression of the BCOR protein.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Initial targeted RT-PCR and panel-based genomic tests failed to confirm the presence of the BCOR internal tandem duplication.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Follow-up whole-genome and RNA sequencing confirmed an in-frame duplication of 126 base pairs in exon 15 of the BCOR gene.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "After complete surgical removal and multimodal therapy, the patient remained free of disease progression for 18 months.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source",
+  "statement copies the source wording"
+ ]
+}

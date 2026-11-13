@@ -1,0 +1,58 @@
+{
+ "study_id": "pmid:42969949",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "df38dcb8eb7897d5",
+ "generated_at": "2026-11-13T12:45:02+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron cómo las mutaciones en el gen ALMS1, responsables del síndrome de Alström, afectan a las estructuras celulares, destacando que la proteína ALMS1 se localiza en el extremo proximal de los centríolos.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "En las células que carecen de ALMS1, los centríolos se acortan y suelen fracturarse en sus extremos proximales, al tiempo que presentan una menor actividad de organización de microtúbulos y unos conectores de centríolos dañados.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Esta ausencia compromete el transporte de la carga derivada del aparato de Golgi hacia el centrómero, un proceso esencial para ensamblar la zona de transición, formar los cilios y regular la composición de la membrana ciliar.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "En un modelo de ratón, la interrupción de ALMS1 provocó una pérdida progresiva y dependiente de la edad de los cilios en la retina, el riñón y el cerebro.",
+   "fact_ids": [
+    "f7"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que el síndrome de Alström se debe a la alteración de la integridad del extremo proximal de los centríolos y al deterioro del tráfico de proteínas hacia el centrómero, lo que compromete el ensamblaje y el mantenimiento de los cilios.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:45:36+00:00"
+ }
+}

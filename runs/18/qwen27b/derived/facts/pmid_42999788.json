@@ -1,0 +1,47 @@
+{
+ "study_id": "pmid:42999788",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "ba8db14e65263f84",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-13T12:48:24+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study analyzed brain tissue from 17 people with major depressive disorder and 20 matched individuals without psychiatric illness.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers examined the dorsolateral prefrontal cortex, a region of the brain involved in thinking and decision-making.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "A sequencing method called RiboMeth-seq was used to identify specific locations of chemical modifications on ribosomal RNA.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The general pattern of chemical modifications on ribosomal RNA was largely the same in both groups, suggesting the overall structure of ribosomes was not broadly disrupted.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Eight specific sites on the ribosomal RNA showed significant differences in modification levels between the two groups.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The findings suggest that major depressive disorder is associated with targeted changes at specific ribosomal positions rather than a general breakdown of ribosome function.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The results suggest that these specific changes in ribosome composition may contribute to problems with protein production in the brain.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

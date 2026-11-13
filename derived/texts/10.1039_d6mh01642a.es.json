@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1039/d6mh01642a",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "8db720e15aab8530",
+ "generated_at": "2026-11-13T13:42:49+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores construyeron un transistor novedoso que combina óxidos inorgánicos específicos con un método de pulverización por sputtering, lo que permite al dispositivo alternar entre modos de plasticidad a corto y largo plazo ajustando el voltaje de la puerta mientras se mantiene constante la entrada de luz.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Al funcionar con un voltaje de lectura bajo de 1 mV y pulsos ópticos de 0,0645 mW por centímetro cuadrado, el sistema preservó niveles de conductancia estables y demostró comportamientos de plasticidad a corto plazo, como la facilitación de doble pulso, cuando se aplicaba un voltaje negativo en la puerta.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Ajustando la puerta, el transistor logró alimentar una red neuronal capaz de reconocer dígitos escritos a mano del conjunto de datos MNIST y analizar señales basadas en el tiempo que comprenden cuatro marcos, algo que los autores señalan como una solución a las limitaciones de las estrategias unimodales anteriores.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

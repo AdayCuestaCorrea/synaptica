@@ -1,0 +1,41 @@
+{
+ "study_id": "10.1016/j.cell.2026.09.041",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "c0bc7849c4be97f5",
+ "generated_at": "2026-11-13T13:27:31+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores combinaron métodos transcriptómicos de núcleo único, epigenómicos y espaciales para identificar tres grupos distintos de astrocitos según su ubicación, empleando el marcador LHX2 para diferenciar los astrocitos telencefálicos de los demás; dentro del estriado, los grupos de astrocitos dorsales y ventrales coincidieron con circuitos neuronales específicos, encontrándose un grupo ventral en la cápsula del núcleo accumbens, un patrón también observado en primates no humanos.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Un modelo de aprendizaje profundo recuperó la lógica de factores de transcripción a partir de datos existentes para ayudar a diseñar vectores virales dirigidos para estos subgrupos; los autores señalan que la diversidad de astrocitos dentro de los ganglios basales humanos no se comprendía bien anteriormente, y el estudio ofrece un nuevo marco para analizar la especialización de los astrocitos humanos y disecar los circuitos de los ganglios basales por tipo celular.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:53:26+00:00"
+ }
+}

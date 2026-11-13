@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1007/s11064-026-04951-z",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "a9f96af80a77e7e2",
+ "generated_at": "2026-11-13T13:37:19+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores utilizaron un modelo de ratones con paro cardíaco asfíxico seguido de reanimación cardiopulmonar para medir la fuga de la barrera hematoencefálica, es decir, la capacidad de esta barrera para impedir que sustancias entren en el cerebro, durante un periodo que abarcó desde las tres horas hasta los 14 días tras el procedimiento. La reanimación provocó un daño temporal en la barrera hematoencefálica que fue más grave tres días después.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los científicos recolectaron exosomas del suero de los ratones a los uno y tres días tras el procedimiento, e inyectaron estos exosomas en otros ratones o los aplicaron sobre células inmunitarias cerebrales en cultivos de laboratorio para evaluar sus efectos sobre la integridad de la barrera y los marcadores inflamatorios. La administración de exosomas procedentes de tres días después de la reanimación cardiopulmonar empeoró la fuga de la barrera cerebral y empujó a las células inmunitarias hacia un estado inflamatorio dañino con mayor intensidad que los exosomas obtenidos a los uno día.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f7"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que estos hallazgos señalan a los exosomas como una posible causa del daño cerebral tras la reanimación cardiopulmonar y sugieren que constituyen un objetivo para futuros estudios.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

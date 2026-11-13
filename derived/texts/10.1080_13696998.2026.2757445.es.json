@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1080/13696998.2026.2757445",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "9bb6e992bb2188ca",
+ "generated_at": "2026-11-13T13:32:42+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon comparaciones indirectas para evaluar nusinersen frente a onasemnogene abeparvovec-brve, alineando los datos de los ensayos de nusinersen con el ensayo STEER para pacientes naive del tratamiento y emparejando la parte C de DEVOTE con el ensayo STRENGTH para aquellos con tratamiento previo.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Las variaciones en la función motora se midieron mediante las escalas HFMSE y RULM, mostrando una ventaja numérica para nusinersen sobre la terapia génica en niños pequeños de 2 a menos de 5 años sin tratamiento previo y en pacientes menores de 18 años con tratamiento previo.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores señalaron que una comparación válida entre la parte B de DEVOTE y STEER era imposible, advirtieron que el reducido número de pacientes disminuye la precisión y afirmaron que se requieren estudios directos para confirmar si un tratamiento es realmente superior.",
+   "fact_ids": [
+    "f7",
+    "f8",
+    "f9"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:09:38+00:00"
+ }
+}

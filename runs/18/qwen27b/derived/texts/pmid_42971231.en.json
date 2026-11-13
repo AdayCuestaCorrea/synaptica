@@ -1,0 +1,56 @@
+{
+ "study_id": "pmid:42971231",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "871f74714ddd3ce4",
+ "generated_at": "2026-11-13T12:35:05+00:00",
+ "word_count": 123,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A large, ongoing surveillance project in Botswana tracked birth outcomes in public hospitals, covering more than two-thirds of the country's births, with every live-born infant and stillbirth undergoing a physical surface examination as part of routine care.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Between August 2014 and August 2022, the study evaluated 235,286 deliveries, including 11,110 involving dolutegravir exposure at conception and 24,368 involving other antiretroviral drugs.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Researchers compared the rates of neural tube defects and major structural abnormalities between these two groups, adjusting for maternal age.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "The prevalence of neural tube defects was 0.11% in the dolutegravir group and 0.10% in the non-dolutegravir group, showing no significant difference.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Rates of major external structural abnormalities were also similar, at 0.75% for dolutegravir exposure and 0.76% for other antiretroviral drugs.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:35:49+00:00"
+ }
+}

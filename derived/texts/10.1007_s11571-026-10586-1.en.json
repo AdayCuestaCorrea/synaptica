@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1007/s11571-026-10586-1",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "7dd346805e5fd2a0",
+ "generated_at": "2026-11-13T13:30:42+00:00",
+ "word_count": 104,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers designed a neuromorphic circuit intended to mimic operant conditioning with adjustable reinforcement intensity, constructing it from four specific functional modules: a pressing module, a reward module, a punishment module, and a synapse module. This system controls how strongly behaviors are reinforced or inhibited by changing how often rewards and punishments are delivered.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The circuit includes built-in hunger and sensitivity circuits that let it adapt to repeated patterns of reward and punishment, and the researchers tested these functions by running computer simulations using Pspice software.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors claim the resulting circuit is more practical, biologically realistic, and adaptable to complex situations than previous designs.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:02:32+00:00"
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "study_id": "pmid:42969949",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "a4da26f7dc070435",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T12:33:40+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The protein ALMS1 is found at the near end of centrioles, a location different from other proteins linked to ciliopathy.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "Cells lacking the ALMS1 protein develop centrioles that are shorter than normal and often fracture at their base.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "When centrioles are broken due to missing ALMS1, they lose their ability to organize microtubules and their connecting structures fail.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "In the absence of ALMS1, specific cargo items from the Golgi apparatus cannot travel properly to the centrosome to build the transition zone.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "ALMS1 is required for building the transition zone, forming cilia, and managing the materials that make up the ciliary membrane.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "Mice with disrupted ALMS1 genes gradually lose their cilia in the retina, kidney, and brain as they get older.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors suggest that Alström syndrome results from broken centriole bases and faulty protein transport, which prevents cilia from forming and staying intact.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

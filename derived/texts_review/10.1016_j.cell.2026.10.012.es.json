@@ -1,0 +1,38 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.012",
+ "lang": "es",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "66ac4cd3ffbccbd0",
+ "generated_at": "2026-11-13T13:27:51+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: words not in the Spanish dictionary ['estriosos']"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores elaboraron un atlas multiómico utilizando 1,8 millones de muestras de núcleos de humanos, macacos y marmosetos de ocho estructuras de los ganglios basales; al comparar estos datos, identificaron 61 tipos celulares homólogos inalterados durante más de 76 millones de años, concluyendo que la disposición espacial de las regiones dorsales y ventrales está más conservada evolutivamente que las identidades específicas de los receptores o los patrones estriosos/matrix.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Un grupo neuronal específico del estriado, marcado por D2, SMYD2 y HTR7, presenta características moleculares, eléctricas y físicas únicas; el análisis de secuencias reguladoras del ADN reveló patrones genéticos compartidos que definen la identidad celular y permiten asignar los riesgos genéticos de enfermedades psiquiátricas y neurodegenerativas a poblaciones celulares concretas.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que este atlas constituye un recurso fundamental para comprender la evolución, la función y los mecanismos de las enfermedades de los ganglios basales.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

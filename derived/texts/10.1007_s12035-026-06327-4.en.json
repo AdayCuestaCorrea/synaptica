@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1007/s12035-026-06327-4",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "1f38762b9b3192fe",
+ "generated_at": "2026-11-13T13:37:57+00:00",
+ "word_count": 88,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers examined how a specific PLXNB3 protein variant prevents connection with SEMA4A in humans, while reducing the Plxnb3 gene in developing mouse brains stopped neurons from moving to their correct positions.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "In the animal model, adding a specific inhibitor for the Rac1 protein fixed the migration problems observed in the mouse brains.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "The authors conclude that mutations in the PLXNB3 gene directly cause cerebral palsy by disrupting brain development, though this conclusion is based on the specific findings presented in the study.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+ "study_id": "pmid:43000116",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "5b9730f000b34900",
+ "generated_at": "2026-11-13T12:56:31+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un estudio piloto observacional prospectivo realizado en Suecia entre 2021 y 2024 analizó muestras de sangre de 21 pacientes con ictus isquémico agudo y 19 participantes de control que se sometieron a cirugías no cerebrales bajo anestesia general.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los investigadores midieron los niveles de tres marcadores de daño cerebral en sangre antes del procedimiento y, nuevamente, a las 2 y 24 horas después.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Si bien el marcador GFAP aumentó significativamente en los pacientes con ictus y se mantuvo por encima del grupo de control en todos los puntos temporales, este último no mostró un aumento significativo en los niveles de GFAP durante las 24 horas.",
+   "fact_ids": [
+    "f5",
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "En cambio, los otros dos marcadores, NfL y tau, aumentaron significativamente tanto en los pacientes con ictus como en el grupo de control.",
+   "fact_ids": [
+    "f8"
+   ]
+  },
+  {
+   "text": "Dado que el GFAP no aumentó en el grupo de control, los autores sugieren que podría verse menos afectado por la anestesia y la cirugía que los otros marcadores, lo que respalda la necesidad de evaluar ulteriormente el GFAP como un posible marcador sanguíneo del daño cerebral agudo en entornos hospitalarios.",
+   "fact_ids": [
+    "f9",
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:56:32+00:00"
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "study_id": "10.1021/acs.jpcb.6c04108",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "0c895b7397a92ad2",
+ "generated_at": "2026-11-13T13:42:10+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon simulaciones por ordenador para modelar un tetramero de Aβ-42, una estructura específica de ocho hebras beta antiparalelas en forma de barril, insertado en una membrana lipídica sintética, comparando estos resultados con un modelo de control que contenía únicamente la membrana sin el péptido.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Las simulaciones indicaron que el tetramero del péptido altera la estructura de la membrana modificando la forma y el arreglo de las cadenas lipídicas, lo que lleva a los autores a sugerir que estos hallazgos podrían ayudar a explicar los mecanismos moleculares detrás de los efectos nocivos del Aβ-42 sobre las membranas en la enfermedad de Alzheimer.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  }
+ ]
+}

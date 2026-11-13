@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1093/brain/awag401",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "eaf0b5ec3c128167",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:16:32+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a randomized, double-blind, placebo-controlled crossover trial design.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Twenty-one adults with persistent post-traumatic headache and no prior migraine history completed the study.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Participants received intravenous infusions of adrenomedullin or saline on two separate days in a random order.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The main measure was whether participants developed migraine-like headaches after receiving the drug or placebo.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Eighty-one percent of participants developed migraine-like headaches after adrenomedullin, compared to 19 percent after placebo.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Headaches started much faster after adrenomedullin (30 minutes) than after placebo (390 minutes).",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "Most participants said the headaches caused by adrenomedullin felt like their usual migraine attacks.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors note that their results need to be confirmed by other studies and animal research before the pathway can be fully trusted for treatment.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

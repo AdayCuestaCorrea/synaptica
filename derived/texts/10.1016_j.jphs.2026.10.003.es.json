@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.jphs.2026.10.003",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "1f56ced6b8af7ba9",
+ "generated_at": "2026-11-13T13:31:14+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un análisis proteómico para comparar células endoteliales microvasculares cerebrales humanas cultivadas a partir de células madre congeladas frente a las recién preparadas, con el fin de evaluar las diferencias en los niveles y funciones de las proteínas.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El análisis mostró una coincidencia muy fuerte en la expresión de proteínas entre las células congeladas y las frescas, y los datos de permeabilidad a fármacos de las células congeladas se alinearon estrechamente con los datos reales obtenidos en humanos y monos.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que estas células congeladas podrían ser una herramienta útil para probar cómo los fármacos atraviesan la barrera hematoencefálica humana fuera del organismo vivo.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00",
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:04:35+00:00"
+ }
+}

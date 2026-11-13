@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1126/sciadv.aeg8139",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "89ebc32f11344a12",
+ "generated_at": "2026-11-13T13:26:47+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores identificaron una mutación recesiva en larvas de pez cebra que provocaba pérdida auditiva, vinculada a niveles persistentemente elevados de calcio en células cerebrales específicas llamadas astrocitos radiales.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El bloqueo de los receptores de noradrenalina en estos astrocitos redujo sus niveles de calcio y restauró la capacidad del pez para responder al sonido.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que dirigir la señalización noradrenérgica podría ser una opción de tratamiento futuro para niños con condiciones neurológicas similares, aunque esto sigue siendo una hipótesis y no una terapia validada.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00",
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:51:22+00:00"
+ }
+}

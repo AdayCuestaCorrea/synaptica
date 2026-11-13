@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1007/s11571-026-10581-6",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "aeb7b9c25e37c2cd",
+ "generated_at": "2026-11-13T13:30:39+00:00",
+ "word_count": 79,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A computational model incorporating internal feedback loops in the prefrontal cortex and external signal transmission between two brain regions was constructed to simulate neural dynamics.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Mathematical analysis revealed that this system exhibits chaotic behavior and multiple stable states, and the resulting chaotic sequences demonstrated high security against attacks when tested for image encryption.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The authors conclude that these fractional models are effective for both simulating brain functions and creating encryption schemes, though the findings remain limited to computational simulations.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:02:30+00:00"
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "study_id": "10.1007/s11682-026-01213-y",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "edfd6273b6b21336",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:21:19+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study included 82 older adults with multiple sclerosis, averaging 64.4 years of age, who underwent brain scanning.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Participants completed the Symbol-Digit-Modalities Test to measure their processing speed and working memory abilities.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The study found that a high load of cortical lesions reduced the beneficial effect of certain brain networks on cognitive test results.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Doctors identified cortical lesions by analyzing MRI scans using standard medical guidelines.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors conclude that more cortical lesions limit the brain's ability to support fast thinking and memory in older adults with multiple sclerosis.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source"
+ ]
+}

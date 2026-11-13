@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1007/s00381-026-07526-z",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "1ffaa541f55a7edd",
+ "generated_at": "2026-11-13T13:36:08+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un estudio de cohorte retrospectivo que involucró a 34 niños de 6 a 16 años evaluó la función cognitiva basal mediante pruebas de diseño de bloques, amplitud de dígitos, atención visual y memoria narrativa.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Los niños que informaron síntomas obtuvieron resultados significativamente inferiores en las pruebas de atención visual, mientras que las puntuaciones en diseño de bloques en aquellos con quistes temporales variaron según el tipo de clasificación de Galassi, y siete niños que se sometieron a cirugía mostraron mejoras inmediatas en las puntuaciones de diseño de bloques y atención visual tras el procedimiento.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "El tamaño del quiste no se correlacionó con ningún resultado de las pruebas neuropsicológicas basales, y los autores señalan que las mejoras observadas tras la cirugía son preliminares y deben ser confirmadas por estudios prospectivos de mayor envergadura.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ]
+}

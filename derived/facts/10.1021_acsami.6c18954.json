@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1021/acsami.6c18954",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "393246ca3771cf08",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:25:50+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study aims to create optoelectronic synapses for vision systems that can sense specific light colors and update their signal strength smoothly.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers adjusted the chemical structure of quasi-2D perovskite materials by changing a specific numerical parameter called the nominal n value.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "Adding the n = 2 phase to the material allowed it to absorb light up to 600 nm, creating distinct electrical responses to blue, green, and red light.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "A specific mixture with a nominal n value of 1.2 absorbed red light well while stopping harmful ion movement, resulting in very straight-line changes in electrical current.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The team built a mathematical model using the material's responses to light color, brightness, and time to estimate electrical warnings for blue light hazards and known damage thresholds.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors state that this method offers a way to combine color selection and linear signal processing at the material level for vision systems.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

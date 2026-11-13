@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1083/jcb.202505164",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "a708d48d07994cdc",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:16:15+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a C. elegans animal model to investigate how non-neuronal cells affect dopamine neuron death.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Astrocyte-like glial cells were found to lower protective dopamine levels by changing the activity of specific enzymes and transporters.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Dying dopamine neurons exposed a specific surface marker called phosphatidylserine through the action of two identified transporters.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Epithelial and muscle cells ate the dead neurons and caused further death by using a specific receptor that binds to the exposed phosphatidylserine.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Removing the gene for the CED-1 receptor reduced the loss of dopamine neurons and improved movement behaviors in the disease model.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest that because these mechanisms are conserved across models, involvement of multiple organ types might be a common feature of Parkinson's disease.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

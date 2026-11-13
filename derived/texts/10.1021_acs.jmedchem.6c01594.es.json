@@ -1,0 +1,28 @@
+{
+ "study_id": "10.1021/acs.jmedchem.6c01594",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "395782f6fac62a45",
+ "generated_at": "2026-11-13T13:41:41+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los científicos modificaron sistemáticamente la estructura química de dos fármacos específicos para comprender cómo esos cambios afectan su capacidad de inhibir BAX, una proteína clave que controla la muerte celular y vincula su actividad anormal con enfermedades como trastornos cardíacos y cerebrales; para ello, utilizaron cribado asistido por ordenador para identificar fármacos existentes que pudieran modificarse y detener la actividad de BAX.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "La nueva serie de fármacos demostró una mayor capacidad para detener BAX en ensayos de laboratorio, células vivas y organoides cerebrales humanos, aunque perdió la mayoría de su capacidad original para targeting EGFR; los autores señalan que estos nuevos compuestos constituyen un buen punto de partida para el desarrollo de futuros tratamientos, pero no afirman que estén listos para su uso.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  }
+ ]
+}

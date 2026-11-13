@@ -1,0 +1,43 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.007",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "2231d4f4738ced81",
+ "generated_at": "2026-11-13T13:27:36+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores elaboraron un mapa detallado de los tipos celulares y su regulación génica en el subcórtex de los marmosetos comunes, combinando una muestreo denso con comparaciones con otras especies para identificar grupos neuronales específicos en áreas complejas del mesencéfalo y del diencéfalo. Al medir cómo cambian la cromatina abierta y los patrones de expresión génica según la ubicación dentro y entre distintas regiones subcorticales, el estudio reveló la organización espacial de estos elementos celulares.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "La investigación descubrió que los cambios suaves en la expresión génica a través de partes del hipocampo están controlados por factores de transcripción específicos que actúan mediante regiones potenciadoras concretas, mientras que un grupo específico de neuronas gabaérgicas en el tálamo primates comparte rasgos genéticos con neuronas del mesencéfalo. A pesar de encontrarse en regiones cerebrales distintas y utilizar neurotransmisores diferentes, dos tipos neuronales lejanos comparten un programa regulatorio común para funciones postsinápticas, aunque distintos tipos celulares en el telencéfalo puedan mostrar patrones de expresión génica similares construidos con estructuras regulatorias diferentes.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00",
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:54:23+00:00"
+ }
+}

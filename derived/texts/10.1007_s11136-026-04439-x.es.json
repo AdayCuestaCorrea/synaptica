@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1007/s11136-026-04439-x",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "1bf18da38d4f653d",
+ "generated_at": "2026-11-13T13:37:28+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Para aclarar si las experiencias adversas de la vida afectan la calidad de vida en adultos con síndrome de Down o si los síntomas del estado de ánimo impulsan ese vínculo, los investigadores emplearon regresiones estadísticas para determinar cómo estos factores predecían la calidad de vida.",
+   "fact_ids": [
+    "f6",
+    "f1"
+   ]
+  },
+  {
+   "text": "El análisis reveló que los síntomas del estado de ánimo actuaron como un eslabón clave entre las experiencias adversas de la vida y una menor calidad de vida, ya que estas experiencias no predijeron directamente la calidad de vida por sí solas en este grupo.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f5"
+   ]
+  },
+  {
+   "text": "Niveles más elevados de síntomas del estado de ánimo se asociaron con puntuaciones más bajas de calidad de vida, confirmando que la relación entre los eventos pasados y el bienestar actual está mediada por el estado de ánimo en lugar de ser directa.",
+   "fact_ids": [
+    "f4",
+    "f6"
+   ]
+  }
+ ]
+}

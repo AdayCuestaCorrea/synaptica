@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1007/s00441-026-04103-3",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "7cd46335b2c82eb2",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:20:06+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers found that larvae possess a distinct buccal-exposed olfactory epithelium that is not present in other stages.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "An additional sensory epithelium was identified in larvae that is closely connected to the main olfactory epithelium.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The various sensory epithelia displayed unique anatomical characteristics and sent projections to specific areas of the main and accessory olfactory bulbs.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Immunohistochemistry showed that receptor neurons expressing Gαo were present in all identified epithelia, with their axons projecting to the main and accessory olfactory bulbs.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording",
+  "statement copies the source wording"
+ ]
+}

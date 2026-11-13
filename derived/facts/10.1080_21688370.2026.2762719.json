@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1080/21688370.2026.2762719",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "e54160c6aa1a30f5",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:16:11+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used an animal model with rats split into three groups: a control group, a group induced with fibromyalgia, and a group with fibromyalgia treated with stem cells.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Rats with induced fibromyalgia showed anxiety-like behavior, signs of neurodegeneration, and damage to the blood-brain barrier.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "In the fibromyalgia rats, levels of NLRP3 and IL-1β proteins rose, along with an increase in mast cells that were actively releasing their contents.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The fibromyalgia rats also showed lower levels of proteins associated with brain cell health and autophagy, specifically Calbindin D-28k, Beclin-1, and LC3.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Rats with fibromyalgia treated with bone marrow-derived mesenchymal stem cells showed improved behavior, better brain tissue structure, reduced inflammatory markers, and restored levels of the protective proteins.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest this is one of the first studies to show that stem cell therapy can help by boosting autophagy, calming mast cells, and reducing specific inflammation pathways in the cerebellum.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

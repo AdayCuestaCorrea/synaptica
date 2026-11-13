@@ -1,0 +1,48 @@
+{
+ "study_id": "10.1002/jcsm.70418",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "589994681911ae7c",
+ "generated_at": "2026-11-13T13:29:25+00:00",
+ "word_count": 136,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers created a ZIF-8 nanocarrier designed to deliver the drug tectorigenin more effectively, testing it in a lab model of starving muscle cells and a mouse model where the sciatic nerve was crushed to induce atrophy.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "In the cell model, the nanocarrier treatment restored muscle tube width to 92% of normal levels, whereas in mice, nerve injury caused leg muscle mass to drop by 35% and fiber size to shrink by 41% before the nanocarrier increased mass to 74% of normal and fiber size to 93%, with treated mice also showing better movement abilities.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors suggest the treatment works by calming specific breakdown systems in muscle cells, boosting protein building signals, and lowering oxidative stress and inflammation, concluding that this nanotechnology approach offers a promising strategy for treating muscle wasting caused by nerve damage.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 3,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:58:29+00:00"
+ }
+}

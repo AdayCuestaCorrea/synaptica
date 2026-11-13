@@ -1,0 +1,39 @@
+{
+ "study_id": "10.1021/acs.jpclett.6c03081",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "ffbba895d2e06edf",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:25:33+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers built a specific type of artificial synapse using a combination of two oxides modified at their interface.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The device successfully mimicked biological synapses by reacting to both light and electricity in a stable way.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "When used to train a computer program to read handwritten numbers, the system reached an accuracy of 93.5 percent.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The hardware can automatically highlight the edges of images by filtering out slow changes in the signal.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors suggest this approach offers a new method for building faster and more efficient computer chips that mimic the brain.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

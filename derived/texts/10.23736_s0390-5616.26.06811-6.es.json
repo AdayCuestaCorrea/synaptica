@@ -1,0 +1,32 @@
+{
+ "study_id": "10.23736/s0390-5616.26.06811-6",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "704c50338a2fd740",
+ "generated_at": "2026-11-13T13:35:32+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron los datos de 325 pacientes que habían sido sometidos a cirugía para extirpar metástasis cerebrales, y descubrieron que aproximadamente un tercio de este grupo sufrió convulsiones.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Entre estos individuos, aquellos que padecieron convulsiones al inicio de la enfermedad vivieron más tiempo que los que no las tuvieron.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Los autores advierten que estos resultados son preliminares y deben ser verificados en grupos de pacientes más grandes.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ]
+}

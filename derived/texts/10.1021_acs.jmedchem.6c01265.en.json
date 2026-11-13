@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1021/acs.jmedchem.6c01265",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "0ddc899e99259a99",
+ "generated_at": "2026-11-13T13:41:35+00:00",
+ "word_count": 97,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "To address blood-related side effects from previous PARP inhibitors that blocked both PARP1 and PARP2 enzymes, researchers designed a study to identify new drugs specifically targeting PARP1 for brain tumor treatment.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Using Caco-2 cell tests to assess barrier crossing, the team found that compound 33 stopped and shrank tumors in animal models when administered at a dose of 0.2 mg per kilogram once daily.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Computer models suggested that humans would require less than 150 mg of the drug once daily to achieve effectiveness, according to the authors' conclusion based on these computational predictions.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

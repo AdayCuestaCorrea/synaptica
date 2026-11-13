@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.026",
+ "lang": "en",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "bb7d1657d8381043",
+ "generated_at": "2026-11-13T13:28:11+00:00",
+ "word_count": 153,
+ "problems": [
+  "sentence 2: names not in the facts: ['Consequently']"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers analyzed 3.9 million nuclei from 178 adult human brain donors using single-nucleus RNA sequencing to map cell populations across gray-matter regions. They found that individuals with higher numbers of astrocytes, microglia, or oligodendrocyte precursor cells in one area generally showed similar increases in all other studied regions.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The proportion of oligodendrocyte precursor cells dropped by 40% between ages 30 and 80 in both the cortex and striatum, while changes in gene expression linked to aging varied significantly by cell type. Consequently, the study could estimate donor age based on RNA expression patterns with an average error of 6.6 years.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Common genetic variations were linked to the expression of nearly 10,000 genes, and these links were mostly specific to cell types, helping distinguish neurons in the striatum from those in the cortex. The authors state that the released data serve as a foundation for future research into human brain variation and potential vulnerabilities.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ]
+}

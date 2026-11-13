@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1038/s41593-026-02455-1",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "0036083acc606781",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:11:46+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "A meta-analysis of genome-wide data found 343 independent genetic locations linked to multidimensional pain, including 92 that had not been previously associated with pain.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "When analyzed separately by sex, researchers found 115 genetic locations linked to pain in males and only 12 in females.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Further analysis identified 490 specific genes that appear to influence multidimensional pain through their activity in the brain and blood.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Statistical tests suggested a causal link between multidimensional pain and conditions including psychiatric disorders, substance use disorders, and elevated C-reactive protein levels.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The genetic variants linked to pain were also connected to various traits observed in brain imaging scans.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors state that their findings expand current understanding of pain genetics but emphasize that the complex connections to other disorders and biological pathways require further study.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

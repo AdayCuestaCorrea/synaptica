@@ -1,0 +1,50 @@
+{
+ "study_id": "10.1093/brain/awag401",
+ "lang": "es",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "a277c10fa81aa28c",
+ "generated_at": "2026-11-13T13:33:41+00:00",
+ "word_count": null,
+ "problems": [
+  "judge: Overstates confidence in treatment pathway"
+ ],
+ "sentences": [
+  {
+   "text": "En un ensayo aleatorizado, doble ciego y controlado con placebo de cruzamiento, veintiún adultos con cefalea post-traumática persistente y sin antecedentes previos de migraña recibieron infusiones intravenosas de adrenomedulina o solución salina en dos días distintos, en un orden aleatorio.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "La medida principal fue determinar si los participantes desarrollaban cefaleas similares a una migraña tras recibir el fármaco o el placebo: el ochenta y uno por ciento de ellos presentó síntomas después de la adrenomedulina frente al diecinueve por ciento tras la solución salina, con un inicio del dolor mucho más rápido tras el fármaco (a los treinta minutos) que tras el placebo (a los trescientos noventa minutos), mientras que la mayoría de los participantes indicó que el dolor se asemejaba a sus ataques habituales de migraña.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "Los autores señalan que sus resultados deben ser confirmados por otros estudios y por investigaciones en animales antes de que la vía pueda considerarse plenamente fiable para el tratamiento.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": false,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Overstates confidence in treatment pathway",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:12:42+00:00"
+ }
+}

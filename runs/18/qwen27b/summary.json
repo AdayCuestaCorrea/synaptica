@@ -1,0 +1,1042 @@
+{
+ "measured_at": "2026-11-13T12:56:32+00:00",
+ "writer": "groq/qwen/qwen3.8-27b",
+ "judge": "groq/openai/gpt-oss-120b",
+ "stopped": null,
+ "writer_stats": {
+  "calls": 0,
+  "cached": 4,
+  "prompt_tokens": 3672,
+  "completion_tokens": 1007,
+  "seconds": 80.458
+ },
+ "judge_stats": {
+  "calls": 2,
+  "cached": 0,
+  "prompt_tokens": 3790,
+  "completion_tokens": 242,
+  "seconds": 1.4744050199988123
+ },
+ "articles": [
+  {
+   "pmid": "42971231",
+   "title": "Prevalence of neural tube defects and major external structural abnormalities by antiretroviral treatment regimen in Botswana in 2014-22: a birth outcomes surveillance study.",
+   "facts": "ok",
+   "n_facts": 6,
+   "rejected_facts": [
+    "statement copies the source wording"
+   ],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "A large, ongoing surveillance project in Botswana tracked birth outcomes in public hospitals, covering more than two-thirds of the country's births, with every live-born infant and stillbirth undergoing a physical surface examination as part of routine care.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "Between August 2014 and August 2022, the study evaluated 235,286 deliveries, including 11,110 involving dolutegravir exposure at conception and 24,368 involving other antiretroviral drugs.",
+      "fact_ids": [
+       "f3"
+      ]
+     },
+     {
+      "text": "Researchers compared the rates of neural tube defects and major structural abnormalities between these two groups, adjusting for maternal age.",
+      "fact_ids": [
+       "f4"
+      ]
+     },
+     {
+      "text": "The prevalence of neural tube defects was 0.11% in the dolutegravir group and 0.10% in the non-dolutegravir group, showing no significant difference.",
+      "fact_ids": [
+       "f5"
+      ]
+     },
+     {
+      "text": "Rates of major external structural abnormalities were also similar, at 0.75% for dolutegravir exposure and 0.76% for other antiretroviral drugs.",
+      "fact_ids": [
+       "f6"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 5,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:35:49+00:00"
+    }
+   },
+   "es": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Un amplio proyecto de vigilancia en curso en Botsuana ha seguido los resultados del parto en hospitales públicos, cubriendo más de dos tercios de los nacimientos del país, donde cada recién nacido vivo y cada muerte fetal se somete a un examen físico de la superficie corporal como parte de la atención rutinaria.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "Entre agosto de 2014 y agosto de 2022, el estudio evaluó 235 286 partos, incluidos 11 110 con exposición a dolutegravir en la concepción y 24 368 con otros fármacos antirretrovirales.",
+      "fact_ids": [
+       "f3"
+      ]
+     },
+     {
+      "text": "Los investigadores compararon las tasas de defectos del tubo neural y anomalías estructurales mayores entre estos dos grupos, ajustando por la edad materna.",
+      "fact_ids": [
+       "f4"
+      ]
+     },
+     {
+      "text": "La prevalencia de defectos del tubo neural fue del 0,11 % en el grupo de dolutegravir y del 0,10 % en el grupo sin dolutegravir, lo que no mostró ninguna diferencia significativa.",
+      "fact_ids": [
+       "f5"
+      ]
+     },
+     {
+      "text": "Las tasas de anomalías estructurales externas mayores también fueron similares, con un 0,75 % para la exposición a dolutegravir y un 0,76 % para otros fármacos antirretrovirales.",
+      "fact_ids": [
+       "f6"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 5,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:35:49+00:00"
+    }
+   }
+  },
+  {
+   "pmid": "42999541",
+   "title": "Sustained delivery of 3D-bioprinted stem cell-derived small extracellular vesicles promotes neural regeneration following traumatic brain injury via the CREB1/PGC-1α/FNDC5 axis.",
+   "facts": "ok",
+   "n_facts": 6,
+   "rejected_facts": [
+    "numbers not in the quote"
+   ],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Researchers developed a gelatin-based hydrogel designed to encapsulate vesicles derived from stem cells cultured in a three-dimensional structure.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "In a mouse model of brain injury, this delivery system was injected into the damaged region, with recovery assessed through behavioral tests, cell staining, and gene analysis.",
+      "fact_ids": [
+       "f3"
+      ]
+     },
+     {
+      "text": "The gel remained in the brain longer than controls, resulted in less tissue damage, and was associated with improved movement and memory over time.",
+      "fact_ids": [
+       "f4"
+      ]
+     },
+     {
+      "text": "The treatment increased the number of dividing cells showing markers for nerve cells or their support cells, a process linked to elevated protein levels that triggered gene changes supporting new nerve cell growth.",
+      "fact_ids": [
+       "f5",
+       "f6"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:56:31+00:00"
+    }
+   },
+   "es": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Los investigadores desarrollaron un hidrogel a base de gelatina diseñado para encapsular vesículas derivadas de células madre cultivadas en una estructura tridimensional.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "En un modelo de ratón con lesión cerebral, este sistema de administración se inyectó en la zona dañada, evaluando la recuperación mediante pruebas de comportamiento, tinción celular y análisis de genes.",
+      "fact_ids": [
+       "f3"
+      ]
+     },
+     {
+      "text": "El gel permaneció en el cerebro más tiempo que los controles, provocó menos daño tisular y se asoció con una mejora progresiva del movimiento y la memoria.",
+      "fact_ids": [
+       "f4"
+      ]
+     },
+     {
+      "text": "El tratamiento aumentó el número de células en división que mostraban marcadores de células nerviosas o de sus células de soporte, un proceso vinculado a niveles elevados de proteínas que desencadenaban cambios genéticos que favorecen el crecimiento de nuevas células nerviosas.",
+      "fact_ids": [
+       "f5",
+       "f6"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:56:31+00:00"
+    }
+   }
+  },
+  {
+   "pmid": "42985707",
+   "title": "Improved Visualization of the Internal Branch of the Superior Laryngeal Nerve during Pharyngeal Endoscopic Subepithelial Dissection with Use of Red Dichromatic Imaging.",
+   "facts": "ok",
+   "n_facts": 6,
+   "rejected_facts": [
+    "statement copies the source wording"
+   ],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "A case report described a 57-year-old woman undergoing a minimally invasive endoscopic procedure to remove a small, shallow growth on the pharyngoepiglottic fold, where red dichromatic imaging was used to visualize a nerve structure.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "The nerve appeared sharper and easier to see with the red imaging method than with standard white light, both before cutting the tissue and after injecting fluid under the surface.",
+      "fact_ids": [
+       "f3"
+      ]
+     },
+     {
+      "text": "The lesion was removed in one piece without visible signs of nerve damage, and the patient did not experience difficulty swallowing, a hoarse voice, or other complications after the operation.",
+      "fact_ids": [
+       "f4",
+       "f5"
+      ]
+     },
+     {
+      "text": "The authors suggest that this red imaging technique could be a helpful tool for seeing the nerve and supporting efforts to preserve it during similar surgeries.",
+      "fact_ids": [
+       "f6"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:39:47+00:00"
+    }
+   },
+   "es": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Un informe de caso describe a una mujer de 57 años que se sometió a un procedimiento endoscópico mínimamente invasivo para extirpar una pequeña y superficial lesión en el pliegue faringoepiglótico, en el que se empleó la imagen dicromática en rojo para visualizar una estructura nerviosa.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "El nervio apareció más nítido y fácil de distinguir con el método de imagen en rojo que con la luz blanca estándar, tanto antes de cortar el tejido como después de inyectar líquido bajo la superficie.",
+      "fact_ids": [
+       "f3"
+      ]
+     },
+     {
+      "text": "La lesión fue extirpada en un solo fragmento sin signos visibles de daño nervioso, y la paciente no experimentó dificultades para tragar, voz ronca ni otras complicaciones tras la operación.",
+      "fact_ids": [
+       "f4",
+       "f5"
+      ]
+     },
+     {
+      "text": "Los autores sugieren que esta técnica de imagen en rojo podría ser una herramienta útil para visualizar el nervio y respaldar los esfuerzos por preservarlo durante cirugías similares.",
+      "fact_ids": [
+       "f6"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:39:47+00:00"
+    }
+   }
+  },
+  {
+   "pmid": "42993056",
+   "title": "Developmental elimination of electrical synapses by UNC-51/UNC-76-mediated vesicular transport.",
+   "facts": "ok",
+   "n_facts": 5,
+   "rejected_facts": [],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Researchers investigated the development of sensory neurons in the roundworm C. elegans to understand how electrical connections appear and disappear.",
+      "fact_ids": [
+       "f1"
+      ]
+     },
+     {
+      "text": "Blocking these early electrical connections stopped calcium signals from firing and prevented the formation of chemical synapses, although restoring the calcium signals resolved the issue.",
+      "fact_ids": [
+       "f2"
+      ]
+     },
+     {
+      "text": "A genetic screen identified that a specific protein named UNC-51 is required for the removal of these electrical connections.",
+      "fact_ids": [
+       "f3"
+      ]
+     },
+     {
+      "text": "The UNC-51 protein functions with other molecules to move the components of the electrical connection away from the synapse, gradually clearing them out.",
+      "fact_ids": [
+       "f4"
+      ]
+     },
+     {
+      "text": "When this removal process is blocked, the electrical connections remain in place and the neurons become overly active.",
+      "fact_ids": [
+       "f5"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:54:56+00:00"
+    }
+   },
+   "es": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Los investigadores estudiaron el desarrollo de las neuronas sensoriales en el gusano C. elegans para comprender cómo aparecen y desaparecen las conexiones eléctricas.",
+      "fact_ids": [
+       "f1"
+      ]
+     },
+     {
+      "text": "Al bloquear estas conexiones eléctricas tempranas, se impidió la emisión de señales de calcio y la formación de sinapsis químicas, aunque la restauración de dichas señales resolvió el problema.",
+      "fact_ids": [
+       "f2"
+      ]
+     },
+     {
+      "text": "Un cribado genético reveló que una proteína específica denominada UNC-51 es necesaria para la eliminación de estas conexiones eléctricas.",
+      "fact_ids": [
+       "f3"
+      ]
+     },
+     {
+      "text": "La proteína UNC-51 actúa junto con otras moléculas para alejar los componentes de la conexión eléctrica de la sinapsis, despejándolos gradualmente.",
+      "fact_ids": [
+       "f4"
+      ]
+     },
+     {
+      "text": "Cuando se bloquea este proceso de eliminación, las conexiones eléctricas permanecen en su sitio y las neuronas se vuelven excesivamente activas.",
+      "fact_ids": [
+       "f5"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:54:56+00:00"
+    }
+   }
+  },
+  {
+   "pmid": "42986391",
+   "title": "Fluorescent glutamate reporter mouse line reveals slow stochastic release from rod photoreceptor cells.",
+   "facts": "ok",
+   "n_facts": 7,
+   "rejected_facts": [],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "In a mouse model, researchers engineered rod cells to express a glowing marker that illuminates upon glutamate release, allowing them to track neurotransmitter output under dim and bright lighting.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "When light flashed at these rods, the marker dimmed, indicating reduced glutamate release, while the signal strength dropped off as the light flickered faster between 1 and 10 times per second.",
+      "fact_ids": [
+       "f3",
+       "f4"
+      ]
+     },
+     {
+      "text": "The cells released glutamate in random bursts at a steady pace of 20 to 40 tiny packets per second, a speed confirmed by a second electrical measurement method showing about 38 packets per second.",
+      "fact_ids": [
+       "f5",
+       "f6"
+      ]
+     },
+     {
+      "text": "Because this release speed remains constant across different light levels, the rod cells pass on their light-adjustment signals to the next neurons in the eye without distortion.",
+      "fact_ids": [
+       "f7"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:54:58+00:00"
+    }
+   },
+   "es": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "En un modelo de ratón, los investigadores modificaron las células bastones para que expresaran un marcador luminoso que se activa ante la liberación de glutamato, lo que les permitió rastrear la salida de neurotransmisor bajo iluminación tenue y brillante.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "Cuando la luz parpadeaba sobre estos bastones, el marcador se atenuaba, lo que indicaba una reducción en la liberación de glutamato, mientras que la intensidad de la señal disminuía a medida que la luz parpadeaba más rápido, entre 1 y 10 veces por segundo.",
+      "fact_ids": [
+       "f3",
+       "f4"
+      ]
+     },
+     {
+      "text": "Las células liberaban glutamato en ráfagas aleatorias a un ritmo constante de 20 a 40 pequeños paquetes por segundo, una velocidad confirmada por un segundo método de medición eléctrica que mostraba aproximadamente 38 paquetes por segundo.",
+      "fact_ids": [
+       "f5",
+       "f6"
+      ]
+     },
+     {
+      "text": "Dado que esta velocidad de liberación se mantiene constante en distintos niveles de luz, las células bastones transmiten sus señales de ajuste lumínico a las neuronas siguientes del ojo sin distorsión.",
+      "fact_ids": [
+       "f7"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:54:58+00:00"
+    }
+   }
+  },
+  {
+   "pmid": "42969949",
+   "title": "ALMS1 stabilizes the proximal centriole to drive transition zone assembly and ciliogenesis.",
+   "facts": "ok",
+   "n_facts": 8,
+   "rejected_facts": [],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Researchers investigated how mutations in the ALMS1 gene, which cause Alström syndrome, affect cellular structures, noting that the ALMS1 protein is located at the proximal end of centrioles.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "In cells lacking ALMS1, centrioles became shorter and often fractured at their proximal ends, while also showing decreased microtubule-organizing activity and damaged centriole linkers.",
+      "fact_ids": [
+       "f3",
+       "f4"
+      ]
+     },
+     {
+      "text": "This absence impaired the transport of Golgi-derived cargo to the centrosome, a process critical for assembling the transition zone, forming cilia, and regulating ciliary membrane composition.",
+      "fact_ids": [
+       "f5",
+       "f6"
+      ]
+     },
+     {
+      "text": "In a mouse model, disrupting ALMS1 led to a progressive, age-dependent loss of cilia in the retina, kidney, and brain.",
+      "fact_ids": [
+       "f7"
+      ]
+     },
+     {
+      "text": "The authors conclude that Alström syndrome results from disrupted proximal centriole integrity and impaired protein trafficking to the centrosome, which compromises ciliary assembly and maintenance.",
+      "fact_ids": [
+       "f8"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:45:36+00:00"
+    }
+   },
+   "es": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Los investigadores analizaron cómo las mutaciones en el gen ALMS1, responsables del síndrome de Alström, afectan a las estructuras celulares, destacando que la proteína ALMS1 se localiza en el extremo proximal de los centríolos.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "En las células que carecen de ALMS1, los centríolos se acortan y suelen fracturarse en sus extremos proximales, al tiempo que presentan una menor actividad de organización de microtúbulos y unos conectores de centríolos dañados.",
+      "fact_ids": [
+       "f3",
+       "f4"
+      ]
+     },
+     {
+      "text": "Esta ausencia compromete el transporte de la carga derivada del aparato de Golgi hacia el centrómero, un proceso esencial para ensamblar la zona de transición, formar los cilios y regular la composición de la membrana ciliar.",
+      "fact_ids": [
+       "f5",
+       "f6"
+      ]
+     },
+     {
+      "text": "En un modelo de ratón, la interrupción de ALMS1 provocó una pérdida progresiva y dependiente de la edad de los cilios en la retina, el riñón y el cerebro.",
+      "fact_ids": [
+       "f7"
+      ]
+     },
+     {
+      "text": "Los autores concluyen que el síndrome de Alström se debe a la alteración de la integridad del extremo proximal de los centríolos y al deterioro del tráfico de proteínas hacia el centrómero, lo que compromete el ensamblaje y el mantenimiento de los cilios.",
+      "fact_ids": [
+       "f8"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:45:36+00:00"
+    }
+   }
+  },
+  {
+   "pmid": "43000116",
+   "title": "Biomarkers in Patients With Acute Ischaemic Stroke Undergoing Thrombectomy Compared With Controls: A Pilot Study.",
+   "facts": "ok",
+   "n_facts": 10,
+   "rejected_facts": [],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "A prospective observational pilot study conducted in Sweden from 2021 to 2024 analyzed blood samples from 21 patients with acute ischaemic stroke and 19 control participants undergoing non-brain surgery under general anesthesia.",
+      "fact_ids": [
+       "f1",
+       "f2",
+       "f3"
+      ]
+     },
+     {
+      "text": "Researchers measured levels of three brain injury markers in blood before the procedure and again at 2 and 24 hours afterward.",
+      "fact_ids": [
+       "f4"
+      ]
+     },
+     {
+      "text": "While the marker GFAP rose significantly in stroke patients and remained higher than in the control group at every time point, the control group did not show a significant rise in GFAP levels over the 24-hour period.",
+      "fact_ids": [
+       "f5",
+       "f6",
+       "f7"
+      ]
+     },
+     {
+      "text": "In contrast, the other two markers, NfL and tau, increased significantly in both the stroke patients and the control group.",
+      "fact_ids": [
+       "f8"
+      ]
+     },
+     {
+      "text": "Because GFAP did not rise in the control group, the authors suggest it may be less affected by anesthesia and surgery than the other markers, supporting the need for further evaluation of GFAP as a potential blood marker for acute brain injury in hospital settings.",
+      "fact_ids": [
+       "f9",
+       "f10"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:56:32+00:00"
+    }
+   },
+   "es": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Un estudio piloto observacional prospectivo realizado en Suecia entre 2021 y 2024 analizó muestras de sangre de 21 pacientes con ictus isquémico agudo y 19 participantes de control que se sometieron a cirugías no cerebrales bajo anestesia general.",
+      "fact_ids": [
+       "f1",
+       "f2",
+       "f3"
+      ]
+     },
+     {
+      "text": "Los investigadores midieron los niveles de tres marcadores de daño cerebral en sangre antes del procedimiento y, nuevamente, a las 2 y 24 horas después.",
+      "fact_ids": [
+       "f4"
+      ]
+     },
+     {
+      "text": "Si bien el marcador GFAP aumentó significativamente en los pacientes con ictus y se mantuvo por encima del grupo de control en todos los puntos temporales, este último no mostró un aumento significativo en los niveles de GFAP durante las 24 horas.",
+      "fact_ids": [
+       "f5",
+       "f6",
+       "f7"
+      ]
+     },
+     {
+      "text": "En cambio, los otros dos marcadores, NfL y tau, aumentaron significativamente tanto en los pacientes con ictus como en el grupo de control.",
+      "fact_ids": [
+       "f8"
+      ]
+     },
+     {
+      "text": "Dado que el GFAP no aumentó en el grupo de control, los autores sugieren que podría verse menos afectado por la anestesia y la cirugía que los otros marcadores, lo que respalda la necesidad de evaluar ulteriormente el GFAP como un posible marcador sanguíneo del daño cerebral agudo en entornos hospitalarios.",
+      "fact_ids": [
+       "f9",
+       "f10"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:56:32+00:00"
+    }
+   }
+  },
+  {
+   "pmid": "42999788",
+   "title": "RiboMeth-Sequencing Reveals Selective Ribosomal RNA 2'-O-Methylation Changes in the Dorsolateral Prefrontal Cortex of Subjects With Major Depressive Disorder.",
+   "facts": "ok",
+   "n_facts": 7,
+   "rejected_facts": [],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Researchers analyzed brain tissue from 17 people with major depressive disorder and 20 matched individuals without psychiatric illness, focusing on the dorsolateral prefrontal cortex, a region involved in thinking and decision-making.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "Using a sequencing method called RiboMeth-seq, they identified specific locations of chemical modifications on ribosomal RNA.",
+      "fact_ids": [
+       "f3"
+      ]
+     },
+     {
+      "text": "While the general pattern of these modifications was largely the same in both groups, eight specific sites on the ribosomal RNA showed significant differences in modification levels.",
+      "fact_ids": [
+       "f4",
+       "f5"
+      ]
+     },
+     {
+      "text": "The authors conclude that major depressive disorder is associated with targeted changes at specific ribosomal positions rather than a general breakdown of ribosome function, suggesting these changes may contribute to problems with protein production in the brain.",
+      "fact_ids": [
+       "f6",
+       "f7"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:49:17+00:00"
+    }
+   },
+   "es": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Los investigadores analizaron tejido cerebral de 17 personas con trastorno depresivo mayor y 20 individuos emparejados sin enfermedad psiquiátrica, centrándose en la corteza prefrontal dorsolateral, una región implicada en el pensamiento y la toma de decisiones.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "Mediante un método de secuenciación denominado RiboMeth-seq, identificaron ubicaciones específicas de modificaciones químicas en el ARN ribosómico.",
+      "fact_ids": [
+       "f3"
+      ]
+     },
+     {
+      "text": "Aunque el patrón general de estas modificaciones fue mayoritariamente el mismo en ambos grupos, ocho sitios específicos del ARN ribosómico mostraron diferencias significativas en los niveles de modificación.",
+      "fact_ids": [
+       "f4",
+       "f5"
+      ]
+     },
+     {
+      "text": "Los autores concluyen que el trastorno depresivo mayor se asocia con cambios dirigidos en posiciones ribosómicas concretas, en lugar de con un fallo general de la función ribosómica, lo que sugiere que estas alteraciones podrían contribuir a los problemas en la producción de proteínas en el cerebro.",
+      "fact_ids": [
+       "f6",
+       "f7"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:49:17+00:00"
+    }
+   }
+  },
+  {
+   "pmid": "42997796",
+   "title": "Outdoor Air Pollution Exposure Alters Fear Regulation and Fear-Related Neural Circuitry in Adolescence.",
+   "facts": "ok",
+   "n_facts": 7,
+   "rejected_facts": [
+    "statement copies the source wording"
+   ],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Researchers examined 102 adolescents aged 10 to 17, dividing them into two groups based on recent exposure to fine air particles relative to a 9 micrograms per cubic meter limit, while measuring fear through sweat levels, avoidance behaviors, and self-reported feelings.",
+      "fact_ids": [
+       "f1",
+       "f2",
+       "f3"
+      ]
+     },
+     {
+      "text": "Participants with higher exposure exhibited a stronger return of fear when the threat was absent, indicated by elevated sweat levels and persistent feelings of fear.",
+      "fact_ids": [
+       "f4"
+      ]
+     },
+     {
+      "text": "Brain imaging performed on a smaller group of 68 participants revealed that the high-exposure group had more activity in the right amygdala during learning and safety phases, and in the left insula during the recall phase.",
+      "fact_ids": [
+       "f5",
+       "f6"
+      ]
+     },
+     {
+      "text": "The authors suggest that higher air pollution exposure is linked to changes in how fear is processed, which may be a way air pollution contributes to anxiety.",
+      "fact_ids": [
+       "f7"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 3,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:50:40+00:00"
+    }
+   },
+   "es": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Los investigadores examinaron a 102 adolescentes de entre 10 y 17 años, dividiéndolos en dos grupos según su exposición reciente a partículas finas del aire en relación con un límite de 9 microgramos por metro cúbico, mientras medían el miedo a través de los niveles de sudor, los comportamientos de evitación y las sensaciones declaradas por los propios participantes.",
+      "fact_ids": [
+       "f1",
+       "f2",
+       "f3"
+      ]
+     },
+     {
+      "text": "Los participantes con mayor exposición mostraron un retorno más intenso del miedo cuando la amenaza no estaba presente, lo que se evidenció por niveles elevados de sudor y sensaciones persistentes de temor.",
+      "fact_ids": [
+       "f4"
+      ]
+     },
+     {
+      "text": "La neuroimagen realizada en un subgrupo más pequeño de 68 participantes reveló que el grupo de alta exposición presentaba mayor actividad en la amígdala derecha durante las fases de aprendizaje y seguridad, y en la ínsula izquierda durante la fase de recuerdo.",
+      "fact_ids": [
+       "f5",
+       "f6"
+      ]
+     },
+     {
+      "text": "Los autores sugieren que una mayor exposición a la contaminación del aire se asocia con cambios en el procesamiento del miedo, lo que podría ser una forma en que la contaminación contribuye a la ansiedad.",
+      "fact_ids": [
+       "f7"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 3,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:50:40+00:00"
+    }
+   }
+  },
+  {
+   "pmid": "42997793",
+   "title": "Subgenual Cingulate Functional Connectivity Predicts Neuromodulation Response in Depression: A Systematic Review.",
+   "facts": "ok",
+   "n_facts": 8,
+   "rejected_facts": [
+    "numbers not in the quote"
+   ],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "A systematic review examined brain connectivity in adults aged 18 to 70 with major depressive disorder to determine if pre-treatment activity patterns were linked to changes in symptoms.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "In some studies, stronger initial connections between the subgenual cingulate and the right prefrontal cortex were linked to less improvement, whereas stronger connections with the medial orbitofrontal cortex were linked to greater symptom improvement.",
+      "fact_ids": [
+       "f3",
+       "f4"
+      ]
+     },
+     {
+      "text": "These associations were most frequently observed in studies using repetitive transcranial magnetic stimulation, particularly with personalized targeting, although the quality of the brain scans was rated as adequate with an average score of 16.1 out of 20.",
+      "fact_ids": [
+       "f5",
+       "f6"
+      ]
+     },
+     {
+      "text": "Because the results varied across studies and did not allow for detailed statistical analysis of specific brain locations, the authors state that larger future studies are required to confirm these findings and determine their clinical utility.",
+      "fact_ids": [
+       "f7",
+       "f8"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:51:46+00:00"
+    }
+   },
+   "es": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Una revisión sistemática analizó la conectividad cerebral en adultos de entre 18 y 70 años con trastorno depresivo mayor para determinar si los patrones de actividad previos al tratamiento se asociaban con cambios en los síntomas.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "En algunos estudios, conexiones iniciales más fuertes entre el cíngulo subgenual y la corteza prefrontal derecha se asociaron con una menor mejoría, mientras que las conexiones más intensas con la corteza orbitofrontal medial se vincularon con una mayor mejoría de los síntomas.",
+      "fact_ids": [
+       "f3",
+       "f4"
+      ]
+     },
+     {
+      "text": "Estas asociaciones se observaron con mayor frecuencia en estudios que utilizaron estimulación magnética transcraneal repetitiva, especialmente con dianas personalizadas, aunque la calidad de las resonancias cerebrales se calificó como adecuada, con una puntuación media de 16,1 sobre 20.",
+      "fact_ids": [
+       "f5",
+       "f6"
+      ]
+     },
+     {
+      "text": "Dado que los resultados variaron entre los estudios y no permitieron un análisis estadístico detallado de localizaciones cerebrales específicas, los autores señalan que se necesitan futuros estudios de mayor tamaño para confirmar estos hallazgos y determinar su utilidad clínica.",
+      "fact_ids": [
+       "f7",
+       "f8"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:51:46+00:00"
+    }
+   }
+  }
+ ]
+}

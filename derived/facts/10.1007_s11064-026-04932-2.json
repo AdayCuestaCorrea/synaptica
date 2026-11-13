@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1007/s11064-026-04932-2",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "cc7b84bd8bbcd1bf",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:20:51+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a rat model specifically designed to show post-stroke headache symptoms like sensitivity to orbital pressure and excessive face grooming.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Giving rats different amounts of gastrodin reduced their pain-related behaviors in a way that depended on the dose given.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "When the rats were treated with a drug that blocks the PI3K pathway, the pain relief and brain protection caused by gastrodin disappeared.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The study included 80 people who had had an acute ischemic stroke and 50 healthy people for comparison.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "In the human patients, lower levels of PI3K and Akt proteins in the blood were linked to more severe headaches and worse neurological outcomes.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Gastrodin treatment increased the activity of the PI3K/Akt pathway in the brain area surrounding the stroke, which was shown by higher levels of specific proteins.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors note that post-stroke headaches and other neurological problems make the overall recovery from stroke much worse.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "Before this research, it was not known if gastrodin could stop post-stroke headaches or how it worked to do so.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

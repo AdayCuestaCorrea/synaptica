@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1007/s11060-026-05851-6",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "c98732e8bc7f0fdd",
+ "generated_at": "2026-11-13T13:37:10+00:00",
+ "word_count": 94,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers analyzed data from patients with aggressive temporal lobe tumors who underwent complete surgical removal to test three specific MRI techniques for predicting post-operative growth direction.",
+   "fact_ids": [
+    "f1",
+    "f5"
+   ]
+  },
+  {
+   "text": "By examining follow-up scans to determine if the tumor expanded sideways, upward, or downward, they found that the diffusion anisotropy method correctly predicted the growth trajectory in approximately 75% of cases, outperforming other imaging methods and showing no added benefit when combined with them.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors suggest this imaging approach could assist surgeons in planning operations by indicating the likely path of tumor growth prior to the procedure.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ]
+}

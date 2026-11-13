@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1212/wnl.0000000000218703",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "13b1c3be8029016f",
+ "generated_at": "2026-11-13T13:34:43+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores realizaron un análisis secundario exploratorio de un ensayo aleatorizado que involucró a 816 adultos con ictus agudo que habían sometido a una cirugía de eliminación del coágulo, comparando a los asignados a un plan intensivo de reducción de la presión arterial con los que siguieron un plan estándar.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "El equipo monitorizó las lecturas de la presión arterial durante los primeros tres días para calcular los niveles medios y las fluctuaciones, observando que los hombres que recibieron un control intensivo obtuvieron peores puntuaciones de recuperación a largo plazo que los que siguieron el plan estándar, mientras que en las mujeres no se detectó una diferencia clara entre ambas estrategias.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "En los hombres, una presión arterial media más elevada durante los tres días iniciales se asoció con resultados de recuperación peores, aunque los autores señalan que los resultados para otras medidas de salud requieren más pruebas y que estos hallazgos son preliminares antes de guiar el tratamiento.",
+   "fact_ids": [
+    "f7",
+    "f8",
+    "f9"
+   ]
+  }
+ ]
+}

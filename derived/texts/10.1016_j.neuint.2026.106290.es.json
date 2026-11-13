@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1016/j.neuint.2026.106290",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "46e07ce1a3e5afe1",
+ "generated_at": "2026-11-13T13:40:33+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores diseñaron una prueba de laboratorio con cultivos celulares del ganglio de la raíz dorsal y microglía para estudiar las señales que activan el desplazamiento de las células inmunitarias; cuando se cultivaron juntos, estas células del ganglio provocaron una migración inmunitaria mayor a la habitual, lo que indica que liberan señales de atracción.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "La sustancia ATP, presente en las señales liberadas por el ganglio de la raíz dorsal, estimuló fuertemente la migración de la microglía, mientras que químicos comunes relacionados con el dolor como la CGRP, la sustancia P y el glutamato no provocaron movimiento a niveles normales; además, dos fármacos distintos diseñados para bloquear los receptores de ATP actuaron de forma diferente, con uno deteniendo parcialmente el desplazamiento y el otro sin efecto alguno.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que este nuevo método de laboratorio ofrece una vía útil para estudiar cómo las células nerviosas y las inmunitarias se comunican tanto en estados sanos como enfermos.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ]
+}

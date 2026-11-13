@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1212/wnl.0000000000218738",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "bd5b9e23877a50d9",
+ "generated_at": "2026-11-13T13:34:59+00:00",
+ "word_count": 99,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers conducted a retrospective cohort study involving 533 amyloid-positive individuals, 148 of whom met the Boston criteria for probable cerebral amyloid angiopathy, to compare groups based on these specific diagnostic standards.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Analysis revealed that the probable CAA group exhibited higher cortical amyloid accumulation on brain imaging and a stronger association between lower cerebrospinal fluid amyloid-beta levels and a greater burden of lobar microbleeds.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors conclude that probable CAA reflects a heavier amyloid load rather than a distinct clinical category with unique symptoms, suggesting that specific imaging markers like superficial siderosis may offer more utility than current classification systems.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1016/j.gene.2026.150493",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "6fdcfde8f7492e23",
+ "generated_at": "2026-11-13T13:40:05+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron si añadir ácido valproico al temozolomido mejora el tratamiento de tumores cerebrales al modificar la regulación génica, empleando un modelo de 60 ratas macho con células tumorales implantadas y divididas en seis grupos que recibieron distintas combinaciones de fármacos.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los científicos midieron marcadores específicos de ARN y proteínas en el tejido cerebral, observando que el uso combinado de los fármacos elevó los niveles de miR-124-3p y redujo los de Sp1 más que cualquiera de los medicamentos por separado.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que aún no está demostrado si dirigir estas moléculas funcionará como una terapia o si los cambios epigenéticos provocaron los resultados observados.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ]
+}

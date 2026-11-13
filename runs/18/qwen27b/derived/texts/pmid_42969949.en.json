@@ -1,0 +1,58 @@
+{
+ "study_id": "pmid:42969949",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "df38dcb8eb7897d5",
+ "generated_at": "2026-11-13T12:45:02+00:00",
+ "word_count": 127,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers investigated how mutations in the ALMS1 gene, which cause Alström syndrome, affect cellular structures, noting that the ALMS1 protein is located at the proximal end of centrioles.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "In cells lacking ALMS1, centrioles became shorter and often fractured at their proximal ends, while also showing decreased microtubule-organizing activity and damaged centriole linkers.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "This absence impaired the transport of Golgi-derived cargo to the centrosome, a process critical for assembling the transition zone, forming cilia, and regulating ciliary membrane composition.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "In a mouse model, disrupting ALMS1 led to a progressive, age-dependent loss of cilia in the retina, kidney, and brain.",
+   "fact_ids": [
+    "f7"
+   ]
+  },
+  {
+   "text": "The authors conclude that Alström syndrome results from disrupted proximal centriole integrity and impaired protein trafficking to the centrosome, which compromises ciliary assembly and maintenance.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:45:36+00:00"
+ }
+}

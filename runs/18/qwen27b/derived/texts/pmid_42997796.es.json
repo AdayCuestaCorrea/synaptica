@@ -1,0 +1,52 @@
+{
+ "study_id": "pmid:42997796",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "24cae1c0e48b44bf",
+ "generated_at": "2026-11-13T12:49:32+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores examinaron a 102 adolescentes de entre 10 y 17 años, dividiéndolos en dos grupos según su exposición reciente a partículas finas del aire en relación con un límite de 9 microgramos por metro cúbico, mientras medían el miedo a través de los niveles de sudor, los comportamientos de evitación y las sensaciones declaradas por los propios participantes.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los participantes con mayor exposición mostraron un retorno más intenso del miedo cuando la amenaza no estaba presente, lo que se evidenció por niveles elevados de sudor y sensaciones persistentes de temor.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "La neuroimagen realizada en un subgrupo más pequeño de 68 participantes reveló que el grupo de alta exposición presentaba mayor actividad en la amígdala derecha durante las fases de aprendizaje y seguridad, y en la ínsula izquierda durante la fase de recuerdo.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que una mayor exposición a la contaminación del aire se asocia con cambios en el procesamiento del miedo, lo que podría ser una forma en que la contaminación contribuye a la ansiedad.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 3,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:50:40+00:00"
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "study_id": "10.1002/glia.70252",
+ "lang": "en",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "95adf1fd848e6f20",
+ "generated_at": "2026-11-13T13:29:01+00:00",
+ "word_count": 73,
+ "problems": [
+  "judge: Summary claims PLCG2 loss alters amyloid buildup, which the abstract does not address."
+ ],
+ "sentences": [
+  {
+   "text": "Researchers investigated how removing the PLCG2 gene alters amyloid buildup in mice, using single-cell RNA sequencing to compare brains with normal, partial, and complete gene loss while ensuring none developed Alzheimer's-like plaques.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Further analysis revealed that signal networks between glial cells varied by sex in ways linked to these genetic changes, leading the authors to conclude that PLCG2 variations affect brain support cells and disease pathways differently in males and females.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": false,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Summary claims PLCG2 loss alters amyloid buildup, which the abstract does not address.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:57:29+00:00"
+ }
+}

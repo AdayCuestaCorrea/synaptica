@@ -1,0 +1,34 @@
+{
+ "study_id": "epmc:PMC:PMC13753995",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "301a9259229c46a1",
+ "generated_at": "2026-11-13T13:35:50+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un método de corte cerebral cultivado en laboratorio combinado con imagen de dos fotones para observar la función sináptica, revelando que cuando las células emitían señales complejas, la intensidad lumínica de los puntos de conexión individuales variaba significativamente en fuerza y dinámica temporal.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Posteriormente, la microscopía electrónica demostró que los puntos de conexión dirigidos a estructuras distintas cumplían funciones específicas, con aproximadamente una cuarta parte conduciendo a espinas que liberaban señales químicas mínimas o nulas, un estado revertido al tratar las células con químicos concretos o niveles elevados de calcio.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que, aunque las células están unidas por vías estructurales completas, un paso faltante en la preparación de los paquetes químicos impide su transmisión, señalando que esta limitación se aplica estrictamente al modelo celular observado.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "study_id": "10.1016/j.cell.2026.09.041",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "c0bc7849c4be97f5",
+ "generated_at": "2026-11-13T13:27:31+00:00",
+ "word_count": 117,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers combined single-nucleus transcriptomic, epigenomic, and spatial transcriptomic methods to identify three distinct astrocyte groups based on their location, using the marker LHX2 to distinguish telencephalic astrocytes from others. Inside the striatum, dorsal and ventral astrocyte groups matched specific neural circuits, with a ventral group found in the nucleus accumbens shell, a pattern also seen in nonhuman primates.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "A deep learning model recovered transcription factor logic from existing data to help design targeted viral vectors for these subgroups. The authors note that the diversity of astrocytes within the human basal ganglia was previously not well understood, and the study provides a new framework for analyzing human astrocyte specialization and dissecting basal ganglia circuits by cell type.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:53:26+00:00"
+ }
+}

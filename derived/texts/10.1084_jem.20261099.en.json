@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1084/jem.20261099",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "21606e3df91477c5",
+ "generated_at": "2026-11-13T13:33:27+00:00",
+ "word_count": 120,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers investigated mice infected with the LCMV Armstrong virus by performing single-cell RNA and T cell receptor sequencing to track the development of hundreds of individual T cell clones over time.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The number of early central memory precursors within a clone predicted whether that clone would become dominant in the memory phase, and clones sharing identical T cell receptor sequences were more likely to develop into similar cell types than random chance would suggest, despite significant variation in how individual clones differentiated.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Specific patterns in the T cell receptor sequences were linked to faster cell growth and a stronger focus on immediate immune responses, according to the authors' conclusion that these sequence features influence differentiation outcomes in this animal model.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:11:41+00:00"
+ }
+}

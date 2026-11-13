@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.023",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "a56c3c92fb35ea02",
+ "generated_at": "2026-11-13T13:28:04+00:00",
+ "word_count": 118,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers constructed a high-resolution map of the basal ganglia in humans, rhesus macaques, and common marmosets by analyzing over one million cells from each species, combining spatial gene expression maps with a shared cell-type classification system to reveal how molecules are organized inside and between these brain structures.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Detailed sampling along the front-to-back axis showed that the striatum contains complex but highly consistent multi-directional patterns of gene expression layered over distinct regions, while the analysis also identified a specific core-and-shell structural arrangement within the internal globus pallidus region.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors state that this new atlas serves as a fundamental tool for future research into the molecular and functional roles of the basal ganglia in both health and disease.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:55:25+00:00"
+ }
+}

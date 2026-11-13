@@ -1,0 +1,41 @@
+{
+ "study_id": "10.1093/neuonc/noag265",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "0e115a25cf0df056",
+ "generated_at": "2026-11-13T13:33:56+00:00",
+ "word_count": 126,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers selected patients with confirmed disease progression who had at least two PET scans taken within a six-month window to measure static metrics like tumor-to-brain ratios and metabolic tumor volume, as well as how these values changed over time. When the disease progressed, the average tumor-to-brain ratio, maximum tumor-to-brain ratio, and metabolic tumor volume all increased significantly.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "While the average and maximum tumor-to-brain ratios rose by only 4% and 17% respectively, the metabolic tumor volume expanded by 182%. For patients with unclear scan results, using a rule that required a 40% or greater increase in metabolic tumor volume improved the detection of progression to 89%. This longitudinal approach resulted in a 14% higher rate of correctly identifying disease progression compared to looking at a single scan.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:12:44+00:00"
+ }
+}

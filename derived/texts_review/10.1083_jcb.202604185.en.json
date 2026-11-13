@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1083/jcb.202604185",
+ "lang": "en",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "669c15afce2f5f93",
+ "generated_at": "2026-11-13T13:33:23+00:00",
+ "word_count": 84,
+ "problems": [
+  "sentence 2: says 'proves' but no cited fact does"
+ ],
+ "sentences": [
+  {
+   "text": "Using high-resolution imaging to observe pioneer axons in the inner ear, researchers found that the chemical signal Cxcl14 directs these axons to grow, turn, and bundle correctly.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "When Cxcl14 was removed, axons failed to navigate properly, hair cell connections were damaged, and hearing-related behaviors were impaired, demonstrating that pioneer axons are necessary for the growth and movement of other neurons.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors conclude that their results define a new way that chemical signals help build the early sensory circuits needed for hearing.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

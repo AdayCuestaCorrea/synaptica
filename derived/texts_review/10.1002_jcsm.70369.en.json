@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1002/jcsm.70369",
+ "lang": "en",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "abec03a05d419c4b",
+ "generated_at": "2026-11-13T13:29:16+00:00",
+ "word_count": 103,
+ "problems": [
+  "sentence 3: drops the caution of its facts (may, suggests, possibly…)"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers used a rat model with a specific desmin gene mutation to mimic a human muscle disease, comparing these mutants with wild-type and heterozygous littermates after four weeks of downhill running.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The mutant rats demonstrated a much lower ability to run, with performance dropping by about half and developing roughly twice as many abnormal muscle clumps containing desmin alongside different changes in protein levels related to cell cleanup, energy use, and structural proteins.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors conclude that the mutant muscle tissue struggles to adapt to this type of exercise, leading to worsened disease symptoms, though this finding is limited to the animal model.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ]
+}

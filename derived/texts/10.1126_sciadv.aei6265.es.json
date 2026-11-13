@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1126/sciadv.aei6265",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "b8e8aa7341a2cae5",
+ "generated_at": "2026-11-13T13:27:06+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Este estudio investigó el daño cerebral inducido por radiación, una afección que afecta hasta al 30% de los pacientes que reciben radiación craneal, mediante la prueba de un nuevo nanomaterial en ratones que habían recibido una dosis específica de radiación corporal total equivalente a 6 grays.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Mediante registros eléctricos realizados en animales vivos, los investigadores observaron que el tratamiento ayudó a restaurar la actividad eléctrica de células cerebrales específicas y mejoró el movimiento y los niveles de ansiedad de los animales, al tiempo que protegía otros órganos y permitía que todos los ratones tratados sobrevivieran durante 30 días.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que corregir cómo disparan eléctricamente las neuronas es una vía nueva y prometedora para tratar el daño cerebral por radiación, aunque estos resultados se observaron únicamente en ratones.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:52:23+00:00"
+ }
+}

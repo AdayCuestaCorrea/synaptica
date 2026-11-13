@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1093/chidev/aacag213",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "b478872a38f1d942",
+ "generated_at": "2026-11-13T13:33:45+00:00",
+ "word_count": 118,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers examined whether biological sex, puberty timing, and childhood mental health symptoms could predict changes in visual attention brain waves from childhood to adulthood using a longitudinal cohort design with 531 youth who performed a reaction-time task at five specific ages between 2010 and 2025.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The study found that the visual P300 brain wave, a specific neural marker of attention, showed a curved decline pattern from late childhood into early adulthood, with boys exhibiting higher levels of externalizing behaviors or depression symptoms at age 9 starting with lower baseline visual P300 brain waves.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors conclude that further research is needed to understand how these neural attention markers develop and connect to future mental health issues.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:12:42+00:00"
+ }
+}

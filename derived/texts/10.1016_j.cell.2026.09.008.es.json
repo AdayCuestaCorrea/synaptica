@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1016/j.cell.2026.09.008",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "361c3b28bf77ed95",
+ "generated_at": "2026-11-13T13:27:19+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores construyeron un atlas de una sola célula que integra datos de modificación de histonas y perfiles de expresión génica de ocho áreas distintas del ganglio basal humano para mapear patrones de elementos de control genético activos y represores.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El estudio identificó combinaciones específicas de factores de transcripción homeobox como marcadores moleculares únicos para distintos tipos neuronales y reveló diferencias regionales en la actividad genética y epigenética al combinarlas con datos de transcriptómica espacial.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Al aplicar este atlas para analizar variantes de riesgo genético vinculadas a enfermedades neuropsiquiátricas, los autores crearon un modelo de aprendizaje automático que predice cómo estas variantes afectan la regulación génica, ofreciendo un marco integral para estudiar la organización y la base genética de las enfermedades relacionadas con el ganglio basal.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:53:23+00:00"
+ }
+}

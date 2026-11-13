@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1021/acs.jmedchem.6c02121",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "671645e0090a6ed8",
+ "generated_at": "2026-11-13T13:42:01+00:00",
+ "word_count": 97,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers employed structure-based drug design to identify GTA182, a compound that shrank tumors in mice carrying human cancer cells lacking the MTAP gene while sparing those with the normal gene.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "In a mouse model of brain cancer, the drug reduced tumor size by 59% and extended survival beyond 91 days, whereas a human clinical trial reported safety and tumor shrinkage in approximately 30% of patients.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors conclude that GTA182 is a promising treatment option for cancers that have lost the MTAP gene, noting the results are limited to the specific models and trials described.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

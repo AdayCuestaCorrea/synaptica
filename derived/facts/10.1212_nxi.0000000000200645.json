@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1212/nxi.0000000000200645",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "f57fbdf61672638f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:17:15+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a longitudinal design to track immune changes in five people with multiple sclerosis before and after their disease flares.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The immune profiles of the patients were compared against a group of healthy individuals.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Researchers separated different types of T cells, including those that have never seen an antigen, those that remember past infections, and those that regulate the immune response.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Before a flare-up, people with multiple sclerosis had a higher number of T cells specifically targeting the Epstein-Barr virus compared to normal levels.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Following a disease flare, the number of T cells targeting the Epstein-Barr virus rose sharply in every category of T cells measured.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "T cells that could recognize multiple different viruses also showed high numbers before flares and expanded significantly after them.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors suggest that the rise in these specific immune cells happens at the same time as the disease flares and general immune system activation.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors note that their small group of five patients is too limited to fully understand how these immune changes cause the disease.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

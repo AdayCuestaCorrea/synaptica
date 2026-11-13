@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1016/j.crmeth.2026.101650",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "87cfad6d13592ce0",
+ "generated_at": "2026-11-13T13:39:47+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores presentaron MapMyCells, una herramienta de software diseñada para asignar datos de células individuales a sistemas de clasificación de células cerebrales con un mínimo de preparación de datos.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "El marco se probó frente a seis mapas de células cerebrales existentes que abarcan ratones, humanos, pacientes con Alzheimer y otros grupos, identificando con éxito los tipos celulares mediante la expresión génica, la epigenética y la información espacial.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Las pruebas mostraron que la herramienta alcanza una precisión similar a la de otros métodos mientras requiere menos potencia de cálculo, lo que permite procesar grandes conjuntos de datos en ordenadores convencionales; los autores afirman que esto ofrece una solución flexible y escalable para elaborar mapas unificados de células cerebrales.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  }
+ ]
+}

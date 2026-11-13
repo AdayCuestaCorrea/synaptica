@@ -1,0 +1,7 @@
+2026-11-13T13:09:50Z batch PID 93558, watchdog at 85 °C: bash -c date -u; uv run syn facts --provider ollama --model paleo-qwen3.5-9b --limit 200 --until 14:50 && date -u && uv run syn write --provider ollama --model paleo-qwen3.5-9b --limit 200 --until 14:50; date -u
+vie 13 nov 2026 13:09:50 UTC
+Facts for 200 of 2032 studies (0 up to date): no_abstract 3, ok 199, too_few 1
+vie 13 nov 2026 13:26:37 UTC
+Wrote 199 of 2032 studies (0 up to date): en_failed 15, en_verified 184, es_failed 61, es_verified 123, no_facts 1833
+vie 13 nov 2026 13:43:25 UTC
+2026-11-13T13:43:33Z batch finished with exit 0

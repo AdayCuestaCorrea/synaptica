@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1212/wnl.0000000000218756",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "c5a0db56ec8beed8",
+ "generated_at": "2026-11-13T13:35:11+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un diseño de cohorte retrospectivo para examinar los registros sanitarios de Ontario, Canadá, que abarcan el periodo comprendido entre 1992 y 2017.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "El análisis reveló que las mujeres, las personas infectadas entre los 10 y los 25 años y quienes utilizan servicios de salud mental tienen mayor probabilidad de desarrollar esclerosis múltiple tras la mononucleosis infecciosa, mientras que ser inmigrante se asocia con una menor tasa de desarrollar la enfermedad tras el diagnóstico.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los autores señalan que, dado que el estudio solo incluyó casos diagnosticados, los resultados podrían no aplicarse a personas que tuvieron el virus pero no presentaron síntomas ni buscaron atención médica.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

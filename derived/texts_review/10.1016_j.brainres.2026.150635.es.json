@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1016/j.brainres.2026.150635",
+ "lang": "es",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "f3266e75355765a6",
+ "generated_at": "2026-11-13T13:38:47+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 2: 'proves' is not in the English sentence"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores comprobaron si el compuesto DHPG podía detener la muerte celular oxidativa en neuronas y otras células cultivadas en un plato de laboratorio, sometiéndolas a químicos específicos conocidos por desencadenar la ferroptosis.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Los experimentos demostraron que el DHPG se une directamente a la proteína PDI dentro de neuronas vivas, altera químicamente partes específicas de ella y detiene que la enzima realice su función química normal.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Cuando los investigadores redujeron la cantidad de PDI utilizando herramientas genéticas, el efecto protector del DHPG desapareció, lo que llevó a los autores a concluir que la PDI es necesaria para esta protección.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

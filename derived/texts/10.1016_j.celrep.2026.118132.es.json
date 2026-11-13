@@ -1,0 +1,28 @@
+{
+ "study_id": "10.1016/j.celrep.2026.118132",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "3880391913408ae9",
+ "generated_at": "2026-11-13T13:39:23+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores identificaron la pérdida de neuronas dopaminérgicas y los bajos niveles de dopamina como la causa raíz de la enfermedad de Parkinson, y luego probaron un método específico de administración viral en ratones y primates no humanos. Este virus utiliza potenciadores genéticos para dirigir tipos celulares específicos a la producción de AADC, reduciendo los problemas motores y la discinesia de manera más efectiva que la administración a todas las células. El estudio confirmó que este enfoque dirigido funciona de manera similar en primates no humanos como lo hizo en ratones.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que combinar esta administración viral dirigida con L-DOPA podría ofrecer un tratamiento menos invasivo y mejor tolerado para los síntomas motores del Parkinson.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

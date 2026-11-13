@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1080/20008066.2026.2751268",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "6eb45bfd9f8bb319",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:16:05+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers analyzed a large group of people to see if childhood abuse is linked to later dementia.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "People who were abused as children faced a much higher risk of developing dementia than those who were not abused.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Four specific areas of health and lifestyle explained only a small part of the link between childhood abuse and dementia.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Among the factors that explained the link, mental health was the main driver, while other factors played a minor role.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors warn that their findings do not explain the full connection and that more research is needed on biological and social causes.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

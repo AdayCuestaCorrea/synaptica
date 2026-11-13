@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1016/j.celrep.2026.118269",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "c6812eba7a679621",
+ "generated_at": "2026-11-13T13:39:29+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores crearon un conjunto de datos que combina información eléctrica y morfológica con perfiles de expresión génica de neuronas humanas de la capa externa del cerebro, analizando 39 de los 42 tipos conocidos de neuronas excitadoras de la neocorteza humana.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Este enfoque identificó características distintivas en grupos de neuronas de comprensión limitada, específicamente en las capas 4, 5/6 y 6, mientras que las comparaciones entre humanos, macacos y ratones mostraron que las diferencias eléctricas y de forma dependen del subtipo neuronal concreto.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores señalan que examinar únicamente listas de genes no basta para comprender cómo funcionan realmente las neuronas, por lo que el resultado final es una herramienta de referencia integral diseñada para ayudar a los científicos a estudiar cómo se construyen los circuitos del cerebro humano.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ]
+}

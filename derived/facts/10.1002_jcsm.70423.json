@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1002/jcsm.70423",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "20466f70f843a535",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:12:37+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study followed 1,370 community-dwelling people who were at least 65 years old for a period of four years.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers measured the amount of the protein Tsukushi in the blood of participants at the start of the study.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "People who had lower amounts of Tsukushi in their blood at the beginning were more likely to develop sarcopenia later on.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The link between low Tsukushi levels and the risk of sarcopenia was stronger for women than for men.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Using Tsukushi levels by itself helped predict future muscle loss with moderate accuracy, but adding other clinical factors improved the prediction score.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Before this study, there was no prior forward-looking clinical proof that blood levels of Tsukushi connect to the development of sarcopenia.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The researchers used specific statistical tools to check if the relationship between protein levels and risk followed a straight line or a curve, and to test how well the protein could predict future outcomes.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

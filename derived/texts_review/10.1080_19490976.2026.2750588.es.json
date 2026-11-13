@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1080/19490976.2026.2750588",
+ "lang": "es",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "7c769f0c25008437",
+ "generated_at": "2026-11-13T13:32:46+00:00",
+ "word_count": null,
+ "problems": [
+  "judge: Spanish version omits key details present in English summary"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron las puntuaciones en pruebas cognitivas y muestras de bacterias intestinales de 867 adultos mayores y compararon estos datos con un modelo de ratón en el que los animales aprendían ubicaciones en un laberinto acuático; los ratones que recibieron bacterias intestinales de humanos con habilidades de pensamiento más rápido mostraron una mejor memoria y más células cerebrales que aquellos que recibieron bacterias de pensadores más lentos.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3",
+    "f7"
+   ]
+  },
+  {
+   "text": "Por eso, combinando datos de personas y ratones, el estudio propone que los cambios en el metabolismo bacteriano impulsan mejoras en la función cerebral.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00",
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": false,
+  "passed": false,
+  "reason": "Spanish version omits key details present in English summary",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:09:39+00:00"
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.008",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "781eed165e3ada85",
+ "generated_at": "2026-11-13T13:27:44+00:00",
+ "word_count": 132,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "This human study traced the origin of basal ganglia neurons to the ganglionic eminences in the prenatal brain using single-nucleus methyl-3C sequencing, spatial transcriptomics, and single-molecule imaging.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "While different subregions of the ganglionic eminences showed varied timing in their developmental progression, the main neurons of the basal ganglia developed distinct subtypes through coordinated changes in their 3D chromatin structure, unlike other neuron types which matured at different times; a specific, temporary chromatin state was also observed during the development of oligodendrocytes in infancy, and the temporal part of the cortex showed faster epigenetic maturation compared to other areas.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The researchers found that spiny projection neurons contain a higher concentration of genetic risk factors associated with neuropsychiatric disorders, a result the authors note requires further investigation to understand its implications.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:54:24+00:00"
+ }
+}

@@ -1,0 +1,48 @@
+{
+ "study_id": "10.1002/jcsm.70423",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "efce7b125ddbf3f6",
+ "generated_at": "2026-11-13T13:29:34+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores siguieron durante cuatro años a 1370 personas de la comunidad con al menos 65 años para medir la proteína sanguínea Tsukushi al inicio del estudio, aportando así la primera prueba clínica prospectiva de que sus niveles se asocian con el desarrollo de sarcopenia.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los participantes con menores cantidades iniciales de Tsukushi tuvieron más probabilidades de desarrollar sarcopenia posteriormente, un vínculo que fue más fuerte en mujeres que en hombres, tras analizar con herramientas estadísticas si la relación seguía una línea recta o una curva.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f7"
+   ]
+  },
+  {
+   "text": "Predecir la futura pérdida muscular usando solo los niveles de Tsukushi ofrecía una precisión moderada, pero añadir otros factores clínicos mejoraba la puntuación predictiva, lo que llevó a los autores a concluir que la proteína es un marcador útil cuando se combina con datos estándar.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00",
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:58:31+00:00"
+ }
+}

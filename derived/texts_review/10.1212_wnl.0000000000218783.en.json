@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1212/wnl.0000000000218783",
+ "lang": "en",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "b5991952365dbade",
+ "generated_at": "2026-11-13T13:35:22+00:00",
+ "word_count": 80,
+ "problems": [
+  "sentence 1: drops the caution of its facts (may, suggests, possibly…)"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers evaluated the Graus criteria in a group of humans, finding the tool correctly identified 89% of patients with autoimmune encephalitis and correctly excluded 96% of those without the condition.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Among the surviving patients with autoimmune encephalitis, 65% continued to show cognitive impairment after three months, a pattern the authors defined as the progression to autoimmune dementia.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "The authors note that their results are limited to patients seen at specialized referral centers and need to be confirmed in wider settings.",
+   "fact_ids": [
+    "f3"
+   ]
+  }
+ ]
+}

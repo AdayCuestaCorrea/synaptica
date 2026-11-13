@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1016/j.biopha.2026.120007",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "c6b3e1b392f2f7ad",
+ "generated_at": "2026-11-13T13:38:33+00:00",
+ "word_count": 104,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers used a mouse model of Parkinson's disease created by rotenone exposure to test a specific probiotic, which reversed the overgrowth of enteroendocrine cells in the colon and lowered alpha-synuclein buildup in both the gut and the brain.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Zebrafish experiments showed the probiotic directly triggers activity in enteroendocrine cells, while analysis indicated that changes in gut bacteria composition were linked to alpha-synuclein levels and calcium regulation in the mice.",
+   "fact_ids": [
+    "f4",
+    "f6"
+   ]
+  },
+  {
+   "text": "The treatment raised levels of calcium and vitamin D in the blood, leading the authors to conclude that the probiotic may help reduce Parkinson's-like symptoms by influencing the connection between the gut and the brain.",
+   "fact_ids": [
+    "f5",
+    "f7"
+   ]
+  }
+ ]
+}

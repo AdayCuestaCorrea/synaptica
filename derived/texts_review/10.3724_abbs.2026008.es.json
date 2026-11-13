@@ -1,0 +1,39 @@
+{
+ "study_id": "10.3724/abbs.2026008",
+ "lang": "es",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "6b59baa7824c9e6a",
+ "generated_at": "2026-11-13T13:35:38+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 2: numbers differ (['2'] vs [])"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores utilizaron un modelo de ratones neonatales con daño cerebral hipóxico-isquémico y experimentos separados con células cerebrales privadas de oxígeno para probar la formononetina sola o con inhibidores, evaluando el daño mediante exámenes histológicos y pruebas de rendimiento funcional mientras observaban la muerte celular y la producción de energía en los modelos celulares.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "En los ratones lesionados, la formononetina redujo significativamente la muerte tisular, el edema y el daño a las neuronas al disminuir el estrés oxidativo y el exceso de hierro mientras potenciaba factores protectores.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Pruebas de unión especializadas confirmaron que la formononetina actúa uniendo directamente y activando la proteína Nrf2, y los autores concluyen que este compuesto protege el cerebro interactuando directamente con Nrf2 para detener un tipo específico de muerte celular impulsada por el hierro.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

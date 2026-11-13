@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1007/s11571-026-10586-1",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "7dd346805e5fd2a0",
+ "generated_at": "2026-11-13T13:30:42+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores diseñaron un circuito neuromórfico destinado a imitar la condicionamiento operante con una intensidad de refuerzo ajustable, construyéndolo a partir de cuatro módulos funcionales específicos: un módulo de presión, un módulo de recompensa, un módulo de castigo y un módulo de sinapsis. Este sistema regula la fuerza con la que se refuerzan o inhiben los comportamientos modificando la frecuencia de entrega de recompensas y castigos.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "El circuito incorpora circuitos de hambre y sensibilidad integrados que le permiten adaptarse a patrones repetidos de recompensa y castigo, y los autores probaron estas funciones mediante simulaciones informáticas realizadas con el software Pspice.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores sostienen que el circuito resultante es más práctico, biológicamente realista y adaptable a situaciones complejas que los diseños anteriores.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:02:32+00:00"
+ }
+}

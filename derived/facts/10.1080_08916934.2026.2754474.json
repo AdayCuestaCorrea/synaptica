@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1080/08916934.2026.2754474",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "0d40d76470266183",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:15:33+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study combined a re-analysis of public single-cell and spatial transcriptomic datasets with an examination of archived records from one specific thymoma cell line and a prepared dendritic cell model.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers used one normal adult thymus sample as a descriptive reference that was not matched to the disease samples.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Analysis of donor-resolved single-cell data revealed that antigen-presentation genes were expressed across various antigen-presenting cell compartments, while IL21 transcripts were rare and mostly found in Tfh-like CD4+ T cells.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Correlations between antigen-presentation and maturation/costimulation in two thymoma tissue sections weakened when statistical adjustments for other variables were applied.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The study found that the observed changes in the THP-1-derived cell preparation were due to the initial induction process rather than any effect from the Thy0517 thymoma cells.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "Data regarding IL-21 and IL-6 levels from a separate worksheet could not be used because the concentration units and calibration methods were unverified.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors state that their findings offer descriptive context for human tissue and cell models but do not prove that Thy0517 conditioning or IL-21 causes the specific mechanism of thymoma-associated myasthenia gravis.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

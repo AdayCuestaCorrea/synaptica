@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1007/s11571-026-10580-7",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "aa9bbdf8286c8917",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:13:36+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a cross-sectional design to analyze resting-state EEG data from people with different levels of consciousness.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Patients with disorders of consciousness showed less variety in their brain activity patterns compared to healthy control participants.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "As consciousness decreased, the stability of brain network connections dropped and the system's behavior became more random.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The study found that both strong and weak fluctuations in brain signals could serve as useful indicators for detecting consciousness levels.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors suggest that these specific brain dynamics could become new biomarkers for assessing consciousness, though they note this is a suggestion rather than a proven clinical tool.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

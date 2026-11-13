@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1002/glia.70272",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "d8be268f1cb2c6f0",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:12:14+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a combination of live imaging, event detection software, and advanced computer analysis to study calcium signaling.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "Scientists categorized the calcium events by location, sorting them into the cell body, main branches, tiny extensions, and specific branch areas.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The characteristics of the calcium events changed gradually as they moved from the cell body out through the main branches to the smallest extensions.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The timing of calcium events was most synchronized in the main branches, less so in the tiny extensions, and least so in the cell body.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Medium-sized calcium events were more likely to happen together within a single branch area than across different branch areas.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The results suggest that the physical shape of astrocytes determines how their internal activity is organized, offering a new way to study their role in the brain.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

@@ -1,0 +1,47 @@
+{
+ "study_id": "pmid:42986391",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "1954381fcdd2e8d0",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-13T12:41:08+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers created a mouse line where rod cells in the eye produce a glowing marker that lights up when glutamate is released.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The study tracked how much glutamate these rod cells let out under both dim and bright lighting conditions.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "When the researchers flashed light at the rods, the glowing marker dimmed, showing that the cells released less glutamate.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The pattern of glutamate release changed slowly, with its strength dropping off as the light flickered faster between 1 and 10 times per second.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The rod cells released glutamate in random bursts at a steady pace of 20 to 40 tiny packets per second, whether the light was dim or bright.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "A second electrical measurement method confirmed a similar release speed of about 38 packets per second.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "Because the release speed stays the same across different light levels, the rod cells pass on their light-adjustment signals to the next neurons in the eye without distortion.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

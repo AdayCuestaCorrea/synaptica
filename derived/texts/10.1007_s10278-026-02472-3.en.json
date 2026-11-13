@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1007/s10278-026-02472-3",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "7975d656c7493340",
+ "generated_at": "2026-11-13T13:36:55+00:00",
+ "word_count": 125,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed a new computational framework that replaces broad segmentation strategies with a learnable system estimating pixel-level reliability. This data-driven map calculates reliability for every individual pixel, addressing previous failures to account for local variations in label reliability.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The system converted these reliability scores into specific weights for each pixel, allowing the training process to focus optimization on individual pixels rather than whole samples. Testing on the ACDC, BUSI, and Synapse datasets showed that the new method consistently outperformed existing approaches when few labeled images were available.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The framework included a specific safety measure to ignore unlabeled samples that the model predicted contained almost no foreground objects. The authors concluded that this approach improves segmentation performance under data scarcity while incorporating safeguards against low-content inputs.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ]
+}

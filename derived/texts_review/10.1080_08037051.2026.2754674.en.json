@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1080/08037051.2026.2754674",
+ "lang": "en",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "d7a991b2b7cea466",
+ "generated_at": "2026-11-13T13:32:20+00:00",
+ "word_count": 96,
+ "problems": [
+  "judge: Mentions short-acting drugs, which the abstract does not specify."
+ ],
+ "sentences": [
+  {
+   "text": "Researchers conducted a scoping review by searching two major medical databases to examine how medication adherence and blood pressure stability relate to brain health.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The analysis indicated that irregular medication use and short-acting drugs are associated with larger daily blood pressure swings, which connect to brain damage and cognitive issues even when average pressure levels are controlled.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors propose a new conceptual framework for assessing individual risks and conclude that managing hypertension should prioritize stability over time, suggesting that monitoring this stability could be an important addition to current treatments for preventing long-term brain injury.",
+   "fact_ids": [
+    "f5",
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Mentions short-acting drugs, which the abstract does not specify.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:07:40+00:00"
+ }
+}

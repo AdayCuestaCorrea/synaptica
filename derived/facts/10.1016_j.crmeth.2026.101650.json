@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1016/j.crmeth.2026.101650",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "83c40dae2a3f47c4",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:23:13+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study introduces MapMyCells, a new software tool designed to map single-cell data to brain cell classification systems with very little data preparation.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The tool was tested against six different existing brain cell maps that include data from mice, humans, Alzheimer's patients, aging individuals, developing mouse brains, and cross-species comparisons.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The framework successfully identified cell types at various levels of detail and worked well even when using fewer genes, handling multiple types of biological data including gene expression, epigenetics, and spatial information.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "Testing showed that the tool achieves accuracy similar to other methods but requires much less computing power, allowing large datasets with thousands of cell types to be processed on ordinary computers.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors state that this tool offers a flexible and scalable solution for building unified maps of brain cells.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

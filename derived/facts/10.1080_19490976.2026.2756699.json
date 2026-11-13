@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1080/19490976.2026.2756699",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "97b934c766a9b6e5",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:16:02+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a mouse model of necrotizing enterocolitis to test the effects of beta-glucan treatment.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Beta-glucan treatment improved cognitive function in mice with NEC, and both low and high doses worked equally well.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The treatment fixed gut bacteria imbalances and increased levels of a specific tryptophan metabolite called indole-3-acetic acid.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Transplanting gut bacteria or giving the metabolite IAA directly produced the same brain protection as beta-glucan by reducing brain inflammation and fixing synaptic connections.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The study found that IAA protects the brain by turning on a specific chain of cellular signaling proteins.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors state these results offer preclinical evidence that could help prevent long-term brain problems in human NEC survivors.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

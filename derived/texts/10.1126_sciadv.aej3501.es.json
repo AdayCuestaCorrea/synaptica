@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1126/sciadv.aej3501",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "f6fe098480176592",
+ "generated_at": "2026-11-13T13:27:11+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un experimento en cultivo celular con imagen de dos fotones para examinar las conexiones locales en el área CA1 del cerebro, descubriendo que, cuando las células emitían señales, los mensajes químicos liberados en distintos puntos variaban enormemente en intensidad y momento. Las comprobaciones microscópicas posteriores al experimento revelaron que los puntos que conectaban con estructuras diferentes se comportaban de manera distinta, aunque parecían estructuralmente similares.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Aproximadamente una cuarta parte de los puntos de conexión dirigía su señal a otras células piramidales, pero bien liberaba muy poca señal química o no la emitía en absoluto; sin embargo, al tratar las células con sustancias específicas que aumentan la preparación de los paquetes de señal, esas conexiones silenciosas se convirtieron en funcionales.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que estas células cerebrales están físicamente conectadas y listas para enviar señales, pero un fallo en la etapa final de preparación impide que las señales salgan.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:52:24+00:00"
+ }
+}

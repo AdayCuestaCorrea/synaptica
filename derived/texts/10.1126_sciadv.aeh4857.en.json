@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1126/sciadv.aeh4857",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "13fed22c9104f8e9",
+ "generated_at": "2026-11-13T13:26:52+00:00",
+ "word_count": 112,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers investigated whether the RIM protein is required equally at synapses with different natural release probabilities by silencing specific nerve inputs in fruit flies using a neurotoxin. They found that removing RIM stopped nerve signals at fast, high-release synapses but did not stop signals at nearby slow, low-release synapses.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "High-resolution images showed the protein sits closer to calcium channels at fast synapses than at slow ones, where it helps rearrange these channels to increase vesicle readiness during short-term strengthening but is not needed for long-term strengthening at the slow site.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors note that understanding how RIM functions at synapses with varying release rates has been difficult to resolve before this work.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:51:23+00:00"
+ }
+}

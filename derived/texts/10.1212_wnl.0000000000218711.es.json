@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1212/wnl.0000000000218711",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "e05f9890249f798f",
+ "generated_at": "2026-11-13T13:34:50+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores llevaron a cabo un estudio de cohorte prospectivo que siguió durante varios años a 4822 personas que cumplían criterios de inclusión específicos.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Los científicos midieron la capacidad de caminar y el equilibrio utilizando la Evaluación Orientada al Rendimiento de la Movilidad (POMA), una herramienta para evaluar la movilidad, mientras rastreaban que 251 participantes fueron diagnosticados posteriormente con demencia y 458 fallecieron durante el periodo.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores señalan que los resultados del estudio podrían no aplicarse a otros grupos, ya que todos los participantes compartían el mismo origen étnico.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

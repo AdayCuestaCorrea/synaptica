@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1016/j.celrep.2026.118297",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "de077dd597f9e4d5",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:23:05+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Forcing excitatory neurons to make more SIRT6 reduced stress-induced sadness, despair, anxiety, and sleep cycle problems.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Removing SIRT6 from excitatory neurons caused depression-like behaviors and messed up normal movement rhythms even without stress.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "A specific type of excitatory neuron in the hippocampus disappeared after stress but came back when SIRT6 levels were raised.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Analysis of gene networks showed that a protein called OVOL2 controls the changes in gene activity caused by stress.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "SIRT6 physically binds to OVOL2 to keep it stable, which then turns on the production of other proteins like Nrg1.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "A drug that activates SIRT6 in a specific way produced the same stress-fighting effects seen with the genetic changes.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors suggest that targeting SIRT6 could be a new way to treat depression based on these results.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

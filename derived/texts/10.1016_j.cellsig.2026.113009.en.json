@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1016/j.cellsig.2026.113009",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "9be089e36d055b2e",
+ "generated_at": "2026-11-13T13:39:13+00:00",
+ "word_count": 82,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "This review summarizes existing knowledge regarding the cellular locations of mTORC1 and mTORC2 within different parts of the cell.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "The authors explain how physical factors like membrane shape and molecular crowding control signaling results, showing that the same tools produce different outcomes depending on specific cell geometry and position.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "New imaging technologies allow researchers to observe mTOR organization across entire tissues, yet current drugs cannot target specific mTOR locations and existing tools struggle to track movement while maintaining high detail.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  }
+ ]
+}

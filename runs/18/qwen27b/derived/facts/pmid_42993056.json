@@ -1,0 +1,37 @@
+{
+ "study_id": "pmid:42993056",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "471053c2b7ec68a7",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-13T12:39:55+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study examined the development of sensory neurons in the roundworm C. elegans to see how electrical connections appear and disappear.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Blocking these early electrical connections stopped calcium signals from firing and prevented the formation of chemical synapses, but bringing back the calcium signals fixed the problem.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "A genetic screen revealed that a specific protein called UNC-51 is required for the electrical connections to be removed.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The UNC-51 protein works with other molecules to move the parts of the electrical connection away from the synapse, gradually clearing them out.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "When this removal process is blocked, the electrical connections stay in place and the neurons become overly active.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

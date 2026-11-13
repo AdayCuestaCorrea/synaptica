@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1002/jcsm.70414",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "fb274b544dbed34f",
+ "generated_at": "2026-11-13T13:29:20+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron muestras de sangre de 57 adultos con distrofia muscular facioscapulohumeral leve a moderada que podían caminar sin ayuda, comparándolos con un grupo de control de individuos emparejados por edad y sexo pero sin la enfermedad.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El análisis reveló 57 químicos específicos que diferían entre los pacientes y los controles, lo que sugiere alteraciones en la producción de energía, las respuestas al estrés y el mantenimiento muscular.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que estos cambios metabólicos están presentes desde las etapas iniciales de la enfermedad, incluso cuando los síntomas son solo leves a moderados.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:58:26+00:00"
+ }
+}

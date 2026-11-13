@@ -1,0 +1,38 @@
+{
+ "study_id": "10.1007/s11538-026-01792-3",
+ "lang": "es",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "32a4b2774e4c1a21",
+ "generated_at": "2026-11-13T13:37:36+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 3: the English sentence is cautious and this is not"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un modelo computacional del núcleo de la habena lateral y el área tegmental ventral para simular circuitos neuronales, ajustando canales iónicos y receptores específicos para representar patrones de disparo distintos en estados normales y depresivos.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El estudio midió cómo variaciones en los parámetros de estimulación magnética transcraneal repetitiva alteraban la distancia matemática entre los estados del circuito, utilizando un método de agrupamiento para clasificarlo como normal o depresivo y descubriendo que ciertos parámetros podían desplazar el estado desde uno depresivo hacia uno normal.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que estos resultados ofrecen perspectivas prometedoras para futuras investigaciones, aunque no afirman haber identificado directamente la depresión.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

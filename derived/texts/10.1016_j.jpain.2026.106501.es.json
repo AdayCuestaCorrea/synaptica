@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1016/j.jpain.2026.106501",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "fb7a629e2f43f51a",
+ "generated_at": "2026-11-13T13:40:15+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon métodos de registro eléctrico en vivo para estudiar la médula espinal de ratones con un modelo específico de dermatitis atópica, constatando que estos animales mostraban actividad eléctrica espontánea ausente en los controles sanos. Las mediciones detalladas revelaron que las neuronas de los ratones afectados presentaban señales excitatorias más abundantes y señales inhibitorias menos frecuentes que lo normal.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f4"
+   ]
+  },
+  {
+   "text": "Esta actividad espontánea cesaba cuando se aplicaba un fármaco que bloquea los receptores de glutamato, pero persistía con medicamentos que actúan sobre los receptores de péptido liberador de gastrina o péptido natriurético, a pesar de que los análisis tisulares mostraban niveles elevados de péptido liberador de gastrina y marcadores de microglía. Los autores sugieren que un desequilibrio entre las señales excitatorias e inhibitorias en la médula espinal contribuye a la mayor sensibilidad al picor observada en esta condición crónica.",
+   "fact_ids": [
+    "f3",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores señalan que este es el primer estudio que demuestra directamente cambios en el equilibrio entre las señales excitatorias e inhibitorias en un modelo murino de picor crónico.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

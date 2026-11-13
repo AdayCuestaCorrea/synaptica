@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1088/1741-2552/aec197",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "b5b8346f54472943",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:26:26+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used two monkeys as the subjects.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Electrodes were placed in six specific brain areas involved in reaching and grasping.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Researchers stimulated five of the six implanted brain regions one at a time.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The method measured whether electrical pulses in one brain area caused immediate changes in the firing of neurons in other brain areas.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Stimulating any of the five active regions caused rapid, synchronized changes in most other recorded brain areas.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The effects were stronger and more frequent in the frontal lobe, especially in the primary motor cortex.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "Computer programs trained to read brain signals could still work well even when the primary motor cortex was being stimulated nearby.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

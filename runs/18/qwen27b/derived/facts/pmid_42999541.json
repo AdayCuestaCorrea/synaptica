@@ -1,0 +1,44 @@
+{
+ "study_id": "pmid:42999541",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "48942a9d11d16671",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-13T12:36:07+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study aimed to create a delivery system that holds stem cell-derived vesicles in a gel to help repair brain tissue after injury.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "Vesicles were taken from stem cells grown in a 3D structure and placed into a gelatin-based gel.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The gel was injected into the injured area of the brain, and researchers checked for recovery using behavior tests, cell staining, and gene analysis.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "In living animals, the gel stayed in the brain longer, caused less tissue damage, and improved movement and memory over time.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The treatment led to more dividing cells that showed signs of becoming nerve cells or their support cells in specific brain areas.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The treatment raised levels of a specific protein in stem cells, which triggered a chain of gene changes that supported the growth of new nerve cells.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

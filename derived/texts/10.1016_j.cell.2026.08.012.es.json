@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1016/j.cell.2026.08.012",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "2b8058a47cf818d0",
+ "generated_at": "2026-11-13T13:27:15+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores elaboraron un atlas de gran escala midiendo la actividad génica y marcas específicas de histonas en más de 750 000 núcleos celulares procedentes de 18 áreas distintas del cerebro adulto humano, logrando captar 160 tipos celulares diferentes.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Este método cartografió los estados regulatorios de más de 500 000 regiones potenciales de control y empleó un modelo informático para predecir cómo los cambios genéticos asociados a enfermedades neurológicas podrían afectar a diversos tipos de células cerebrales.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Las comparaciones mostraron que los mecanismos regulatorios activos son similares entre especies, mientras que los represivos difieren notablemente, lo que llevó a los autores a describir el trabajo como una guía de referencia completa para comprender la organización cerebral y las enfermedades basándose en datos epigenéticos.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:52:24+00:00"
+ }
+}

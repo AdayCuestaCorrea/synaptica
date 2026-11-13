@@ -1,0 +1,54 @@
+{
+ "study_id": "10.3724/abbs.2026008",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "9f574250a0b45ae7",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:18:42+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a neonatal mouse model of hypoxic-ischemic brain damage to test the effects of formononetin given alone or with an Nrf2 inhibitor.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers measured brain injury using both tissue examination and functional performance tests.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "In a separate lab experiment, brain cells deprived of oxygen and glucose were treated with formononetin and specific inhibitors to study cell death and energy production.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "Formononetin significantly reduced brain tissue death, swelling, and nerve cell damage in the injured mice.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The treatment decreased harmful levels of oxidative stress, excess iron, and cell death signals while increasing protective cellular factors.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Formononetin boosted the activity of the Nrf2 pathway in the brain's vulnerable edge area by moving the Nrf2 protein into the cell nucleus.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "Specialized binding tests confirmed that formononetin works by directly attaching to and activating the Nrf2 protein.",
+   "subject": "computational"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors conclude that formononetin protects the brain by directly interacting with Nrf2 to stop a specific type of iron-driven cell death.",
+   "subject": "other"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

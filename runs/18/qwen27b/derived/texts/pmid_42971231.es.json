@@ -1,0 +1,56 @@
+{
+ "study_id": "pmid:42971231",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "871f74714ddd3ce4",
+ "generated_at": "2026-11-13T12:35:05+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un amplio proyecto de vigilancia en curso en Botsuana ha seguido los resultados del parto en hospitales públicos, cubriendo más de dos tercios de los nacimientos del país, donde cada recién nacido vivo y cada muerte fetal se somete a un examen físico de la superficie corporal como parte de la atención rutinaria.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Entre agosto de 2014 y agosto de 2022, el estudio evaluó 235 286 partos, incluidos 11 110 con exposición a dolutegravir en la concepción y 24 368 con otros fármacos antirretrovirales.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Los investigadores compararon las tasas de defectos del tubo neural y anomalías estructurales mayores entre estos dos grupos, ajustando por la edad materna.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "La prevalencia de defectos del tubo neural fue del 0,11 % en el grupo de dolutegravir y del 0,10 % en el grupo sin dolutegravir, lo que no mostró ninguna diferencia significativa.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Las tasas de anomalías estructurales externas mayores también fueron similares, con un 0,75 % para la exposición a dolutegravir y un 0,76 % para otros fármacos antirretrovirales.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:35:49+00:00"
+ }
+}

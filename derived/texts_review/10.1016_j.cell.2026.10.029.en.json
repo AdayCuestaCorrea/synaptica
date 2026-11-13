@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.029",
+ "lang": "en",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "2a750d4b37081ae4",
+ "generated_at": "2026-11-13T13:28:27+00:00",
+ "word_count": 119,
+ "problems": [
+  "judge: Misdescribes dorsal zones as 'back part' of striatum, not supported by abstract."
+ ],
+ "sentences": [
+  {
+   "text": "Researchers analyzed 1.1 million cells from 19 human donors using a specific spatial transcriptomics method to reveal that the human striatum is divided into six distinct zones based on unique groups of spiny projection neurons, where each zone contains specific networks where neurons and astrocytes interact in a coordinated spatial pattern.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f6"
+   ]
+  },
+  {
+   "text": "A separate study on mice identified four zones that correspond to the six zones found in humans, leading the authors to conclude that the spatial organization of the striatum is similar across different mammal species.",
+   "fact_ids": [
+    "f3",
+    "f7"
+   ]
+  },
+  {
+   "text": "Analysis of 131 human donors showed that the back part of the striatum changes the most with age, as the molecular differences that create these zones become less distinct as people get older.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Misdescribes dorsal zones as 'back part' of striatum, not supported by abstract.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:56:25+00:00"
+ }
+}

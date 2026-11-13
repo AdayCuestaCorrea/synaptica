@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1212/wnl.0000000000218686",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "86d321108e617b32",
+ "generated_at": "2026-11-13T13:34:38+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un estudio prospectivo longitudinal que involucró a 501 personas con enfermedad de Lewy, enfermedad de Alzheimer y controles sanos examinó cómo los cambios en los niveles de pTau217 en sangre durante dos a cinco años se relacionaban con las variaciones en el funcionamiento diario y las puntuaciones de pruebas cognitivas a lo largo de dos a ocho años.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los científicos clasificaron a los participantes como que presentaban niveles de pTau217 anormales o normales en función de un umbral específico derivado de escaneos PET de amiloide para comparar sus tasas de deterioro clínico, descubriendo que un aumento más rápido de los niveles de pTau217 con el tiempo estaba conectado a un incremento más acelerado en las puntuaciones que miden el deterioro funcional diario.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que pTau217 es una herramienta útil para predecir y monitorizar la progresión de la enfermedad de Lewy, especialmente en grupos con patologías cerebrales mixtas.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ]
+}

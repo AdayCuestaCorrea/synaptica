@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1007/s12311-026-02111-1",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "19187c120708d510",
+ "generated_at": "2026-11-13T13:38:12+00:00",
+ "word_count": 98,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A randomized controlled trial involving 26 stroke patients investigated whether electrical stimulation applied to the cerebellum opposite the injury site could improve performance during dual tasks, such as walking while counting backward.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The group receiving real stimulation exhibited a significant reduction in extra movement cost, improved walking rhythm, and altered brain wave activity with better regional connections compared to the sham group during these combined activities.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "Higher brain wave activity in the frontal region was associated with better walking rhythm, leading the authors to suggest this technique might serve as a helpful addition to standard stroke recovery treatments.",
+   "fact_ids": [
+    "f8",
+    "f9"
+   ]
+  }
+ ]
+}

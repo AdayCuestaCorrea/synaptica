@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1016/j.xgen.2026.101420",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "0f09c1fcbb2476d6",
+ "generated_at": "2026-11-13T13:41:19+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron la herramienta SPIN, un sistema computacional formado por tres componentes: la creación de redes, la predicción de resultados clínicos mediante regresión bayesiana y la visualización de datos.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Al aplicarla a un conjunto de datos sobre proteínas del cáncer de mama, la herramienta predijo con éxito los resultados de supervivencia al identificar dos grupos específicos de proteínas vinculadas a la supervivencia del paciente, mientras que un análisis separado reveló grupos de genes que colaboran en el tejido cerebral y tienen sentido biológico.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que este método representa una vía clara y útil para predecir resultados de salud utilizando datos espaciales a gran escala.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1016/j.cell.2026.08.012",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "2b8058a47cf818d0",
+ "generated_at": "2026-11-13T13:27:15+00:00",
+ "word_count": 102,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers constructed a large-scale atlas by measuring gene activity and specific histone marks in over 750,000 cell nuclei from 18 distinct areas of the adult human brain, capturing 160 different cell types.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "This approach mapped the regulatory states of more than 500,000 potential control regions and utilized a computer model to forecast how genetic changes linked to neurological diseases might impact various brain cell types.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Comparisons revealed that active regulatory mechanisms are similar across species, whereas repressive mechanisms differ significantly, leading the authors to describe the work as a complete reference guide for understanding brain organization and disease based on epigenetic data.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:52:24+00:00"
+ }
+}

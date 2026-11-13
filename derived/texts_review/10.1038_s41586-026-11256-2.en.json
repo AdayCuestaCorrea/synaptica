@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1038/s41586-026-11256-2",
+ "lang": "en",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "1ed11b9b2ab0db48",
+ "generated_at": "2026-11-13T13:28:46+00:00",
+ "word_count": 75,
+ "problems": [
+  "sentence 1: drops the caution of its facts (may, suggests, possibly…)"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers investigated whether the loss of the TDP-43 protein disrupts neuronal communication at synapses.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "To test this, the team used a specific genetic tool to correct a splicing error in the UNC13A gene within human neurons and a humanized mouse model.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "The authors suggest this approach could be a viable treatment for the vast majority of patients with ALS and about half of those with frontotemporal dementia who have TDP-43 issues.",
+   "fact_ids": [
+    "f3"
+   ]
+  }
+ ]
+}

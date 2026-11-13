@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1126/sciadv.aei4501",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "3fb05350193211fb",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:10:12+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study found that the proteins BOC and CDON help recruit specific actin regulators to make cytonemes longer in cells that produce Sonic Hedgehog.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "When the functions of BOC and CDON were removed, the activity of Cdc42 at the tips of protrusions dropped, leading to shorter and fewer cytonemes.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "Observations of developing mouse spinal cords showed that losing CDON in SHH-producing cells made neuroepithelial cytonemes less frequent and changed how neurons develop.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The authors suggest a model where proteins that bind Sonic Hedgehog help move signals by encouraging the growth of long cytonemes.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

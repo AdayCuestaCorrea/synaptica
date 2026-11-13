@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1016/j.celrep.2026.118278",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "7a8b2f0982922f15",
+ "generated_at": "2026-11-13T13:39:35+00:00",
+ "word_count": 95,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed a genetic method named mArc to simultaneously label two distinct neuron groups, applying it to investigate how context, timing, and emotional tone influence memory retrieval in the dentate gyrus of animal subjects.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The analysis revealed that neurons storing memories with similar settings or emotional tones overlap significantly, while those occurring close together in time form more overlapping groups than those separated by longer intervals.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors conclude that these results demonstrate how memory groups evolve over time and indicate that their new tagging system serves as a robust tool for examining multiple memories.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1212/wnl.0000000000218680",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "3b7d2950267d74f1",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:17:26+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Semantic processing was identified in 12 percent of the patients, which corresponds to 13 individuals out of the total group studied.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Patients who showed signs of semantic processing were much more likely to regain consciousness than those who did not show such signs.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "When the study excluded patients who had life support withdrawn or died from non-brain-related causes, the test became perfectly accurate for predicting consciousness recovery and nearly perfect for functional recovery.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The authors caution that these results are preliminary and need to be confirmed by larger studies before they can be used in clinical practice.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote",
+  "numbers not in the quote",
+  "quote not found verbatim in the source"
+ ]
+}

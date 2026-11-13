@@ -1,0 +1,30 @@
+{
+ "study_id": "10.1021/acsami.6c17187",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "3702419229163a81",
+ "generated_at": "2026-11-13T13:42:26+00:00",
+ "word_count": 151,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed a proof-of-concept robotic finger for lunar exploration featuring rigid skeletons, soft pneumatic chambers, and a self-powered sensor made of a PDMS-MXene composite. When pressurized to 140 kPa, the finger's three joint regions bent to angles of roughly 84, 76, and 65 degrees while the sensor generated stable readings between 1 and 10 Hz. Adding 6 percent by weight of MXene material increased the sensor's voltage output by more than half compared to pure PDMS, allowing it to measure pressure changes from 0.11 volts per kilopascal across a range of 10 to 120 kPa.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "In lab tests, an AI model integrated with the system correctly identified 10 different materials 97.6 percent of the time and four surface roughness levels 99.5 percent of the time. The authors state that while the system works in the lab, it has not yet been tested on actual moon rocks or in the space environment.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ]
+}

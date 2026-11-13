@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.007",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "2231d4f4738ced81",
+ "generated_at": "2026-11-13T13:27:36+00:00",
+ "word_count": 154,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers created a detailed map of cell types and their gene regulation in the subcortex of common marmosets, combining dense sampling with comparisons to other species to find specific neuron groups in complex midbrain and diencephalic areas. By measuring how open chromatin and gene expression patterns change depending on location within and between different subcortical brain regions, the study revealed the spatial organization of these cellular elements.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The research found that smooth changes in gene expression across parts of the hippocampus are controlled by specific transcription factors working through specific enhancer regions, while a specific group of GABAergic neurons in the primate thalamus shares genetic features with midbrain neurons. Despite being in different brain regions and having different neurotransmitters, two distant types of neurons were found to share a common regulatory program for postsynaptic functions, even though different cell types in the telencephalon can show similar gene expression patterns built using different regulatory structures.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:54:23+00:00"
+ }
+}

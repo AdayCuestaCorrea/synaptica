@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1007/s10616-026-01109-1",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "499cfeaa0e735b3a",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:13:18+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers investigated whether treating bone marrow cells with EGF could protect against brain damage in a rat model of neurodegeneration.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Forty rats were divided into four groups: a control group, a group with induced injury, a group receiving standard cells, and a group receiving cells treated with EGF.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Brain injury was simulated in the rats by administering a chemical called trimethyltin chloride.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Scientists measured how well the rats learned and moved, examined brain tissue under a microscope, and checked levels of specific proteins and genes.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "In lab dishes, cells treated with 10 ng/mL of EGF survived just as well as normal cells but grew into shapes resembling neurons.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "Rats receiving the EGF-treated cells showed better memory and movement skills than those receiving no treatment or just the untreated cells.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "Microscopic examination showed that the brain structures in the hippocampus were better preserved in rats treated with the EGF-modified cells.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "The treatment lowered markers of inflammation and nerve damage while raising levels of factors that support nerve growth and repair.",
+   "subject": "animals"
+  },
+  {
+   "id": "f9",
+   "statement": "The authors conclude that this approach might be a promising future treatment for neurodegenerative diseases, though it is currently based on animal findings.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

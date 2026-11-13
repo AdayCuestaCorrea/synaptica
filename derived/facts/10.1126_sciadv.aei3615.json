@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1126/sciadv.aei3615",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "a2d51d34269aea34",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:10:09+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study addresses the problem that hair blocks good contact between electrodes and skin during brain signal recording.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers created a method called eHAIR that turns hair into an electronic interface using special conductive polymer dyes.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The team tested two methods using polythiophene dyes: one for quickly coating groups of hairs and another for semi-permanent coating of single hairs.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The new interface created low-resistance connections that produced stronger brain signals with better frequency details, all without needing gels or hard devices.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The system can also amplify signals locally using transistors where the amount of amplification depends on the shape of the hair.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors present this as a wearable platform that works on single hairs or larger areas covered in hair.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

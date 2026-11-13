@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1007/s00590-026-05024-1",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "a9a0c27040c0d88f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:20:10+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study asked whether spinal fusion surgery changes how lung function and breathing muscle strength decline over time in these patients.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers used a retrospective cohort design to look at data from patients who had already had the surgery and returned for lung tests.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The study included sixteen boys who could not walk, with an average age of about 17.9 years.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The main measurement was lung capacity, checked before surgery, about five to six months after, and again after roughly two years.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The study found that how much the spine curve was straightened did not lead to better lung function outcomes.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors conclude that fixing the spine curve should not be expected to stop the natural decline in lung function.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source"
+ ]
+}

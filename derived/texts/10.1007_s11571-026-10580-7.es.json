@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1007/s11571-026-10580-7",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "85cb074c16230b52",
+ "generated_at": "2026-11-13T13:30:36+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un estudio transversal analizó datos de EEG en estado de reposo de personas con trastornos de la conciencia y participantes sanos, revelando que los pacientes mostraban menor variedad en sus patrones de actividad cerebral.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "A medida que disminuían los niveles de conciencia, la estabilidad de las conexiones de la red cerebral bajaba y el comportamiento del sistema se volvía más aleatorio, aunque tanto las fluctuaciones fuertes como las débiles en las señales cerebrales servían como indicadores útiles para detectar estos niveles.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que estas dinámicas cerebrales específicas podrían convertirse en nuevos biomarcadores para evaluar la conciencia, aunque aclaran que se trata de una sugerencia y no de una herramienta clínica demostrada.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:02:30+00:00"
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "study_id": "10.1080/07853890.2026.2753847",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "f10c63dbe4e6f3dc",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:15:12+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a single-center, retrospective cohort design to study adults with pneumonia caused by an ischemic stroke.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study focused on patients who had not yet experienced treatment failure by the 48-hour mark, using them as the baseline group for prediction.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Treatment failure was defined as needing stronger antibiotics, staying clinically unstable with uncontrolled infection, or dying from pneumonia within 72 hours.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Before treatment started, patients who were already on mechanical ventilation or had a higher platelet-to-lymphocyte ratio were more likely to fail treatment.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The model's ability to predict failure improved significantly, rising from a score of 0.697 at the start to 0.889 after 48 hours.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Patients whose treatment failed ended up staying in the hospital longer, costing more money, and requiring antibiotics for a longer time.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors note that the model needs testing in other hospitals and real-world trials before doctors can rely on it for patient care.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote",
+  "quote not found verbatim in the source"
+ ]
+}

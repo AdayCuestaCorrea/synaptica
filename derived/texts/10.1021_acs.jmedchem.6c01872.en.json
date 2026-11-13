@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1021/acs.jmedchem.6c01872",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "62e335b3d52cfd1c",
+ "generated_at": "2026-11-13T13:41:47+00:00",
+ "word_count": 87,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed a new compound to treat neuroinflammatory conditions by targeting the enzyme monoacylglycerol lipase. When given orally to male Wistar rats, this compound demonstrated strong enzyme-blocking power and maintained a half-life of 5.7 hours.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The substance successfully crossed into the brain and reduced inflammation in mouse models, matching its ability to block the enzyme in both mouse and human brain tissue samples.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "The authors conclude that combining high-throughput screening with structure-based design and the Five-Star Matrix is an effective way to create drug candidates for neuroinflammation.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ]
+}

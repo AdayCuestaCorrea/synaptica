@@ -1,0 +1,38 @@
+{
+ "study_id": "10.1007/s12311-026-02111-1",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "19187c120708d510",
+ "generated_at": "2026-11-13T13:38:12+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un ensayo clínico aleatorizado con 26 pacientes que habían sufrido un ictus investigó si la estimulación eléctrica aplicada al cerebelo del lado opuesto a la lesión podía mejorar el rendimiento en tareas duales, como caminar mientras se cuenta hacia atrás.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "El grupo que recibió la estimulación real mostró una reducción significativa del coste energético adicional, un ritmo de marcha mejorado y una actividad de ondas cerebrales alterada con una conectividad funcional regional superior en comparación con el grupo placebo durante estas actividades combinadas.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "La mayor actividad de ondas cerebrales en la región frontal se asoció con un mejor ritmo de marcha, lo que llevó a los autores a sugerir que esta técnica podría servir como una ayuda valiosa a los tratamientos estándar para la recuperación del ictus.",
+   "fact_ids": [
+    "f8",
+    "f9"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

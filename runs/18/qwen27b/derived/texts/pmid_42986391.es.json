@@ -1,0 +1,52 @@
+{
+ "study_id": "pmid:42986391",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "b518c6550786f544",
+ "generated_at": "2026-11-13T12:54:56+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "En un modelo de ratón, los investigadores modificaron las células bastones para que expresaran un marcador luminoso que se activa ante la liberación de glutamato, lo que les permitió rastrear la salida de neurotransmisor bajo iluminación tenue y brillante.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Cuando la luz parpadeaba sobre estos bastones, el marcador se atenuaba, lo que indicaba una reducción en la liberación de glutamato, mientras que la intensidad de la señal disminuía a medida que la luz parpadeaba más rápido, entre 1 y 10 veces por segundo.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Las células liberaban glutamato en ráfagas aleatorias a un ritmo constante de 20 a 40 pequeños paquetes por segundo, una velocidad confirmada por un segundo método de medición eléctrica que mostraba aproximadamente 38 paquetes por segundo.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Dado que esta velocidad de liberación se mantiene constante en distintos niveles de luz, las células bastones transmiten sus señales de ajuste lumínico a las neuronas siguientes del ojo sin distorsión.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:54:58+00:00"
+ }
+}

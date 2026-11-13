@@ -1,0 +1,48 @@
+{
+ "study_id": "10.1080/0886022x.2026.2753863",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "0bd464a05f7bdefe",
+ "generated_at": "2026-11-13T13:32:24+00:00",
+ "word_count": 125,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers conducted a cross-sectional study of 562 individuals receiving peritoneal dialysis to examine how sleep quality, measured by the Pittsburgh Sleep Quality Index, and sleep duration relate to sarcopenia, a condition of muscle loss identified using 2025 Asian Working Group criteria.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The analysis revealed a U-shaped relationship between sleep duration and sarcopenia, with the lowest risk occurring at approximately 7.29 hours per night, while poorer sleep quality was associated with a higher likelihood of the condition partly through connections to elevated body fat percentage.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Although albumin levels interacted with body fat in the analysis, this did not significantly alter the indirect pathway linking sleep to sarcopenia, leading the authors to conclude that these findings suggest associations rather than proving that sleep problems cause muscle loss.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:08:37+00:00"
+ }
+}

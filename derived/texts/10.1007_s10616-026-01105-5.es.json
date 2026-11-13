@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1007/s10616-026-01105-5",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "d12ad42732aad053",
+ "generated_at": "2026-11-13T13:30:09+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un modelo de cultivo celular en el que neuronas HT22 se sometieron a privación de oxígeno y glucosa para simular una lesión, midieron posteriormente los niveles de proteína COX1 y evaluaron las tasas de supervivencia, división y muerte celular.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "La lesión provocó una caída significativa de la proteína COX1, pero obligar a las células a producir más de esta proteína mejoró su supervivencia, frenó la muerte celular, redujo sustancias nocivas y potenció enzimas protectoras.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que COX1 protege las neuronas activando una vía de señalización específica que combate el estrés y la muerte celular, aunque estos hallazgos solo se aplican al modelo celular probado.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:00:30+00:00"
+ }
+}

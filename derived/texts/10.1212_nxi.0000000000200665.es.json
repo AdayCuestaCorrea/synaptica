@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1212/nxi.0000000000200665",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "75d158accbd4d116",
+ "generated_at": "2026-11-13T13:34:27+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron muestras de sangre de 2370 personas con esclerosis múltiple en tres ensayos de fase 3 para comprender cómo los niveles de células B antes y después del tratamiento con ocrelizumab se relacionan con los resultados de la enfermedad.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El tratamiento con ocrelizumab redujo rápidamente el número total de células B en personas con esclerosis múltiple remitente, mientras que quienes aún presentaban células B detectables enfrentaban un mayor riesgo de desarrollar nuevas lesiones cerebrales o que estas aumentaran de tamaño, y los individuos con altos recuentos de células B y niveles elevados de proteína ligera de neurofilamentos corrían un riesgo significativamente mayor de empeoramiento de la discapacidad.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Cambiar a ocrelizumab en aquellos con altos niveles de células B y de proteína ligera de neurofilamentos redujo casi cuatro veces el riesgo de progresión de la discapacidad, y los autores afirman que sus hallazgos sobre la relación entre células B detectables y nuevas lesiones son sólidos basándose en los datos del periodo de tratamiento a doble ciego.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ]
+}

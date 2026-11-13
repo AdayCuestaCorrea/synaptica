@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1002/glia.70249",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "526a455f69bf1f2e",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:11:59+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a combination of cell cultures and a young adult mouse model to investigate the role of Tmem119 in stroke.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers treated cultured microglia with a tool to silence Tmem119 and exposed them to conditions mimicking stroke or inflammation.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "Male mice were genetically modified to overexpress Tmem119 or a control protein and then underwent a 60-minute stroke procedure.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "When Tmem119 was silenced in the lab, the microglia showed higher levels of specific inflammatory markers.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Mice that had Tmem119 overexpressed before the stroke had lower inflammatory signaling and higher levels of the anti-inflammatory protein IL-10 compared to control mice.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The mice with extra Tmem119 had smaller areas of brain damage and performed better on tests of brain function than the control group.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors conclude that Tmem119 protects the brain during the early stages of stroke by calming inflammation and boosting protective signals.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

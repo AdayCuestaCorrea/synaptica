@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1126/sciadv.aeg8139",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "16a19394e281fc4d",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:09:59+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a genetic method to find a recessive mutation in zebrafish larvae that causes a loss of hearing.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The study found that the hearing problems in these mutant fish were linked to persistently high calcium levels in specific brain cells called radial astrocytes.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Blocking receptors for norepinephrine in the astrocytes reduced their calcium levels and fixed the fish's ability to respond to sound.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The authors suggest that targeting noradrenergic signaling could be a future treatment option for children with similar neurological conditions.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

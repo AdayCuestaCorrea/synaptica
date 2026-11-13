@@ -1,0 +1,47 @@
+{
+ "study_id": "pmid:42986391",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "1954381fcdd2e8d0",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T12:33:09+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers created a mouse model where rod photoreceptor cells express a fluorescent sensor to detect glutamate.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Glutamate release from rod cells happened randomly at a rate between 20 and 40 vesicles per second per ribbon, regardless of light intensity.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Independent electrical measurements of rod cells suggested a release rate of about 38 vesicles per second per ribbon.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The study identified single vesicle release events by observing that spikes in fluorescence were matched by drops in dye fluorescence.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The release of glutamate from rods filtered out rapid changes, with signal power dropping as frequency increased from 1 to 10 Hz.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest that keeping release rates constant across different light levels helps transmit light adaptation signals to the next neurons.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors state that this specific mouse line is a useful tool for studying how light information is processed at the first synapse in the retina.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

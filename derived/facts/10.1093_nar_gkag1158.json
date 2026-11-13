@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1093/nar/gkag1158",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "d63133b385c7ed2b",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:16:42+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study created a new online database called M2iOR to collect and standardize data on how insect smell receptors interact with odor molecules.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The database currently contains data from 35,891 experiments covering 30,348 specific pairs of insect receptors and molecules, gathered from 41 published sources.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The database stores detailed information including chemical structures, receptor DNA sequences, the insect species involved, mixture details, and full experimental notes.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "Users can search the database to find which molecules activate or fail to activate specific insect smell receptors.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The tool allows researchers to download simplified data formats that represent smell coding patterns for use in further computer-based analysis.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

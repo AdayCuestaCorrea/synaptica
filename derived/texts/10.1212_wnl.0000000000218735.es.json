@@ -1,0 +1,31 @@
+{
+ "study_id": "10.1212/wnl.0000000000218735",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "1f7858fafe1bf698",
+ "generated_at": "2026-11-13T13:34:55+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Este estudio longitudinal analizó una muestra representativa a nivel nacional de adultos comunitarios de 60 años o más en dos oleadas.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Los investigadores clasificaron el deterioro cognitivo mediante un algoritmo basado en pruebas cognitivas, estado funcional y reportes de informantes, identificando como casos no diagnosticados aquellos en los que no existía un diagnóstico previo de enfermedad de Alzheimer por parte del médico.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Los autores señalan que persisten importantes desigualdades regionales y que se requieren políticas más específicas para cerrar las brechas diagnósticas en zonas aisladas.",
+   "fact_ids": [
+    "f3"
+   ]
+  }
+ ]
+}

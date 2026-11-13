@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1093/neuonc/noag284",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "56da83876c23ffbe",
+ "generated_at": "2026-11-13T13:34:03+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores combinaron datos de 33 grupos distintos de pacientes para comparar qué tan bien la metilación del promotor de MGMT y la expresión de la proteína MGMT predicen los resultados de supervivencia, hallando que las pruebas que miden la metilación del ADN muestran un vínculo más fuerte con la supervivencia del paciente que las que miden la cantidad de proteína MGMT.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "En algo más de la mitad de los estudios revisados, el nivel de metilación del ADN no coincidía con el de la expresión proteica, lo que sugiere que ambas medidas podrían afectar el pronóstico de formas distintas, mientras que utilizar conjuntamente los niveles de proteína y el estado de metilación ayuda a los médicos a identificar mejor los tumores que no responderán al fármaco temozolomida.",
+   "fact_ids": [
+    "f3",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores advierten que los distintos métodos de prueba y umbrales empleados en los estudios dificultan la comparación de resultados y requieren una estandarización.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:13:42+00:00"
+ }
+}

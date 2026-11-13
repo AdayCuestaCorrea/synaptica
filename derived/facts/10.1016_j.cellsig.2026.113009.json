@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1016/j.cellsig.2026.113009",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "66c042f5544363d6",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:22:45+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study is a review that summarizes existing knowledge about where mTORC1 and mTORC2 are located within different parts of the cell.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The authors explain how physical factors like membrane shape and molecular crowding control the results of mTOR signaling.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The review shows that the same signaling tools can produce different results depending on the specific shape and location of the cell.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "New imaging technologies allow researchers to see how mTOR organization varies across entire tissues, not just single cells.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors note that current drugs cannot target specific mTOR locations inside cells and that existing imaging tools struggle to track movement while maintaining high detail.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

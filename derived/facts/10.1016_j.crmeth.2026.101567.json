@@ -1,0 +1,39 @@
+{
+ "study_id": "10.1016/j.crmeth.2026.101567",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "ae6460d2c345bfb4",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:23:09+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study created an online tool to visualize and compare single-cell data from the basal ganglia.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers used four specific technologies to generate the multi-omics datasets: 10X Multiome, single-nucleus methylome sequencing, snm3C-seq, and Paired-Tag.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The platform allows comparison of data from four species: humans, macaques, marmosets, and mice.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "Sample analyses on the platform show how gene regulation varies by cell type, which elements are shared or unique across species, and how epigenomic changes link to gene transcription.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors state this resource serves as a foundation for future research into brain function and disease mechanisms.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

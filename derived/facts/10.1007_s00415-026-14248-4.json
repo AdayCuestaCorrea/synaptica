@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s00415-026-14248-4",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "bd7fe914600b7ba2",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:19:51+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a cross-sectional design involving 36 pairs of people with Huntington's disease and their close family members.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Compared to their close others, the patients reported lower quality of life, less emotional awareness, and higher social anxiety.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "A patient's quality of life was most strongly linked to their level of social anxiety, rather than their interoception or empathy scores.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The ability to regulate attention to internal bodily signals was specifically linked to how well patients could perform daily functions.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The stress felt by caregivers was predicted by the patient's apathy and their difficulties with listening to bodily signals and emotional awareness.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest that dysfunction in sensing internal body signals contributes to emotional problems and caregiver burden in Huntington's disease.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The study notes that while social anxiety directly lowers quality of life, interoceptive issues may also indirectly affect it through other symptoms like apathy.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

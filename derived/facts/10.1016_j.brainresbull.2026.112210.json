@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.brainresbull.2026.112210",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "aeffc2c73773a1b4",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:22:31+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a mouse model of depression caused by corticosterone and a cell culture of hippocampal neurons to test the link between two proteins.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers measured changes in behavior, cell damage, and the structure and function of synapses and mitochondria.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "In mice treated with corticosterone, levels of the protein XBP-1s went up while the protein EAAT2 went down, and glutamate levels rose in the hippocampus.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "When researchers lowered XBP-1 levels in the neuron cells, EAAT2 protein levels returned to normal and excess glutamate and oxidative stress decreased.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Giving mice a drug called Toyocamycin lessened depression-like symptoms and brain cell damage, which matched with lower XBP-1s and higher EAAT2 levels.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The results suggest that the activity of XBP-1 signaling is functionally linked to how much EAAT2 is expressed in these specific experimental setups.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors state that it is still unknown if EAAT2 is the specific reason why lowering XBP-1 protects the neurons.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

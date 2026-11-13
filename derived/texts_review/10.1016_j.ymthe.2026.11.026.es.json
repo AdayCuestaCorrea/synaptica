@@ -1,0 +1,31 @@
+{
+ "study_id": "10.1016/j.ymthe.2026.11.026",
+ "lang": "es",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "1a93e11632e62b25",
+ "generated_at": "2026-11-13T13:31:30+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 2: numbers differ (['2', '24', '2449', '3'] vs ['2', '24', '2449'])"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron si inhibir la quinasa FLT3 podría potenciar la KCC2, un transportador que ayuda a las neuronas a mantener las señales inhibitorias, mediante un enfoque de genómica funcional en neuronas de ratones y células madre humanas; además, una cribada genética con tecnología CRISPR reveló que FLT3 regula redes génicas específicas implicadas en el empaquetamiento del ADN y la inflamación cerebral.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "En ratones tratados con ácido kainico, el fármaco KW-2449 atravesó la barrera hematoencefálica, elevó los niveles de KCC2 durante hasta 24 horas y redujo la aparición de convulsiones.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

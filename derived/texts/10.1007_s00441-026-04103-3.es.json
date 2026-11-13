@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1007/s00441-026-04103-3",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "9fbc4e0cf75c256d",
+ "generated_at": "2026-11-13T13:36:28+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "En un estudio sobre larvas de animales, los investigadores identificaron un epitelio olfativo expuesto en la boca distinto, ausente en otras etapas del desarrollo, junto con un epitelio sensorial adicional estrechamente conectado al epitelio olfativo principal.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Estos epitelios sensoriales mostraron características anatómicas únicas y enviaron proyecciones a regiones específicas de los bulbos olfativos principales y accesorios, donde la inmunohistoquímica reveló neuronas receptoras que expresan Gαo y cuyos axones apuntan a las mismas zonas de los bulbos.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores concluyeron que las larvas poseen estructuras olfativas especializadas no presentes en otras etapas, aunque estos hallazgos se aplican estrictamente al modelo animal examinado.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3",
+    "f4"
+   ]
+  }
+ ]
+}

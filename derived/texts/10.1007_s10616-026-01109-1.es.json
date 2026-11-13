@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1007/s10616-026-01109-1",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "f2a99c4e9efbd9c4",
+ "generated_at": "2026-11-13T13:30:13+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron si tratar las células de la médula ósea con EGF podría proteger contra el daño cerebral en un modelo de ratas de neurodegeneración. Cuarenta ratas se dividieron en cuatro grupos, incluido uno de control y otros que recibieron células tratadas con EGF tras simular el daño cerebral mediante la administración de un químico llamado cloruro de trimetiltin.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los científicos midieron el aprendizaje, el movimiento, el tejido cerebral y los niveles de proteínas, constatando que las células tratadas con 10 ng/mL de EGF crecieron adoptando formas similares a las neuronas. Las ratas que recibieron estas células modificadas mostraron una mejor memoria y habilidades motrices, mientras que el examen microscópico reveló que las estructuras cerebrales del hipocampo se preservaban mejor. El tratamiento redujo los marcadores de inflamación y daño nervioso, mientras aumentaba los niveles de factores que apoyan el crecimiento y la reparación de los nervios.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que este enfoque podría ser un tratamiento prometedor para las enfermedades neurodegenerativas en el futuro, aunque actualmente se basa en hallazgos en animales.",
+   "fact_ids": [
+    "f9"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:00:33+00:00"
+ }
+}

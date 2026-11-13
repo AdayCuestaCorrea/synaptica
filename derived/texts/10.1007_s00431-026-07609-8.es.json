@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1007/s00431-026-07609-8",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "9da17318d93850e9",
+ "generated_at": "2026-11-13T13:36:22+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un diseño de cohorte con 141 pacientes con neuroblastoma que no habían recibido tratamiento para evaluar once modelos de aprendizaje automático que combinaban seis marcadores clínicos y sanguíneos no invasivos con el fin de predecir el riesgo de la enfermedad.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Durante la fase de entrenamiento, el algoritmo de bosque aleatorio clasificó correctamente al 91 % de los pacientes, destacando como variables más importantes para la predicción los factores de riesgo definidos por imagen, la neuron-específica enolasa y la lactato deshidrogenasa.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Al probarse en un grupo separado, el modelo final mantuvo una alta precisión con una sensibilidad del 84,2 %, lo que llevó a los autores a concluir que este método ofrece una vía práctica para clasificar el riesgo de neuroblastoma sin necesidad de analizar el tejido tumoral.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

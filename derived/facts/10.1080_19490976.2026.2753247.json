@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1080/19490976.2026.2753247",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "b0d0e694039e17a3",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:15:52+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used fruit flies engineered to carry human Alzheimer's disease genes specifically in their glial cells to study the link between the gut and the brain.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Flies treated with antibiotics to remove their gut bacteria showed worse inflammation, cell death, and buildup of Alzheimer's-related proteins compared to normal flies.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Removing the gut bacteria made the flies' sleep cycles, movement, and ability to learn and remember worse.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The study found that Alzheimer's disease changes the types and amounts of specific bacteria living in the gut of these flies.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors conclude that losing gut bacteria makes Alzheimer's disease in these flies worse by messing up inflammation, metabolism, and protein cleanup systems.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The negative effects of removing gut bacteria were not the same in every type of genetically modified fly used in the experiment.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

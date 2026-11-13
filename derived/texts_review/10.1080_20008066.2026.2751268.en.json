@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1080/20008066.2026.2751268",
+ "lang": "en",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "a679190b816646c9",
+ "generated_at": "2026-11-13T13:33:08+00:00",
+ "word_count": 84,
+ "problems": [
+  "sentence 3: drops the caution of its facts (may, suggests, possibly…)"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers analyzed a large group of people to determine if childhood abuse is linked to later dementia.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Those abused as children faced a much higher risk of developing dementia than those who were not, though four specific areas of health and lifestyle explained only a small part of this link, with mental health acting as the main driver among the factors.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors warn that their findings do not explain the full connection and that more research is needed on biological and social causes.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

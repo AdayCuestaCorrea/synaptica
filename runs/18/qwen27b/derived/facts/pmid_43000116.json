@@ -1,0 +1,62 @@
+{
+ "study_id": "pmid:43000116",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "9cf5f2187b25b422",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-13T12:45:57+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The research was a prospective observational pilot study carried out at a hospital in Sweden from 2021 to 2024.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study analyzed blood samples from 21 patients with acute ischaemic stroke and 19 control participants.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The study compared stroke patients receiving a clot-removal procedure under anesthesia or sedation against a control group undergoing non-brain surgery under general anesthesia.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Levels of three brain injury markers were measured in blood before the procedure and again at 2 and 24 hours afterward.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "In the stroke patients, the level of the marker GFAP rose significantly from the start of the study to the 24-hour mark.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "GFAP levels were higher in the stroke patients than in the control group at every time point measured.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The control group did not show a significant rise in GFAP levels over the 24-hour period.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The other two markers, NfL and tau, increased significantly in both the stroke patients and the control group.",
+   "subject": "humans"
+  },
+  {
+   "id": "f9",
+   "statement": "Because GFAP did not rise in the control group, the authors suggest it may be less affected by anesthesia and surgery than the other markers.",
+   "subject": "humans"
+  },
+  {
+   "id": "f10",
+   "statement": "The results support the need for further evaluation of GFAP as a potential blood marker for acute brain injury in hospital settings.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

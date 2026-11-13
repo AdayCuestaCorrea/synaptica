@@ -1,0 +1,40 @@
+{
+ "study_id": "10.1007/s43678-026-01303-2",
+ "lang": "es",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "3b29857feb5f84ad",
+ "generated_at": "2026-11-13T13:38:18+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: numbers differ (['50'] vs ['24', '50'])",
+  "sentence 3: numbers differ ([] vs ['14'])"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores llevaron a cabo un estudio observacional retrospectivo en una cohorte de adultos de 50 años o más que se sometieron a tomografías computarizadas de urgencia por motivos no relacionados con el ictus en dos hospitales con capacidad de escaneo las 24 horas.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Entre los 6 535 pacientes elegibles, 102 individuos (1,6%) mostraron un infarto cerebral oculto, una condición prevalente en este grupo, que estaba compuesto mayoritariamente por adultos mayores con altas tasas de hipertensión, dislipidemia, fibrilación auricular, diabetes y tabaquismo.",
+   "fact_ids": [
+    "f3",
+    "f6"
+   ]
+  },
+  {
+   "text": "Aunque más de nueve de cada diez pacientes con este hallazgo no recibieron cambios en sus planes de tratamiento, el grupo experimentó posteriormente un ictus o un ataque isquémico transitorio, cuatro infartos de miocardio, dos nuevos diagnósticos de fibrilación auricular y 14 muertes en el transcurso de un año, lo que lleva a los autores a solicitar una investigación más específica y vías de gestión dedicadas.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

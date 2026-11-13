@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.008",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "b7514515746096ef",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:10:56+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study focuses on human brain development, specifically tracing the origin of basal ganglia neurons to the ganglionic eminences in the prenatal brain.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers used a combination of single-nucleus methyl-3C sequencing, spatial transcriptomics, and single-molecule imaging to map how these brain structures develop.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "Different subregions of the ganglionic eminences showed varied timing in their developmental progression.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The main neurons of the basal ganglia developed distinct subtypes through coordinated changes in their 3D chromatin structure, unlike other neuron types which matured at different times.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "A specific, temporary chromatin state was observed during the development of oligodendrocytes in infancy, indicating that chromatin shapes linked to cell fate can be temporary.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The temporal part of the cortex showed faster epigenetic maturation compared to other areas of the cortex during the studied period.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The study found that spiny projection neurons contain a higher concentration of genetic risk factors associated with neuropsychiatric disorders.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

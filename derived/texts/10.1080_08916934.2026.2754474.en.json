@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1080/08916934.2026.2754474",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "913a22fc58290625",
+ "generated_at": "2026-11-13T13:32:33+00:00",
+ "word_count": 145,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers combined a re-analysis of public single-cell and spatial transcriptomic datasets with an examination of archived records from one specific thymoma cell line, using one normal adult thymus sample as a descriptive reference.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Analysis of donor-resolved single-cell data revealed that antigen-presentation genes were expressed across various antigen-presenting cell compartments, while correlations between antigen-presentation and maturation in two thymoma tissue sections weakened when statistical adjustments for other variables were applied.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The study found that observed changes in the THP-1-derived cell preparation were due to the initial induction process rather than any effect from the Thy0517 thymoma cells, and data regarding IL-21 and IL-6 levels could not be used because concentration units were unverified; the authors state that their findings offer descriptive context but do not prove that Thy0517 conditioning or IL-21 causes the specific mechanism of thymoma-associated myasthenia gravis.",
+   "fact_ids": [
+    "f5",
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:08:41+00:00"
+ }
+}

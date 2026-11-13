@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1016/j.jneumeth.2026.110952",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "ea2b14e8efa6c2ce",
+ "generated_at": "2026-11-13T13:40:12+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un modelo animal de ratones transgénicos para evaluar una nueva técnica automatizada de detección del reflejo de parpadeo, observando que tres ratones de tipo salvaje mostraron poco o ningún parpadeo bajo una estimulación con luz azul idéntica.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Utilizando software de visión por computadora para rastrear seis características de movimiento y aplicar algoritmos automatizados, el sistema de detección alcanzó tasas de precisión muy elevadas en diversos métodos de validación.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que este enfoque ofrece una cronometraje más preciso y un análisis automatizado que las pruebas tradicionales de chorro de aire, aunque el estudio se limitó a un modelo animal.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

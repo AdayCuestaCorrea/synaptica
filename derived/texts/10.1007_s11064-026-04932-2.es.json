@@ -1,0 +1,31 @@
+{
+ "study_id": "10.1007/s11064-026-04932-2",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "835c9023b95c73df",
+ "generated_at": "2026-11-13T13:37:14+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un modelo de ratas diseñado para mostrar síntomas de cefalea post-isquémica y observaron que administrar gastrodín en distintas dosis reducía las conductas relacionadas con el dolor de forma dependiente de la dosis; este alivio desaparecía cuando los animales eran tratados con un fármaco que bloquea la vía PI3K, mientras que el tratamiento con gastrodín incrementaba la actividad de la vía PI3K/Akt en la zona cerebral que rodea el infarto, como demostraron los niveles elevados de proteínas específicas.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3",
+    "f6"
+   ]
+  },
+  {
+   "text": "En un estudio separado con 80 personas que habían sufrido un ictus isquémico agudo y 50 individuos sanos como control, niveles bajos de las proteínas PI3K y Akt en la sangre se asociaron con cefaleas más graves y peores resultados neurológicos; los autores señalan que las cefaleas post-isquémicas y otros problemas neurológicos empeoran notablemente la recuperación global tras el ictus, y hasta esta investigación no se sabía si el gastrodín podía prevenir dichas cefaleas ni cómo actuaba para lograrlo.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f7",
+    "f8"
+   ]
+  }
+ ]
+}

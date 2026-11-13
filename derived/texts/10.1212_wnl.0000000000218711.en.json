@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1212/wnl.0000000000218711",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "e05f9890249f798f",
+ "generated_at": "2026-11-13T13:34:50+00:00",
+ "word_count": 71,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers conducted a prospective cohort study following 4,822 people who met specific inclusion criteria over several years.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Scientists measured walking ability and balance using the Performance-Oriented Mobility Assessment (POMA), a tool for evaluating mobility, while tracking that 251 participants were later diagnosed with dementia and 458 died during the period.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors note that the study results may not apply to other groups because all participants shared the same ethnic background.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

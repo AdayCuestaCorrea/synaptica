@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1007/s12311-026-02111-1",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "a769de713d6f0fbd",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:21:55+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a randomized controlled trial design with 26 stroke patients split into two groups: one receiving real stimulation and the other receiving a fake version alongside standard therapy.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers applied electrical stimulation to the side of the cerebellum opposite to the side of the brain injury.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Participants performed simple walking or standing tasks alone and while counting backward to measure how much their performance dropped when doing two things at once.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The group receiving real stimulation showed a significant drop in the extra body movement cost when walking while doing a mental task.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The real stimulation group also improved their walking speed rhythm and the time spent with both feet on the ground during dual tasks.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Both groups showed better standing balance and walking ability, but the real stimulation group specifically reduced the extra cost of doing tasks together.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The study found that the real stimulation group showed changes in brain wave activity and better connection between brain regions while walking and thinking.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "Higher brain wave activity in the front of the brain was linked to better walking rhythm during dual tasks.",
+   "subject": "humans"
+  },
+  {
+   "id": "f9",
+   "statement": "The authors suggest this stimulation technique could be a helpful addition to standard stroke recovery treatments.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

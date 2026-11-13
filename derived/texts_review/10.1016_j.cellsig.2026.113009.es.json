@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1016/j.cellsig.2026.113009",
+ "lang": "es",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "9be089e36d055b2e",
+ "generated_at": "2026-11-13T13:39:13+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 2: 'proves' is not in the English sentence"
+ ],
+ "sentences": [
+  {
+   "text": "Esta revisión resume el conocimiento existente sobre las ubicaciones celulares de mTORC1 y mTORC2 en distintas partes de la célula.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Los autores explican cómo factores físicos, como la forma de la membrana y el empaquetamiento molecular, controlan los resultados de la señalización, demostrando que las mismas herramientas producen resultados distintos según la geometría y posición específicas de la célula.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Nuevas tecnologías de imagen permiten a los investigadores observar la organización de mTOR en todo el tejido, aunque los fármacos actuales no pueden atacar ubicaciones específicas de mTOR y las herramientas existentes tienen dificultades para rastrear el movimiento manteniendo un alto nivel de detalle.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

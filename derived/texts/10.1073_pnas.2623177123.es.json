@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1073/pnas.2623177123",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "c720e56b1e22f2be",
+ "generated_at": "2026-11-13T13:32:04+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores aplicaron un perfilado transcriptómico de células individuales con resolución espacial para examinar la médula espinal de ratones adultos, revelando que tipos neuronales distintos se organizan en patrones espaciales y de capas específicos que varían según el nivel espinal y el sexo; muchos tipos neuronales se encontraron agrupados dentro de estas capas, lo que sugiere que podrían conectarse de manera específica para cada región.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "En el cuerno dorsal, las neuronas mostraron patrones de comunicación predichos basados en moléculas señalizadoras como neuropéptidos, mientras que un modelo de dolor neuropático reveló perfiles alterados de expresión génica y patrones de comunicación predichos en varios tipos neuronales en comparación con las condiciones normales.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que este nuevo mapa ayudará a los investigadores a comprender cómo funcionan los circuitos espinales tanto en estados sanos como en enfermedades.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00",
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:07:35+00:00"
+ }
+}

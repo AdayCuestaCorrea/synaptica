@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.020",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "9e22241d0f05c027",
+ "generated_at": "2026-11-13T13:39:10+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron la actividad génica y las modificaciones de histonas en numerosas células individuales del cerebro adulto humano mediante dos atlas independientes, lo que reveló que los distintos tipos celulares cerebrales presentan patrones únicos de regulación génica.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Los datos indicaron que las marcas epigenéticas establecidas durante el desarrollo temprano persisten en estas células adultas, ofreciendo claves sobre cómo los cambios genéticos asociados a trastornos neurológicos afectan a poblaciones celulares específicas.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que estos resultados establecen un nuevo marco para investigar cómo se definen las células cerebrales, cómo evolucionan y cómo surgen las enfermedades.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1002/msc.70306",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "edaa0fa51103c18f",
+ "generated_at": "2026-11-13T13:29:45+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un ensayo clínico aleatorizado con un solo ciego que involucró a 40 supervivientes de ictus les asignó a usar un soporte estandarizado para el hombro durante las horas de vigilia o a no recibir ninguna adición de este tipo.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Los investigadores evaluaron la subluxación del hombro mediante la distancia medida por ecografía, los niveles de dolor, la capacidad de movimiento del brazo y la independencia en las actividades diarias en tres momentos, sin encontrar diferencias estadísticamente significativas en la mejora entre ambos grupos.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Por eso, los autores concluyen que sigue siendo imposible determinar si los cambios observados se debieron al soporte del hombro, a la rehabilitación general, a la recuperación natural o a otros factores relacionados con el tiempo.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:59:30+00:00"
+ }
+}

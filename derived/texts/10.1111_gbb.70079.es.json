@@ -1,0 +1,48 @@
+{
+ "study_id": "10.1111/gbb.70079",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "dbd0a604de4c1faa",
+ "generated_at": "2026-11-13T13:34:12+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un análisis sistemático de randomización mendeliana, utilizando estadísticas genéticas de la base de datos FinnGen R9 junto con datos de sangre y tejido cerebral, para identificar objetivos farmacológicos del trastorno depresivo mayor.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Desde un conjunto de 6889 objetivos farmacológicos potenciales, el análisis redujo la lista a seis genes, siendo MAPK3, MST1 y SIGLEC9 los que mostraron la evidencia más consistente como candidatos para un desarrollo futuro.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Estos seis genes demostraron un vínculo causal significativo con el trastorno y se asocian con funciones relacionadas con la inflamación cerebral, el control inmunitario y la muerte celular, aunque se requiere investigación más amplia antes de poder desarrollar nuevos tratamientos.",
+   "fact_ids": [
+    "f3",
+    "f6",
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:13:45+00:00"
+ }
+}

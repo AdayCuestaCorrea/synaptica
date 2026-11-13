@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.029",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "6a0b8c73b3f4d6bb",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:11:33+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers analyzed 1.1 million cells from 19 human donors using a specific spatial transcriptomics method.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The human striatum was found to be divided into six distinct zones based on unique groups of spiny projection neurons.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "A separate study on mice identified four zones that correspond to the six zones found in humans.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Analysis of 131 human donors showed that the back part of the striatum changes the most with age.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The molecular differences that create these zones become less distinct as people get older.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Each zone contains specific networks where neurons and astrocytes interact in a coordinated spatial pattern.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The study concludes that the spatial organization of the striatum is similar across different mammal species.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

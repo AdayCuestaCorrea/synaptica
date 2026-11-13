@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1002/prp2.70342",
+ "lang": "en",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "ad2028a8210b652a",
+ "generated_at": "2026-11-13T13:30:01+00:00",
+ "word_count": 96,
+ "problems": [
+  "sentence 3: drops the caution of its facts (may, suggests, possibly…)"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers tested the drug RLPA-76 in male rats and mice using three specific injury models to measure sensitivity to touch. The drug reduced pain sensitivity in these animals that had been injured in three different ways.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f4"
+   ]
+  },
+  {
+   "text": "In rats previously trained to take methamphetamine, the drug did not increase intake, and animals showed no memory problems compared to placebo groups. Tests on human blood cells indicated the substance does not affect clotting and binds to very few biological targets.",
+   "fact_ids": [
+    "f3",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors conclude the drug relieves pain without causing addiction or memory loss in these animal models.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ]
+}

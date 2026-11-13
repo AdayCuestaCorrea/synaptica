@@ -1,0 +1,36 @@
+{
+ "study_id": "10.3724/abbs.2026008",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "6b59baa7824c9e6a",
+ "generated_at": "2026-11-13T13:35:38+00:00",
+ "word_count": 133,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers used a neonatal mouse model of hypoxic-ischemic brain damage and separate experiments with oxygen-deprived brain cells to test formononetin alone or with inhibitors. They assessed injury through tissue examination and functional performance tests while observing cell death and energy production in the cellular models.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "In the injured mice, formononetin significantly reduced tissue death, swelling, and nerve cell damage by lowering oxidative stress and excess iron while boosting protective factors. This compound boosted Nrf2 pathway activity in the brain's vulnerable edge area by moving the Nrf2 protein into the cell nucleus.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Specialized binding tests confirmed that formononetin works by directly attaching to and activating the Nrf2 protein. The authors conclude that formononetin protects the brain by directly interacting with Nrf2 to stop a specific type of iron-driven cell death.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ]
+}

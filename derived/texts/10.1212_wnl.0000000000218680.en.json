@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1212/wnl.0000000000218680",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "bc19fd58922fc8b6",
+ "generated_at": "2026-11-13T13:34:32+00:00",
+ "word_count": 73,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers analyzed semantic processing in a group of patients, identifying this activity in 12 percent of the individuals studied.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Those showing such signs were much more likely to regain consciousness, and the test became perfectly accurate for predicting consciousness recovery when patients with withdrawn life support or non-brain-related deaths were excluded.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The authors caution that these results are preliminary and need confirmation by larger studies before they can be used in clinical practice.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ]
+}

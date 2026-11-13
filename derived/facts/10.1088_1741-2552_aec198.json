@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1088/1741-2552/aec198",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "e8bf4c9ab17b808a",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:26:31+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study aimed to create an open system for quickly developing and testing new brain-computer interface and neuromodulation methods.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers used a three-part approach involving benchtop testing, long-term animal studies, and a human demonstration with external leads.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "Benchtop tests confirmed the device's performance and measured specific technical factors like recording noise and signal delays.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "Five dogs implanted with the device showed stable recordings for up to three years, though some channels gradually worsened over time.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The system successfully performed various brain functions, including decoding thoughts and detecting epilepsy signs, more than two years after the animal implants.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "A single human participant successfully used the benchtop version of the system to control a cursor, proving the setup works for people.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors provided public access to surgical methods, data, and software to help other researchers repeat their work.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

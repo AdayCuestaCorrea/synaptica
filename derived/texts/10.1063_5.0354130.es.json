@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1063/5.0354130",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "88936163d5aaf789",
+ "generated_at": "2026-11-13T13:31:36+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Este estudio computacional investigó las transiciones entre estados de reactante y producto mediante simulaciones de dinámica molecular, identificando la función de compromiso como una métrica clave que calcula la probabilidad de que un sistema llegue a un estado de producto antes de volver a uno de reactante; los autores señalaron que aprender esta función resulta difícil debido a la alta dimensionalidad del espacio de configuración molecular.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Para abordar este problema, los investigadores propusieron un nuevo método que emplea una función de pérdida derivada de la fórmula de Itō para entrenar una red neuronal que aproxime la función de compromiso, comparando su enfoque con métodos existentes utilizando el potencial de Müller-Brown como caso de prueba e introduciendo una estrategia que acopla su técnica con la división multiescala adaptativa para mejorar la muestreo de trayectorias reactivas.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "La metodología propuesta requiere únicamente el conocimiento inicial de los estados de reactante y producto para aprender iterativamente la función de compromiso, ofreciendo así un marco computacional simplificado para analizar transiciones moleculares complejas.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:05:38+00:00"
+ }
+}

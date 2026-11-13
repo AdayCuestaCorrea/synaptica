@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1021/acs.jmedchem.6c01872",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "62e335b3d52cfd1c",
+ "generated_at": "2026-11-13T13:41:47+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron un nuevo compuesto para tratar condiciones neuroinflamatorias dirigiéndose a la enzima monoacilglicerol lipasa; administrado por vía oral a ratas Wistar macho, este compuesto demostró una potente capacidad de bloqueo enzimático y mantuvo una vida media de 5,7 horas.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "La sustancia atravesó con éxito la barrera hematoencefálica y redujo la inflamación en modelos de ratón, igualando su capacidad para bloquear la enzima tanto en muestras de tejido cerebral de ratón como de humano.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que combinar el cribado de alto rendimiento con el diseño basado en la estructura y la Matriz de Cinco Estrellas constituye una vía eficaz para generar candidatos a fármacos contra la neuroinflamación.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

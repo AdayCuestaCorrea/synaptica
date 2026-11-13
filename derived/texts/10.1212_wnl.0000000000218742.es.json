@@ -1,0 +1,28 @@
+{
+ "study_id": "10.1212/wnl.0000000000218742",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "4a1256c01fe4fb9e",
+ "generated_at": "2026-11-13T13:35:06+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores llevaron a cabo un estudio retrospectivo que examinó a pacientes que habían sufrido trombólisis mecánica por obstrucciones de grandes vasos en la parte frontal del cerebro, requiriendo que cada participante tuviera una resonancia magnética específica antes del procedimiento de eliminación del coágulo.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "La presencia de este patrón de sangrado antes del tratamiento se asoció con una probabilidad mucho mayor de necesitar ayuda para las actividades diarias tres meses después, aunque los autores señalan que, dado que el estudio revisó registros pasados y los eventos de sangrado fueron raros, los resultados requieren más investigación para confirmarlos.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

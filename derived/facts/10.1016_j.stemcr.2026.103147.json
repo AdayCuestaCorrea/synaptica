@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1016/j.stemcr.2026.103147",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "32e96cfab7a49c29",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:24:28+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study asks if organoid models can reproduce the dynamic changes seen in natural inner ear development.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers used 3D high-resolution imaging to track changes in the number, size, and shape of presynaptic ribbons as human inner ear organoids matured.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The study notes that natural hair cell development involves ribbons growing larger while their total count drops.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "The number of nerve fibers touching the hair cells went down over time, which the authors interpret as a sign of refining connections.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The observed changes in the human organoids matched patterns seen in mouse hair cells, suggesting the human model mimics the assembly and refinement process.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

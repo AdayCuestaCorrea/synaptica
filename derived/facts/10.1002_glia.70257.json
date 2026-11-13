@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1002/glia.70257",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "84d4d642ae88db70",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:12:09+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study asks whether a chronic parasitic brain infection can protect mice from a lethal form of malaria.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Mice lacking the gene for IL-33 still showed some protection against malaria, suggesting the protective mechanism is not entirely dependent on this specific molecule.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Researchers measured brain cells and found that the chronic parasite infection changed astrocytes into a mixed type that showed both inflammatory and calming chemical markers.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The study measured specific proteins in the brain and found that these changed astrocytes were a main source of IL-33 and helped attract a specific type of immune cell called ILC2s.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The protection against malaria was linked to a specific pattern of gene activity in the brain that increased the production of TGF-beta and the IL-33/ST2 signaling pair.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

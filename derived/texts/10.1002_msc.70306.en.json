@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1002/msc.70306",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "edaa0fa51103c18f",
+ "generated_at": "2026-11-13T13:29:45+00:00",
+ "word_count": 83,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A single-blind randomized controlled trial involving 40 stroke survivors assigned them to either wear a standardized shoulder support during waking hours or receive no such addition.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Researchers assessed shoulder subluxation via ultrasound distance, pain levels, arm movement ability, and daily living independence at three time points, finding no statistically significant difference in improvement between the two groups.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors conclude that it remains impossible to determine whether any observed changes resulted from the shoulder support, general rehabilitation, natural recovery, or other time-related factors.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:59:30+00:00"
+ }
+}

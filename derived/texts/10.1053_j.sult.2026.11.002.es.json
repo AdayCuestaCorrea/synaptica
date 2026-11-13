@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1053/j.sult.2026.11.002",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "a3314c18c7db2c19",
+ "generated_at": "2026-11-13T13:42:56+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Este estudio transversal analizó a 218 adultos sanos de entre 18 y 88 años midiendo con qué frecuencia sus cerebros cambiaban entre seis patrones de actividad distintos y cuánto tiempo permanecían en cada uno.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Mientras los participantes realizaban tareas que requerían igualar la fuerza de los dedos y aprender nuevos movimientos motores, los investigadores registraron sus errores y observaron que quienes mostraban un cambio más frecuente entre los estados cerebrales cometían menos fallos durante estas tareas de aprendizaje motor.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que la capacidad de alternar entre estados cerebrales es más relevante para las habilidades motoras que el tiempo dedicado a cualquier estado individual, aunque este hallazgo se limita a la población adulta específica estudiada.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

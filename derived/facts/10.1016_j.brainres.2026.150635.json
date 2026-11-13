@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1016/j.brainres.2026.150635",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "7eed495d901697b4",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:22:21+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study tested whether DHPG could stop oxidative cell death in neurons and other cells grown in a lab dish.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers exposed the cells to specific chemicals known to trigger ferroptosis to see if DHPG offered protection.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "Experiments showed that DHPG attaches directly to the protein PDI inside living neurons.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "Analysis revealed that DHPG chemically alters specific parts of the PDI protein.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The study found that DHPG stops the enzyme PDI from performing its normal chemical function.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "When researchers reduced the amount of PDI using genetic tools, the protective effect of DHPG disappeared.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source"
+ ]
+}

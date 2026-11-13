@@ -1,0 +1,38 @@
+{
+ "study_id": "10.1007/s10278-026-02472-3",
+ "lang": "es",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "7975d656c7493340",
+ "generated_at": "2026-11-13T13:36:55+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 2: 'proves' is not in the English sentence",
+  "sentence 1: words not in the Spanish dictionary ['aprendible']"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores diseñaron un nuevo marco computacional que sustituye las estrategias de segmentación generalizadas por un sistema aprendible que estima la fiabilidad a nivel de píxel. Este mapa basado en datos calcula la fiabilidad para cada píxel individual, resolviendo así las fallas anteriores relacionadas con la incapacidad de considerar las variaciones locales en la fiabilidad de las etiquetas.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "El sistema transformó estas puntuaciones de fiabilidad en pesos específicos para cada píxel, lo que permitió que el proceso de entrenamiento centrara la optimización en píxeles individuales en lugar de en muestras completas. Las pruebas realizadas en los conjuntos de datos ACDC, BUSI y Synapse demostraron que el nuevo método superó consistentemente a los enfoques existentes cuando había pocas imágenes etiquetadas disponibles.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "El marco incluía una medida de seguridad específica para ignorar las muestras no etiquetadas que el modelo predecía contenían casi ningún objeto de primer plano. Los autores concluyeron que este enfoque mejora el rendimiento de la segmentación en situaciones de escasez de datos al incorporar salvaguardas frente a entradas con bajo contenido.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

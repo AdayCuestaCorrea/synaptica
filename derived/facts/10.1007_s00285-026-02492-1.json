@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1007/s00285-026-02492-1",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "ad18b73112ea8e1e",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:13:05+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study addresses the gap in existing models that assume a fixed brain network structure rather than treating the network as an unknown variable to be discovered.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers developed a new mathematical framework that infers a specific graph or current flow linking where a stimulus starts to where a reaction occurs.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The proposed model uses a specific type of optimal transport problem where the cost function encourages the formation of aggregated and branching pathways.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The authors mathematically proved that solutions exist for both discrete and continuous versions of their model and added a new stochastic extension that combines branching transport with path-based control costs.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The main finding is that this method offers a way to discover how signals travel through the brain, instead of just controlling signals on a pre-defined path.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

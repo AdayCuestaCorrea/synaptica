@@ -1,0 +1,44 @@
+{
+ "study_id": "pmid:42999541",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "48942a9d11d16671",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T12:32:40+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers created a 3D-printed hydrogel system designed to release stem cell-derived vesicles slowly at the site of brain injury.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The study used an animal model of traumatic brain injury to test the treatment's effects on behavior, cell growth, and molecular pathways.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Animals treated with the 3D-printed vesicle gel showed better long-term coordination and memory and less brain tissue damage than untreated animals.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The treatment caused more cells to grow and develop into brain cell types like neurons and support cells within the injured area.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The study found that the treatment worked by activating a specific chain of molecular signals inside stem cells that drives new brain cell formation.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors conclude that this cell-free gel strategy offers a promising approach for repairing brain tissue after injury.",
+   "subject": "other"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

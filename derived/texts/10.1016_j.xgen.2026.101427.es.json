@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1016/j.xgen.2026.101427",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "a74562cf29b2d4b0",
+ "generated_at": "2026-11-13T13:41:27+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores examinaron a 41 donantes humanos para cartografiar la patología del Alzheimer en el caudado anterior, empleando patología digital junto con datos de expresión génica de núcleo único y espacial para analizar el tejido.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El análisis mostró que una población específica de células microgliales marcadas por FLT1 e IL1B aumentaba a medida que crecía la carga de tau, mientras que las interneuronas PTHLH-PVALB de disparo rápido presentaban una expresión génica alterada que involucraba canales iónicos, tráfico celular y fosforilación.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores señalan que sus resultados ofrecen un referente para estudiar los efectos del Alzheimer en áreas subcorticales.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

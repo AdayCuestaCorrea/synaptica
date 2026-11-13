@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1111/jns.70178",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "dc6b6e77e0259d5b",
+ "generated_at": "2026-11-13T13:34:19+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Investigadores realizaron un estudio transversal con pacientes adultos afectados por la enfermedad de Charcot-Marie-Tooth en Rumanía y Francia para evaluar la fiabilidad y la capacidad de un nuevo cuestionario para distinguir los niveles de discapacidad.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Este instrumento valora los síntomas, el impacto laboral, la vida social y las necesidades sanitarias a través de 38 ítems, mostrando una consistencia general robusta pero una menor fiabilidad en la sección sanitaria entre los participantes franceses, mientras detecta diferencias en las necesidades no cubiertas vinculadas a los sistemas nacionales de salud.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los resultados se alinearon con las medidas genéricas estándar de calidad de vida, aunque los autores señalan que se requiere confirmación en grupos de pacientes más amplios antes de que la herramienta esté plenamente establecida.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ]
+}

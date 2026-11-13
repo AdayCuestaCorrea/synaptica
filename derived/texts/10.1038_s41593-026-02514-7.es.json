@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1038/s41593-026-02514-7",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "19e317084bccc792",
+ "generated_at": "2026-11-13T13:28:49+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores examinaron dos regiones cerebrales en monos: la zona temporal media, que procesa el movimiento visual, y la corteza prefrontal dorsolateral, que gestiona las decisiones y las recompensas. Mientras los monos realizaban una tarea que requería combinar información sobre el movimiento y las recompensas, los científicos registraron la actividad neuronal en ambas áreas.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "La zona temporal media mantuvo la información sobre el movimiento y las recompensas de forma separada, mientras que la corteza prefrontal dorsolateral las fusionó en un único formato relacionado con la decisión. Un modelo informático entrenado para imitar este formato de datos predijo que estimular la zona temporal media influiría en elecciones específicas, mientras que estimular la corteza prefrontal dorsolateral derivaría en resultados donde una opción dominaría por completo.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que la estructura modular del cerebro le permite cambiar de forma flexible cómo se formatea la información para apoyar acciones complejas, aunque estos hallazgos se basan en modelos animales y no en sujetos humanos.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:57:26+00:00"
+ }
+}

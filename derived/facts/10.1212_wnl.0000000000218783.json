@@ -1,0 +1,31 @@
+{
+ "study_id": "10.1212/wnl.0000000000218783",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "b4557858df492ef2",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:18:21+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The Graus criteria correctly identified 89% of patients with autoimmune encephalitis and correctly excluded 96% of those without the condition in this group.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Among the surviving patients with autoimmune encephalitis, 65% continued to show cognitive impairment after three months, which defined the progression to autoimmune dementia.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The authors note that their results are limited to patients seen at specialized referral centers and need to be confirmed in wider settings.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source"
+ ]
+}

@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1088/1741-2552/aec199",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "39e123e54a51a234",
+ "generated_at": "2026-11-13T13:43:17+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores llevaron a cabo un estudio aleatorizado, controlado con simulación y de cruzamiento con diez participantes humanos sanos que realizaron una tarea de escritura P300 antes y después de la estimulación, mientras se mantenía activa una tarea demandante de atención. El equipo midió las amplitudes pico del P300, la capacidad para distinguir objetivos de no objetivos y la precisión de clasificación fuera de línea en distintos canales cerebrales.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "La estimulación real provocó una mejora estadísticamente significativa en la precisión de discriminación fuera de línea específicamente en el canal P4 del cerebro en comparación con la simulación, aunque no resultó en una mejor selección de caracteres en tiempo real. Los participantes con un rendimiento inicial menor mostraron mejoras mayores, aunque estos avances no fueron estadísticamente significativos, lo que sugiere que la estimulación transcraneal con corriente directa podría beneficiar más a este grupo específico.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que, aunque el método es viable para modular la actividad cerebral, se necesita más investigación para comprender cómo estos cambios locales afectan al proceso de decodificación completo.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

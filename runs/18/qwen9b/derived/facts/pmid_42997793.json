@@ -1,0 +1,49 @@
+{
+ "study_id": "pmid:42997793",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "9f75c64065e39f73",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T12:34:57+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study was a systematic review of existing research on brain connectivity and depression treatment.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "Higher connectivity between the subgenual cingulate and the right prefrontal cortex was linked to worse treatment outcomes in some cases, while stronger connections to the medial orbitofrontal cortex were linked to better outcomes.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The strongest links between brain connectivity and treatment success were found in studies using repetitive transcranial magnetic stimulation, especially when targeting was customized for each patient.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The specific brain locations used in the studies were mostly chosen by the researchers beforehand rather than identified as peaks of activity related to treatment response.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The quality of the brain imaging methods used across the included studies was generally considered adequate.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The results varied widely between studies, and the data did not allow for a precise mathematical analysis of where in the brain the effects were located.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors state that bigger, forward-looking studies are required to confirm these findings and determine if they can be used in clinical practice.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

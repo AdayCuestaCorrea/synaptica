@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1021/acsami.6c17187",
+ "lang": "es",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "3702419229163a81",
+ "generated_at": "2026-11-13T13:42:26+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: numbers differ (['0.11', '1', '10', '120', '140', '6', '65', '76', '84'] vs ['1', '10', '140', '65', '76', '84'])",
+  "sentence 2: numbers differ (['10', '97.6', '99.5'] vs ['0.11', '10', '120', '6'])",
+  "sentence 1: words not in the Spanish dictionary ['autoalimentado']",
+  "sentence 2: words not in the Spanish dictionary ['kilopascula', 'kPa']"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores diseñaron un dedo robótico de concepto demostrativo para la exploración lunar, con esqueletos rígidos, cámaras neumáticas blandas y un sensor autoalimentado fabricado con un compuesto de PDMS y MXene; al presurizarlo a 140 kPa, las tres regiones articulares se doblaron hasta ángulos de aproximadamente 84, 76 y 65 grados, mientras que el sensor generaba lecturas estables entre 1 y 10 Hz.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Añadir un 6 por ciento en peso de material MXene incrementó la salida de voltaje del sensor en más de la mitad respecto al PDMS puro, lo que le permitió medir cambios de presión desde 0,11 voltios por kilopascula en un rango de 10 a 120 kPa.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

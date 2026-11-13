@@ -1,0 +1,38 @@
+{
+ "study_id": "10.1007/s00210-026-06051-9",
+ "lang": "en",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "b222a4435b895fff",
+ "generated_at": "2026-11-13T13:36:03+00:00",
+ "word_count": 124,
+ "problems": [
+  "sentence 3: drops the caution of its facts (may, suggests, possibly…)"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers investigated whether the drugs ezetimibe and sericin could protect against brain damage from lead exposure using an animal model of adult rats. The design included seven groups, with lead exposure lasting 55 days while the protective drugs were administered only during the second half, from days 29 to 55.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Brain function was assessed via behavioral tests like grip strength and water maze navigation, alongside tissue analysis of chemical levels and mitochondrial activity. Lead exposure caused clear problems in behavior and brain chemistry, but both drugs alone and together reduced damage, fixed chemical imbalances, and protected brain structure.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "The authors conclude that this drug combination is a promising candidate for treating lead-induced brain damage, though this conclusion is based on the current study's results.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,42 @@
+{
+ "study_id": "epmc:PMC:PMC13753995",
+ "status": "ok",
+ "abstract_from": "europepmc",
+ "abstract_hash": "ecc66239337ccc7a",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:19:09+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a lab-grown brain slice method with two-photon imaging to look at how synapses work.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "When the cells fired signals in a complex pattern, the light signals from individual connection points varied greatly in strength and how they changed over time.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "After the imaging, the team used electron microscopy to show that connection points leading to different structures had different functions.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "About one-quarter of the connection points led to spine structures that either released very little chemical signal or did not release any at all.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Treating the cells with specific chemicals or higher calcium levels turned the silent connection points into ones that worked normally.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The study concludes that the cells are connected by complete structures, but a missing step in preparing the chemical packets prevents them from being sent.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

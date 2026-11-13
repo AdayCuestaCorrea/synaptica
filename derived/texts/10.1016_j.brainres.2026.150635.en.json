@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1016/j.brainres.2026.150635",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "f3266e75355765a6",
+ "generated_at": "2026-11-13T13:38:47+00:00",
+ "word_count": 88,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers tested whether the compound DHPG could stop oxidative cell death in neurons and other cells grown in a lab dish by exposing them to specific chemicals known to trigger ferroptosis.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Experiments showed that DHPG attaches directly to the protein PDI inside living neurons, chemically alters specific parts of it, and stops the enzyme from performing its normal chemical function.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "When researchers reduced the amount of PDI using genetic tools, the protective effect of DHPG disappeared, leading the authors to conclude that PDI is required for this protection.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ]
+}

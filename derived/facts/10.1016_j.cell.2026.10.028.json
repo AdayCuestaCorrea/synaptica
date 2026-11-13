@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.028",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "82a48950832c44ec",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:11:28+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a multimodal Patch-seq method to connect gene expression profiles with cell shape and electrical activity in macaque brain tissue.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "The study aims to fill knowledge gaps about striatal neurons in primates, which are more relevant for human disorders than the rodent models previously used.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "The study identified surprising diversity among spiny projection neurons, including rare types that vary according to functional gradients.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "Interneurons showed significant variation across locations and displayed even greater diversity in shape and electrical properties than other cells.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Although many features are conserved across evolution, the study found specific characteristics in primate neurons that differ from those in rodents.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "Combining molecular data with cellular properties offers new insights into how the primate striatum is functionally organized.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

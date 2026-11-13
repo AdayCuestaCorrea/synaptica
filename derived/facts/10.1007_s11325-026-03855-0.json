@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1007/s11325-026-03855-0",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "6915598eda96bf66",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:21:09+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study asked whether having obstructive sleep apnea changes the clinical outcomes for adults admitted to the hospital with pneumonia.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers used a retrospective cohort design analyzing data from a large national database of hospital admissions between 2018 and 2020.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The analysis statistically controlled for many factors including age, sex, race, income, insurance type, existing health conditions, obesity, and hospital characteristics.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Most findings held up after statistical adjustments, but the links to sepsis and kidney injury might be influenced by other unmeasured factors.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors note that because the data came from hospital records rather than direct patient observation, important details like disease severity and treatment use were missing.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The researchers conclude that these results are preliminary and require future forward-looking studies to confirm the findings.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote",
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source"
+ ]
+}

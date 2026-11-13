@@ -1,0 +1,48 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.027",
+ "lang": "en",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "cb4b5c38f2a6626b",
+ "generated_at": "2026-11-13T13:28:16+00:00",
+ "word_count": 119,
+ "problems": [
+  "judge: Summary states mouse model shows D1 striosome SPN changes, which the abstract does not specify."
+ ],
+ "sentences": [
+  {
+   "text": "Researchers examined a mouse model with a specific 16p11.2 deletion and analyzed human brain tissue from individuals with autism and neurotypical controls, both revealing major changes in the striatum involving D1 striosome SPNs.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The analysis measured gene expression changes affecting synapses and energy metabolism, while combining data on gene expression and chromatin accessibility identified EGR1 and EGR3 as key regulators showing reduced activity in these neurons.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Removing EGR1 or EGR3 in human brain organoids caused gene expression changes that partially matched those seen in the autism samples, leading authors to conclude these results define the striatum as a key location for molecular convergence in autism and offer a resource for further research.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Summary states mouse model shows D1 striosome SPN changes, which the abstract does not specify.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:55:27+00:00"
+ }
+}

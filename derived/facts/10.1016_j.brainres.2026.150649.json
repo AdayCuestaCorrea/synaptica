@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.brainres.2026.150649",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "c95c68a337aaa7fe",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:22:26+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study asks how changing oxygen levels affects the excitability of the motor cortex in people.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Thirty-seven people underwent a randomized test where they breathed air with low, normal, and high oxygen levels.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Researchers used magnetic pulses to measure how easily the brain's motor signals traveled to muscles under different oxygen conditions.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Breathing low-oxygen air made the brain's motor response more sensitive to weak signals but less responsive to strong signals.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Breathing high-oxygen air made the brain's motor response stronger at high signal levels, but the study could not determine the absolute maximum limit.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The data showed that low oxygen changed the threshold for response while high oxygen increased the overall strength and speed of the response curve.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors suggest that adjusting oxygen levels could help improve recovery treatments for patients with brain injuries or diseases.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

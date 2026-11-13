@@ -1,0 +1,40 @@
+{
+ "study_id": "10.1016/j.brs.2026.103248",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "172a842a653c2bd8",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:22:36+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "High-frequency transcranial magnetic stimulation applied to the precentral cortex using a focal F8 coil significantly reduced chronic neuropathic pain.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Using a larger H-coil to deliver stimulation to the precentral cortex also produced a significant pain-reducing effect.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The study found no statistically significant differences in pain relief based on variations in stimulation frequency, intensity, pulse count, or session number.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "An exception was found for stimulation intensity in longer treatment courses, where the strongest effect occurred at 80% of the resting motor threshold.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors caution that specific findings about stimulation parameters are preliminary and should be treated as hypotheses rather than proven facts due to study limitations.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote",
+  "statement copies the source wording"
+ ]
+}

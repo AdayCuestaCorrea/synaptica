@@ -1,0 +1,804 @@
+{
+ "measured_at": "2026-11-13T12:35:03+00:00",
+ "writer": "ollama/paleo-qwen3.5-9b",
+ "judge": "groq/openai/gpt-oss-120b",
+ "stopped": null,
+ "writer_stats": {
+  "calls": 33,
+  "cached": 0,
+  "prompt_tokens": 32648,
+  "completion_tokens": 12059,
+  "seconds": 106.4174435460045
+ },
+ "judge_stats": {
+  "calls": 9,
+  "cached": 0,
+  "prompt_tokens": 15783,
+  "completion_tokens": 1485,
+  "seconds": 7.086255711999911
+ },
+ "articles": [
+  {
+   "pmid": "42971231",
+   "title": "Prevalence of neural tube defects and major external structural abnormalities by antiretroviral treatment regimen in Botswana in 2014-22: a birth outcomes surveillance study.",
+   "facts": "ok",
+   "n_facts": 6,
+   "rejected_facts": [
+    "quote not found verbatim in the source",
+    "quote not found verbatim in the source"
+   ],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Researchers analyzed data from 235,727 deliveries in public hospitals across Botswana between August 2014 and August 2022, where staff performed surface examinations on every live infant and stillbirth within a large birth outcomes surveillance study design.",
+      "fact_ids": [
+       "f1",
+       "f2",
+       "f3"
+      ]
+     },
+     {
+      "text": "While neural tube defects were more common when conception occurred during the early dry season compared to the late dry season, the authors found no evidence of increased risk for these defects or major structural abnormalities in over 11,000 cases of dolutegravir exposure at conception.",
+      "fact_ids": [
+       "f4",
+       "f5"
+      ]
+     },
+     {
+      "text": "The authors conclude that their findings offer reassurance regarding the safety of using dolutegravir during pregnancy, though they do not generalize beyond the specific population studied.",
+      "fact_ids": [
+       "f6"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:32:34+00:00"
+    }
+   },
+   "es": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Los investigadores analizaron datos de 235 727 partos en hospitales públicos de Botsuana entre agosto de 2014 y agosto de 2022, en los que el personal realizó exámenes superficiales a cada recién nacido vivo y a cada muerte fetal dentro de un amplio diseño de vigilancia de resultados del parto.",
+      "fact_ids": [
+       "f1",
+       "f2",
+       "f3"
+      ]
+     },
+     {
+      "text": "Aunque las malformaciones del tubo neural fueron más frecuentes cuando la concepción ocurrió durante la estación seca temprana en comparación con la tardía, los autores no encontraron evidencia de un mayor riesgo de estas anomalías ni de otras alteraciones estructurales mayores en más de 11 000 casos de exposición al dolutegravir en el momento de la concepción.",
+      "fact_ids": [
+       "f4",
+       "f5"
+      ]
+     },
+     {
+      "text": "Los autores concluyen que sus hallazgos ofrecen tranquilidad sobre la seguridad del uso del dolutegravir durante el embarazo, aunque no generalizan estos resultados más allá de la población específica estudiada.",
+      "fact_ids": [
+       "f6"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:32:34+00:00"
+    }
+   }
+  },
+  {
+   "pmid": "42999541",
+   "title": "Sustained delivery of 3D-bioprinted stem cell-derived small extracellular vesicles promotes neural regeneration following traumatic brain injury via the CREB1/PGC-1α/FNDC5 axis.",
+   "facts": "ok",
+   "n_facts": 6,
+   "rejected_facts": [
+    "numbers not in the quote"
+   ],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Researchers created a 3D-printed hydrogel system designed to release stem cell-derived vesicles slowly at the site of brain injury and tested this treatment in an animal model of traumatic brain injury.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "Animals treated with the gel showed better long-term coordination and memory, less brain tissue damage, and increased growth of cells developing into neurons and support cells, a result driven by the activation of a specific chain of molecular signals inside stem cells that drives new brain cell formation.",
+      "fact_ids": [
+       "f3",
+       "f4",
+       "f5"
+      ]
+     },
+     {
+      "text": "The authors conclude that this cell-free gel strategy offers a promising approach for repairing brain tissue after injury.",
+      "fact_ids": [
+       "f6"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 5,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:32:47+00:00"
+    }
+   },
+   "es": {
+    "status": "failed",
+    "problems": [
+     "sentence 1: words not in the Spanish dictionary ['craneoencefálico']"
+    ],
+    "sentences": [
+     {
+      "text": "Los investigadores diseñaron un sistema de hidrogeles impreso en 3D para liberar lentamente vesículas derivadas de células madre en el lugar de la lesión cerebral y probaron este tratamiento en un modelo animal de traumatismo craneoencefálico.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "Los animales tratados con el gel mostraron una mejor coordinación y memoria a largo plazo, menos daño en el tejido cerebral y un aumento en el crecimiento de células que se desarrollan en neuronas y células de soporte, un resultado impulsado por la activación de una cadena específica de señales moleculares dentro de las células madre que impulsa la formación de nuevas células cerebrales.",
+      "fact_ids": [
+       "f3",
+       "f4",
+       "f5"
+      ]
+     },
+     {
+      "text": "Los autores concluyen que esta estrategia de gel sin células ofrece un enfoque prometedor para reparar el tejido cerebral tras una lesión.",
+      "fact_ids": [
+       "f6"
+      ]
+     }
+    ],
+    "judge": null
+   }
+  },
+  {
+   "pmid": "42985707",
+   "title": "Improved Visualization of the Internal Branch of the Superior Laryngeal Nerve during Pharyngeal Endoscopic Subepithelial Dissection with Use of Red Dichromatic Imaging.",
+   "facts": "ok",
+   "n_facts": 5,
+   "rejected_facts": [
+    "statement copies the source wording"
+   ],
+   "en": {
+    "status": "failed",
+    "problems": [
+     "sentence 3: drops the caution of its facts (may, suggests, possibly…)"
+    ],
+    "sentences": [
+     {
+      "text": "This study used a single case report design to compare two imaging methods in one 57-year-old female patient with a small 5-mm lesion.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "The nerve structure was seen more clearly with red dichromatic imaging than with white-light imaging at every stage of the surgery, which removed the lesion in one piece without damaging the nerve.",
+      "fact_ids": [
+       "f3",
+       "f4"
+      ]
+     },
+     {
+      "text": "The authors conclude that red dichromatic imaging could be a helpful tool for keeping the nerve safe during this specific surgery.",
+      "fact_ids": [
+       "f5"
+      ]
+     }
+    ],
+    "judge": null
+   }
+  },
+  {
+   "pmid": "42993056",
+   "title": "Developmental elimination of electrical synapses by UNC-51/UNC-76-mediated vesicular transport.",
+   "facts": "ok",
+   "n_facts": 7,
+   "rejected_facts": [],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Researchers investigated how transient electrical connections are eliminated as neural circuits mature by examining the PLM mechanosensory neurons of the worm Caenorhabditis elegans.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "A genetic screen identified the UNC-51 kinase as necessary for removing these temporary links, a process where the UNC-51 protein modifies UNC-76 to transport and remove innexin proteins that build electrical synapses; when this pathway fails, electrical synapses remain active and neurons become overly excited.",
+      "fact_ids": [
+       "f3",
+       "f4",
+       "f5",
+       "f6"
+      ]
+     },
+     {
+      "text": "The authors suggest this mechanism provides a general model for how temporary electrical links are removed during development.",
+      "fact_ids": [
+       "f7"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:33:04+00:00"
+    }
+   },
+   "es": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Los investigadores examinaron cómo se eliminan las conexiones eléctricas transitorias a medida que maduran los circuitos neuronales, analizando los mecanosensores PLM del gusano Caenorhabditis elegans.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "Una criba genética identificó la quinasa UNC-51 como necesaria para eliminar estos enlaces temporales, un proceso en el que la proteína UNC-51 modifica a UNC-76 para transportar y eliminar las innexinas que construyen las sinapsis eléctricas; cuando esta vía falla, las sinapsis eléctricas permanecen activas y las neuronas se vuelven excesivamente excitadas.",
+      "fact_ids": [
+       "f3",
+       "f4",
+       "f5",
+       "f6"
+      ]
+     },
+     {
+      "text": "Los autores sugieren que este mecanismo ofrece un modelo general para cómo se eliminan los enlaces eléctricos transitorios durante el desarrollo.",
+      "fact_ids": [
+       "f7"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:33:04+00:00"
+    }
+   }
+  },
+  {
+   "pmid": "42986391",
+   "title": "Fluorescent glutamate reporter mouse line reveals slow stochastic release from rod photoreceptor cells.",
+   "facts": "ok",
+   "n_facts": 7,
+   "rejected_facts": [],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Researchers developed a mouse model in which rod photoreceptor cells express a fluorescent sensor to detect glutamate, allowing them to identify single vesicle release events. These measurements revealed that glutamate release from rod cells occurred randomly at a rate between 20 and 40 vesicles per second per ribbon, a finding consistent with independent electrical measurements suggesting a rate of about 38 vesicles per second per ribbon.",
+      "fact_ids": [
+       "f1",
+       "f2",
+       "f3",
+       "f4"
+      ]
+     },
+     {
+      "text": "The study found that glutamate release from rods filtered out rapid changes, with signal power dropping as frequency increased from 1 to 10 Hz. The authors suggest that maintaining constant release rates across different light levels helps transmit light adaptation signals to the next neurons, stating that this specific mouse line is a useful tool for studying how light information is processed at the first synapse in the retina.",
+      "fact_ids": [
+       "f5",
+       "f6",
+       "f7"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:33:35+00:00"
+    }
+   },
+   "es": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Los investigadores desarrollaron un modelo de ratón en el que las células fotorreceptoras de bastón expresan un sensor fluorescente para detectar glutamato, lo que les permite identificar eventos de liberación de vesículas individuales; estas mediciones revelaron que la liberación de glutamato desde las células de bastón ocurre de forma aleatoria a una tasa comprendida entre 20 y 40 vesículas por segundo por cinta, un hallazgo coherente con mediciones eléctricas independientes que sugieren una tasa de aproximadamente 38 vesículas por segundo por cinta.",
+      "fact_ids": [
+       "f1",
+       "f2",
+       "f3",
+       "f4"
+      ]
+     },
+     {
+      "text": "El estudio encontró que la liberación de glutamato desde los bastones filtra los cambios rápidos, con una caída en la potencia de la señal a medida que la frecuencia aumenta de 1 a 10 Hz; los autores sugieren que mantener tasas de liberación constantes frente a diferentes niveles de luz ayuda a transmitir señales de adaptación a la luz hacia las neuronas siguientes, afirmando que esta línea específica de ratones es una herramienta útil para estudiar cómo se procesa la información lumínica en la primera sinapsis de la retina.",
+      "fact_ids": [
+       "f5",
+       "f6",
+       "f7"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:33:35+00:00"
+    }
+   }
+  },
+  {
+   "pmid": "42969949",
+   "title": "ALMS1 stabilizes the proximal centriole to drive transition zone assembly and ciliogenesis.",
+   "facts": "ok",
+   "n_facts": 7,
+   "rejected_facts": [],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Researchers examined how the protein ALMS1, located at the near end of centrioles, supports cellular structure. In cells lacking this protein, centrioles become shorter and often fracture at their base, causing them to lose the ability to organize microtubules. Consequently, specific cargo items from the Golgi apparatus cannot travel properly to the centrosome to build the transition zone, a structure required for forming cilia and managing ciliary membrane materials.",
+      "fact_ids": [
+       "f1",
+       "f2",
+       "f3",
+       "f4",
+       "f5"
+      ]
+     },
+     {
+      "text": "In mice with disrupted ALMS1 genes, cilia in the retina, kidney, and brain gradually disappear as the animals age. The authors suggest that Alström syndrome results from broken centriole bases and faulty protein transport, which prevents cilia from forming and staying intact, though this explanation is based on the observed cellular and animal data.",
+      "fact_ids": [
+       "f6",
+       "f7"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:33:45+00:00"
+    }
+   },
+   "es": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Los investigadores examinaron cómo la proteína ALMS1, situada en el extremo proximal de los centríolos, sostiene la estructura celular. En las células que carecen de esta proteína, los centríolos se acortan y suelen fracturarse en su base, lo que provoca que pierdan la capacidad de organizar los microtúbulos. En consecuencia, elementos de carga específicos del aparato de Golgi no pueden desplazarse adecuadamente hacia el centrosoma para construir la zona de transición, una estructura necesaria para formar los cilios y gestionar los materiales de la membrana ciliar.",
+      "fact_ids": [
+       "f1",
+       "f2",
+       "f3",
+       "f4",
+       "f5"
+      ]
+     },
+     {
+      "text": "En ratones con genes de ALMS1 alterados, los cilios en la retina, el riñón y el cerebro desaparecen progresivamente a medida que envejecen los animales. Los autores sugieren que el síndrome de Alström resulta de bases de centríolos rotas y un transporte de proteínas defectuoso, lo que impide que los cilios se formen y permanezcan intactos, aunque esta explicación se basa en los datos celulares y animales observados.",
+      "fact_ids": [
+       "f6",
+       "f7"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:33:45+00:00"
+    }
+   }
+  },
+  {
+   "pmid": "43000116",
+   "title": "Biomarkers in Patients With Acute Ischaemic Stroke Undergoing Thrombectomy Compared With Controls: A Pilot Study.",
+   "facts": "ok",
+   "n_facts": 6,
+   "rejected_facts": [
+    "quote not found verbatim in the source",
+    "quote not found verbatim in the source"
+   ],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Researchers conducted a forward-looking pilot study at a single hospital in Sweden over a three-year period to determine if specific blood proteins could distinguish brain injury from the effects of general anesthesia alone. The study measured blood samples from 21 stroke patients and 19 people undergoing non-brain surgery.",
+      "fact_ids": [
+       "f1",
+       "f2",
+       "f3"
+      ]
+     },
+     {
+      "text": "Scientists tested three specific proteins in blood drawn before the procedure and again two and twenty-four hours later, noting that GFAP levels did not rise in patients who only had non-brain surgery.",
+      "fact_ids": [
+       "f4",
+       "f5"
+      ]
+     },
+     {
+      "text": "The authors suggest GFAP is a better marker because its levels did not rise in patients who only had non-brain surgery, though they state that more testing is needed to confirm GFAP as a reliable tool for detecting brain injury in hospital settings.",
+      "fact_ids": [
+       "f5",
+       "f6"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 5,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:33:56+00:00"
+    }
+   },
+   "es": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Investigadores llevaron a cabo un estudio piloto prospectivo en un hospital sueco durante tres años para determinar si proteínas específicas en sangre podían distinguir entre una lesión cerebral y los efectos de la anestesia general por sí solos; el estudio analizó muestras de sangre de 21 pacientes con ictus y de 19 personas sometidas a cirugía no cerebral.",
+      "fact_ids": [
+       "f1",
+       "f2",
+       "f3"
+      ]
+     },
+     {
+      "text": "Los científicos analizaron tres proteínas concretas en sangre extraída antes del procedimiento y nuevamente dos y veinticuatro horas después, observando que los niveles de GFAP no aumentaron en pacientes que solo habían sido sometidos a cirugía no cerebral.",
+      "fact_ids": [
+       "f4",
+       "f5"
+      ]
+     },
+     {
+      "text": "Los autores sugieren que la GFAP es un marcador más adecuado porque sus niveles no aumentaron en pacientes sometidos únicamente a cirugía no cerebral, aunque aclaran que se requiere más investigación para confirmar a la GFAP como una herramienta fiable para detectar lesiones cerebrales en entornos hospitalarios.",
+      "fact_ids": [
+       "f5",
+       "f6"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 5,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:33:56+00:00"
+    }
+   }
+  },
+  {
+   "pmid": "42999788",
+   "title": "RiboMeth-Sequencing Reveals Selective Ribosomal RNA 2'-O-Methylation Changes in the Dorsolateral Prefrontal Cortex of Subjects With Major Depressive Disorder.",
+   "facts": "ok",
+   "n_facts": 6,
+   "rejected_facts": [],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "This cross-sectional study compared brain tissue from 17 individuals with major depressive disorder to 20 matched controls, measuring specific chemical modifications on ribosomal RNA within the dorsolateral prefrontal cortex.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "Although the general pattern of these modifications was largely similar between groups, researchers identified exactly eight specific locations that differed significantly, leading authors to conclude these represent targeted changes rather than a broad disruption of ribosome structure.",
+      "fact_ids": [
+       "f3",
+       "f4",
+       "f5"
+      ]
+     },
+     {
+      "text": "The authors suggest these specific alterations might affect how brain cells control protein production in people with depression, though the study does not establish causality.",
+      "fact_ids": [
+       "f6"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 5,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:34:36+00:00"
+    }
+   },
+   "es": {
+    "status": "failed",
+    "problems": [
+     "sentence 3: 'causal' is not in the English sentence"
+    ],
+    "sentences": [
+     {
+      "text": "Este estudio transversal comparó tejido cerebral de 17 personas con trastorno depresivo mayor con 20 controles emparejados, midiendo modificaciones químicas específicas en el ARN ribosómico de la corteza prefrontal dorsolateral.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "Aunque el patrón general de estas modificaciones fue mayoritariamente similar entre los grupos, los investigadores identificaron exactamente ocho ubicaciones específicas que difirieron significativamente, lo que llevó a los autores a concluir que representan cambios dirigidos en lugar de una alteración generalizada de la estructura del ribosoma.",
+      "fact_ids": [
+       "f3",
+       "f4",
+       "f5"
+      ]
+     },
+     {
+      "text": "Los autores sugieren que estas alteraciones específicas podrían afectar cómo las células cerebrales controlan la producción de proteínas en personas con depresión, aunque el estudio no establece causalidad.",
+      "fact_ids": [
+       "f6"
+      ]
+     }
+    ],
+    "judge": null
+   }
+  },
+  {
+   "pmid": "42997796",
+   "title": "Outdoor Air Pollution Exposure Alters Fear Regulation and Fear-Related Neural Circuitry in Adolescence.",
+   "facts": "ok",
+   "n_facts": 9,
+   "rejected_facts": [],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Researchers investigated whether recent exposure to high levels of fine particulate air pollution alters how teenagers learn and regulate fear by studying 102 participants aged 10 to 17 who were divided into groups based on their past-month pollution levels according to EPA standards.",
+      "fact_ids": [
+       "f1",
+       "f2",
+       "f3"
+      ]
+     },
+     {
+      "text": "Using a task involving learning to fear a signal and recalling that experience, the study measured fear through skin conductance response, avoidance behavior, and self-reported feelings, finding that those with high exposure showed stronger initial reactions and struggled more to forget the fear after the threat was deemed safe.",
+      "fact_ids": [
+       "f4",
+       "f5",
+       "f6"
+      ]
+     },
+     {
+      "text": "Brain scans of a smaller subgroup of 68 participants revealed increased activity in specific fear-processing regions during both learning and recall phases, leading the authors to suggest this might explain how air pollution links to anxiety while noting this potential connection requires further confirmation.",
+      "fact_ids": [
+       "f7",
+       "f8",
+       "f9"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 5,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:34:51+00:00"
+    }
+   },
+   "es": {
+    "status": "failed",
+    "problems": [
+     "sentence 2: words not in the Spanish dictionary ['autoinformados']"
+    ],
+    "sentences": [
+     {
+      "text": "Los investigadores examinaron si la exposición reciente a altos niveles de contaminación por partículas finas altera cómo aprenden y regulan el miedo los adolescentes, estudiando a 102 participantes de 10 a 17 años divididos en grupos según sus niveles de contaminación del mes pasado según los estándares de la EPA.",
+      "fact_ids": [
+       "f1",
+       "f2",
+       "f3"
+      ]
+     },
+     {
+      "text": "Mediante una tarea que implicaba aprender a temer una señal y recordar esa experiencia, el estudio midió el miedo a través de la respuesta de conductancia de la piel, el comportamiento de evitación y los sentimientos autoinformados, encontrando que quienes tenían una exposición alta mostraron reacciones iniciales más fuertes y tuvieron más dificultades para olvidar el miedo una vez que la amenaza se consideró segura.",
+      "fact_ids": [
+       "f4",
+       "f5",
+       "f6"
+      ]
+     },
+     {
+      "text": "Las escaneos cerebrales de un subgrupo más pequeño de 68 participantes revelaron un aumento de la actividad en regiones específicas de procesamiento del miedo durante ambas fases, el aprendizaje y el recuerdo, lo que llevó a los autores a sugerir que esto podría explicar cómo la contaminación atmosférica se vincula con la ansiedad, aunque advirtieron que esta conexión potencial requiere una confirmación adicional.",
+      "fact_ids": [
+       "f7",
+       "f8",
+       "f9"
+      ]
+     }
+    ],
+    "judge": null
+   }
+  },
+  {
+   "pmid": "42997793",
+   "title": "Subgenual Cingulate Functional Connectivity Predicts Neuromodulation Response in Depression: A Systematic Review.",
+   "facts": "ok",
+   "n_facts": 7,
+   "rejected_facts": [
+    "numbers not in the quote"
+   ],
+   "en": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "A systematic review of existing research on brain connectivity and depression treatment examined how functional connectivity, how much the activity of two regions moves together, related to clinical results. Higher connectivity between the subgenual cingulate and the right prefrontal cortex was linked to worse treatment outcomes in some cases, while stronger connections to the medial orbitofrontal cortex were linked to better outcomes.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "The strongest links between brain connectivity and treatment success were found in studies using repetitive transcranial magnetic stimulation, especially when targeting was customized for each patient, though the specific brain locations used were mostly chosen by the researchers beforehand rather than identified as peaks of activity. The quality of the brain imaging methods used across the included studies was generally considered adequate.",
+      "fact_ids": [
+       "f3",
+       "f4",
+       "f5"
+      ]
+     },
+     {
+      "text": "Because the results varied widely between studies, the data did not allow for a precise mathematical analysis of where in the brain the effects were located. The authors state that bigger, forward-looking studies are required to confirm these findings and determine if they can be used in clinical practice.",
+      "fact_ids": [
+       "f6",
+       "f7"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:35:03+00:00"
+    }
+   },
+   "es": {
+    "status": "verified",
+    "problems": [],
+    "sentences": [
+     {
+      "text": "Una revisión sistemática de la investigación existente sobre la conectividad cerebral y el tratamiento de la depresión examinó cómo la conectividad funcional, es decir, en qué medida la actividad de dos regiones se mueve de forma conjunta, se relaciona con los resultados clínicos. En algunos casos, una mayor conectividad entre el cíngulo subgenual y la corteza prefrontal derecha se asoció con peores resultados del tratamiento, mientras que conexiones más fuertes hacia la corteza orbitofrontal medial se vincularon con mejores resultados.",
+      "fact_ids": [
+       "f1",
+       "f2"
+      ]
+     },
+     {
+      "text": "Las asociaciones más sólidas entre la conectividad cerebral y el éxito del tratamiento se hallaron en estudios que emplearon estimulación magnética transcraneal repetitiva, especialmente cuando la focalización se personalizó para cada paciente, aunque las localizaciones cerebrales específicas utilizadas fueron seleccionadas principalmente por los investigadores con antelación en lugar de identificarse como picos de actividad. La calidad de los métodos de imagen cerebral empleados en los estudios incluidos se consideró generalmente adecuada.",
+      "fact_ids": [
+       "f3",
+       "f4",
+       "f5"
+      ]
+     },
+     {
+      "text": "Dado que los resultados variaron ampliamente entre los estudios, los datos no permitieron un análisis matemático preciso de dónde en el cerebro se localizaban los efectos. Los autores señalan que se requieren estudios más amplios y prospectivos para confirmar estos hallazgos y determinar si pueden aplicarse en la práctica clínica.",
+      "fact_ids": [
+       "f6",
+       "f7"
+      ]
+     }
+    ],
+    "judge": {
+     "faithful": true,
+     "no_overclaim": true,
+     "no_medical_advice": true,
+     "spanish_matches": true,
+     "passed": true,
+     "reason": "",
+     "spanish_natural": 4,
+     "generator": "groq/openai/gpt-oss-120b",
+     "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+     "judged_at": "2026-11-13T12:35:03+00:00"
+    }
+   }
+  }
+ ]
+}

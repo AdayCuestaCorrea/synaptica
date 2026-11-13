@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1016/j.aca.2026.346394",
+ "lang": "es",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "f53326d15dc326b4",
+ "generated_at": "2026-11-13T13:31:01+00:00",
+ "word_count": null,
+ "problems": [
+  "judge: Summary misdescribes mechanism, saying magnetic beads break apart the protein, which is not stated in the abstract."
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores construyeron un nuevo sensor basado en puntos cuánticos dopados con manganeso para detectar oligómeros de beta-amiloide, un marcador específico de la enfermedad de Alzheimer, los cuales emiten luz a dos longitudes de onda concretas, 425 nm y 628 nm, funcionando como referencias internas para cancelar los errores que suelen afectar a los métodos antiguos que dependen de una sola señal.",
+   "fact_ids": [
+    "f1",
+    "f4",
+    "f7"
+   ]
+  },
+  {
+   "text": "Cuando el sensor detectaba la proteína objetivo, las esferas magnéticas unidas a cadenas de ADN provocaban la fragmentación de la proteína y liberaban dichas cadenas de ADN, lo que desencadenaba una reacción en cadena conocida como ensamblaje de horquillas catalíticas y amplificaba la señal al modificar la emisión de luz de los puntos cuánticos.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Este sensor podía detectar el biomarcador objetivo a concentraciones tan bajas como 5,2 femtomolar y logró distinguir con éxito a pacientes con Alzheimer de personas sanas, obteniendo resultados que coincidían con los de las pruebas diagnósticas estándar utilizadas en medicina.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Summary misdescribes mechanism, saying magnetic beads break apart the protein, which is not stated in the abstract.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:03:37+00:00"
+ }
+}

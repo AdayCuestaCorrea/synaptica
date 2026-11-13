@@ -1,0 +1,53 @@
+{
+ "study_id": "pmid:42997793",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "6fa390d1bd8199ac",
+ "generated_at": "2026-11-13T12:50:57+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Una revisión sistemática analizó la conectividad cerebral en adultos de entre 18 y 70 años con trastorno depresivo mayor para determinar si los patrones de actividad previos al tratamiento se asociaban con cambios en los síntomas.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "En algunos estudios, conexiones iniciales más fuertes entre el cíngulo subgenual y la corteza prefrontal derecha se asociaron con una menor mejoría, mientras que las conexiones más intensas con la corteza orbitofrontal medial se vincularon con una mayor mejoría de los síntomas.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Estas asociaciones se observaron con mayor frecuencia en estudios que utilizaron estimulación magnética transcraneal repetitiva, especialmente con dianas personalizadas, aunque la calidad de las resonancias cerebrales se calificó como adecuada, con una puntuación media de 16,1 sobre 20.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Dado que los resultados variaron entre los estudios y no permitieron un análisis estadístico detallado de localizaciones cerebrales específicas, los autores señalan que se necesitan futuros estudios de mayor tamaño para confirmar estos hallazgos y determinar su utilidad clínica.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:51:46+00:00"
+ }
+}

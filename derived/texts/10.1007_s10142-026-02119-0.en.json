@@ -1,0 +1,36 @@
+{
+ "study_id": "10.1007/s10142-026-02119-0",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "10a0e6ffc2bff298",
+ "generated_at": "2026-11-13T13:36:48+00:00",
+ "word_count": 111,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers investigated brain injury recovery using a mouse model of temporary blocked blood flow followed by restored flow, alongside lab models of brain cells simulating oxygen loss and return.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Scientists increased levels of the protein RORα and administered melatonin to the mice, while cell experiments involved treating cells with melatonin and adding genetic material to boost RORα, which strengthened melatonin's protective effects against cell death and stress.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f6"
+   ]
+  },
+  {
+   "text": "Melatonin treatment improved brain function scores, protected the blood-brain barrier, and shifted immune cells toward a healing state by activating an internal signaling path that enables repair; the authors conclude this mechanism could serve as a potential target for future treatments of brain injury.",
+   "fact_ids": [
+    "f5",
+    "f7",
+    "f8"
+   ]
+  }
+ ]
+}

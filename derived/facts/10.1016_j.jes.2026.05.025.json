@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1016/j.jes.2026.05.025",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "91e29aca1bfc5073",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:14:13+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used RNA sequencing and other biological tests to study mice exposed to fluoride over time.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Stopping the necroptosis process helped protect the mice from brain cell damage and memory problems caused by fluoride.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Reducing stress in the cell's protein-making machinery prevented the programmed cell death triggered by fluoride.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "In lab dish experiments, lowering the amount of a protein called TEX264 caused the cell's cleanup system for the protein-making machinery to fail.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Adding extra copies of the TEX264 protein fixed the cleanup system failure and reduced both the cellular stress and cell death caused by fluoride.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors say their results suggest new ways to prevent or treat brain damage from fluoride exposure.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

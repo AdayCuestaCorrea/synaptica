@@ -1,0 +1,39 @@
+{
+ "study_id": "10.1007/s10072-026-09547-7",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "2021d0cf50485da7",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:20:20+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers compared swallowing test results from times when patients were on their medication versus times when they were not.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The timing of the test relative to medication significantly changed the scores for bedside screens, video swallow studies, and dietary advice.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Bedside swallowing screen scores were better when tests happened during the medication's effective window.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Doctors more often suggested changing liquid food textures when the video swallow study was done outside the medication window.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors note that because the study design was observational, they cannot prove that the medication itself causes the changes in swallowing.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "study_id": "10.1016/j.brainresbull.2026.112210",
+ "lang": "es",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "9686e36cd829328a",
+ "generated_at": "2026-11-13T13:38:57+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 3: 'causal' is not in the English sentence"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores utilizaron un modelo de ratón con depresión inducida por corticosterona y cultivos de neuronas hipocampales para estudiar la relación entre las proteínas XBP-1s y EAAT2; midieron cambios conductuales, daño celular y la función sináptica y mitocondrial, descubriendo que el tratamiento con corticosterona elevaba los niveles de XBP-1s mientras reducía los de EAAT2, lo que coincidía con un aumento del glutamato en el hipocampo.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Reducir los niveles de XBP-1 en las células restauró la expresión normal de EAAT2 y disminuyó el exceso de glutamato y el estrés oxidativo; en el modelo animal, administrar Toyocamycin atenuó los síntomas depresivos y el daño a las células cerebrales, coincidiendo con menores niveles de XBP-1s y mayores de EAAT2, lo que sugiere que la actividad de señalización de XBP-1 está funcionalmente vinculada a la expresión de EAAT2 en estos sistemas.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que aún es desconocido si EAAT2 es la causa específica por la que reducir XBP-1 protege las neuronas, señalando que estos hallazgos solo se aplican a las condiciones experimentales concretas que se han probado.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

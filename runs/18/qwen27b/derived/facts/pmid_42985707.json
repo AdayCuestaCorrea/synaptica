@@ -1,0 +1,44 @@
+{
+ "study_id": "pmid:42985707",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "268e0b8488aba49f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-13T12:38:08+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study is a case report describing how red dichromatic imaging seemed to show a nerve structure better than standard white-light imaging.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The patient was a 57-year-old woman who had a minimally invasive endoscopic procedure to remove a small, shallow growth on the pharyngoepiglottic fold.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The nerve appeared sharper and easier to see with the red imaging method than with white light, both before cutting the tissue and after injecting fluid under the surface.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The lesion was removed in one piece, and there were no visible signs of damage to the nerve during the surgery.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The patient did not experience difficulty swallowing, a hoarse voice, or any other complications after the operation.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest that this red imaging technique could be a helpful tool for seeing the nerve and supporting efforts to preserve it during similar surgeries.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

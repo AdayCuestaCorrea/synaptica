@@ -1,0 +1,36 @@
+{
+ "study_id": "epmc:PMC:PMC13754025",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "8f3087fc3f983b98",
+ "generated_at": "2026-11-13T13:35:54+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron si la necesidad de la proteína andamio RIM es uniforme en sinapsis con probabilidades de liberación natural variables, empleando una neurotoxina para bloquear entradas nerviosas específicas en moscas de la fruta.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Imágenes de alta resolución mostraron que RIM se sitúa físicamente más cerca de los canales de calcio en la sinapsis de alta probabilidad, donde es estrictamente necesaria tanto para la transmisión rápida de señales como para la reorganización de canales que aumenta la preparación de las vesículas, mientras que no resulta necesaria para ajustes lentos o en la cercana sinapsis de baja probabilidad.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que la necesidad de RIM depende tanto del tipo de sinapsis como de la naturaleza del cambio a largo plazo, ya que es requerida para ajustes rápidos en sitios de alta probabilidad pero no para ajustes lentos en sitios de baja probabilidad.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  }
+ ]
+}

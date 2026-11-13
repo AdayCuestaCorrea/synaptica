@@ -1,0 +1,45 @@
+{
+ "study_id": "pmid:43000116",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "9cf5f2187b25b422",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T12:33:51+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study sought to find if specific blood proteins could distinguish brain injury from the effects of general anesthesia alone.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers conducted a forward-looking pilot study at a single hospital in Sweden over a three-year period.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The study measured blood samples from 21 stroke patients and 19 people undergoing non-brain surgery.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Scientists tested three specific proteins in blood drawn before the procedure and again two and twenty-four hours later.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors suggest GFAP is a better marker because its levels did not rise in patients who only had non-brain surgery.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The researchers state that more testing is needed to confirm GFAP as a reliable tool for detecting brain injury in hospital settings.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source"
+ ]
+}

@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1002/jcsm.70414",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "6b524fcb2c09a2c7",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:12:25+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study included 57 adults with mild to moderate facioscapulohumeral muscular dystrophy who still had the ability to walk without assistance.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The control group consisted of individuals matched to the patients by age and sex but without the disease.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Analysis of blood samples revealed 57 specific chemicals that differed between patients and controls, pointing to disruptions in energy production, stress responses, and muscle maintenance.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The study concludes that these metabolic changes are present early in the disease, even when symptoms are only mild to moderate.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source"
+ ]
+}

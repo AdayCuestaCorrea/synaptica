@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1021/acs.jpcb.6c04104",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "82e1747b2a84b79b",
+ "generated_at": "2026-11-13T13:42:05+00:00",
+ "word_count": 104,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed computational models trained on 32,455 experimental data points from 4,796 distinct ionic liquid pairs, employing a strict pair-level data split to prevent contamination that a standard split would have introduced by incorrectly including 59.6% of test data in the training set.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The pipeline evaluated six algorithm types, including regression and neural networks, finding that combining the top four models achieved an average prediction accuracy of 0.752, with density and refractive index predicted most accurately.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The final system screened 80,000 virtual ionic liquid pairs to generate a prioritized list for future experiments based on uncertainty and novelty scores, as concluded by the authors.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

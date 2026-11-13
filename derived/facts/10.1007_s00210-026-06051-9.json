@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1007/s00210-026-06051-9",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "58b9ef52abdd372c",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:19:42+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study asks whether the drugs ezetimibe and sericin can protect against brain damage caused by lead exposure.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers used an animal model with seven groups of adult rats, including a control group and groups receiving lead alone, each drug alone at different doses, or a combination of both drugs with lead.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Lead exposure lasted for 55 days, while the protective drugs were given only during the second half of that period (days 29 to 55).",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The study measured brain function using behavioral tests such as grip strength, open field activity, and a water maze navigation task.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "After the experiment, researchers examined brain tissue to measure chemical levels like dopamine and GABA, mitochondrial activity, and the physical structure of the hippocampus.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Lead exposure caused clear problems in behavior, brain chemistry, cell death pathways, and nerve growth signals.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "Both drugs alone and together reduced the damage caused by lead, fixed chemical imbalances, improved energy production in cells, stopped cell death signals, and protected brain structure and connections.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors conclude that this drug combination is a promising candidate for treating lead-induced brain damage, though this is based on the current study's results.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

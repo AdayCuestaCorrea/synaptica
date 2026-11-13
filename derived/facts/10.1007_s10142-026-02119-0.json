@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1007/s10142-026-02119-0",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "113b3898fa2b64c3",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:20:25+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a mouse model of temporary blocked blood flow to the brain followed by restored flow.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers also created lab models using two types of brain cells to simulate oxygen loss and return.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "Scientists increased levels of the protein RORα in the mice and gave them melatonin injections.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "In the cell experiments, researchers treated the cells with a specific concentration of melatonin and added genetic material to boost RORα.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Melatonin treatment improved brain function scores, protected the blood-brain barrier, and shifted immune cells toward a healing state.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Boosting RORα levels made the protective effects of melatonin stronger against cell death and stress in the lab.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "The study found that RORα works by turning on a specific internal signaling path that helps immune cells switch to a repair mode.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors conclude that this mechanism could serve as a potential target for future treatments of brain injury.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1073/pnas.2611353123",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "89be3a93738d60f0",
+ "generated_at": "2026-11-13T13:31:45+00:00",
+ "word_count": 131,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers conducted a large cohort study combining data from 42,039 people in two major databases to measure white matter free water using diffusion MRI, a technique that tracks extracellular water levels and tissue microstructure.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Genetic analysis identified 27 specific gene locations linked to white matter free water, revealing that both inherited genetic risks and actual MRI measurements of this water were associated with various neurological conditions, including stroke, dementia, and progression from mild cognitive impairment to Alzheimer's disease.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Special genetic analysis suggested a two-way link between high blood pressure and white matter free water levels, with protein analysis identifying two specific proteins that might explain this relationship, leading the authors to conclude that white matter free water is a useful imaging marker for assessing genetic and vascular risks for neurological disorders.",
+   "fact_ids": [
+    "f7",
+    "f8",
+    "f9"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:06:36+00:00"
+ }
+}

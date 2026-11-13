@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1088/1361-6579/aec1b3",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "c3d206b1bde17498",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:26:21+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers measured brain activity, heart rate, blood flow, skin conductivity, and breathing patterns at the same time.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The team used statistical methods to find hidden patterns in the data and to see how different people reacted differently to the same emotion.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The biological data could not tell the difference between emotions that felt opposite to each other, like happiness and sadness.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Combining three specific signals allowed the researchers to perfectly distinguish between all seven emotional states.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors suggest that looking at the data without pre-set categories reveals new ways to understand how emotions are organized biologically.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote",
+  "numbers not in the quote",
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source"
+ ]
+}

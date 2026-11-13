@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1080/07853890.2026.2753239",
+ "lang": "en",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "ba9f4a806f6fc38d",
+ "generated_at": "2026-11-13T13:32:10+00:00",
+ "word_count": 64,
+ "problems": [
+  "judge: Spanish version incorrectly refers to rats instead of mice"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers constructed a new brain map by averaging MRI scans from 80 female mice to create a female-specific reference.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Testing revealed that this new map required less warping to fit external female mouse brain scans than older standard maps, indicating a better fit for female anatomy.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The authors conclude that further research is necessary to fully understand differences between specific mouse strains and sexes.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": false,
+  "passed": false,
+  "reason": "Spanish version incorrectly refers to rats instead of mice",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:07:36+00:00"
+ }
+}

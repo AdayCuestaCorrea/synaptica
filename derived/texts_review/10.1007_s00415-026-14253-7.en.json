@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1007/s00415-026-14253-7",
+ "lang": "en",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "f71e24cd8f88c10f",
+ "generated_at": "2026-11-13T13:36:19+00:00",
+ "word_count": 78,
+ "problems": [
+  "sentence 1: numbers not in the cited facts: ['67']",
+  "sentence 3: drops the caution of its facts (may, suggests, possibly…)"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers conducted a feasibility assessment using a computer algorithm to track eye and face landmarks in 67 video recordings, identifying nystagmus by analyzing extracted movement signals against the original footage.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The system successfully captured clear eye movement data even when videos had poor lighting or shaky cameras, with digital signals accurately matching nystagmus, including very faint movements that humans could barely see.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors state that these current results require confirmation through larger future studies and full automation.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,40 @@
+{
+ "study_id": "10.1126/sciadv.aei4501",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "f1414bbb63472a9b",
+ "generated_at": "2026-11-13T13:27:00+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores examinaron cómo las proteínas BOC y CDON regulan los citonemas en células que producen Sonic Hedgehog, observando que la eliminación de CDON en tejido de la médula espinal de ratón reducía estas estructuras y alteraba el desarrollo neuronal.",
+   "fact_ids": [
+    "f1",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los autores proponen un modelo en el que las proteínas que se unen a Sonic Hedgehog facilitan el transporte de señales al promover el crecimiento de citonemas largos, ya que la ausencia de BOC y CDON disminuyó la actividad de Cdc42 en las puntas de las proyecciones.",
+   "fact_ids": [
+    "f2",
+    "f4"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00",
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:52:22+00:00"
+ }
+}

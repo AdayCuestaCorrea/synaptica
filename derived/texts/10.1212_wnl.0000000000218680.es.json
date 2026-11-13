@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1212/wnl.0000000000218680",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "bc19fd58922fc8b6",
+ "generated_at": "2026-11-13T13:34:32+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron el procesamiento semántico en un grupo de pacientes, identificando esta actividad en el 12 por ciento de los individuos estudiados.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Los que mostraban tales signos tenían mucha más probabilidad de recuperar la consciencia, y la prueba se volvió perfectamente precisa para predecir la recuperación de la consciencia cuando se excluyeron pacientes con soporte vital retirado o muertes no relacionadas con el cerebro.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los autores advierten que estos resultados son preliminares y necesitan confirmación mediante estudios más amplios antes de poder utilizarse en la práctica clínica.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00"
+}

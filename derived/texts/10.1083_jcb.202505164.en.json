@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1083/jcb.202505164",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "b92a289a50d29f05",
+ "generated_at": "2026-11-13T13:33:19+00:00",
+ "word_count": 116,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers used a C. elegans animal model to investigate how non-neuronal cells affect dopamine neuron death, finding that astrocyte-like glial cells lower protective dopamine levels by altering enzyme and transporter activity, while dying neurons expose a surface marker called phosphatidylserine via specific transporters.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Epithelial and muscle cells consumed these dead neurons using a receptor that binds to phosphatidylserine, causing further neuronal loss, but removing the gene for the CED-1 receptor reduced neuron loss and improved movement behaviors in the disease model.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors suggest that because these mechanisms are conserved across models, involvement of multiple organ types might be a common feature of Parkinson's disease, though this remains a suggestion based on the study's scope.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:11:40+00:00"
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1007/s00415-026-14248-4",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "7656602179e5c742",
+ "generated_at": "2026-11-13T13:36:14+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un estudio transversal examinó 36 parejas de individuos con enfermedad de Huntington y sus familiares cercanos, constatando que los pacientes informaron una menor calidad de vida, una reducción de la conciencia emocional y una mayor ansiedad social en comparación con sus parientes.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El análisis reveló que la calidad de vida del paciente estaba más fuertemente vinculada a su nivel de ansiedad social, mientras que la capacidad de regular la atención hacia las señales corporales internas se asociaba específicamente con el funcionamiento diario, y el estrés de los cuidadores fue predicho por la apatía del paciente y las dificultades para escuchar las señales del cuerpo.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que la disfunción en la percepción de las señales corporales internas contribuye a los problemas emocionales y a la carga de los cuidadores en la enfermedad de Huntington, señalando que, si bien la ansiedad social reduce directamente la calidad de vida, los problemas interoceptivos podrían afectarla también indirectamente a través de otros síntomas como la apatía.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ]
+}

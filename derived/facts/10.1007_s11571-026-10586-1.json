@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1007/s11571-026-10586-1",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "191df9281780a84f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:13:44+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers designed a neuromorphic circuit intended to mimic operant conditioning with adjustable reinforcement intensity.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The circuit was built using four specific functional modules: a pressing module, a reward module, a punishment module, and a synapse module.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The system controls how strongly behaviors are reinforced or inhibited by changing how often rewards and punishments are delivered.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The circuit includes built-in hunger and sensitivity circuits that let it adapt to repeated patterns of reward and punishment.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The researchers tested the circuit's functions by running computer simulations using Pspice software.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors claim the resulting circuit is more practical, biologically realistic, and adaptable to complex situations than previous designs.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

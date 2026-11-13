@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1016/j.cell.2026.08.012",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "8fb4dd65892e918f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:10:26+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers built a large-scale atlas by measuring both gene activity and specific histone marks in cells from 18 different areas of the adult human brain.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study analyzed more than 750,000 cell nuclei that represented 160 distinct cell types.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The new method successfully mapped the regulatory states of over 500,000 potential control regions and linked them to specific genes.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The team created a computer model designed to forecast how specific genetic changes linked to neurological diseases might affect different brain cell types.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "Comparisons between humans and other species showed that active regulatory mechanisms are similar, while repressive mechanisms differ significantly.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors state that this work offers a complete reference guide for understanding the rules of brain organization and disease based on epigenetic data.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

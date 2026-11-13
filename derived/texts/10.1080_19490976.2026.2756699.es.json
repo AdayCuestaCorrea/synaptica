@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1080/19490976.2026.2756699",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "03aaab62132d57e8",
+ "generated_at": "2026-11-13T13:33:03+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un modelo de ratones con enterocolitis necrotizante para evaluar los efectos del tratamiento con beta-glucano, constatando que tanto las dosis bajas como las altas mejoraron la función cognitiva en estos animales.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El tratamiento corrigió los desequilibrios de la microbiota intestinal y elevó los niveles del metabolito ácido indol-3-acético, el cual protegió el cerebro activando una cadena específica de proteínas de señalización celular y restaurando las conexiones sinápticas.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores señalan que estos resultados aportan evidencia preclínica que podría ayudar a prevenir problemas cerebrales a largo plazo en supervivientes humanos de enterocolitis necrotizante.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-13T13:47:20+00:00",
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:10:40+00:00"
+ }
+}

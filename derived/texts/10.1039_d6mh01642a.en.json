@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1039/d6mh01642a",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "8db720e15aab8530",
+ "generated_at": "2026-11-13T13:42:49+00:00",
+ "word_count": 109,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers constructed a novel transistor combining specific inorganic oxides with a sputtering method, allowing the device to switch between short-term and long-term plasticity modes by adjusting gate voltage while maintaining constant light input.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Operating with a low read voltage of 1 mV and optical pulses of 0.0645 mW per square centimeter, the system preserved stable conductance levels and demonstrated short-term plasticity behaviors such as paired-pulse facilitation when a negative gate voltage was applied.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "By tuning the gate, the transistor successfully powered a neural network to recognize handwritten digits from the MNIST dataset and analyze time-based signals comprising four frames, which the authors state solves limitations of older single-mode strategies.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ]
+}

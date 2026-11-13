@@ -1,0 +1,28 @@
+{
+ "study_id": "10.1016/j.crmeth.2026.101567",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "3e0f162fe27c68b3",
+ "generated_at": "2026-11-13T13:39:43+00:00",
+ "word_count": 96,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed an online computational platform to visualize and compare single-cell data from the basal ganglia, utilizing four specific technologies including 10X Multiome and single-nucleus methylome sequencing to generate multi-omics datasets. This resource enables the comparison of gene regulation patterns across four species: humans, macaques, marmosets, and mice.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Sample analyses on the platform demonstrate how gene regulation varies by cell type, reveal shared or unique epigenomic elements across species, and link epigenomic changes to gene transcription. The authors conclude that this resource serves as a foundation for future research into brain function and disease mechanisms.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  }
+ ]
+}

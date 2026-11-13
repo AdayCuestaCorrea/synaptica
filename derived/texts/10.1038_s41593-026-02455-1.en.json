@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1038/s41593-026-02455-1",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "99e8ad28eb2af348",
+ "generated_at": "2026-11-13T13:28:41+00:00",
+ "word_count": 116,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A meta-analysis of genome-wide data in humans identified 343 independent genetic locations linked to multidimensional pain, including 92 previously unassociated sites, with 115 of these locations found in males compared to only 12 in females when analyzed separately by sex.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Further analysis identified 490 specific genes influencing pain through activity in the brain and blood, while statistical tests suggested a causal link between these pain variants and conditions such as psychiatric disorders, substance use disorders, and elevated C-reactive protein levels alongside connections to traits observed in brain imaging scans.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors state that their findings expand current understanding of pain genetics but emphasize that the complex connections to other disorders and biological pathways require further study.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:56:29+00:00"
+ }
+}

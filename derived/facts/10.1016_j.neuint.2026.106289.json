@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1016/j.neuint.2026.106289",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "eef81ebfc22dc72a",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:23:55+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used a rat model of chronic migraine created by repeatedly infusing an inflammatory soup into the dura.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "In the study rats, higher levels of mGluR5 in the trigeminal nucleus caudalis were linked to a higher ratio of GluA1 to GluA2 receptors on the cell surface.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "While the surface ratio changed, the total amount of GluA1 and GluA2 proteins inside the cells did not change.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Giving rats a drug that activates mGluR5 made the imbalance in receptor subunits worse and increased their sensitivity to pain.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Reducing mGluR5 activity or using a drug that blocks it fixed the receptor imbalance and lowered the existing pain sensitivity.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Activating the enzyme PKC with a specific drug cancelled out the benefits of reducing mGluR5 levels.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The study found that mGluR5 triggers PKCγ, which moves GluA2 off the cell surface, piles up GluA1, and adds a phosphate group to GluA1 at a specific spot.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors suggest this specific chain of molecular events might be responsible for the heightened pain state seen in chronic migraine.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

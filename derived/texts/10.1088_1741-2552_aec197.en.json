@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1088/1741-2552/aec197",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "0f1bc2b527176fc2",
+ "generated_at": "2026-11-13T13:43:09+00:00",
+ "word_count": 114,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers investigated brain networks in two monkeys by placing electrodes in six specific areas involved in reaching and grasping, then stimulating five of these regions one at a time.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The method measured whether electrical pulses in one area caused immediate changes in the firing of neurons in others, revealing that stimulating any active region produced rapid, synchronized changes in most recorded areas, with effects being stronger and more frequent in the frontal lobe, especially the primary motor cortex.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Computer programs trained to read brain signals continued to function well even when the primary motor cortex was being stimulated nearby, leading the authors to conclude that such stimulation does not necessarily disrupt downstream decoding capabilities.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ]
+}

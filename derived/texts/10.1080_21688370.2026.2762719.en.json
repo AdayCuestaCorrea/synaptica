@@ -1,0 +1,41 @@
+{
+ "study_id": "10.1080/21688370.2026.2762719",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "f2eb8e89c0b5d1b0",
+ "generated_at": "2026-11-13T13:33:12+00:00",
+ "word_count": 118,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers used a rat model divided into three groups: controls, rats with induced fibromyalgia, and rats with fibromyalgia treated with stem cells. The fibromyalgia group displayed anxiety-like behavior, neurodegeneration, and blood-brain barrier damage alongside elevated NLRP3 and IL-1β proteins and active mast cells. These rats also exhibited reduced levels of brain health proteins, including Calbindin D-28k, Beclin-1, and LC3.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Rats receiving bone marrow-derived mesenchymal stem cells showed improved behavior, restored tissue structure, and normalized inflammatory markers and protective proteins. The authors suggest this is one of the first studies to show that stem cell therapy can help by boosting autophagy, calming mast cells, and reducing specific inflammation pathways in the cerebellum.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:10:42+00:00"
+ }
+}

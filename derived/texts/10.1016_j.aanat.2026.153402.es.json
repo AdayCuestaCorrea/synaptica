@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1016/j.aanat.2026.153402",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "6f0bc4ce509580bc",
+ "generated_at": "2026-11-13T13:38:28+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un modelo de ratones con síndrome de Saethre-Chotzen para seguir la morfología del cráneo y del cerebro desde el nacimiento hasta las dos semanas de vida. Mientras que los ratones de control mantuvieron una sutura frontal abierta, todos los ratones mutantes mostraron una cierre completo para el día 14, presentando inicialmente una anchura frontal a posterior reducida que evolucionó hacia una forma de cabeza distintivamente corta y ancha para el día 7.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Esta forma anormal de la cabeza se asoció con el ensanchamiento de suturas específicas del occipucio, mientras que los cerebros de estos mutantes se abombaban hacia arriba y hacia atrás entre los días 7 y 14, ocurriendo ligeramente después de los cambios craneales. Los autores proponen que este abombamiento cerebral resulta de la presión ejercida por la sutura frontal fusionada, lo que podría impulsar la separación de las suturas posteriores.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "En última instancia, las suturas posteriores del cráneo, que se habían ensanchado, volvieron a sus dimensiones normales gracias al crecimiento extra de un hueso específico de esa región. Los autores concluyen que este crecimiento óseo compensatorio restaura el tamaño del cráneo, aunque el estudio se limita a este modelo animal concreto.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ]
+}

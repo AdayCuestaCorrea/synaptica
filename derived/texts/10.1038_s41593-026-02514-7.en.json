@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1038/s41593-026-02514-7",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "19e317084bccc792",
+ "generated_at": "2026-11-13T13:28:49+00:00",
+ "word_count": 135,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers examined two brain regions in monkeys: the middle temporal area, which processes visual motion, and the dorsolateral prefrontal cortex, which manages decisions and rewards. While the monkeys performed a task requiring them to combine motion and reward information, scientists recorded neural activity in both areas.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The middle temporal area maintained motion and reward information separately, whereas the dorsolateral prefrontal cortex merged them into a single decision-related format. A computer model trained to mimic this data formatting predicted that stimulating the middle temporal area would influence specific choices, while stimulating the dorsolateral prefrontal cortex resulted in outcomes where one option dominated completely.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors suggest that the brain's modular structure allows it to flexibly change how information is formatted to support complex actions, though these findings are based on animal models rather than human subjects.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:57:26+00:00"
+ }
+}

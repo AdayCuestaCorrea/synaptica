@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1021/acs.jmedchem.6c02108",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "4b9d3f4d5172a847",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:25:11+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Neurolysin levels rise after a stroke to help trigger the brain's own protective systems.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "Making mice produce extra neurolysin before a stroke led to better recovery results.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Researchers found the first non-peptide drugs that activate neurolysin, built on a specific chemical structure.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "New compounds 7c and 7g stayed active longer in the lab, crossed into mouse brains better, and remained stable in mouse blood compared to older versions.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "Testing compound 7g in mice with induced strokes showed it protected the brain tissue.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The treatment lowered the size of the dead brain tissue and reduced swelling in the mice.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "This study is the first to show a small-molecule drug activating neurolysin works to protect the brain in a preclinical animal model.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

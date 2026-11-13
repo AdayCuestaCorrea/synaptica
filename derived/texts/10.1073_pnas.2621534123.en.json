@@ -1,0 +1,40 @@
+{
+ "study_id": "10.1073/pnas.2621534123",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "2679dbaf03e68794",
+ "generated_at": "2026-11-13T13:31:53+00:00",
+ "word_count": 70,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers observed that mGlu2 receptors trigger calcium signals inside hippocampal neurons when the naturally active PAFR receptor is present, even though the two receptors do not need to physically bind together.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The authors concluded that this specific interaction is required for mGlu2-targeting drugs to resolve cognitive and behavioral deficits in a mouse model of schizophrenia, highlighting the importance of understanding receptor communication for treating mental health conditions.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:06:36+00:00"
+ }
+}

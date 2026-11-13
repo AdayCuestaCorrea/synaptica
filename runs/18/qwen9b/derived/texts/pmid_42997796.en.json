@@ -1,0 +1,49 @@
+{
+ "study_id": "pmid:42997796",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "acb43d421d8fd13e",
+ "generated_at": "2026-11-13T12:54:03+00:00",
+ "word_count": 136,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers investigated whether recent exposure to high levels of fine particulate air pollution alters how teenagers learn and regulate fear by studying 102 participants aged 10 to 17 who were divided into groups based on their past-month pollution levels according to EPA standards.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Using a task involving learning to fear a signal and recalling that experience, the study measured fear through skin conductance response, avoidance behavior, and self-reported feelings, finding that those with high exposure showed stronger initial reactions and struggled more to forget the fear after the threat was deemed safe.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Brain scans of a smaller subgroup of 68 participants revealed increased activity in specific fear-processing regions during both learning and recall phases, leading the authors to suggest this might explain how air pollution links to anxiety while noting this potential connection requires further confirmation.",
+   "fact_ids": [
+    "f7",
+    "f8",
+    "f9"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T12:54:55+00:00"
+ }
+}

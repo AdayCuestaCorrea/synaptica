@@ -1,0 +1,31 @@
+{
+ "study_id": "10.1016/j.neuropharm.2026.111259",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "1ff83f97bee4a084",
+ "generated_at": "2026-11-13T13:40:51+00:00",
+ "word_count": 89,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "The study aimed to determine if activating GLP-1 receptors in the middle part of the thalamic paraventricular nucleus changes how animals respond to alcohol.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Researchers used a specific drug to block GLP-1 receptors in the mid-PVT of mice, which weakened the ability of another drug to stop alcohol from making the mice move more.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "A separate group of rats that drank alcohol but had not received prior treatment showed no difference in the amount of GLP-1 receptor gene material in the PVT between males and females.",
+   "fact_ids": [
+    "f3"
+   ]
+  }
+ ]
+}

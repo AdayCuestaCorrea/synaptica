@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1016/j.cell.2026.09.014",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "3f1b52f58f2ec1ec",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:10:35+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study analyzed 5.3 million cells taken from 582 tissue samples collected across 11 different brain areas in 55 rhesus macaques ranging from 0.5 to 21 years old.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers found specific groups of neurons that disappear with age and slight changes in glial cell composition that were only visible when looking at individual cells.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The molecular patterns found in aging brains resemble those seen in Alzheimer's disease, suggesting both conditions share underlying causes that appear at different times and in specific brain regions or sexes.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The study identified molecular patterns that differ between males and females, which might explain why some neurological disorders affect sexes differently.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors state that this atlas helps understand how different cell types and brain regions are uniquely vulnerable to aging, offering insights that may apply to humans.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

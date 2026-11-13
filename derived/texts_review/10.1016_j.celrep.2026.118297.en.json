@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1016/j.celrep.2026.118297",
+ "lang": "en",
+ "status": "failed",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "fbb7beda2edb8264",
+ "generated_at": "2026-11-13T13:39:38+00:00",
+ "word_count": 127,
+ "problems": [
+  "sentence 1: names not in the facts: ['Additionally']"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers used animal models to investigate how manipulating SIRT6 levels in excitatory neurons affected stress responses. Forcing these neurons to produce more SIRT6 reduced stress-induced sadness and anxiety, while removing the protein caused depression-like behaviors even without stress. Additionally, a specific hippocampal neuron type that disappeared after stress returned when SIRT6 levels were raised.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Gene network analysis showed that the protein OVOL2 controls stress-related gene activity, and SIRT6 physically binds to OVOL2 to maintain its stability. This binding triggers the production of other proteins like Nrg1, and a drug activating SIRT6 produced the same stress-fighting effects observed with genetic changes.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors suggest that targeting SIRT6 could be a new way to treat depression based on these results.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ]
+}

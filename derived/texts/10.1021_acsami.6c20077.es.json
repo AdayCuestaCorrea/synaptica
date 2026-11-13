@@ -1,0 +1,33 @@
+{
+ "study_id": "10.1021/acsami.6c20077",
+ "lang": "es",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "a745940854cef849",
+ "generated_at": "2026-11-13T13:42:40+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron canales semiconductores delgados conectados directamente a electrodos de tipo metálico sin ingeniería metálica adicional, creando interfaces que permitían un flujo eléctrico fiable mientras mantenían la flexibilidad sin ajustes especiales de contacto.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Estos dispositivos mostraron comportamientos sinápticos consistentes incluso cuando se deformaban físicamente, una propiedad que los autores señalan podría mejorar el reconocimiento de patrones en redes neuronales artificiales.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que este enfoque ofrece una nueva forma de combinar las propiedades de materiales de un átomo de grosor con la fabricación a gran escala para la informática del futuro.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

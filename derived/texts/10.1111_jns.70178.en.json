@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1111/jns.70178",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "dc6b6e77e0259d5b",
+ "generated_at": "2026-11-13T13:34:19+00:00",
+ "word_count": 91,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers conducted a cross-sectional study involving adult patients with Charcot-Marie-Tooth disease in Romania and France to evaluate a new questionnaire's reliability and capacity to distinguish disability levels.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "This instrument assesses symptoms, work impact, social life, and healthcare needs across 38 items, showing strong consistency overall but less reliability in the healthcare section among French participants, while detecting differences in unmet needs linked to national healthcare systems.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Results aligned with standard generic quality-of-life measures, yet the authors state that confirmation in larger patient groups is required before the tool is fully established.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ]
+}

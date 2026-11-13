@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.neuron.2026.10.017",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "c7cb11450e68b264",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:24:14+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study aimed to find out how the SARS-CoV-2 virus triggers sneezing, coughing, and pain.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers used mice and human cells grown from stem cells to test if a specific virus enzyme directly turns on airway pain nerves.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "When the virus enzyme acted on the nerves, it caused sneezing, coughing, pain, and the release of a specific chemical signal.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The study found that both the virus enzyme and a specific channel in the nerve cell were necessary for the sneeze reflex to happen.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Other coronaviruses that infect mice also caused sneezing in the animal subjects.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The sneezing caused by the other mouse coronavirus also required the same specific nerve channel.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "Infecting the nerve cluster with the virus changed the genes the nerves expressed, specifically turning up the pathway that links the enzyme to the pain channel.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

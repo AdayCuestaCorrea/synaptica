@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1016/j.jphs.2026.10.004",
+ "lang": "es",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "b75e4af375e1ef93",
+ "generated_at": "2026-11-13T13:31:20+00:00",
+ "word_count": null,
+ "problems": [
+  "judge: Calls the cells 'human cell lines' which is not stated in the abstract."
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores utilizaron primero modelos informáticos para identificar objetivos comunes de dos fármacos y la ELA, localizando seis proteínas específicas como los principales puntos de interacción.",
+   "fact_ids": [
+    "f1",
+    "f6"
+   ]
+  },
+  {
+   "text": "El estudio probó los fármacos en líneas celulares humanas y en ratones modificados genéticamente que modelan la ELA, donde el tratamiento frenó la progresión de la enfermedad, prolongó la supervivencia, mejoró el movimiento y salvó las neuronas motoras.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores descubrieron que los fármacos actuaban activando una vía de señalización específica que detiene la inflamación y la muerte celular, concluyendo que esta combinación es una estrategia prometedora para tratar la ELA.",
+   "fact_ids": [
+    "f5",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Calls the cells 'human cell lines' which is not stated in the abstract.",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:04:38+00:00"
+ }
+}

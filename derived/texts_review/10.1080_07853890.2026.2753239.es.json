@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1080/07853890.2026.2753239",
+ "lang": "es",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "ba9f4a806f6fc38d",
+ "generated_at": "2026-11-13T13:32:10+00:00",
+ "word_count": null,
+ "problems": [
+  "judge: Spanish version incorrectly refers to rats instead of mice"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores elaboraron un nuevo mapa cerebral promediando resonancias magnéticas de 80 ratonas hembras para generar una referencia específica de sexo femenino.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Las pruebas mostraron que este nuevo mapa necesitaba menos deformación para adaptarse a las resonancias de ratas hembras externas que los mapas estándar anteriores, lo que indica un ajuste más preciso a la anatomía femenina.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que es necesario realizar más investigaciones para comprender plenamente las diferencias entre cepas específicas de ratones y sexos.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": false,
+  "passed": false,
+  "reason": "Spanish version incorrectly refers to rats instead of mice",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T14:07:36+00:00"
+ }
+}

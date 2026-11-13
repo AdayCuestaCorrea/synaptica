@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1016/j.jphs.2026.10.003",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "ff513c50e017be12",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:14:18+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used proteomic analysis to check if freezing changes the protein makeup of human brain microvascular endothelial cells grown from stem cells.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "The study compared cells that were frozen against cells that were freshly made to see how their protein levels and functions differed.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The analysis showed a very strong match in protein expression between the frozen cells and the fresh cells.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The team tested if drug passage through the frozen cells matched real-world data from mice, rats, monkeys, and people.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The drug permeability numbers from the frozen cells lined up closely with actual data from humans and monkeys.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest these frozen cells could be a useful tool for testing how drugs cross the human blood-brain barrier outside of a living body.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

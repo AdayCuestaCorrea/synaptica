@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.028",
+ "lang": "en",
+ "status": "verified",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "9f3a667776180832",
+ "generated_at": "2026-11-13T13:28:23+00:00",
+ "word_count": 108,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers applied a multimodal Patch-seq method to macaque brain tissue to link gene expression profiles with cell shape and electrical activity, aiming to address knowledge gaps regarding striatal neurons in primates that are more relevant for human disorders than rodent models.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The analysis identified surprising diversity among spiny projection neurons, including rare types varying by functional gradients, while interneurons showed significant variation across locations with even greater diversity in shape and electrical properties than other cells, revealing specific primate characteristics that differ from rodents despite conserved features.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors concluded that combining molecular data with cellular properties offers new insights into how the primate striatum is functionally organized.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:55:28+00:00"
+ }
+}

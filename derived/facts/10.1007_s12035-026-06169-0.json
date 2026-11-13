@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1007/s12035-026-06169-0",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "6ebaf37e064d9963",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:21:31+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers analyzed fourteen datasets containing a total of 262 human brain samples to compare gene expression across different disorders.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study used a standardized computational pipeline involving multiple statistical tools to identify genes that differ in expression between healthy controls and patients.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "Initial analysis found thousands of genes with altered expression in each disorder, ranging from 38 in Alzheimer's disease to 6,704 in autism spectrum disorder.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "When applying a stricter method to find only the most consistent results, the study identified a small core set of genes for most disorders but found only two shared genes for Alzheimer's disease.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors note that very few genes were consistently found across different study groups, suggesting that bulk brain transcriptomics has limited reliability for cross-cohort comparisons.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The analysis revealed that 465 genes showed altered expression patterns in both neurodegenerative and neuropsychiatric disorders compared to controls.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "Statistical visualization showed that differences between the datasets and the specific brain tissue used were larger factors than the disease categories themselves.",
+   "subject": "computational"
+  },
+  {
+   "id": "f8",
+   "statement": "The study created a public online database and software tool to allow other researchers to easily compare gene expression data across these various brain disorders.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

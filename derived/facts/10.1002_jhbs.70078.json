@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1002/jhbs.70078",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "da2b0f8322505b20",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "generated_at": "2026-11-13T13:12:41+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The participant could hear sounds but failed to distinguish between different musical pitches, while their ability to perceive sound timing and loudness remained normal.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The researcher recorded the subject's life history regarding music training and found that relatives also showed poor musical ability.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The investigation compared how the participant perceived and expressed both music and speech.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The subject was otherwise typically developing, showing that the musical deficit was selective rather than a general sensory impairment.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The author linked the specific difficulty in processing music to broader theories about how human aesthetics evolved.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors note that despite recent citations, this historical study has not been thoroughly analyzed in modern literature.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source"
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "study_id": "10.1126/sciadv.aeg3412",
+ "lang": "en",
+ "status": "rejected_by_judge",
+ "generator": "ollama/paleo-qwen3.5-9b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "4bebb2f221e53886",
+ "generated_at": "2026-11-13T13:26:37+00:00",
+ "word_count": 123,
+ "problems": [
+  "judge: Mischaracterizes the study as purely cross‑sectional, omitting its longitudinal prediction component."
+ ],
+ "sentences": [
+  {
+   "text": "Researchers analyzed MRI scans from 2187 people with multiple sclerosis alongside normative data using a cross-sectional design.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Gray matter shrinkage was linked to how central a brain region is in functional networks and was limited by both physical and functional brain connections, while damage from lesions and genetic vulnerability had only minor effects on the observed brain atrophy, with patterns tied to connectivity issues in areas including the visual, sensorimotor, and temporal cortex, as well as the hippocampus, amygdala, and thalamus.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f5"
+   ]
+  },
+  {
+   "text": "The study found that network mechanisms drive neurodegeneration in MS and might work differently depending on the specific disease subtype or phase, noting that measuring network connectivity improved the ability to explain how brain atrophy progresses over time in people with MS.",
+   "fact_ids": [
+    "f4",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Mischaracterizes the study as purely cross‑sectional, omitting its longitudinal prediction component.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-13T13:51:21+00:00"
+ }
+}

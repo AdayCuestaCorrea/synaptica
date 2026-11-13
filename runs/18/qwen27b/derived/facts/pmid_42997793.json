@@ -1,0 +1,54 @@
+{
+ "study_id": "pmid:42997793",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "9f75c64065e39f73",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-13T12:50:57+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The research is a systematic review of studies looking at brain connectivity in adults aged 18 to 70 with major depressive disorder.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The main goal was to see if brain activity patterns before treatment were linked to changes in depression symptoms.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "In some studies, stronger initial connections between the subgenual cingulate and the right prefrontal cortex were linked to less improvement in symptoms.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Conversely, stronger initial connections between the subgenual cingulate and the medial orbitofrontal cortex were linked to greater symptom improvement.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "These connections were most frequently found in studies using repetitive transcranial magnetic stimulation, especially when targeting was personalized, though some studies found no link.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The quality of the brain scans used in the included studies was rated as adequate, with an average score of 16.1 out of 20.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The results varied across studies, and the data did not allow for a detailed statistical analysis of specific brain locations.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors state that larger future studies are required to confirm these findings and determine if they can be used in clinical practice.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}
