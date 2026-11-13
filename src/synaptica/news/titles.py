@@ -86,8 +86,19 @@ ORGANISMS = {
 
 # An upper-case letter plus a digit or another upper-case letter: genes, proteins,
 # acronyms (APOE4, TREM2, GLP-1, mGluR5, fMRI, SARS-CoV-2, CA1).
-_IDENTIFIER = re.compile(r"(?<![\w-])(?=[\w-]*[A-Z])(?=[\w-]*(?:\d|[A-Z][\w-]*[A-Z]|[a-z][A-Z]))"
-                         r"[A-Za-z0-9][\w-]*(?<!-)")  # fmt: skip
+# Each part of a hyphenated word on its own, so the Title Case compounds of a headline
+# ("Media-Like", "Co-Use") are not acronyms and "VDR-clock" keeps "VDR" (seen on the
+# fixture titles); the numbers of "GLP-1" are the numbers check's job.
+_PART = re.compile(r"[A-Za-z0-9]+")
+
+
+def _is_identifier(part: str) -> bool:
+    upper = sum(c.isupper() for c in part)
+    return upper > 0 and (
+        any(c.isdigit() for c in part) or upper >= 2 or re.search(r"[a-z][A-Z]", part) is not None
+    )
+
+
 _ABBREVIATED_SPECIES = re.compile(r"\b[A-Z]\.\s?[a-z]{3,}\b")  # C. elegans, D. melanogaster
 _DRUG = re.compile(
     r"\b[a-z]{3,}(?:mab|nib|glutide|zepam|zolam|setron|sartan|pril|statin"
@@ -180,7 +191,7 @@ def _fold(text: str) -> str:
 
 
 def identifiers(text: str) -> set[str]:
-    return set(_IDENTIFIER.findall(checks._typography(text)))
+    return {p for p in _PART.findall(checks._typography(text)) if _is_identifier(p)}
 
 
 def _title_case(text: str) -> bool:

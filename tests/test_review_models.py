@@ -39,6 +39,7 @@ def _decision(**changes) -> dict:
 def test_every_item_type_and_action_has_an_example(queue, log):
     assert {i.item_type for i in queue.items} == set(ItemType) - {
         ItemType.ATLAS, ItemType.LAB, ItemType.LEARN,  # same "text" shape as glossary
+        ItemType.TITLE,  # same "text" shape as news; its own tests in test_review_titles.py
     }  # fmt: skip
     assert {d.action.value for d in log} >= {"approve", "edit", "reject", "keep", "set_grade",
                                              "pick", "disable", "propose"}  # fmt: skip

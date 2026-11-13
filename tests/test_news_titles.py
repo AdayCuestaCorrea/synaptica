@@ -57,12 +57,17 @@ PASSES = [
      "La falta de sueño podría perjudicar la memoria en tres grupos de ratas"),
     ("Receptors for mGluR5 and GLP-1 in the human CA1",
      "Receptores de mGluR5 y GLP-1 en la CA1 humana"),
+    # Title Case compounds are not acronyms; the acronym inside one still counts.
+    ("Nicotine and Cannabis Co-Use in Social Media-Like Settings via the VDR-clock axis",
+     "El consumo conjunto de nicotina y cannabis en entornos similares a redes sociales "
+     "a través del eje VDR-reloj"),
 ]  # fmt: skip
 
 FAILS = [
     ("APOE4 carriers show 2.5-fold higher amyloid",
      "Los portadores muestran 2,5 veces más amiloide", "'APOE4' is missing"),
     ("TREM2 shapes microglia", "TREM2 y BDNF modelan la microglía", "'BDNF' is not in the English"),
+    ("The VDR-clock axis in the liver", "El eje del reloj en el hígado", "'VDR' is missing"),
     ("Amyloid rises by 30% in plasma", "El amiloide sube un 40 % en plasma", "numbers differ"),
     ("Hippocampal maps in young Wistar rats", "Mapas hipocampales en ratas jóvenes",
      "name 'Wistar' is missing"),
