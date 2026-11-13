@@ -817,8 +817,18 @@ class VolumeViewer {
     if (state.mode === "stain" && this.realOn) {
       if (this.focus.size) this.drawContours(g, toX, toY, dpr, this.focus, "rgb(232 120 20)", 2);
     } else if (state.mode === "stain") {
-      this.paintStain(g, tile, dpr);
-      if (this.realSliceOn) this.paintSection(g, tile, toX, toY);
+      // Real section: only the slide under it, so nothing drawn passes for tissue around its
+      // edges or in its tears (Aday, 2026-11-13). Otherwise the drawn stain.
+      if (this.realSliceOn) {
+        const [left, top, w, hgt] = tile.leftTopWidthHeight;
+        g.save();
+        g.fillStyle = `rgb(${STAIN.slide.join(" ")})`;
+        g.fillRect(Math.min(left, left + w), top, Math.abs(w), hgt);
+        g.restore();
+        this.paintSection(g, tile, toX, toY);
+      } else {
+        this.paintStain(g, tile, dpr);
+      }
       // The painted slice covers Niivue's: crosshair and selection drawn again on top.
       const at = this.nv.frac2mm(this.nv.scene.crosshairPos);
       g.save();

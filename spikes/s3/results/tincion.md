@@ -91,7 +91,7 @@ Aday propuso usar los cortes reales en 2D y dejar el 3D en el backlog. Sofía lo
 - **Peso:** 3,75 MB los 146, unos 26 KB por corte en WebP; en el visor, unos 35 KB cada uno. Pasa del presupuesto de 3 MB por atlas, pero el visor solo baja `index.json` (42 KB, menos con gzip) y el corte que se ve, de uno en uno. En la carga inicial no añade nada.
 - **Comprobado a ojo:** a −5,9 mm de Bregma, los contornos de Waxholm caen sobre el giro dentado, el hipocampo y la corteza del corte. El pequeño desfase en la parte ventral viene de la oblicuidad: el corte abarca ~1 mm de AP y se compara con el plano medio.
 - **En el visor:**
-  - en el modo Tinción, variante «Real», el corte 2D de la rata muestra el corte real más cercano encima del dibujado;
+  - en el modo Tinción, variante «Real», el corte 2D de la rata muestra el corte real más cercano sobre el color del portaobjetos, sin nada dibujado debajo. Así nada dibujado asoma por los bordes o las roturas del corte como si fuera tejido (decisión de Aday, 2026-11-13);
   - el aviso dice «Nissl real de otra rata · corte a X mm de este plano»;
   - la selección lleva su contorno naranja y la licencia aparece bajo la de Waxholm;
   - el 3D de la rata sigue con la tinción dibujada, con el aviso «la tinción real de rata solo está en el corte 2D»;
