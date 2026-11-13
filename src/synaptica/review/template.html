@@ -264,8 +264,11 @@ function textBody(item) {
     open.addEventListener("click", () => { area.hidden = false; open.hidden = true; area.focus(); });
     return el("div", { class: "sent" }, el("p", { text: s.text }), open, area);
   }));
-  const en = el("details", { class: "en" }, el("summary", { text: "Ver la versión en inglés" }),
-    el("div", {}, ...c.en.map((s) => el("p", { text: s.text }))));
+  // A title is checked against its English original, so that one is open (step 23c).
+  const isTitle = item.item_type === "title";
+  const en = el("details", { class: "en", ...(isTitle ? { open: "" } : {}) },
+    el("summary", { text: isTitle ? "Título original en inglés" : "Ver la versión en inglés" }),
+    el("div", {}, ...c.en.map((s) => el("p", { text: s.text, lang: "en" }))));
   const src = el("div", { class: "sources" }, ...c.sources.map((s) =>
     s.url.startsWith("https://") ? el("a", { href: s.url, target: "_blank", rel: "noopener", text: `${s.label} ↗` })
                                  : el("span", { text: s.label })));
