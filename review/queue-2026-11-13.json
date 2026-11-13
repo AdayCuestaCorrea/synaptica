@@ -1306,6 +1306,117 @@
    "base": null
   },
   {
+   "item_type": "classics",
+   "item_id": "classics-2026-w46",
+   "title_es": "Clásicos de la semana 2026-W46",
+   "content": {
+    "kind": "candidates",
+    "week": "2026-W46",
+    "max_picks": 5,
+    "candidates": [
+     {
+      "doi": "10.1016/0028-3932(71)90067-4",
+      "title": "The assessment and analysis of handedness: The Edinburgh inventory",
+      "year": 1971,
+      "cited_by": 36711
+     },
+     {
+      "doi": "10.1016/j.jneumeth.2003.10.009",
+      "title": "EEGLAB: an open source toolbox for analysis of single-trial EEG dynamics including independent component analysis",
+      "year": 2004,
+      "cited_by": 25287
+     },
+     {
+      "doi": "10.1093/genetics/77.1.71",
+      "title": "THE GENETICS OF CAENORHABDITIS ELEGANS",
+      "year": 1974,
+      "cited_by": 15448
+     },
+     {
+      "doi": "10.1159/000337230",
+      "title": "Amyloid Oligomers Exacerbate Tau Pathology in a Mouse Model of Tauopathy",
+      "year": 2012,
+      "cited_by": 10395
+     },
+     {
+      "doi": "10.1001/archneur.1960.03840090124020",
+      "title": "Handbook of Physiology.",
+      "year": 1960,
+      "cited_by": 10388
+     },
+     {
+      "doi": "10.1159/000337115",
+      "title": "Copper-Zinc Superoxide Dismutase (SOD1) Is Released by Microglial Cells and Confers Neuroprotection against 6-OHDA Neurotoxicity",
+      "year": 2012,
+      "cited_by": 9023
+     },
+     {
+      "doi": "10.1038/372425a0",
+      "title": "Positional cloning of the mouse obese gene and its human homologue",
+      "year": 1994,
+      "cited_by": 13635
+     },
+     {
+      "doi": "10.1038/45230",
+      "title": "Ghrelin is a growth-hormone-releasing acylated peptide from stomach",
+      "year": 1999,
+      "cited_by": 8575
+     },
+     {
+      "doi": "10.1038/39807",
+      "title": "The capsaicin receptor: a heat-activated ion channel in the pain pathway",
+      "year": 1997,
+      "cited_by": 9280
+     },
+     {
+      "doi": "10.1016/0092-8674(91)90418-x",
+      "title": "A novel multigene family may encode odorant receptors: A molecular basis for odor recognition",
+      "year": 1991,
+      "cited_by": 5117
+     },
+     {
+      "doi": "10.1038/3305",
+      "title": "Neurogenesis in the adult human hippocampus",
+      "year": 1998,
+      "cited_by": 6567
+     },
+     {
+      "doi": "10.1038/nature12517",
+      "title": "Cerebral organoids model human brain development and microcephaly",
+      "year": 2013,
+      "cited_by": 5545
+     },
+     {
+      "doi": "10.1159/000119004",
+      "title": "The ‘Trier Social Stress Test’ – A Tool for Investigating Psychobiological Stress Responses in a Laboratory Setting",
+      "year": 2008,
+      "cited_by": 6414
+     },
+     {
+      "doi": "10.1001/archinte.1993.00410180039004",
+      "title": "Stress and the Individual: Mechanisms Leading to Disease",
+      "year": 1993,
+      "cited_by": 4541
+     },
+     {
+      "doi": "10.1037/a0035302",
+      "title": "From stress to inflammation and major depressive disorder: A social signal transduction theory of depression.",
+      "year": 2014,
+      "cited_by": 2381
+     },
+     {
+      "doi": "10.1038/nature10491",
+      "title": "An endogenous tumour-promoting ligand of the human aryl hydrocarbon receptor",
+      "year": 2011,
+      "cited_by": 1958
+     }
+    ]
+   },
+   "public": true,
+   "warnings": [],
+   "base": null
+  },
+  {
    "item_type": "news",
    "item_id": "10.1080_19490976.2026.2753908",
    "title_es": "Gut‒liver‒brain axis signature of cirrhosis-related cognitive impairment is consistent across multi-national cohorts.",
@@ -2351,64 +2462,6 @@
      {
       "id": "pubmed-43014918",
       "url": "https://pubmed.ncbi.nlm.nih.gov/43014918/",
-      "label": "Estudio en PubMed"
-     }
-    ]
-   },
-   "public": true,
-   "warnings": [],
-   "base": null
-  },
-  {
-   "item_type": "news",
-   "item_id": "10.1038_s41593-026-02455-1",
-   "title_es": "Gene discovery and pleiotropic architecture of multidimensional pain in a genome-wide association study of >1.2 million individuals.",
-   "content": {
-    "kind": "text",
-    "es": [
-     {
-      "text": "Un metaanálisis de datos de genoma completo en humanos identificó 343 ubicaciones genéticas independientes vinculadas al dolor multidimensional, que incluyen 92 sitios previamente no asociados; al analizar por separado según el sexo, 115 de estas ubicaciones se encontraron en hombres frente a solo 12 en mujeres.",
-      "cites": [
-       "pubmed-43020908"
-      ]
-     },
-     {
-      "text": "Un análisis posterior identificó 490 genes específicos que influyen en el dolor mediante su actividad en el cerebro y la sangre, mientras que las pruebas estadísticas sugieren un vínculo causal entre estas variantes del dolor y trastornos como los psiquiátricos, los de uso de sustancias y niveles elevados de proteína C reactiva, junto con conexiones con rasgos observados en las imágenes de resonancia magnética cerebral.",
-      "cites": [
-       "pubmed-43020908"
-      ]
-     },
-     {
-      "text": "Los autores señalan que sus hallazgos amplían la comprensión actual de la genética del dolor, pero subrayan que las conexiones complejas con otros trastornos y vías biológicas requieren más investigación.",
-      "cites": [
-       "pubmed-43020908"
-      ]
-     }
-    ],
-    "en": [
-     {
-      "text": "A meta-analysis of genome-wide data in humans identified 343 independent genetic locations linked to multidimensional pain, including 92 previously unassociated sites, with 115 of these locations found in males compared to only 12 in females when analyzed separately by sex.",
-      "cites": [
-       "pubmed-43020908"
-      ]
-     },
-     {
-      "text": "Further analysis identified 490 specific genes influencing pain through activity in the brain and blood, while statistical tests suggested a causal link between these pain variants and conditions such as psychiatric disorders, substance use disorders, and elevated C-reactive protein levels alongside connections to traits observed in brain imaging scans.",
-      "cites": [
-       "pubmed-43020908"
-      ]
-     },
-     {
-      "text": "The authors state that their findings expand current understanding of pain genetics but emphasize that the complex connections to other disorders and biological pathways require further study.",
-      "cites": [
-       "pubmed-43020908"
-      ]
-     }
-    ],
-    "sources": [
-     {
-      "id": "pubmed-43020908",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/43020908/",
       "label": "Estudio en PubMed"
      }
     ]
