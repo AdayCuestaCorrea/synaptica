@@ -6,18 +6,18 @@
 
 | Requisito | Estado |
 |---|---|
-| Días seguidos sin intervención | **0 / 14**. *Pendiente de decidir desde cuándo cuentan (ver abajo).* |
+| Días seguidos sin intervención | **0 / 14**, desde la ejecución programada del 2026-11-14 |
 | Visto bueno de Sofía | pendiente |
 | 14b · ~100 titulares etiquetados por Sofía: macro F1 del clasificador frente al baseline y validación del juez | pendiente (Sofía) |
 | 24b · Primera elección de Clásicos | pendiente (Sofía) |
 | 15 · Precisión y recall de la agrupación con un LLM real | pendiente: primera ejecución con Groq |
 | 20 · Juicio de los 101 estudios de la carga que quedaron pendientes | pendiente: ejecución programada del 2026-11-14 |
 | Retractaciones que solo conoce Retraction Watch (casilla de ingesta) | pendiente |
-| 23b · Figuras de PMC | pendiente de la decisión de Aday sobre los binarios en la rama `data` |
+| 23b · Figuras de PMC | decidido (opción B: metadatos en la rama `data` y binarios en la caché de Actions); se construye en una rama y se fusiona después del 2026-11-17 |
 
 **Qué cuenta como intervención** (Aday, 2026-11-13): una ejecución programada en rojo, o un commit de Aday que arregle el pipeline para que vuelva a correr. Agotar el cupo de Groq no cuenta, porque es lo normal cada día (D10). Los cambios de contenido o de diseño y las decisiones de Sofía tampoco: son trabajo, no rescates.
 
-**Desde cuándo:** se propuso, y Aday lo aceptó, empezar con la primera ejecución programada con Groq (2026-11-14), lo que daría el 2026-11-27 como cierre más temprano. Pero [`plan-fase-1.md`](plan-fase-1.md) (decisiones del 2026-11-12) dice que «el reloj de los 14 días arranca cuando estén todas las casillas». *Pendiente de que Aday elija una de las dos reglas.*
+**Desde cuándo** (Aday, 2026-11-13): desde la primera ejecución programada con Groq, la del 2026-11-14, así que el cierre más temprano es el 2026-11-27. Sustituye a la regla del plan («cuando estén todas las casillas»). Los 14 días miden si el pipeline corre solo, y las casillas que faltan son trabajo de Sofía, no del pipeline. La fase sigue exigiendo los 14 días **y** todas las casillas **y** el visto bueno de Sofía. Un cambio que entre mientras corre el reloj y rompa una ejecución la pone en rojo y devuelve el contador a 0.
 
 ## Para qué servía esta fase
 

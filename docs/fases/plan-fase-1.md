@@ -69,7 +69,7 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 necesita la cola
 | 25 ✅ | Resumen semanal (misma cadena y comprobaciones) | FakeLLM | página semanal ES y EN |
 | R ✅ | Cola de revisión: pasar `spikes/s4/` (models, intake, apply, review_page) a `src/synaptica/review/` según el ADR 0005; aplicar la frase que sugiera Sofía en la nota; activar `review-intake.yml` y la variable `REVIEWER_LOGIN` (🔵, ajustes de GitHub: con el OK de Aday) | tests de S4 pasados al paquete, sin red | la página de revisión sale del paquete y un Issue de prueba se aplica |
 | 26 ✅ | Dato curioso del día (**hueco en SCOPE**: no dice de dónde sale; propuesta: un hecho ya verificado de los resúmenes del día, con su cita) | test «el dato tiene fuente» | se decide con Aday antes del paso |
-| 23b | Figuras de PMC de acceso abierto en las tarjetas y en la página de cada estudio, cada una con su licencia (`spikes/web/images.py`); va después del 28, porque hay que decidir si los binarios van a la rama `data` (v101) | que cada figura lleve su licencia | figuras con crédito y `site --check` |
+| 23b | Figuras de PMC de acceso abierto en las tarjetas y en la página de cada estudio, cada una con su licencia (`spikes/web/images.py`). Decisión de Aday (v121, opción B): en la rama `data`, solo los metadatos (figura elegida, URL de origen, licencia, autor y pie); el WebP, en la caché de Actions, y se vuelve a pedir al bucket de PMC si se borra. Se fusiona después del 2026-11-17 | que cada figura lleve su licencia | figuras con crédito y `site --check` |
 | 27 ✅ | Pages: el sitio en la raíz, con la maqueta de S3 en `/spikes/s3/c/` (fusionar `pages.yml`; lo confirma Aday) | — | publicado y medido |
 
 ### G. Operación
@@ -90,7 +90,7 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 necesita la cola
    - **Rebanada 4 (operación):** 27 → 28 con cron → 29 → 18 y 20 (🔵, cuando haya cupo o GPU).
    - **Tras D5:** paso R (cola de S4 a `src/synaptica/review/`) → 14b → 24b.
    - **Orden tras el cierre de la Fase 0 (v98, Aday):** 21 → 22 → 23 → selección del cupo diario de resúmenes (SCOPE §8) → R → 14b → 24a → 24b → 26 (antes se decide de dónde sale el dato) → 27 → 28 → 29 → 18 → 20 → 30. El R va pronto para que las etiquetas de Sofía avancen mientras se hace el resto.
-   - **Cierre:** 30. El reloj de los 14 días arranca cuando estén todas las casillas.
+   - **Cierre:** 30. El reloj de los 14 días arranca cuando estén todas las casillas. *Corrección (2026-11-13, SCOPE v121, Aday): el reloj arranca con la ejecución programada del 2026-11-14; para cerrar siguen haciendo falta todas las casillas.*
    - **Cambio de orden (v61, Aday):** tras la rebanada 1 sin la web, primero todo lo que no es web: ingesta y modelos de la rebanada 2 (4–7, OpenAlex del 8, 10–11 ampliados, 13) y la parte de datos y textos de la rebanada 3 (14a, 15, 16, 17, 19, 25 sin página). La web (21–24, 26) va después, de una vez. Diseño decidido: maqueta Noche (`spikes/web/build3.py`, SCOPE v79–v97).
    - **Excepción (v54–v56):** antes de cerrar la Fase 0 se adelanta, en la rama `fase-1`, todo lo que no necesita a Sofía ni toca GitHub: la rebanada 1 sin el paso 28.
 2. **D2:** copiar y adaptar; se cierra con un ADR breve en el paso 1, el primer commit de la Fase 1, no antes.
