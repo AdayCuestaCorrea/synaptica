@@ -657,6 +657,27 @@ def build(
 
 
 @app.command()
+def figures() -> None:
+    """Figure 1 of the «Latest» studies in PMC's open-access bucket, as WebP (reads the
+    warehouse: run ``syn build`` first). Metadata to derived/figures/, files to cache/."""
+    from synaptica import figures as figures_mod
+    from synaptica.http import make_client
+    from synaptica.news.classify import warehouse_path
+
+    warehouse = warehouse_path()
+    if not warehouse.exists():
+        typer.echo("No warehouse: run `syn build` first", err=True)
+        raise typer.Exit(1)
+    with make_client() as client:
+        r = figures_mod.run(client, figures_mod.studies_to_show(warehouse))
+    typer.echo(
+        f"Figures: {r.shown} studies with a PMCID; {r.found} new, {r.without} without one, "
+        f"{r.up_to_date} up to date, {r.refetched} fetched again, {r.failed} failed, "
+        f"{r.removed} old files removed"
+    )
+
+
+@app.command()
 def site(
     out: Annotated[str | None, typer.Option(help="Output folder [default: site/_build].")] = None,
     check: Annotated[

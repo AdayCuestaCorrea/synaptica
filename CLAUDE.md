@@ -114,6 +114,7 @@ uv run syn judge --provider groq [--limit 40] [--until HH:MM] # juez de otra fam
 uv run syn recheck                        # vuelve a comprobar los textos en español que fallaron, sin LLM
 uv run syn weekly --provider groq [--week 2026-W45]   # resumen semanal: misma cadena, comprobaciones y juez
 uv run syn build                          # dbt build: modelos + tests (desde la Fase 1)
+uv run syn figures                        # Figura 1 de Última hora desde el bucket abierto de PMC (WebP a data/cache/)
 uv run syn mirror export --out DIR        # marts a Parquet para el espejo semanal en BigQuery (tope 1 GiB)
 uv run syn mirror record --dir DIR [--stored S]   # anota filas y bytes en mirror/bigquery.jsonl
 uv run syn review queue --out Q                 # cola del día: resúmenes por muestreo (peor español primero), tope 40/10

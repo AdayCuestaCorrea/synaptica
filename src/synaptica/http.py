@@ -148,6 +148,11 @@ def get_text(client: httpx.Client, url: str, **kwargs: Any) -> str:
     return _request(client, "GET", url, lambda r: (True, r.text, ""), **kwargs)
 
 
+def get_bytes(client: httpx.Client, url: str, **kwargs: Any) -> bytes:
+    """GET ``url`` and return its raw body (figures), with the same retries."""
+    return _request(client, "GET", url, lambda r: (True, r.content, ""), **kwargs)
+
+
 def get_json(
     client: httpx.Client,
     url: str,
