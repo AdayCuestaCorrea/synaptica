@@ -59,6 +59,8 @@ ACRONYMS_ES = {
     "DNA": {"ADN"}, "RNA": {"ARN"}, "mRNA": {"ARNm"}, "AI": {"IA"}, "MRI": {"RM", "IRM"},
     "fMRI": {"RMf", "IRMf"}, "ADHD": {"TDAH"}, "ALS": {"ELA"}, "PTSD": {"TEPT"},
     "OCD": {"TOC"}, "ASD": {"TEA"}, "CNS": {"SNC"}, "CSF": {"LCR"}, "HIV": {"VIH"},
+    # Status labels of bioRxiv and PubMed titles, in capitals (real test, step 23c).
+    "WITHDRAWN": {"RETIRADO", "RETIRADA"}, "RETRACTED": {"RETRACTADO", "RETRACTADA"},
 }  # fmt: skip
 _ES_TO_EN = {es: en for en, forms in ACRONYMS_ES.items() for es in forms}
 
@@ -89,7 +91,10 @@ ORGANISMS = {
 # Each part of a hyphenated word on its own, so the Title Case compounds of a headline
 # ("Media-Like", "Co-Use") are not acronyms and "VDR-clock" keeps "VDR" (seen on the
 # fixture titles); the numbers of "GLP-1" are the numbers check's job.
-_PART = re.compile(r"[A-Za-z0-9]+")
+_PART = re.compile(r"[^\W_]+")
+# An acronym with a word ending glued on is the acronym: "GABAergic" and "GABAérgicas"
+# are both GABA (real test, step 23c).
+_SUFFIXED = re.compile(r"^([A-Z0-9]{2,})[^\W\dA-Z_]{3,}$")
 
 
 def _is_identifier(part: str) -> bool:
@@ -191,7 +196,8 @@ def _fold(text: str) -> str:
 
 
 def identifiers(text: str) -> set[str]:
-    return {p for p in _PART.findall(checks._typography(text)) if _is_identifier(p)}
+    parts = (_SUFFIXED.sub(r"\1", p) for p in _PART.findall(checks._typography(text)))
+    return {p for p in parts if _is_identifier(p)}
 
 
 def _title_case(text: str) -> bool:
@@ -209,43 +215,85 @@ def clean(title: str) -> str:
     return title[:-1].rstrip() if title.endswith(".") and not title.endswith("..") else title
 
 
-def check_title(en: str, es: str) -> list[str]:
-    """Problems of a Spanish title against its English original (empty: it passes)."""
+# The problems in English (the derived file, the run log) and in Spanish (Sofía's own
+# corrections, which pass the same checks: CLAUDE.md, ADR D5).
+MESSAGES = {
+    "en": {
+        "empty": "empty",
+        "length": "length {n} for {m} in English",
+        "numbers": "numbers differ ({a} vs {b})",
+        "id_missing": "'{x}' is missing",
+        "id_added": "'{x}' is not in the English title",
+        "name": "name '{x}' is missing",
+        "species": "species '{x}' is missing",
+        "drug": "drug '{x}' is missing",
+        "org_missing": "organism '{x}' is missing",
+        "org_added": "organism '{x}' is not in the English title",
+        "claim": "says '{x}' and the English title does not",
+        "hedge": "the English title is cautious and this is not",
+    },
+    "es": {
+        "empty": "El título está vacío.",
+        "length": "Mide {n} caracteres y el original {m}: demasiado distinto.",
+        "numbers": "Las cifras no coinciden con el original ({a} frente a {b}).",
+        "id_missing": "Falta «{x}», que está en el original.",
+        "id_added": "«{x}» no está en el título original.",
+        "name": "Falta el nombre «{x}» del original.",
+        "species": "Falta la especie «{x}» del original.",
+        "drug": "Falta el fármaco «{x}» del original.",
+        "org_missing": "Falta el organismo del original ({x}).",
+        "org_added": "Nombra un organismo que el original no nombra ({x}).",
+        "claim": "Afirma algo («{x}») que el original no afirma.",
+        "hedge": "El original es prudente («may», «suggests»…) y este título no.",
+    },
+}
+
+
+def check_title(en: str, es: str, lang: str = "en") -> list[str]:
+    """Problems of a Spanish title against its English original (empty: it passes),
+    worded in ``lang``."""
+    problems: list[str] = []
+
+    def add(key: str, **values: object) -> None:
+        problems.append(MESSAGES[lang][key].format(**values))
+
     if not es.strip():
-        return ["empty"]
-    problems = []
+        add("empty")
+        return problems
     ratio = len(es) / max(len(en), 1)
     if not MIN_RATIO <= ratio <= MAX_RATIO or len(es) > MAX_CHARS:
-        problems.append(f"length {len(es)} for {len(en)} in English")
+        add("length", n=len(es), m=len(en))
     if not checks.numbers_match(en, es):
-        problems.append(
-            f"numbers differ ({sorted(checks.numbers(en))} vs {sorted(checks.numbers(es))})"
-        )
+        add("numbers", a=sorted(checks.numbers(en)), b=sorted(checks.numbers(es)))
     ids_en, ids_es = identifiers(en), identifiers(es)
     for token in sorted(ids_en):
         if token not in ids_es and not ACRONYMS_ES.get(token, set()) & ids_es:
-            problems.append(f"'{token}' is missing")
+            add("id_missing", x=token)
     for token in sorted(ids_es - ids_en):
         if _ES_TO_EN.get(token) not in ids_en:
-            problems.append(f"'{token}' is not in the English title")
+            add("id_added", x=token)
     folded_es = _fold(es)
     if not _title_case(en):
-        for name in sorted(checks.names(en)):
+        # After a colon the subtitle starts with a capital, as a title does: "Brain2voice
+        # 2.0: High-performance…" (real test, step 23c).
+        for name in sorted(set().union(*map(checks.names, re.split(r":\s+", en)))):
             if _fold(name) not in folded_es:
-                problems.append(f"name '{name}' is missing")
+                add("name", x=name)
     for species in sorted(set(_ABBREVIATED_SPECIES.findall(en))):
         if " ".join(species.split()) not in " ".join(es.split()):
-            problems.append(f"species '{species}' is missing")
+            add("species", x=species)
     for drug in sorted(set(_DRUG.findall(en.lower()))):
         if _fold(drug[: max(5, len(drug) - 3)]) not in folded_es:
-            problems.append(f"drug '{drug}' is missing")
+            add("drug", x=drug)
     org_en, org_es = _organisms(en, 0), _organisms(es, 1)
-    problems += [f"organism '{o}' is missing" for o in sorted(org_en - org_es)]
-    problems += [f"organism '{o}' is not in the English title" for o in sorted(org_es - org_en)]
+    for o in sorted(org_en - org_es):
+        add("org_missing", x=o)
+    for o in sorted(org_es - org_en):
+        add("org_added", x=o)
     for key in sorted(checks.claims(es, "es") - checks.claims(en, "en")):
-        problems.append(f"says '{key}' and the English title does not")
+        add("claim", x=key)
     if checks._has(checks.HEDGES[0], en) and not checks._has(checks.HEDGES[1], es):
-        problems.append("the English title is cautious and this is not")
+        add("hedge")
     return problems
 
 

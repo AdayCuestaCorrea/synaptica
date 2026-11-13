@@ -57,6 +57,13 @@ PASSES = [
      "La falta de sueño podría perjudicar la memoria en tres grupos de ratas"),
     ("Receptors for mGluR5 and GLP-1 in the human CA1",
      "Receptores de mGluR5 y GLP-1 en la CA1 humana"),
+    # The three false failures of the real test of 40 titles (step 23c).
+    ("Brain2voice 2.0: High-performance voice synthesis brain-computer interface",
+     "Brain2voice 2.0: interfaz cerebro-ordenador de síntesis de voz de alto rendimiento"),
+    ("WITHDRAWN: Shikonin alleviates bone cancer pain via p38 MAPK signaling",
+     "RETIRADO: La shikonina alivia el dolor por cáncer óseo mediante la señalización p38 MAPK"),
+    ("Channel expression in cortical GABAergic neurons",
+     "Expresión de canales en neuronas GABAérgicas corticales"),
     # Title Case compounds are not acronyms; the acronym inside one still counts.
     ("Nicotine and Cannabis Co-Use in Social Media-Like Settings via the VDR-clock axis",
      "El consumo conjunto de nicotina y cannabis en entornos similares a redes sociales "
@@ -68,6 +75,10 @@ FAILS = [
      "Los portadores muestran 2,5 veces más amiloide", "'APOE4' is missing"),
     ("TREM2 shapes microglia", "TREM2 y BDNF modelan la microglía", "'BDNF' is not in the English"),
     ("The VDR-clock axis in the liver", "El eje del reloj en el hígado", "'VDR' is missing"),
+    ("Channel expression in cortical GABAergic neurons", "Expresión de canales en neuronas",
+     "'GABA' is missing"),
+    ("Grid cells in Wistar rats: Hippocampal maps", "Células de rejilla en ratas: mapas",
+     "name 'Wistar' is missing"),
     ("Amyloid rises by 30% in plasma", "El amiloide sube un 40 % en plasma", "numbers differ"),
     ("Hippocampal maps in young Wistar rats", "Mapas hipocampales en ratas jóvenes",
      "name 'Wistar' is missing"),
@@ -124,7 +135,7 @@ def test_a_title_that_fails_is_kept_with_its_problems_and_not_shown(tmp_path):
     assert by_id[GOOD[0]]["status"] == "ok" and by_id[GOOD[0]]["problems"] == []
     assert by_id[GOOD[0]]["title_es"].endswith("ratas")  # the stop is dropped
     assert by_id[BAD[0]]["status"] == "failed" and by_id[BAD[0]]["problems"]
-    assert by_id[BAD[0]]["prompt_version"] == "titles-v1"
+    assert by_id[BAD[0]]["prompt_version"] == "titles-v2"
     assert by_id[BAD[0]]["generator"] == "fake/model"
 
 
@@ -136,7 +147,7 @@ def test_second_run_asks_nothing_and_a_new_prompt_asks_again(tmp_path, monkeypat
     assert again.up_to_date == 2 and len(fake.calls) == 1  # failed ones are not retried
     assert titles.titles_path(tmp_path).read_text("utf-8") == before
     real = titles.prompt
-    monkeypatch.setattr(titles, "prompt", lambda n: (real(n)[0], "titles-v2"))
+    monkeypatch.setattr(titles, "prompt", lambda n: (real(n)[0], "titles-v3"))
     assert titles.translate(fake, items(GOOD), derived_root=tmp_path, now=NOW).translated == 1
 
 
