@@ -81,3 +81,24 @@ def test_summary_items_carry_the_spanish_title_when_there_is_one(tmp_path: Path)
     summarize(data, "doi:10.1/a")
     (news,) = [i for i in queue_of(data).items if i.item_type is ItemType.NEWS]
     assert news.title_es == "Título"
+
+
+def test_her_title_passes_the_title_checks_in_spanish(tmp_path: Path) -> None:
+    from synaptica.review import intake
+
+    data = titled(tmp_path, n=1)
+    (item,) = titles_in(queue_of(data))
+    good = intake.edit_warnings(item, {"es": "El sueño y la memoria en 2 grupos de ratones"}, {})
+    assert good == []
+    bad = intake.edit_warnings(item, {"es": "El sueño y la memoria en 2 grupos de personas"}, {})
+    assert "(español) Falta el organismo del original (mouse)." in bad
+    assert any("no nombra (human)" in w for w in bad)
+
+
+def test_title_messages_exist_in_both_languages() -> None:
+    from synaptica.news import titles
+
+    assert titles.MESSAGES["en"].keys() == titles.MESSAGES["es"].keys()
+    assert titles.check_title("Sleep in mice", "El sueño en animales", lang="es") == [
+        "Falta el organismo del original (mouse)."
+    ]
