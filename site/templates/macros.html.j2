@@ -45,7 +45,7 @@
   <div class="signal is-{{ g.state }}">
     <dt>{{ g.label }}</dt>
     <dd><span data-signal="{{ g.key }}">{{ g.text }}</span>{% if g.provisional %} {{ gap_if("journal_name") }}{% endif %}
-      {% if g.notices %}<small class="notices">{{ t.notices }}: {% for d in g.notices %}<a href="https://doi.org/{{ d }}" rel="noopener" target="_blank">{{ d }}</a>{% if not loop.last %}; {% endif %}{% endfor %}</small>{% endif %}</dd>
+      {% if g.notices or g.notice_sources %}<small class="notices">{{ t.notices.format(sources=(g.notice_sources or ["Crossref"]) | join(" · ")) }}{% if g.notices %}: {% endif %}{% for d in g.notices %}<a href="https://doi.org/{{ d }}" rel="noopener" target="_blank">{{ d }}</a>{% if not loop.last %}; {% endif %}{% endfor %}</small>{% endif %}</dd>
   </div>
   {% endfor %}
 </dl>

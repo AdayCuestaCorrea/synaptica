@@ -50,11 +50,12 @@ EXAMPLE_STATES = ("retracted", "corrected", "preprint")  # «How we evaluate» (
 STUDY_COLUMNS = (
     "study_id", "doi", "pmid", "pmcid", "title", "journal", "published_on", "entered_on",
     "authors", "sources", "review_status", "species", "integrity", "integrity_notices",
-    "license", "publication_types", "news_type",
+    "integrity_sources", "license", "publication_types", "news_type",
 )  # fmt: skip
 SOURCE_NAMES = {
     "pubmed": "PubMed (NLM)", "europepmc": "Europe PMC", "biorxiv": "bioRxiv",
     "medrxiv": "medRxiv", "journals": "RSS", "crossref": "Crossref",
+    "retraction_watch": "Retraction Watch",
 }  # fmt: skip
 LICENCE_NAMES = {
     "cc by": "CC BY", "cc-by": "CC BY", "cc_by": "CC BY",
@@ -210,13 +211,14 @@ def signals(study: dict[str, Any], t: dict[str, str]) -> list[dict[str, Any]]:
     return [
         {"key": "review", "label": t["sig_review"], "state": review,
          "text": t[f"rev_{review}"], "short": t.get(f"rev_{review}_short", t[f"rev_{review}"]),
-         "provisional": review == "journal", "notices": []},
+         "provisional": review == "journal", "notices": [], "notice_sources": []},
         {"key": "subject", "label": t["sig_subject"], "state": species,
          "text": t[f"sp_{species}"], "short": t[f"sp_{species}"], "provisional": False,
-         "notices": []},
+         "notices": [], "notice_sources": []},
         {"key": "integrity", "label": t["sig_integrity"], "state": integrity,
          "text": t[f"int_{integrity}"], "short": t[f"int_{integrity}"], "provisional": False,
-         "notices": study.get("integrity_notices") or []},
+         "notices": study.get("integrity_notices") or [],
+         "notice_sources": [SOURCE_NAMES.get(s, s) for s in study.get("integrity_sources") or []]},
     ]  # fmt: skip
 
 

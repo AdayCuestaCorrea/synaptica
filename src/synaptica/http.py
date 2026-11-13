@@ -148,6 +148,12 @@ def get_text(client: httpx.Client, url: str, **kwargs: Any) -> str:
     return _request(client, "GET", url, lambda r: (True, r.text, ""), **kwargs)
 
 
+def get_response(client: httpx.Client, url: str, **kwargs: Any) -> httpx.Response:
+    """GET ``url`` and return the response itself, with the same retries: for large
+    files and conditional requests (a ``304 Not Modified`` is returned, not raised)."""
+    return _request(client, "GET", url, lambda r: (True, r, ""), **kwargs)
+
+
 def get_json(
     client: httpx.Client,
     url: str,

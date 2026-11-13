@@ -52,6 +52,25 @@ models:
                          expression_of_concern, correction, erratum]
               config: {severity: warn}
 
+  - name: stg_retractionwatch__notices
+    description: >
+      Retraction Watch records (the CSV Crossref publishes), one row per record and
+      version: only facts (original DOI or PMID, kind, notice DOI and date).
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "(record_id || '|' || version_date)"
+    columns:
+      - name: record_id
+        data_tests: [not_null]
+      - name: nature
+        description: Kind of notice; a new kind in the CSV is a warning, not a failure.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [retraction, expression_of_concern, correction, reinstatement]
+              config: {severity: warn}
+
   - name: stg_europepmc__records
     description: Europe PMC open-access records, one row per record and version.
     data_tests:

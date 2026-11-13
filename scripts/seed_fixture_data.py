@@ -19,7 +19,16 @@ import httpx
 from synaptica import report
 from synaptica.config import get_paths
 from synaptica.http import Throttle, make_client
-from synaptica.ingest import biorxiv, crossref, europepmc, journals, news, openalex, pubmed
+from synaptica.ingest import (
+    biorxiv,
+    crossref,
+    europepmc,
+    journals,
+    news,
+    openalex,
+    pubmed,
+    retractionwatch,
+)
 from synaptica.news import neuro
 
 FIXTURES = Path(__file__).resolve().parents[1] / "tests" / "fixtures"
@@ -59,6 +68,9 @@ def answer(request: httpx.Request) -> httpx.Response:
         path = FIXTURES / "crossref" / f"notices_{kind}.json"
         items = _json(path)["message"]["items"] if path.exists() and params["cursor"] == "*" else []
         return httpx.Response(200, json={"message": {"items": items}})
+    if request.url.host == "gitlab.com":  # Retraction Watch: real rows, step 8 (v140)
+        path = FIXTURES / "retractionwatch" / "retraction_watch.csv"
+        return httpx.Response(200, text=path.read_text("utf-8"))
     if request.url.host == "api.biorxiv.org" and request.url.path.startswith("/pubs/"):
         return httpx.Response(200, json={"collection": [], "messages": [{"total": "0"}]})
     if request.url.host == "api.biorxiv.org":
@@ -86,6 +98,7 @@ def main() -> None:
     with make_client(transport=httpx.MockTransport(answer)) as client:
         print(pubmed.ingest(client, today=DAY, api_key="", throttle=NO_WAIT))
         print(crossref.ingest(client, today=DAY, throttle=NO_WAIT))
+        print(retractionwatch.ingest(client, today=DAY))
         print(europepmc.ingest(client, today=DAY, throttle=NO_WAIT))
         print(biorxiv.ingest(client, today=DAY, throttle=NO_WAIT))
         print(biorxiv.ingest_published(client, today=DAY, throttle=NO_WAIT))

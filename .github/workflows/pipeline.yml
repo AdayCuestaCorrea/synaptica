@@ -105,8 +105,9 @@ jobs:
         if: env.RUN == 'true'
         run: |
           failed=""
-          for cmd in "pubmed --days 3" "crossref --days 3" "europepmc --days 3" \
-                     "biorxiv --days 7" "journals" "news" "openalex" "classics"; do
+          for cmd in "pubmed --days 3" "crossref --days 3" "retractionwatch" \
+                     "europepmc --days 3" "biorxiv --days 7" \
+                     "journals" "news" "openalex" "classics"; do
             uv run syn ingest $cmd || failed="$failed ${cmd%% *}"
           done
           if [ -n "$failed" ]; then

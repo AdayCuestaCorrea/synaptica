@@ -25,7 +25,8 @@ def study(sid: str, **kw) -> dict:
         "title": f"Title of {sid}", "journal": "Neuron", "published_on": AS_OF,
         "entered_on": AS_OF, "authors": ["A. One"], "sources": ["pubmed"],
         "review_status": "journal", "species": "animals", "integrity": "none",
-        "integrity_notices": [], "license": "cc by", "publication_types": [],
+        "integrity_notices": [], "integrity_sources": [], "license": "cc by",
+        "publication_types": [],
         "news_type": None, "news_candidate": True, "is_neuro": True,
     }  # fmt: skip
     return row | kw
@@ -40,7 +41,7 @@ STUDIES = [
     study("doi:10.1/pre", review_status="preprint", sources=["biorxiv"], license=None),
     study("doi:10.1/nsc", sources=["journals"], journal="Nature"),
     study("doi:10.1/ret", integrity="retracted", news_candidate=False,
-          integrity_notices=["10.1/notice"]),
+          integrity_notices=["10.1/notice"], integrity_sources=["crossref", "retraction_watch"]),
 ]  # fmt: skip
 NEWS = [
     {"news_item_id": "news:a", "story_id": "news:a", "origin": "outlet", "feed": "sinc",
@@ -59,7 +60,8 @@ def warehouse(data: Path, studies=STUDIES, items=NEWS) -> Path:
         con.execute("""create table dim_study (study_id varchar, doi varchar, pmid varchar,
             pmcid varchar, title varchar, journal varchar, published_on date, entered_on date,
             authors varchar[], sources varchar[], review_status varchar, species varchar,
-            integrity varchar, integrity_notices varchar[], license varchar,
+            integrity varchar, integrity_notices varchar[], integrity_sources varchar[],
+            license varchar,
             publication_types varchar[], news_type varchar, news_candidate boolean,
             is_neuro boolean)""")
         con.execute("""create table fct_news_item (news_item_id varchar, story_id varchar,
@@ -299,3 +301,12 @@ def news_mod_i18n(lang: str) -> dict:
 
     path = Path(build_mod.__file__).parent / "i18n" / f"{lang}.toml"
     return tomllib.loads(path.read_text(encoding="utf-8"))
+
+
+def test_notices_name_the_databases_they_come_from(site: Path) -> None:
+    # Crossref and Retraction Watch (v140): the source is attributed next to the notice.
+    en = (site / "en/study/doi_10.1_ret.html").read_text()
+    es = (site / "es/estudio/doi_10.1_ret.html").read_text()
+    assert "Notices in Crossref · Retraction Watch" in en
+    assert "Avisos en Crossref · Retraction Watch" in es
+    assert 'href="https://doi.org/10.1/notice"' in en

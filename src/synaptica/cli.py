@@ -228,6 +228,27 @@ def ingest_crossref(
     typer.echo(f"Crossref: {listed}; {result.new_versions} new or changed notices stored")
 
 
+@ingest_app.command("retractionwatch")
+def ingest_retractionwatch() -> None:
+    """Retraction Watch database (via Crossref), for retractions with no Crossref notice."""
+    from synaptica.http import HttpError, make_client
+    from synaptica.ingest import retractionwatch
+
+    try:
+        with make_client() as client:
+            result = retractionwatch.ingest(client)
+    except HttpError as exc:
+        typer.echo(f"Retraction Watch failed: {exc}", err=True)
+        raise typer.Exit(code=1) from exc
+    if not result.downloaded:
+        typer.echo("Retraction Watch: not modified since the last run")
+        return
+    typer.echo(
+        f"Retraction Watch: {result.rows} rows, {result.kept} with a DOI or PMID; "
+        f"{result.new_versions} new or changed records stored ({result.removed} removed)"
+    )
+
+
 @ingest_app.command("europepmc")
 def ingest_europepmc(
     days: Annotated[
