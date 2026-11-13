@@ -51,6 +51,8 @@ STUDY_COLUMNS = (
     "study_id", "doi", "pmid", "pmcid", "title", "journal", "published_on", "entered_on",
     "authors", "sources", "review_status", "species", "integrity", "integrity_notices",
     "license", "publication_types", "news_type",
+    # Spanish title (step 23c); null until one passes its checks.
+    "title_es",
     # Figure 1 from PMC's open-access bucket (step 23b); null without one.
     "figure_label", "figure_file", "figure_thumb", "figure_width", "figure_height",
     "figure_license", "figure_license_url", "figure_credit", "figure_source_url",
@@ -194,6 +196,14 @@ def study_record(
     return {**row, "slug": slug(row["study_id"]), "type": study_type(row),
             "url": original_url(row), "summary": summary, "shown_on": shown_on,
             "issue_on": iso(issue), "figure": figure}  # fmt: skip
+
+
+def shown_title(study: dict[str, Any], lang: str) -> dict[str, Any]:
+    """The title a page in ``lang`` shows: the Spanish one when it passed its checks (step
+    23c), else the English original, marked ``lang="en"`` and with the gap."""
+    if lang == "es" and study.get("title_es"):
+        return {"text": study["title_es"], "lang": "es", "translated": True}
+    return {"text": study.get("title") or "—", "lang": "en", "translated": False}
 
 
 def licence_name(value: str | None) -> str | None:

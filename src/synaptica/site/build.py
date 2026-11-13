@@ -227,6 +227,7 @@ class SiteBuilder:
             month=lambda v: news_mod.fmt_month(v, lang),
             sj=news_mod.short_journal, signals=lambda s: news_mod.signals(s, t),
             licence=lambda s: news_mod.licence_lines(s, lang, t), types=news_mod.TYPES,
+            title=lambda s: news_mod.shown_title(s, lang),
             page_size=news_mod.PAGE, **ctx,
         )  # fmt: skip
         path = self.out / rel
@@ -238,13 +239,14 @@ class SiteBuilder:
     # -- gaps shared by the pages that show studies ------------------------------------------
 
     def study_gaps(self, lang: str, studies: Iterable[dict[str, Any]]) -> dict[str, Any]:
-        """The gaps a list of studies needs: the Spanish title (the LLM does not translate
-        yet), the provisional name of the «journal» signal and the missing types."""
+        """The gaps a list of studies needs: the Spanish title (missing until one passes its
+        checks, step 23c), the provisional name of the «journal» signal and the missing
+        types."""
         t, studies = self.i18n[lang], list(studies)
         gaps: dict[str, tuple[str, str]] = {}
         if self.news_data is None:
             gaps["no_data"] = ("gap", t["gap_no_data"])
-        if lang == "es" and studies:
+        if lang == "es" and any(not s.get("title_es") for s in studies):
             gaps["title_es"] = ("gap", t["gap_title_es"])
         if any(s["review_status"] == "journal" for s in studies):
             gaps["journal_name"] = ("gap", t["gap_journal_name"])
@@ -346,8 +348,10 @@ class SiteBuilder:
         out += [[t["kind_section"], sec["name"], t["sec_" + sec["key"]],
                  ATLAS_URL if sec["key"] == "atlas" else ""] for sec in SECTIONS]  # fmt: skip
         if self.news_data:
-            out += [[t["kind_study"], s["title"],
-                     " ".join(filter(None, [s["journal"], s["type"] and t["type_" + s["type"]]])),
+            # A translated title is found by its English original too.
+            out += [[t["kind_study"], news_mod.shown_title(s, lang)["text"],
+                     " ".join(filter(None, [s["journal"], s["type"] and t["type_" + s["type"]],
+                                            lang == "es" and s.get("title_es") and s["title"]])),
                      self.path(lang, "study", s["slug"])]
                     for s in self.news_data.by_id.values()]  # fmt: skip
             out += [[t["kind_news"], i["title"], i["outlet"], i["url"]]

@@ -277,7 +277,7 @@ def translate(
             rows[sid] = {
                 "study_id": sid, "status": "failed" if problems else "ok",
                 # A failed title is kept so it is not asked again, but never shown.
-                "title_es": es, "problems": problems, "input_hash": input_hash(en),
+                "title_en": en, "title_es": es, "problems": problems, "input_hash": input_hash(en),
                 "prompt_version": version, "generator": llm.label, "translated_at": stamp,
             }  # fmt: skip
             if problems:

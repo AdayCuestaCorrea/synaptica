@@ -64,7 +64,7 @@ def warehouse(data: Path, studies=STUDIES, items=NEWS) -> Path:
             is_neuro boolean, figure_label varchar, figure_file varchar,
             figure_thumb varchar, figure_width integer, figure_height integer,
             figure_license varchar, figure_license_url varchar, figure_credit varchar,
-            figure_source_url varchar)""")
+            figure_source_url varchar, title_es varchar)""")
         con.execute("""create table fct_news_item (news_item_id varchar, story_id varchar,
             origin varchar, feed varchar, outlet varchar, lang varchar, url varchar,
             title varchar, published_at timestamp, entered_on date, is_neuro boolean)""")
@@ -328,3 +328,30 @@ def test_nature_science_cell_never_show_a_figure(tmp_path: Path) -> None:
         (data / "cache" / "figures" / name).write_bytes(b"x")
     out = build(tmp_path, data)  # even if a figure row reached it, it is not used
     assert not (out / "static" / "fig").exists()
+
+
+def test_spanish_title_shown_in_spanish_with_its_original(tmp_path: Path) -> None:
+    translated = [study(s["study_id"], **{**s, "title_es": f"Título de {s['study_id']}"})
+                  for s in STUDIES]  # fmt: skip
+    out = build(tmp_path, warehouse(tmp_path / "data", studies=translated))
+    assert check_site(out).passed, check_site(out).problems
+    news_es = (out / "es" / "noticias.html").read_text(encoding="utf-8")
+    assert 'lang="es">Título de doi:10.1/new</a>' in news_es
+    assert 'id="gap-title_es"' not in news_es  # every title shown is translated
+    page = next(p.read_text(encoding="utf-8") for p in (out / "es" / "estudio").glob("*.html")
+                if "Título de doi:10.1/new<" in p.read_text(encoding="utf-8"))  # fmt: skip
+    assert '<h1 class="study-title" lang="es">Título de doi:10.1/new</h1>' in page
+    assert '<span lang="en">Title of doi:10.1/new</span>' in page  # the original, in sight
+    news_en = (out / "en" / "news.html").read_text(encoding="utf-8")
+    assert "Título de" not in news_en and 'lang="en">Title of doi:10.1/new</a>' in news_en
+    index = json.loads((out / "es" / "buscar.json").read_text(encoding="utf-8"))
+    entry = next(e for e in index if e[1] == "Título de doi:10.1/new")
+    assert "Title of doi:10.1/new" in entry[2]  # found by the English title too
+
+
+def test_untranslated_title_keeps_the_original_and_the_gap(tmp_path: Path) -> None:
+    some = [study("doi:10.1/new", title_es="Título nuevo"), *STUDIES[1:]]
+    out = build(tmp_path, warehouse(tmp_path / "data", studies=some))
+    news_es = (out / "es" / "noticias.html").read_text(encoding="utf-8")
+    assert 'lang="es">Título nuevo</a>' in news_es
+    assert 'lang="en">Title of doi:10.1/trial</a>' in news_es and 'id="gap-title_es"' in news_es

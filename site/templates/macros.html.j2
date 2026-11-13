@@ -55,10 +55,11 @@
 <p class="kicker">{% if s.journal %}<span class="journal">{{ sj(s.journal) }}</span> · {% endif %}<time datetime="{{ s.shown_on or '' }}">{{ date(s.shown_on) or "—" }}</time>{% if s.issue_on %} · <span class="issue">{{ t.issue_of.format(month=month(s.issue_on)) }}</span>{% endif %}{% if s.type %} · <span class="type">{{ t["type_" ~ s.type] }}</span>{% endif %}</p>
 {%- endmacro %}
 
-{# The title is always the original English one: the LLM does not translate it yet. In a
-   list the gap is marked once, above it (mark=False); alone, next to the title. #}
+{# The Spanish title when one passed its checks (step 23c), else the English original with
+   its gap. In a list the gap is marked once, above it (mark=False); alone, next to it. #}
 {% macro title_link(s, cls="row-title", tag="h3", mark=False) -%}
-<{{ tag }} class="{{ cls }}"><a href="{{ url('study', s.slug) }}" lang="en">{{ s.title or "—" }}</a>{% if mark and lang == "es" %} {{ gap_if("title_es") }}{% endif %}</{{ tag }}>
+{% set tt = title(s) -%}
+<{{ tag }} class="{{ cls }}"><a href="{{ url('study', s.slug) }}" lang="{{ tt.lang }}">{{ tt.text }}</a>{% if mark and lang == "es" and not tt.translated %} {{ gap_if("title_es") }}{% endif %}</{{ tag }}>
 {%- endmacro %}
 
 {# Figure 1 of the original article (step 23b): self-hosted, never cropped, always with
