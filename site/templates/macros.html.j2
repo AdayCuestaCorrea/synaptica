@@ -7,7 +7,7 @@
 {# A gap or proposal: a short tag that links to the list at the bottom of the page. #}
 {% macro gap(key) -%}
 {% set g = gaps[key] %}
-<a class="gap-tag gap-tag--{{ g[0] }}" href="#gap-{{ key }}"><span aria-hidden="true">{{ t[g[0]] }}</span><span class="vh">{{ t[g[0]] }}: {{ g[1] }}</span></a>
+<a class="gap-tag gap-tag--{{ g[0] }}" href="#gap-{{ key }}" title="{{ g[1] }}"><span aria-hidden="true">{{ t[g[0]] }}</span><span class="vh">{{ t[g[0]] }}: {{ g[1] }}</span></a>
 {%- endmacro %}
 
 {% macro gap_list() -%}

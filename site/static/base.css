@@ -19,8 +19,10 @@ a:hover { text-decoration-thickness: 2px; }
 .more { font-weight: 700; text-decoration: none; color: var(--link); }
 
 /* Mock-up band, gaps and proposals: small dashed tags linking to the list at the bottom */
-.gap-tag { display: inline-block; font: 700 0.62rem/1.5 var(--body); text-transform: uppercase; letter-spacing: 0.06em; padding: 0 5px; border: 1px dashed var(--gap-line); background: var(--gap-bg); color: var(--gap-ink); text-decoration: none; vertical-align: 2px; border-radius: 3px; white-space: nowrap; }
-.gap-tag--proposal { border-style: dotted; }
+/* A gap reads as a quiet note, not a warning (Aday, 2026-11-13: the yellow tags made finished pages look unfinished). Same link to the list at the bottom, and the explanation on hover. */
+.gap-tag { display: inline; font: 400 0.8em/1.4 var(--body); color: var(--muted); text-decoration: underline dotted; text-underline-offset: 3px; white-space: nowrap; }
+.gap-tag:hover, .gap-tag:focus-visible { color: var(--ink); }
+.gap-tag--proposal { font-style: italic; }
 .gaps { margin: 48px 0 0; padding: 16px; border: 1px dashed var(--gap-line); background: var(--gap-bg); color: var(--gap-ink); border-radius: var(--radius); font-size: 0.9rem; }
 .gaps h2 { margin: 0 0 4px; font: 700 1rem var(--body); }
 .gaps p { margin: 0 0 8px; }
@@ -64,8 +66,8 @@ a:hover { text-decoration-thickness: 2px; }
 .chip { font-size: 0.74rem; line-height: 1.3; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--rule); color: var(--ink); background: var(--chip-bg); }
 .chip.is-preprint { border-color: var(--warn); color: var(--warn-ink); font-style: italic; }
 .chip.is-humans, .chip.is-both { border-color: var(--accent); }
-.chip.is-provisional { border: 1px dashed var(--gap-line); background: var(--gap-bg); }
-.chip.is-provisional a { color: var(--gap-ink); text-decoration: none; }
+.chip.is-provisional { border-style: dashed; }
+.chip.is-provisional a { color: inherit; text-decoration: none; }
 .chip.is-provisional a::after { content: " ?"; font-weight: 700; }
 .chip.is-unknown, .chip.is-none { color: var(--muted); }
 .chip.is-retracted, .chip.is-partially_retracted, .chip.is-corrected, .chip.is-concern { background: var(--alert); border-color: var(--alert); color: var(--on-alert); font-weight: 700; }
@@ -341,7 +343,7 @@ a.gl:hover, a.gl:focus-visible { color: var(--link); background: var(--accent-so
   .topic-head { grid-template-columns: 90px minmax(0, 1fr); }
   .topic-head .topic-art { height: 70px; }
 }
-.topic-head a.gap-tag { color: var(--gap-ink); }
+.topic-head a.gap-tag { color: var(--muted); }
 
 /* Fixed pages (step 22): wide prose for tables, tables that scroll on their own on phones */
 .prose.prose--wide { max-width: 62rem; }
