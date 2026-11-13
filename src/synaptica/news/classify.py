@@ -74,7 +74,10 @@ def items_to_classify(today: dt.date, warehouse: Path | None = None) -> dict[str
     with duckdb.connect(str(warehouse or warehouse_path()), read_only=True) as con:
         studies = con.execute(
             "select 'study:' || study_id, title, null, 'en', entered_on from dim_study "
-            "where news_candidate and title is not null and entered_on > ?",
+            # Nature, Science and Cell are not Latest candidates, but their block shows the
+            # type too (found on the first real run of step 14a: 19 of them had none).
+            "where (news_candidate or (list_contains(sources, 'journals') and is_neuro)) "
+            "and title is not null and entered_on > ?",
             [since],
         ).fetchall()
         news = con.execute(
