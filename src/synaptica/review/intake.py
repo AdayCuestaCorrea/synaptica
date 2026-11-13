@@ -34,6 +34,7 @@ the same Issue adds nothing. Command: ``syn review intake``.
 
 from __future__ import annotations
 
+import datetime as dt
 import difflib
 import json
 import re
@@ -406,3 +407,19 @@ def run(
         reply_path.write_text(text + "\n", encoding="utf-8")
     return {"status": out.status, "applied": len(out.applied), "held": len(out.held),
             "refused": len(out.refused), "repeated": len(out.repeated)}  # fmt: skip
+
+
+def queue_for(event_path: Path, queue_dir: Path) -> Path | None:
+    """The queue her page showed (``queue-<day>.json``, by the ``queue:`` header of the
+    Issue: the queue's ``generated_at`` is midnight UTC of its day), else the newest one.
+    The body is read from the event file, never from a shell argument (step 28)."""
+    event = json.loads(event_path.read_text("utf-8"))
+    try:
+        stamp = decode(event["issue"].get("body") or "").queue
+        path = queue_dir / f"queue-{dt.datetime.fromisoformat(stamp).date().isoformat()}.json"
+        if path.exists():
+            return path
+    except BlockError, ValueError, KeyError:
+        pass
+    found = sorted(queue_dir.glob("queue-*.json"))
+    return found[-1] if found else None

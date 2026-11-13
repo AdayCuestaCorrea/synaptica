@@ -117,9 +117,19 @@ def run_checks() -> list[Check]:
 
 
 @app.command()
-def doctor() -> None:
+def doctor(
+    llm: Annotated[
+        str | None,
+        typer.Option(help="Also check that this provider accepts its API key (no tokens)."),
+    ] = None,
+) -> None:
     """Check the environment and the variables the pipeline needs (exit 1 on a failure)."""
     checks = run_checks()
+    if llm:
+        from synaptica.llm import check_key
+
+        ok, detail = check_key(llm)
+        checks.append(Check(f"{llm} API key", ok, detail))
     for c in checks:
         mark = "✓" if c.ok else "✗"
         note = "" if c.required else " (optional)"
@@ -761,7 +771,6 @@ def review_round(
 @review_app.command("intake")
 def review_intake(
     event: Annotated[Path, typer.Option(help="The GitHub `issues` event (JSON).")],
-    queue: QueueOption,
     reviewer: Annotated[str, typer.Option(help="Her GitHub login (a repository variable).")],
     reply: Annotated[Path, typer.Option(help="Write the reply for the Issue here.")],
     cache_root: Annotated[Path | None, typer.Option(help="Abstract cache.")] = None,
@@ -769,13 +778,22 @@ def review_intake(
         list[Path] | None,
         typer.Option(help="PubMed efetch XML for abstracts not in the cache; repeatable."),
     ] = None,
+    queue: Annotated[Path | None, typer.Option(help="Review queue (JSON) the page showed.")] = None,
+    queue_dir: Annotated[
+        Path | None, typer.Option(help="Or pick queue-<day>.json here by the Issue's header.")
+    ] = None,
 ) -> None:
     """Read one of her Issues: applied, held (back to her queue) or refused; exit 2 when an
     edited text has no source to check it against (the Issue waits)."""
     import json
 
-    from synaptica.review.intake import run
+    from synaptica.review.intake import queue_for, run
 
+    if queue is None and queue_dir is not None:
+        queue = queue_for(event, queue_dir)
+    if queue is None:
+        typer.echo("No queue: pass --queue, or --queue-dir with a queue-<day>.json.", err=True)
+        raise typer.Exit(1)
     result = run(event, queue, _review_dir(), reviewer, reply, cache_root=cache_root, efetch=efetch)
     typer.echo(json.dumps(result))
     if result["status"] == "error":

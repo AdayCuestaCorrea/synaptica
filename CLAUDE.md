@@ -89,6 +89,7 @@ docs/                propuesta.md, fuentes.md, adr/, fases/
 uv sync
 uv run syn --help
 uv run syn doctor                         # entorno y variables necesarias (exit 1 si falta algo)
+uv run syn doctor --llm groq              # … y que Groq acepta la clave (sin gastar tokens): la CI se pone en rojo si no
 uv run syn report start --trigger local   # abre el registro de una ejecución en data/runs/
 uv run syn report finish                  # lo completa e imprime el informe en Markdown
 uv run syn report ran-today               # exit 0 si hoy (UTC) ya hubo una ejecución correcta
@@ -116,7 +117,7 @@ uv run syn review queue --out Q                 # cola del día: resúmenes por 
 uv run syn review queue --out Q --run DIR       # … más los textos de una ejecución pasada (p. ej. runs/18/qwen9b)
 uv run syn review page --queue Q --out DIR      # páginas de revisión de Sofía (pública y privada)
 uv run syn review round --queue Q --out DIR     # siguiente ronda: aplica su registro y deja lo pendiente
-uv run syn review intake --event E --queue Q --reviewer LOGIN --reply R [--efetch X]   # lee un Issue suyo (exit 2: espera fuente)
+uv run syn review intake --event E (--queue Q | --queue-dir D) --reviewer LOGIN --reply R [--efetch X]   # lee un Issue suyo (exit 2: espera fuente)
 SYN_DATA_DIR=/tmp/syn-ci uv run python scripts/seed_fixture_data.py   # fixtures como si vinieran de las fuentes
 SYN_DATA_DIR=/tmp/syn-ci uv run syn build --as-of 2026-11-09          # dbt sobre esas fixtures (como la CI)
 uv run syn site && uv run syn site --check

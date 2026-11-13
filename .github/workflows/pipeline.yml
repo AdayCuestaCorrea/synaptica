@@ -1,0 +1,243 @@
+name: Pipeline
+
+# Daily run (plan, step 28), adapted from paleo-atlas .github/workflows/pipeline.yml:
+# ingest the sources, classify and summarize with Groq (judge of another family, D4),
+# rebuild the warehouse and the website, and publish it on GitHub Pages with mock-up C of
+# spike S3 under /spikes/s3/c/ (step 27: this workflow replaces pages.yml).
+#
+# State lives in git: raw data, derived texts, Sofía's review log and the run records are
+# committed to the `data` branch. The cache (abstracts, private quotes, LLM cache and
+# usage) is never committed: it is kept between runs in the Actions cache, private to the
+# repository, so a study's abstract is still there to judge it the next day. The DuckDB
+# file is rebuilt on every run (D1).
+
+on:
+  schedule:
+    # Off the top of the hour, when GitHub delays or drops scheduled runs. The second one
+    # is a backup: it does nothing if a run already finished today.
+    - cron: "17 6 * * *" # main run
+    - cron: "41 10 * * *" # backup
+  workflow_dispatch:
+    inputs:
+      llm:
+        description: Classify and summarize with Groq
+        type: boolean
+        default: true
+
+concurrency:
+  group: pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write # commit to the data branch
+      actions: read # step durations for the run report
+    env:
+      SYN_DATA_DIR: ${{ github.workspace }}/data
+      NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
+    outputs:
+      site: ${{ steps.site.outcome == 'success' }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - name: Check out the data branch
+        uses: actions/checkout@v7.0.1
+        with:
+          ref: data
+          path: data
+
+      - name: Restore the private cache
+        uses: actions/cache/restore@v6.1.0
+        with:
+          path: data/cache
+          key: synaptica-cache-${{ github.run_id }}
+          restore-keys: synaptica-cache-
+
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          enable-cache: true
+
+      - name: Install
+        run: uv sync --locked
+
+      - name: Anything new?
+        # Every run leaves a record in data/runs, also when nothing changed: the freshness
+        # test and the status page read it.
+        run: |
+          if [ "${{ github.event.schedule }}" = "41 10 * * *" ] && uv run syn report ran-today; then
+            echo "The main run already finished today."
+            echo "SKIP=true" >> "$GITHUB_ENV"
+            exit 0
+          fi
+          case "${{ github.event_name }}/${{ github.event.schedule }}" in
+            workflow_dispatch/*) trigger=manual ;;
+            "schedule/41 10 * * *") trigger=backup ;;
+            *) trigger=schedule ;;
+          esac
+          # syn check: 0 something new, 1 nothing new, 2 the check failed (then run all).
+          code=0
+          if [ "$trigger" != manual ]; then
+            uv run syn check || code=$?
+          fi
+          if [ "$code" != 1 ]; then
+            echo "RUN=true" >> "$GITHUB_ENV"
+            uv run syn report start --trigger "$trigger" --changed
+          else
+            echo "Nothing new: only the run log, the warehouse and the site are refreshed."
+            uv run syn report start --trigger "$trigger" --no-changed
+          fi
+
+      - name: Ingest
+        # One failed source does not stop the others; the step still fails red at the end.
+        if: env.RUN == 'true'
+        run: |
+          failed=""
+          for cmd in "pubmed --days 3" "crossref --days 3" "europepmc --days 3" \
+                     "biorxiv --days 7" "journals" "news" "openalex"; do
+            uv run syn ingest $cmd || failed="$failed ${cmd%% *}"
+          done
+          if [ -n "$failed" ]; then
+            echo "::error::ingest failed:$failed"
+            exit 1
+          fi
+
+      - name: dbt build (for the classifier)
+        if: ${{ !cancelled() && env.RUN == 'true' }}
+        run: uv run syn build
+
+      - name: Groq key accepted
+        # Step 28, option A of Aday: no continue-on-error here, so a missing or revoked key
+        # fails the run red instead of leaving it green with fallback texts (paleo-atlas).
+        if: ${{ !cancelled() && env.RUN == 'true' && (github.event_name == 'schedule' || inputs.llm) }}
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: uv run syn doctor --llm groq
+
+      - name: Classify and summarize (Groq)
+        # What is up to date is skipped. When the free quota runs out each command stops
+        # and the rest keeps its fallback text until tomorrow. The writer (qwen3.8-27b)
+        # shares its daily quota between classifying and summarizing; the judge
+        # (gpt-oss-120b) has its own.
+        if: ${{ !cancelled() && env.RUN == 'true' && (github.event_name == 'schedule' || inputs.llm) }}
+        continue-on-error: true
+        timeout-minutes: 60 # the site and the data commit must still run
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          uv run syn news neuro --provider groq
+          uv run syn news classify --provider groq
+          uv run syn news group --provider groq
+          uv run syn build
+          uv run syn facts --provider groq --limit 40
+          uv run syn write --provider groq --limit 40
+          uv run syn recheck
+          uv run syn judge --provider groq
+          if [ "$(date -u +%u)" = 1 ]; then
+            uv run syn weekly --provider groq
+          fi
+
+      - name: dbt build
+        if: ${{ !cancelled() && env.SKIP != 'true' }}
+        run: uv run syn build
+
+      - name: Build the website
+        id: site
+        if: ${{ !cancelled() && env.SKIP != 'true' }}
+        run: |
+          uv run syn site
+          uv run syn site --check
+
+      - name: Sofía's review queue
+        # The queue of the day stays on the data branch: review-intake.yml checks her Issue
+        # against the queue her page showed. Her page goes on Pages at /revision/, a path
+        # nothing links to, with noindex (ADR 0005). The 20 v2 texts of step 18 stay in it
+        # until she has decided them (decided items leave the queue).
+        if: ${{ !cancelled() && env.SKIP != 'true' }}
+        run: |
+          day=$(date -u +%F)
+          runs=""
+          for r in data/runs/18/qwen9b data/runs/18/qwen27b; do
+            [ -f "$r/summary.json" ] && runs="$runs --run $r"
+          done
+          uv run syn review queue --out "data/review/queue-$day.json" $runs
+          uv run syn review page --queue "data/review/queue-$day.json" --out "$RUNNER_TEMP/revision"
+
+      - name: Run report
+        if: always() && env.SKIP != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/attempts/${{ github.run_attempt }}/jobs" \
+            > "$RUNNER_TEMP/jobs.json" || echo '{}' > "$RUNNER_TEMP/jobs.json"
+          uv run syn report finish --jobs "$RUNNER_TEMP/jobs.json" | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit to the data branch
+        # Always, so new raw data and the run log are kept even if dbt or the site fail.
+        if: always() && env.SKIP != 'true'
+        working-directory: data
+        run: |
+          git add -A
+          if git diff --cached --name-only | grep -E '(^|/)cache/|\.duckdb'; then
+            echo "::error::private or local files staged; refusing to commit"
+            exit 1
+          fi
+          if git diff --cached --quiet; then
+            echo "No data changes."
+            exit 0
+          fi
+          message="Data update $(date -u +%F)"
+          if [ -z "$(git diff --cached --name-only | grep -v '^runs/')" ]; then
+            message="Run log $(date -u +%F)"
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "$message"
+          git pull -q --rebase origin data
+          git push -q origin HEAD:data
+
+      - name: Save the private cache
+        if: always() && env.SKIP != 'true'
+        uses: actions/cache/save@v6.1.0
+        with:
+          path: data/cache
+          key: synaptica-cache-${{ github.run_id }}
+
+      - name: Assemble the Pages site
+        if: always() && steps.site.outcome == 'success'
+        # mobile.html of S3 stays out: a local test frame without the medical notice.
+        run: |
+          mkdir -p _site/spikes/s3
+          cp -r site/_build/. _site/
+          cp -r spikes/s3/site/. _site/spikes/s3/
+          rm -f _site/spikes/s3/mobile.html
+          if [ -f "$RUNNER_TEMP/revision/revision.html" ]; then
+            mkdir -p _site/revision
+            cp "$RUNNER_TEMP/revision/revision.html" _site/revision/index.html
+          fi
+          touch _site/.nojekyll
+          du -sh _site
+
+      - uses: actions/upload-pages-artifact@v5.0.0
+        if: always() && steps.site.outcome == 'success'
+        with:
+          path: _site
+
+  deploy:
+    needs: update
+    if: always() && needs.update.outputs.site == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5.0.1

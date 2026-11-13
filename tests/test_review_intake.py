@@ -376,3 +376,18 @@ def test_syn_review_commands(real_issue, tmp_path, monkeypatch):
     assert result.exit_code == 0 and json.loads(result.stdout)["applied"] == 3
     log = tmp_path / "data" / "review" / "decisions.jsonl"
     assert len(log.read_text().splitlines()) == 3
+
+
+def test_the_queue_is_the_one_of_the_issues_header(tmp_path):
+    from synaptica.review.intake import queue_for
+
+    for day in ("2026-11-10", "2026-11-11", "2026-11-12"):
+        (tmp_path / f"queue-{day}.json").write_text("{}")
+    event = tmp_path / "event.json"
+    one = {"item_type": "news", "item_id": "x", "content_sha256": "0" * 64, "action": "approve",
+           "payload": {}, "note": None}  # fmt: skip
+    event.write_text(json.dumps(_event([one])))  # its header: queue 2026-11-11T06:00:00Z
+    assert queue_for(event, tmp_path) == tmp_path / "queue-2026-11-11.json"
+    event.write_text(json.dumps({"issue": {"body": "no block here"}}))
+    assert queue_for(event, tmp_path) == tmp_path / "queue-2026-11-12.json"  # the newest
+    assert queue_for(event, tmp_path / "none") is None
