@@ -294,8 +294,7 @@ class SiteBuilder:
 
     def method(self, lang: str) -> None:
         t = self.i18n[lang]
-        gaps = {k: ("gap", t[f"gap_{k}"]) for k in ("method_review", "journal_name",
-                                                     "retraction_watch")}  # fmt: skip
+        gaps = {k: ("gap", t[f"gap_{k}"]) for k in ("method_review", "journal_name")}
         found = self.news_data.examples if self.news_data else {}
         examples = [(k, found.get(k)) for k in news_mod.EXAMPLE_STATES]
         gaps |= {k: v for k, v in self.study_gaps(lang, [e for _, e in examples if e]).items()

@@ -136,7 +136,7 @@ unit_tests:
           - {doi: "10.1101/p", published_doi: "10.1/j"}
       - input: ref('int_study__integrity')
         rows:
-          - {doi: "10.1/j", integrity: corrected, notice_dois: ['10.9/n']}
+          - {study_id: "10.1/j", integrity: corrected, notice_dois: ['10.9/n']}
       - input: ref('stg_openalex__works')
         rows: []
       - input: ref('stg_preprints__published')
@@ -187,8 +187,8 @@ unit_tests:
           - {doi: "10.1101/n", preprint_type: "new results"}
       - input: ref('int_study__integrity')
         rows:
-          - {doi: "10.1101/r", integrity: retracted, notice_dois: ['10.9/r']}
-          - {doi: "10.1101/c", integrity: corrected, notice_dois: ['10.9/c']}
+          - {study_id: "10.1101/r", integrity: retracted, notice_dois: ['10.9/r']}
+          - {study_id: "10.1101/c", integrity: corrected, notice_dois: ['10.9/c']}
       - input: ref('stg_openalex__works')
         rows: []
       - input: ref('stg_preprints__published')
@@ -211,10 +211,67 @@ unit_tests:
           - {notice_doi: "10.9/n2", updated_doi: "10.1/a", update_type: retraction}
           - {notice_doi: "10.9/n3", updated_doi: "10.1/b", update_type: erratum}
           - {notice_doi: "10.9/n4", updated_doi: "10.1/c", update_type: new_version}
+      - input: ref('int_retractionwatch__notices')
+        rows: []
+      - input: ref('int_study__candidates')
+        rows: []
     expect:
       rows:
-        - {doi: "10.1/a", integrity: retracted, notice_dois: ['10.9/n1', '10.9/n2']}
-        - {doi: "10.1/b", integrity: corrected, notice_dois: ['10.9/n3']}
+        - {study_id: "10.1/a", integrity: retracted, notice_dois: ['10.9/n1', '10.9/n2'],
+           sources: [crossref]}
+        - {study_id: "10.1/b", integrity: corrected, notice_dois: ['10.9/n3'],
+           sources: [crossref]}
+
+  - name: int_study__integrity_retraction_watch
+    description: >
+      Retraction Watch adds the retractions Crossref has no notice for, shares notices
+      with Crossref without repeating them, finds a study by PubMed ID when it has no DOI,
+      and a reinstatement shows as corrected and cancels its earlier retraction (v140).
+    model: int_study__integrity
+    given:
+      - input: ref('stg_crossref__notices')
+        rows:
+          - {notice_doi: "10.9/x", updated_doi: "10.1/x", update_type: retraction}
+          - {notice_doi: "10.9/k", updated_doi: "10.1/k", update_type: retraction}
+      - input: ref('int_retractionwatch__notices')
+        rows:
+          - {record_id: "1", original_doi: "10.1/only-rw", nature: retraction,
+             notice_doi: null, noticed_on: 2026-10-01}
+          - {record_id: "2", original_doi: "10.1/x", nature: retraction,
+             notice_doi: "10.9/x", noticed_on: 2026-10-01}
+          - {record_id: "3", original_doi: null, original_pmid: "111",
+             nature: expression_of_concern, notice_doi: "10.9/p", noticed_on: 2026-10-01}
+          - {record_id: "4", original_doi: null, original_pmid: "222", nature: correction,
+             notice_doi: null, noticed_on: 2026-10-01}
+          - {record_id: "5", original_doi: "10.1/r", nature: retraction,
+             notice_doi: "10.9/r1", noticed_on: 2025-01-01}
+          - {record_id: "6", original_doi: "10.1/r", nature: reinstatement,
+             notice_doi: "10.9/r2", noticed_on: 2025-06-01}
+          - {record_id: "7", original_doi: "10.1/k", nature: reinstatement,
+             notice_doi: "10.9/k2", noticed_on: 2025-06-01}
+          - {record_id: "8", original_doi: "10.1/later", nature: reinstatement,
+             notice_doi: null, noticed_on: 2025-06-01}
+          - {record_id: "9", original_doi: "10.1/later", nature: retraction,
+             notice_doi: null, noticed_on: 2026-01-01}
+      - input: ref('int_study__candidates')
+        rows:
+          - {study_id: "10.1/p", doi: "10.1/p", pmid: "111"}
+    expect:
+      rows:
+        - {study_id: "10.1/only-rw", integrity: retracted, notice_dois: null,
+           sources: [retraction_watch]}
+        - {study_id: "10.1/x", integrity: retracted, notice_dois: ['10.9/x'],
+           sources: [crossref, retraction_watch]}
+        - {study_id: "10.1/p", integrity: concern, notice_dois: ['10.9/p'],
+           sources: [retraction_watch]}
+        - {study_id: "pmid:222", integrity: corrected, notice_dois: null,
+           sources: [retraction_watch]}
+        - {study_id: "10.1/r", integrity: corrected, notice_dois: ['10.9/r2'],
+           sources: [retraction_watch]}
+        - {study_id: "10.1/k", integrity: retracted, notice_dois: ['10.9/k', '10.9/k2'],
+           sources: [crossref, retraction_watch]}
+        - {study_id: "10.1/later", integrity: retracted, notice_dois: null,
+           sources: [retraction_watch]}
 
   - name: journal_item_kinds
     description: Sections map to kinds; Nature's DOIs decide when there is no section.

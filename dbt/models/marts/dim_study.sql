@@ -8,11 +8,12 @@
 --     words it is decided with Sofía (step 21).
 --   species: humans | animals | both | unknown, from MeSH only (PubMed, or Europe PMC's
 --     descriptor names); never guessed from the title.
---   integrity: retracted | partially_retracted | concern | corrected | none, from Crossref;
+--   integrity: retracted | partially_retracted | concern | corrected | none, from Crossref
+--     notices, the Retraction Watch database (v140) and the "Retracted Publication" type
+--     of PubMed or Europe PMC; integrity_sources says which databases gave the notices.
 --     withdrawn: a bioRxiv / medRxiv preprint whose authors withdrew it (its latest version
 --     is of type "withdrawn"; servers deposit no Crossref notice for it). A retraction
 --     outranks it; it outranks a concern or a correction.
---     notices and from the "Retracted Publication" type of PubMed or Europe PMC.
 --   is_neuro / neuro_basis: every source but the general journals is neuroscience by its
 --     query or category; a general journal's paper needs the step 13 decision (OpenAlex
 --     or LLM). Not neuro, or not decided yet, is false: the website shows only true.
@@ -90,6 +91,7 @@ select
         else 'none'
     end as integrity,
     coalesce(i.notice_dois, []) as integrity_notices,
+    coalesce(i.sources, []) as integrity_sources,
     coalesce(m.is_open_access, false) as is_open_access,
     m.license,
     m.neuro_basis is not null as is_neuro,
@@ -114,7 +116,7 @@ select
     po.preprint_doi,
     o.primary_field as openalex_field
 from merged as m
-left join {{ ref('int_study__integrity') }} as i on i.doi = m.doi
+left join {{ ref('int_study__integrity') }} as i on i.study_id = m.study_id
 left join {{ ref('stg_derived__news_types') }} as t on t.item_id = 'study:' || m.study_id
 left join {{ ref('stg_derived__news_types') }} as tj on tj.item_id = 'journal:' || m.doi
 left join {{ ref('int_preprints__latest') }} as p on p.doi = m.doi and p.published_doi is not null

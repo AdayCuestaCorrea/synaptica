@@ -295,7 +295,7 @@ def test_status_shows_the_recorded_runs(tmp_path: Path) -> None:
 def test_fixed_pages_mark_their_gaps(tmp_path: Path) -> None:
     out = build(tmp_path)
     method = (out / "es/como-evaluamos.html").read_text()
-    for key in ("method_review", "journal_name", "retraction_watch"):
+    for key in ("method_review", "journal_name"):
         assert f'id="gap-{key}"' in method and f'href="#gap-{key}"' in method, key
     assert "provisional" not in method.lower()
     about = (out / "en/about.html").read_text()

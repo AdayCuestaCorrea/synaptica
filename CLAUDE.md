@@ -96,6 +96,7 @@ uv run syn report ran-today               # exit 0 si hoy (UTC) ya hubo una ejec
 uv run syn check                          # ¿algo nuevo? exit 0 sí, 1 no, 2 la comprobación falló
 uv run syn ingest pubmed --days 3         # registros nuevos de PubMed a data/raw/pubmed/ (abstracts solo a data/cache/)
 uv run syn ingest crossref --days 3       # avisos de retractación, corrección… a data/raw/crossref/notices/
+uv run syn ingest retractionwatch         # base de Retraction Watch (CSV de Crossref, descarga condicional): solo los cambios
 uv run pytest
 uv run ruff check . && uv run ruff format --check .
 uv run syn ingest europepmc --days 3      # acceso abierto de Europe PMC (el texto completo, bajo demanda)
