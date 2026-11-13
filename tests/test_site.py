@@ -37,7 +37,7 @@ def test_build_passes_the_check(tmp_path: Path) -> None:
         assert (out / rel).exists(), rel
     report = check_site(out)
     assert report.passed, report.problems
-    assert report.pages == 11  # root + 5 kinds in 2 languages
+    assert report.pages == 17  # root + 8 kinds in 2 languages; no study without data
 
 
 def test_build_is_idempotent(tmp_path: Path) -> None:
@@ -65,12 +65,11 @@ def test_pending_licence_is_shown_as_a_gap_and_fails(tmp_path: Path) -> None:
 
 
 def test_pages_link_only_to_built_pages(tmp_path: Path) -> None:
-    """Neuro News (step 23) and the glossary (Phase 2) are not built: no link to them."""
+    """The glossary (Phase 2) is not built: no link to it."""
     out = build(tmp_path)
     for page in out.rglob("*.html"):
         text = page.read_text()
-        assert "noticias.html" not in text and "glosario.html" not in text, page
-        assert "news.html" not in text and "glossary.html" not in text, page
+        assert "glosario.html" not in text and "glossary.html" not in text, page
     es = (out / "es/index.html").read_text()
     for href in ("como-evaluamos.html", "fuentes.html", "estado.html", "sobre-nosotros.html"):
         assert f'href="{href}"' in es, href

@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="{{ static('synaptica.css') }}?v={{ asset_v }}">
 <link rel="icon" href="{{ static('favicon.svg') }}" type="image/svg+xml">
 <script src="{{ static('site.js') }}?v={{ asset_v }}"></script>
+{% if search %}<script src="{{ static('search.js') }}?v={{ asset_v }}" defer></script>{% endif %}
 </head>
 <body>
 <a class="skip" href="#main">{{ t.skip }}</a>
@@ -25,6 +26,13 @@
       <a href="{{ href }}"{% if page_kind == k or (k == "news" and page_kind in ("study", "week")) %} aria-current="page"{% endif %}>{{ label }}</a>
       {% endfor %}
     </nav>
+    {% if search %}
+    <form class="search" role="search" action="{{ search.action }}" data-search data-index="{{ search.index }}" data-base="{{ search.base }}" data-all="{{ t.search_all }}" data-none="{{ t.search_none }}">
+      <svg class="search-icon" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="m15 15 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <input type="search" name="q" placeholder="{{ t.search_ph }}" aria-label="{{ t.search }}" autocomplete="off" aria-autocomplete="list" aria-controls="suggest" aria-expanded="false">
+      <ul class="suggest" id="suggest" role="listbox" hidden></ul>
+    </form>
+    {% endif %}
     <span class="tools">
       <a class="tool" href="{{ other_url }}" hreflang="{{ other_lang }}" lang="{{ other_lang }}"><span aria-hidden="true">{{ t.lang_code }}</span><span class="vh">{{ t.lang_switch }}</span></a>
       <button class="tool theme-toggle" type="button" data-theme-toggle aria-live="polite"

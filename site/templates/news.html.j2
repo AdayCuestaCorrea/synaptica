@@ -1,0 +1,59 @@
+{# Neuro News (plan, step 23): Latest, Nature · Science · Cell and In the media. Classics
+   arrive with step 24. From the «Noche» mock-up (spikes/web/v3/templates/news.html.j2). #}
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m with context %}
+{% block title %}{{ t.news }}{% endblock %}
+{% block main %}
+<header class="page-head">
+  <h1>{{ t.news }}</h1>
+  {% if news %}
+  <p class="sec-date">{{ date(news.as_of, True) }}</p>
+  {% set wt = news.week_text[lang] %}
+  <a class="week-strip" href="{{ url('week') }}"><span class="label">{{ t.week }}</span> {{ wt.sentences[0].text if wt.kind == "verified" else wt.text }} <span class="more">{{ t.week_cta }} →</span></a>
+  {% else %}
+  <p>{{ t.no_data }} {{ m.gap("no_data") }}</p>
+  {% endif %}
+</header>
+
+{% if news %}
+<div class="tabs" data-tabs>
+  <div class="tablist" role="tablist" aria-label="{{ t.tab_label }}">
+    <button role="tab" id="tab-latest" aria-controls="p-latest" aria-selected="true">{{ t.latest }} <span class="n">{{ news.latest | length }}</span></button>
+    <button role="tab" id="tab-nsc" aria-controls="p-nsc" aria-selected="false" tabindex="-1">Nature · Science · Cell <span class="n">{{ news.nsc | length }}</span></button>
+    <button role="tab" id="tab-media" aria-controls="p-media" aria-selected="false" tabindex="-1">{{ t.media }} <span class="n">{{ news.stories | length }}</span></button>
+  </div>
+
+  <section class="panel" role="tabpanel" id="p-latest" aria-labelledby="tab-latest">
+    <p class="panel-note">{{ t.latest_note }} {{ m.gap_if("title_es") }}</p>
+    <div class="filters" role="group" aria-label="{{ t.filter_label }}" data-filters="latest-list">
+      <button type="button" data-filter="all" aria-pressed="true">{{ t.filter_all }} <span class="n">{{ news.latest | length }}</span></button>
+      {% for k in types %}<button type="button" data-filter="{{ k }}" aria-pressed="false">{{ t["type_" ~ k] }} <span class="n">{{ type_counts[k] }}</span></button>{% endfor %}
+      {{ m.gap_if("types") }}
+    </div>
+    <div class="list" id="latest-list" data-page="{{ page_size }}">
+      {% for s in news.latest %}{{ m.row(s) }}{% endfor %}
+    </div>
+    {% if not news.latest %}<p class="empty-state">{{ t.latest_empty }}</p>{% endif %}
+    <p class="empty" data-filter-empty hidden>{{ t.filter_empty }}</p>
+    <button class="more-btn" type="button" data-more="latest-list" hidden>{{ t.more_n.format(n=page_size) }}</button>
+  </section>
+
+  <section class="panel" role="tabpanel" id="p-nsc" aria-labelledby="tab-nsc">
+    <p class="panel-note">{{ t.nsc_note }} {{ m.gap_if("title_es") }}</p>
+    <div class="list list--plain" id="nsc-list" data-page="{{ page_size }}">
+      {% for s in news.nsc %}{{ m.row(s) }}{% endfor %}
+    </div>
+    {% if not news.nsc %}<p class="empty-state">{{ t.nsc_empty }}</p>{% endif %}
+    <button class="more-btn" type="button" data-more="nsc-list" hidden>{{ t.more_n.format(n=page_size) }}</button>
+  </section>
+
+  <section class="panel" role="tabpanel" id="p-media" aria-labelledby="tab-media">
+    <p class="panel-note">{{ t.media_note }} {{ m.gap_if("groups") }}</p>
+    <div class="stories">
+      {% for story in news.stories %}{{ m.story(story) }}{% endfor %}
+    </div>
+    {% if not news.stories %}<p class="empty-state">{{ t.media_empty }}</p>{% endif %}
+  </section>
+</div>
+{% endif %}
+{% endblock %}

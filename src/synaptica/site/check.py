@@ -18,11 +18,14 @@ New in SYNAPTICA:
 * an image outside a figure names its credit (``data-credit`` = the id of an element of the
   same page) and that credit carries a licence. A licence still pending fails on purpose.
 
-Paleo's search-index count is left out until the site has a search.
+From Paleo again with the search (step 23), adapted to its index of
+``[kind, text, extra, url]`` rows: every study page is in the search index of its language,
+and every local URL of the index points to an existing file.
 """
 
 from __future__ import annotations
 
+import json
 import tomllib
 from dataclasses import dataclass, field
 from html.parser import HTMLParser
@@ -37,6 +40,7 @@ VOID = {
 SIGNALS = ("review", "subject", "integrity")
 # Folders of pages that must be reachable from another page (not only from search).
 LINKED_FOLDERS = ("es/estudio", "en/study")
+SEARCH_INDEXES = (("es/buscar.json", "es/estudio"), ("en/search.json", "en/study"))
 I18N_DIR = Path(__file__).parent / "i18n"
 
 
@@ -220,6 +224,17 @@ def check_site(root: Path) -> CheckReport:
         for page in sorted((root / folder).glob("*.html")):
             if page.resolve() not in linked | redirects:
                 report.problems.append(f"{page.relative_to(root)}: no page links to it")
+    for index, folder in SEARCH_INDEXES:
+        if not (root / index).exists():
+            continue
+        urls = {row[3] for row in json.loads((root / index).read_text(encoding="utf-8"))}
+        local = {u for u in urls if u and not urlparse(u).scheme}
+        for u in sorted(local):
+            if not (root / u).exists():
+                report.problems.append(f"{index}: {u} does not exist")
+        for page in sorted((root / folder).glob("*.html")):
+            if page.relative_to(root).as_posix() not in local:
+                report.problems.append(f"{page.relative_to(root)}: not in {index}")
     if report.pages == 0:
         report.problems.append(f"{root}: no pages (was the site built?)")
     return report
