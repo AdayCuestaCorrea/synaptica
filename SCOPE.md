@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 97** · 2026-11-13 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 98** · 2026-11-13 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -138,19 +138,19 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 
 ### Fase 1 — La base
 
-[Plan](docs/fases/plan-fase-1.md): 30 pasos en cuatro rebanadas verticales; se empieza a programar cuando cierre la Fase 0.
+[Plan](docs/fases/plan-fase-1.md): 30 pasos en cuatro rebanadas verticales. Se programa desde el cierre de la Fase 0 (2026-11-13); los pasos que no necesitaban a Sofía ni GitHub se adelantaron en la rama `fase-1` (excepción de las v54–v56). Una casilla se marca cuando se cumple el «Hecho cuando» de sus pasos en el plan; si el código está hecho pero falta algo, lo dice la nota en cursiva.
 
-- [ ] Ingesta de las fuentes de la Fase 1 (§5) en la rama `data`, con caché y respeto de límites
-- [ ] Modelos dbt con tests: claves, valores aceptados, relaciones y frescura de cada fuente
-- [ ] Filtro «¿es neurociencia?» para las revistas generalistas
-- [ ] Clasificación por tipo (cerebro sano, enfermedades, ensayos clínicos, técnicas, ruido), evaluada contra unos 100 titulares etiquetados por Sofía y un baseline clásico
-- [ ] Agrupación de la misma noticia entre medios e idiomas
-- [ ] Resúmenes EN → ES con las comprobaciones de texto
+- [ ] Ingesta de las fuentes de la Fase 1 (§5) en la rama `data`, con caché y respeto de límites. *Código hecho (pasos 3–8); falta escribir en la rama `data` (paso 28) y las retractaciones que solo conoce Retraction Watch.*
+- [x] Modelos dbt con tests: claves, valores aceptados, relaciones y frescura de cada fuente
+- [x] Filtro «¿es neurociencia?» para las revistas generalistas (paso 13, medido en la v69; la comparación con las etiquetas de Sofía va con el 14b)
+- [ ] Clasificación por tipo (cerebro sano, enfermedades, ensayos clínicos, técnicas, ruido), evaluada contra unos 100 titulares etiquetados por Sofía y un baseline clásico. *Código hecho (14a); faltan las etiquetas de Sofía (14b) y una ejecución real.*
+- [ ] Agrupación de la misma noticia entre medios e idiomas. *Código hecho (15) y probado con FakeLLM; faltan la precisión y el recall de los pares con un LLM real.*
+- [x] Resúmenes EN → ES con las comprobaciones de texto (pasos 16 y 17; probado con FakeLLM, sin ejecución real todavía)
 - [ ] Repetir la cadena de S5 con los prompts v2 (Groq, y Qwen 9B cuando la GPU de Aday quede libre) y comprobaciones nuevas (ortografía en español, frases de alarma, cautelas), comparando con la revisión de Sofía ([ADR D4](docs/adr/0004-llm.md))
-- [ ] Juez de otra familia (D4) y carga inicial de resúmenes con el modelo local de Aday, cuando el PC quede libre de los lotes de Paleo; después, Groq en Actions
-- [ ] Señales de cada estudio: revisión por pares o preprint, humanos o animales, retractado o corregido
+- [ ] Juez de otra familia (D4) y carga inicial de resúmenes con el modelo local de Aday, cuando el PC quede libre de los lotes de Paleo; después, Groq en Actions. *El juez está hecho (19); falta la carga inicial (20).*
+- [x] Señales de cada estudio: publicado en revista o preprint (ver «Cómo evaluamos»), humanos o animales, retractado o corregido (paso 12; que se vean en cada página lo comprueba `syn site --check`, paso 21; falta Retraction Watch, ver la primera casilla)
 - [ ] Bloques Última hora · Nature, Science y Cell · Clásicos (propuesta semanal por citas en OpenAlex y aprobación de Sofía)
-- [ ] Resumen semanal
+- [ ] Resumen semanal. *Texto hecho (25); falta su página en ES y EN.*
 - [ ] Web: portada y diseño, aviso médico, dato curioso del día, Cómo evaluamos, Estado de los datos, Fuentes y licencias, Acerca de; bilingüe y con `syn site --check`
 - [ ] `pipeline.yml`: ejecución diaria con detección de cambios, respaldo e informe
 - [ ] Espejo semanal de los marts en BigQuery sandbox (D1), con su consumo de cupo medido en el informe
@@ -161,6 +161,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 
 - [ ] **Neuro Atlas:** humano (Julich-Brain) y rata (Waxholm) en 3D según D3, cada atlas por separado y con su licencia
   - [ ] **Estudio de UX y UI de Neuro Atlas**, antes de construirlo, a partir de las [notas de la maqueta de S3](spikes/s3/results/notas-ux.md) y de la revisión de Sofía
+  - [ ] Pasar el script de datos del visor (`spikes/s3/build_assets.py`) a `src/synaptica/atlas/` con tests y reescribir el visor en `site/static/` ([ADR D3](docs/adr/0003-visor.md); en la Fase 1 la portada enlaza al prototipo de S3)
   - [ ] **Introducción:** diferencias generales entre el cerebro humano y el de rata (girencéfalo frente a lisencéfalo, proporciones, etc.), con la cadena de textos y revisada por Sofía
   - [ ] Orden de las regiones: primero las estructuras de la superficie y después las internas (hipocampo, amígdala…), según propone Sofía
   - [ ] Cada región con nombre y código oficial; al tocarla, descripción, enfermedades relacionadas (Wikidata) y últimos estudios
@@ -213,6 +214,8 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 | D3 · Visor 3D: Niivue 0.69 con volúmenes de etiquetas propios, uno por atlas, servido desde la web; rata Waxholm y humano Julich-Brain con capas debajo (CerebrA, CIT168, sustancia blanca de ICBM 2009c); tinción dibujada o real (BigBrain en el humano; Nissl en el corte 2D de la rata) ([ADR](docs/adr/0003-visor.md)) | S3: todo el atlas clicable sin una malla por región, corte 2D sincronizado de serie, sin otros dominios ni seguimiento; ~2,5 MB y ~19 s en móvil con red lenta. Elegida por Sofía, revisada por ella y cerrada por Aday (2026-11-13) |
 | D4 · LLM: carga inicial con el modelo local de Aday (Qwen 9B en Ollama); después, Groq gratis en Actions con redactor `qwen3.8-27b` y juez `gpt-oss-120b` (otra familia) | S5: Groq da unos 40–60 resúmenes al día por modelo, y el juez de otra familia cazó 3 errores reales que las comprobaciones dejaban pasar. La carga inicial va en local para no gastar cupo; se hace cuando terminen los lotes de Paleo ([ADR D4](docs/adr/0004-llm.md)) |
 | D5 · Revisión: página de revisión generada cada día y envío como Issue de GitHub; un workflow valida autor, versión y comprobaciones y lo añade a un registro en la rama `data` ([ADR](docs/adr/0005-revision.md)) | S4, probado con Sofía en 3 rondas (2026-11-12): sin terminal ni git, cumple los criterios salvo el tiempo de la primera ronda (38 min, con más trabajo del pedido); prefiere esto a una hoja de cálculo y no le importa que sus decisiones sean públicas. La prueba destapó 6 fallos, corregidos |
+| Cupo diario de resúmenes: prioridad por niveles y, dentro de cada uno, lo más nuevo primero: (1) neurociencia de Nature · Science · Cell y sus hermanas; (2) estudios que la agrupación une a una noticia de los medios; (3) el resto de lo publicado en revista; (4) preprints. Lo que no entra muestra el texto de respaldo | Decisión de Aday (v98) sobre la pregunta abierta de la v72: S5 da 40–60 resúmenes al día por modelo frente a unos 470 candidatos. Es determinista, se prueba sin red y gasta el cupo en lo que la web enseña primero; la carga inicial en local (paso 20) recupera atrasos |
+| La señal `review_status = journal` se muestra como «Publicado en revista» / «Published in a journal», no como «revisado por pares» | Decisión de Aday (v98): ni Crossref ni PubMed dicen de forma fiable si hubo revisión por pares; «Cómo evaluamos» lo explica. El nombre final lo confirma Sofía |
 
 ### Abiertas
 
@@ -344,3 +347,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 95 | 2026-11-13 | **Fase 0 cerrada** por Aday. D3 cerrada: Sofía da por buena la maqueta C con la tinción doble, el humano completado y el Nissl de rata en 2D ([ADR 0003](docs/adr/0003-visor.md), aceptado); casilla de S3 marcada; [`docs/fases/fase-0.md`](docs/fases/fase-0.md) completo. La rama `fase-1` puede fusionarse en `main` (excepción de la fila 54) |
 | 96 | 2026-11-13 | Maqueta web: la imagen de la cabecera la generó Sofía con ChatGPT (crédito corregido). Sin fondo, con `spikes/web/hero_image.py`: color a transparencia sobre una estimación local del fondo, quitando el grano. Hay una versión por tema: líneas blancas en oscuro, y tinta y acento en claro, con el acento solo en los rellenos grandes |
 | 97 | 2026-11-13 | Maqueta web: fuera el texto bajo la imagen de la cabecera (a Sofía no le gusta); su autoría pasa al pie de página, con las demás imágenes |
+| 98 | 2026-11-13 | Revisión de incoherencias tras el cierre de la Fase 0 (Aday). Fase 1: una casilla se marca cuando se cumple el «Hecho cuando» de sus pasos; se marcan las de dbt, el filtro de neurociencia, los resúmenes con comprobaciones y las señales, y otras cinco llevan una nota de avance. Fuera las frases de antes del cierre en §7 y en el plan; la integración de la cola de revisión pasa a ser el paso R del plan. El paso del visor a `src/synaptica/atlas/` y `site/static/` va a la Fase 2 (corrección fechada en el ADR 0003 y en `fase-0.md`), y en la Fase 1 la portada enlaza al prototipo de S3. Decisiones de Aday en §8: cupo diario de resúmenes por niveles, y la señal `journal` como «Publicado en revista» (también en CLAUDE.md) |

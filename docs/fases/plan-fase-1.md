@@ -2,7 +2,7 @@
 
 ## Contexto
 
-La Fase 0 está a punto de cerrarse: faltan D3, que se acepta tras la opinión de Sofía esta tarde, y D5, que depende de la prueba de S4. Aday quiere tener preparado el plan de la Fase 1 (SCOPE §7, 13 casillas): pasos pequeños, cada uno con su commit, sus tests sin red y su criterio de hecho, siguiendo los patrones de `../paleo-atlas`. Los pasos que dependen de D5 quedan marcados y aparcados. **No se programa nada hasta que se cierre la Fase 0.**
+Plan de la Fase 1 (SCOPE §7, 14 casillas): pasos pequeños, cada uno con su commit, sus tests sin red y su criterio de hecho, siguiendo los patrones de `../paleo-atlas`. Se escribió antes de cerrar la Fase 0; la Fase 0 se cerró el 2026-11-13, con D3 y D5 cerradas ([ADR 0003](../adr/0003-visor.md) y [ADR 0005](../adr/0005-revision.md)). Los pasos que no necesitaban a Sofía ni GitHub se adelantaron en la rama `fase-1` (SCOPE v54–v56).
 
 Aprobado por Aday el 2026-11-12 (SCOPE v53). Las rutas de Paleo Atlas son relativas a `../paleo-atlas/`.
 
@@ -15,7 +15,7 @@ Aprobado por Aday el 2026-11-12 (SCOPE v53). Las rutas de Paleo Atlas son relati
 
 ## Pasos
 
-Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 depende de D5 (después del ADR 0005) · 🔵 depende de algo externo (la GPU de Aday, secretos o ajustes de GitHub, que confirma él).
+Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 necesita la cola de revisión en el paquete (paso R; D5 cerrada, ADR 0005) · 🔵 depende de algo externo (la GPU de Aday, secretos o ajustes de GitHub, que confirma él).
 
 ### A. Cimientos del paquete
 | # | Paso | Origen en Paleo / S | Tests sin red | Hecho cuando |
@@ -67,6 +67,7 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 depende de D5 (d
 | 24a 🟢 | Clásicos: propuesta semanal por citas de OpenAlex, que entra en la cola de Sofía; mientras no esté aprobado, el bloque no muestra nada | test «nada sin aprobar» | propuesta generada |
 | 24b 🟡 | Aprobación de los Clásicos por el flujo D5 | — | bloque con los aprobados |
 | 25 ✅ (sin página) | Resumen semanal (misma cadena y comprobaciones) | FakeLLM | página semanal ES y EN |
+| R 🟢 | Cola de revisión: pasar `spikes/s4/` (models, intake, apply, review_page) a `src/synaptica/review/` según el ADR 0005; aplicar la frase que sugiera Sofía en la nota; activar `review-intake.yml` y la variable `REVIEWER_LOGIN` (🔵, ajustes de GitHub: con el OK de Aday) | tests de S4 pasados al paquete, sin red | la página de revisión sale del paquete y un Issue de prueba se aplica |
 | 26 🟢 | Dato curioso del día (**hueco en SCOPE**: no dice de dónde sale; propuesta: un hecho ya verificado de los resúmenes del día, con su cita) | test «el dato tiene fuente» | se decide con Aday antes del paso |
 | 27 🔵 | Pages: el sitio en la raíz, con la maqueta de S3 en `/spikes/s3/c/` (fusionar `pages.yml`; lo confirma Aday) | — | publicado y medido |
 
@@ -77,7 +78,7 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 depende de D5 (d
 | 29 🔵 | Espejo semanal de los marts en BigQuery (load jobs, WIF ya creado; cupo de 10 GiB de por vida medido en el informe) | test de la selección de marts y del tamaño | consumo anotado |
 | 30 | 14 días autónomos, visto bueno de Sofía y `fase-1.md` | — | cierre |
 
-**Integración de la cola de revisión (🟡):** pasar `spikes/s4/` (models, intake, apply, review_page) a `src/synaptica/review/` según lo que diga el ADR 0005. Lo necesitan el 14b y el 24b. Nada más de la Fase 1 depende de D5, porque solo Neuro Diseases bloquea la publicación, y es de la Fase 3.
+**Cola de revisión (paso R):** la necesitan el 14b y el 24b. Nada más de la Fase 1 depende de D5, porque solo Neuro Diseases bloquea la publicación, y es de la Fase 3.
 
 ## Decisiones de Aday (2026-11-12)
 
@@ -86,9 +87,10 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 depende de D5 (d
    - **Rebanada 2 (más fuentes):** 4, 5, 6, 7, el resto del 8 (OpenAlex) y la ampliación de 10 y 11 a todas → 13 → 23, con Nature · Science · Cell.
    - **Rebanada 3 (inteligencia):** 14a → 15 → 16 → 17 → 19 → 25 → 26 (antes se decide de dónde sale el dato curioso) → 22 → 24a.
    - **Rebanada 4 (operación):** 27 → 28 con cron → 29 → 18 y 20 (🔵, cuando haya cupo o GPU).
-   - **Tras D5:** pasar la cola de S4 a `src/synaptica/review/` → 14b → 24b.
+   - **Tras D5:** paso R (cola de S4 a `src/synaptica/review/`) → 14b → 24b.
+   - **Orden tras el cierre de la Fase 0 (v98, Aday):** 21 → 22 → 23 → selección del cupo diario de resúmenes (SCOPE §8) → R → 14b → 24a → 24b → 26 (antes se decide de dónde sale el dato) → 27 → 28 → 29 → 18 → 20 → 30. El R va pronto para que las etiquetas de Sofía avancen mientras se hace el resto.
    - **Cierre:** 30. El reloj de los 14 días arranca cuando estén todas las casillas.
-   - **Cambio de orden (v61, Aday):** tras la rebanada 1 sin la web, primero todo lo que no es web: ingesta y modelos de la rebanada 2 (4–7, OpenAlex del 8, 10–11 ampliados, 13) y la parte de datos y textos de la rebanada 3 (14a, 15, 16, 17, 19, 25 sin página). La web (21–24, 26) va después, de una vez, cuando Aday pida su diseño.
+   - **Cambio de orden (v61, Aday):** tras la rebanada 1 sin la web, primero todo lo que no es web: ingesta y modelos de la rebanada 2 (4–7, OpenAlex del 8, 10–11 ampliados, 13) y la parte de datos y textos de la rebanada 3 (14a, 15, 16, 17, 19, 25 sin página). La web (21–24, 26) va después, de una vez. Diseño decidido: maqueta Noche (`spikes/web/build3.py`, SCOPE v79–v97).
    - **Excepción (v54–v56):** antes de cerrar la Fase 0 se adelanta, en la rama `fase-1`, todo lo que no necesita a Sofía ni toca GitHub: la rebanada 1 sin el paso 28.
 2. **D2:** copiar y adaptar; se cierra con un ADR breve en el paso 1, el primer commit de la Fase 1, no antes.
 3. **Etiquetas de Sofía:** por el flujo D5, como un tipo más de elemento de su cola (14b).
@@ -96,5 +98,5 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 depende de D5 (d
 
 ## Verificación del plan
 
-- Cada casilla de SCOPE §7 Fase 1 tiene al menos un paso (comprobado: 13 de 13).
+- Cada casilla de SCOPE §7 Fase 1 tiene al menos un paso (comprobado: 14 de 14; la casilla «Repetir S5 con v2», añadida después, la cubre el 18).
 - Al ejecutarlo (más adelante): cada paso pasa `test-runner`, ruff, y `syn build` y `syn site --check` cuando aplican; las pruebas visuales, en Brave con Claude in Chrome.

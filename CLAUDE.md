@@ -29,7 +29,7 @@ Documentos de referencia:
 **Contenido de salud.**
 - El aviso «no es consejo médico» se ve en todas las páginas. La web nunca recomienda tratamientos.
 - Una ficha de Neuro Diseases solo se genera si su aprobación por Sofía está registrada en los datos (por ejemplo `reviewed_by`, `reviewed_at`).
-- Cada estudio muestra sus señales: revisado por pares o preprint, en humanos o en animales, retractado o corregido.
+- Cada estudio muestra sus señales: publicado en revista o preprint (la web explica en «Cómo evaluamos» que lo primero no prueba la revisión por pares), en humanos o en animales, retractado o corregido.
 
 **Textos generados con LLM.**
 - Pasan las mismas comprobaciones que en Paleo Atlas: cada frase cita su fuente, las cifras y los nombres coinciden con ella, y nunca hay 8 o más palabras seguidas copiadas.
