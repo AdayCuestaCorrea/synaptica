@@ -678,6 +678,36 @@ def figures() -> None:
 
 
 @app.command()
+def titles(
+    provider: ProviderOption = None,
+    model: ModelOption = None,
+    limit: Annotated[int | None, typer.Option(help="Translate N titles at most.")] = None,
+) -> None:
+    """Spanish titles of the studies the site shows («Latest» and Nature · Science · Cell)
+    with the LLM, each checked against its English title -> derived/titles/es.json. Reads
+    the warehouse: run `syn build` first. A title that fails shows the English original."""
+    from synaptica.llm import QuotaExhausted
+    from synaptica.news import titles as titles_mod
+
+    llm = _llm(provider, model)
+    if llm is None:
+        typer.echo("No --provider given: nothing translated.")
+        raise typer.Exit(0)
+    if not titles_mod.warehouse_path().exists():
+        typer.echo("No warehouse yet: run `syn build` first.", err=True)
+        raise typer.Exit(1)
+    try:
+        r = titles_mod.run(llm, limit=limit)
+    except QuotaExhausted as exc:
+        typer.echo(f"LLM quota used up: {exc}; the rest waits for the next run", err=True)
+        raise typer.Exit(0) from exc
+    typer.echo(
+        f"Titles: {r.translated} translated and {r.failed} failed the checks (original "
+        f"kept) of {r.total}; {r.up_to_date} up to date, {r.missing} left out by the model"
+    )
+
+
+@app.command()
 def site(
     out: Annotated[str | None, typer.Option(help="Output folder [default: site/_build].")] = None,
     check: Annotated[
