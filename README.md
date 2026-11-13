@@ -4,9 +4,21 @@
 
 A free neuroscience website in Spanish and English that updates itself every day: science news with verified summaries, and sections to learn how the brain works. By Aday Cuesta Correa (development) and Sofía (scientific review).
 
-**Status:** Phase 0 (foundations) closed on 2026-11-13 ([summary, in Spanish](docs/fases/fase-0.md)); Phase 1 (the base) starts. There is no website yet. The plan and its order live in [`SCOPE.md`](SCOPE.md) (Spanish, canonical).
+**Website:** https://adaycuestacorrea.github.io/synaptica/ (Spanish and English, light and dark).
 
-## What it will be
+**Status:** Phase 1 (the base) is built and running: Neuro News updates itself every day since 2026-11-13. The phase closes after 14 days of daily runs without intervention. The plan and its order live in [`SCOPE.md`](SCOPE.md) (Spanish, canonical).
+
+## How a day works
+
+A GitHub Actions workflow runs every morning ([`pipeline.yml`](.github/workflows/pipeline.yml)):
+
+1. **Ingest** new records from PubMed, Crossref (retractions and corrections), Europe PMC, bioRxiv and medRxiv, the Nature · Science · Cell feeds, three science news outlets and OpenAlex. Only metadata goes to git; abstracts stay in a private cache.
+2. **Classify and summarize** with free LLMs on Groq: each study gets a type, verified facts, an English summary and a Spanish adaptation. Every sentence cites its facts, numbers and names must match the source, no run of 8 words may be copied, and a judge model of another family must pass it. Anything that fails shows a fallback text built from the data only.
+3. **Rebuild** the DuckDB warehouse with dbt (tests included) and the static site, with `syn site --check` (links, hreflang, medical notice on every page, signals on every study).
+4. **Review:** a sample of the summaries goes to a page where the neuroscientist approves, corrects or rejects them from her browser; her decisions come back as GitHub Issues and are applied automatically.
+5. **Commit** the data to the `data` branch and publish on GitHub Pages; once a week the marts are mirrored to the BigQuery sandbox.
+
+## What it is and will be
 
 - **Neuro News** every day from open sources (PubMed, Europe PMC, bioRxiv, Nature · Science · Cell metadata, science news outlets), each summary checked against its source before it is published.
 - **Neuro Atlas** (human and rat brain in 3D), **Neuro Lab**, **Neuro Glossary**, **Neuro Learn**, **Neuro Diseases**, **Neuro History** and **Neuro Experiments**.
