@@ -113,5 +113,7 @@ def test_the_queue_carries_the_weeks_classics(tmp_path: Path) -> None:
     data = warehouse(tmp_path / "data")
     ingest(data / "raw", MONDAY)
     q = collect(data / "warehouse.duckdb", data / "derived", data / "review", MONDAY)
-    assert [i.item_id for i in q.items] == ["classics-2026-w47"]
+    assert [i.item_id for i in q.items] == [
+        "classics-2026-w47", "topic-memory", "topic-addiction", "topic-neurodegeneration",
+        "topic-neuroinflammation", "topic-sleep"]  # her topic switches go last  # fmt: skip
     assert json.loads(q.model_dump_json())["items"][0]["content"]["kind"] == "candidates"

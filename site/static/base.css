@@ -343,7 +343,7 @@ a.gl:hover, a.gl:focus-visible { color: var(--link); background: var(--accent-so
   .topic-head { grid-template-columns: 90px minmax(0, 1fr); }
   .topic-head .topic-art { height: 70px; }
 }
-.topic-head a.gap-tag { color: var(--muted); }
+.topic-head a.gap-tag { color: rgb(255 255 255 / 0.88); }
 
 /* Fixed pages (step 22): wide prose for tables, tables that scroll on their own on phones */
 .prose.prose--wide { max-width: 62rem; }

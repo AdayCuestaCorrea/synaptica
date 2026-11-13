@@ -49,7 +49,11 @@ def data_dir(tmp_path: Path, **natural: int) -> Path:
 
 
 def queue_of(data: Path, today: dt.date = MONDAY):
-    return collect.collect(data / "warehouse.duckdb", data / "derived", data / "review", today)
+    """The queue without the topic switches, which every queue carries (their own test)."""
+    q = collect.collect(data / "warehouse.duckdb", data / "derived", data / "review", today)
+    return q.model_copy(
+        update={"items": [i for i in q.items if i.item_type is not ItemType.NEWS_TOPIC]}
+    )
 
 
 def decide(data: Path, item, action: Action, payload: dict | None = None, n: int = 1) -> None:
@@ -188,5 +192,6 @@ def test_a_past_runs_texts_join_the_queue_as_items_of_their_own(tmp_path: Path) 
     extra = [i for r in runs for i in collect.run_spot_checks(r)]
     q = collect.collect(data / "warehouse.duckdb", data / "derived", data / "review", MONDAY,
                         extra)  # fmt: skip
-    assert [i.item_id for i in q.items] == ["pmid_77-qwen9b", "pmid_77-qwen27b", "doi_10.1_today"]
+    ids = [i.item_id for i in q.items if not i.item_id.startswith("topic-")]
+    assert ids == ["pmid_77-qwen9b", "pmid_77-qwen27b", "doi_10.1_today"]
     assert q.items[0].content.sources[0].id == "pubmed-77"

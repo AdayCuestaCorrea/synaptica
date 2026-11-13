@@ -146,8 +146,11 @@ def collect(
     from synaptica.news.classics import proposal  # the Clásicos of the week (step 24a)
 
     classics = proposal(derived_root.parent / "raw", review_dir, today)
+    from synaptica.news.topics import queue_items  # her switch for each topic
+
+    # The topic switches go last: a quick yes or no that never takes a text's place.
     items = [*(extra or []), *([classics] if classics else []),
-             *news_spot_checks(warehouse, derived_root)]  # fmt: skip
+             *news_spot_checks(warehouse, derived_root), *queue_items()]  # fmt: skip
     # Midnight UTC of the day: the same inputs give the same file (``syn`` is idempotent).
     queue = Queue(generated_at=dt.datetime.combine(today, dt.time(), dt.UTC), items=items)
     waiting = next_queue(queue, states(queue, read_log(review_dir)))

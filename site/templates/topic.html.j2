@@ -1,0 +1,22 @@
+{# One topic of Neuro News (MeSH or text; news/topics.py). From the «Noche» mock-up
+   (spikes/web/v3/templates/topic.html.j2). #}
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m with context %}
+{% block title %}{{ name }}{% endblock %}
+{% block main %}
+<header class="page-head topic-head topic--{{ topic }}">
+  <span class="topic-art">{{ m.art("t-" ~ topic) }}</span>
+  <div>
+    <p class="back"><a href="{{ url('home') }}#topics-h">← {{ t.topics }}</a></p>
+    <h1>{{ name }}</h1>
+    <p>{{ t.topic_intro.format(t=name | lower) }} {{ m.gap("topics") }} {{ m.gap_if("title_es") }}</p>
+  </div>
+</header>
+<div class="list">
+  {% for s in hit.studies %}{{ m.row(s, note=t["topic_" ~ hit.basis[s.study_id]]) }}{% endfor %}
+</div>
+{% if hit.news %}
+<h2 class="sub-h">{{ t.media }}</h2>
+<div class="stories">{% for n in hit.news %}{{ m.story([n]) }}{% endfor %}</div>
+{% endif %}
+{% endblock %}
