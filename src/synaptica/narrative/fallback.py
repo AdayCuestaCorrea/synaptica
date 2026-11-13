@@ -28,12 +28,14 @@ _INTEGRITY = {
     "en": {
         "retracted": "It has been retracted.",
         "partially_retracted": "It has been partly retracted.",
+        "withdrawn": "Its authors have withdrawn it from the preprint server.",
         "concern": "The journal has published an expression of concern about it.",
         "corrected": "A correction has been published.",
     },
     "es": {
         "retracted": "Se ha retractado.",
         "partially_retracted": "Se ha retractado en parte.",
+        "withdrawn": "Sus autores lo han retirado del servidor de preprints.",
         "concern": "La revista ha publicado una nota de preocupación sobre él.",
         "corrected": "Se ha publicado una corrección.",
     },

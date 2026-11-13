@@ -70,8 +70,8 @@ a:hover { text-decoration-thickness: 2px; }
 .chip.is-provisional a { color: inherit; text-decoration: none; }
 .chip.is-provisional a::after { content: " ?"; font-weight: 700; }
 .chip.is-unknown, .chip.is-none { color: var(--muted); }
-.chip.is-retracted, .chip.is-partially_retracted, .chip.is-corrected, .chip.is-concern { background: var(--alert); border-color: var(--alert); color: var(--on-alert); font-weight: 700; }
-.chip.is-retracted::before, .chip.is-partially_retracted::before { content: "✕ "; }
+.chip.is-retracted, .chip.is-partially_retracted, .chip.is-withdrawn, .chip.is-corrected, .chip.is-concern { background: var(--alert); border-color: var(--alert); color: var(--on-alert); font-weight: 700; }
+.chip.is-retracted::before, .chip.is-partially_retracted::before, .chip.is-withdrawn::before { content: "✕ "; }
 .chip.is-corrected::before, .chip.is-concern::before { content: "! "; }
 
 /* Side: fact and week */
@@ -127,8 +127,8 @@ a:hover { text-decoration-thickness: 2px; }
 .signal { padding: 10px 12px; border: var(--card-border); border-radius: var(--radius-s); background: var(--surface); }
 .signal dt { font: 700 0.68rem var(--body); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
 .signal dd { margin: 2px 0 0; font-weight: 600; }
-.signal.is-retracted, .signal.is-corrected, .signal.is-partially_retracted, .signal.is-concern { border-color: var(--alert); }
-.signal.is-retracted dd, .signal.is-corrected dd, .signal.is-partially_retracted dd, .signal.is-concern dd { color: var(--alert-ink); }
+.signal.is-retracted, .signal.is-corrected, .signal.is-partially_retracted, .signal.is-withdrawn, .signal.is-concern { border-color: var(--alert); }
+.signal.is-retracted dd, .signal.is-corrected dd, .signal.is-partially_retracted dd, .signal.is-withdrawn dd, .signal.is-concern dd { color: var(--alert-ink); }
 .notices { display: block; font-weight: 400; color: var(--muted); }
 .study-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 26px; align-items: start; }
 .study-grid:has(> :only-child) { grid-template-columns: minmax(0, 46rem); }
