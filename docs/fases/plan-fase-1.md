@@ -61,7 +61,7 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 necesita la cola
 ### F. Web
 | # | Paso | Tests | Hecho cuando |
 |---|---|---|---|
-| 21 🟢 | Esqueleto: `build.py` con Jinja2, `i18n/{es,en}.toml`, rutas `es/` y `en/`, plantilla base con el aviso médico y el pie de licencias; `syn site --check` copiado de Paleo (hreflang, créditos, enlaces, huérfanas) **más** aviso médico en cada página y señales en cada estudio | build con datos sembrados | `site --check` verde |
+| 21 ✅ | Esqueleto: `build.py` con Jinja2, `i18n/{es,en}.toml`, rutas `es/` y `en/`, plantilla base con el aviso médico y el pie de licencias; `syn site --check` copiado de Paleo (hreflang, créditos, enlaces, huérfanas) **más** aviso médico en cada página y señales en cada estudio | build con datos sembrados | `site --check` verde |
 | 22 🟢 | Páginas fijas: Cómo evaluamos, Fuentes y licencias (generada desde la semilla de fuentes), Estado de los datos (desde `runs/`), Acerca de | `site --check` | las cuatro en ES y EN |
 | 23 🟢 | Neuro News: Última hora y Nature · Science · Cell, con sus señales | idem | portada con datos de fixtures |
 | 24a 🟢 | Clásicos: propuesta semanal por citas de OpenAlex, que entra en la cola de Sofía; mientras no esté aprobado, el bloque no muestra nada | test «nada sin aprobar» | propuesta generada |

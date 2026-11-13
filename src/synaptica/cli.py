@@ -593,6 +593,33 @@ def build(
 
 
 @app.command()
+def site(
+    out: Annotated[str | None, typer.Option(help="Output folder [default: site/_build].")] = None,
+    check: Annotated[
+        bool, typer.Option("--check", help="Only check the built site (links, hreflang…).")
+    ] = False,
+) -> None:
+    """Render the static website (ES + EN), or check it (adapted from paleo-atlas)."""
+    out_dir = Path(out) if out else config.project_root() / "site" / "_build"
+    if check:
+        from synaptica.site.check import check_site
+
+        result = check_site(out_dir)
+        for problem in result.problems[:50]:
+            typer.echo(f"  {problem}")
+        typer.echo(f"Checked {result.pages} pages: {len(result.problems)} problems")
+        raise typer.Exit(0 if result.passed else 1)
+    from synaptica.site.build import build_site
+
+    try:
+        report = build_site(out_dir)
+    except RuntimeError as exc:  # a folder `syn site` did not create
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(1) from exc
+    typer.echo(f"Site: {report['pages']} pages ({', '.join(report['kinds'])}) → {out_dir}")
+
+
+@app.command()
 def check() -> None:
     """Exit 0 if any source has something new, 1 if nothing changed and 2 if the check
     itself failed (adapted from paleo-atlas, its ADR D10). On 2 the workflow runs

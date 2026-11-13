@@ -40,3 +40,9 @@ jobs:
       - name: dbt build on the fixtures
         # as_of pins "today" so date-based tests do not drift on fixture data.
         run: uv run syn build --as-of 2026-11-09
+
+      - name: Website and its checks
+        # Links, hreflang, medical notice, signals and image licences (plan, step 21).
+        run: |
+          uv run syn site
+          uv run syn site --check

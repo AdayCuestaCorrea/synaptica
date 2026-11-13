@@ -1,0 +1,21 @@
+{# Imported "with context": t and gaps come from the page. From the «Noche» mock-up
+   (spikes/web/v3/templates/macros.html.j2). #}
+
+{# Own drawing (CC BY-SA 4.0), inline so it takes the colours of the theme. #}
+{% macro art(name) -%}{% include "art/" ~ name ~ ".svg.j2" %}{%- endmacro %}
+
+{# A gap or proposal: a short tag that links to the list at the bottom of the page. #}
+{% macro gap(key) -%}
+{% set g = gaps[key] %}
+<a class="gap-tag gap-tag--{{ g[0] }}" href="#gap-{{ key }}"><span aria-hidden="true">{{ t[g[0]] }}</span><span class="vh">{{ t[g[0]] }}: {{ g[1] }}</span></a>
+{%- endmacro %}
+
+{% macro gap_list() -%}
+<section class="gaps" id="gaps" aria-labelledby="gaps-h">
+  <h2 id="gaps-h">{{ t.gaps_title }}</h2>
+  <p>{{ t.gaps_intro }}</p>
+  <ul>
+    {% for k, g in gaps.items() %}<li id="gap-{{ k }}"><strong class="gap-tag gap-tag--{{ g[0] }}">{{ t[g[0]] }}</strong> {{ g[1] }}</li>{% endfor %}
+  </ul>
+</section>
+{%- endmacro %}

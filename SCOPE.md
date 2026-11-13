@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 98** · 2026-11-13 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 99** · 2026-11-13 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -151,7 +151,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 - [x] Señales de cada estudio: publicado en revista o preprint (ver «Cómo evaluamos»), humanos o animales, retractado o corregido (paso 12; que se vean en cada página lo comprueba `syn site --check`, paso 21; falta Retraction Watch, ver la primera casilla)
 - [ ] Bloques Última hora · Nature, Science y Cell · Clásicos (propuesta semanal por citas en OpenAlex y aprobación de Sofía)
 - [ ] Resumen semanal. *Texto hecho (25); falta su página en ES y EN.*
-- [ ] Web: portada y diseño, aviso médico, dato curioso del día, Cómo evaluamos, Estado de los datos, Fuentes y licencias, Acerca de; bilingüe y con `syn site --check`
+- [ ] Web: portada y diseño, aviso médico, dato curioso del día, Cómo evaluamos, Estado de los datos, Fuentes y licencias, Acerca de; bilingüe y con `syn site --check`. *Hecho el esqueleto (paso 21): portada sin «Hoy», aviso médico y `syn site --check`.*
 - [ ] `pipeline.yml`: ejecución diaria con detección de cambios, respaldo e informe
 - [ ] Espejo semanal de los marts en BigQuery sandbox (D1), con su consumo de cupo medido en el informe
 
@@ -348,3 +348,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 96 | 2026-11-13 | Maqueta web: la imagen de la cabecera la generó Sofía con ChatGPT (crédito corregido). Sin fondo, con `spikes/web/hero_image.py`: color a transparencia sobre una estimación local del fondo, quitando el grano. Hay una versión por tema: líneas blancas en oscuro, y tinta y acento en claro, con el acento solo en los rellenos grandes |
 | 97 | 2026-11-13 | Maqueta web: fuera el texto bajo la imagen de la cabecera (a Sofía no le gusta); su autoría pasa al pie de página, con las demás imágenes |
 | 98 | 2026-11-13 | Revisión de incoherencias tras el cierre de la Fase 0 (Aday). Fase 1: una casilla se marca cuando se cumple el «Hecho cuando» de sus pasos; se marcan las de dbt, el filtro de neurociencia, los resúmenes con comprobaciones y las señales, y otras cinco llevan una nota de avance. Fuera las frases de antes del cierre en §7 y en el plan; la integración de la cola de revisión pasa a ser el paso R del plan. El paso del visor a `src/synaptica/atlas/` y `site/static/` va a la Fase 2 (corrección fechada en el ADR 0003 y en `fase-0.md`), y en la Fase 1 la portada enlaza al prototipo de S3. Decisiones de Aday en §8: cupo diario de resúmenes por niveles, y la señal `journal` como «Publicado en revista» (también en CLAUDE.md) |
+| 99 | 2026-11-13 | Fase 1, paso 21: esqueleto de la web en `src/synaptica/site/` (`build.py`, `check.py`, `i18n/{es,en}.toml`, `images.toml`), con plantillas y estilos en `site/`, sacados de la maqueta Noche. Por ahora, la portada con la cabecera y las seis secciones, en ES y EN, y una raíz que lleva al español. URLs relativas: el mismo resultado sirve en la raíz o bajo `/synaptica/`. La navegación y el pie solo enlazan a páginas que ya existen. `syn site --check` se copia de Paleo (enlaces, hreflang, licencias de las figuras, etiquetas sin cerrar y páginas de estudio huérfanas) y añade tres comprobaciones: el aviso médico literal en el idioma de cada página, las tres señales de cada estudio (`data-signal`) y el crédito con licencia de cada imagen fuera de una figura. Un test mide el contraste AA de cada par de colores en claro y oscuro. Jinja2 pasa a dependencia declarada (ya llegaba con dbt) y la CI ejecuta `syn site` y `--check`. La imagen de la cabecera se publica con CC BY-SA 4.0 (decisión de Aday), con Sofía como autora y «generada con ChatGPT». Revisado en Chrome: ES y EN, claro y oscuro, a 384 px y en escritorio, sin desbordamiento |

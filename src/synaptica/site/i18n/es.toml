@@ -1,0 +1,58 @@
+# Interface strings, Spanish. Same keys as en.toml (tests/test_site.py checks it).
+# Texts from the «Noche» mock-up (spikes/web/build.py, build2.py, build3.py).
+
+lang_name = "Español"
+lang_switch = "English"
+lang_code = "EN"
+skip = "Saltar al contenido"
+tagline = "Neurociencia, cada día, comprobada"
+
+# Navigation
+home = "Inicio"
+news = "Neuro News"
+method = "Cómo evaluamos"
+sources = "Fuentes y licencias"
+status = "Estado de los datos"
+about = "Sobre nosotros"
+glossary = "Glosario"
+
+theme_auto = "Automático"
+theme_dark_default = "Oscuro (por defecto)"
+theme_light = "Claro"
+theme_dark = "Oscuro"
+
+disclaimer = "Información divulgativa: no es consejo médico. Ante cualquier duda de salud, consulta a un profesional sanitario."
+
+# Home
+hub = "Tu portal de neurociencia"
+hub_sub = "Neurociencia, cada día, comprobada: estudios nuevos con sus señales a la vista y secciones para entender el cerebro."
+hero_alt = "Dibujo de un cerebro de perfil con estructuras internas resaltadas en verde y, ampliada en un círculo, una neurona"
+explore = "Explora"
+preview = "Avance · prototipo"
+soon_phase = "Fase {n}"
+soon_word = "próximamente"
+sec_atlas = "Explora el cerebro"
+sec_lab = "Explora el laboratorio"
+sec_learn = "Aprende sobre neurociencia"
+sec_diseases = "Enfermedades neurológicas y sus estudios"
+sec_history = "De Ramón y Cajal a hoy, con los Nobel"
+sec_experiments = "Ilusiones y pruebas para ponerte a prueba"
+
+# Gaps: what the site does not know yet, marked instead of filled in
+gap = "Hueco"
+proposal = "Propuesta"
+gaps_title = "Huecos de esta página"
+gaps_intro = "Lo que aún no sabemos se deja vacío y se marca aquí; nunca se rellena."
+licence_pending = "licencia pendiente"
+gap_hero_licence = "La licencia de la imagen de la portada está por decidir."
+
+# Footer
+footer_credits = "Créditos y licencias"
+footer_text = "Textos propios: CC BY-SA 4.0. Código: AGPL-3.0. Cada estudio y cada noticia enlazan a su original y muestran su licencia."
+footer_art = "Ilustraciones: dibujos propios de SYNAPTICA, CC BY-SA 4.0."
+footer_hero = "Imagen de la portada: {author}, generada con ChatGPT · {licence}."
+footer_fonts = "Fuente tipográfica: Atkinson Hyperlegible (Braille Institute, SIL OFL 1.1)."
+footer_by = "Hecho por Aday y Sofía."
+
+# Root page (language choice)
+root_title = "SYNAPTICA · elige idioma"

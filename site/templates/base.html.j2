@@ -1,0 +1,60 @@
+{# Every page: header, medical notice, footer with credits. From the «Noche» mock-up
+   (spikes/web/v3/templates/base.html.j2), without the mock-up band. #}
+{% import "macros.html.j2" as m with context %}
+<!doctype html>
+<html lang="{{ lang }}" class="style-n">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{% endblock %} · SYNAPTICA</title>
+<meta name="description" content="{{ t.tagline }}">
+<meta name="color-scheme" content="dark light">
+<link rel="alternate" hreflang="{{ other_lang }}" href="{{ other_url }}">
+<link rel="preload" href="{{ static('fonts/atkinson-hyperlegible-latin-700.woff2') }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ static('synaptica.css') }}?v={{ asset_v }}">
+<link rel="icon" href="{{ static('favicon.svg') }}" type="image/svg+xml">
+<script src="{{ static('site.js') }}?v={{ asset_v }}"></script>
+</head>
+<body>
+<a class="skip" href="#main">{{ t.skip }}</a>
+<header class="top">
+  <div class="top-in wrap">
+    <a class="brand" href="{{ url('home') }}"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="2.2"/><circle cx="18" cy="18" r="2.2"/><path d="M8.6 10.6 15.9 7M8.6 13.4l7.3 3.6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>SYNAPTICA</a>
+    <nav class="nav" aria-label="SYNAPTICA">
+      {% for k, label, href in nav %}
+      <a href="{{ href }}"{% if page_kind == k or (k == "news" and page_kind in ("study", "week")) %} aria-current="page"{% endif %}>{{ label }}</a>
+      {% endfor %}
+    </nav>
+    <span class="tools">
+      <a class="tool" href="{{ other_url }}" hreflang="{{ other_lang }}" lang="{{ other_lang }}"><span aria-hidden="true">{{ t.lang_code }}</span><span class="vh">{{ t.lang_switch }}</span></a>
+      <button class="tool theme-toggle" type="button" data-theme-toggle aria-live="polite"
+        data-l-auto="{{ t.theme_dark_default }}" data-l-light="{{ t.theme_light }}" data-l-dark="{{ t.theme_dark }}">
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg> <span data-theme-label>{{ t.theme_dark_default }}</span>
+      </button>
+    </span>
+  </div>
+</header>
+<p class="disclaimer" role="note">{{ t.disclaimer }}</p>
+<main id="main" class="wrap">
+{% block main %}{% endblock %}
+{% if gaps %}{{ m.gap_list() }}{% endif %}
+</main>
+<footer class="footer">
+  <div class="wrap footer-in">
+    <p class="footer-brand">SYNAPTICA</p>
+    {% if footer_links %}
+    <nav class="footer-nav" aria-label="{{ t.footer_credits }}">
+      {% for label, href in footer_links %}<a href="{{ href }}">{{ label }}</a>{% if not loop.last %} · {% endif %}{% endfor %}
+    </nav>
+    {% endif %}
+    <h2>{{ t.footer_credits }}</h2>
+    <p>{{ t.footer_text }}</p>
+    <p>{{ t.footer_art }}</p>
+    {% block footer_images %}{% endblock %}
+    <p>{{ t.footer_fonts }}</p>
+    <p>{{ t.footer_by }}</p>
+    <p class="footer-disclaimer">{{ t.disclaimer }}</p>
+  </div>
+</footer>
+</body>
+</html>

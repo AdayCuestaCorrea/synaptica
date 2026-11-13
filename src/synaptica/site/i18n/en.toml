@@ -1,0 +1,58 @@
+# Interface strings, English. Same keys as es.toml (tests/test_site.py checks it).
+# Texts from the «Noche» mock-up (spikes/web/build.py, build2.py, build3.py).
+
+lang_name = "English"
+lang_switch = "Español"
+lang_code = "ES"
+skip = "Skip to content"
+tagline = "Neuroscience, every day, checked"
+
+# Navigation
+home = "Home"
+news = "Neuro News"
+method = "How we evaluate"
+sources = "Sources and licences"
+status = "Data status"
+about = "About us"
+glossary = "Glossary"
+
+theme_auto = "Automatic"
+theme_dark_default = "Dark (default)"
+theme_light = "Light"
+theme_dark = "Dark"
+
+disclaimer = "For general information only: this is not medical advice. For any health question, consult a healthcare professional."
+
+# Home
+hub = "Your neuroscience hub"
+hub_sub = "Neuroscience, every day, checked: new studies with their signals in plain sight and sections to understand the brain."
+hero_alt = "Drawing of a brain in profile with inner structures highlighted in green and, enlarged in a circle, a neuron"
+explore = "Explore"
+preview = "Preview · prototype"
+soon_phase = "Phase {n}"
+soon_word = "coming soon"
+sec_atlas = "Explore the brain"
+sec_lab = "Explore the lab"
+sec_learn = "Learn about neuroscience"
+sec_diseases = "Neurological diseases and their studies"
+sec_history = "From Ramón y Cajal to today, with the Nobel prizes"
+sec_experiments = "Illusions and tests to try yourself"
+
+# Gaps: what the site does not know yet, marked instead of filled in
+gap = "Gap"
+proposal = "Proposal"
+gaps_title = "Gaps on this page"
+gaps_intro = "What we do not know yet is left empty and listed here; it is never filled in."
+licence_pending = "licence pending"
+gap_hero_licence = "The licence of the home page image is still to be decided."
+
+# Footer
+footer_credits = "Credits and licences"
+footer_text = "Our own texts: CC BY-SA 4.0. Code: AGPL-3.0. Every study and every news item links to its original and shows its licence."
+footer_art = "Illustrations: SYNAPTICA's own drawings, CC BY-SA 4.0."
+footer_hero = "Home page image: {author}, made with ChatGPT · {licence}."
+footer_fonts = "Typeface: Atkinson Hyperlegible (Braille Institute, SIL OFL 1.1)."
+footer_by = "Made by Aday and Sofía."
+
+# Root page (language choice)
+root_title = "SYNAPTICA · choose a language"

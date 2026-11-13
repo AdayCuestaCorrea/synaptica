@@ -1,0 +1,10 @@
+# Author and licence of every image file the site shows (CLAUDE.md, «Licencias»: each image
+# records its licence and author, and the site shows them). An empty licence is shown as
+# «licence pending» and makes `syn site --check` fail: it is never filled in by guess.
+
+[hero]
+files = ["cabecera-cerebro-oscuro.webp", "cabecera-cerebro-claro.webp"]
+author = "Sofía"
+# Made by Sofía with ChatGPT (SCOPE v96). Licence chosen by Aday (SCOPE v99), the same as
+# our own texts and drawings.
+licence = "CC BY-SA 4.0"
