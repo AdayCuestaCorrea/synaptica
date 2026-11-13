@@ -1,0 +1,29 @@
+{# «Cómo evaluamos», Spanish. From spikes/web/shared/method_es.html.j2; the signal names follow
+   SCOPE v98 and the fallback example is described, not invented. #}
+{% import "macros.html.j2" as m with context %}
+<h2>De dónde salen las noticias</h2>
+<p>Cada día, un programa recoge lo nuevo de fuentes públicas: PubMed, Europe PMC, los preprints de bioRxiv y medRxiv, los RSS de Nature, Science y Cell (solo título, autores, fecha y enlace) y los titulares de SINC, The Conversation y ScienceDaily. Nadie elige a mano qué entra en «Última hora» ni en «Nature · Science · Cell». Los «Clásicos» son la excepción: los propone la web y solo se publican los que aprueba Sofía. <a href="{{ url('sources') }}">Todas las fuentes y sus licencias</a>.</p>
+
+<h2>Las tres señales de cada estudio</h2>
+<p>Siempre a la vista, en la tarjeta y en la página del estudio. Si un dato no existe, la señal dice «sin dato»: nunca lo adivinamos.</p>
+<dl class="method-signals">
+  <dt>Revisión</dt>
+  <dd><strong>Preprint</strong>: llega de bioRxiv o medRxiv y aún no ha pasado la revisión por pares. <strong>Publicado en revista</strong>: aparece en una revista. Casi todas las revistas científicas revisan por pares lo que publican, pero esta señal no lo comprueba: solo dice dónde se publicó. {{ m.gap("journal_name") }}</dd>
+  <dt>Sujetos</dt>
+  <dd><strong>Humanos</strong>, <strong>animales</strong> o los dos, según los descriptores MeSH que pone la Biblioteca Nacional de Medicina de EE. UU. Los estudios recién publicados aún no los tienen, y entonces sale «sin dato».</dd>
+  <dt>Avisos</dt>
+  <dd><strong>Retractado</strong>, <strong>corregido</strong> o <strong>nota de preocupación</strong>, según los avisos que las editoriales depositan en Crossref. La web revisa esa lista cada día, así que una retractación que llegue años después también se ve. {{ m.gap("retraction_watch") }}</dd>
+</dl>
+
+<h2>Cómo se escriben los resúmenes</h2>
+<ol>
+  <li>Del resumen del artículo se sacan hechos breves, y cada hecho tiene que estar en el original.</li>
+  <li>Un modelo de lenguaje escribe el texto en inglés solo con esos hechos, y después el texto en español.</li>
+  <li>Comprobaciones automáticas: cada frase cita su fuente; las cifras y los nombres coinciden con ella; nunca hay 8 o más palabras seguidas copiadas; no hay exageraciones («cura», «demuestra que», «avance histórico»…); se conservan las cautelas del estudio, y la ortografía en español es correcta.</li>
+  <li>Un juez, un modelo de otra familia, relee cada resumen. Sin su aprobación no se publica.</li>
+  <li>Si algo falla, no se publica el resumen: se muestra un <strong>texto de respaldo</strong> construido solo con los datos (el tipo de estudio, los sujetos, la revista, la fecha y si es un preprint o tiene avisos).</li>
+</ol>
+<p>No publicamos abstracts ni párrafos de los artículos: solo resúmenes propios, con el enlace al original y su licencia.</p>
+
+<h2>Lo que no hacemos</h2>
+<p>SYNAPTICA es divulgación. No da consejo médico ni recomienda tratamientos.</p>

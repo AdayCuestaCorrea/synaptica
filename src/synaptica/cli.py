@@ -612,11 +612,11 @@ def site(
     from synaptica.site.build import build_site
 
     try:
-        report = build_site(out_dir)
+        built = build_site(out_dir, data_dir=config.get_paths().data)
     except RuntimeError as exc:  # a folder `syn site` did not create
         typer.echo(str(exc), err=True)
         raise typer.Exit(1) from exc
-    typer.echo(f"Site: {report['pages']} pages ({', '.join(report['kinds'])}) → {out_dir}")
+    typer.echo(f"Site: {built['pages']} pages ({', '.join(built['kinds'])}) → {out_dir}")
 
 
 @app.command()

@@ -1,0 +1,13 @@
+{# «About us», English. From spikes/web/v3/templates/about.html.j2: only what SCOPE and the
+   proposal already say. #}
+{% import "macros.html.j2" as m with context %}
+<p>SYNAPTICA is a neuroscience website in Spanish and English that updates itself every day: science news with verified summaries and sections to learn how the brain works. It is meant both for curious people without training and for students.</p>
+<h2>Who we are</h2>
+<ul>
+  <li><strong>Sofía</strong>, PhD student in neuroscience: reviews the scientific content.</li>
+  <li><strong>Aday</strong>, data engineer: builds the site.</li>
+</ul>
+<h2>How it is made</h2>
+<p>It reuses the «engine» of <a href="https://adaycuestacorrea.github.io/paleo-atlas/en/index.html" rel="noopener" target="_blank">Paleo Atlas</a>. It costs nothing: it runs on free services and on language models whose texts are checked before they are published. The code is free software (AGPL-3.0) and our texts are CC BY-SA 4.0.</p>
+<h2>Contact</h2>
+<p>{{ m.gap("contact") }}</p>

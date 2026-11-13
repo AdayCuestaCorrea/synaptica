@@ -1,0 +1,12 @@
+{# «Cómo evaluamos» / «How we evaluate» (plan, step 22). The example studies arrive with
+   step 23, when the site has study cards. #}
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m with context %}
+{% block title %}{{ t.method }}{% endblock %}
+{% block main %}
+<article class="prose">
+  <h1>{{ t.method }}</h1>
+  <p class="draft">{{ t.draft }} · {{ m.gap("method_review") }}</p>
+  {% include "text/method_" ~ lang ~ ".html.j2" %}
+</article>
+{% endblock %}

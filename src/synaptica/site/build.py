@@ -14,6 +14,7 @@ page that does not exist yet.
 
 from __future__ import annotations
 
+import csv
 import hashlib
 import posixpath
 import shutil
@@ -24,12 +25,14 @@ from typing import Any
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
 
+from synaptica import report
 from synaptica.config import project_root
 
 LANGS = ("es", "en")
 HERE = Path(__file__).parent
 I18N_DIR = HERE / "i18n"
 SITE_DIR = project_root() / "site"
+SEEDS_DIR = project_root() / "dbt" / "seeds"
 MARKER = ".synaptica-site"  # marks a folder this module may wipe and rebuild
 
 PATHS = {
@@ -62,6 +65,8 @@ SECTIONS = [
 ATLAS_URL = "https://adaycuestacorrea.github.io/synaptica/spikes/s3/c/"
 STYLESHEETS = ("noche.css", "base.css")  # joined, in this order, into static/synaptica.css
 SCRIPTS = ("site.js",)
+KINDS = ("home", "method", "sources", "status", "about")  # pages built so far (steps 21 and 22)
+RECENT_RUNS = 14  # rows of the run table on «Estado de los datos»
 
 
 def load_i18n() -> dict[str, dict[str, str]]:
@@ -70,6 +75,19 @@ def load_i18n() -> dict[str, dict[str, str]]:
 
 def load_images() -> dict[str, dict[str, Any]]:
     return tomllib.loads((HERE / "images.toml").read_text("utf-8"))
+
+
+def load_seed(name: str, seeds_dir: Path = SEEDS_DIR) -> list[dict[str, str]]:
+    """Rows of a dbt seed, read directly: the fixed pages do not need the warehouse."""
+    with (seeds_dir / f"{name}.csv").open(encoding="utf-8", newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def recent_runs(data_dir: Path | None, limit: int = RECENT_RUNS) -> list[dict[str, Any]]:
+    """The last runs of the run log, newest first; none without a data folder."""
+    if data_dir is None or not report.runs_dir(data_dir).exists():
+        return []
+    return list(reversed(report.all_runs(data_dir)))[:limit]
 
 
 def other(lang: str) -> str:
@@ -83,7 +101,9 @@ class SiteBuilder:
         self,
         out: Path,
         *,
-        kinds: Iterable[str] = ("home",),
+        kinds: Iterable[str] = KINDS,
+        data_dir: Path | None = None,
+        seeds_dir: Path = SEEDS_DIR,
         i18n: dict[str, dict[str, str]] | None = None,
         images: dict[str, dict[str, Any]] | None = None,
         site_dir: Path = SITE_DIR,
@@ -93,6 +113,8 @@ class SiteBuilder:
         self.i18n = i18n or load_i18n()
         self.images = images or load_images()
         self.site_dir = site_dir
+        self.data_dir = data_dir
+        self.seeds_dir = seeds_dir
         self.env = Environment(
             loader=FileSystemLoader(site_dir / "templates"),
             autoescape=select_autoescape(["html", "j2"]),
@@ -171,6 +193,25 @@ class SiteBuilder:
             gaps["hero_licence"] = ("gap", self.i18n[lang]["gap_hero_licence"])
         self.render(lang, "home", "home.html.j2", gaps=gaps)
 
+    def method(self, lang: str) -> None:
+        t = self.i18n[lang]
+        gaps = {k: ("gap", t[f"gap_{k}"]) for k in ("method_review", "journal_name",
+                                                     "retraction_watch")}  # fmt: skip
+        self.render(lang, "method", "method.html.j2", gaps=gaps)
+
+    def sources(self, lang: str) -> None:
+        self.render(lang, "sources", "sources.html.j2",
+                    sources=load_seed("sources", self.seeds_dir),
+                    journals=load_seed("journals", self.seeds_dir))  # fmt: skip
+
+    def status(self, lang: str) -> None:
+        self.render(lang, "status", "status.html.j2", runs=recent_runs(self.data_dir))
+
+    def about(self, lang: str) -> None:
+        t = self.i18n[lang]
+        gaps = {k: ("gap", t[f"gap_{k}"]) for k in ("about_intro", "contact")}
+        self.render(lang, "about", "about.html.j2", gaps=gaps)
+
     def root(self) -> None:
         """``index.html`` at the root: sends to the Spanish home page, links to both."""
         page = self.env.get_template("root.html.j2").render(
@@ -190,5 +231,5 @@ class SiteBuilder:
         return {"pages": len(self.written), "kinds": list(self.kinds), "out": str(self.out)}
 
 
-def build_site(out: Path) -> dict[str, Any]:
-    return SiteBuilder(out).build()
+def build_site(out: Path, data_dir: Path | None = None) -> dict[str, Any]:
+    return SiteBuilder(out, data_dir=data_dir).build()

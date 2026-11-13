@@ -37,7 +37,7 @@ def test_build_passes_the_check(tmp_path: Path) -> None:
         assert (out / rel).exists(), rel
     report = check_site(out)
     assert report.passed, report.problems
-    assert report.pages == 3
+    assert report.pages == 11  # root + 5 kinds in 2 languages
 
 
 def test_build_is_idempotent(tmp_path: Path) -> None:
@@ -65,21 +65,31 @@ def test_pending_licence_is_shown_as_a_gap_and_fails(tmp_path: Path) -> None:
 
 
 def test_pages_link_only_to_built_pages(tmp_path: Path) -> None:
-    """Step 21 builds only the home page: no link to Neuro News or the fixed pages yet."""
-    page = (build(tmp_path) / "es/index.html").read_text()
-    assert "noticias.html" not in page and "como-evaluamos.html" not in page
+    """Neuro News (step 23) and the glossary (Phase 2) are not built: no link to them."""
+    out = build(tmp_path)
+    for page in out.rglob("*.html"):
+        text = page.read_text()
+        assert "noticias.html" not in text and "glosario.html" not in text, page
+        assert "news.html" not in text and "glossary.html" not in text, page
+    es = (out / "es/index.html").read_text()
+    for href in ("como-evaluamos.html", "fuentes.html", "estado.html", "sobre-nosotros.html"):
+        assert f'href="{href}"' in es, href
 
 
 def test_relative_urls_only(tmp_path: Path) -> None:
-    """Works under any base path (/synaptica/ on Pages); nothing from another domain except
-    the S3 prototype on our own GitHub Pages."""
+    """Works under any base path (/synaptica/ on Pages), and nothing is *loaded* from
+    another domain: every src, stylesheet, script and font is local. Plain links
+    (<a href>) to the sources and to Paleo Atlas may point elsewhere."""
     out = build(tmp_path)
     for page in out.rglob("*.html"):
-        refs = re.findall(r'(?:href|src)="([^"]+)"', page.read_text())
-        for ref in refs:
+        html = page.read_text()
+        for ref in re.findall(r'(?:href|src)="([^"]+)"', html):
             assert not ref.startswith("/"), (page, ref)
-            if ref.startswith("http"):
-                assert ref.startswith("https://adaycuestacorrea.github.io/synaptica/"), ref
+        loaded = re.findall(r'src="([^"]+)"', html) + re.findall(
+            r'<link[^>]*rel="(?:stylesheet|preload|icon)"[^>]*href="([^"]+)"', html
+        )
+        assert loaded and not [r for r in loaded if r.startswith(("http", "//"))], page
+    assert "url(http" not in (out / "static/synaptica.css").read_text()
 
 
 def test_both_languages_alternate(tmp_path: Path) -> None:
@@ -228,3 +238,66 @@ def test_contrast_aa(mode: str) -> None:
         tokens |= _tokens(css, ':root[data-theme="light"]')
     low = {f"{fg}/{bg}": round(_ratio(tokens[fg], tokens[bg]), 2) for fg, bg in PAIRS}
     assert all(v >= 4.5 for v in low.values()), {k: v for k, v in low.items() if v < 4.5}
+
+
+# -- fixed pages (step 22) ----------------------------------------------------------------
+
+
+def test_sources_seed_covers_every_source() -> None:
+    """Every source the pipeline ingests, and every news outlet, has its row with a
+    licence in both languages: the page «Fuentes y licencias» cannot miss one."""
+    from synaptica.site.build import load_seed
+
+    rows = load_seed("sources")
+    keys = {r["source"] for r in rows}
+    assert {r["source"] for r in load_seed("source_cadence")} <= keys
+    assert {"openalex", "crossref"} <= keys
+    outlets = {r["outlet"] for r in rows if r["source"] == "news"}
+    assert {r["outlet"] for r in load_seed("news_feeds")} == outlets
+    for r in rows:
+        for col in ("name", "role_es", "role_en", "takes_es", "takes_en", "licence_es",
+                    "licence_en"):  # fmt: skip
+            assert r[col].strip(), (r["source"], col)
+
+
+def test_sources_page_lists_sources_and_journals(tmp_path: Path) -> None:
+    page = (build(tmp_path) / "en/sources.html").read_text()
+    for text in ("PubMed (NLM)", "OpenAlex", "CC BY-ND 4.0", "Neuron", "nature.rss",
+                 "Home page image: Sofía, made with ChatGPT · CC BY-SA 4.0"):  # fmt: skip
+        assert text in page, text
+
+
+def test_status_without_runs_says_so(tmp_path: Path) -> None:
+    out = tmp_path / "site"
+    SiteBuilder(out, images=LICENSED, data_dir=tmp_path / "data").build()
+    es = (out / "es/estado.html").read_text()
+    assert "Todavía no hay ejecuciones registradas" in es
+    assert "<table" not in es
+
+
+def test_status_shows_the_recorded_runs(tmp_path: Path) -> None:
+    import datetime as dt
+
+    from synaptica import report
+
+    data = tmp_path / "data"
+    t0 = dt.datetime(2026, 11, 12, 6, 23, tzinfo=dt.UTC)
+    report.start_run(data, trigger="schedule", changed=True, now=t0)
+    report.finish_run(data, now=t0 + dt.timedelta(minutes=9))
+    report.start_run(data, trigger="backup", changed=False, now=t0 + dt.timedelta(days=1))
+    out = tmp_path / "site"
+    SiteBuilder(out, images=LICENSED, data_dir=data).build()
+    en = (out / "en/status.html").read_text()
+    assert en.index("2026-11-13 06:23") < en.index("2026-11-12 06:23")  # newest first
+    assert "Backup" in en and "Running" in en and "Scheduled" in en and "Succeeded" in en
+    assert check_site(out).passed
+
+
+def test_fixed_pages_mark_their_gaps(tmp_path: Path) -> None:
+    out = build(tmp_path)
+    method = (out / "es/como-evaluamos.html").read_text()
+    for key in ("method_review", "journal_name", "retraction_watch"):
+        assert f'id="gap-{key}"' in method and f'href="#gap-{key}"' in method, key
+    assert "provisional" not in method.lower()
+    about = (out / "en/about.html").read_text()
+    assert 'id="gap-contact"' in about and "@" not in about  # no address until they decide

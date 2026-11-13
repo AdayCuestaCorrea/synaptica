@@ -1,0 +1,40 @@
+{# «Estado de los datos» / «Data status» (plan, step 22), from the run log
+   ($SYN_DATA_DIR/runs/, synaptica.report). With no runs it says so: no figure by hand. #}
+{% extends "base.html.j2" %}
+{% block title %}{{ t.status }}{% endblock %}
+{% block main %}
+<article class="prose prose--wide">
+  <h1>{{ t.status }}</h1>
+  <p>{{ t.status_intro }}</p>
+  {% if not runs %}
+  <p class="status-none">{{ t.status_none }}</p>
+  {% else %}
+  {% set last = runs[0] %}
+  <h2>{{ t.status_last }}</h2>
+  <dl class="meta">
+    <dt>{{ t.col_started }}</dt><dd><time datetime="{{ last.started_at }}">{{ last.started_at[:16] | replace("T", " ") }}</time></dd>
+    <dt>{{ t.col_trigger }}</dt><dd>{{ t["trigger_" ~ last.trigger] }}</dd>
+    <dt>{{ t.col_result }}</dt><dd>{{ t["status_" ~ last.status] }}</dd>
+    <dt>{{ t.col_changes }}</dt><dd>{% if last.get("sources_changed") %}{% for k, v in last.sources_changed.items() %}{{ k }} ({{ v }}){% if not loop.last %}, {% endif %}{% endfor %}{% else %}{{ t.status_no_changes }}{% endif %}</dd>
+    {% if last.get("steps") %}<dt>{{ t.status_steps }}</dt><dd>{% for s in last.steps %}{{ s.name }}: {{ s.conclusion }}{% if not loop.last %} · {% endif %}{% endfor %}</dd>{% endif %}
+    {% if last.get("llm_tokens") %}<dt>{{ t.status_tokens }}</dt><dd>{% for k, u in last.llm_tokens.items() %}{{ k }} {{ u.get("tokens", 0) }}{% if not loop.last %} · {% endif %}{% endfor %}</dd>{% endif %}
+  </dl>
+  <h2>{{ t.status_history }}</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">{{ t.col_started }}</th><th scope="col">{{ t.col_trigger }}</th><th scope="col">{{ t.col_result }}</th><th scope="col">{{ t.col_changes }}</th></tr></thead>
+      <tbody>
+        {% for r in runs %}
+        <tr>
+          <td data-label="{{ t.col_started }}"><time datetime="{{ r.started_at }}">{{ r.started_at[:16] | replace("T", " ") }}</time></td>
+          <td data-label="{{ t.col_trigger }}">{{ t["trigger_" ~ r.trigger] }}</td>
+          <td data-label="{{ t.col_result }}">{{ t["status_" ~ r.status] }}</td>
+          <td data-label="{{ t.col_changes }}">{% if r.get("sources_changed") %}{{ r.sources_changed | length }}{% else %}{{ t.status_no_changes }}{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endif %}
+</article>
+{% endblock %}

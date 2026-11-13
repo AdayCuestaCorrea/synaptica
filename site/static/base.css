@@ -342,3 +342,26 @@ a.gl:hover, a.gl:focus-visible { color: var(--link); background: var(--accent-so
   .topic-head .topic-art { height: 70px; }
 }
 .topic-head a.gap-tag { color: var(--gap-ink); }
+
+/* Fixed pages (step 22): wide prose for tables, tables that scroll on their own on phones */
+.prose.prose--wide { max-width: 62rem; }
+.table-wrap { overflow-x: auto; margin: 8px 0 16px; border: 1px solid var(--rule); border-radius: var(--radius-s); }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; line-height: 1.45; }
+.data-table th, .data-table td { padding: 8px 10px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule); }
+.data-table thead th { background: var(--surface-2); color: var(--ink); white-space: nowrap; }
+.data-table tbody th { font-weight: 700; min-width: 9rem; }
+.data-table tbody tr:last-child > * { border-bottom: 0; }
+.data-table a { color: var(--link); }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 0 0 12px; }
+.footer-nav a { color: var(--ink); font-weight: 600; }
+.status-none { padding: 12px 14px; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius-s); }
+/* On phones each row becomes a card with the column name before each value, so four
+   columns of prose never break words in half. */
+@media (max-width: 700px) {
+  .data-table thead { display: none; }
+  .data-table tr, .data-table tbody th, .data-table td { display: block; }
+  .data-table tr { padding: 10px 12px; border-bottom: 1px solid var(--rule); }
+  .data-table tbody tr:last-child { border-bottom: 0; }
+  .data-table tbody th, .data-table td { padding: 2px 0; border: 0; min-width: 0; }
+  .data-table td[data-label]::before { content: attr(data-label) ": "; font-weight: 700; color: var(--muted); }
+}
