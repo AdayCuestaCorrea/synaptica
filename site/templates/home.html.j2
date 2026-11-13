@@ -79,6 +79,23 @@
   <p class="empty-state">{{ t.no_data }} {{ m.gap_if("no_data") }}</p>
   {% endif %}
 </section>
+
+{% if topic_hits %}
+<section class="topics" aria-labelledby="topics-h">
+  <div class="sec-head"><h2 id="topics-h">{{ t.topics }}</h2> {{ m.gap("topics") }}
+    <span class="carousel-nav"><button type="button" class="tool" data-scroll="-1" aria-controls="topic-rail"><span aria-hidden="true">←</span><span class="vh">{{ t.prev }}</span></button><button type="button" class="tool" data-scroll="1" aria-controls="topic-rail"><span aria-hidden="true">→</span><span class="vh">{{ t.next }}</span></button></span>
+  </div>
+  <ul class="rail" id="topic-rail">
+    {% for k, hit in topic_hits.items() %}
+    <li><a class="topic topic--{{ k }}" href="{{ url('topic', k) }}">
+      <span class="topic-art">{{ m.art("t-" ~ k) }}</span>
+      <span class="topic-name">{{ topic_names[k][lang] }}</span>
+      <span class="topic-n">{{ t.topic_n.format(n=hit.studies | length + hit.news | length) }}</span>
+    </a></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
 {% endblock %}
 {% block footer_images %}
 <p id="credit-hero">{{ t.footer_hero.format(author=hero_author, licence=hero_licence) }}{% if "hero_licence" in gaps %} {{ m.gap("hero_licence") }}{% endif %}</p>

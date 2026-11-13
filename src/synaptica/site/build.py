@@ -15,6 +15,7 @@ page that does not exist yet.
 from __future__ import annotations
 
 import csv
+import functools
 import hashlib
 import json
 import posixpath
@@ -44,13 +45,14 @@ PATHS = {
         "sources": "es/fuentes.html", "status": "es/estado.html",
         "about": "es/sobre-nosotros.html", "glossary": "es/glosario.html",
         "search": "es/buscar.html", "search_index": "es/buscar.json",
+        "topic": "es/temas/{key}.html",
     },
     "en": {
         "home": "en/index.html", "news": "en/news.html", "study": "en/study/{key}.html",
         "week": "en/week.html", "method": "en/how-we-evaluate.html",
         "sources": "en/sources.html", "status": "en/status.html", "about": "en/about.html",
         "glossary": "en/glossary.html", "search": "en/search.html",
-        "search_index": "en/search.json",
+        "search_index": "en/search.json", "topic": "en/topics/{key}.html",
     },
 }  # fmt: skip
 NAV = ("home", "news", "method", "glossary", "about")  # header, in this order, when built
@@ -230,7 +232,12 @@ class SiteBuilder:
         n = self.news_data
         shown = ([n.lead] if n and n.lead else []) + (n.headlines if n else [])
         gaps |= self.study_gaps(lang, shown)
-        self.render(lang, "home", "home.html.j2", gaps=gaps,
+        if self.topic_hits:
+            gaps["topics"] = ("proposal", self.i18n[lang]["gap_topics"])
+        from synaptica.news.topics import TOPICS
+
+        self.render(lang, "home", "home.html.j2", gaps=gaps, topic_hits=self.topic_hits,
+                    topic_names=TOPICS,
                     lead=n.lead if n else None, headlines=n.headlines if n else [])  # fmt: skip
 
     def news(self, lang: str) -> None:
@@ -241,6 +248,30 @@ class SiteBuilder:
         counts = {k: sum(s["type"] == k for s in n.latest) if n else 0 for k in news_mod.TYPES}
         self.render(lang, "news", "news.html.j2", gaps=gaps, type_counts=counts,
                     classics=self.classics())  # fmt: skip
+
+    @functools.cached_property
+    def topic_hits(self) -> dict[str, dict[str, Any]]:
+        """The topics shown today and their studies and news (step 23 back from the
+        backlog; Aday, option B): none without data."""
+        n = self.news_data
+        if self.data_dir is None or n is None:
+            return {}
+        from synaptica.news import topics
+
+        studies = n.latest + n.nsc
+        news = [i for story in n.stories for i in story]
+        tags = topics.tag_studies(self.data_dir / "warehouse.duckdb", studies,
+                                  cache_root=self.data_dir / "cache")  # fmt: skip
+        return topics.hits(studies, news, tags, topics.switched_off(self.data_dir / "review"))
+
+    def topic(self, lang: str, key: str) -> None:
+        from synaptica.news.topics import TOPICS
+
+        t, hit = self.i18n[lang], self.topic_hits[key]
+        gaps = self.study_gaps(lang, hit["studies"])
+        gaps["topics"] = ("proposal", t["gap_topics"])
+        self.render(lang, "topic", "topic.html.j2", key=key, topic=key,
+                    name=TOPICS[key][lang], hit=hit, gaps=gaps)  # fmt: skip
 
     def classics(self) -> list[dict[str, Any]]:
         """Her newest pick of Clásicos (step 24a); [] until she has chosen: nothing shown."""
@@ -294,6 +325,10 @@ class SiteBuilder:
                     for s in self.news_data.by_id.values()]  # fmt: skip
             out += [[t["kind_news"], i["title"], i["outlet"], i["url"]]
                     for story in self.news_data.stories for i in story]  # fmt: skip
+            from synaptica.news.topics import TOPICS
+
+            out += [[t["kind_topic"], TOPICS[k][lang], k, self.path(lang, "topic", k)]
+                    for k in self.topic_hits]  # fmt: skip
         path = self.out / self.path(lang, "search_index")
         path.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), "utf-8")
 
@@ -328,6 +363,8 @@ class SiteBuilder:
             if self.news_data and "news" in self.kinds:
                 for s in self.news_data.by_id.values():
                     self.study(lang, s)
+                for key in self.topic_hits:
+                    self.topic(lang, key)
             if "search" in self.kinds:
                 self.search_index(lang)
         self.root()
