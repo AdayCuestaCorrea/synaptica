@@ -28,7 +28,7 @@ models:
           - not_null
           - accepted_values:
               arguments:
-                values: [retracted, partially_retracted, concern, corrected, none]
+                values: [retracted, partially_retracted, withdrawn, concern, corrected, none]
       - name: neuro_basis
         description: Why it counts as neuroscience; null when it does not (or not yet).
         data_tests:
@@ -154,6 +154,53 @@ unit_tests:
         - {study_id: "10.1/j", title: "Journal version", pmcid: null, entered_on: 2026-11-09,
            review_status: journal, species: unknown, is_open_access: false, license: null,
            integrity: corrected, published_doi: null, preprint_doi: "10.1101/p"}
+
+  - name: dim_study_withdrawn_preprints
+    description: >
+      A preprint whose latest version is "withdrawn" shows as withdrawn and leaves Latest;
+      a Crossref retraction outranks it, and it outranks a correction.
+    model: dim_study
+    given:
+      - input: ref('int_study__candidates')
+        rows:
+          - {study_id: "10.1101/w", source: biorxiv, priority: 2, doi: "10.1101/w",
+             title: "WITHDRAWN: A", entered_on: 2026-11-09, published_on: 2026-11-09,
+             review_status: preprint, species: unknown, flagged_retracted: false,
+             neuro_basis: source_query, is_english: true, has_abstract: true}
+          - {study_id: "10.1101/r", source: biorxiv, priority: 2, doi: "10.1101/r",
+             title: "WITHDRAWN: B", entered_on: 2026-11-09, published_on: 2026-11-09,
+             review_status: preprint, species: unknown, flagged_retracted: false,
+             neuro_basis: source_query, is_english: true, has_abstract: true}
+          - {study_id: "10.1101/c", source: biorxiv, priority: 2, doi: "10.1101/c",
+             title: "WITHDRAWN: C", entered_on: 2026-11-09, published_on: 2026-11-09,
+             review_status: preprint, species: unknown, flagged_retracted: false,
+             neuro_basis: source_query, is_english: true, has_abstract: true}
+          - {study_id: "10.1101/n", source: biorxiv, priority: 2, doi: "10.1101/n",
+             title: "Still up", entered_on: 2026-11-09, published_on: 2026-11-09,
+             review_status: preprint, species: unknown, flagged_retracted: false,
+             neuro_basis: source_query, is_english: true, has_abstract: true}
+      - input: ref('int_preprints__latest')
+        rows:
+          - {doi: "10.1101/w", preprint_type: withdrawn}
+          - {doi: "10.1101/r", preprint_type: withdrawn}
+          - {doi: "10.1101/c", preprint_type: withdrawn}
+          - {doi: "10.1101/n", preprint_type: "new results"}
+      - input: ref('int_study__integrity')
+        rows:
+          - {doi: "10.1101/r", integrity: retracted, notice_dois: ['10.9/r']}
+          - {doi: "10.1101/c", integrity: corrected, notice_dois: ['10.9/c']}
+      - input: ref('stg_openalex__works')
+        rows: []
+      - input: ref('stg_preprints__published')
+        rows: []
+      - input: ref('stg_derived__news_types')
+        rows: []
+    expect:
+      rows:
+        - {study_id: "10.1101/w", integrity: withdrawn, news_candidate: false}
+        - {study_id: "10.1101/r", integrity: retracted, news_candidate: false}
+        - {study_id: "10.1101/c", integrity: withdrawn, news_candidate: false}
+        - {study_id: "10.1101/n", integrity: none, news_candidate: true}
 
   - name: int_study__integrity_most_serious_wins
     model: int_study__integrity

@@ -270,3 +270,32 @@ def test_the_fact_of_the_day_is_a_verified_sentence_with_its_source(tmp_path: Pa
     # the fact, its second sentence, with its source linked.
     assert '<p class="fact-text">Dos.</p>' in es and '<p class="fact-text">Lead two.</p>' in en
     assert 'href="estudio/doi_10.1_new.html">Neuron</a>' in es
+
+
+def test_withdrawn_preprint_is_signalled_in_both_languages(tmp_path: Path) -> None:
+    withdrawn = study(
+        "doi:10.1/wd",
+        review_status="preprint",
+        sources=["biorxiv"],
+        integrity="withdrawn",
+        news_candidate=False,
+        title="WITHDRAWN: X",
+    )
+    data = warehouse(tmp_path / "data", studies=[*STUDIES, withdrawn])
+    loaded = news.load(data / "warehouse.duckdb")
+    assert "doi:10.1/wd" not in [s["study_id"] for s in loaded.latest]
+    record = news.study_record(withdrawn, None)
+    es = {s["key"]: s for s in news.signals(record, news_mod_i18n("es"))}["integrity"]
+    en = {s["key"]: s for s in news.signals(record, news_mod_i18n("en"))}["integrity"]
+    assert (es["text"], en["text"]) == ("Retirado por los autores", "Withdrawn by the authors")
+    assert "retirado del servidor de preprints" in record["summary"]["es"]["text"]
+    assert "withdrawn it from the preprint server" in record["summary"]["en"]["text"]
+
+
+def news_mod_i18n(lang: str) -> dict:
+    import tomllib
+
+    from synaptica.site import build as build_mod
+
+    path = Path(build_mod.__file__).parent / "i18n" / f"{lang}.toml"
+    return tomllib.loads(path.read_text(encoding="utf-8"))
