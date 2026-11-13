@@ -76,6 +76,9 @@ T3: dict[str, dict[str, str]] = {
         "hub_sub": "Neurociencia, cada día, comprobada: estudios nuevos con sus señales a la "
                    "vista y secciones para entender el cerebro.",
         "jump_today": "Noticias de hoy",
+        "hero_alt": "Dibujo de un cerebro de perfil con estructuras internas resaltadas en "
+                    "verde y, ampliada en un círculo, una neurona",
+        "hero_credit": "Imagen de cabecera aportada por Aday: origen y licencia por confirmar",
         "about": "Sobre nosotros", "search": "Buscar", "search_ph": "Buscar estudios, temas, "
                                                                     "siglas…",
         "search_title": "Buscar", "search_none": "Nada coincide con «{q}».",
@@ -125,8 +128,9 @@ T3: dict[str, dict[str, str]] = {
                       "secciones, temas y siglas), en el navegador y sin servicios externos. "
                       "Adaptado del de Paleo Atlas.",
         "gap_illus": "Ilustraciones: dibujos propios en SVG (CC BY-SA 4.0), con el estilo "
-                     "que eligió Sofía y algo más de detalle; también el cerebro de la "
-                     "cabecera y el de Neuro Atlas, que sustituyen a las capturas del visor. "
+                     "que eligió Sofía y algo más de detalle; también el cerebro de Neuro "
+                     "Atlas, que sustituye a las capturas del visor. La imagen de la cabecera "
+                     "la aportó Aday: falta confirmar su origen y su licencia. "
                      "Son esquemas, no anatomía exacta.",
         "footer_images": "Imágenes: ilustraciones propias (CC BY-SA 4.0); figuras de "
                          "estudios de acceso abierto de PMC, cada una con su licencia.",
@@ -138,6 +142,9 @@ T3: dict[str, dict[str, str]] = {
         "hub_sub": "Neuroscience, every day, checked: new studies with their signals in plain "
                    "sight and sections to understand the brain.",
         "jump_today": "Today's news",
+        "hero_alt": "Drawing of a brain in profile with inner structures highlighted in green "
+                    "and, enlarged in a circle, a neuron",
+        "hero_credit": "Header image provided by Aday: source and licence to be confirmed",
         "about": "About us", "search": "Search", "search_ph": "Search studies, topics, "
                                                              "acronyms…",
         "search_title": "Search", "search_none": "Nothing matches «{q}».",
@@ -186,8 +193,9 @@ T3: dict[str, dict[str, str]] = {
                       "and acronyms), in the browser, with no outside service. Adapted from "
                       "Paleo Atlas.",
         "gap_illus": "Illustrations: our own SVG drawings (CC BY-SA 4.0), in the style Sofía "
-                     "chose with a bit more detail; also the brains of the header and of Neuro "
-                     "Atlas, which replace the viewer captures. They are sketches, not exact "
+                     "chose with a bit more detail; also the brain of Neuro Atlas, which "
+                     "replaces the viewer captures. The header image was provided by Aday: its "
+                     "source and licence are still to be confirmed. They are sketches, not exact "
                      "anatomy.",
         "footer_images": "Images: our own illustrations (CC BY-SA 4.0); figures from PMC "
                          "open-access studies, each with its licence.",
