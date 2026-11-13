@@ -288,3 +288,33 @@ def test_fallback_text_names_a_future_print_issue_not_a_day() -> None:
     assert fallback_text(s | {"published_on": "2026-11-12"}, "en") == (
         "Study in animals published in Glia on 12 November 2026."
     )
+
+
+def test_quota_order_is_by_tiers_then_newest(tmp_path):
+    """SCOPE §8: (1) journal feeds, (2) linked to the media (empty for now), (3) the rest
+    published in a journal, (4) preprints and unknown; newest first within each tier."""
+    path = tmp_path / "w.duckdb"
+    with duckdb.connect(str(path)) as con:
+        con.execute(
+            "create table dim_study (study_id varchar, doi varchar, pmid varchar, pmcid "
+            "varchar, title varchar, journal varchar, published_on date, entered_on date, "
+            "sources varchar[], review_status varchar, species varchar, integrity varchar, "
+            "news_candidate boolean, news_type varchar)"
+        )
+        rows = [  # (id, entered, sources, review status, published)
+            ("pre-new", "2026-11-09", ["biorxiv"], "preprint", "2026-11-09"),
+            ("unknown", "2026-11-09", ["europepmc"], "unknown", "2026-11-09"),
+            ("journal-old", "2026-11-05", ["pubmed"], "journal", "2026-11-04"),
+            ("journal-issue", "2026-11-08", ["pubmed"], "journal", "2027-01-01"),
+            ("journal-new", "2026-11-08", ["pubmed"], "journal", "2026-11-08"),
+            ("nsc-old", "2026-11-04", ["journals"], "journal", "2026-11-04"),
+        ]
+        for sid, entered, sources, review, published in rows:
+            con.execute(
+                "insert into dim_study values (?, ?, null, null, 'T', 'J', ?, ?, ?, ?, "
+                "'humans', 'none', true, 'disease')",
+                [sid, sid, published, entered, sources, review],
+            )
+    got = [r["study_id"] for r in pipeline.studies_to_summarize(TODAY, path)]
+    assert got == ["nsc-old", "journal-issue", "journal-new", "journal-old", "pre-new",
+                   "unknown"]  # fmt: skip
