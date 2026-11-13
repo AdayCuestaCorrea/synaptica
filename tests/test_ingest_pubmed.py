@@ -185,3 +185,23 @@ def test_an_esearch_error_is_raised(tmp_path):
 
     with make_client(transport=httpx.MockTransport(handler)) as client, pytest.raises(HttpError):
         pubmed.search(client, 1, pubmed.base_params(None), Throttle(1000, sleep=lambda _: None))
+
+
+def test_an_empty_cache_gets_the_recent_abstracts_again(tmp_path):
+    # Step 28: in Actions the cache is not in git; the data branch already has the records.
+    import shutil
+
+    run(tmp_path, FakePubMed())
+    shutil.rmtree(tmp_path / "cache")
+    raw = {k: v for k, v in snapshot(tmp_path).items() if k.parts[0] == "raw"}
+    fake = FakePubMed()
+    result = run(tmp_path, fake, today=DAY + dt.timedelta(days=1))
+    assert len(fake.ids("efetch")) == 10 and result.abstracts_cached == 10
+    after = {k: v for k, v in snapshot(tmp_path).items() if k.parts[0] == "raw"}
+    assert result.medline_new_versions == 0 and after == raw  # nothing new for git
+    fake = FakePubMed()
+    run(tmp_path, fake, today=DAY + dt.timedelta(days=8))  # out of the summaries' window
+    shutil.rmtree(tmp_path / "cache")
+    fake = FakePubMed()
+    run(tmp_path, fake, today=DAY + dt.timedelta(days=9))
+    assert fake.ids("efetch") == []

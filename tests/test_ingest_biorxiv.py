@@ -141,3 +141,16 @@ def test_published_links_keep_neuro_categories_and_no_abstract(tmp_path):
         "published_journal": "Neuron", "published_date": "2026-10-03",
         "category": "neuroscience",
     }}  # fmt: skip
+
+
+def test_an_empty_cache_is_filled_again_without_new_versions(tmp_path):
+    # Step 28: the cache is not in git; the data branch already has the preprints.
+    import shutil
+
+    entry = copy.deepcopy(fixture("biorxiv", "neuroscience")["collection"][0])
+    entry.update(doi="10.1101/2026.01.01.000003", abstract="Authors' own words.")
+    run(tmp_path, FakeBiorxiv(extra=[entry]))
+    shutil.rmtree(tmp_path / "cache")
+    result = run(tmp_path, FakeBiorxiv(extra=[entry]), today=DAY + dt.timedelta(days=1))
+    assert result.new_versions == {"biorxiv": 0, "medrxiv": 0} and result.abstracts_cached >= 1
+    assert (tmp_path / "cache/biorxiv/abstract/10.1101_2026.01.01.000003.json").exists()

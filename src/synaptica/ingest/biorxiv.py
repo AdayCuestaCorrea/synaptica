@@ -183,7 +183,8 @@ def ingest(
             if doi not in previous or _version(item) >= previous[doi].get("version", 0)
         }
         new_versions[server] = preprints.save(trimmed, today, previous=previous)
-        abstracts += sum(_cache_abstract(cache_root, server, items[d]) for d in trimmed)
+        # Every listed item, not only the new ones: the cache is not in git (step 28).
+        abstracts += sum(_cache_abstract(cache_root, server, item) for item in items.values())
     return BiorxivResult(found, new_versions, abstracts)
 
 
