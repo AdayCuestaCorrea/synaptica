@@ -39,6 +39,7 @@ import json
 from pathlib import Path
 
 import layers as cb
+import nissl
 import numpy as np
 import requests
 import requests.utils
@@ -137,6 +138,13 @@ ICBM_URL = "https://www.bic.mni.mcgill.ca/~vfonov/icbm/2009/mni_icbm152_nlin_asy
 ICBM_ZIP = CACHE / "icbm2009c" / "mni_icbm152_nlin_asym_09c_nifti.zip"
 ICBM_WM_MIN = 0.5  # white matter probability, and higher than grey matter and CSF
 ICBM_WM_NAME = "Cerebral white matter (not divided into tracts)"
+# Rat real stain, 2D only (nissl.py): the coronal Nissl series H108c of the Timm-Nissl atlas.
+NISSL_BUCKET = (
+    "https://data-proxy.ebrains.eu/api/v1/buckets/img-40ac3c53-c645-11ec-abfd-00090faa0001/"
+)
+NISSL_SERIES = "H108c_Nissl_coronal.json"
+NISSL_DIR = CACHE / "nissl"
+NISSL_PAUSE = 0.05  # s between requests to the EBRAINS data proxy
 LAYER_PAIRS = [
     ("hypothalamus", 1034, "cit168", ["Hypothalamus (HTH)", "Mammillary nucleus (MN)"]),
     ("epithalamus", 1083, "cit168", ["Habenular nuclei (HN)"]),
@@ -240,6 +248,30 @@ LICENCES = {
             f"{ICBM_WM_MIN}), outside every other human layer; split into left and right at the "
             "midline; centred like the Julich-Brain label volume (same grid). It is a tissue "
             "map, not tracts. Changes made by SYNAPTICA."
+        ),
+    },
+    "nissl": {
+        "atlas": "Timm-Nissl multiplane microscopic atlas of the rat brain: coronal Nissl "
+        "(thionine) series H108c, registered to Waxholm Space",
+        "short": "Nissl de rata (Blixhavn et al. 2023)",
+        "version": "v1, animal H108c (Wistar), 146 coronal sections",
+        "licence": "CC BY 4.0",
+        "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source": "EBRAINS, Deep Zoom pyramids and QuickNII/VisuAlign registration of H108c",
+        "source_url": "https://doi.org/10.25493/T686-7BX",
+        "citation": (
+            "Blixhavn C. H. et al. 2023, A Timm-Nissl multiplane microscopic atlas of rat brain "
+            "zincergic terminal fields and metal-containing glia, Scientific Data 10:150, "
+            "https://doi.org/10.1038/s41597-023-02012-6; dataset "
+            "https://doi.org/10.25493/T686-7BX"
+        ),
+        "derived": (
+            "One reduced level of each image pyramid, resampled onto the coronal plane of the "
+            "viewer (flat skull, mm from Bregma, 39 µm) with the published QuickNII and "
+            "VisuAlign registration; contrast stretched (one linear map for the three "
+            "channels) and the bare slide made transparent; WebP (nissl.py). Changes made by "
+            "SYNAPTICA. Not "
+            "combined with any atlas file."
         ),
     },
     "waxholm": {
@@ -882,6 +914,77 @@ def icbm_wm() -> dict:
     return write_layer("icbm_wm", compact, rows, origin, report)
 
 
+def nissl_fetch(path: str, binary: bool = True) -> bytes:
+    """One file of the H108c bucket, cached under data/cache/s3/nissl/."""
+    import time
+
+    local = NISSL_DIR / path
+    if not local.exists():
+        local.parent.mkdir(parents=True, exist_ok=True)
+        r = requests.get(NISSL_BUCKET + path, params={"redirect": "true"}, timeout=120)
+        r.raise_for_status()
+        local.write_bytes(r.content)
+        time.sleep(NISSL_PAUSE)
+    return local.read_bytes()
+
+
+def nissl_image(name: str) -> np.ndarray:
+    """A section at about 900 px from its Deep Zoom pyramid (tiles stitched), 8-bit RGB."""
+    import io
+    import re
+
+    from PIL import Image
+
+    stem = name.rsplit(".", 1)[0]
+    dzi = nissl_fetch(f"{stem}.tif/{stem}.dzi").decode()
+    tile = int(re.search(r'TileSize="(\d+)"', dzi).group(1))
+    lap = int(re.search(r'Overlap="(\d+)"', dzi).group(1))
+    fmt = re.search(r'Format="(\w+)"', dzi).group(1)
+    width = int(re.search(r'Width="(\d+)"', dzi).group(1))
+    height = int(re.search(r'Height="(\d+)"', dzi).group(1))
+    level, w, h = nissl.pyramid_level(width, height)
+    out = np.full((h, w, 3), nissl.BACKGROUND, dtype=np.uint8)
+    for col in range(-(-w // tile)):
+        for row in range(-(-h // tile)):
+            raw = nissl_fetch(f"{stem}.tif/{stem}_files/{level}/{col}_{row}.{fmt}")
+            t = np.asarray(Image.open(io.BytesIO(raw)).convert("RGB"))
+            x, y = col * tile - (lap if col else 0), row * tile - (lap if row else 0)
+            out[y : y + t.shape[0], x : x + t.shape[1]] = t[: h - y, : w - x]
+    return out
+
+
+def rat_nissl(only: list[int] | None = None) -> dict:
+    """Sofía's review: the rat's real stain for the 2D slice, one WebP per section (nissl.py)."""
+    from PIL import Image
+
+    series = json.loads(nissl_fetch(NISSL_SERIES))
+    out = OUT / "nissl"
+    out.mkdir(parents=True, exist_ok=True)
+    index = []
+    for sl in series["slices"]:
+        if only and sl["nr"] not in only:
+            continue
+        res = nissl.crop(nissl.resample(nissl_image(sl["filename"]), sl))
+        name = f"s{sl['nr']:03d}.webp"
+        Image.fromarray(nissl.finish(res["image"]), "RGBA").save(out / name, "WEBP", quality=70,
+                                                                  method=6)  # fmt: skip
+        index.append({"nr": sl["nr"], "file": name, "ap_mm": res["ap_mm"],
+                      "ap_range_mm": res["ap_range_mm"], "extent_mm": res["extent_mm"],
+                      "px": [res["image"].shape[1], res["image"].shape[0]]})  # fmt: skip
+    index.sort(key=lambda r: r["ap_mm"])
+    write_json(out / "index.json", {
+        "frame": "flat skull, mm from Bregma (the rat viewer's shown frame)",
+        "pixel_mm": nissl.PIXEL_MM,
+        "extent": "[x_left, x_right, z_bottom, z_top] of the image, mm",
+        "sections": index,
+    })  # fmt: skip
+    write_json(out / "licence.json", LICENCES["nissl"])
+    return {
+        "sections": len(index),
+        "bytes_total_webp": sum((out / r["file"]).stat().st_size for r in index),
+    }
+
+
 def equivalences() -> dict:
     """Test pairs between the atlases: IDs and names only. The grade is Sofía's to give.
 
@@ -940,6 +1043,7 @@ def main() -> None:
         "cerebra": cerebra(),  # after julich(): it reads the Julich-Brain labels
         "cit168": cit168(),  # after cerebra(): each layer fills what the ones before leave
         "icbm_wm": icbm_wm(),
+        "nissl": rat_nissl(),  # rat real stain, 2D only
     }
     eq = equivalences()
     (OUT / "equivalencias.json").write_text(json.dumps(eq, indent=2, ensure_ascii=False) + "\n")
@@ -949,7 +1053,7 @@ def main() -> None:
         if p.is_file() and p.name != "manifest.json"
     }
     report["files_bytes"] = files
-    for atlas in ("waxholm", "julich", "bigbrain", "cerebra", "cit168", "icbm_wm"):
+    for atlas in ("waxholm", "julich", "bigbrain", "cerebra", "cit168", "icbm_wm", "nissl"):
         total = sum(v for k, v in files.items() if k.startswith(atlas + "/"))
         report[atlas]["bytes_total"] = total
         report[atlas]["within_budget"] = total <= BUDGET_BYTES

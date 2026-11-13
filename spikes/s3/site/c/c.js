@@ -313,6 +313,9 @@ const state = {
 // Step 7.8: real stains, one folder and licence each (results/tincion.md). Rat: none found that
 // fits (backlog), so the rat keeps the drawn one and says so.
 const REAL_STAIN = { julich: "../data/bigbrain" };
+// Sofía's review: the rat has real Nissl sections, not a volume, so only the 2D slice shows them
+// (spikes/s3/nissl.py): the section nearest the slice, with how far it is.
+const REAL_SLICE = { waxholm: "../data/nissl" };
 // Atlas mode: fill grey from the lightness of the region's colour, kept light so the contours
 // read; the selection and its counterpart, darker. Contours, almost black.
 const GREY = { lo: 175, hi: 238, focus: 125, edge: 40 };
@@ -341,11 +344,17 @@ const NOTICE = {
     drawn: "Ilustración, no es una tinción real",
     noReal: "Ilustración, no es una tinción real (no hay de rata)",
     real: "Tinción real de otro cerebro (BigBrain)",
+    real3dRat: "Ilustración: la tinción real de rata solo está en el corte 2D",
+    realSlice: (d) => `Nissl real de otra rata · corte a ${d} mm de este plano`,
+    realSliceLoading: "Cargando el corte real…",
   },
   en: {
     drawn: "Illustration, not a real stain",
     noReal: "Illustration, not a real stain (none for the rat)",
     real: "Real stain of another brain (BigBrain)",
+    real3dRat: "Illustration: the rat's real stain is only on the 2D slice",
+    realSlice: (d) => `Real Nissl of another rat · section ${d} mm from this plane`,
+    realSliceLoading: "Loading the real section…",
   },
 }[lang];
 
@@ -648,6 +657,7 @@ class VolumeViewer {
       const box = this.section.querySelector(".licence-extra");
       if (box) box.hidden = !this.realOn;
     }
+    if (REAL_SLICE[this.atlas]) this.showSectionLicence();
     this.vol.setColormapLabel(this.colormap());
     this.nv.updateGLVolume();
     this.layout();
@@ -772,6 +782,7 @@ class VolumeViewer {
         tile && [tile.leftTopWidthHeight, tile.leftTopMM, tile.fovMM, this.nv.scene.crosshairPos],
         this.canvas.width, this.canvas.height, state.view, state.mode, state.stain, state.isolate,
         [...this.focus], this.realOn && this.nv.volumes.includes(this.real),
+        this.sectionShown && this.sectionShown.nr,
       ]);
       if (key !== last) {
         last = key;
@@ -793,7 +804,8 @@ class VolumeViewer {
     // The 3D view starts at the top left corner in both layouts (layout()).
     if (state.mode === "stain") {
       const half = state.view !== "3d" && cv.width >= cv.height;
-      this.drawNotice(g, 8 * dpr, 8 * dpr, dpr, (half ? cv.width / 2 : cv.width) - 16 * dpr);
+      const text = this.realSliceOn ? NOTICE.real3dRat : null;
+      this.drawNotice(g, 8 * dpr, 8 * dpr, dpr, (half ? cv.width / 2 : cv.width) - 16 * dpr, text);
     }
     if (!tile) return;
     const [left, top, w, hgt] = tile.leftTopWidthHeight;
@@ -806,6 +818,7 @@ class VolumeViewer {
       if (this.focus.size) this.drawContours(g, toX, toY, dpr, this.focus, "rgb(232 120 20)", 2);
     } else if (state.mode === "stain") {
       this.paintStain(g, tile, dpr);
+      if (this.realSliceOn) this.paintSection(g, tile, toX, toY);
       // The painted slice covers Niivue's: crosshair and selection drawn again on top.
       const at = this.nv.frac2mm(this.nv.scene.crosshairPos);
       g.save();
@@ -870,17 +883,92 @@ class VolumeViewer {
     g.textBaseline = "top";
     g.font = `600 ${12 * dpr}px system-ui, sans-serif`;
     g.fillText(text, x0 + 8 * dpr, top + 8 * dpr);
-    if (state.mode === "stain") this.drawNotice(g, x0 + 8 * dpr, top + 28 * dpr, dpr, Math.abs(w) - 16 * dpr);
+    if (state.mode === "stain") {
+      const sec = this.realSliceOn ? this.sectionShown : null;
+      const text = !this.realSliceOn ? null
+        : sec ? NOTICE.realSlice(fmt(sec.distance, 2).replace(/^\+/, "")) : NOTICE.realSliceLoading;
+      this.drawNotice(g, x0 + 8 * dpr, top + 28 * dpr, dpr, Math.abs(w) - 16 * dpr, text);
+    }
+  }
+
+  // Sofía's review: the rat's real stain in 2D. Real only in stain mode, "real", with sections.
+  get realSliceOn() {
+    return state.mode === "stain" && state.stain === "real" && Boolean(REAL_SLICE[this.atlas]);
+  }
+
+  // The real section nearest the coronal slice, over the drawn one (which still shows around it,
+  // so the slide is not mistaken for tissue it lacks). Loads the index and each image once.
+  paintSection(g, tile, toX, toY) {
+    const dir = REAL_SLICE[this.atlas];
+    if (!this.sections) {
+      this.sections = fetch(`${dir}/index.json`).then((r) => r.json());
+      this.sectionImgs = new Map();
+      Promise.all([this.sections, fetch(`${dir}/licence.json`).then((r) => r.json())])
+        .then(([, lic]) => { this.sectionLicence = lic; this.showSectionLicence(); });
+    }
+    this.showSectionLicence();
+    const ap = this.shownMm(1, this.nv.frac2mm(this.nv.scene.crosshairPos)[1]);
+    this.sections.then((idx) => {
+      this.sectionIndex = idx;
+      const best = idx.sections.reduce((a, b) => (Math.abs(b.ap_mm - ap) < Math.abs(a.ap_mm - ap) ? b : a));
+      if (!this.sectionImgs.has(best.nr)) {
+        const img = new Image();
+        img.src = `${dir}/${best.file}`;
+        const entry = { img: null };
+        entry.ready = img.decode().then(() => (entry.img = img));
+        this.sectionImgs.set(best.nr, entry);
+      }
+      this.sectionImgs.get(best.nr).ready.then(() => {
+        const want = { nr: best.nr, distance: best.ap_mm - ap };
+        const now = this.sectionShown;
+        // A new section or a new distance redraws (the loop compares the section number only).
+        if (!now || now.nr !== want.nr || Math.abs(now.distance - want.distance) > 0.005) {
+          this.sectionShown = want;
+          if (now && now.nr === want.nr) this.drawAxesSoon();
+        }
+      });
+    });
+    const sec = this.sectionShown && this.sectionIndex
+      && this.sectionIndex.sections.find((s) => s.nr === this.sectionShown.nr);
+    const img = sec && this.sectionImgs.get(sec.nr)?.img;
+    if (!img) return;
+    const [xl, xr, zb, zt] = sec.extent_mm;
+    const X1 = toX(this.viewerMm(0, xl)), X2 = toX(this.viewerMm(0, xr));
+    const Y1 = toY(this.viewerMm(2, zt)), Y2 = toY(this.viewerMm(2, zb));
+    g.save();
+    g.imageSmoothingEnabled = true;
+    if (X2 < X1) { // radiological: mirror the image
+      g.translate(X1, 0);
+      g.scale(-1, 1);
+      g.drawImage(img, 0, Y1, X1 - X2, Y2 - Y1);
+    } else {
+      g.drawImage(img, X1, Y1, X2 - X1, Y2 - Y1);
+    }
+    g.restore();
+  }
+
+  drawAxesSoon() {
+    const tile = state.view === "3d" ? null : this.nv.screenSlices.find(
+      (s) => s.axCorSag === SLICE_TYPE.CORONAL && s.AxyzMxy.length >= 4,
+    );
+    requestAnimationFrame(() => this.drawAxes(tile));
+  }
+
+  showSectionLicence() {
+    const box = this.section.querySelector(".licence-extra");
+    if (!box) return;
+    box.hidden = !this.realSliceOn || !this.sectionLicence;
+    if (!box.hidden && !box.childElementCount) renderLicence(box, this.sectionLicence, { colours: false });
   }
 
   // The notice always fits its view: the type shrinks (down to 8 px) rather than being cut.
-  drawNotice(g, x, y, dpr, maxW) {
+  drawNotice(g, x, y, dpr, maxW, override = null) {
     g.save();
     g.textBaseline = "top";
     g.textAlign = "left";
     const pad = 5 * dpr;
-    const text = this.realOn ? NOTICE.real
-      : state.stain === "real" ? NOTICE.noReal : NOTICE.drawn;
+    const text = override || (this.realOn ? NOTICE.real
+      : state.stain === "real" ? NOTICE.noReal : NOTICE.drawn);
     let size = 12 * dpr;
     g.font = `600 ${size}px system-ui, sans-serif`;
     const full = g.measureText(text).width;

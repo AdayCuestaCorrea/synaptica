@@ -61,6 +61,8 @@ spike-s3 = [
     "nibabel>=5.5.0",
     # Connected components and smoothing of label volumes.
     "scipy>=1.18.1",
+    # Rat Nissl sections (nissl.py): read the image tiles, write the 2D sections as WebP.
+    "pillow>=13.0.0",
 ]
 # Spike S5 (decision D4): pydantic validates the JSON answers of the LLM, as in Paleo.
 # Moves to the main dependencies in Phase 1 if D4 keeps this design.

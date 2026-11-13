@@ -52,7 +52,7 @@ Hecho el 2026-11-11. La pregunta: ¿hay histología **real**, con licencia, ya *
   - la serie coronal de Nissl (tionina), H108c, tiene 146 cortes de 40 µm, escaneados a 0,22 µm/píxel y guardados como TIFF con compresión JPEG;
   - cada corte está registrado a Waxholm v4 con QuickNII (afín) y VisuAlign (no lineal), en archivos JSON.
 - **Por qué no se integra ahora:** no hay un volumen 3D. Habría que descargar la serie, que pesa muchos GB, y montar un volumen en la rejilla de Waxholm a partir de los registros corte a corte, aplicando también la deformación de VisuAlign. Además, el resultado tendría huecos entre cortes y sería de otra cepa. Es trabajo de días, no de un spike.
-- **Backlog:** volumen de Nissl de rata en Waxholm a partir del atlas Timm-Nissl (SCOPE §10).
+- **Backlog:** volumen de Nissl de rata en Waxholm a partir del atlas Timm-Nissl (SCOPE §10). En 2D ya se usa: ver más abajo.
 
 ## Segunda búsqueda, tras la revisión de Sofía (2026-11-12)
 
@@ -72,6 +72,30 @@ Sofía pidió una tinción real para la rata, porque le extrañaba que no la hub
   - El ratón sí tiene un Nissl en 3D (Allen), pero es otra especie.
 - **Por qué no hay un «BigBrain de rata»:** BigBrain fue un proyecto aparte, de años, que cortó un cerebro humano en 7404 secciones para reconstruirlo en 3D. Con la rata, los laboratorios publican series de cortes y su registro al atlas, pero nadie ha publicado el volumen reconstruido con licencia abierta.
 - **Decisión:** sin cambios. La rata sigue con la tinción dibujada y su aviso. El backlog pasa a incluir a Zhao 2024 como fuente alternativa a Blixhavn.
+
+## Rata: tinción real en el corte 2D (Aday, 2026-11-12)
+
+Aday propuso usar los cortes reales en 2D y dejar el 3D en el backlog. Sofía lo da por bueno.
+
+- **Fuente:** la serie coronal de Nissl (tionina) H108c del atlas Timm-Nissl (Blixhavn et al. 2023, **CC BY 4.0**). Son 146 cortes de una rata Wistar. Cada uno trae:
+  - su registro a Waxholm: QuickNII (afín) y VisuAlign (no lineal), en `H108c_Nissl_coronal.json`;
+  - una pirámide de imágenes (Deep Zoom) en EBRAINS.
+- **Qué se descarga:** solo un nivel de la pirámide, de unos 900 px de ancho, por corte, nunca los TIFF completos, que pesan GB. Son unas 16 teselas por corte, con pausa entre peticiones, y se guardan en caché en `data/cache/s3/nissl/`.
+- **Cómo se coloca** (`nissl.py`, con tests). Cada corte se remuestrea sobre el plano coronal del visor, en mm desde Bregma con cráneo plano y a 39 µm por píxel. Para cada punto (x, z) de la salida:
+  - el plano del corte da sus coordenadas de QuickNII: un sistema 2 × 2 exacto;
+  - la deformación de VisuAlign da el punto de la imagen. Es afín por triángulos, con las esquinas fijas al 10 % por fuera, como en PyNutil;
+  - de ahí sale el píxel.
+- **Cada corte** se recorta al tejido. Se guarda con su posición AP y con el rango AP que abarca, porque los cortes están algo oblicuos (como mucho, 2,3 mm entre un borde y otro). Todo va en `site/data/nissl/`, con su `index.json` y su `licence.json`.
+- **Color y contraste:** se conserva el azul violáceo de la tionina. El contraste se estira con un mismo ajuste lineal para los tres canales, desde el 1 % más oscuro del tejido hasta el nivel del portaobjetos, así que no cambia el tono ni se inventa nada. El portaobjetos que rodea el tejido queda transparente.
+- **Cobertura:** de −13,4 a +7,4 mm de Bregma, casi siempre con un corte cada 0,12 mm. Hay un hueco en la serie publicada, sin los cortes 260 a 293, entre −5,67 y −3,73 mm. Ahí el aviso marca hasta ~1 mm de distancia.
+- **Peso:** 3,75 MB los 146, unos 26 KB por corte en WebP; en el visor, unos 35 KB cada uno. Pasa del presupuesto de 3 MB por atlas, pero el visor solo baja `index.json` (42 KB, menos con gzip) y el corte que se ve, de uno en uno. En la carga inicial no añade nada.
+- **Comprobado a ojo:** a −5,9 mm de Bregma, los contornos de Waxholm caen sobre el giro dentado, el hipocampo y la corteza del corte. El pequeño desfase en la parte ventral viene de la oblicuidad: el corte abarca ~1 mm de AP y se compara con el plano medio.
+- **En el visor:**
+  - en el modo Tinción, variante «Real», el corte 2D de la rata muestra el corte real más cercano encima del dibujado;
+  - el aviso dice «Nissl real de otra rata · corte a X mm de este plano»;
+  - la selección lleva su contorno naranja y la licencia aparece bajo la de Waxholm;
+  - el 3D de la rata sigue con la tinción dibujada, con el aviso «la tinción real de rata solo está en el corte 2D»;
+  - cada imagen se descarga solo cuando se ve.
 
 ## Descartado
 

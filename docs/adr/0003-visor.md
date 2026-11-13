@@ -50,7 +50,7 @@ La fluidez es con WebGL **por software**, así que es una cota pesimista.
     - el tronco dividido en mesencéfalo, puente y bulbo: la única división en este espacio, la de FreeSurfer, no tiene licencia publicada;
     - el bulbo olfatorio: no hay ningún atlas MNI que lo tenga;
     - los tractos de la sustancia blanca: ENIGMA, CC BY 4.0, al backlog.
-  - **Tinción real de rata:** no existe un volumen 3D con licencia ([tinción](../../spikes/s3/results/tincion.md)); solo hay cortes registrados a Waxholm.
+  - **Tinción real de rata:** no existe un volumen 3D con licencia ([tinción](../../spikes/s3/results/tincion.md)); solo hay cortes registrados a Waxholm. Se usa **en 2D**: el corte de la rata muestra el corte real de Nissl más cercano (Blixhavn et al. 2023, CC BY 4.0, 146 cortes), colocado con su registro QuickNII y VisuAlign y con la distancia al plano en el aviso. El 3D sigue en el backlog.
 
 **C después de los ajustes**, publicada en Pages y medida allí ([7.10](../../spikes/s3/results/maqueta-c.md#paso-710-publicación-en-github-pages-2026-11-12)):
 
@@ -111,7 +111,7 @@ En la Fase 1, el script de S3 (`spikes/s3/build_assets.py`) pasa a `src/synaptic
 
     SYNAPTICA ya acepta NC (CLAUDE.md). Las capas humanas solo se superponen en pantalla.
   - **Dos plantillas MNI:** CerebrA se hizo sobre la 2009c simétrica, y Julich-Brain, CIT168 y la sustancia blanca sobre la asimétrica. Es la misma rejilla, pero en la costura puede haber 1–2 mm de desajuste.
-  - **Tinción de la rata:** no hay histología 3D con licencia alineada a Waxholm. Se buscó otra vez el 2026-11-12 y solo hay cortes: Blixhavn 2023 (Nissl, CC BY) y Zhao et al. 2024 (plata de cuerpos celulares, como BigBrain, CC BY-NC-SA). Montar un volumen a partir de ellos está en el backlog (SCOPE §10). Mientras tanto, la tinción dibujada lleva el aviso en el propio lienzo.
+  - **Tinción de la rata:** no hay histología 3D con licencia alineada a Waxholm; solo cortes: Blixhavn 2023 (Nissl, CC BY) y Zhao et al. 2024 (plata, CC BY-NC-SA). Los de Blixhavn se muestran **solo en el corte 2D**: es otra rata, de otra cepa (Wistar), y el corte más cercano puede estar a unas décimas de mm del plano, lo que el aviso dice. En 3D sigue la tinción dibujada, con su aviso. Montar un volumen está en el backlog (SCOPE §10).
 
 ## Pruebas
 - **Plan:** [`spikes/s3/PLAN.md`](../../spikes/s3/PLAN.md).

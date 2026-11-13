@@ -2713,6 +2713,7 @@ spike-s2 = [
 spike-s3 = [
     { name = "brainglobe-atlasapi" },
     { name = "nibabel" },
+    { name = "pillow" },
     { name = "scipy" },
     { name = "siibra" },
 ]
@@ -2746,6 +2747,7 @@ spike-s2 = [
 spike-s3 = [
     { name = "brainglobe-atlasapi", specifier = ">=3.0.3" },
     { name = "nibabel", specifier = ">=5.5.0" },
+    { name = "pillow", specifier = ">=13.0.0" },
     { name = "scipy", specifier = ">=1.18.1" },
     { name = "siibra", specifier = ">=1.0.1a27" },
 ]
