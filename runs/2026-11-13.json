@@ -1,0 +1,105 @@
+[
+ {
+  "started_at": "2026-11-13T14:43:45Z",
+  "trigger": "manual",
+  "changed": true,
+  "status": "ok",
+  "finished_at": "2026-11-13T14:50:09Z",
+  "steps": [
+   {
+    "name": "Set up job",
+    "conclusion": "success",
+    "seconds": 4
+   },
+   {
+    "name": "Run actions/checkout@v7.0.1",
+    "conclusion": "success",
+    "seconds": 4
+   },
+   {
+    "name": "Check out the data branch",
+    "conclusion": "success",
+    "seconds": 1
+   },
+   {
+    "name": "Restore the private cache",
+    "conclusion": "success",
+    "seconds": 0
+   },
+   {
+    "name": "Run astral-sh/setup-uv@v10.3.3",
+    "conclusion": "success",
+    "seconds": 1
+   },
+   {
+    "name": "Install",
+    "conclusion": "success",
+    "seconds": 3
+   },
+   {
+    "name": "Anything new?",
+    "conclusion": "success",
+    "seconds": 0
+   },
+   {
+    "name": "Ingest",
+    "conclusion": "success",
+    "seconds": 367
+   },
+   {
+    "name": "dbt build (for the classifier)",
+    "conclusion": "success",
+    "seconds": 8
+   },
+   {
+    "name": "dbt build",
+    "conclusion": "success",
+    "seconds": 5
+   },
+   {
+    "name": "Build the website",
+    "conclusion": "success",
+    "seconds": 2
+   },
+   {
+    "name": "Sofía's review queue",
+    "conclusion": "success",
+    "seconds": 1
+   }
+  ],
+  "sources_changed": {},
+  "summary": null,
+  "changes_since_previous": {},
+  "dbt": {
+   "counts": {
+    "pass": 63,
+    "success": 27
+   },
+   "tests": {
+    "data": {
+     "pass": 59
+    },
+    "unit": {
+     "pass": 4
+    }
+   },
+   "issues": []
+  },
+  "llm_tokens": {},
+  "texts": {
+   "written": {
+    "en_verified": 168,
+    "es_verified": 149,
+    "es_failed": 19,
+    "en_rejected_by_judge": 16,
+    "es_rejected_by_judge": 16,
+    "en_failed": 15
+   },
+   "judge": {
+    "passed": 67,
+    "rejected": 16,
+    "spanish_natural_mean": 4.22
+   }
+  }
+ }
+]
