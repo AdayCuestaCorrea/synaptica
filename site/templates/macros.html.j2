@@ -52,7 +52,7 @@
 {%- endmacro %}
 
 {% macro kicker(s) -%}
-<p class="kicker">{% if s.journal %}<span class="journal">{{ sj(s.journal) }}</span> · {% endif %}<time datetime="{{ s.published_on or '' }}">{{ date(s.published_on) or "—" }}</time>{% if s.type %} · <span class="type">{{ t["type_" ~ s.type] }}</span>{% endif %}</p>
+<p class="kicker">{% if s.journal %}<span class="journal">{{ sj(s.journal) }}</span> · {% endif %}<time datetime="{{ s.shown_on or '' }}">{{ date(s.shown_on) or "—" }}</time>{% if s.issue_on %} · <span class="issue">{{ t.issue_of.format(month=month(s.issue_on)) }}</span>{% endif %}{% if s.type %} · <span class="type">{{ t["type_" ~ s.type] }}</span>{% endif %}</p>
 {%- endmacro %}
 
 {# The title is always the original English one: the LLM does not translate it yet. In a
@@ -100,7 +100,12 @@
 {% macro meta_table(s) -%}
 <dl class="meta">
   {% if s.journal %}<dt>{{ t.journal }}</dt><dd>{{ s.journal }}</dd>{% endif %}
+  {% if s.issue_on %}
+  <dt>{{ t.entered }}</dt><dd>{{ date(s.entered_on) }}</dd>
+  <dt>{{ t.issue }}</dt><dd>{{ month(s.issue_on) }}</dd>
+  {% else %}
   <dt>{{ t.date }}</dt><dd>{{ date(s.published_on) or "—" }}</dd>
+  {% endif %}
   {% if s.authors %}<dt>{{ t.authors }}</dt><dd>{{ s.authors[:3] | join(", ") }}{% if s.authors | length > 3 %} {{ t.et_al }}{% endif %}</dd>{% endif %}
   {% if s.doi %}<dt>DOI</dt><dd><a href="https://doi.org/{{ s.doi }}" rel="noopener" target="_blank">{{ s.doi }}</a></dd>{% endif %}
   {% if s.pmid %}<dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/{{ s.pmid }}/" rel="noopener" target="_blank">{{ s.pmid }}</a></dd>{% endif %}

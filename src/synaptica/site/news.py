@@ -25,7 +25,7 @@ from typing import Any
 import duckdb
 
 from synaptica.narrative import weekly
-from synaptica.narrative.fallback import summary_for
+from synaptica.narrative.fallback import print_issue, summary_for
 from synaptica.narrative.write import slug
 
 # How much each block shows (Aday, step 23, option 1A).
@@ -138,8 +138,13 @@ def study_type(row: dict[str, Any]) -> str | None:
 def study_record(row: dict[str, Any], derived_root: Path | None) -> dict[str, Any]:
     row = {k: iso(v) for k, v in row.items()}
     summary = {lang: summary_for(row, lang, derived_root=derived_root) for lang in ("es", "en")}
+    issue = print_issue(row)
+    # The card's date: the publication day, or the day it entered when the publication date
+    # is a print issue still to come (shown apart, as «issue of January 2027»; SCOPE v102).
+    shown_on = row["entered_on"] if issue else row["published_on"]
     return {**row, "slug": slug(row["study_id"]), "type": study_type(row),
-            "url": original_url(row), "summary": summary}  # fmt: skip
+            "url": original_url(row), "summary": summary, "shown_on": shown_on,
+            "issue_on": iso(issue)}  # fmt: skip
 
 
 def licence_name(value: str | None) -> str | None:
@@ -195,6 +200,15 @@ def short_journal(name: str | None) -> str | None:
     if not name:
         return None
     return re.split(r" ?[:(]", name, maxsplit=1)[0].strip()
+
+
+def fmt_month(value: Any, lang: str) -> str | None:
+    """«enero de 2027» / «January 2027», for a print issue."""
+    if not value:
+        return None
+    d = dt.date.fromisoformat(str(iso(value))[:10])
+    m = LONG_MONTHS[lang][d.month - 1]
+    return f"{m} de {d.year}" if lang == "es" else f"{m} {d.year}"
 
 
 def fmt_date(value: Any, lang: str, long: bool = False) -> str | None:

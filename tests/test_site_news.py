@@ -228,3 +228,13 @@ def test_examples_are_neuroscience_only(tmp_path: Path) -> None:
     rows = [study("doi:10.1/gut", integrity="corrected", is_neuro=False, news_candidate=False)]
     data = news.load(warehouse(tmp_path / "data", rows) / "warehouse.duckdb")
     assert data.examples["corrected"] is None  # a gap, not a study the site never shows
+
+
+def test_print_issue_date_is_shown_apart_not_as_the_day(tmp_path: Path) -> None:
+    rows = [study("doi:10.1/glia", journal="Glia", published_on=dt.date(2027, 1, 1))]
+    out = build(tmp_path, warehouse(tmp_path / "data", rows))
+    card = (out / "es/noticias.html").read_text()
+    assert "9 nov 2026" in card and "número de enero de 2027" in card and "1 ene 2027" not in card
+    page = (out / "en/study/doi_10.1_glia.html").read_text()
+    assert "Study in animals published in Glia in the January 2027 issue." in page
+    assert "Print issue" in page and "January 2027" in page

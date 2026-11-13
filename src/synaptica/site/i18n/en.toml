@@ -181,6 +181,10 @@ gap_example_retracted = "Example of a retracted study: there is none in the curr
 gap_example_corrected = "Example of a corrected study: there is none in the current data."
 gap_example_preprint = "Example of a preprint: there is none in the current data."
 
+issue_of = "{month} issue"
+entered = "Entered our data"
+issue = "Print issue"
+
 # Search (step 23)
 search = "Search"
 search_ph = "Search studies, news, pages…"

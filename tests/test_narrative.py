@@ -274,3 +274,17 @@ def test_spanish_that_fails_twice_keeps_the_english_and_falls_back_in_spanish(tm
     pipeline.run_judge(PassingJudge(), [STUDY], **kw)  # judges the English alone
     assert fallback.summary_for(STUDY, "en", derived_root=derived)["kind"] == "verified"
     assert fallback.summary_for(STUDY, "es", derived_root=derived)["kind"] == "fallback"
+
+
+def test_fallback_text_names_a_future_print_issue_not_a_day() -> None:
+    from synaptica.narrative.fallback import fallback_text
+
+    s = {"species": "animals", "journal": "Glia", "review_status": "journal",
+         "published_on": "2027-01-01", "entered_on": "2026-11-13"}  # fmt: skip
+    assert (
+        fallback_text(s, "es")
+        == "Estudio en animales publicado en Glia en el número de enero de 2027."
+    )
+    assert fallback_text(s | {"published_on": "2026-11-12"}, "en") == (
+        "Study in animals published in Glia on 12 November 2026."
+    )

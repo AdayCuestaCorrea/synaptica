@@ -193,6 +193,7 @@ class SiteBuilder:
             hero_licence=hero["licence"] or t["licence_pending"], hero_author=hero["author"],
             gaps=gaps, search=search, news=self.news_data,
             date=lambda v, long=False: news_mod.fmt_date(v, lang, long),
+            month=lambda v: news_mod.fmt_month(v, lang),
             sj=news_mod.short_journal, signals=lambda s: news_mod.signals(s, t),
             licence=lambda s: news_mod.licence_lines(s, lang, t), types=news_mod.TYPES,
             page_size=news_mod.PAGE, **ctx,

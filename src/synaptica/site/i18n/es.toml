@@ -181,6 +181,10 @@ gap_example_retracted = "Ejemplo de estudio retractado: en los datos de ahora no
 gap_example_corrected = "Ejemplo de estudio corregido: en los datos de ahora no hay ninguno."
 gap_example_preprint = "Ejemplo de preprint: en los datos de ahora no hay ninguno."
 
+issue_of = "número de {month}"
+entered = "Entró en nuestros datos"
+issue = "Número impreso"
+
 # Buscador (paso 23)
 search = "Buscar"
 search_ph = "Buscar estudios, noticias, páginas…"

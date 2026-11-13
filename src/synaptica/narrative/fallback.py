@@ -49,19 +49,42 @@ def _date(value: Any, lang: str) -> str | None:
     return f"{day.day} {_MONTHS_EN[day.month - 1]} {day.year}"
 
 
+def _day(value: Any) -> dt.date | None:
+    if value is None:
+        return None
+    return value if isinstance(value, dt.date) else dt.date.fromisoformat(str(value)[:10])
+
+
+def print_issue(study: dict[str, Any]) -> dt.date | None:
+    """The publication date when it is after the day the study entered: the date of a print
+    issue still to come (PubMed), not a day already passed (Aday, SCOPE v102)."""
+    published, entered = _day(study.get("published_on")), _day(study.get("entered_on"))
+    return published if published and entered and published > entered else None
+
+
+def _issue(day: dt.date, lang: str) -> str:
+    if lang == "es":
+        return f"en el número de {_MONTHS_ES[day.month - 1]} de {day.year}"
+    return f"in the {_MONTHS_EN[day.month - 1]} {day.year} issue"
+
+
 def fallback_text(study: dict[str, Any], lang: str) -> str:
     preprint = study.get("review_status") == "preprint"
     subject = _SUBJECT[lang].get(study.get("species") or "unknown")
+    issue = print_issue(study)
     journal, date = study.get("journal"), _date(study.get("published_on"), lang)
+    when = _issue(issue, lang) if issue else None
     if lang == "es":
         parts = ["Preprint" if preprint else "Estudio", subject, "publicado"]
-        parts += [f"en {journal}" if journal else None, f"el {date}" if date else None]
+        parts += [f"en {journal}" if journal else None]
+        parts += [when or (f"el {date}" if date else None)]
         sentence = " ".join(p for p in parts if p) + "."
         if preprint:
             sentence += " Aún no ha pasado la revisión por pares."
     else:
         parts = ["Preprint" if preprint else "Study", subject, "published"]
-        parts += [f"in {journal}" if journal else None, f"on {date}" if date else None]
+        parts += [f"in {journal}" if journal else None]
+        parts += [when or (f"on {date}" if date else None)]
         sentence = " ".join(p for p in parts if p) + "."
         if preprint:
             sentence += " It has not been peer reviewed yet."
