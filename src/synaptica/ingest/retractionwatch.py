@@ -7,11 +7,13 @@ list of notices misses it.
 
 Source (checked on 2026-11-13): Crossref publishes the whole database as one CSV in
 https://gitlab.com/crossref/retraction-watch-data, updated every working day (73 786 rows,
-68 MB, UTF-8; one request, GitLab allows 500 unauthenticated requests per window). No
-licence is stated anywhere (README, GitLab project, Crossref documentation); Crossref says
-it made the database "publicly available". The site records it as "no licence stated"
-(Aday, 2026-11-13). Only facts are kept (which DOI, which kind of notice, which date and
-the notice's DOI): no titles, authors, reasons or notes.
+68 MB, UTF-8; one request, GitLab allows 500 unauthenticated requests per window).
+
+Licence: CC0, no attribution required (Crossref's licensing table,
+https://www.crossref.org/documentation/retrieve-metadata/#73020, confirmed by its support
+team to Aday on 2026-11-13: the data are "facts" in the public domain). The site still
+names the source next to each notice. Only facts are kept (which DOI, which kind of
+notice, which date and the notice's DOI): no titles, authors, reasons or notes.
 
 Storage: a :class:`~synaptica.store.BatchStore` keyed by the Retraction Watch record ID.
 The state is the sum of every daily file (:meth:`BatchStore.all`): the first run stores
