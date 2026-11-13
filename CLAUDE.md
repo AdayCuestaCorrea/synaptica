@@ -34,6 +34,7 @@ Documentos de referencia:
 **Textos generados con LLM.**
 - Pasan las mismas comprobaciones que en Paleo Atlas: cada frase cita su fuente, las cifras y los nombres coinciden con ella, y nunca hay 8 o más palabras seguidas copiadas.
 - Un texto que no pasa no se publica; en su lugar se muestra el texto de respaldo construido con datos.
+- Las correcciones de Sofía pasan también las comprobaciones mecánicas (el juez solo avisa). Si una falla, vuelve a su cola con el aviso y ella la corrige o la mantiene con un motivo registrado (ADR D5).
 - No se publican abstracts ni párrafos de los artículos, solo resúmenes propios con enlace al original.
 
 **Licencias.**
@@ -88,9 +89,30 @@ docs/                propuesta.md, fuentes.md, adr/, fases/
 uv sync
 uv run syn --help
 uv run syn doctor                         # entorno y variables necesarias (exit 1 si falta algo)
+uv run syn report start --trigger local   # abre el registro de una ejecución en data/runs/
+uv run syn report finish                  # lo completa e imprime el informe en Markdown
+uv run syn report ran-today               # exit 0 si hoy (UTC) ya hubo una ejecución correcta
+uv run syn check                          # ¿algo nuevo? exit 0 sí, 1 no, 2 la comprobación falló
+uv run syn ingest pubmed --days 3         # registros nuevos de PubMed a data/raw/pubmed/ (abstracts solo a data/cache/)
+uv run syn ingest crossref --days 3       # avisos de retractación, corrección… a data/raw/crossref/notices/
 uv run pytest
 uv run ruff check . && uv run ruff format --check .
+uv run syn ingest europepmc --days 3      # acceso abierto de Europe PMC (el texto completo, bajo demanda)
+uv run syn ingest biorxiv --days 7        # preprints de bioRxiv y medRxiv + enlaces a su versión publicada
+uv run syn ingest journals                # RSS de Nature, Science y Cell (Crossref por ISSN de respaldo)
+uv run syn ingest news                    # SINC, The Conversation y ScienceDaily
+uv run syn ingest openalex                # tema y citas por DOI de las revistas generalistas
+uv run syn news neuro [--provider groq]   # ¿es neurociencia? reglas de OpenAlex; el LLM solo con --provider
+uv run syn news classify --provider groq  # tipo de cada pieza de Neuro News (lee el almacén: antes syn build)
+uv run syn news group --provider groq     # misma noticia entre medios e idiomas (pares al LLM)
+uv run syn eval news --gold eval/news/labels.csv [--pairs eval/news/pairs.csv]   # macro F1 del LLM y del baseline (grupo eval)
+uv run syn facts --provider groq [--limit 40]   # hechos verificados de los estudios a resumir (lee el almacén)
+uv run syn write --provider groq [--limit 40]   # resumen EN → ES con comprobaciones; si falla, texto de respaldo
+uv run syn judge --provider groq [--limit 40]   # juez de otra familia (gpt-oss-120b): sin su aprobado no se publica
+uv run syn weekly --provider groq [--week 2026-W45]   # resumen semanal: misma cadena, comprobaciones y juez
 uv run syn build                          # dbt build: modelos + tests (desde la Fase 1)
+SYN_DATA_DIR=/tmp/syn-ci uv run python scripts/seed_fixture_data.py   # fixtures como si vinieran de las fuentes
+SYN_DATA_DIR=/tmp/syn-ci uv run syn build --as-of 2026-11-09          # dbt sobre esas fixtures (como la CI)
 uv run syn site && uv run syn site --check
 ```
 

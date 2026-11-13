@@ -112,6 +112,7 @@ const P = {
     both: "ambos hemisferios",
     id: "ID",
     mpm: "etiqueta del mapa",
+    atlas: "atlas",
     origName: "Nombre original del atlas, en inglés: la traducción la revisa Sofía en la Fase 2.",
     pairOf: "Pareja de",
     inOther: "En el otro cerebro",
@@ -128,6 +129,7 @@ const P = {
     both: "both hemispheres",
     id: "ID",
     mpm: "map label",
+    atlas: "atlas",
     origName: null,
     pairOf: "Counterpart of",
     inOther: "In the other brain",
@@ -238,10 +240,16 @@ function title(region) {
   return n.short === n.full ? h("h3", {}, abbr(region)) : h("h3", {}, abbr(region), " · ", n.full);
 }
 
+const ATLAS_NAME = {
+  julich: "Julich-Brain v3.1", cerebra: "CerebrA", cit168: "CIT168", icbm_wm: "ICBM152 2009c",
+};
+
 function facts(region) {
   const p = h("p", { class: "facts" }, `${P.side[region.side] || P.both} · ${P.id}: `);
   p.append(h("code", {}, String(region.id)));
   if (region.label != null) p.append(` · ${P.mpm}: ${region.label}`);
+  // Sofía's review: the human brain has two atlases, so say which one this region comes from.
+  if (region.source) p.append(` · ${P.atlas}: ${ATLAS_NAME[region.source]}`);
   return p;
 }
 
@@ -254,7 +262,7 @@ function panelPicked(box, region, pair, empty = P.none) {
     box.append(h("p", { class: "muted" }, abbr(region), ": ", P.noPairHere));
   } else {
     const other = region.atlas === "waxholm"
-      ? pair.julich.map((j) => j.name).join(", ")
+      ? pair.human.map((j) => j.name).join(", ")
       : `${pair.waxholm.name} (${pair.waxholm.acronym})`;
     const p = h("p", { class: "pair" }, `${P.inOther}: ${other}. `);
     p.append(h("span", { class: "grade" }, `${P.grade}: ${pair.grade}`));
@@ -273,7 +281,7 @@ function panelPartner(box, source, pair) {
     return;
   }
   const shown = source.atlas === "waxholm"
-    ? pair.julich.map((j) => ({ name: j.name, id: j.area_id }))
+    ? pair.human.map((j) => ({ name: j.name, id: j.area_id }))
     : [{ name: pair.waxholm.name, acronym: pair.waxholm.acronym, id: pair.waxholm.id }];
   const head = h("h3", {}, `${P.pairOf} `, abbr(source), ` (${species})`);
   const list = h("p", {});
@@ -305,6 +313,9 @@ const state = {
 // Step 7.8: real stains, one folder and licence each (results/tincion.md). Rat: none found that
 // fits (backlog), so the rat keeps the drawn one and says so.
 const REAL_STAIN = { julich: "../data/bigbrain" };
+// Sofía's review: the rat has real Nissl sections, not a volume, so only the 2D slice shows them
+// (spikes/s3/nissl.py): the section nearest the slice, with how far it is.
+const REAL_SLICE = { waxholm: "../data/nissl" };
 // Atlas mode: fill grey from the lightness of the region's colour, kept light so the contours
 // read; the selection and its counterpart, darker. Contours, almost black.
 const GREY = { lo: 175, hi: 238, focus: 125, edge: 40 };
@@ -322,7 +333,9 @@ const STAIN = {
   },
   names: [
     [/molecular|layer 1\b/i, 0.22],
-    [/dentate gyrus|^DG |granule cell layer|granular layer|layer 2\b|cerebellum, unspecified/i, 0.9],
+    // CerebrA's cerebellar grey matter and vermis are mostly granular layer, like the rat's
+    // "Cerebellum, unspecified".
+    [/dentate gyrus|^DG |granule cell layer|granular layer|layer 2\b|cerebellum, unspecified|cerebellum gray matter|vermal lobules/i, 0.9],
     [/glomerular/i, 0.35],
   ],
 };
@@ -331,11 +344,17 @@ const NOTICE = {
     drawn: "Ilustración, no es una tinción real",
     noReal: "Ilustración, no es una tinción real (no hay de rata)",
     real: "Tinción real de otro cerebro (BigBrain)",
+    real3dRat: "Ilustración: la tinción real de rata solo está en el corte 2D",
+    realSlice: (d) => `Nissl real de otra rata · corte a ${d} mm de este plano`,
+    realSliceLoading: "Cargando el corte real…",
   },
   en: {
     drawn: "Illustration, not a real stain",
     noReal: "Illustration, not a real stain (none for the rat)",
     real: "Real stain of another brain (BigBrain)",
+    real3dRat: "Illustration: the rat's real stain is only on the 2D slice",
+    realSlice: (d) => `Real Nissl of another rat · section ${d} mm from this plane`,
+    realSliceLoading: "Loading the real section…",
   },
 }[lang];
 
@@ -361,8 +380,9 @@ function hex(c) {
 }
 
 class VolumeViewer {
-  constructor(section, atlas, rows) {
+  constructor(section, atlas, rows, extras = []) {
     this.atlas = atlas;
+    this.extras = extras; // human: further label layers, laid under Julich-Brain's (loadData)
     this.section = section;
     this.rows = rows;
     this.canvas = section.querySelector("canvas");
@@ -394,6 +414,14 @@ class VolumeViewer {
     await this.nv.loadVolumes([{ url, name: url.split("/").pop() }]);
     this.vol = this.nv.volumes[0];
     const img = this.vol.img;
+    // Sofía's review: where Julich-Brain has no label, the next layer's, and so on (same grid;
+    // built so that they never overlap). Done in memory, on screen: the files stay apart.
+    const layers = await Promise.all(this.extras.map((x) => NVImage.loadFromUrl({ url: x.url })));
+    layers.forEach((ex, k) => {
+      if (ex.img.length !== img.length) throw new Error(`${this.extras[k].name}: other grid`);
+      const from = this.extras[k].from;
+      for (let i = 0; i < img.length; i++) if (!img[i] && ex.img[i]) img[i] = ex.img[i] + from - 1;
+    });
     for (let i = 0; i < img.length; i++) if (img[i]) img[i] += OFFSET;
     this.vol.calMinMax();
     this.coords = await (await fetch(`../data/${this.atlas}/coords.json`)).json();
@@ -629,6 +657,7 @@ class VolumeViewer {
       const box = this.section.querySelector(".licence-extra");
       if (box) box.hidden = !this.realOn;
     }
+    if (REAL_SLICE[this.atlas]) this.showSectionLicence();
     this.vol.setColormapLabel(this.colormap());
     this.nv.updateGLVolume();
     this.layout();
@@ -753,6 +782,7 @@ class VolumeViewer {
         tile && [tile.leftTopWidthHeight, tile.leftTopMM, tile.fovMM, this.nv.scene.crosshairPos],
         this.canvas.width, this.canvas.height, state.view, state.mode, state.stain, state.isolate,
         [...this.focus], this.realOn && this.nv.volumes.includes(this.real),
+        this.sectionShown && this.sectionShown.nr,
       ]);
       if (key !== last) {
         last = key;
@@ -774,7 +804,8 @@ class VolumeViewer {
     // The 3D view starts at the top left corner in both layouts (layout()).
     if (state.mode === "stain") {
       const half = state.view !== "3d" && cv.width >= cv.height;
-      this.drawNotice(g, 8 * dpr, 8 * dpr, dpr, (half ? cv.width / 2 : cv.width) - 16 * dpr);
+      const text = this.realSliceOn ? NOTICE.real3dRat : null;
+      this.drawNotice(g, 8 * dpr, 8 * dpr, dpr, (half ? cv.width / 2 : cv.width) - 16 * dpr, text);
     }
     if (!tile) return;
     const [left, top, w, hgt] = tile.leftTopWidthHeight;
@@ -786,7 +817,18 @@ class VolumeViewer {
     if (state.mode === "stain" && this.realOn) {
       if (this.focus.size) this.drawContours(g, toX, toY, dpr, this.focus, "rgb(232 120 20)", 2);
     } else if (state.mode === "stain") {
-      this.paintStain(g, tile, dpr);
+      // Real section: only the slide under it, so nothing drawn passes for tissue around its
+      // edges or in its tears (Aday, 2026-11-13). Otherwise the drawn stain.
+      if (this.realSliceOn) {
+        const [left, top, w, hgt] = tile.leftTopWidthHeight;
+        g.save();
+        g.fillStyle = `rgb(${STAIN.slide.join(" ")})`;
+        g.fillRect(Math.min(left, left + w), top, Math.abs(w), hgt);
+        g.restore();
+        this.paintSection(g, tile, toX, toY);
+      } else {
+        this.paintStain(g, tile, dpr);
+      }
       // The painted slice covers Niivue's: crosshair and selection drawn again on top.
       const at = this.nv.frac2mm(this.nv.scene.crosshairPos);
       g.save();
@@ -851,17 +893,92 @@ class VolumeViewer {
     g.textBaseline = "top";
     g.font = `600 ${12 * dpr}px system-ui, sans-serif`;
     g.fillText(text, x0 + 8 * dpr, top + 8 * dpr);
-    if (state.mode === "stain") this.drawNotice(g, x0 + 8 * dpr, top + 28 * dpr, dpr, Math.abs(w) - 16 * dpr);
+    if (state.mode === "stain") {
+      const sec = this.realSliceOn ? this.sectionShown : null;
+      const text = !this.realSliceOn ? null
+        : sec ? NOTICE.realSlice(fmt(sec.distance, 2).replace(/^\+/, "")) : NOTICE.realSliceLoading;
+      this.drawNotice(g, x0 + 8 * dpr, top + 28 * dpr, dpr, Math.abs(w) - 16 * dpr, text);
+    }
+  }
+
+  // Sofía's review: the rat's real stain in 2D. Real only in stain mode, "real", with sections.
+  get realSliceOn() {
+    return state.mode === "stain" && state.stain === "real" && Boolean(REAL_SLICE[this.atlas]);
+  }
+
+  // The real section nearest the coronal slice, over the drawn one (which still shows around it,
+  // so the slide is not mistaken for tissue it lacks). Loads the index and each image once.
+  paintSection(g, tile, toX, toY) {
+    const dir = REAL_SLICE[this.atlas];
+    if (!this.sections) {
+      this.sections = fetch(`${dir}/index.json`).then((r) => r.json());
+      this.sectionImgs = new Map();
+      Promise.all([this.sections, fetch(`${dir}/licence.json`).then((r) => r.json())])
+        .then(([, lic]) => { this.sectionLicence = lic; this.showSectionLicence(); });
+    }
+    this.showSectionLicence();
+    const ap = this.shownMm(1, this.nv.frac2mm(this.nv.scene.crosshairPos)[1]);
+    this.sections.then((idx) => {
+      this.sectionIndex = idx;
+      const best = idx.sections.reduce((a, b) => (Math.abs(b.ap_mm - ap) < Math.abs(a.ap_mm - ap) ? b : a));
+      if (!this.sectionImgs.has(best.nr)) {
+        const img = new Image();
+        img.src = `${dir}/${best.file}`;
+        const entry = { img: null };
+        entry.ready = img.decode().then(() => (entry.img = img));
+        this.sectionImgs.set(best.nr, entry);
+      }
+      this.sectionImgs.get(best.nr).ready.then(() => {
+        const want = { nr: best.nr, distance: best.ap_mm - ap };
+        const now = this.sectionShown;
+        // A new section or a new distance redraws (the loop compares the section number only).
+        if (!now || now.nr !== want.nr || Math.abs(now.distance - want.distance) > 0.005) {
+          this.sectionShown = want;
+          if (now && now.nr === want.nr) this.drawAxesSoon();
+        }
+      });
+    });
+    const sec = this.sectionShown && this.sectionIndex
+      && this.sectionIndex.sections.find((s) => s.nr === this.sectionShown.nr);
+    const img = sec && this.sectionImgs.get(sec.nr)?.img;
+    if (!img) return;
+    const [xl, xr, zb, zt] = sec.extent_mm;
+    const X1 = toX(this.viewerMm(0, xl)), X2 = toX(this.viewerMm(0, xr));
+    const Y1 = toY(this.viewerMm(2, zt)), Y2 = toY(this.viewerMm(2, zb));
+    g.save();
+    g.imageSmoothingEnabled = true;
+    if (X2 < X1) { // radiological: mirror the image
+      g.translate(X1, 0);
+      g.scale(-1, 1);
+      g.drawImage(img, 0, Y1, X1 - X2, Y2 - Y1);
+    } else {
+      g.drawImage(img, X1, Y1, X2 - X1, Y2 - Y1);
+    }
+    g.restore();
+  }
+
+  drawAxesSoon() {
+    const tile = state.view === "3d" ? null : this.nv.screenSlices.find(
+      (s) => s.axCorSag === SLICE_TYPE.CORONAL && s.AxyzMxy.length >= 4,
+    );
+    requestAnimationFrame(() => this.drawAxes(tile));
+  }
+
+  showSectionLicence() {
+    const box = this.section.querySelector(".licence-extra");
+    if (!box) return;
+    box.hidden = !this.realSliceOn || !this.sectionLicence;
+    if (!box.hidden && !box.childElementCount) renderLicence(box, this.sectionLicence, { colours: false });
   }
 
   // The notice always fits its view: the type shrinks (down to 8 px) rather than being cut.
-  drawNotice(g, x, y, dpr, maxW) {
+  drawNotice(g, x, y, dpr, maxW, override = null) {
     g.save();
     g.textBaseline = "top";
     g.textAlign = "left";
     const pad = 5 * dpr;
-    const text = this.realOn ? NOTICE.real
-      : state.stain === "real" ? NOTICE.noReal : NOTICE.drawn;
+    const text = override || (this.realOn ? NOTICE.real
+      : state.stain === "real" ? NOTICE.noReal : NOTICE.drawn);
     let size = 12 * dpr;
     g.font = `600 ${size}px system-ui, sans-serif`;
     const full = g.measureText(text).width;
@@ -1118,7 +1235,9 @@ class VolumeViewer {
           add(`w${a}`, { atlas: "waxholm", side: null, id: a, name: t.name, acronym: t.acronym, path: t.path }, r.index);
         }
       } else {
-        add(`j${r.area_id}`, { atlas: "julich", side: null, id: r.area_id, name: r.name, label: r.label, areaId: r.area_id }, r.index);
+        // A further layer's label value differs per side, so a both-sides entry shows none.
+        const label = r.source === "julich" ? r.label : null;
+        add(`j${r.area_id}`, { atlas: "julich", side: null, id: r.area_id, name: r.name, label, areaId: r.area_id, source: r.source }, r.index);
       }
     }
     return [...items.values()].map((it) => {
@@ -1152,10 +1271,16 @@ class VolumeViewer {
 const data = await loadData();
 const viewers = (window.__viewers = {
   waxholm: new VolumeViewer(document.getElementById("waxholm"), "waxholm", data.waxholm.labels.rows),
-  julich: new VolumeViewer(document.getElementById("julich"), "julich", data.julich.labels.rows),
+  julich: new VolumeViewer(document.getElementById("julich"), "julich", data.julich.labels.rows, data.julich.extras),
 });
 for (const [atlas, v] of Object.entries(viewers)) {
   renderLicence(v.section.querySelector(".licence"), data[atlas].licence);
+  for (const x of data[atlas].extras || []) {
+    const box = document.createElement("div");
+    box.className = "licence";
+    v.section.querySelector(".licence-layers").append(box);
+    renderLicence(box, x.licence, { colours: false });
+  }
   panelPicked(v.panel, null);
   searchBox(v, v.searchIndex(data[atlas].labels.tree || {}));
   v.onPick = (region, { partner = true, atPoint = false } = {}) => {

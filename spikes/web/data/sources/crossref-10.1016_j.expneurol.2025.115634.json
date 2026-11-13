@@ -1,0 +1,1067 @@
+{
+ "indexed": {
+  "date-parts": [
+   [
+    2026,
+    10,
+    22
+   ]
+  ],
+  "date-time": "2026-10-22T19:10:00Z",
+  "timestamp": 1792696200514,
+  "version": "4.5.0"
+ },
+ "reference-count": 62,
+ "publisher": "Elsevier BV",
+ "license": [
+  {
+   "start": {
+    "date-parts": [
+     [
+      2026,
+      4,
+      1
+     ]
+    ],
+    "date-time": "2026-04-01T00:00:00Z",
+    "timestamp": 1775001600000
+   },
+   "content-version": "tdm",
+   "delay-in-days": 0,
+   "URL": "https://www.elsevier.com/tdm/userlicense/1.0/"
+  },
+  {
+   "start": {
+    "date-parts": [
+     [
+      2026,
+      4,
+      1
+     ]
+    ],
+    "date-time": "2026-04-01T00:00:00Z",
+    "timestamp": 1775001600000
+   },
+   "content-version": "tdm",
+   "delay-in-days": 0,
+   "URL": "https://www.elsevier.com/legal/tdmrep-license"
+  },
+  {
+   "start": {
+    "date-parts": [
+     [
+      2026,
+      4,
+      1
+     ]
+    ],
+    "date-time": "2026-04-01T00:00:00Z",
+    "timestamp": 1775001600000
+   },
+   "content-version": "stm-asf",
+   "delay-in-days": 0,
+   "URL": "https://doi.org/10.15223/policy-017"
+  },
+  {
+   "start": {
+    "date-parts": [
+     [
+      2026,
+      4,
+      1
+     ]
+    ],
+    "date-time": "2026-04-01T00:00:00Z",
+    "timestamp": 1775001600000
+   },
+   "content-version": "stm-asf",
+   "delay-in-days": 0,
+   "URL": "https://doi.org/10.15223/policy-037"
+  },
+  {
+   "start": {
+    "date-parts": [
+     [
+      2026,
+      4,
+      1
+     ]
+    ],
+    "date-time": "2026-04-01T00:00:00Z",
+    "timestamp": 1775001600000
+   },
+   "content-version": "stm-asf",
+   "delay-in-days": 0,
+   "URL": "https://doi.org/10.15223/policy-012"
+  },
+  {
+   "start": {
+    "date-parts": [
+     [
+      2026,
+      4,
+      1
+     ]
+    ],
+    "date-time": "2026-04-01T00:00:00Z",
+    "timestamp": 1775001600000
+   },
+   "content-version": "stm-asf",
+   "delay-in-days": 0,
+   "URL": "https://doi.org/10.15223/policy-029"
+  },
+  {
+   "start": {
+    "date-parts": [
+     [
+      2026,
+      4,
+      1
+     ]
+    ],
+    "date-time": "2026-04-01T00:00:00Z",
+    "timestamp": 1775001600000
+   },
+   "content-version": "stm-asf",
+   "delay-in-days": 0,
+   "URL": "https://doi.org/10.15223/policy-004"
+  }
+ ],
+ "funder": [
+  {
+   "DOI": "10.13039/501100005780",
+   "name": "Chitkara University",
+   "doi-asserted-by": "publisher",
+   "id": [
+    {
+     "id": "10.13039/501100005780",
+     "id-type": "DOI",
+     "asserted-by": "publisher"
+    }
+   ]
+  }
+ ],
+ "content-domain": {
+  "domain": [
+   "elsevier.com",
+   "sciencedirect.com"
+  ],
+  "crossmark-restriction": true
+ },
+ "short-container-title": [
+  "Experimental Neurology"
+ ],
+ "published-print": {
+  "date-parts": [
+   [
+    2026,
+    4
+   ]
+  ]
+ },
+ "DOI": "10.1016/j.expneurol.2025.115634",
+ "type": "journal-article",
+ "created": {
+  "date-parts": [
+   [
+    2025,
+    12,
+    31
+   ]
+  ],
+  "date-time": "2025-12-31T19:08:55Z",
+  "timestamp": 1767208135000
+ },
+ "page": "115634",
+ "update-policy": "https://doi.org/10.1016/elsevier_cm_policy",
+ "source": "Crossref",
+ "is-referenced-by-count": 3,
+ "special_numbering": "C",
+ "title": [
+  "Demethyleneberberine attenuates combined cognitive and metabolic dysfunctions in an insulin-resistance-induced Alzheimer's disease rat model: Synthesis, in-silico and in-vivo insights"
+ ],
+ "prefix": "10.1016",
+ "volume": "398",
+ "author": [
+  {
+   "given": "Amritpal",
+   "family": "Kaur",
+   "sequence": "first",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  },
+  {
+   "given": "Shareen",
+   "family": "Singh",
+   "sequence": "additional",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  },
+  {
+   "given": "Manjinder",
+   "family": "Singh",
+   "sequence": "additional",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  },
+  {
+   "given": "Pragati",
+   "family": "Silakari",
+   "sequence": "additional",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  },
+  {
+   "given": "Ashi",
+   "family": "Mannan",
+   "sequence": "additional",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  },
+  {
+   "given": "Sukriti",
+   "family": "Vishwas",
+   "sequence": "additional",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  },
+  {
+   "given": "Puneet",
+   "family": "Kumar",
+   "sequence": "additional",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  },
+  {
+   "given": "Vetriselvan",
+   "family": "Subramaniyan",
+   "sequence": "additional",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  },
+  {
+   "given": "Thakur Gurjeet",
+   "family": "Singh",
+   "sequence": "additional",
+   "affiliation": [],
+   "role": [
+    {
+     "vocabulary": "crossref",
+     "role": "author"
+    }
+   ]
+  }
+ ],
+ "member": "78",
+ "reference": [
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0005",
+   "doi-asserted-by": "crossref",
+   "first-page": "107",
+   "DOI": "10.2991/jegh.k.191028.001",
+   "article-title": "Epidemiology of type 2 diabetes global burden of disease and forecasted trends",
+   "volume": "10",
+   "author": "Abdul Basith Khan",
+   "year": "2020",
+   "journal-title": "J. Epidemiol. Glob. Health"
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0010",
+   "doi-asserted-by": "crossref",
+   "DOI": "10.3389/fphar.2021.762654",
+   "article-title": "Berberine: a review of its pharmacokinetics properties and therapeutic potentials in diverse vascular diseases",
+   "volume": "12",
+   "author": "Ai",
+   "year": "2021",
+   "journal-title": "Front. Pharmacol."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0015",
+   "doi-asserted-by": "crossref",
+   "DOI": "10.1371/journal.pone.0271138",
+   "article-title": "Effects of antidiabetic agents on Alzheimer’s disease biomarkers in experimentally induced hyperglycemic rat model by streptozocin",
+   "volume": "17",
+   "author": "Ali",
+   "year": "2022",
+   "journal-title": "PLoS One"
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0020",
+   "doi-asserted-by": "crossref",
+   "first-page": "168",
+   "DOI": "10.1038/nrneurol.2017.185",
+   "article-title": "Brain insulin resistance in type 2 diabetes and Alzheimer disease: concepts and conundrums",
+   "volume": "14",
+   "author": "Arnold",
+   "year": "2018",
+   "journal-title": "Nat. Rev. Neurol."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0025",
+   "doi-asserted-by": "crossref",
+   "first-page": "313",
+   "DOI": "10.1080/00207454.2023.2300728",
+   "article-title": "The effect of acute and chronic formaldehyde exposure on learning and memory in male and female rats",
+   "volume": "135",
+   "author": "Aydin",
+   "year": "2025",
+   "journal-title": "Int. J. Neurosci."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0030",
+   "doi-asserted-by": "crossref",
+   "first-page": "1",
+   "DOI": "10.1007/s10735-025-10471-x",
+   "article-title": "Maternal high fat diet impairs cognitive performance by altering hippocampal GRP78/PERK axis and BDNF expression in adult female rat offspring: the potential protective role of N acetylcysteine",
+   "volume": "56",
+   "author": "Bakirhan",
+   "year": "2025",
+   "journal-title": "J. Mol. Histol."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0040",
+   "doi-asserted-by": "crossref",
+   "first-page": "546",
+   "DOI": "10.3390/ijms22020546",
+   "article-title": "Mechanisms of insulin resistance at the crossroad of obesity with associated metabolic abnormalities and cognitive dysfunction",
+   "volume": "22",
+   "author": "Barber",
+   "year": "2021",
+   "journal-title": "Int. J. Mol. Sci."
+  },
+  {
+   "issue": "6",
+   "key": "10.1016/j.expneurol.2025.115634_bib317",
+   "doi-asserted-by": "crossref",
+   "first-page": "456",
+   "DOI": "10.2174/1573399815666190129155654",
+   "article-title": "Pathophysiological mechanisms linking type 2 diabetes and dementia: review of evidence from clinical, translational and epidemiological research",
+   "volume": "15",
+   "author": "Bello-Chavolla",
+   "year": "2019",
+   "journal-title": "Curr Diabetes Rev"
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0045",
+   "first-page": "1",
+   "article-title": "Anti dementia medications and anti Alzheimer’s disease drugs: side effects, contraindications, and interactions",
+   "author": "Benninghoff",
+   "year": "2022",
+   "journal-title": "Neuropsychopharmacology"
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0050",
+   "doi-asserted-by": "crossref",
+   "DOI": "10.3389/fendo.2022.873301",
+   "article-title": "Significance of brain glucose hypometabolism, altered insulin signal transduction, and insulin resistance in several neurological diseases",
+   "volume": "13",
+   "author": "Blázquez",
+   "year": "2022",
+   "journal-title": "Front. Endocrinol."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0055",
+   "doi-asserted-by": "crossref",
+   "first-page": "141",
+   "DOI": "10.2174/1871527315666160202121548",
+   "article-title": "Novel therapeutic strategies for dementia",
+   "volume": "15",
+   "author": "Cacabelos",
+   "year": "2016",
+   "journal-title": "CNS Neurol. Disord. Drug Targets"
+  },
+  {
+   "issue": "2",
+   "key": "10.1016/j.expneurol.2025.115634_bb0060",
+   "doi-asserted-by": "crossref",
+   "first-page": "576",
+   "DOI": "10.1016/j.jep.2013.07.025",
+   "article-title": "Berberine metabolites exhibit triglyceride-lowering effects via activation of AMP-activated protein kinase in Hep G2 cells",
+   "volume": "149",
+   "author": "Cao",
+   "year": "2013",
+   "journal-title": "J. Ethnopharmacol."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0065",
+   "doi-asserted-by": "crossref",
+   "first-page": "2881",
+   "DOI": "10.2174/1389557522666220420094317",
+   "article-title": "GSK 3β and its inhibitors in Alzheimer’s disease: a recent update",
+   "volume": "22",
+   "author": "Chauhan",
+   "year": "2022",
+   "journal-title": "Mini-Rev. Med. Chem."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0070",
+   "doi-asserted-by": "crossref",
+   "first-page": "1211",
+   "DOI": "10.1007/s11357-011-9303-8",
+   "article-title": "Amelioration of neurodegenerative changes in cellular and rat models of diabetes related Alzheimer’s disease by exendin 4",
+   "volume": "34",
+   "author": "Chen",
+   "year": "2012",
+   "journal-title": "Age"
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0075",
+   "doi-asserted-by": "crossref",
+   "first-page": "187",
+   "DOI": "10.1007/s00011-016-1005-3",
+   "article-title": "Demethyleneberberine alleviates inflammatory bowel disease in mice through regulating NF κB signaling and T helper cell homeostasis",
+   "volume": "66",
+   "author": "Chen",
+   "year": "2017",
+   "journal-title": "Inflamm. Res."
+  },
+  {
+   "issue": "1",
+   "key": "10.1016/j.expneurol.2025.115634_bib316",
+   "doi-asserted-by": "crossref",
+   "first-page": "47",
+   "DOI": "10.1007/s40265-016-0674-0",
+   "article-title": "Insulin resistance and neurodegeneration: progress towards the development of new therapeutics for alzheimer's disease",
+   "volume": "77",
+   "author": "de la Monte",
+   "year": "2017",
+   "journal-title": "Drugs"
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0080",
+   "doi-asserted-by": "crossref",
+   "first-page": "1",
+   "DOI": "10.1007/s10876-025-02798-y",
+   "article-title": "Intranasal poly (lactic co glycolic acid) nanoparticles of mefenamic acid improve motor expressions and neurochemical injury in aluminium chloride originated Alzheimer’s disease",
+   "volume": "36",
+   "author": "Dogra",
+   "year": "2025",
+   "journal-title": "J. Clust. Sci."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0085",
+   "first-page": "1",
+   "article-title": "Protective effects of L arginine on cognitive deficits and biochemical parameters in an experimental model of type 2 diabetes mellitus induced Alzheimer’s disease in rats",
+   "volume": "73",
+   "author": "Dubey",
+   "year": "2022",
+   "journal-title": "J. Physiol. Pharmacol."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0090",
+   "doi-asserted-by": "crossref",
+   "first-page": "88",
+   "DOI": "10.1016/0006-2952(61)90145-9",
+   "article-title": "A new and rapid colorimetric determination of acetylcholinesterase activity",
+   "volume": "7",
+   "author": "Ellman",
+   "year": "1961",
+   "journal-title": "Biochem. Pharmacol."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0095",
+   "doi-asserted-by": "crossref",
+   "DOI": "10.1016/j.physbeh.2021.113652",
+   "article-title": "A review of behavioral methods for the evaluation of cognitive performance in animal models: current techniques and links to human cognition",
+   "volume": "244",
+   "author": "Ghafarimoghadam",
+   "year": "2022",
+   "journal-title": "Physiol. Behav."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0100",
+   "doi-asserted-by": "crossref",
+   "first-page": "131",
+   "DOI": "10.1016/0003-2697(82)90118-X",
+   "article-title": "Analysis of nitrate, nitrite, and [15N] nitrate in biological fluids",
+   "volume": "126",
+   "author": "Green",
+   "year": "1982",
+   "journal-title": "Anal. Biochem."
+  },
+  {
+   "issue": "5",
+   "key": "10.1016/j.expneurol.2025.115634_bb0105",
+   "doi-asserted-by": "crossref",
+   "DOI": "10.1016/j.tjpad.2025.100122",
+   "article-title": "The disease burden, risk factors and future predictions of Alzheimer’s disease and other types of dementia in Asia from 1990 to 2021",
+   "volume": "12",
+   "author": "Guo",
+   "year": "2025",
+   "journal-title": "J. Prev Alzheimers Dis."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0110",
+   "doi-asserted-by": "crossref",
+   "DOI": "10.1016/j.mehy.2021.110639",
+   "article-title": "Demethyleneberberine: a possible treatment for Huntington’s disease",
+   "volume": "153",
+   "author": "Gupta",
+   "year": "2021",
+   "journal-title": "Med. Hypotheses"
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0115",
+   "doi-asserted-by": "crossref",
+   "DOI": "10.3390/ijms232315287",
+   "article-title": "Type 2 diabetes mellitus and Alzheimer’s disease: shared molecular mechanisms and potential common therapeutic targets",
+   "volume": "23",
+   "author": "Hamzé",
+   "year": "2022",
+   "journal-title": "Int. J. Mol. Sci."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0120",
+   "series-title": "Animal Tissue Techniques",
+   "author": "Humason",
+   "year": "1962"
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0125",
+   "first-page": "685",
+   "article-title": "Current quest in natural bioactive compounds for Alzheimer’s disease: multi targeted designed ligand based approach with preclinical and clinical based evidence",
+   "volume": "22",
+   "author": "Iqubal",
+   "year": "2021",
+   "journal-title": "Curr. Drug Targets"
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0130",
+   "first-page": "339",
+   "article-title": "Long term nitrate administration modulates sialin gene expression in the main tissues of male Wistar rats with type 2 diabetes",
+   "volume": "24",
+   "author": "Jeddi",
+   "year": "2025",
+   "journal-title": "EXCLI J."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0135",
+   "doi-asserted-by": "crossref",
+   "DOI": "10.1111/1541-4337.13280",
+   "article-title": "Molecular simulation for food protein–ligand interactions: a comprehensive review on principles, current applications, and emerging trends",
+   "volume": "23",
+   "author": "Jin",
+   "year": "2024",
+   "journal-title": "Compr. Rev. Food Sci. Food Saf."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0140",
+   "first-page": "151",
+   "article-title": "Bromobenzene induced liver necrosis. Protective role of glutathione and evidence for 3,4 bromobenzene oxide as the hepatotoxic metabolite",
+   "volume": "11",
+   "author": "Jollow",
+   "year": "1974",
+   "journal-title": "Pharmacology"
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0145",
+   "doi-asserted-by": "crossref",
+   "DOI": "10.1016/j.jff.2025.106847",
+   "article-title": "Synergistic approach of alpha Asarone (α asarone) with donepezil in mitigating Alzheimer’s disease induced by aluminium chloride in rats",
+   "volume": "129",
+   "author": "Kaur",
+   "year": "2025",
+   "journal-title": "J. Funct. Foods"
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0155",
+   "doi-asserted-by": "crossref",
+   "first-page": "1277",
+   "DOI": "10.2174/1567205015666180925110222",
+   "article-title": "Global view on Alzheimer’s disease and diabetes mellitus: threats, risks and treatment",
+   "volume": "15",
+   "author": "Klimova",
+   "year": "2018",
+   "journal-title": "Curr. Alzheimer Res."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0160",
+   "doi-asserted-by": "crossref",
+   "first-page": "189",
+   "DOI": "10.1016/0003-9861(78)90479-4",
+   "article-title": "Generation of superoxide radical during autoxidation of hydroxylamine and an assay for superoxide dismutase",
+   "volume": "186",
+   "author": "Kono",
+   "year": "1978",
+   "journal-title": "Arch. Biochem. Biophys."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0165",
+   "first-page": "158",
+   "article-title": "Ca2+ induced lipid peroxidation accentuates aging in rat brain mitochondria",
+   "volume": "21",
+   "author": "Kumar",
+   "year": "2025",
+   "journal-title": "J. Stress Physiol. Biochem."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0170",
+   "article-title": "Effects and underlying mechanisms of bioactive compounds on type 2 diabetes mellitus and Alzheimer’s disease",
+   "volume": "2019",
+   "author": "Li",
+   "year": "2019",
+   "journal-title": "Oxidative Med. Cell. Longev."
+  },
+  {
+   "issue": "23",
+   "key": "10.1016/j.expneurol.2025.115634_bb0175",
+   "doi-asserted-by": "crossref",
+   "first-page": "7725",
+   "DOI": "10.3390/molecules28237725",
+   "article-title": "Pharmacokinetics, tissue distribution and excretion of demethyleneberberine, a metabolite of berberine, in rats and mice",
+   "volume": "28",
+   "author": "Li",
+   "year": "2023",
+   "journal-title": "Molecules"
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0180",
+   "first-page": "894",
+   "article-title": "Catalase",
+   "volume": "885",
+   "author": "Luck",
+   "year": "1965",
+   "journal-title": "Methods Enzymol."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0190",
+   "doi-asserted-by": "crossref",
+   "first-page": "874",
+   "DOI": "10.3390/ijms20040874",
+   "article-title": "Insulin resistance and oxidative stress in the brain: what’s new?",
+   "volume": "20",
+   "author": "Maciejczyk",
+   "year": "2019",
+   "journal-title": "Int. J. Mol. Sci."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0195",
+   "series-title": "Intramuscular Delivery of Recombinant AAV Expressing EpoR76E Improves Memory and Is Neuroprotective in 5×FAD Transgenics",
+   "author": "McDonald",
+   "year": "2025"
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0200",
+   "doi-asserted-by": "crossref",
+   "first-page": "47",
+   "DOI": "10.1016/0165-0270(84)90007-4",
+   "article-title": "Developments of a water-maze procedure for studying spatial learning in the rat",
+   "volume": "11",
+   "author": "Morris",
+   "year": "1984",
+   "journal-title": "J. Neurosci. Methods"
+  },
+  {
+   "issue": "6",
+   "key": "10.1016/j.expneurol.2025.115634_bb0205",
+   "doi-asserted-by": "crossref",
+   "first-page": "686",
+   "DOI": "10.1016/j.drudis.2015.01.003",
+   "article-title": "The impact of molecular dynamics on drug design: applications for the characterization of ligand–macromolecule complexes",
+   "volume": "20",
+   "author": "Mortier",
+   "year": "2015",
+   "journal-title": "Drug Discov. Today"
+  },
+  {
+   "issue": "8",
+   "key": "10.1016/j.expneurol.2025.115634_bb0210",
+   "doi-asserted-by": "crossref",
+   "first-page": "891",
+   "DOI": "10.2174/0115680266289292240420062705",
+   "article-title": "Pharmacological and therapeutic potential of berbamine: a potent alkaloid from genus berberis",
+   "volume": "25",
+   "author": "Muhammad",
+   "year": "2025",
+   "journal-title": "Curr. Top. Med. Chem."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0215",
+   "doi-asserted-by": "crossref",
+   "DOI": "10.1016/j.lfs.2023.121983",
+   "article-title": "Endoplasmic reticulum stress in Alzheimer’s disease: molecular mechanisms and therapeutic prospects",
+   "volume": "330",
+   "author": "Nagar",
+   "year": "2023",
+   "journal-title": "Life Sci."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0220",
+   "doi-asserted-by": "crossref",
+   "first-page": "13",
+   "DOI": "10.2147/SAR.S490392",
+   "article-title": "Alteration in oxidative stress enzymes and proteins by Datura metel Stramonium hydroethanolic root extract promotes hippocampus and cerebral cortex neurons damage in adult Sprague Dawley rats",
+   "volume": "13",
+   "author": "Oboma",
+   "year": "2025",
+   "journal-title": "Subst. Abus. Rehabil."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0225",
+   "doi-asserted-by": "crossref",
+   "first-page": "351",
+   "DOI": "10.1016/0003-2697(79)90738-3",
+   "article-title": "Assay for lipid peroxides in animal tissues by thiobarbituric acid reaction",
+   "volume": "95",
+   "author": "Ohkawa",
+   "year": "1979",
+   "journal-title": "Anal. Biochem."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0230",
+   "doi-asserted-by": "crossref",
+   "DOI": "10.1155/2018/4321714",
+   "article-title": "Cellular stresses and stress responses in the pathogenesis of insulin resistance",
+   "volume": "2018",
+   "author": "Onyango",
+   "year": "2018",
+   "journal-title": "Oxidative Med. Cell. Longev."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0235",
+   "first-page": "1",
+   "article-title": "Binding analysis using accelerated molecular dynamics simulations and future perspectives",
+   "volume": "15",
+   "author": "Pawnikar",
+   "year": "2022",
+   "journal-title": "Adv. Appl. Bioinforma. Chem."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0240",
+   "doi-asserted-by": "crossref",
+   "first-page": "603",
+   "DOI": "10.1016/j.bbrc.2016.03.019",
+   "article-title": "Demethyleneberberine attenuates non alcoholic fatty liver disease with activation of AMPK and inhibition of oxidative stress",
+   "volume": "472",
+   "author": "Qiang",
+   "year": "2016",
+   "journal-title": "Biochem. Biophys. Res. Commun."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0245",
+   "first-page": "1002",
+   "article-title": "Health benefits of plant derived bioactive secondary metabolites as dietary constituents",
+   "volume": "2",
+   "author": "Roychoudhury",
+   "year": "2020",
+   "journal-title": "SF J. Clin. Pharm. Res."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0250",
+   "doi-asserted-by": "crossref",
+   "first-page": "10101",
+   "DOI": "10.1007/s11033-022-07594-9",
+   "article-title": "Demethyleneberberine, a potential therapeutic agent in neurodegenerative disorders: a proposed mechanistic insight",
+   "volume": "49",
+   "author": "Saklani",
+   "year": "2022",
+   "journal-title": "Mol. Biol. Rep."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0255",
+   "first-page": "1657",
+   "article-title": "Experimental approach to Alzheimer’s disease with emphasis on insulin resistance in the brain",
+   "author": "Salkovic Petrisic",
+   "year": "2023",
+   "journal-title": "Handb. Neurotoxicol."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0260",
+   "doi-asserted-by": "crossref",
+   "first-page": "5170",
+   "DOI": "10.1021/acs.jmedchem.4c00750",
+   "article-title": "Development and evaluation of indole-based phospholipase D inhibitors for lung cancer immunotherapy",
+   "volume": "68",
+   "author": "Song",
+   "year": "2024",
+   "journal-title": "J. Med. Chem."
+  },
+  {
+   "issue": "2",
+   "key": "10.1016/j.expneurol.2025.115634_bb0265",
+   "doi-asserted-by": "crossref",
+   "first-page": "542",
+   "DOI": "10.3390/ijms26020542",
+   "article-title": "Associations between diabetes mellitus and neurodegenerative diseases",
+   "volume": "26",
+   "author": "Szablewski",
+   "year": "2025",
+   "journal-title": "Int. J. Mol. Sci."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0270",
+   "doi-asserted-by": "crossref",
+   "DOI": "10.1016/j.intimp.2019.105802",
+   "article-title": "Dihydroberberine, a hydrogenated derivative of berberine firstly identified in Phellodendri Chinese cortex, exerts anti inflammatory effect via dual modulation of NF κB and MAPK signaling pathways",
+   "volume": "75",
+   "author": "Tan",
+   "year": "2019",
+   "journal-title": "Int. Immunopharmacol."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0275",
+   "doi-asserted-by": "crossref",
+   "DOI": "10.1016/j.neuint.2020.104807",
+   "article-title": "Highly efficient synthesis and monoamine oxidase B inhibitory profile of demethyleneberberine, columbamine and palmatine",
+   "volume": "139",
+   "author": "Tao",
+   "year": "2020",
+   "journal-title": "Neurochem. Int."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0280",
+   "series-title": "Pharmacokinetics, Tissue Distribution and Excretion of Demethylberberine in Rats and Mice, a Metabolite of the Berberine",
+   "author": "Tong",
+   "year": "2023"
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0285",
+   "doi-asserted-by": "crossref",
+   "first-page": "1095",
+   "DOI": "10.1002/1873-3468.14298",
+   "article-title": "Mitochondria, energy, and metabolism in neuronal health and disease",
+   "volume": "596",
+   "author": "Trigo",
+   "year": "2022",
+   "journal-title": "FEBS Lett."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0290",
+   "article-title": "Inflammation and oxidative stress: the molecular connectivity between insulin resistance, obesity, and Alzheimer’s disease",
+   "volume": "105828",
+   "author": "Verdile",
+   "year": "2015",
+   "journal-title": "Mediat. Inflamm."
+  },
+  {
+   "issue": "7",
+   "key": "10.1016/j.expneurol.2025.115634_bb0295",
+   "doi-asserted-by": "crossref",
+   "first-page": "1036",
+   "DOI": "10.3390/ijms17071036",
+   "article-title": "Demethyleneberberine protects against hepatic fibrosis in mice by modulating NF-κB signaling",
+   "volume": "17",
+   "author": "Wang",
+   "year": "2016",
+   "journal-title": "Int. J. Mol. Sci."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0300",
+   "doi-asserted-by": "crossref",
+   "DOI": "10.3390/ijms252211881",
+   "article-title": "Identification of malaria selective proteasome β5 inhibitors through pharmacophore modeling, molecular docking, and molecular dynamics simulation",
+   "volume": "25",
+   "author": "Yasir",
+   "year": "2024",
+   "journal-title": "Int. J. Mol. Sci."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0305",
+   "doi-asserted-by": "crossref",
+   "DOI": "10.1177/1179573520907397",
+   "article-title": "Current and future treatments in Alzheimer disease: An update",
+   "volume": "12",
+   "author": "Yiannopoulou",
+   "year": "2020",
+   "journal-title": "J. Cent. Nerv. Syst. Dis."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0310",
+   "doi-asserted-by": "crossref",
+   "DOI": "10.1016/j.diabres.2017.10.004",
+   "article-title": "Akt activation: a potential strategy to ameliorate insulin resistance",
+   "volume": "156",
+   "author": "Zhang",
+   "year": "2019",
+   "journal-title": "Diabetes Res. Clin. Pract."
+  },
+  {
+   "key": "10.1016/j.expneurol.2025.115634_bb0315",
+   "first-page": "763",
+   "article-title": "Related fluoxetine and methylprednisolone changes of TNF α and IL 6 expression in the hypothyroidism rat model of spinal cord injury",
+   "volume": "23",
+   "author": "Zirak",
+   "year": "2021",
+   "journal-title": "Cell J."
+  }
+ ],
+ "updated-by": [
+  {
+   "DOI": "10.1016/j.expneurol.2026.115774",
+   "type": "erratum",
+   "label": "Erratum",
+   "source": "publisher",
+   "updated": {
+    "date-parts": [
+     [
+      2026,
+      4,
+      23
+     ]
+    ],
+    "date-time": "2026-04-23T00:00:00Z",
+    "timestamp": 1776902400000
+   }
+  },
+  {
+   "DOI": "10.1016/j.expneurol.2026.115774",
+   "type": "erratum",
+   "label": "Erratum",
+   "source": "publisher",
+   "updated": {
+    "date-parts": [
+     [
+      2026,
+      8,
+      1
+     ]
+    ],
+    "date-time": "2026-08-01T00:00:00Z",
+    "timestamp": 1785542400000
+   }
+  }
+ ],
+ "container-title": [
+  "Experimental Neurology"
+ ],
+ "original-title": [],
+ "language": "en",
+ "link": [
+  {
+   "URL": "https://api.elsevier.com/content/article/PII:S0014488625004996?httpAccept=text/xml",
+   "content-type": "text/xml",
+   "content-version": "vor",
+   "intended-application": "text-mining"
+  },
+  {
+   "URL": "https://api.elsevier.com/content/article/PII:S0014488625004996?httpAccept=text/plain",
+   "content-type": "text/plain",
+   "content-version": "vor",
+   "intended-application": "text-mining"
+  }
+ ],
+ "deposited": {
+  "date-parts": [
+   [
+    2026,
+    6,
+    17
+   ]
+  ],
+  "date-time": "2026-06-17T13:13:53Z",
+  "timestamp": 1781702033000
+ },
+ "score": 1,
+ "resource": {
+  "primary": {
+   "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0014488625004996"
+  }
+ },
+ "subtitle": [],
+ "short-title": [],
+ "issued": {
+  "date-parts": [
+   [
+    2026,
+    4
+   ]
+  ]
+ },
+ "references-count": 62,
+ "alternative-id": [
+  "S0014488625004996"
+ ],
+ "URL": "https://doi.org/10.1016/j.expneurol.2025.115634",
+ "relation": {},
+ "ISSN": [
+  "0014-4886"
+ ],
+ "issn-type": [
+  {
+   "value": "0014-4886",
+   "type": "print"
+  }
+ ],
+ "subject": [],
+ "published": {
+  "date-parts": [
+   [
+    2026,
+    4
+   ]
+  ]
+ },
+ "assertion": [
+  {
+   "value": "Elsevier",
+   "name": "publisher",
+   "label": "This article is maintained by"
+  },
+  {
+   "value": "Demethyleneberberine attenuates combined cognitive and metabolic dysfunctions in an insulin-resistance-induced Alzheimer's disease rat model: Synthesis, in-silico and in-vivo insights",
+   "name": "articletitle",
+   "label": "Article Title"
+  },
+  {
+   "value": "Experimental Neurology",
+   "name": "journaltitle",
+   "label": "Journal Title"
+  },
+  {
+   "value": "https://doi.org/10.1016/j.expneurol.2025.115634",
+   "name": "articlelink",
+   "label": "CrossRef DOI link to publisher maintained version"
+  },
+  {
+   "value": "article",
+   "name": "content_type",
+   "label": "Content Type"
+  },
+  {
+   "value": "© 2026 Elsevier Inc. All rights are reserved, including those for text and data mining, AI training, and similar technologies.",
+   "name": "copyright",
+   "label": "Copyright"
+  }
+ ],
+ "article-number": "115634"
+}

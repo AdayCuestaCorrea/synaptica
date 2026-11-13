@@ -138,17 +138,34 @@ async function json(url) {
   return r.json();
 }
 
+// Human layers, in order (Sofía's review): each one only labels what the ones before leave empty
+// (spikes/s3/layers.py). Julich-Brain is the base.
+const HUMAN_LAYERS = ["cerebra", "cit168", "icbm_wm"];
+
 export async function loadData() {
-  const [wl, wlic, jl, jlic, eq] = await Promise.all([
+  const [wl, wlic, jl, jlic, eq, ...layers] = await Promise.all([
     json("../data/waxholm/labels.json"),
     json("../data/waxholm/licence.json"),
     json("../data/julich/labels.json"),
     json("../data/julich/licence.json"),
     json("../data/equivalencias.json"),
+    ...HUMAN_LAYERS.map((n) =>
+      Promise.all([json(`../data/${n}/labels.json`), json(`../data/${n}/licence.json`)])),
   ]);
+  // One human brain, several label files: the rows of each layer go after the ones before, so
+  // the viewer reads value k of a layer as row k + from - 1 (c.js, VolumeViewer.load). The files
+  // stay apart (licences); they only meet here, on screen.
+  const rows = jl.rows.map((r) => ({ ...r, source: r.index ? "julich" : null }));
+  const extras = [];
+  HUMAN_LAYERS.forEach((name, i) => {
+    const [labels, licence] = layers[i];
+    const from = rows.length;
+    rows.push(...labels.rows.slice(1).map((r) => ({ ...r, index: r.index + from - 1, source: name })));
+    extras.push({ name, url: `../data/${name}/labels.nii.gz`, from, licence });
+  });
   return {
     waxholm: { labels: wl, licence: wlic },
-    julich: { labels: jl, licence: jlic },
+    julich: { labels: { ...jl, rows }, licence: jlic, extras },
     pairs: eq.pairs,
   };
 }
@@ -158,7 +175,10 @@ export function regionFromRow(atlas, row, data) {
   if (atlas === "waxholm") {
     return { atlas, side: row.side, id: row.id, name: row.name, acronym: row.acronym, path: row.path };
   }
-  return { atlas, side: row.side, id: row.id, name: row.name, label: row.label, areaId: row.area_id };
+  return {
+    atlas, side: row.side, id: row.id, name: row.name, label: row.label, areaId: row.area_id,
+    source: row.source,
+  };
 }
 
 // The test pair a region belongs to, if any. Waxholm matches through its ancestors (a click on
@@ -168,14 +188,14 @@ export function pairOf(region, pairs) {
     const path = region.path || [region.id];
     return pairs.find((p) => path.includes(p.waxholm.id)) || null;
   }
-  return pairs.find((p) => p.julich.some((j) => j.area_id === region.areaId)) || null;
+  return pairs.find((p) => p.human.some((j) => j.area_id === region.areaId)) || null;
 }
 
 // What the other viewer has to highlight: {atlas, side, waxholmId} or {atlas, side, areaIds}.
 export function partnerOf(region, pair) {
   if (!pair) return null;
   if (region.atlas === "waxholm") {
-    return { atlas: "julich", side: region.side, areaIds: pair.julich.map((j) => j.area_id) };
+    return { atlas: "julich", side: region.side, areaIds: pair.human.map((j) => j.area_id) };
   }
   return { atlas: "waxholm", side: region.side, waxholmId: pair.waxholm.id };
 }

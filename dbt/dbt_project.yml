@@ -1,0 +1,23 @@
+# Adapted from paleo-atlas dbt/dbt_project.yml (decision D2).
+name: synaptica
+version: "0.1.0"
+config-version: 2
+profile: synaptica
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  synaptica:
+    staging:
+      # Tables, not views: staging reads files with paths relative to SYN_DATA_DIR, so
+      # views would break when the warehouse is queried from anywhere else.
+      +materialized: table
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table

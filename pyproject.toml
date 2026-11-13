@@ -8,9 +8,16 @@ authors = [{ name = "Aday Cuesta Correa" }]
 readme = "README.md"
 requires-python = ">=3.14,<3.15"
 dependencies = [
+    # dbt on DuckDB: the warehouse rebuilt from data/raw/ on every run (decision D1, as in
+    # Paleo Atlas; tried in spike S2). Brings duckdb itself.
+    "dbt-duckdb>=1.11.1",
     # HTTP client for the sources (spike S1, ingestion from Phase 1).
     "httpx>=0.28.1",
+    # Validates the JSON answers of the LLM (decision D4, as in Paleo Atlas and spike S5).
+    # Same version as the spike groups; dbt already installs it, now it is declared.
+    "pydantic>=2.14.3",
     # CLI framework for the `syn` commands (same as Paleo Atlas).
+    "spylls>=0.1.7",
     "typer>=0.27.3",
 ]
 
@@ -25,6 +32,13 @@ build-backend = "uv_build"
 dev = [
     "ruff",
     "pytest",
+    { include-group = "eval" },
+]
+# `syn eval news` (plan, step 14a): the classical baseline of the news classifier, TF-IDF
+# of character n-grams + logistic regression with cross-validation, as in Paleo Atlas.
+# Only for the evaluation and its tests (in `dev`); the daily pipeline does not install it.
+eval = [
+    "scikit-learn>=1.9.1",
 ]
 # Spike S2 (decision D1): the same dbt project on BigQuery sandbox and on DuckDB.
 # Only `uv sync --group spike-s2`; the regular CI does not install it.
@@ -47,6 +61,8 @@ spike-s3 = [
     "nibabel>=5.5.0",
     # Connected components and smoothing of label volumes.
     "scipy>=1.18.1",
+    # Rat Nissl sections (nissl.py): read the image tiles, write the 2D sections as WebP.
+    "pillow>=13.0.0",
 ]
 # Spike S5 (decision D4): pydantic validates the JSON answers of the LLM, as in Paleo.
 # Moves to the main dependencies in Phase 1 if D4 keeps this design.

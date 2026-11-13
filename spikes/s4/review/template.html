@@ -82,6 +82,7 @@ textarea, input[type="text"] { width: 100%; font: 0.95rem var(--sans); color: va
 textarea { min-height: 3.2rem; }
 textarea.edit { min-height: 8rem; font-family: var(--serif); font-size: 1rem; }
 .hint { font-size: 0.85rem; color: var(--muted); }
+.hint.warn { color: var(--warn); font-weight: 600; }
 .warnings { background: var(--warn-soft); border-radius: 6px; padding: 0.75rem 0.9rem; display: grid; gap: 0.35rem; font-size: 0.95rem; }
 .warnings strong { color: var(--warn); }
 section.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 1.25rem; display: grid; gap: 0.8rem; margin-bottom: 1.75rem; }
@@ -128,7 +129,9 @@ footer { color: var(--muted); font-size: 0.85rem; padding-block: 0 3rem; }
   <section class="panel" id="propose" hidden>
     <h2>Proponer una sigla nueva</h2>
     <p class="hint">Para el glosario. Se añade a la cola como borrador y te llegará para revisar con su versión en inglés.</p>
+    <p class="hint" id="p-known"></p>
     <label class="q"><span>Sigla o término</span><input type="text" id="p-term" autocomplete="off"></label>
+    <p class="hint warn" id="p-dup" hidden></p>
     <label class="q"><span>Significado</span><input type="text" id="p-meaning" autocomplete="off"></label>
     <label class="q"><span>Explicación corta <em>(opcional)</em></span><textarea id="p-expl"></textarea></label>
     <div><button type="button" id="p-add">Añadir</button></div>
@@ -148,7 +151,9 @@ footer { color: var(--muted); font-size: 0.85rem; padding-block: 0 3rem; }
 
 <script>
 const PAGE = /*DATA*/{};
-const STORE = `synaptica-revision-s4-${PAGE.variant}`;
+// One store per page: a page of another round never shares (or resends) its answers. Seen in
+// round 2 of the test: she opened the round-1 file, whose answers were still saved.
+const STORE = `synaptica-revision-s4-${PAGE.variant}-${PAGE.generated_at}-${PAGE.label || ""}`;
 // The definitions are SYNAPTICA's proposal (2026-11-12): Sofía can change them, and hers go to
 // the web.
 const GRADES = [
@@ -156,6 +161,16 @@ const GRADES = [
   ["partial", "Parcial", "se solapan, pero a un lado le sobra o le falta alguna parte."],
   ["disputed", "Discutida", "la literatura no se pone de acuerdo."],
 ];
+// What goes in each news topic: the definitions the classifier uses
+// (src/synaptica/prompts/classify_news.md, types-v1), in Spanish. Added after round 1 of the
+// test, when Sofía wrote «no entiendo este tema» on «Cerebro sano». SYNAPTICA's proposal:
+// she can change them.
+const TOPIC_HINTS = {
+  "healthy-brain": "Cómo funciona el sistema nervioso sano: neuronas, sinapsis, circuitos, desarrollo, envejecimiento sin enfermedad, percepción, memoria, sueño, conducta y evolución, en personas o en animales.",
+  diseases: "Trastornos neurológicos y mentales y lesiones: sus causas, mecanismos, factores de riesgo, diagnóstico y modelos animales (alzhéimer, párkinson, epilepsia, ictus, esclerosis múltiple, dolor, depresión, autismo…), salvo los ensayos de tratamientos en personas.",
+  "clinical-trials": "Ensayos que prueban en personas un tratamiento, fármaco, dispositivo o terapia (aleatorizados, controlados, fases 1 a 3), o sus resultados.",
+  "new-techniques": "Un método, herramienta o tecnología nuevos para estudiar o medir el sistema nervioso (imagen, registros, microscopía, trazado viral, optogenética, software, conjuntos de datos, atlas), cuando lo principal es el método.",
+};
 // What each kind of card is, where it ends up and what to look at (added 2026-11-12, when Aday
 // saw that the page took for granted context that neither he nor Sofía had).
 const GROUP_HINTS = {
@@ -310,7 +325,9 @@ function candidatesControls(item) {
 }
 
 function toggleControls(item) {
-  return [question("¿Se muestran las noticias de este tema?", "(se puede cambiar en cualquier momento)",
+  const hint = TOPIC_HINTS[item.item_id];
+  return [...(hint ? [el("p", { class: "hint", text: `Qué entra en este tema (lo decide el programa al clasificar cada noticia): ${hint}` })] : []),
+    question("¿Se muestran las noticias de este tema?", "(se puede cambiar en cualquier momento)",
     radios(item, "action", [["enable", "Mostrar"], ["disable", "Ocultar"]]))];
 }
 
@@ -345,11 +362,23 @@ function render() {
 
 function setupProposals() {
   document.getElementById("propose").hidden = false;
+  const known = PAGE.glossary_terms || [];
+  document.getElementById("p-known").textContent = known.length
+    ? `Ya están en el glosario (no hace falta proponerlas): ${known.join(", ")}.` : "";
+  const fold = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+  const term = document.getElementById("p-term"), dup = document.getElementById("p-dup");
+  term.addEventListener("input", () => {
+    const hit = known.find((k) => fold(k) === fold(term.value));
+    dup.hidden = !hit;
+    dup.textContent = hit ? `«${hit}» ya está en el glosario. Si quieres cambiar su definición, dilo en una nota; si la añades aquí, llegará como propuesta.` : "";
+    if (!hit && /\//.test(term.value)) { dup.hidden = false; dup.textContent = "Si son dos términos, mejor uno en cada propuesta."; }
+  });
   document.getElementById("p-add").addEventListener("click", () => {
     const get = (id) => document.getElementById(id).value.trim();
     if (!get("p-term") || !get("p-meaning")) return;
     answers.proposals.push({ term: get("p-term"), meaning_es: get("p-meaning"), explanation_es: get("p-expl") || null });
     for (const id of ["p-term", "p-meaning", "p-expl"]) document.getElementById(id).value = "";
+    dup.hidden = true;
     save();
   });
 }
@@ -418,8 +447,17 @@ const DECISION_KEYS = ["item_type", "item_id", "content_sha256", "action", "payl
 // Longest URL GitHub still prefills (measured in step 3, spikes/s4/results/README.md).
 const MAX_URL = PAGE.max_url;
 
-function blockOf(ds, part, total) {
+// Same value in every part of one send (FNV-1a of all its decisions): the intake says which
+// parts have not arrived.
+function sendId(ds) {
+  let h = 0x811c9dc5;
+  for (const ch of JSON.stringify(ds)) { h ^= ch.codePointAt(0); h = Math.imul(h, 0x01000193) >>> 0; }
+  return h.toString(16).padStart(8, "0");
+}
+
+function blockOf(ds, part, total, send) {
   const lines = [MAGIC, `queue: ${PAGE.generated_at}`, `page: ${PAGE.variant}`, `part: ${part}/${total}`];
+  if (send) lines.push(`send: ${send}`);
   for (const d of ds) lines.push(JSON.stringify(Object.fromEntries(DECISION_KEYS.map((k) => [k, d[k] ?? null]))));
   return lines.join("\n");
 }
@@ -435,7 +473,7 @@ function issueUrl(block, part, total) {
 function parts(ds) {
   const out = [];
   let current = [];
-  const fits = (group) => issueUrl(blockOf(group, 99, 99), 99, 99).length <= MAX_URL;
+  const fits = (group) => issueUrl(blockOf(group, 99, 99, "00000000"), 99, 99).length <= MAX_URL;
   for (const d of ds) {
     if (fits([...current, d])) { current.push(d); continue; }
     if (current.length) out.push(current);
@@ -451,10 +489,11 @@ async function copyText(text) {
 
 function renderParts(ds) {
   const ps = parts(ds);
+  const send = sendId(ds);
   answers.sent = answers.sent || {};
   const box = document.getElementById("parts");
   box.replaceChildren(...ps.map((p, n) => {
-    const block = blockOf(p.group, n + 1, ps.length);
+    const block = blockOf(p.group, n + 1, ps.length, send);
     const label = ps.length > 1 ? `Enviar parte ${n + 1} de ${ps.length}` : "Enviar";
     const a = el("a", { class: `button${answers.sent[block] ? " sent" : ""}`, target: "_blank", rel: "noopener",
       href: issueUrl(p.paste ? null : block, n + 1, ps.length),
@@ -506,10 +545,14 @@ function refresh() {
   }));
 }
 
-document.getElementById("eyebrow").textContent = `SYNAPTICA · revisión · ${PAGE.generated_at.slice(0, 10)}`;
+const round = PAGE.label ? ` · ${PAGE.label.replace("-", " ")}` : "";
+document.getElementById("eyebrow").textContent = `SYNAPTICA · revisión · ${PAGE.generated_at.slice(0, 10)}${round}`;
+document.title = `Revisión SYNAPTICA${round}`;
+const count = `${PAGE.items.length} ${PAGE.items.length === 1 ? "elemento" : "elementos"}`;
 document.getElementById("lead").textContent = PAGE.variant === "private"
-  ? "Hola, Sofía. Este archivo es privado: tiene las fichas de Neuro Diseases, que no se publican hasta que las apruebes. No lo reenvíes."
-  : "Hola, Sofía. Esto es lo que espera tu revisión hoy, ordenado por prioridad.";
+  ? `Hola, Sofía. Este archivo es privado: tiene las fichas de Neuro Diseases (${count}), que no se publican hasta que las apruebes. No lo reenvíes.`
+  : PAGE.items.length === 1 ? `Hola, Sofía. Hoy espera tu revisión ${count}.`
+  : `Hola, Sofía. Hoy esperan tu revisión ${count}, ordenados por prioridad.`;
 render();
 refresh();
 </script>

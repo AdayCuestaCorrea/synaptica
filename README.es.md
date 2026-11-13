@@ -4,7 +4,7 @@
 
 Web gratuita de neurociencia en español e inglés que se actualiza sola cada día: noticias científicas con resúmenes verificados y secciones para aprender cómo funciona el cerebro. La hacen Aday Cuesta Correa (desarrollo) y Sofía (revisión científica).
 
-**Estado:** Fase 0 (cimientos). Todavía no hay web. El plan y su orden están en [`SCOPE.md`](SCOPE.md).
+**Estado:** Fase 0 (cimientos) cerrada el 2026-11-13 ([resumen](docs/fases/fase-0.md)); empieza la Fase 1 (la base). Todavía no hay web. El plan y su orden están en [`SCOPE.md`](SCOPE.md).
 
 ## Qué será
 

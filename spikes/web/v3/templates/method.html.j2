@@ -1,0 +1,14 @@
+{% extends "base.html.j2" %}
+{% block title %}{{ t.method }}{% endblock %}
+{% block main %}
+<article class="prose">
+  <h1>{{ t.method }}</h1>
+  {% include "method_" ~ lang ~ ".html.j2" %}
+  <h2>{{ t.examples }}</h2>
+  <div class="list examples">
+    {% for s in [lead, data.examples.retracted, data.examples.corrected] + (latest | selectattr("review_status", "equalto", "preprint") | list)[:1] %}
+    {{ m.row(s) }}
+    {% endfor %}
+  </div>
+</article>
+{% endblock %}

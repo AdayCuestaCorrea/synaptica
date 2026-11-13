@@ -292,14 +292,629 @@
     "bytes_total": 1616140,
     "within_budget": true
   },
+  "cerebra": {
+    "regions_with_side": 26,
+    "bytes_nifti_gz": 156548,
+    "selection": {
+      "min_free": 0.5,
+      "kept": [
+        "Brainstem",
+        "Caudate",
+        "Cerebellum Gray Matter",
+        "Cerebellum White Matter",
+        "Fourth Ventricle",
+        "Lateral Ventricle",
+        "Optic Chiasm",
+        "Pallidum",
+        "Putamen",
+        "Third Ventricle",
+        "Vermal lobules I-V",
+        "Vermal lobules VI-VII",
+        "Vermal lobules VIII-X"
+      ],
+      "left_out": [
+        "Accumbens Area",
+        "Amygdala",
+        "Basal Forebrain",
+        "Caudal Anterior Cingulate",
+        "Caudal Middle Frontal",
+        "Cuneus",
+        "Entorhinal",
+        "Fusiform",
+        "Hippocampus",
+        "Inferior Lateral Ventricle",
+        "Inferior Parietal",
+        "Inferior temporal",
+        "Insula",
+        "Isthmus Cingulate",
+        "Lateral Occipital",
+        "Lateral Orbitofrontal",
+        "Lingual",
+        "Medial Orbitofrontal",
+        "Middle Temporal",
+        "Paracentral",
+        "Parahippocampal",
+        "Pars Opercularis",
+        "Pars Orbitalis",
+        "Pars Triangularis",
+        "Pericalcarine",
+        "Postcentral",
+        "Posterior Cingulate",
+        "Precentral",
+        "Precuneus",
+        "Rostral Anterior Cingulate",
+        "Rostral Middle Frontal",
+        "Superior Frontal",
+        "Superior Parietal",
+        "Superior Temporal",
+        "Supramarginal",
+        "Thalamus",
+        "Transverse Temporal",
+        "Ventral Diencephalon"
+      ],
+      "structures": {
+        "Fourth Ventricle": {
+          "voxels": 1384,
+          "free": 1384,
+          "free_fraction": 1.0
+        },
+        "Cerebellum Gray Matter": {
+          "voxels": 142458,
+          "free": 142395,
+          "free_fraction": 1.0
+        },
+        "Vermal lobules I-V": {
+          "voxels": 8463,
+          "free": 8412,
+          "free_fraction": 0.994
+        },
+        "Vermal lobules VI-VII": {
+          "voxels": 4247,
+          "free": 4215,
+          "free_fraction": 0.992
+        },
+        "Lateral Ventricle": {
+          "voxels": 19140,
+          "free": 18751,
+          "free_fraction": 0.98
+        },
+        "Optic Chiasm": {
+          "voxels": 1534,
+          "free": 1498,
+          "free_fraction": 0.977
+        },
+        "Third Ventricle": {
+          "voxels": 1713,
+          "free": 1667,
+          "free_fraction": 0.973
+        },
+        "Brainstem": {
+          "voxels": 32593,
+          "free": 31647,
+          "free_fraction": 0.971
+        },
+        "Pallidum": {
+          "voxels": 3402,
+          "free": 3253,
+          "free_fraction": 0.956
+        },
+        "Caudate": {
+          "voxels": 11286,
+          "free": 10400,
+          "free_fraction": 0.921
+        },
+        "Vermal lobules VIII-X": {
+          "voxels": 4687,
+          "free": 4205,
+          "free_fraction": 0.897
+        },
+        "Cerebellum White Matter": {
+          "voxels": 25997,
+          "free": 22130,
+          "free_fraction": 0.851
+        },
+        "Putamen": {
+          "voxels": 13252,
+          "free": 10736,
+          "free_fraction": 0.81
+        },
+        "Ventral Diencephalon": {
+          "voxels": 12206,
+          "free": 5280,
+          "free_fraction": 0.433
+        },
+        "Inferior Lateral Ventricle": {
+          "voxels": 2118,
+          "free": 555,
+          "free_fraction": 0.262
+        },
+        "Postcentral": {
+          "voxels": 36388,
+          "free": 8784,
+          "free_fraction": 0.241
+        },
+        "Supramarginal": {
+          "voxels": 32066,
+          "free": 7402,
+          "free_fraction": 0.231
+        },
+        "Superior Parietal": {
+          "voxels": 38666,
+          "free": 8430,
+          "free_fraction": 0.218
+        },
+        "Cuneus": {
+          "voxels": 16138,
+          "free": 3024,
+          "free_fraction": 0.187
+        },
+        "Lateral Occipital": {
+          "voxels": 45614,
+          "free": 8222,
+          "free_fraction": 0.18
+        },
+        "Inferior Parietal": {
+          "voxels": 52372,
+          "free": 9376,
+          "free_fraction": 0.179
+        },
+        "Basal Forebrain": {
+          "voxels": 384,
+          "free": 68,
+          "free_fraction": 0.177
+        },
+        "Precentral": {
+          "voxels": 42786,
+          "free": 7287,
+          "free_fraction": 0.17
+        },
+        "Thalamus": {
+          "voxels": 20075,
+          "free": 3364,
+          "free_fraction": 0.168
+        },
+        "Medial Orbitofrontal": {
+          "voxels": 17648,
+          "free": 2882,
+          "free_fraction": 0.163
+        },
+        "Superior Temporal": {
+          "voxels": 50702,
+          "free": 8143,
+          "free_fraction": 0.161
+        },
+        "Hippocampus": {
+          "voxels": 9388,
+          "free": 1467,
+          "free_fraction": 0.156
+        },
+        "Pars Triangularis": {
+          "voxels": 16392,
+          "free": 2367,
+          "free_fraction": 0.144
+        },
+        "Lingual": {
+          "voxels": 24721,
+          "free": 3520,
+          "free_fraction": 0.142
+        },
+        "Paracentral": {
+          "voxels": 16476,
+          "free": 2298,
+          "free_fraction": 0.139
+        },
+        "Caudal Middle Frontal": {
+          "voxels": 26440,
+          "free": 3623,
+          "free_fraction": 0.137
+        },
+        "Precuneus": {
+          "voxels": 37543,
+          "free": 5125,
+          "free_fraction": 0.137
+        },
+        "Transverse Temporal": {
+          "voxels": 3764,
+          "free": 496,
+          "free_fraction": 0.132
+        },
+        "Pericalcarine": {
+          "voxels": 10060,
+          "free": 1240,
+          "free_fraction": 0.123
+        },
+        "Pars Opercularis": {
+          "voxels": 15346,
+          "free": 1857,
+          "free_fraction": 0.121
+        },
+        "Pars Orbitalis": {
+          "voxels": 7278,
+          "free": 874,
+          "free_fraction": 0.12
+        },
+        "Rostral Middle Frontal": {
+          "voxels": 43484,
+          "free": 5209,
+          "free_fraction": 0.12
+        },
+        "Lateral Orbitofrontal": {
+          "voxels": 30084,
+          "free": 3593,
+          "free_fraction": 0.119
+        },
+        "Superior Frontal": {
+          "voxels": 105638,
+          "free": 12193,
+          "free_fraction": 0.115
+        },
+        "Middle Temporal": {
+          "voxels": 56582,
+          "free": 6173,
+          "free_fraction": 0.109
+        },
+        "Accumbens Area": {
+          "voxels": 1106,
+          "free": 117,
+          "free_fraction": 0.106
+        },
+        "Isthmus Cingulate": {
+          "voxels": 8854,
+          "free": 931,
+          "free_fraction": 0.105
+        },
+        "Rostral Anterior Cingulate": {
+          "voxels": 7614,
+          "free": 789,
+          "free_fraction": 0.104
+        },
+        "Fusiform": {
+          "voxels": 26944,
+          "free": 2774,
+          "free_fraction": 0.103
+        },
+        "Caudal Anterior Cingulate": {
+          "voxels": 7304,
+          "free": 730,
+          "free_fraction": 0.1
+        },
+        "Inferior temporal": {
+          "voxels": 32448,
+          "free": 2809,
+          "free_fraction": 0.087
+        },
+        "Entorhinal": {
+          "voxels": 6410,
+          "free": 521,
+          "free_fraction": 0.081
+        },
+        "Parahippocampal": {
+          "voxels": 5416,
+          "free": 419,
+          "free_fraction": 0.077
+        },
+        "Insula": {
+          "voxels": 19042,
+          "free": 947,
+          "free_fraction": 0.05
+        },
+        "Posterior Cingulate": {
+          "voxels": 10713,
+          "free": 459,
+          "free_fraction": 0.043
+        },
+        "Amygdala": {
+          "voxels": 3300,
+          "free": 65,
+          "free_fraction": 0.02
+        }
+      }
+    },
+    "bytes_total": 164335,
+    "within_budget": true
+  },
+  "cit168": {
+    "regions_with_side": 6,
+    "bytes_nifti_gz": 76304,
+    "selection": {
+      "min_free": 0.5,
+      "kept": [
+        "Habenular nuclei (HN)",
+        "Hypothalamus (HTH)",
+        "Mammillary nucleus (MN)"
+      ],
+      "left_out": [
+        "Caudate nucleus (Ca)",
+        "Extended amygdala (EXA)",
+        "Globus pallidus, external segment (GPe)",
+        "Globus pallidus, internal segment (GPi)",
+        "Nucleus accumbens (NAC)",
+        "Parabrachial pigmented nucleus (PBP)",
+        "Putamen (Pu)",
+        "Red nucleus (RN)",
+        "Substantia nigra, pars compacta (SNc)",
+        "Substantia nigra, pars reticulata (SNr)",
+        "Subthalamic nucleus (STH)",
+        "Ventral pallidum (VeP)",
+        "Ventral tegmental area (VTA)"
+      ],
+      "structures": {
+        "Habenular nuclei (HN)": {
+          "voxels": 125,
+          "free": 86,
+          "free_fraction": 0.688
+        },
+        "Hypothalamus (HTH)": {
+          "voxels": 2199,
+          "free": 1410,
+          "free_fraction": 0.641
+        },
+        "Mammillary nucleus (MN)": {
+          "voxels": 223,
+          "free": 125,
+          "free_fraction": 0.561
+        },
+        "Extended amygdala (EXA)": {
+          "voxels": 489,
+          "free": 239,
+          "free_fraction": 0.489
+        },
+        "Globus pallidus, internal segment (GPi)": {
+          "voxels": 1257,
+          "free": 256,
+          "free_fraction": 0.204
+        },
+        "Globus pallidus, external segment (GPe)": {
+          "voxels": 2376,
+          "free": 430,
+          "free_fraction": 0.181
+        },
+        "Caudate nucleus (Ca)": {
+          "voxels": 13953,
+          "free": 2054,
+          "free_fraction": 0.147
+        },
+        "Putamen (Pu)": {
+          "voxels": 15585,
+          "free": 2274,
+          "free_fraction": 0.146
+        },
+        "Red nucleus (RN)": {
+          "voxels": 923,
+          "free": 124,
+          "free_fraction": 0.134
+        },
+        "Parabrachial pigmented nucleus (PBP)": {
+          "voxels": 277,
+          "free": 20,
+          "free_fraction": 0.072
+        },
+        "Subthalamic nucleus (STH)": {
+          "voxels": 476,
+          "free": 34,
+          "free_fraction": 0.071
+        },
+        "Nucleus accumbens (NAC)": {
+          "voxels": 1179,
+          "free": 44,
+          "free_fraction": 0.037
+        },
+        "Ventral tegmental area (VTA)": {
+          "voxels": 86,
+          "free": 3,
+          "free_fraction": 0.035
+        },
+        "Substantia nigra, pars reticulata (SNr)": {
+          "voxels": 874,
+          "free": 24,
+          "free_fraction": 0.027
+        },
+        "Ventral pallidum (VeP)": {
+          "voxels": 281,
+          "free": 2,
+          "free_fraction": 0.007
+        },
+        "Substantia nigra, pars compacta (SNc)": {
+          "voxels": 374,
+          "free": 2,
+          "free_fraction": 0.005
+        }
+      }
+    },
+    "bytes_total": 78901,
+    "within_budget": true
+  },
+  "icbm_wm": {
+    "regions_with_side": 2,
+    "bytes_nifti_gz": 290864,
+    "selection": {
+      "min_free": 0.5,
+      "kept": [
+        "Cerebral white matter (not divided into tracts)"
+      ],
+      "left_out": [],
+      "structures": {
+        "Cerebral white matter (not divided into tracts)": {
+          "voxels": 707205,
+          "free": 502017,
+          "free_fraction": 0.71
+        }
+      }
+    },
+    "bytes_total": 292912,
+    "within_budget": true
+  },
+  "nissl": {
+    "sections": 146,
+    "bytes_total_webp": 3754750,
+    "bytes_total": 3797623,
+    "within_budget": false
+  },
   "files_bytes": {
     "bigbrain/licence.json": 1201,
     "bigbrain/stain.nii.gz": 1614939,
-    "equivalencias.json": 3213,
+    "cerebra/labels.json": 6339,
+    "cerebra/labels.nii.gz": 156548,
+    "cerebra/licence.json": 1448,
+    "cit168/labels.json": 1683,
+    "cit168/labels.nii.gz": 76304,
+    "cit168/licence.json": 914,
+    "equivalencias.json": 8564,
+    "icbm_wm/labels.json": 829,
+    "icbm_wm/labels.nii.gz": 290864,
+    "icbm_wm/licence.json": 1219,
     "julich/coords.json": 363,
     "julich/labels.json": 145078,
     "julich/labels.nii.gz": 539219,
     "julich/licence.json": 967,
+    "nissl/index.json": 41750,
+    "nissl/licence.json": 1123,
+    "nissl/s001.webp": 4230,
+    "nissl/s002.webp": 3824,
+    "nissl/s003.webp": 4034,
+    "nissl/s007.webp": 3652,
+    "nissl/s008.webp": 3906,
+    "nissl/s009.webp": 3704,
+    "nissl/s011.webp": 4110,
+    "nissl/s014.webp": 3408,
+    "nissl/s017.webp": 3326,
+    "nissl/s020.webp": 3596,
+    "nissl/s023.webp": 3564,
+    "nissl/s026.webp": 3322,
+    "nissl/s029.webp": 2748,
+    "nissl/s032.webp": 2998,
+    "nissl/s035.webp": 3234,
+    "nissl/s038.webp": 2524,
+    "nissl/s041.webp": 4588,
+    "nissl/s044.webp": 7276,
+    "nissl/s047.webp": 12602,
+    "nissl/s050.webp": 13662,
+    "nissl/s053.webp": 15924,
+    "nissl/s055.webp": 18036,
+    "nissl/s058.webp": 15404,
+    "nissl/s061.webp": 20326,
+    "nissl/s063.webp": 19986,
+    "nissl/s065.webp": 20444,
+    "nissl/s068.webp": 21204,
+    "nissl/s071.webp": 20924,
+    "nissl/s073.webp": 21864,
+    "nissl/s076.webp": 21766,
+    "nissl/s079.webp": 21892,
+    "nissl/s082.webp": 23016,
+    "nissl/s085.webp": 23296,
+    "nissl/s088.webp": 23374,
+    "nissl/s091.webp": 24360,
+    "nissl/s094.webp": 19362,
+    "nissl/s097.webp": 28870,
+    "nissl/s100.webp": 26702,
+    "nissl/s103.webp": 25880,
+    "nissl/s106.webp": 26840,
+    "nissl/s109.webp": 26470,
+    "nissl/s112.webp": 26494,
+    "nissl/s115.webp": 27624,
+    "nissl/s118.webp": 30706,
+    "nissl/s121.webp": 29464,
+    "nissl/s124.webp": 29054,
+    "nissl/s127.webp": 29146,
+    "nissl/s130.webp": 29490,
+    "nissl/s133.webp": 30100,
+    "nissl/s136.webp": 31686,
+    "nissl/s139.webp": 32480,
+    "nissl/s142.webp": 31788,
+    "nissl/s145.webp": 32208,
+    "nissl/s148.webp": 33110,
+    "nissl/s151.webp": 34052,
+    "nissl/s154.webp": 34110,
+    "nissl/s157.webp": 35856,
+    "nissl/s160.webp": 36372,
+    "nissl/s163.webp": 36476,
+    "nissl/s166.webp": 37370,
+    "nissl/s169.webp": 36530,
+    "nissl/s172.webp": 36042,
+    "nissl/s175.webp": 36742,
+    "nissl/s178.webp": 37846,
+    "nissl/s181.webp": 37212,
+    "nissl/s184.webp": 37710,
+    "nissl/s187.webp": 38584,
+    "nissl/s190.webp": 38254,
+    "nissl/s193.webp": 37970,
+    "nissl/s196.webp": 39768,
+    "nissl/s199.webp": 39202,
+    "nissl/s202.webp": 39190,
+    "nissl/s205.webp": 40080,
+    "nissl/s208.webp": 39022,
+    "nissl/s211.webp": 38900,
+    "nissl/s214.webp": 38014,
+    "nissl/s217.webp": 38528,
+    "nissl/s220.webp": 37608,
+    "nissl/s223.webp": 37382,
+    "nissl/s226.webp": 36502,
+    "nissl/s229.webp": 36178,
+    "nissl/s232.webp": 36512,
+    "nissl/s235.webp": 37806,
+    "nissl/s238.webp": 37172,
+    "nissl/s241.webp": 36844,
+    "nissl/s244.webp": 35558,
+    "nissl/s247.webp": 36178,
+    "nissl/s250.webp": 36752,
+    "nissl/s253.webp": 37094,
+    "nissl/s256.webp": 36908,
+    "nissl/s259.webp": 37496,
+    "nissl/s294.webp": 34816,
+    "nissl/s297.webp": 33778,
+    "nissl/s300.webp": 36580,
+    "nissl/s303.webp": 16668,
+    "nissl/s306.webp": 35512,
+    "nissl/s309.webp": 35844,
+    "nissl/s312.webp": 35440,
+    "nissl/s315.webp": 35024,
+    "nissl/s318.webp": 35632,
+    "nissl/s321.webp": 38662,
+    "nissl/s324.webp": 40174,
+    "nissl/s327.webp": 38826,
+    "nissl/s330.webp": 39290,
+    "nissl/s333.webp": 39370,
+    "nissl/s336.webp": 38822,
+    "nissl/s339.webp": 38310,
+    "nissl/s342.webp": 36960,
+    "nissl/s345.webp": 36578,
+    "nissl/s348.webp": 35416,
+    "nissl/s351.webp": 31222,
+    "nissl/s354.webp": 26264,
+    "nissl/s357.webp": 25260,
+    "nissl/s359.webp": 25410,
+    "nissl/s362.webp": 23218,
+    "nissl/s365.webp": 22916,
+    "nissl/s368.webp": 20880,
+    "nissl/s371.webp": 19424,
+    "nissl/s374.webp": 19758,
+    "nissl/s377.webp": 22592,
+    "nissl/s380.webp": 19956,
+    "nissl/s383.webp": 19404,
+    "nissl/s386.webp": 19660,
+    "nissl/s389.webp": 20782,
+    "nissl/s392.webp": 19904,
+    "nissl/s395.webp": 20254,
+    "nissl/s398.webp": 16120,
+    "nissl/s401.webp": 19860,
+    "nissl/s404.webp": 19396,
+    "nissl/s407.webp": 19118,
+    "nissl/s410.webp": 19460,
+    "nissl/s413.webp": 19838,
+    "nissl/s416.webp": 20714,
+    "nissl/s419.webp": 19598,
+    "nissl/s422.webp": 19840,
+    "nissl/s425.webp": 19390,
+    "nissl/s428.webp": 19206,
+    "nissl/s431.webp": 19370,
+    "nissl/s434.webp": 19346,
+    "nissl/s437.webp": 20086,
+    "nissl/s440.webp": 19204,
+    "nissl/s443.webp": 18724,
+    "nissl/s446.webp": 19048,
+    "nissl/s449.webp": 19408,
+    "nissl/s452.webp": 17340,
+    "nissl/s455.webp": 17660,
     "waxholm/coords.json": 1230,
     "waxholm/labels.json": 156737,
     "waxholm/labels.nii.gz": 549466,

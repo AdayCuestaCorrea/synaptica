@@ -20,42 +20,42 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 depende de D5 (d
 ### A. Cimientos del paquete
 | # | Paso | Origen en Paleo / S | Tests sin red | Hecho cuando |
 |---|---|---|---|---|
-| 1 🟢 | `http.py` (reintentos 429/5xx, Retry-After, User-Agent con contacto de `config.py`) y `store.py` (`raw/<fuente>/<tipo>/<clave>/<fecha>.json`, solo escribe si cambia, `_checked.json`); pydantic pasa a dependencia del paquete | `paleo/http.py`, `paleo/store.py` | reintentos y backoff con reloj falso; escribir dos veces lo mismo = 0 cambios | pytest verde; corrige la discrepancia del User-Agent genérico de `spikes/s1/common.py:28` |
-| 2 🟢 | `report.py` y `syn report start/finish/ran-today` → `runs/<fecha>.json` | `paleo/report.py` | informe en tmp, idempotente | cada paso posterior puede anotar sus cifras |
+| 1 ✅ | `http.py` (reintentos 429/5xx, Retry-After, User-Agent con contacto de `config.py`) y `store.py` (`raw/<fuente>/<tipo>/<clave>/<fecha>.json`, solo escribe si cambia, `_checked.json`, fechas en UTC); ADR de D2. pydantic entra como dependencia cuando la use un módulo (16 o la cola de revisión) | `paleo/http.py`, `paleo/store.py` | reintentos y backoff con reloj falso; escribir dos veces lo mismo = 0 cambios | pytest verde; `docs/fuentes.md` aclara el User-Agent genérico de `spikes/s1/common.py` |
+| 2 ✅ | `report.py` y `syn report start/finish/ran-today` → `runs/<fecha>.json` | `paleo/report.py` | informe en tmp, idempotente | cada paso posterior puede anotar sus cifras |
 
 ### B. Ingesta (un commit por familia de fuentes)
 | # | Paso | Tests | Hecho cuando |
 |---|---|---|---|
-| 3 🟢 | `syn ingest pubmed`: esearch y esummary en `raw/`; efetch (abstract) solo a la caché; `NCBI_API_KEY` opcional (3 o 10 req/s) | fixtures `pubmed/` | crudos deterministas y límite respetado (test con reloj) |
-| 4 🟢 | `syn ingest europepmc`: metadatos y licencia OA; texto completo a la caché | `europepmc/` | idem |
-| 5 🟢 | `syn ingest biorxiv` (bio y med): ventana hacia atrás y versiones deduplicadas por DOI | `biorxiv/`, `medrxiv/` | dos versiones → un estudio |
-| 6 🟢 | `syn ingest journals`: 7 RSS + Crossref por ISSN de respaldo, solo metadatos | `journals/` | sin texto de editores (amplía `test_fixtures.py`) |
-| 7 🟢 | `syn ingest news`: SINC, The Conversation EN/ES y ScienceDaily desde la semilla `news_feeds.csv`, con licencia por feed | `news/` | `has_new_items` probado |
-| 8 🟢 | `syn ingest signals`: Crossref (retractaciones, correcciones, tipo) y OpenAlex (citas, `filter`, nunca `search`) | `crossref/`, `openalex/` | cupos de §5 respetados |
-| 9 🟢 | `syn check`: detección barata, que sale 0, 1 o 2, y un error de red nunca cuenta como «sin cambios» (lección de Paleo) | MockTransport con errores | ADR breve «detección de cambios» (copia del 0010 de Paleo) |
+| 3 ✅ | `syn ingest pubmed`: esearch y esummary en `raw/`; efetch (abstract) solo a la caché; `NCBI_API_KEY` opcional (3 o 10 req/s) | fixtures `pubmed/` | crudos deterministas y límite respetado (test con reloj) |
+| 4 ✅ | `syn ingest europepmc`: metadatos y licencia OA; el texto completo, bajo demanda a la caché desde el paso 16 (decisión de Aday, v62) | `europepmc/` | idem |
+| 5 ✅ | `syn ingest biorxiv` (bio y med): ventana hacia atrás y versiones deduplicadas por DOI | `biorxiv/`, `medrxiv/` | dos versiones → un estudio |
+| 6 ✅ | `syn ingest journals`: 7 RSS + Crossref por ISSN de respaldo, solo metadatos | `journals/` | sin texto de editores (amplía `test_fixtures.py`) |
+| 7 ✅ | `syn ingest news`: SINC, The Conversation EN/ES y ScienceDaily desde la semilla `news_feeds.csv`, con licencia por feed | `news/` | `has_new_items` probado |
+| 8 ✅ | Crossref ✅ (`syn ingest crossref`: lista diaria de avisos de todas las disciplinas, no consulta DOI a DOI; falta cubrir las retractaciones que solo conoce Retraction Watch) y OpenAlex ✅ (`syn ingest openalex`: tema y citas por DOI de las revistas generalistas, con `filter`, nunca `search`; el listado de los más citados para los Clásicos va con el 24a) | `crossref/`, `openalex/` | cupos de §5 respetados |
+| 9 ✅ | `syn check`: detección barata, que sale 0, 1 o 2, y un error de red nunca cuenta como «sin cambios» (lección de Paleo) | MockTransport con errores | sin ADR propio: es el D10 de Paleo sin cambios, citado en el docstring |
 
 ### C. Almacén (dbt + DuckDB, D1)
 | # | Paso | Tests | Hecho cuando |
 |---|---|---|---|
-| 10 🟢 | Proyecto dbt sobre DuckDB, macro `raw_store` (`read_json` con glob), staging por fuente; `syn build`; `scripts/seed_fixture_data.py` para la CI | unique, not_null y accepted_values; frescura con `stg_raw__checked` + `assert_*_is_fresh.sql` y cadencia en una semilla | `syn build` verde en la CI con fixtures |
-| 11 🟢 | Intermediate: estudio unificado por DOI, preprint ↔ publicado, versiones | relationships y test SQL «un DOI, un estudio» | marts `dim_study` y `fct_news_item` |
+| 10 ✅ | Proyecto dbt sobre DuckDB, macro `raw_store` (`read_json` con glob), staging por fuente; `syn build`; `scripts/seed_fixture_data.py` para la CI | unique, not_null y accepted_values; frescura con `stg_raw__checked` + `assert_*_is_fresh.sql` y cadencia en una semilla | `syn build` verde en la CI con fixtures |
+| 11 ✅ | Intermediate: estudio unificado por DOI, preprint ↔ publicado, versiones | relationships y test SQL «un DOI, un estudio» | marts `dim_study` y `fct_news_item` |
 
 ### D. Noticias
 | # | Paso | Tests | Hecho cuando |
 |---|---|---|---|
-| 12 🟢 | **Señales**: revisado o preprint (fuente y tipo de Crossref), humanos o animales (MeSH Humans/Animals de PubMed; si no hay, «sin dato», nunca se inventa), retractado o corregido | accepted_values; test SQL «todo estudio mostrado tiene sus 3 señales (o "sin dato")» | señales en el mart |
-| 13 🟢 | **Filtro «¿es neurociencia?»** para las revistas generalistas: reglas (MeSH u OpenAlex por DOI) y el LLM solo cuando no hay dato | casos de las fixtures `journals/` | medido sobre los RSS de S1 |
-| 14a 🟢 | **Clasificación** por tipo con LLM (lotes de 20, caché por hash + versión del prompt) + baseline TF-IDF con regresión logística, y `syn eval news` | FakeLLM; métricas sobre un gold de prueba | comando listo, a falta de etiquetas reales |
+| 12 ✅ (PubMed + Crossref) | **Señales**: revisado o preprint (fuente y tipo de Crossref), humanos o animales (MeSH Humans/Animals de PubMed; si no hay, «sin dato», nunca se inventa), retractado o corregido | accepted_values; test SQL «todo estudio mostrado tiene sus 3 señales (o "sin dato")» | señales en el mart |
+| 13 ✅ | **Filtro «¿es neurociencia?»** para las revistas generalistas: reglas (MeSH u OpenAlex por DOI) y el LLM solo cuando no hay dato | casos de las fixtures `journals/` | medido sobre los RSS de S1 (v69: OpenAlex decide la mitad; MeSH no sirve como regla, ver SCOPE v69) |
+| 14a ✅ | **Clasificación** por tipo con LLM (lotes de 20, caché por hash + versión del prompt) + baseline TF-IDF con regresión logística, y `syn eval news` | FakeLLM; métricas sobre un gold de prueba | comando listo, a falta de etiquetas reales |
 | 14b 🟡 | ~100 titulares etiquetados por Sofía → macro F1 del LLM frente al baseline; con los mismos ~100 se valida el juez (ADR D4) | validación del gold | cifras en el informe y en `fase-1.md` |
-| 15 🟢 | **Agrupación**: primero DOI exacto; después pares candidatos en una ventana de 5 días, decididos por el LLM y cacheados en `pairs.json`, con union-find; entre idiomas | pares de las fixtures; gold de pares etiquetado por Aday (no es contenido de salud) | precisión y recall de los pares en el informe |
+| 15 ✅ | **Agrupación**: primero DOI exacto; después pares candidatos en una ventana de 5 días, decididos por el LLM y cacheados en `pairs.json`, con union-find; entre idiomas | pares de las fixtures; gold de pares etiquetado por Aday (no es contenido de salud) | precisión y recall de los pares en el informe |
 
 ### E. Textos LLM
 | # | Paso | Tests | Hecho cuando |
 |---|---|---|---|
-| 16 🟢 | Pasar a `src/synaptica/narrative/` `llm.py`, `checks.py`, `pipeline.py` y los prompts v2 de S5; `syn facts`, `syn write`; texto de respaldo con datos (patrón de `paleo/site/fallback.py`) | FakeLLM; un texto que falla → respaldo; 8 palabras copiadas → falla | la cadena con fixtures publica o cae al respaldo |
-| 17 🟢 | Comprobaciones nuevas: frases de alarma, se conserva la cautela de cada hecho y ortografía en español (la dependencia se justifica en el paso, con 2–3 opciones) | casos de la revisión de Sofía en S5 | cada comprobación con su test positivo y negativo |
+| 16 ✅ | Pasar a `src/synaptica/narrative/` `llm.py`, `checks.py`, `pipeline.py` y los prompts v2 de S5; `syn facts`, `syn write`; texto de respaldo con datos (patrón de `paleo/site/fallback.py`) | FakeLLM; un texto que falla → respaldo; 8 palabras copiadas → falla | la cadena con fixtures publica o cae al respaldo |
+| 17 ✅ | Comprobaciones nuevas: frases de alarma, se conserva la cautela de cada hecho y ortografía en español (la dependencia se justifica en el paso, con 2–3 opciones) | casos de la revisión de Sofía en S5 | cada comprobación con su test positivo y negativo |
 | 18 🔵 | Repetir S5 con v2 en Groq (gasta cupo: lo autoriza Aday) y con Qwen 9B cuando la GPU esté libre; comparar con la revisión de Sofía | — (ejecución real) | tabla en el ADR D4 |
-| 19 🟢 | Juez de otra familia (`gpt-oss-120b`) integrado en la cadena; `spanish_natural` no bloquea | FakeLLM del juez | veredicto del juez en el informe |
+| 19 ✅ | Juez de otra familia (`gpt-oss-120b`) integrado en la cadena; `spanish_natural` no bloquea | FakeLLM del juez | veredicto del juez en el informe |
 | 20 🔵 | Carga inicial con Qwen 9B en local, cuando terminen los lotes de Paleo | — | cifras de la carga en el informe |
 
 ### F. Web
@@ -66,7 +66,7 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 depende de D5 (d
 | 23 🟢 | Neuro News: Última hora y Nature · Science · Cell, con sus señales | idem | portada con datos de fixtures |
 | 24a 🟢 | Clásicos: propuesta semanal por citas de OpenAlex, que entra en la cola de Sofía; mientras no esté aprobado, el bloque no muestra nada | test «nada sin aprobar» | propuesta generada |
 | 24b 🟡 | Aprobación de los Clásicos por el flujo D5 | — | bloque con los aprobados |
-| 25 🟢 | Resumen semanal (misma cadena y comprobaciones) | FakeLLM | página semanal ES y EN |
+| 25 ✅ (sin página) | Resumen semanal (misma cadena y comprobaciones) | FakeLLM | página semanal ES y EN |
 | 26 🟢 | Dato curioso del día (**hueco en SCOPE**: no dice de dónde sale; propuesta: un hecho ya verificado de los resúmenes del día, con su cita) | test «el dato tiene fuente» | se decide con Aday antes del paso |
 | 27 🔵 | Pages: el sitio en la raíz, con la maqueta de S3 en `/spikes/s3/c/` (fusionar `pages.yml`; lo confirma Aday) | — | publicado y medido |
 
@@ -88,6 +88,8 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 depende de D5 (d
    - **Rebanada 4 (operación):** 27 → 28 con cron → 29 → 18 y 20 (🔵, cuando haya cupo o GPU).
    - **Tras D5:** pasar la cola de S4 a `src/synaptica/review/` → 14b → 24b.
    - **Cierre:** 30. El reloj de los 14 días arranca cuando estén todas las casillas.
+   - **Cambio de orden (v61, Aday):** tras la rebanada 1 sin la web, primero todo lo que no es web: ingesta y modelos de la rebanada 2 (4–7, OpenAlex del 8, 10–11 ampliados, 13) y la parte de datos y textos de la rebanada 3 (14a, 15, 16, 17, 19, 25 sin página). La web (21–24, 26) va después, de una vez, cuando Aday pida su diseño.
+   - **Excepción (v54–v56):** antes de cerrar la Fase 0 se adelanta, en la rama `fase-1`, todo lo que no necesita a Sofía ni toca GitHub: la rebanada 1 sin el paso 28.
 2. **D2:** copiar y adaptar; se cierra con un ADR breve en el paso 1, el primer commit de la Fase 1, no antes.
 3. **Etiquetas de Sofía:** por el flujo D5, como un tipo más de elemento de su cola (14b).
 4. **Filtro de neurociencia:** primero reglas (MeSH de PubMed o temas de OpenAlex por DOI) y el LLM solo para los que quedan sin dato; se mide contra las etiquetas del 14b.

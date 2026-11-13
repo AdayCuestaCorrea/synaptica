@@ -1,0 +1,12 @@
+{
+  "atlas": "ICBM 2009c nonlinear asymmetric template, white matter probability map",
+  "short": "ICBM152 2009c",
+  "version": "2009c nonlinear asymmetric, 1 mm",
+  "licence": "Copyright (C) 1993-2004 Louis Collins, McConnell Brain Imaging Centre, Montreal Neurological Institute, McGill University (free use with this notice)",
+  "licence_url": "https://nist.mni.mcgill.ca/icbm-152-nonlinear-atlases-2009/",
+  "licence_note": "COPYING of the template: permission to use, copy, modify, and distribute for any purpose and without fee, provided that the copyright notice appears in all copies.",
+  "source": "mni_icbm152_nlin_asym_09c_nifti.zip, mni_icbm152_wm_tal_nlin_asym_09c.nii",
+  "source_url": "https://nist.mni.mcgill.ca/icbm-152-nonlinear-atlases-2009/",
+  "citation": "Fonov V. et al. 2011, Unbiased average age-appropriate atlases for pediatric studies, NeuroImage 54:313-327, https://doi.org/10.1016/j.neuroimage.2010.07.033",
+  "derived": "Voxels where white matter is the most probable tissue (and at least 0.5), outside every other human layer; split into left and right at the midline; centred like the Julich-Brain label volume (same grid). It is a tissue map, not tracts. Changes made by SYNAPTICA."
+}

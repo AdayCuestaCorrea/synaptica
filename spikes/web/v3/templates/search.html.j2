@@ -1,0 +1,9 @@
+{% extends "base.html.j2" %}
+{% block title %}{{ t.search_title }}{% endblock %}
+{% block main %}
+<section class="prose search-page" data-search-page data-n="{{ t.search_n }}" data-hint="{{ t.search_hint }}" data-none="{{ t.search_none }}">
+  <h1>{{ t.search_title }} {{ m.gap("search") }}</h1>
+  <p class="search-status" aria-live="polite">{{ t.search_hint }}</p>
+  <ol class="results"></ol>
+</section>
+{% endblock %}

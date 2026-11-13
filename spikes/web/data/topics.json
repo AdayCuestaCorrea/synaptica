@@ -1,0 +1,298 @@
+{
+ "as_of": "2026-11-12",
+ "vocabulary": {
+  "memory": {
+   "trees": [
+    "F02.463.425.540"
+   ],
+   "descriptors": 10,
+   "terms": 14
+  },
+  "addiction": {
+   "trees": [
+    "F03.900",
+    "F01.145.527.100.120"
+   ],
+   "descriptors": 38,
+   "terms": 149
+  },
+  "neurodegeneration": {
+   "trees": [
+    "C10.574"
+   ],
+   "descriptors": 77,
+   "terms": 754
+  },
+  "neuroinflammation": {
+   "trees": [
+    "C10.586"
+   ],
+   "descriptors": 46,
+   "terms": 175
+  },
+  "sleep": {
+   "trees": [
+    "F02.830.855",
+    "F03.870"
+   ],
+   "descriptors": 30,
+   "terms": 153
+  },
+  "emotion": {
+   "trees": [
+    "F01.470"
+   ],
+   "descriptors": 44,
+   "terms": 98
+  }
+ },
+ "measure": {
+  "candidates": 782,
+  "indexed": 178,
+  "by_basis": {
+   "mesh": 36,
+   "text": 85
+  },
+  "with_topic": 121,
+  "per_topic": {
+   "memory": 15,
+   "addiction": 3,
+   "neurodegeneration": 58,
+   "neuroinflammation": 3,
+   "sleep": 10,
+   "emotion": 40
+  },
+  "text_vs_mesh": {
+   "memory": {
+    "mesh": 4,
+    "tp": 3,
+    "fp": 0,
+    "fn": 1,
+    "precision": 1.0,
+    "recall": 0.75
+   },
+   "addiction": {
+    "mesh": 2,
+    "tp": 0,
+    "fp": 0,
+    "fn": 2,
+    "precision": null,
+    "recall": 0.0
+   },
+   "neurodegeneration": {
+    "mesh": 20,
+    "tp": 18,
+    "fp": 1,
+    "fn": 2,
+    "precision": 0.95,
+    "recall": 0.9
+   },
+   "neuroinflammation": {
+    "mesh": 1,
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "precision": null,
+    "recall": 0.0
+   },
+   "sleep": {
+    "mesh": 5,
+    "tp": 3,
+    "fp": 0,
+    "fn": 2,
+    "precision": 1.0,
+    "recall": 0.6
+   },
+   "emotion": {
+    "mesh": 7,
+    "tp": 6,
+    "fp": 4,
+    "fn": 1,
+    "precision": 0.6,
+    "recall": 0.86
+   }
+  },
+  "title_only_vs_mesh": {
+   "memory": {
+    "mesh": 4,
+    "tp": 2,
+    "fp": 0,
+    "fn": 2,
+    "precision": 1.0,
+    "recall": 0.5
+   },
+   "addiction": {
+    "mesh": 2,
+    "tp": 0,
+    "fp": 0,
+    "fn": 2,
+    "precision": null,
+    "recall": 0.0
+   },
+   "neurodegeneration": {
+    "mesh": 20,
+    "tp": 15,
+    "fp": 0,
+    "fn": 5,
+    "precision": 1.0,
+    "recall": 0.75
+   },
+   "neuroinflammation": {
+    "mesh": 1,
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "precision": null,
+    "recall": 0.0
+   },
+   "sleep": {
+    "mesh": 5,
+    "tp": 1,
+    "fp": 0,
+    "fn": 4,
+    "precision": 1.0,
+    "recall": 0.2
+   },
+   "emotion": {
+    "mesh": 7,
+    "tp": 1,
+    "fp": 0,
+    "fn": 6,
+    "precision": 1.0,
+    "recall": 0.14
+   }
+  }
+ },
+ "studies": {
+  "10.1038/s41586-026-11308-7": [],
+  "10.1126/sciadv.aeh4857": [],
+  "10.1126/sciadv.aei6265": [],
+  "10.1126/sciadv.aei4501": [],
+  "10.1038/s41586-026-11256-2": [
+   [
+    "neurodegeneration",
+    "text"
+   ]
+  ],
+  "10.1126/sciadv.aeg3412": [],
+  "10.1126/sciadv.aeg8139": [],
+  "10.1126/sciadv.aei3615": [],
+  "10.1038/s41586-026-11191-2": [],
+  "10.1016/j.cell.2026.07.043": [],
+  "10.1126/sciadv.aej3501": [],
+  "10.1007/s11130-026-01585-y": [
+   [
+    "sleep",
+    "mesh"
+   ]
+  ],
+  "10.1016/j.neuron.2026.07.016": [],
+  "10.1038/s41583-026-01088-4": [],
+  "10.1038/s41583-026-01098-2": [],
+  "10.1038/s41583-026-01101-w": [],
+  "10.1083/jcb.202604185": [],
+  "10.1038/s41583-026-01093-7": [],
+  "10.1016/j.neuron.2026.05.014": [],
+  "10.1016/j.neuron.2026.05.016": [],
+  "10.1038/s41583-026-01095-5": [],
+  "10.1038/s41593-026-02455-1": [],
+  "10.1038/s41593-026-02471-1": [],
+  "10.1016/j.neuron.2026.10.004": [],
+  "10.1016/j.neuron.2026.05.019": [],
+  "10.1038/s41583-026-01085-7": [],
+  "epmc:PMC:PMC13753995": [],
+  "10.1038/s41583-026-01094-6": [],
+  "epmc:PMC:PMC13754025": [],
+  "10.1016/j.neuron.2026.10.014": [],
+  "10.1080/19490976.2026.2750588": [],
+  "10.64898/2026.04.22.720075": [],
+  "10.1084/jem.20261099": [
+   [
+    "neuroinflammation",
+    "mesh"
+   ]
+  ],
+  "10.1038/s41593-026-02534-3": [],
+  "10.1007/s44470-026-00229-x": [],
+  "10.1016/j.neuron.2026.05.015": [],
+  "10.1016/j.neuron.2026.06.014": [],
+  "10.1038/s41583-026-01096-4": [
+   [
+    "neurodegeneration",
+    "text"
+   ]
+  ],
+  "10.1098/rstb.2025.0168": [],
+  "10.1212/wnl.0000000000218680": [],
+  "10.1111/ejn.70754": [
+   [
+    "neurodegeneration",
+    "mesh"
+   ]
+  ],
+  "10.1007/s10142-026-02112-7": [],
+  "10.1038/s41593-026-02514-7": [],
+  "10.1016/j.neuron.2026.05.017": [],
+  "10.1038/s41593-026-02496-6": [],
+  "10.1101/2025.06.03.657648": [],
+  "10.1212/nxi.0000000000200645": [],
+  "10.1016/j.neuron.2026.10.020": [],
+  "10.1016/j.neuron.2026.05.020": [],
+  "pubmed:42971231": [],
+  "pubmed:42999541": [],
+  "pubmed:42985707": [],
+  "pubmed:42993056": [],
+  "pubmed:42986391": [],
+  "pubmed:42969949": [
+   [
+    "neurodegeneration",
+    "mesh"
+   ]
+  ],
+  "pubmed:43000116": [],
+  "pubmed:42999788": [],
+  "pubmed:42997796": [
+   [
+    "emotion",
+    "text"
+   ]
+  ],
+  "pubmed:42997793": [
+   [
+    "emotion",
+    "text"
+   ]
+  ]
+ },
+ "news": {
+  "https://www.sciencedaily.com/releases/2026/11/261108233103.htm": [],
+  "https://www.sciencedaily.com/releases/2026/11/261108233100.htm": [
+   [
+    "emotion",
+    "text"
+   ]
+  ],
+  "https://www.sciencedaily.com/releases/2026/11/261104084013.htm": [],
+  "https://www.sciencedaily.com/releases/2026/11/261104012303.htm": [],
+  "https://www.sciencedaily.com/releases/2026/11/261105224550.htm": [],
+  "https://www.sciencedaily.com/releases/2026/11/261104012308.htm": [],
+  "https://www.sciencedaily.com/releases/2026/11/261104084017.htm": [],
+  "https://theconversation.com/why-do-blind-people-and-musicians-hear-pitch-better-new-research-suggests-they-have-less-internal-noise-294114": [],
+  "https://www.sciencedaily.com/releases/2026/11/261101010556.htm": [],
+  "https://www.sciencedaily.com/releases/2026/11/261103003146.htm": [],
+  "https://www.sciencedaily.com/releases/2026/11/261101010549.htm": [],
+  "https://www.sciencedaily.com/releases/2026/11/261102202833.htm": [
+   [
+    "emotion",
+    "text"
+   ]
+  ],
+  "https://www.sciencedaily.com/releases/2026/11/261102202845.htm": [],
+  "https://www.sciencedaily.com/releases/2026/11/261102075806.htm": [
+   [
+    "neuroinflammation",
+    "text"
+   ]
+  ]
+ }
+}

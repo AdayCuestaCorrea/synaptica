@@ -1,5 +1,5 @@
 {
-  "note": "Test data for spike S3 (PLAN.md): which regions the mock-ups pair. Only IDs and names, no geometry. The grade of equivalence is pending Sofía's review.",
+  "note": "Test data for spike S3 (PLAN.md): which regions the mock-ups pair. Only IDs and names, no geometry. The grade of equivalence is pending Sofía's review; the pairs with CerebrA structures are proposals too.",
   "grade_values": null,
   "pairs": [
     {
@@ -9,13 +9,15 @@
         "acronym": "M1",
         "name": "Primary motor area"
       },
-      "julich": [
+      "human": [
         {
+          "atlas": "julich",
           "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_AREA_4A_PRECG",
           "label": 76,
           "name": "Area 4a (PreCG)"
         },
         {
+          "atlas": "julich",
           "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_AREA_4P_PRECG",
           "label": 142,
           "name": "Area 4p (PreCG)"
@@ -31,28 +33,33 @@
         "acronym": "HF",
         "name": "Hippocampal formation"
       },
-      "julich": [
+      "human": [
         {
+          "atlas": "julich",
           "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CA1_HIPPOCAMPUS",
           "label": 146,
           "name": "CA1 (Hippocampus)"
         },
         {
+          "atlas": "julich",
           "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CA2_HIPPOCAMPUS",
           "label": 44,
           "name": "CA2 (Hippocampus)"
         },
         {
+          "atlas": "julich",
           "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CA3_HIPPOCAMPUS",
           "label": 174,
           "name": "CA3 (Hippocampus)"
         },
         {
+          "atlas": "julich",
           "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_DG_HIPPOCAMPUS",
           "label": 120,
           "name": "DG (Hippocampus)"
         },
         {
+          "atlas": "julich",
           "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_SUBC_HIPPOCAMPUS_SUBICULAR_COMPLEX",
           "label": 172,
           "name": "Subc (Hippocampus, Subicular complex)"
@@ -68,41 +75,258 @@
         "acronym": "Am-u",
         "name": "Amygdaloid area, unspecified"
       },
-      "julich": [
+      "human": [
         {
+          "atlas": "julich",
           "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_CM_AMYGDALA",
           "label": 141,
           "name": "CM (Amygdala)"
         },
         {
+          "atlas": "julich",
           "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_LB_AMYGDALA",
           "label": 75,
           "name": "LB (Amygdala)"
         },
         {
+          "atlas": "julich",
           "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_SF_AMYGDALA",
           "label": 191,
           "name": "SF (Amygdala)"
         },
         {
+          "atlas": "julich",
           "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_ASTR_AMYGDALA",
           "label": 5,
           "name": "Astr (Amygdala)"
         },
         {
+          "atlas": "julich",
           "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_VTM_AMYGDALA",
           "label": 66,
           "name": "VTM (Amygdala)"
         },
         {
+          "atlas": "julich",
           "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_IF_AMYGDALA",
           "label": 149,
           "name": "IF (Amygdala)"
         },
         {
+          "atlas": "julich",
           "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_MF_AMYGDALA",
           "label": 188,
           "name": "MF (Amygdala)"
+        }
+      ],
+      "same_side": true,
+      "grade": "pendiente de Sofía"
+    },
+    {
+      "kind": "cerebellum",
+      "waxholm": {
+        "id": 1047,
+        "acronym": "Cb",
+        "name": "Cerebellum"
+      },
+      "human": [
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_CEREBELLUM_GRAY_MATTER",
+          "label": 46,
+          "name": "Cerebellum Gray Matter"
+        },
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_CEREBELLUM_WHITE_MATTER",
+          "label": 39,
+          "name": "Cerebellum White Matter"
+        },
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_VERMAL_LOBULES_I_V",
+          "label": 50,
+          "name": "Vermal lobules I-V"
+        },
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_VERMAL_LOBULES_VI_VII",
+          "label": 2,
+          "name": "Vermal lobules VI-VII"
+        },
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_VERMAL_LOBULES_VIII_X",
+          "label": 20,
+          "name": "Vermal lobules VIII-X"
+        }
+      ],
+      "same_side": true,
+      "grade": "pendiente de Sofía"
+    },
+    {
+      "kind": "brainstem",
+      "waxholm": {
+        "id": 47,
+        "acronym": "BS-u",
+        "name": "Brainstem, unspecified"
+      },
+      "human": [
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_BRAINSTEM",
+          "label": 11,
+          "name": "Brainstem"
+        }
+      ],
+      "same_side": true,
+      "grade": "pendiente de Sofía"
+    },
+    {
+      "kind": "striatum",
+      "waxholm": {
+        "id": 197,
+        "acronym": "CPu",
+        "name": "Caudate putamen"
+      },
+      "human": [
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_CAUDATE",
+          "label": 49,
+          "name": "Caudate"
+        },
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_PUTAMEN",
+          "label": 21,
+          "name": "Putamen"
+        }
+      ],
+      "same_side": true,
+      "grade": "pendiente de Sofía"
+    },
+    {
+      "kind": "pallidum",
+      "waxholm": {
+        "id": 1028,
+        "acronym": "PAL",
+        "name": "Pallidum"
+      },
+      "human": [
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_PALLIDUM",
+          "label": 27,
+          "name": "Pallidum"
+        }
+      ],
+      "same_side": true,
+      "grade": "pendiente de Sofía"
+    },
+    {
+      "kind": "ventricles",
+      "waxholm": {
+        "id": 1048,
+        "acronym": "V",
+        "name": "Ventricular system"
+      },
+      "human": [
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_LATERAL_VENTRICLE",
+          "label": 41,
+          "name": "Lateral Ventricle"
+        },
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_THIRD_VENTRICLE",
+          "label": 29,
+          "name": "Third Ventricle"
+        },
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_FOURTH_VENTRICLE",
+          "label": 37,
+          "name": "Fourth Ventricle"
+        }
+      ],
+      "same_side": true,
+      "grade": "pendiente de Sofía"
+    },
+    {
+      "kind": "optic chiasm",
+      "waxholm": {
+        "id": 42,
+        "acronym": "opt-och",
+        "name": "optic tract and optic chiasm"
+      },
+      "human": [
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_OPTIC_CHIASM",
+          "label": 17,
+          "name": "Optic Chiasm"
+        }
+      ],
+      "same_side": true,
+      "grade": "pendiente de Sofía"
+    },
+    {
+      "kind": "hypothalamus",
+      "waxholm": {
+        "id": 1034,
+        "acronym": "HY",
+        "name": "Hypothalamus"
+      },
+      "human": [
+        {
+          "atlas": "cit168",
+          "area_id": "CIT168_HYPOTHALAMUS_HTH",
+          "label": 29,
+          "name": "Hypothalamus (HTH)"
+        },
+        {
+          "atlas": "cit168",
+          "area_id": "CIT168_MAMMILLARY_NUCLEUS_MN",
+          "label": 31,
+          "name": "Mammillary nucleus (MN)"
+        }
+      ],
+      "same_side": true,
+      "grade": "pendiente de Sofía"
+    },
+    {
+      "kind": "epithalamus",
+      "waxholm": {
+        "id": 1083,
+        "acronym": "Thal-EPI",
+        "name": "Epithalamus"
+      },
+      "human": [
+        {
+          "atlas": "cit168",
+          "area_id": "CIT168_HABENULAR_NUCLEI_HN",
+          "label": 27,
+          "name": "Habenular nuclei (HN)"
+        }
+      ],
+      "same_side": true,
+      "grade": "pendiente de Sofía"
+    },
+    {
+      "kind": "white matter",
+      "waxholm": {
+        "id": 1001,
+        "acronym": "wmt",
+        "name": "White matter"
+      },
+      "human": [
+        {
+          "atlas": "icbm_wm",
+          "area_id": "ICBM_CEREBRAL_WHITE_MATTER_NOT_DIVIDED_INTO_TRACTS",
+          "label": 3,
+          "name": "Cerebral white matter (not divided into tracts)"
         }
       ],
       "same_side": true,

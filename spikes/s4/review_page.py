@@ -19,6 +19,7 @@ filled in (``issue_block.py``, step 3). Run from the repo root:
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -37,6 +38,20 @@ ISSUE_NEW_URL = "https://github.com/AdayCuestaCorrea/synaptica/issues/new"
 # Measured in step 3 (spikes/s4/results/README.md): without a session GitHub redirects to
 # the login with the whole URL and fails above ~6950 characters (500, then 414).
 MAX_URL = 6000
+PROPOSAL = HERE.parents[1] / "docs" / "propuesta.md"
+
+
+def glossary_terms(queue: Queue) -> list[str]:
+    """Terms already in the glossary: the sample table of docs/propuesta.md and those in
+    the queue. Shown where she proposes new ones (in round 1 she proposed EEG, AAV, GFAP
+    and LTP, which were there already: the page never listed them)."""
+    text = PROPOSAL.read_text("utf-8")
+    block = text.split("## Neuro Glossary: primeros términos", 1)[1].split("\n## ", 1)[0]
+    terms = set(re.findall(r"^\| (?!Término|---)(.+?) \|", block, re.M))
+    terms |= {i.content.es[0].text.split(" (")[0].split(":")[0]
+              for i in queue.items if i.item_type is ItemType.GLOSSARY}  # fmt: skip
+    return sorted(terms, key=str.lower)
+
 
 # Her queue, in order of priority: what blocks publication, what expires (the week's
 # Classics), what unlocks a feature (rat-human grades), the texts, and last the optional
@@ -56,11 +71,13 @@ def page_items(queue: Queue, variant: str) -> list[ReviewItem]:
     return sorted(chosen, key=lambda i: (ORDER.index(i.item_type), i.item_id))
 
 
-def page_data(queue: Queue, variant: str) -> dict:
+def page_data(queue: Queue, variant: str, label: str = "") -> dict:
     return {
         "variant": variant,
+        "label": label,  # the round («ronda-3»): in the header, the file name and the store
         "generated_at": queue.generated_at.isoformat().replace("+00:00", "Z"),
         "propose": variant == "public",  # new glossary terms: not health content
+        "glossary_terms": glossary_terms(queue) if variant == "public" else [],
         "issue_new_url": ISSUE_NEW_URL,
         "max_url": MAX_URL,
         "items": [
@@ -76,11 +93,11 @@ def embed(data: dict) -> str:
     return text.replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
 
 
-def render(queue: Queue, variant: str) -> str:
+def render(queue: Queue, variant: str, label: str = "") -> str:
     template = TEMPLATE.read_text("utf-8")
     if template.count(MARKER) != 1:
         raise ValueError("the template must have exactly one data marker")
-    return template.replace(MARKER, embed(page_data(queue, variant)))
+    return template.replace(MARKER, embed(page_data(queue, variant, label)))
 
 
 def main() -> None:

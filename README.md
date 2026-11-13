@@ -4,7 +4,7 @@
 
 A free neuroscience website in Spanish and English that updates itself every day: science news with verified summaries, and sections to learn how the brain works. By Aday Cuesta Correa (development) and Sofía (scientific review).
 
-**Status:** Phase 0 (foundations). There is no website yet. The plan and its order live in [`SCOPE.md`](SCOPE.md) (Spanish, canonical).
+**Status:** Phase 0 (foundations) closed on 2026-11-13 ([summary, in Spanish](docs/fases/fase-0.md)); Phase 1 (the base) starts. There is no website yet. The plan and its order live in [`SCOPE.md`](SCOPE.md) (Spanish, canonical).
 
 ## What it will be
 

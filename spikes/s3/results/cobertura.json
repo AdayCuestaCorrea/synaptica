@@ -1,0 +1,311 @@
+{
+ "families": {
+  "amygdala": {
+   "rat": {
+    "regions": 3,
+    "mm3": 65.4,
+    "share": 0.0266
+   },
+   "human_julich": {
+    "regions": 7,
+    "mm3": 5778.0,
+    "share": 0.0061
+   },
+   "human_cerebra": null,
+   "human_cit168": null,
+   "human_icbm_wm": null
+  },
+  "basal_ganglia": {
+   "rat": {
+    "regions": 12,
+    "mm3": 207.9,
+    "share": 0.0846
+   },
+   "human_julich": {
+    "regions": 10,
+    "mm3": 9642.0,
+    "share": 0.0101
+   },
+   "human_cerebra": {
+    "regions": 3,
+    "mm3": 24389.0,
+    "share": 0.0936
+   },
+   "human_cit168": null,
+   "human_icbm_wm": null
+  },
+  "cortex": {
+   "rat": {
+    "regions": 47,
+    "mm3": 727.8,
+    "share": 0.2961
+   },
+   "human_julich": {
+    "regions": 134,
+    "mm3": 642887.0,
+    "share": 0.6755
+   },
+   "human_cerebra": null,
+   "human_cit168": null,
+   "human_icbm_wm": null
+  },
+  "cortex_gap": {
+   "rat": null,
+   "human_julich": {
+    "regions": 7,
+    "mm3": 241970.0,
+    "share": 0.2542
+   },
+   "human_cerebra": null,
+   "human_cit168": null,
+   "human_icbm_wm": null
+  },
+  "hindbrain": {
+   "rat": {
+    "regions": 22,
+    "mm3": 384.3,
+    "share": 0.1563
+   },
+   "human_julich": {
+    "regions": 4,
+    "mm3": 4498.0,
+    "share": 0.0047
+   },
+   "human_cerebra": {
+    "regions": 5,
+    "mm3": 190874.0,
+    "share": 0.7322
+   },
+   "human_cit168": null,
+   "human_icbm_wm": null
+  },
+  "hippocampus": {
+   "rat": {
+    "regions": 6,
+    "mm3": 116.1,
+    "share": 0.0472
+   },
+   "human_julich": {
+    "regions": 8,
+    "mm3": 17782.0,
+    "share": 0.0187
+   },
+   "human_cerebra": null,
+   "human_cit168": null,
+   "human_icbm_wm": null
+  },
+  "hypothalamus": {
+   "rat": {
+    "regions": 1,
+    "mm3": 27.0,
+    "share": 0.011
+   },
+   "human_julich": null,
+   "human_cerebra": null,
+   "human_cit168": {
+    "regions": 2,
+    "mm3": 1535.0,
+    "share": 0.9469
+   },
+   "human_icbm_wm": null
+  },
+  "midbrain": {
+   "rat": {
+    "regions": 13,
+    "mm3": 276.3,
+    "share": 0.1124
+   },
+   "human_julich": {
+    "regions": 4,
+    "mm3": 3934.0,
+    "share": 0.0041
+   },
+   "human_cerebra": null,
+   "human_cit168": null,
+   "human_icbm_wm": null
+  },
+  "olfactory": {
+   "rat": {
+    "regions": 5,
+    "mm3": 123.6,
+    "share": 0.0503
+   },
+   "human_julich": null,
+   "human_cerebra": null,
+   "human_cit168": null,
+   "human_icbm_wm": null
+  },
+  "other": {
+   "rat": {
+    "regions": 6,
+    "mm3": 112.3,
+    "share": 0.0457
+   },
+   "human_julich": null,
+   "human_cerebra": null,
+   "human_cit168": null,
+   "human_icbm_wm": null
+  },
+  "thalamus": {
+   "rat": {
+    "regions": 61,
+    "mm3": 87.0,
+    "share": 0.0354
+   },
+   "human_julich": {
+    "regions": 33,
+    "mm3": 25253.0,
+    "share": 0.0265
+   },
+   "human_cerebra": null,
+   "human_cit168": {
+    "regions": 1,
+    "mm3": 86.0,
+    "share": 0.0531
+   },
+   "human_icbm_wm": null
+  },
+  "ventricles": {
+   "rat": {
+    "regions": 3,
+    "mm3": 35.3,
+    "share": 0.0143
+   },
+   "human_julich": null,
+   "human_cerebra": {
+    "regions": 3,
+    "mm3": 21802.0,
+    "share": 0.0836
+   },
+   "human_cit168": null,
+   "human_icbm_wm": null
+  },
+  "white_matter": {
+   "rat": {
+    "regions": 45,
+    "mm3": 295.2,
+    "share": 0.1201
+   },
+   "human_julich": null,
+   "human_cerebra": {
+    "regions": 2,
+    "mm3": 23628.0,
+    "share": 0.0906
+   },
+   "human_cit168": null,
+   "human_icbm_wm": {
+    "regions": 1,
+    "mm3": 502017.0,
+    "share": 1.0
+   }
+  }
+ },
+ "rat_spinal_cord": [
+  {
+   "name": "spinal cord",
+   "side": "L"
+  },
+  {
+   "name": "spinal cord",
+   "side": "R"
+  }
+ ],
+ "lowest_labelled_z_mm": {
+  "rat_flat_frame": -10.8,
+  "human_julich_mni": -52.0,
+  "human_cerebra_mni": -78.0,
+  "human_cit168_mni": -19.0,
+  "human_icbm_wm_mni": -59.0,
+  "human_grid_bottom_mni": -78.0
+ },
+ "layers": {
+  "cerebra": {
+   "min_free": 0.5,
+   "kept": [
+    "Brainstem",
+    "Caudate",
+    "Cerebellum Gray Matter",
+    "Cerebellum White Matter",
+    "Fourth Ventricle",
+    "Lateral Ventricle",
+    "Optic Chiasm",
+    "Pallidum",
+    "Putamen",
+    "Third Ventricle",
+    "Vermal lobules I-V",
+    "Vermal lobules VI-VII",
+    "Vermal lobules VIII-X"
+   ],
+   "left_out": {
+    "Accumbens Area": 0.106,
+    "Amygdala": 0.02,
+    "Basal Forebrain": 0.177,
+    "Caudal Anterior Cingulate": 0.1,
+    "Caudal Middle Frontal": 0.137,
+    "Cuneus": 0.187,
+    "Entorhinal": 0.081,
+    "Fusiform": 0.103,
+    "Hippocampus": 0.156,
+    "Inferior Lateral Ventricle": 0.262,
+    "Inferior Parietal": 0.179,
+    "Inferior temporal": 0.087,
+    "Insula": 0.05,
+    "Isthmus Cingulate": 0.105,
+    "Lateral Occipital": 0.18,
+    "Lateral Orbitofrontal": 0.119,
+    "Lingual": 0.142,
+    "Medial Orbitofrontal": 0.163,
+    "Middle Temporal": 0.109,
+    "Paracentral": 0.139,
+    "Parahippocampal": 0.077,
+    "Pars Opercularis": 0.121,
+    "Pars Orbitalis": 0.12,
+    "Pars Triangularis": 0.144,
+    "Pericalcarine": 0.123,
+    "Postcentral": 0.241,
+    "Posterior Cingulate": 0.043,
+    "Precentral": 0.17,
+    "Precuneus": 0.137,
+    "Rostral Anterior Cingulate": 0.104,
+    "Rostral Middle Frontal": 0.12,
+    "Superior Frontal": 0.115,
+    "Superior Parietal": 0.218,
+    "Superior Temporal": 0.161,
+    "Supramarginal": 0.231,
+    "Thalamus": 0.168,
+    "Transverse Temporal": 0.132,
+    "Ventral Diencephalon": 0.433
+   }
+  },
+  "cit168": {
+   "min_free": 0.5,
+   "kept": [
+    "Habenular nuclei (HN)",
+    "Hypothalamus (HTH)",
+    "Mammillary nucleus (MN)"
+   ],
+   "left_out": {
+    "Caudate nucleus (Ca)": 0.147,
+    "Extended amygdala (EXA)": 0.489,
+    "Globus pallidus, external segment (GPe)": 0.181,
+    "Globus pallidus, internal segment (GPi)": 0.204,
+    "Nucleus accumbens (NAC)": 0.037,
+    "Parabrachial pigmented nucleus (PBP)": 0.072,
+    "Putamen (Pu)": 0.146,
+    "Red nucleus (RN)": 0.134,
+    "Substantia nigra, pars compacta (SNc)": 0.005,
+    "Substantia nigra, pars reticulata (SNr)": 0.027,
+    "Subthalamic nucleus (STH)": 0.071,
+    "Ventral pallidum (VeP)": 0.007,
+    "Ventral tegmental area (VTA)": 0.035
+   }
+  },
+  "icbm_wm": {
+   "min_free": 0.5,
+   "kept": [
+    "Cerebral white matter (not divided into tracts)"
+   ],
+   "left_out": {}
+  }
+ }
+}

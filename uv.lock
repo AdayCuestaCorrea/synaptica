@@ -2659,6 +2659,15 @@ wheels = [
 ]
 
 [[package]]
+name = "spylls"
+version = "0.1.7"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/5c/c2/19f34deb2dc1475dfeadafbd5666246041ee7578bb933e82de794f0a9283/spylls-0.1.7.tar.gz", hash = "sha256:7045892dcbd324d3685f69c5a760063e78fb839913724ce18077cf0a0c93f220", size = 1499693, upload-time = "2022-01-23T13:26:54.032Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/cd/19/ce6fcb4b86e188983bcfc1f84e4ac6f3038ca8d68b6d70a678cdc566f66c/spylls-0.1.7-py2.py3-none-any.whl", hash = "sha256:0c7fa4b66615f390bd12fd37939b85934c012309fd3cce8584844c54270b7776", size = 1509482, upload-time = "2022-01-23T13:26:40.203Z" },
+]
+
+[[package]]
 name = "sqlglot"
 version = "30.30.0"
 source = { registry = "https://pypi.org/simple" }
@@ -2681,7 +2690,10 @@ name = "synaptica"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "dbt-duckdb" },
     { name = "httpx" },
+    { name = "pydantic" },
+    { name = "spylls" },
     { name = "typer" },
 ]
 
@@ -2689,6 +2701,10 @@ dependencies = [
 dev = [
     { name = "pytest" },
     { name = "ruff" },
+    { name = "scikit-learn" },
+]
+eval = [
+    { name = "scikit-learn" },
 ]
 spike-s2 = [
     { name = "dbt-bigquery" },
@@ -2697,6 +2713,7 @@ spike-s2 = [
 spike-s3 = [
     { name = "brainglobe-atlasapi" },
     { name = "nibabel" },
+    { name = "pillow" },
     { name = "scipy" },
     { name = "siibra" },
 ]
@@ -2709,7 +2726,10 @@ spike-s5 = [
 
 [package.metadata]
 requires-dist = [
+    { name = "dbt-duckdb", specifier = ">=1.11.1" },
     { name = "httpx", specifier = ">=0.28.1" },
+    { name = "pydantic", specifier = ">=2.14.3" },
+    { name = "spylls", specifier = ">=0.1.7" },
     { name = "typer", specifier = ">=0.27.3" },
 ]
 
@@ -2717,7 +2737,9 @@ requires-dist = [
 dev = [
     { name = "pytest" },
     { name = "ruff" },
+    { name = "scikit-learn", specifier = ">=1.9.1" },
 ]
+eval = [{ name = "scikit-learn", specifier = ">=1.9.1" }]
 spike-s2 = [
     { name = "dbt-bigquery", specifier = ">=1.12.2" },
     { name = "dbt-duckdb", specifier = ">=1.11.1" },
@@ -2725,6 +2747,7 @@ spike-s2 = [
 spike-s3 = [
     { name = "brainglobe-atlasapi", specifier = ">=3.0.3" },
     { name = "nibabel", specifier = ">=5.5.0" },
+    { name = "pillow", specifier = ">=13.0.0" },
     { name = "scipy", specifier = ">=1.18.1" },
     { name = "siibra", specifier = ">=1.0.1a27" },
 ]

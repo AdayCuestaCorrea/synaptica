@@ -1,6 +1,6 @@
 # Fase 0 — Cimientos
 
-> **Borrador** (2026-11-12). Faltan dos cosas: la revisión de Sofía de la maqueta C y la prueba del flujo de revisión (S4). Con ellas se cierran D3 y D5. Los huecos están marcados con «⏳». El documento se da por bueno al cerrar la fase, con el visto bueno de Sofía.
+> **Cerrada** el 2026-11-13 por Aday, con el visto bueno de Sofía. Todas las decisiones que exigía el cierre (D1, D3, D4 y D5) tienen su ADR aceptado.
 
 ## Para qué servía esta fase
 Antes de escribir el motor de la web hacía falta responder a cinco preguntas. Sus respuestas cambian el diseño, y equivocarse sale caro una vez construido:
@@ -42,7 +42,7 @@ Además se montó el andamiaje del repositorio:
 - **La cadena de Paleo con 10 artículos de PubMed:** 8–9 de cada 10 resúmenes publicables. El juez de otra familia cazó 3 errores reales que las comprobaciones mecánicas dejaban pasar.
 - **Revisión ciega de Sofía:** los dos Qwen empatan, y el español es el punto débil de ambos. El juez coincidió con ella en 17 de 19 casos (kappa ≈ 0,60). Los prompts pasaron a v2 con lo que pidió; volver a ejecutarlos queda para la Fase 1.
 
-### S3 · Visor 3D → [D3](../adr/0003-visor.md) ⏳: Niivue con volúmenes de etiquetas propios
+### S3 · Visor 3D → [D3](../adr/0003-visor.md): Niivue con volúmenes de etiquetas propios
 - **Se probaron tres maquetas:**
   - A, siibra-explorer embebido: descartada por su plugin con permiso en cada visita, por el seguimiento de terceros y por pesar 6,8 MB solo de código;
   - B, three.js con mallas: 1,07 MB, pero solo se podían clicar las regiones con malla;
@@ -54,15 +54,24 @@ Además se montó el andamiaje del repositorio:
   - modos color, atlas y tinción (con BigBrain real en el humano);
   - buscador de áreas.
 - **Publicada en Pages:** 1,96 MB, unos 16 s en un móvil con red lenta, sin otros dominios, y probada en un móvil real.
-- ⏳ Falta la revisión de Sofía de los ajustes y que Aday acepte el ADR.
+- **La revisión de Sofía (2026-11-12) pidió tres cosas:**
+  - **Conservar la tinción dibujada y la real.**
+  - **Completar el cerebro humano.** Le faltaban el cerebelo, el tronco y la médula, porque Julich-Brain es citoarquitectónico. Una auditoría por familias de regiones encontró además huecos en el estriado, los ventrículos, el hipotálamo y la sustancia blanca. Se rellenaron con tres capas más, cada una solo donde las anteriores no tienen nada: CerebrA, CIT168 y el mapa de sustancia blanca de ICBM 2009c. Sigue siendo un solo cerebro en pantalla.
+  - **Una tinción real para la rata.** No existe en 3D con licencia, así que el corte 2D muestra el Nissl real registrado más cercano (Blixhavn et al. 2023).
+- **Quedan sin atlas utilizable**, en el backlog: la médula, el tronco dividido, el bulbo olfatorio y los tractos.
+- **Peso final:** unos 2,5 MB y 19 s en un móvil simulado con red lenta, sin otros dominios. Sofía da el visto bueno y Aday acepta el ADR el 2026-11-13.
 
-### S4 · Revisión → D5 ⏳: página de revisión generada que envía un Issue de GitHub
+### S4 · Revisión → [D5](../adr/0005-revision.md): página de revisión generada que envía un Issue de GitHub
 - **El prototipo:**
   - una página estática generada desde la cola de revisión;
   - Sofía decide y pulsa «Enviar», y GitHub abre el formulario de Issue ya relleno;
   - un script lee los Issues de su cuenta, comprueba el esquema y el hash de lo que vio, y vuelve a pasar las comprobaciones mecánicas a sus correcciones.
-- Probado de punta a punta con un Issue real (el #1). Tiene 102 tests sin red.
-- ⏳ Falta la prueba con Sofía (guion en `spikes/s4/prueba/GUION.md`) y el ADR 0005.
+- Probado de punta a punta con un Issue real (el #1). Tiene 111 tests sin red.
+- **Prueba con Sofía (2026-11-12):** tres rondas reales con su cuenta (Issues #2–#10), sin terminal ni git.
+  - Cumple los criterios salvo el tiempo de la primera ronda: 38 min, aunque hizo bastante más de lo pedido.
+  - Prefiere esto a una hoja de cálculo y no le importa que sus decisiones sean públicas.
+  - La prueba destapó 6 fallos nuestros, ya corregidos con test.
+  - Aday cerró D5 con la opción C (ADR 0005). Sus correcciones también pasan las comprobaciones mecánicas (CLAUDE.md).
 
 ### Decisiones sin spike
 Cerradas por Aday en la Fase 0:
@@ -80,18 +89,19 @@ D2, D6 y D7 siguen con la recomendación de `SCOPE.md` §8:
 - **Workload Identity Federation:** GitHub Actions demuestra a Google quién es con un token firmado de cada ejecución, en vez de con una clave guardada. No hay secreto que pueda filtrarse.
 - **Volumen de etiquetas (NIfTI):** una rejilla 3D donde cada vóxel guarda el número de la región a la que pertenece. Clicar es leer el número bajo el puntero, y por eso todo el atlas es clicable sin generar una malla por región.
 - **Juez de otra familia:** un segundo modelo, entrenado por otra empresa, revisa lo que escribió el primero. Así no comparten los mismos sesgos.
-- **Licencias que no se mezclan:** Waxholm (CC BY 4.0) y Julich-Brain (CC BY-NC-SA 4.0) se sirven en archivos separados. Un dato que combinara los dos heredaría la licencia más restrictiva.
+- **Licencias que no se mezclan:** Waxholm (CC BY 4.0), Julich-Brain (CC BY-NC-SA 4.0) y las capas humanas añadidas se sirven en archivos separados y solo se superponen en pantalla. Un dato que combinara dos heredaría la licencia más restrictiva.
+- **Corte registrado:** una sección histológica real que alguien colocó a mano en el atlas, primero con un ajuste afín (QuickNII) y después con una deformación por triángulos (VisuAlign). Con ese registro se puede pintar el corte en el plano del visor sin montar un volumen 3D.
 
 ## Cómo se comprueba
 - `uv run pytest` y `uv run ruff check .` en la CI, sin red. Cada spike tiene sus tests aparte:
-  - `uv run pytest spikes/s3/tests`;
+  - `uv run --group spike-s3 pytest spikes/s3/tests`;
   - `uv run --group spike-s4 pytest spikes/s4/tests`.
 - **Mediciones reproducibles:**
   - S2, con su workflow (`spike-s2.yml`);
-  - S3, con `spikes/s3/measure.mjs`: móvil simulado, «Slow 4G» y CPU ×4. Las cifras están en `spikes/s3/results/measure-*.json`;
+  - S3, con `spikes/s3/measure.mjs`: móvil simulado, «Slow 4G» y CPU ×4. Las cifras están en `spikes/s3/results/measure-*.json`. Además, `spikes/s3/coverage.py` compara qué tiene cada cerebro por familias;
   - S5, con los JSON de `spikes/s5/results/`.
 - **La maqueta publicada:** https://adaycuestacorrea.github.io/synaptica/spikes/s3/c/
-- **Sofía revisó lo que le toca sin terminal ni git:** los resúmenes de S5, la elección de maqueta en S3 y ⏳ el flujo de S4.
+- **Sofía revisó lo que le toca sin terminal ni git:** los resúmenes de S5, la maqueta de S3 (elección y ajustes) y el flujo de S4, con tres rondas reales.
 
 ## Qué salió mal (y qué se aprendió)
 - **BigQuery** parecía la opción natural para el CV. El cupo de por vida solo apareció al medirlo, y cambió D1. *Lección:* medir antes de decidir; para eso están los spikes.
@@ -104,6 +114,7 @@ D2, D6 y D7 siguen con la recomendación de `SCOPE.md` §8:
 
   Solo apareció en un móvil real: el simulador mandaba los eventos demasiado ordenados.
 - **La maqueta B** se mantuvo hasta el paso 7.5 aunque Sofía ya había elegido C. Aday la borró porque confundía.
+- **Un atlas solo enseña lo que etiqueta.** El cerebro humano no tenía cerebelo ni tronco porque Julich-Brain no los delimita, y nadie lo vio hasta que Sofía lo comparó con la rata. *Lección:* auditar la cobertura por familias frente al otro atlas, no solo mirar si las regiones de prueba existen.
 - **GitHub** falla al rellenar un Issue desde una URL de más de unos 6950 caracteres sin sesión iniciada. La página reparte las decisiones en varios Issues de 6000 como máximo.
 - **El ensayo en seco de S4** encontró que una corrección corta y legítima de Sofía se retenía como «frase nueva sin fuente». Ahora sus frases se alinean con las originales.
 - **Brave en el móvil** no abre direcciones de la red local. La prueba en un móvil real se hizo con Chrome hasta publicar en Pages.
@@ -119,5 +130,5 @@ D2, D6 y D7 siguen con la recomendación de `SCOPE.md` §8:
 - Pasar el script de datos del visor (`spikes/s3/build_assets.py`) a `src/synaptica/atlas/` con tests, y reescribir el visor en `site/static/` (ADR D3).
 - El espejo semanal de los marts en BigQuery (D1).
 - Volver a ejecutar S5 con los prompts v2 (D4).
-- ⏳ El flujo de revisión de Sofía según el ADR de D5.
+- El flujo de revisión de Sofía según el ADR de D5: activar el workflow de recepción (con permiso de Aday), pasar el código al paquete y aplicar las frases que sugiera en la nota.
 - Para la Fase 2, de las [notas de UX](../../spikes/s3/results/notas-ux.md): el estudio de UX y UI de Neuro Atlas antes de construirlo.

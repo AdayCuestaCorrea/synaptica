@@ -1,0 +1,22 @@
+{% extends "base.html.j2" %}
+{% set tp = topics[topic] %}
+{% block title %}{{ tp[lang] }}{% endblock %}
+{% block main %}
+<header class="page-head topic-head topic--{{ topic }}">
+  <span class="topic-art">{{ m.art("t-" ~ topic) }}</span>
+  <div>
+    <p class="back"><a href="{{ url('index') }}#topics-h">← {{ t.topics }}</a></p>
+    <h1>{{ tp[lang] }}</h1>
+    <p>{{ t.topic_intro.format(t=tp[lang] | lower) }} {{ m.gap("topics") }}</p>
+  </div>
+</header>
+{% set hits = topic_hits[topic] %}
+{% if not hits.studies and not hits.news %}<p class="empty-state">{{ t.topic_none }}</p>{% endif %}
+<div class="list">
+  {% for s in hits.studies %}{{ m.row(s, note=t["topic_" ~ hits.basis[s.study_id]]) }}{% endfor %}
+</div>
+{% if hits.news %}
+<h2 class="sub-h">{{ t.media }}</h2>
+<div class="stories">{% for n in hits.news %}{{ p.story(n, t, lang, date) }}{% endfor %}</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,161 @@
+version: 2
+
+models:
+  - name: stg_pubmed__summary
+    description: PubMed esummary records, one row per PMID and version.
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "(pmid || '|' || version_date)"
+    columns:
+      - name: pmid
+        data_tests: [not_null]
+      - name: version_date
+        data_tests: [not_null]
+      - name: title
+        data_tests:
+          - not_null:
+              config: {severity: warn}
+
+  - name: stg_pubmed__medline
+    description: MEDLINE indexing of each PubMed record (status, MeSH), one row per version.
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "(pmid || '|' || version_date)"
+    columns:
+      - name: pmid
+        data_tests: [not_null]
+      - name: medline_status
+        description: NLM citation status; a new value is a warning, not a failure.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [MEDLINE, OLDMEDLINE, PubMed-not-MEDLINE, In-Process, In-Data-Review,
+                         Publisher, Completed]
+              config: {severity: warn}
+
+  - name: stg_crossref__notices
+    description: Crossref editorial notices, one row per notice, version and updated DOI.
+    columns:
+      - name: notice_doi
+        data_tests: [not_null]
+      - name: updated_doi
+        data_tests: [not_null]
+      - name: update_type
+        description: Crossref update type; other types inside a notice are a warning.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [retraction, partial_retraction, withdrawal, removal,
+                         expression_of_concern, correction, erratum]
+              config: {severity: warn}
+
+  - name: stg_europepmc__records
+    description: Europe PMC open-access records, one row per record and version.
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "(epmc_key || '|' || version_date)"
+    columns:
+      - name: epmc_source
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: {values: [MED, PMC, PPR, AGR, CBA, CTX, ETH, HIR, PAT]}
+              config: {severity: warn}
+      - name: is_open_access
+        data_tests:
+          - accepted_values:
+              arguments: {values: [true]}
+
+  - name: stg_preprints
+    description: bioRxiv / medRxiv preprints, one row per DOI and version.
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "(doi || '|' || version_date)"
+    columns:
+      - name: doi
+        data_tests: [not_null]
+      - name: server
+        data_tests:
+          - accepted_values:
+              arguments: {values: [biorxiv, medrxiv]}
+      - name: version
+        data_tests: [not_null]
+      - name: license
+        description: Licence of the preprint; a new value is a warning.
+        data_tests:
+          - accepted_values:
+              arguments: {values: [cc_by, cc_by_nc, cc_by_nd, cc_by_nc_nd, cc0, cc0_ng, cc_no]}
+              config: {severity: warn}
+
+  - name: stg_preprints__published
+    description: Journal version of each neuro preprint ("pubs" list).
+    columns:
+      - name: published_doi
+        data_tests: [not_null]
+
+  - name: stg_journals__items
+    description: Journal feed items (metadata and links), one row per item and version.
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "(item_key || '|' || version_date)"
+    columns:
+      - name: journal
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('journals'), field: journal}
+      - name: via
+        data_tests:
+          - accepted_values:
+              arguments: {values: [rss, crossref]}
+
+  - name: stg_news__items
+    description: Popular-science news articles, one row per article and version.
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "(item_key || '|' || version_date)"
+    columns:
+      - name: feed
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('news_feeds'), field: feed}
+      - name: lang
+        data_tests:
+          - accepted_values:
+              arguments: {values: [es, en]}
+
+  - name: stg_openalex__works
+    description: OpenAlex topic and citations by DOI, one row per DOI and version.
+    columns:
+      - name: doi
+        data_tests: [not_null]
+
+  - name: stg_raw__batches
+    description: Daily batch files present in the raw store.
+    columns:
+      - name: batch_date
+        data_tests: [not_null]
+
+  - name: stg_pipeline__runs
+    description: Runs recorded by `syn report`.
+    columns:
+      - name: trigger
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [schedule, backup, manual, local]
+
+seeds:
+  - name: source_cadence
+    description: Maximum days without a new batch for each source/kind before failing.
+    columns:
+      - name: max_age_days
+        data_tests: [not_null]

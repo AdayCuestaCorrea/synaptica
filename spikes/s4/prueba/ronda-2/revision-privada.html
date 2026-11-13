@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Revisión SYNAPTICA</title>
+<style>
+/* Copied and adapted from spikes/s5/review/template.html (the page Sofía already used).
+   System fonts only: the page makes no requests to other domains, and the private
+   variant is opened as a local file. */
+:root {
+  --bg: #f3f5f7; --surface: #ffffff; --ink: #18212b; --muted: #5a6673; --line: #d9dfe5;
+  --accent: #2c5d8f; --accent-soft: #e3ecf5; --ok: #2f7a4f; --ok-soft: #e3f1e8;
+  --warn: #a5541b; --warn-soft: #f7e9de;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11161c; --surface: #19212a; --ink: #e4e9ee; --muted: #9aa7b4; --line: #2c3743;
+    --accent: #7fb0e0; --accent-soft: #1f3247; --ok: #79c79a; --ok-soft: #1b3326;
+    --warn: #e7a06c; --warn-soft: #3a281b; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11161c; --surface: #19212a; --ink: #e4e9ee; --muted: #9aa7b4; --line: #2c3743;
+  --accent: #7fb0e0; --accent-soft: #1f3247; --ok: #79c79a; --ok-soft: #1b3326;
+  --warn: #e7a06c; --warn-soft: #3a281b; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 46rem; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header.intro { padding-block: 2.5rem 1.5rem; display: grid; gap: 0.9rem; }
+.eyebrow { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+h1 { font-family: var(--serif); font-weight: 600; font-size: 2rem; line-height: 1.2; margin: 0; text-wrap: balance; }
+h2 { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; line-height: 1.3; margin: 0; text-wrap: balance; }
+h3.group { font: 600 0.8rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; margin: 0.5rem 0 -0.75rem; color: var(--accent); }
+.group-hint { margin-top: -0.75rem; max-width: 65ch; }
+p { margin: 0; max-width: 65ch; }
+.intro ul { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.35rem; max-width: 65ch; }
+.bar { position: sticky; top: 0; z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line); }
+.bar .wrap { display: flex; align-items: center; gap: 1rem; padding-block: 0.6rem; flex-wrap: wrap; }
+.progress { flex: 1 1 12rem; display: grid; gap: 0.3rem; min-width: 0; }
+.progress small { color: var(--muted); font-variant-numeric: tabular-nums; }
+.track { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.track span { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.3s; }
+button { font: 500 0.95rem var(--sans); color: var(--accent); background: var(--surface); border: 1px solid var(--accent); border-radius: 6px; padding: 0.5rem 0.9rem; cursor: pointer; }
+button.primary { background: var(--accent); color: var(--surface); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+button:focus-visible, label:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+main { display: grid; gap: 1.75rem; padding-block: 1.75rem 3rem; }
+article.item { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 1.25rem; display: grid; gap: 1rem; }
+article.item.blocking { border-left: 4px solid var(--warn); }
+.meta { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: baseline; font-size: 0.9rem; color: var(--muted); }
+.meta a, .sources a, .cands a { color: var(--accent); }
+.chip { font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.1rem 0.5rem; border-radius: 999px; background: var(--line); color: var(--muted); }
+.chip.is-done { background: var(--ok-soft); color: var(--ok); }
+.chip.is-blocking { background: var(--warn-soft); color: var(--warn); }
+.es { font-family: var(--serif); font-size: 1.08rem; line-height: 1.65; display: grid; gap: 0.5rem; }
+details.en summary { cursor: pointer; color: var(--muted); font-size: 0.9rem; }
+details.en div { margin-top: 0.5rem; font-size: 0.95rem; color: var(--muted); display: grid; gap: 0.35rem; }
+.sources { font-size: 0.85rem; color: var(--muted); display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.pair { display: grid; grid-template-columns: 1fr auto 1fr; gap: 0.75rem; align-items: start; }
+.pair ul { margin: 0; padding-left: 1.1rem; }
+.pair .arrow { font-size: 1.4rem; color: var(--muted); padding-top: 1.2rem; }
+@media (max-width: 30rem) { .pair { grid-template-columns: 1fr; } .pair .arrow { padding: 0; } }
+.q { display: grid; gap: 0.35rem; }
+.q > span { font-weight: 500; font-size: 0.95rem; }
+.q > span em { font-weight: 400; color: var(--muted); font-style: normal; }
+.opts { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.opts.stacked { flex-direction: column; align-items: flex-start; }
+.opts label, .cands label { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.35rem 0.75rem; border: 1px solid var(--line); border-radius: 6px; cursor: pointer; font-size: 0.95rem; }
+.cands { display: grid; gap: 0.5rem; }
+.cands label { display: flex; align-items: flex-start; }
+.cands small { color: var(--muted); display: block; }
+.opts input, .cands input { accent-color: var(--accent); margin: 0.2rem 0 0; }
+.opts label:has(input:checked), .cands label:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+.cands label:has(input:disabled) { opacity: 0.55; cursor: not-allowed; }
+textarea, input[type="text"] { width: 100%; font: 0.95rem var(--sans); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 0.5rem 0.65rem; }
+textarea { min-height: 3.2rem; }
+textarea.edit { min-height: 8rem; font-family: var(--serif); font-size: 1rem; }
+.hint { font-size: 0.85rem; color: var(--muted); }
+.hint.warn { color: var(--warn); font-weight: 600; }
+.warnings { background: var(--warn-soft); border-radius: 6px; padding: 0.75rem 0.9rem; display: grid; gap: 0.35rem; font-size: 0.95rem; }
+.warnings strong { color: var(--warn); }
+section.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 1.25rem; display: grid; gap: 0.8rem; margin-bottom: 1.75rem; }
+.proposals { display: grid; gap: 0.5rem; }
+.proposal { display: flex; gap: 0.75rem; align-items: baseline; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 0.5rem; }
+.parts { display: grid; gap: 0.6rem; }
+.part { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+a.button { font: 500 0.95rem var(--sans); background: var(--accent); color: var(--surface); border-radius: 6px; padding: 0.5rem 0.9rem; text-decoration: none; }
+a.button.sent { background: var(--surface); color: var(--ok); border: 1px solid var(--ok); }
+.status { color: var(--ok); font-size: 0.9rem; min-height: 1.3em; }
+ol.preview { margin: 0; padding-left: 1.4rem; display: grid; gap: 0.3rem; font-size: 0.95rem; }
+footer { color: var(--muted); font-size: 0.85rem; padding-block: 0 3rem; }
+@media (prefers-reduced-motion: reduce) { .track span { transition: none; } }
+</style>
+</head>
+<body>
+<header class="wrap intro">
+  <div class="eyebrow" id="eyebrow">SYNAPTICA · revisión</div>
+  <h1>Revisión para Sofía</h1>
+  <p id="lead"></p>
+  <ul>
+    <li>Cada tarjeta es una cosa que revisar. Las marcadas como <strong>obligatorias</strong> no se publican sin tu aprobación.</li>
+    <li>En los textos puedes <strong>aprobar</strong>, <strong>corregir</strong> (cambias el texto tú misma) o <strong>rechazar</strong> (no se publica). Revisas el contenido: de cómo se busca o se publica se encarga el programa.</li>
+    <li>Cada grupo empieza con una línea que explica qué es y dónde sale en la web.</li>
+    <li>Lo que dejes sin contestar se queda en la cola para otro día. No pasa nada por no terminar.</li>
+    <li>Las notas <strong>se verán en público</strong> junto a tu decisión. Si es un comentario para Aday, mándaselo por WhatsApp.</li>
+  </ul>
+  <p>Tus respuestas se guardan en este navegador: puedes dejarlo a medias y seguir otro día en el mismo dispositivo.</p>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="progress">
+      <small id="progress-text"></small>
+      <div class="track"><span id="progress-fill"></span></div>
+    </div>
+    <a href="#send"><button type="button" class="primary">Ir a enviar</button></a>
+  </div>
+</div>
+
+<main class="wrap" id="list"></main>
+
+<div class="wrap">
+  <section class="panel" id="propose" hidden>
+    <h2>Proponer una sigla nueva</h2>
+    <p class="hint">Para el glosario. Se añade a la cola como borrador y te llegará para revisar con su versión en inglés.</p>
+    <p class="hint" id="p-known"></p>
+    <label class="q"><span>Sigla o término</span><input type="text" id="p-term" autocomplete="off"></label>
+    <p class="hint warn" id="p-dup" hidden></p>
+    <label class="q"><span>Significado</span><input type="text" id="p-meaning" autocomplete="off"></label>
+    <label class="q"><span>Explicación corta <em>(opcional)</em></span><textarea id="p-expl"></textarea></label>
+    <div><button type="button" id="p-add">Añadir</button></div>
+    <div class="proposals" id="p-list"></div>
+  </section>
+
+  <section class="panel" id="send">
+    <h2>Enviar</h2>
+    <p id="send-count"></p>
+    <ol class="preview" id="preview"></ol>
+    <p class="hint" id="send-how">Al pulsar «Enviar» se abre GitHub con todo ya escrito: allí solo tienes que pulsar «Create». Tienes que haber entrado en GitHub con tu cuenta.</p>
+    <div class="parts" id="parts"></div>
+    <div class="status" id="send-status" role="status"></div>
+  </section>
+</div>
+<footer class="wrap"><p>Esta página es interna: no es parte de la web publicada. Los textos son propios de SYNAPTICA y cada estudio enlaza a su original. Nada de lo que aparece aquí es consejo médico.</p></footer>
+
+<script>
+const PAGE = {"variant": "private", "generated_at": "2026-11-11T06:00:00Z", "propose": false, "glossary_terms": [], "issue_new_url": "https://github.com/AdayCuestaCorrea/synaptica/issues/new", "max_url": 6000, "items": [{"item_type": "disease", "item_id": "test-placeholder", "title_es": "Ficha de prueba (no es una enfermedad real)", "content": {"kind": "text", "es": [{"text": "[Texto de prueba del spike S4: no es contenido de salud.]", "cites": []}], "en": [{"text": "[S4 spike test text: this is not health content.]", "cites": []}], "sources": []}, "public": false, "warnings": [], "base": null, "content_sha256": "ed03b966bc4c3ed967ace9c1ea4c77edb68fd8f92660d0d7e7151f0211fe05c9", "blocking": true}]};
+const STORE = `synaptica-revision-s4-${PAGE.variant}`;
+// The definitions are SYNAPTICA's proposal (2026-11-12): Sofía can change them, and hers go to
+// the web.
+const GRADES = [
+  ["clear", "Clara", "es la misma estructura en las dos especies."],
+  ["partial", "Parcial", "se solapan, pero a un lado le sobra o le falta alguna parte."],
+  ["disputed", "Discutida", "la literatura no se pone de acuerdo."],
+];
+// What goes in each news topic: the definitions the classifier uses
+// (src/synaptica/prompts/classify_news.md, types-v1), in Spanish. Added after round 1 of the
+// test, when Sofía wrote «no entiendo este tema» on «Cerebro sano». SYNAPTICA's proposal:
+// she can change them.
+const TOPIC_HINTS = {
+  "healthy-brain": "Cómo funciona el sistema nervioso sano: neuronas, sinapsis, circuitos, desarrollo, envejecimiento sin enfermedad, percepción, memoria, sueño, conducta y evolución, en personas o en animales.",
+  diseases: "Trastornos neurológicos y mentales y lesiones: sus causas, mecanismos, factores de riesgo, diagnóstico y modelos animales (alzhéimer, párkinson, epilepsia, ictus, esclerosis múltiple, dolor, depresión, autismo…), salvo los ensayos de tratamientos en personas.",
+  "clinical-trials": "Ensayos que prueban en personas un tratamiento, fármaco, dispositivo o terapia (aleatorizados, controlados, fases 1 a 3), o sus resultados.",
+  "new-techniques": "Un método, herramienta o tecnología nuevos para estudiar o medir el sistema nervioso (imagen, registros, microscopía, trazado viral, optogenética, software, conjuntos de datos, atlas), cuando lo principal es el método.",
+};
+// What each kind of card is, where it ends up and what to look at (added 2026-11-12, when Aday
+// saw that the page took for granted context that neither he nor Sofía had).
+const GROUP_HINTS = {
+  disease: "La ficha de una enfermedad para Neuro Diseases. No se publica hasta que la apruebes.",
+  classics: "Estudios de hace años, muy citados, que salen en el bloque «Clásicos» de Neuro News. El programa los propone por número de citas; tú eliges cuáles se publican esta semana.",
+  equivalence: "Qué región del cerebro humano corresponde a una región de la rata, para la vista lado a lado de Neuro Atlas. Los dos atlas dividen el cerebro de forma distinta: a veces una región de la rata se corresponde con varias áreas humanas. Tu grado y tu nota se verán en la web.",
+  search_terms: "Para traer los estudios nuevos de cada región, el programa busca en PubMed los artículos que mencionan estas palabras.",
+  glossary: "Definiciones cortas del glosario, pensadas para alguien sin formación en neurociencia. Comprueba que son correctas y que se entienden.",
+  news_topic: "Las noticias se agrupan por temas, que el lector usa como filtro. Si ocultas un tema, sus noticias no salen en la web.",
+  news: "Resúmenes que escribió la IA a partir de un estudio (enlace debajo de cada uno) y que ya se pueden publicar. Comprueba que dicen lo mismo que el estudio, sin exagerar, y que el español suena natural. Revisarlos es opcional; si rechazas uno, no se publica.",
+};
+const GROUPS = {
+  disease: "Neuro Diseases · obligatoria", classics: "Clásicos de la semana",
+  equivalence: "Rata ↔ humano", atlas: "Neuro Atlas", search_terms: "Búsquedas por región",
+  lab: "Neuro Lab", glossary: "Glosario", learn: "Neuro Learn", news_topic: "Temas de noticias",
+  news: "Resúmenes publicados (opcional)",
+};
+
+let answers = {};
+try { answers = JSON.parse(localStorage.getItem(STORE) || "{}"); } catch (e) { answers = {}; }
+answers.proposals = answers.proposals || [];
+
+function persist() {
+  try { localStorage.setItem(STORE, JSON.stringify(answers)); } catch (e) { /* not available */ }
+}
+
+function save() { persist(); refresh(); }
+
+// Every text goes through textContent: the content comes from LLMs and publishers.
+function el(tag, attrs = {}, ...kids) {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") n.className = v; else if (k === "text") n.textContent = v; else n.setAttribute(k, v);
+  }
+  for (const k of kids) if (k) n.append(k);
+  return n;
+}
+
+// An answer belongs to one version of the item: if the draft changes, the old answer is dropped.
+const keyOf = (item) => `${item.item_type}/${item.item_id}@${item.content_sha256.slice(0, 12)}`;
+const ans = (item) => (answers[keyOf(item)] = answers[keyOf(item)] || {});
+
+function radios(item, field, options, onChange) {
+  const box = el("div", { class: options.some((o) => o[2]) ? "opts stacked" : "opts" });
+  const name = `${keyOf(item)}-${field}`;
+  options.forEach(([value, label, meaning], i) => {
+    const id = `${name}-${i}`;
+    const input = el("input", { type: "radio", name, id, value });
+    if (ans(item)[field] === value) input.checked = true;
+    input.addEventListener("change", () => { ans(item)[field] = value; save(); if (onChange) onChange(); });
+    const text = meaning ? el("span", {}, el("strong", { text: label }), document.createTextNode(`: ${meaning}`))
+                         : document.createTextNode(label);
+    box.append(el("label", { for: id }, input, text));
+  });
+  return box;
+}
+
+function question(text, hint, control) {
+  const head = el("span", {}, document.createTextNode(text + " "));
+  if (hint) head.append(el("em", { text: hint }));
+  return el("div", { class: "q" }, head, control);
+}
+
+function textbox(item, field, label, initial, cls = "") {
+  const t = el("textarea", { "aria-label": label, placeholder: label, class: cls });
+  t.value = ans(item)[field] ?? initial;
+  t.addEventListener("input", () => { ans(item)[field] = t.value; save(); });
+  return t;
+}
+
+const joined = (sentences) => sentences.map((s) => s.text).join("\n");
+
+function textBody(item) {
+  const c = item.content;
+  const box = el("div", { class: "es" }, ...c.es.map((s) => el("p", { text: s.text })));
+  const en = el("details", { class: "en" }, el("summary", { text: "Ver la versión en inglés" }),
+    el("div", {}, ...c.en.map((s) => el("p", { text: s.text }))));
+  const src = el("div", { class: "sources" }, ...c.sources.map((s) =>
+    s.url.startsWith("https://") ? el("a", { href: s.url, target: "_blank", rel: "noopener", text: `${s.label} ↗` })
+                                 : el("span", { text: s.label })));
+  return [box, en, src];
+}
+
+function textControls(item) {
+  const edit = el("div", { class: "q" },
+    el("span", { text: "Tu versión en español" }),
+    textbox(item, "es", "Texto en español", joined(item.content.es), "edit"),
+    el("details", { class: "en" }, el("summary", { text: "Corregir también el inglés (opcional)" }),
+      textbox(item, "en", "Texto en inglés", joined(item.content.en), "edit")),
+    el("p", { class: "hint", text: "Una frase por línea. Tu versión vuelve a pasar las comprobaciones automáticas; si algo no cuadra, te llegará con el aviso." }));
+  const showEdit = () => { edit.hidden = ans(item).action !== "edit"; };
+  const options = [["approve", "Aprobar"], ["edit", "Corregir"], ["reject", "Rechazar"]];
+  if (item.warnings.length) options.push(["keep", "Lo mantengo"]);
+  const keep = el("div", { class: "q" }, el("span", { text: "¿Por qué lo mantienes?" }),
+    textbox(item, "reason", "Motivo (obligatorio)", ""));
+  const showKeep = () => { keep.hidden = ans(item).action !== "keep"; };
+  const r = radios(item, "action", options, () => { showEdit(); showKeep(); });
+  showEdit(); showKeep();
+  return [question("¿Qué hacemos con este texto?", "", r), edit, keep];
+}
+
+function termsControls(item) {
+  const list = el("ul", {}, ...item.content.terms.map((t) => el("li", { text: t })));
+  const edit = el("div", { class: "q" }, el("span", { text: "Términos, uno por línea" }),
+    textbox(item, "terms", "Términos", item.content.terms.join("\n"), "edit"));
+  const show = () => { edit.hidden = ans(item).action !== "edit"; };
+  const r = radios(item, "action", [["approve", "Están bien"], ["edit", "Corregir"]], show);
+  show();
+  return [el("p", { class: "hint", text: "Palabras que se buscan en PubMed para esta región:" }), list,
+    question("¿Con estas palabras se encuentran los estudios de esta región?",
+      "Añade las que usen los investigadores y falten (sinónimos, nombres de sus partes) y quita las que traerían otra cosa, por ejemplo una sigla que en otros campos significa algo distinto.", r),
+    edit];
+}
+
+function pairControls(item) {
+  const c = item.content;
+  const pair = el("div", { class: "pair" },
+    el("div", {}, el("strong", { text: "Rata · Waxholm" }), el("ul", {}, el("li", { text: `${c.rat.acronym} · ${c.rat.name}` }))),
+    el("div", { class: "arrow", "aria-hidden": "true", text: "↔" }),
+    el("div", {}, el("strong", { text: "Humano · Julich-Brain" }), el("ul", {}, ...c.human.map((h) => el("li", { text: h.name })))));
+  return [pair,
+    el("p", { class: "hint", text: c.human.length > 1
+      ? "A la izquierda, la región de la rata; a la derecha, las áreas humanas que proponemos como su equivalente, tomadas en conjunto."
+      : "A la izquierda, la región de la rata; a la derecha, el área humana que proponemos como su equivalente." }),
+    question("¿Hasta qué punto se corresponden?", "", radios(item, "grade", GRADES)),
+    question("Nota", "(opcional; se verá en la web, en español y en inglés)", textbox(item, "note_es", "Por qué este grado", ""))];
+}
+
+function candidatesControls(item) {
+  const c = item.content;
+  const picked = () => (ans(item).dois = ans(item).dois || []);
+  const box = el("div", { class: "cands" });
+  const inputs = [];
+  const sync = () => inputs.forEach((i) => { i.disabled = !i.checked && picked().length >= c.max_picks; });
+  c.candidates.forEach((cand, n) => {
+    const id = `${keyOf(item)}-c${n}`;
+    const input = el("input", { type: "checkbox", id });
+    input.checked = picked().includes(cand.doi);
+    input.addEventListener("change", () => {
+      const a = ans(item);
+      a.dois = input.checked ? [...picked(), cand.doi] : picked().filter((d) => d !== cand.doi);
+      save(); sync();
+    });
+    inputs.push(input);
+    box.append(el("label", { for: id }, input, el("span", {},
+      document.createTextNode(cand.title),
+      el("small", {}, document.createTextNode(`${cand.year} · ${cand.cited_by.toLocaleString("es-ES")} citas · `),
+        el("a", { href: `https://doi.org/${cand.doi}`, target: "_blank", rel: "noopener", text: "abrir ↗" })))));
+  });
+  sync();
+  return [question(`Elige hasta ${c.max_picks} que publicarías`, "(si no eliges ninguno, esta semana no hay Clásicos; «abrir» lleva al artículo)", box)];
+}
+
+function toggleControls(item) {
+  const hint = TOPIC_HINTS[item.item_id];
+  return [...(hint ? [el("p", { class: "hint", text: `Qué entra en este tema (lo decide el programa al clasificar cada noticia): ${hint}` })] : []),
+    question("¿Se muestran las noticias de este tema?", "(se puede cambiar en cualquier momento)",
+    radios(item, "action", [["enable", "Mostrar"], ["disable", "Ocultar"]]))];
+}
+
+const CONTROLS = { text: (i) => [...textBody(i), ...textControls(i)], terms: termsControls, pair: pairControls,
+  candidates: candidatesControls, toggle: toggleControls };
+
+function render() {
+  const list = document.getElementById("list");
+  let group = null;
+  for (const item of PAGE.items) {
+    if (item.item_type !== group) {
+      group = item.item_type;
+      list.append(el("h3", { class: "group", text: GROUPS[group] || group }));
+      if (GROUP_HINTS[group]) list.append(el("p", { class: "hint group-hint", text: GROUP_HINTS[group] }));
+    }
+    const chip = el("span", { class: "chip", id: `chip-${keyOf(item)}`, text: "pendiente" });
+    const meta = el("div", { class: "meta" }, chip);
+    if (item.blocking) meta.append(el("span", { class: "chip is-blocking", text: "obligatoria" }));
+    const card = el("article", { class: `item${item.blocking ? " blocking" : ""}` }, meta, el("h2", { text: item.title_es }));
+    if (item.warnings.length) {
+      card.append(el("div", { class: "warnings" }, el("strong", { text: "Vuelve a tu cola por esto:" }),
+        ...item.warnings.map((w) => el("p", { text: w }))));
+    }
+    card.append(...CONTROLS[item.content.kind](item));
+    if (item.content.kind !== "pair") {  // the pair's note is its public text
+      card.append(question("Nota", "(opcional; pública)", textbox(item, "note", "Nota pública sobre tu decisión", "")));
+    }
+    list.append(card);
+  }
+  if (PAGE.propose) setupProposals();
+}
+
+function setupProposals() {
+  document.getElementById("propose").hidden = false;
+  const known = PAGE.glossary_terms || [];
+  document.getElementById("p-known").textContent = known.length
+    ? `Ya están en el glosario (no hace falta proponerlas): ${known.join(", ")}.` : "";
+  const fold = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+  const term = document.getElementById("p-term"), dup = document.getElementById("p-dup");
+  term.addEventListener("input", () => {
+    const hit = known.find((k) => fold(k) === fold(term.value));
+    dup.hidden = !hit;
+    dup.textContent = hit ? `«${hit}» ya está en el glosario. Si quieres cambiar su definición, dilo en una nota; si la añades aquí, llegará como propuesta.` : "";
+    if (!hit && /\//.test(term.value)) { dup.hidden = false; dup.textContent = "Si son dos términos, mejor uno en cada propuesta."; }
+  });
+  document.getElementById("p-add").addEventListener("click", () => {
+    const get = (id) => document.getElementById(id).value.trim();
+    if (!get("p-term") || !get("p-meaning")) return;
+    answers.proposals.push({ term: get("p-term"), meaning_es: get("p-meaning"), explanation_es: get("p-expl") || null });
+    for (const id of ["p-term", "p-meaning", "p-expl"]) document.getElementById(id).value = "";
+    dup.hidden = true;
+    save();
+  });
+}
+
+const lines = (s) => s.split("\n").map((x) => x.trim()).filter(Boolean);
+
+// One decision per answered item, in the shape of models.Decision without the fields the
+// intake fills in (reviewed_by, reviewed_at, source). null: nothing to send yet.
+function decisionOf(item) {
+  const a = answers[keyOf(item)] || {};
+  const base = { item_type: item.item_type, item_id: item.item_id, content_sha256: item.content_sha256 };
+  const note = (a.note || "").trim() || null;
+  const kind = item.content.kind;
+  if (kind === "pair") {
+    if (!a.grade) return null;
+    return { ...base, action: "set_grade", payload: { grade: a.grade, note_es: (a.note_es || "").trim() || null }, note: null };
+  }
+  if (kind === "candidates") {
+    return a.dois && a.dois.length ? { ...base, action: "pick", payload: { dois: a.dois }, note } : null;
+  }
+  if (!a.action) return null;
+  if (a.action === "edit" && kind === "terms") {
+    const terms = lines(a.terms ?? item.content.terms.join("\n"));
+    return terms.length ? { ...base, action: "edit", payload: { terms }, note } : null;
+  }
+  if (a.action === "edit") {
+    const es = (a.es ?? joined(item.content.es)).trim(), en = (a.en ?? joined(item.content.en)).trim();
+    const payload = {};
+    if (es !== joined(item.content.es)) payload.es = es;
+    if (en !== joined(item.content.en)) payload.en = en;
+    return Object.keys(payload).length ? { ...base, action: "edit", payload, note } : null;
+  }
+  if (a.action === "keep") {
+    const reason = (a.reason || "").trim();
+    return reason.length >= 3 ? { ...base, action: "keep", payload: { reason }, note } : null;
+  }
+  return { ...base, action: a.action, payload: {}, note };
+}
+
+function decisions() {
+  const out = PAGE.items.map(decisionOf).filter(Boolean);
+  for (const p of answers.proposals) {
+    out.push({ item_type: "glossary", item_id: `new-${p.term.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "term"}`,
+      content_sha256: null, action: "propose", payload: p, note: null });
+  }
+  return out;
+}
+
+const ACTION_ES = { approve: "apruebas", edit: "corriges", reject: "rechazas", keep: "mantienes tu versión",
+  set_grade: "grado", pick: "eliges", enable: "mostrar", disable: "ocultar", propose: "propones" };
+const GRADE_ES = Object.fromEntries(GRADES);
+
+function describe(d) {
+  const item = PAGE.items.find((i) => i.item_type === d.item_type && i.item_id === d.item_id);
+  const title = item ? item.title_es : d.payload.term;
+  let what = ACTION_ES[d.action];
+  if (d.action === "set_grade") what = `grado ${GRADE_ES[d.payload.grade].toLowerCase()}`;
+  if (d.action === "pick") what = `eliges ${d.payload.dois.length}`;
+  return `${title}: ${what}`;
+}
+
+// ---- sending: the block of issue_block.py, in one or more prefilled GitHub Issues ----
+
+const MAGIC = "synaptica-review v1";
+const DECISION_KEYS = ["item_type", "item_id", "content_sha256", "action", "payload", "note"];
+// Longest URL GitHub still prefills (measured in step 3, spikes/s4/results/README.md).
+const MAX_URL = PAGE.max_url;
+
+function blockOf(ds, part, total) {
+  const lines = [MAGIC, `queue: ${PAGE.generated_at}`, `page: ${PAGE.variant}`, `part: ${part}/${total}`];
+  for (const d of ds) lines.push(JSON.stringify(Object.fromEntries(DECISION_KEYS.map((k) => [k, d[k] ?? null]))));
+  return lines.join("\n");
+}
+
+function issueUrl(block, part, total) {
+  const q = { template: "revision.yml", title: `Revisión de Sofía · ${PAGE.generated_at.slice(0, 10)} · ${part}/${total}` };
+  if (block !== null) q.decisiones = block;
+  return `${PAGE.issue_new_url}?` + Object.entries(q).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join("&");
+}
+
+// Greedy packing into parts whose URL fits. A single decision too long for any URL (a
+// whole sheet corrected in both languages) goes alone, to be pasted by hand.
+function parts(ds) {
+  const out = [];
+  let current = [];
+  const fits = (group) => issueUrl(blockOf(group, 99, 99), 99, 99).length <= MAX_URL;
+  for (const d of ds) {
+    if (fits([...current, d])) { current.push(d); continue; }
+    if (current.length) out.push(current);
+    current = [d];
+  }
+  if (current.length) out.push(current);
+  return out.map((group) => ({ group, paste: !fits(group) }));
+}
+
+async function copyText(text) {
+  try { await navigator.clipboard.writeText(text); return true; } catch (e) { return false; }
+}
+
+function renderParts(ds) {
+  const ps = parts(ds);
+  answers.sent = answers.sent || {};
+  const box = document.getElementById("parts");
+  box.replaceChildren(...ps.map((p, n) => {
+    const block = blockOf(p.group, n + 1, ps.length);
+    const label = ps.length > 1 ? `Enviar parte ${n + 1} de ${ps.length}` : "Enviar";
+    const a = el("a", { class: `button${answers.sent[block] ? " sent" : ""}`, target: "_blank", rel: "noopener",
+      href: issueUrl(p.paste ? null : block, n + 1, ps.length),
+      text: answers.sent[block] ? `${label} (abierta)` : label });
+    // No redraw here: the link must stay in the page while the browser follows it.
+    a.addEventListener("click", async () => {
+      answers.sent[block] = true;
+      persist();
+      a.classList.add("sent");
+      a.textContent = `${label} (abierta)`;
+      const status = document.getElementById("send-status");
+      if (p.paste) {
+        const ok = await copyText(block);
+        status.textContent = ok
+          ? "Esta parte es demasiado larga para ir sola: está copiada. En GitHub, pégala en el recuadro «Decisiones» y pulsa «Create»."
+          : "Esta parte es demasiado larga y no se pudo copiar sola. Avisa a Aday.";
+      } else {
+        status.textContent = "Se ha abierto GitHub. Pulsa «Create» allí para terminar.";
+      }
+    });
+    const items = `${p.group.length} ${p.group.length === 1 ? "decisión" : "decisiones"}`;
+    return el("div", { class: "part" }, a, el("span", { class: "hint", text: p.paste ? `${items} · tendrás que pegarla` : items }));
+  }));
+}
+
+function refresh() {
+  const ds = decisions();
+  renderParts(ds);
+  const done = new Set(ds.map((d) => `${d.item_type}/${d.item_id}`));
+  const total = PAGE.items.length;
+  const answered = PAGE.items.filter((i) => done.has(`${i.item_type}/${i.item_id}`)).length;
+  document.getElementById("progress-text").textContent = `${answered} de ${total} revisadas`;
+  document.getElementById("progress-fill").style.width = `${total ? (100 * answered) / total : 0}%`;
+  for (const item of PAGE.items) {
+    const chip = document.getElementById(`chip-${keyOf(item)}`);
+    const ok = done.has(`${item.item_type}/${item.item_id}`);
+    chip.textContent = ok ? "lista" : "pendiente";
+    chip.classList.toggle("is-done", ok);
+  }
+  document.getElementById("send-count").textContent = ds.length
+    ? `Vas a enviar ${ds.length} ${ds.length === 1 ? "decisión" : "decisiones"}:`
+    : "Todavía no hay nada que enviar.";
+  document.getElementById("preview").replaceChildren(...ds.map((d) => el("li", { text: describe(d) })));
+  const pl = document.getElementById("p-list");
+  pl.replaceChildren(...answers.proposals.map((p, n) => {
+    const del = el("button", { type: "button", text: "Quitar" });
+    del.addEventListener("click", () => { answers.proposals.splice(n, 1); save(); });
+    return el("div", { class: "proposal" }, el("span", { text: `${p.term}: ${p.meaning_es}` }), del);
+  }));
+}
+
+document.getElementById("eyebrow").textContent = `SYNAPTICA · revisión · ${PAGE.generated_at.slice(0, 10)}`;
+document.getElementById("lead").textContent = PAGE.variant === "private"
+  ? "Hola, Sofía. Este archivo es privado: tiene las fichas de Neuro Diseases, que no se publican hasta que las apruebes. No lo reenvíes."
+  : "Hola, Sofía. Esto es lo que espera tu revisión hoy, ordenado por prioridad.";
+render();
+refresh();
+</script>
+</body>
+</html>

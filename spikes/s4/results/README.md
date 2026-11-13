@@ -73,3 +73,45 @@ Detalles:
 - **Ensayo en seco** (`tests/test_prueba.py`): una ronda 1 simulada (corregir la exageración del dolutegravir solo en español, la frase de prueba de T7 y aprobar GABA) da justo lo que promete el guion: la corrección se aplica con el inglés por rehacer, GABA sale de la cola y T7 vuelve con sus dos avisos.
 - **Fallo encontrado por el ensayo y corregido:** la corrección de la exageración, más corta que la frase original, se quedaba por debajo de 0,5 de similitud y se retenía como «frase nueva sin fuente». Ahora las frases se alinean como secuencia (`intake.align`): una frase reescrita en su sitio corrige a la original y conserva su cita; solo las añadidas cuentan como nuevas. Las comprobaciones de cifras, nombres y copia siguen aplicándose a todas.
 
+
+## Prueba con Sofía, ronda 1 (2026-11-12)
+
+- **Cómo fue:** 38 minutos, sin problemas con el formato. Primer envío sin sesión iniciada en GitHub: el login conservó el formulario. Salieron 4 Issues (#2–#5), porque hizo más de lo pedido: reescribió un resumen entero y propuso 17 siglas en lugar de una. Las preguntas finales se hacen tras la ronda 2.
+- **Lectura:** 36 decisiones, todas válidas; ninguna rechazada.
+- **Fallos nuestros que destapó** (corregidos, con test):
+  - `intake.py` no cargaba el abstract de las fuentes: sin él no corría la comprobación de 8 palabras copiadas y la cifra de «PM2,5», que sí está en la fuente, salía como nueva. Ahora lo lee de la caché (o de un efetch con `--efetch`) y, si falta el de un texto que ella corrige, el Issue espera (salida 2) en vez de aplicarse sin comprobar.
+  - La comprobación de nombres solo ignoraba la primera palabra del texto: «Mediante», al empezar su segundo párrafo, salía como nombre desconocido. Ahora se mira frase a frase.
+  - Con los dos arreglos, las 36 decisiones se aplican y ninguna queda retenida.
+- **Cambios en la página:**
+  - «Proponer una sigla» lista las que ya están en el glosario y avisa al escribir una repetida (propuso EEG, AAV, GFAP y LTP, que ya estaban) o dos términos juntos («GPi/GPe»).
+  - Cada tema de noticias explica qué entra en él, con las definiciones que usa el clasificador (`src/synaptica/prompts/classify_news.md`): en «Cerebro sano» escribió «no entiendo este tema».
+- **Lo que no se hizo:** el resumen del dolutegravir (T6) quedó sin contestar; no añadió la frase de prueba de T7 (reescribió el resumen entero), así que el aviso y «Lo mantengo» no se han probado; no envió la página privada (T11).
+- **Contenido para más adelante** (no se aplica en la prueba): en sus notas propone detallar el hipocampo y la amígdala con el atlas de Paxinos y Watson. Ese atlas es un libro comercial y no se puede usar como datos; pero Waxholm ya separa CA1, CA2, CA3, giro dentado y subículo, así que el hipocampo puede emparejarse región a región con Julich-Brain. La amígdala de Waxholm es una sola etiqueta: se queda en «parcial».
+
+## Prueba con Sofía, ronda 2 (2026-11-12)
+
+- **Qué pasó:** abrió el archivo de la ronda 1 en lugar del de la ronda 2. Los dos se llamaban `revision.html`, llevaban la misma fecha en la cabecera y el navegador aún guardaba sus respuestas de ayer, así que volvió a enviar las 18 de la ronda 1 y las 24 siglas, en 4 partes. Mandó la 4, la 3 y la 2 (#6–#8) y perdió la pista de la 1, que solo repetía decisiones. La privada (#9) la aprobó sin entenderla: es un texto de relleno y ni la página ni el guion lo decían (tampoco Aday la entendió).
+- **Lo que sí se midió:** en el dolutegravir detectó la exageración, pero no la corrigió en el texto: dejó «es seguro» y escribió en la nota una frase alternativa, más prudente. Prefiere sugerir a reescribir; con el diseño actual, si eligiera «Lo mantengo», se publicaría el texto con la exageración. Para el ADR 0005: qué hace la cadena con una sugerencia en la nota. La frase de 2031 volvió con sus dos avisos, como se esperaba.
+- **Arreglos (con test):**
+  - la recepción no vuelve a apuntar una decisión idéntica a otra ya registrada (mismo elemento, versión, acción, contenido y nota) y lo dice en la respuesta: de #6–#8, 26 repetidas;
+  - cada envío lleva una línea `send:` (la misma en todas sus partes) y la respuesta de cada parte dice cuáles faltan; los Issues anteriores, sin ella, se siguen leyendo;
+  - cada página lleva su ronda en el nombre del archivo y en la cabecera, y guarda sus respuestas aparte, así que una página de otra ronda ni las ve ni las reenvía; no se genera una página privada vacía.
+- **Ronda 3:** solo el dolutegravir, con los dos avisos: corregir o «Lo mantengo».
+
+## Prueba con Sofía, ronda 3 y preguntas (2026-11-12)
+
+- **Ronda 3 (#10):** esta vez corrigió el texto: sustituyó «es seguro durante el embarazo» por su frase prudente y quitó la de 2031. Su corrección pasa todas las comprobaciones y la cola queda vacía. Un solo envío, con su `send:`.
+- **Fallo nuestro que destapó** (corregido, con test): la recepción leía el Issue de la ronda 3 contra la cola del primer día, y una corrección retenida vuelve como otra versión con otro hash, así que se rechazó como «el texto cambió». Ahora `ronda.py` guarda junto a las páginas la cola que muestran (`ronda-N/queue.json`) y los Issues de esa ronda se leen contra ella. El ensayo en seco no lo vio porque nunca procesaba un Issue de una segunda ronda; ahora sí, con corrección y con «Lo mantengo».
+- **Preguntas finales** (respuestas de Sofía, recogidas por Aday):
+  1. *¿Qué te ha costado más?* Los resúmenes: decidir si se corrigen o se aprueban y, sobre todo, comprobar que todo es verdad. Lo demás, sencillo.
+  2. *¿A diario, en menos de 1 h? ¿10? ¿40?* Sí: ahora mismo puede con 40, y con 10 también los fines de semana.
+  3. *¿Te molesta que tus decisiones sean públicas?* No, si ayuda a que profesores y profesionales valoren la web. Aday: hace visible que hay un trabajo real detrás.
+  4. *¿Más fácil con una hoja de cálculo?* No, prefiere el sistema actual.
+  5. *¿Echas algo en falta?* Que las próximas fases se centren más en el laboratorio y menos en resúmenes y siglas.
+- **Criterios de D5** (GUION):
+  - ayudas: Aday no anotó ninguna;
+  - ronda 1 en 25 minutos o menos: **no** (38), pero hizo bastante más de lo pedido (un resumen reescrito entero y 17 siglas en vez de una);
+  - todos sus Issues se leen bien: sí; las únicas decisiones no aplicadas lo fueron por fallos nuestros, ya corregidos;
+  - el login sin sesión conserva el formulario: sí;
+  - cuenta de GitHub y decisiones públicas: le parecen bien, y prefiere esto a una hoja de cálculo.
+- **Para el ADR 0005:** qué hace la cadena con una sugerencia escrita en la nota (ronda 2); que la parte más costosa sea comprobar los resúmenes contra la fuente; y su petición de más laboratorio, que es de planificación, no de D5.

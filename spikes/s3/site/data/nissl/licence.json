@@ -1,0 +1,11 @@
+{
+  "atlas": "Timm-Nissl multiplane microscopic atlas of the rat brain: coronal Nissl (thionine) series H108c, registered to Waxholm Space",
+  "short": "Nissl de rata (Blixhavn et al. 2023)",
+  "version": "v1, animal H108c (Wistar), 146 coronal sections",
+  "licence": "CC BY 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source": "EBRAINS, Deep Zoom pyramids and QuickNII/VisuAlign registration of H108c",
+  "source_url": "https://doi.org/10.25493/T686-7BX",
+  "citation": "Blixhavn C. H. et al. 2023, A Timm-Nissl multiplane microscopic atlas of rat brain zincergic terminal fields and metal-containing glia, Scientific Data 10:150, https://doi.org/10.1038/s41597-023-02012-6; dataset https://doi.org/10.25493/T686-7BX",
+  "derived": "One reduced level of each image pyramid, resampled onto the coronal plane of the viewer (flat skull, mm from Bregma, 39 µm) with the published QuickNII and VisuAlign registration; contrast stretched (one linear map for the three channels) and the bare slide made transparent; WebP (nissl.py). Changes made by SYNAPTICA. Not combined with any atlas file."
+}
