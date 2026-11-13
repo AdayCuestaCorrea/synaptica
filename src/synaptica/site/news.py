@@ -28,7 +28,7 @@ from synaptica.narrative import weekly
 from synaptica.narrative.fallback import print_issue, summary_for
 from synaptica.narrative.write import slug
 from synaptica.review.apply import Event, read_log
-from synaptica.review.collect import reviewed
+from synaptica.review.collect import reviewed, reviewed_title
 
 # How much each block shows (Aday, step 23, option 1A).
 LATEST_DAYS = 7  # «Latest»: studies that entered in the last 7 days…
@@ -189,6 +189,7 @@ def study_record(
     row = {k: v for k, v in row.items() if not k.startswith("figure_")}
     summary = {lang: summary_for(row, lang, derived_root=derived_root) for lang in ("es", "en")}
     summary = reviewed(row, summary, events or [], derived_root)  # Sofía's spot-check (step R)
+    row["title_es"] = reviewed_title(row, events or [])  # and of the titles (step 23c)
     issue = print_issue(row)
     # The card's date: the publication day, or the day it entered when the publication date
     # is a print issue still to come (shown apart, as «issue of January 2027»; SCOPE v102).

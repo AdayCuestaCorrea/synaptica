@@ -18,12 +18,20 @@ in S4.
 rewritten from her Spanish, shows the fallback text instead; one she corrected in both
 languages shows her text. The item is rebuilt from today's texts, so a decision on an
 older version of a summary changes nothing (the hash, as everywhere in the review).
+
+**Titles** (step 23c, ``ItemType.TITLE``): the Spanish titles have no judge, so
+:data:`TITLES_PER_DAY` of those the site shows go to her queue, drawn at random with the
+day as the seed (the same queue file for the same day). The item is the Spanish title
+against the English original; a title she rejects shows the original again, one she
+corrects shows hers (``reviewed_title``). Like the summaries, a decision binds the version
+she saw: a title translated again is a new item.
 """
 
 from __future__ import annotations
 
 import datetime as dt
 import json
+import random
 from pathlib import Path
 from typing import Any
 
@@ -35,6 +43,7 @@ from synaptica.review.apply import Event, next_queue, publishable, read_log, sta
 from synaptica.review.models import ItemType, Queue, ReviewItem, Sentence, Source, TextContent
 
 CAP_WEEKDAY, CAP_WEEKEND = 40, 10
+TITLES_PER_DAY = 5
 LANGS = ("es", "en")
 
 
@@ -73,7 +82,7 @@ def news_item(
     item = ReviewItem(
         item_type=ItemType.NEWS,
         item_id=slug(study["study_id"]),
-        title_es=study["title"],
+        title_es=study.get("title_es") or study["title"],  # English until it is translated
         content=TextContent(es=lines["es"], en=lines["en"], sources=[source]),
     )
     return item, records["es"]["judge"].get("spanish_natural", 5)
@@ -95,7 +104,7 @@ def news_spot_checks(warehouse: Path, derived_root: Path) -> list[ReviewItem]:
         return []
     with duckdb.connect(str(warehouse), read_only=True) as con:
         cur = con.execute(
-            "select study_id, title, pmid, pmcid, doi, entered_on from main.dim_study "
+            "select study_id, title, title_es, pmid, pmcid, doi, entered_on from main.dim_study "
             "where study_id in (select unnest(?))",
             [ids],
         )
@@ -108,6 +117,47 @@ def news_spot_checks(warehouse: Path, derived_root: Path) -> list[ReviewItem]:
             item, score = built
             found.append(((score, -row["entered_on"].toordinal(), row["study_id"]), item))
     return [item for _, item in sorted(found, key=lambda x: x[0])]
+
+
+def title_item(study: dict[str, Any]) -> ReviewItem | None:
+    """The spot-check item of a Spanish title the site shows, or None without one. No
+    sources: the English title is the reference, shown next to it, and her edit is checked
+    against both (numbers and names, ``intake.edit_warnings``)."""
+    if not study.get("title_es") or not study.get("title"):
+        return None
+    return ReviewItem(
+        item_type=ItemType.TITLE,
+        item_id=slug(study["study_id"]),
+        title_es=study["title_es"],
+        content=TextContent(es=[Sentence(text=study["title_es"])],
+                            en=[Sentence(text=study["title"])]),
+    )  # fmt: skip
+
+
+def title_spot_checks(
+    warehouse: Path, review_dir: Path, today: dt.date, k: int = TITLES_PER_DAY
+) -> list[ReviewItem]:
+    """``k`` Spanish titles of the site she has not decided, drawn with the day as seed."""
+    if not warehouse.exists():
+        return []
+    from synaptica.news.titles import titles_to_translate  # the site's own selection
+
+    shown = sorted(titles_to_translate(warehouse))
+    with duckdb.connect(str(warehouse), read_only=True) as con:
+        rows = con.execute(
+            "select study_id, title, title_es from main.dim_study "
+            "where title_es is not null and study_id in (select unnest(?)) order by study_id",
+            [shown],
+        ).fetchall()
+    items = [i for sid, en, es in rows
+             if (i := title_item({"study_id": sid, "title": en, "title_es": es}))]  # fmt: skip
+    if not items:
+        return []
+    now = dt.datetime.combine(today, dt.time(), dt.UTC)
+    queue = Queue(generated_at=now, items=items)
+    waiting = next_queue(queue, states(queue, read_log(review_dir))).items
+    picked = random.Random(today.isoformat()).sample(waiting, min(k, len(waiting)))
+    return sorted(picked, key=lambda i: i.item_id)
 
 
 def run_spot_checks(run_dir: Path) -> list[ReviewItem]:
@@ -148,9 +198,11 @@ def collect(
     classics = proposal(derived_root.parent / "raw", review_dir, today)
     from synaptica.news.topics import queue_items  # her switch for each topic
 
-    # The topic switches go last: a quick yes or no that never takes a text's place.
+    # The topic switches go last: a quick yes or no that never takes a text's place; the
+    # titles just before them, short and optional.
     items = [*(extra or []), *([classics] if classics else []),
-             *news_spot_checks(warehouse, derived_root), *queue_items()]  # fmt: skip
+             *news_spot_checks(warehouse, derived_root),
+             *title_spot_checks(warehouse, review_dir, today), *queue_items()]  # fmt: skip
     # Midnight UTC of the day: the same inputs give the same file (``syn`` is idempotent).
     queue = Queue(generated_at=dt.datetime.combine(today, dt.time(), dt.UTC), items=items)
     waiting = next_queue(queue, states(queue, read_log(review_dir)))
@@ -182,3 +234,19 @@ def reviewed(
                                      for s in getattr(st.text, lang)]}
                 for lang in LANGS}  # fmt: skip
     return summary
+
+
+def reviewed_title(study: dict[str, Any], events: list[Event]) -> str | None:
+    """The Spanish title the site shows after her decisions: None (the English original)
+    if she rejected it, hers if she corrected it, else the translated one."""
+    item = title_item(study) if events else None
+    if item is None:
+        return study.get("title_es")
+    st = state(item, events)
+    # Not ``publishable``: the English is the original, never rewritten from hers, so an
+    # edit of the Spanish alone does not wait for anything.
+    if st.status == "rejected":
+        return None
+    if st.status == "edited" and st.text is not None:
+        return " ".join(s.text for s in st.text.es)
+    return study["title_es"]
