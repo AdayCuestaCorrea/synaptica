@@ -46,7 +46,7 @@ import duckdb
 from pydantic import BaseModel
 
 from synaptica.config import get_paths
-from synaptica.llm import LLM, prompt
+from synaptica.llm import LLM, LLMOutputError, prompt
 from synaptica.narrative import checks
 from synaptica.store import _atomic_write
 
@@ -116,6 +116,20 @@ class TitlesResult:
 def titles_path(derived_root: Path | None = None) -> Path:
     root = derived_root if derived_root is not None else get_paths().derived
     return root / "titles" / "es.json"
+
+
+def usage_path(derived_root: Path | None = None) -> Path:
+    """Calls and tokens of ``syn titles`` per day (UTC), for the run report: the writer
+    model's daily usage is shared with classify and write, so it does not tell them apart."""
+    return titles_path(derived_root).with_name("usage.json")
+
+
+def record_usage(path: Path, day: str, spent: dict[str, float]) -> None:
+    usage = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    today = usage.setdefault(day, {})
+    for key in ("calls", "cached", "prompt_tokens", "completion_tokens"):
+        today[key] = int(today.get(key, 0) + spent.get(key, 0))
+    _atomic_write(path, json.dumps(usage, indent=1, sort_keys=True) + "\n")
 
 
 def warehouse_path() -> Path:
@@ -266,10 +280,19 @@ def translate(
             pending.append((sid, item))
     pending.sort(key=lambda kv: (kv[1]["entered_on"], kv[0]), reverse=True)
     pending = pending[:limit] if limit is not None else pending
-    stamp = (now or dt.datetime.now(dt.UTC)).isoformat(timespec="seconds")
+    moment = now or dt.datetime.now(dt.UTC)
+    stamp = moment.isoformat(timespec="seconds")
     for start in range(0, len(pending), BATCH):
         batch = pending[start : start + BATCH]
-        answers = translate_batch(llm, system, batch)
+        before = llm.stats.snapshot() if hasattr(llm, "stats") else None
+        try:
+            answers = translate_batch(llm, system, batch)
+        except LLMOutputError:
+            answers = {}  # a broken answer: the batch is asked again next run
+        finally:  # a call that fails half-way (quota) has spent tokens too
+            if before is not None:
+                record_usage(usage_path(derived_root), moment.date().isoformat(),
+                             llm.stats.since(before))  # fmt: skip
         result.missing += len(batch) - len(answers)
         for sid, answer in answers.items():
             en, es = items[sid]["title"], clean(answer)

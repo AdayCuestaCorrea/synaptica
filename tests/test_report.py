@@ -134,3 +134,26 @@ def test_cli_start_finish_and_ran_today(tmp_path, monkeypatch):
     assert runner.invoke(cli.app, ["report", "ran-today"]).exit_code == 0
     again = runner.invoke(cli.app, ["report", "finish"])
     assert again.exit_code == 1 and "syn report start" in again.output
+
+
+def test_spanish_titles_of_the_day_and_their_tokens(tmp_path):
+    from synaptica.news import titles
+
+    data = tmp_path / "data"
+    derived = data / "derived"
+    day = T0.date().isoformat()
+    rows = {
+        "a": {"study_id": "a", "status": "ok", "translated_at": f"{day}T06:40:00+00:00"},
+        "b": {"study_id": "b", "status": "failed", "translated_at": f"{day}T06:40:00+00:00"},
+        "c": {"study_id": "c", "status": "ok", "translated_at": "2026-11-01T06:40:00+00:00"},
+    }
+    titles.save_titles(titles.titles_path(derived), rows)
+    spent = {"calls": 1, "cached": 0, "prompt_tokens": 900, "completion_tokens": 300}
+    titles.record_usage(titles.usage_path(derived), day, spent)
+    titles.record_usage(titles.usage_path(derived), day, spent)  # a second batch adds up
+    report.start_run(data, trigger="schedule", changed=True, now=T0)
+    run = report.finish_run(data, summary={}, now=T0)
+    assert run["titles"] == {"translated": 1, "failed": 1, "calls": 2, "cached": 0,
+                             "prompt_tokens": 1800, "completion_tokens": 600}  # fmt: skip
+    assert "**Spanish titles today:** 1 passed, 1 failed" in report.markdown(run)
+    assert "2 calls, 2400 tokens" in report.markdown(run)

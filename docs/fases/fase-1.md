@@ -14,6 +14,7 @@
 | 20 · Juicio de los 101 estudios de la carga que quedaron pendientes | pendiente: ejecución programada del 2026-11-14 |
 | Retractaciones que solo conoce Retraction Watch (casilla de ingesta) | pendiente |
 | 23b · Figuras de PMC | hecho en la rama `fase-1-figuras-titulos` (v125–v128: Pillow, `syn figures`, dbt, web y pipeline); se fusiona después del 2026-11-17. Cobertura medida: 25 de 200 estudios de Última hora con figura (solo 32 con PMCID) |
+| 23c · Títulos en español | código hecho en la rama `fase-1-figuras-titulos` (v129–v132: `syn titles`, dbt, web, cola de Sofía, informe y pipeline), sin ninguna llamada real todavía. Falta la prueba real con ~40 títulos (OK aparte de Aday), que medirá cuántos fallan las comprobaciones y cuántos tokens cuestan; se fusiona después del 2026-11-17 |
 
 **Qué cuenta como intervención** (Aday, 2026-11-13): una ejecución programada en rojo, o un commit de Aday que arregle el pipeline para que vuelva a correr. Agotar el cupo de Groq no cuenta, porque es lo normal cada día (D10). Los cambios de contenido o de diseño y las decisiones de Sofía tampoco: son trabajo, no rescates.
 
@@ -117,6 +118,5 @@ Caché privada en Actions, parada con el 429 de cupo diario, comprobación previ
 
 ## Lo que pasa a la Fase 2
 *Pendiente al cierre.* Por ahora:
-- 23b (figuras de PMC), si no entra antes del cierre;
-- títulos en español (backlog, v101);
+- 23b (figuras de PMC) y 23c (títulos en español), si no entran antes del cierre;
 - el estudio de UX de Neuro Atlas y el visor en `site/static/` (ADR D3, v98).

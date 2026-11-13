@@ -184,6 +184,28 @@ def texts_summary(data: Path, day: dt.date) -> dict[str, Any]:
     return out
 
 
+def titles_summary(data: Path, day: dt.date) -> dict[str, Any]:
+    """Spanish titles translated on ``day`` (step 23c): how many passed their checks and
+    failed them, and the calls and tokens ``syn titles`` spent (``derived/titles/``)."""
+    folder = data / "derived" / "titles"
+    rows = (
+        json.loads((folder / "es.json").read_text("utf-8")) if (folder / "es.json").exists() else []
+    )
+    counts: dict[str, int] = {}
+    for row in rows:
+        if row.get("translated_at", "")[:10] == day.isoformat():
+            counts[row["status"]] = counts.get(row["status"], 0) + 1
+    usage_file = folder / "usage.json"
+    usage = (
+        json.loads(usage_file.read_text("utf-8")).get(day.isoformat(), {})
+        if usage_file.exists()
+        else {}
+    )
+    if not counts and not usage:
+        return {}
+    return {"translated": counts.get("ok", 0), "failed": counts.get("failed", 0), **usage}
+
+
 def _changes(now: dict[str, Any] | None, before: dict[str, Any] | None) -> dict[str, int]:
     if not now or not before:
         return {}
@@ -235,6 +257,7 @@ def finish_run(
             "dbt": dbt,
             "llm_tokens": llm_usage(data, day),
             "texts": texts_summary(data, day),
+            "titles": titles_summary(data, day),
         }
     )
     runs[index] = run
@@ -285,6 +308,11 @@ def markdown(run: dict[str, Any]) -> str:
             line += (f" · judge: {judge['passed']} passed, {judge['rejected']} rejected "
                      f"(Spanish {judge['spanish_natural_mean']}/5)")  # fmt: skip
         lines.append(line)
+    if titles := run.get("titles"):
+        tokens = titles.get("prompt_tokens", 0) + titles.get("completion_tokens", 0)
+        lines.append(f"**Spanish titles today:** {titles['translated']} passed, "
+                     f"{titles['failed']} failed the checks (original kept) · "
+                     f"{titles.get('calls', 0)} calls, {tokens} tokens")  # fmt: skip
     if run.get("steps"):
         lines += ["", "| Step | Result | Seconds |", "|---|---|---|"]
         lines += [f"| {s['name']} | {s['conclusion']} | {s['seconds']} |" for s in run["steps"]]

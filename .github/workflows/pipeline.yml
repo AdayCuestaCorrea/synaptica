@@ -129,7 +129,7 @@ jobs:
       - name: Classify and summarize (Groq)
         # What is up to date is skipped. When the free quota runs out each command stops
         # and the rest keeps its fallback text until tomorrow. The writer (qwen3.8-27b)
-        # shares its daily quota between classifying and summarizing; the judge
+        # shares its daily quota between classifying, titles and summarizing; the judge
         # (gpt-oss-120b) has its own.
         if: ${{ !cancelled() && env.RUN == 'true' && (github.event_name == 'schedule' || inputs.llm) }}
         continue-on-error: true
@@ -139,6 +139,12 @@ jobs:
         run: |
           uv run syn news neuro --provider groq
           uv run syn news classify --provider groq
+          # Step 23c: Spanish titles of what the site shows, before the summaries, so the
+          # few thousand tokens they need are not left without quota. It reads the
+          # warehouse built above: today's new items are in (no type yet), and one the
+          # classifier just called noise is at most one wasted title.
+          uv run syn titles --provider groq \
+            || echo "::warning::syn titles failed: the titles stay in English today"
           uv run syn news group --provider groq
           uv run syn build
           uv run syn facts --provider groq --limit 40

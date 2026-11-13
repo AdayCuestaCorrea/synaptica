@@ -178,3 +178,38 @@ def test_cli_without_provider_or_warehouse(tmp_path, monkeypatch):
     monkeypatch.setenv("SYN_DATA_DIR", str(tmp_path))
     out = CliRunner().invoke(app, ["titles"])
     assert out.exit_code == 0 and "nothing translated" in out.output
+
+
+def test_calls_and_tokens_are_recorded_per_day(tmp_path):
+    from synaptica.llm import CallStats
+
+    class Counting(FakeLLM):
+        def __init__(self, answers):
+            super().__init__(answers)
+            self.stats = CallStats()
+
+        def complete_json(self, system, user, output, max_tokens):
+            self.stats.calls += 1
+            self.stats.prompt_tokens += 500
+            self.stats.completion_tokens += 120
+            return super().complete_json(system, user, output, max_tokens)
+
+    titles.translate(Counting(ANSWERS), items(GOOD, BAD), derived_root=tmp_path, now=NOW)
+    usage = json.loads(titles.usage_path(tmp_path).read_text("utf-8"))
+    assert usage == {"2026-11-09": {"calls": 1, "cached": 0, "prompt_tokens": 500,
+                                    "completion_tokens": 120}}  # fmt: skip
+
+
+def test_a_broken_answer_leaves_its_batch_for_the_next_run(tmp_path, monkeypatch):
+    from synaptica.llm import LLMOutputError
+
+    class Broken(FakeLLM):
+        def complete_json(self, system, user, output, max_tokens):
+            if "Exercise" in user:
+                raise LLMOutputError("not JSON")
+            return super().complete_json(system, user, output, max_tokens)
+
+    monkeypatch.setattr(titles, "BATCH", 1)
+    result = titles.translate(Broken(ANSWERS), items(GOOD, BAD), derived_root=tmp_path)
+    assert (result.translated, result.missing) == (1, 1)
+    assert [r["study_id"] for r in rows(tmp_path)] == [GOOD[0]]
