@@ -215,7 +215,6 @@ a:hover { text-decoration-thickness: 2px; }
 .hero-photo .hero-img--light { display: none; }
 :root[data-theme="light"] .hero-photo .hero-img--dark { display: none; }
 :root[data-theme="light"] .hero-photo .hero-img--light { display: block; }
-.hero-photo .credit { margin-top: 4px; text-align: right; }
 
 /* Six section cards, Sofía's 3 × 2 */
 .sections { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 18px 0 8px; }
@@ -314,7 +313,6 @@ a.gl:hover, a.gl:focus-visible { color: var(--link); background: var(--accent-so
   .hero { grid-template-columns: minmax(0, 1fr) 104px; padding: 12px 0 4px; gap: 10px; align-items: start; }
   /* The header image is wide: under the text, full width. */
   .hero:has(.hero-photo) { grid-template-columns: minmax(0, 1fr); }
-  .hero-photo .credit { text-align: left; font-size: 0.6rem; }
   .hero p { font-size: 0.95rem; }
   .hero-art { height: auto; display: flex; flex-direction: column; }
   .hero-brain { position: static; height: 150px; width: 100%; }
