@@ -103,6 +103,7 @@ uv run syn ingest biorxiv --days 7        # preprints de bioRxiv y medRxiv + enl
 uv run syn ingest journals                # RSS de Nature, Science y Cell (Crossref por ISSN de respaldo)
 uv run syn ingest news                    # SINC, The Conversation y ScienceDaily
 uv run syn ingest openalex                # tema y citas por DOI de las revistas generalistas
+uv run syn ingest classics                # los más citados de cada subcampo, una vez por semana (Clásicos)
 uv run syn news neuro [--provider groq]   # ¿es neurociencia? reglas de OpenAlex; el LLM solo con --provider
 uv run syn news classify --provider groq  # tipo de cada pieza de Neuro News (lee el almacén: antes syn build)
 uv run syn news group --provider groq     # misma noticia entre medios e idiomas (pares al LLM)

@@ -1,5 +1,5 @@
-{# Neuro News (plan, step 23): Latest, Nature · Science · Cell and In the media. Classics
-   arrive with step 24. From the «Noche» mock-up (spikes/web/v3/templates/news.html.j2). #}
+{# Neuro News (plan, step 23): Latest, Nature · Science · Cell, In the media and, once
+   Sofía has chosen them (step 24), the Classics: the tab does not exist before. From the «Noche» mock-up (spikes/web/v3/templates/news.html.j2). #}
 {% extends "base.html.j2" %}
 {% import "macros.html.j2" as m with context %}
 {% block title %}{{ t.news }}{% endblock %}
@@ -21,6 +21,7 @@
     <button role="tab" id="tab-latest" aria-controls="p-latest" aria-selected="true">{{ t.latest }} <span class="n">{{ news.latest | length }}</span></button>
     <button role="tab" id="tab-nsc" aria-controls="p-nsc" aria-selected="false" tabindex="-1">Nature · Science · Cell <span class="n">{{ news.nsc | length }}</span></button>
     <button role="tab" id="tab-media" aria-controls="p-media" aria-selected="false" tabindex="-1">{{ t.media }} <span class="n">{{ news.stories | length }}</span></button>
+    {% if classics %}<button role="tab" id="tab-classics" aria-controls="p-classics" aria-selected="false" tabindex="-1">{{ t.classics }} <span class="n">{{ classics | length }}</span></button>{% endif %}
   </div>
 
   <section class="panel" role="tabpanel" id="p-latest" aria-labelledby="tab-latest">
@@ -54,6 +55,21 @@
     </div>
     {% if not news.stories %}<p class="empty-state">{{ t.media_empty }}</p>{% endif %}
   </section>
+
+  {% if classics %}
+  <section class="panel" role="tabpanel" id="p-classics" aria-labelledby="tab-classics">
+    <p class="panel-note">{{ t.classics_note }}</p>
+    <ol class="classics">
+      {% for w in classics %}
+      <li class="classic">
+        <a class="classic-title" href="https://doi.org/{{ w.doi }}" lang="en" rel="noopener">{{ w.title }}</a>
+        <p class="classic-meta">{{ w.year }} · {{ t.classics_cited.format(n=("{:,}".format(w.cited_by).replace(",", " ") if lang == "es" else "{:,}".format(w.cited_by))) }}{% if w.subfield %} · {{ w.subfield[lang] }}{% endif %}</p>
+      </li>
+      {% endfor %}
+    </ol>
+    <p class="fact-src">{{ t.classics_credit }}</p>
+  </section>
+  {% endif %}
 </div>
 {% endif %}
 {% endblock %}

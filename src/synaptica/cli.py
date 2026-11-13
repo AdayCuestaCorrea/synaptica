@@ -308,6 +308,26 @@ def ingest_news() -> None:
         raise typer.Exit(code=1)
 
 
+@ingest_app.command("classics")
+def ingest_classics() -> None:
+    """OpenAlex: the most cited works of each neuroscience subfield, once a week, for the
+    Clásicos proposal in Sofía's queue (step 24a)."""
+    from synaptica.http import HttpError, make_client
+    from synaptica.ingest import classics
+
+    try:
+        with make_client() as client:
+            result = classics.ingest(client)
+    except HttpError as exc:
+        typer.echo(f"OpenAlex (Clásicos) failed: {exc}", err=True)
+        raise typer.Exit(code=1) from exc
+    if result.skipped:
+        typer.echo("Clásicos: this week is already listed")
+    else:
+        typer.echo(f"Clásicos: {result.works} works in {result.subfields} subfields; "
+                   f"{result.new_versions} stored")  # fmt: skip
+
+
 @ingest_app.command("openalex")
 def ingest_openalex() -> None:
     """OpenAlex topics and citations for the general-journal items (by DOI, filter only)."""

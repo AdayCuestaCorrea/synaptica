@@ -239,7 +239,16 @@ class SiteBuilder:
         if n and n.stories and all(len(story) == 1 for story in n.stories):
             gaps["groups"] = ("gap", t["gap_groups"])
         counts = {k: sum(s["type"] == k for s in n.latest) if n else 0 for k in news_mod.TYPES}
-        self.render(lang, "news", "news.html.j2", gaps=gaps, type_counts=counts)
+        self.render(lang, "news", "news.html.j2", gaps=gaps, type_counts=counts,
+                    classics=self.classics())  # fmt: skip
+
+    def classics(self) -> list[dict[str, Any]]:
+        """Her newest pick of Clásicos (step 24a); [] until she has chosen: nothing shown."""
+        if self.data_dir is None or self.news_data is None:
+            return []
+        from synaptica.news.classics import approved
+
+        return approved(self.data_dir / "raw", self.data_dir / "review", self.news_data.as_of)
 
     def week(self, lang: str) -> None:
         n, t = self.news_data, self.i18n[lang]

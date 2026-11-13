@@ -367,3 +367,8 @@ a.gl:hover, a.gl:focus-visible { color: var(--link); background: var(--accent-so
   .data-table tbody th, .data-table td { padding: 2px 0; border: 0; min-width: 0; }
   .data-table td[data-label]::before { content: attr(data-label) ": "; font-weight: 700; color: var(--muted); }
 }
+/* Clásicos (step 24a): a numbered list of her picks. */
+.classics { margin: 0; padding-left: 1.4em; }
+.classic { margin: 0 0 14px; }
+.classic-title { font-weight: 700; }
+.classic-meta { margin: 2px 0 0; font-size: 0.88rem; color: var(--muted); }
