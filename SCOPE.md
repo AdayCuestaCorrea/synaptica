@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 100** · 2026-11-13 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 138** · 2026-11-13 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -140,7 +140,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 
 [Plan](docs/fases/plan-fase-1.md): 30 pasos en cuatro rebanadas verticales. Se programa desde el cierre de la Fase 0 (2026-11-13); los pasos que no necesitaban a Sofía ni GitHub se adelantaron en la rama `fase-1` (excepción de las v54–v56). Una casilla se marca cuando se cumple el «Hecho cuando» de sus pasos en el plan; si el código está hecho pero falta algo, lo dice la nota en cursiva.
 
-- [ ] Ingesta de las fuentes de la Fase 1 (§5) en la rama `data`, con caché y respeto de límites. *Código hecho (pasos 3–8); falta escribir en la rama `data` (paso 28) y las retractaciones que solo conoce Retraction Watch.*
+- [ ] Ingesta de las fuentes de la Fase 1 (§5) en la rama `data`, con caché y respeto de límites. *Código hecho (pasos 3–8) y escribiendo en la rama `data` desde el 2026-11-13 (paso 28); falta solo Retraction Watch, para las retractaciones que no llegan a Crossref.*
 - [x] Modelos dbt con tests: claves, valores aceptados, relaciones y frescura de cada fuente
 - [x] Filtro «¿es neurociencia?» para las revistas generalistas (paso 13, medido en la v69; la comparación con las etiquetas de Sofía va con el 14b)
 - [ ] Clasificación por tipo (cerebro sano, enfermedades, ensayos clínicos, técnicas, ruido), evaluada contra unos 100 titulares etiquetados por Sofía y un baseline clásico. *Código hecho (14a); faltan las etiquetas de Sofía (14b) y una ejecución real.*
@@ -379,3 +379,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 123 | 2026-11-13 | Fase 1, el hueco (b) de la v119 cubierto (OK de Aday): `tests/test_llm_quota.py` prueba el tope diario de `RateLimiter`, el que para casi siempre antes que el 429 de Groq. Comprueba que para antes de llamar, tanto por tokens como por peticiones, y que el tope exacto se permite; que una ejecución nueva el mismo día lee lo gastado por la anterior (son procesos distintos en Actions); que cada modelo tiene su cupo, y que el día siguiente en UTC empieza de cero. Sin cambios en el código: pasa a la primera. ADR D10 actualizado |
 | 124 | 2026-11-13 | Fase 1, reloj de cierre (OK de Aday): `pipeline.yml`, `ci.yml` y `review-intake.yml` pasan de `ubuntu-latest` a `ubuntu-24.04`. El README de runner-images (imagen 20261101) anuncia que `ubuntu-latest` pasa a 26.04 en noviembre de 2026, dentro de los 14 días del reloj; un cambio del runner que no controlamos no debe contar como intervención. Se revisa al cerrar la fase |
 | 137 | 2026-11-13 | Fase 1, preprints retirados (opción B de Aday, a `main` antes del 17). Lo encontró la prueba real del 23c: había 3 preprints de bioRxiv retirados por sus autores en Última hora, con «Sin avisos». La API de bioRxiv lo marca en la última versión (`type: "withdrawn"`, título «WITHDRAWN:», resumen vacío), y el dato ya llegaba hasta `int_preprints__latest`. Pero `int_study__candidates` ponía `flagged_retracted = false` fijo para los preprints, y Crossref no recibe avisos de bioRxiv. Ahora `dim_study` tiene un estado nuevo, `integrity = withdrawn`: una retractación de Crossref pesa más, y la retirada pesa más que una corrección o una nota de preocupación. Un preprint retirado sale de Última hora como un retractado. Señal «Retirado por los autores» / «Withdrawn by the authors», con el color de aviso; frase en el texto de respaldo; y una línea en «Cómo evaluamos» (ES y EN). Unit test de dbt con los cuatro casos, test de la web y `accepted_values`. Sobre la rama `data` real (c54d61f): 3 estudios `withdrawn`, ninguno en Última hora; dbt 91/91 y `site --check` con 529 páginas y 0 problemas. Número v137 porque la v125–v136 ya la usa la rama `fase-1-figuras-titulos` |
+| 138 | 2026-11-13 | Fase 1, documentación al día (OK de Aday). La cabecera de SCOPE decía «Versión 100» y pasa a la versión actual. La casilla de ingesta decía que faltaba escribir en la rama `data`, pero se escribe desde el 2026-11-13: ahora solo falta Retraction Watch. En `fase-1.md`, la fila del 23b decía «decidido» y ahora dice hecho en la rama; se añade la fila del 23c. Las líneas v125–v136 están en la rama `fase-1-figuras-titulos` y llegan con su fusión |
