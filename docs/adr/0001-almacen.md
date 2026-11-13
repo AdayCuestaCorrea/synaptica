@@ -60,3 +60,6 @@ No he podido medir el consumo real del cupo: la API no lo expone, y la cifra de 
 - Ejecución: https://github.com/AdayCuestaCorrea/synaptica/actions/runs/42708935204. La primera ejecución falló con `iam.serviceAccounts.getAccessToken denied` porque el permiso de IAM aún no se había propagado; la repetición, minutos después, pasó.
 - Proyecto dbt: [`spikes/s2/dbt/`](../../spikes/s2/dbt/). Inspección de la caducidad: [`spikes/s2/inspect_bq.py`](../../spikes/s2/inspect_bq.py).
 - Configuración de GCP: proyecto `synaptica-514221` sin facturación; cuenta de servicio `synaptica-ci` con `bigquery.dataEditor` y `bigquery.jobUser`; pool `github` con la condición `assertion.repository=='AdayCuestaCorrea/synaptica'`.
+
+## Revisión 2026-11-13 (Fase 1, paso 29)
+El espejo está en `pipeline.yml`: los lunes o a mano, solo los dos marts (`dim_study`, `fct_news_item`), con `bq load --replace` y el uso medido en `mirror/bigquery.jsonl` de la rama `data`. Cómo encaja en la ejecución diaria está en [D10](0010-pipeline-diario.md). Medido con los datos reales: unos 0,9 MB en Parquet (4053 estudios y 366 noticias), muy por debajo de los 10–20 MiB de la estimación. El primer espejo real espera el OK de Aday.
