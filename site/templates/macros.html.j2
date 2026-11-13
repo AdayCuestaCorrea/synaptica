@@ -61,15 +61,34 @@
 <{{ tag }} class="{{ cls }}"><a href="{{ url('study', s.slug) }}" lang="en">{{ s.title or "—" }}</a>{% if mark and lang == "es" %} {{ gap_if("title_es") }}{% endif %}</{{ tag }}>
 {%- endmacro %}
 
-{# One study in a list. #}
-{% macro row(s, note=None) -%}
-<article class="row" data-type="{{ s.type or 'none' }}" data-study="{{ s.study_id }}">
+{# Figure 1 of the original article (step 23b): self-hosted, never cropped, always with
+   its authors and licence in sight (`site --check` reads data-figure-credit). #}
+{% macro fig_label(f) -%}{{ t.fig_n.format(n=f.n) if f.n else t.fig }}{%- endmacro %}
+
+{% macro figure(s, size="full", lazy=True) -%}
+{% set f = s.figure %}
+<figure class="fig fig--{{ size }}" data-figure-credit="{{ f.credit }}">
+  {% if size == "thumb" %}
+  <img src="{{ static('fig/' ~ f.thumb) }}" alt="" width="{{ f.thumb_width }}" height="{{ f.thumb_height }}" loading="lazy" decoding="async">
+  <figcaption class="credit">{{ f.credit }} <span class="credit-lic">{{ f.license }}</span></figcaption>
+  {% else %}
+  <img src="{{ static('fig/' ~ f.file) }}" alt="{{ t.fig_alt.format(label=fig_label(f)) }}" width="{{ f.width }}" height="{{ f.height }}"{% if lazy %} loading="lazy"{% endif %} decoding="async">
+  <figcaption class="credit">{{ fig_label(f) }} · {{ f.credit }} · {% if f.license_url %}<a href="{{ f.license_url }}" rel="license noopener" target="_blank">{{ f.license }}</a>{% else %}{{ f.license }}{% endif %} · <a href="{{ f.source_url }}" rel="noopener" target="_blank">{{ t.fig_via }}</a></figcaption>
+  {% endif %}
+</figure>
+{%- endmacro %}
+
+{# One study in a list; thumb=True shows its figure, when it has one, beside the text. #}
+{% macro row(s, note=None, thumb=False) -%}
+{% set with_fig = thumb and s.figure %}
+<article class="row{% if with_fig %} row--img{% endif %}" data-type="{{ s.type or 'none' }}" data-study="{{ s.study_id }}">
   <div class="row-text">
     {{ kicker(s) }}
     {{ title_link(s) }}
     {{ chips(s) }}
     {% if note %}<p class="row-note">{{ note }}</p>{% endif %}
   </div>
+  {% if with_fig %}{{ figure(s, "thumb") }}{% endif %}
 </article>
 {%- endmacro %}
 

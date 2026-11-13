@@ -173,6 +173,53 @@ def test_check_images_need_a_licensed_credit(tmp_path: Path) -> None:
     assert not any("#c1" in p for p in problems)
 
 
+def test_check_figure_needs_its_authors_and_licence_in_sight(tmp_path: Path) -> None:
+    (tmp_path / "es").mkdir()
+    (tmp_path / "es/f.webp").write_bytes(b"")
+    good = (
+        '<figure data-figure-credit="Ramón et al."><img src="f.webp">'
+        "<figcaption>Figura 1 · Ramón et al. · CC BY 4.0</figcaption></figure>"
+    )
+    page(tmp_path, "es/a.html", good)
+    assert check_site(tmp_path).passed
+    page(tmp_path, "es/a.html", good.replace("· Ramón et al. ", ""))
+    problems = check_site(tmp_path).problems
+    assert any("figure without its authors' credit" in p for p in problems)
+    page(tmp_path, "es/a.html", good.replace(" · CC BY 4.0", ""))
+    assert any("without a licence" in p for p in check_site(tmp_path).problems)
+
+
+@pytest.mark.parametrize("body", [
+    '<img src="https://pmc.ncbi.nlm.nih.gov/x.jpg" alt="">',
+    '<img src="//cdn.example/x.jpg" alt="">',
+    '<img src="a.webp" srcset="a.webp 1x, https://x.example/b.webp 2x" alt="">',
+    '<script src="https://cdn.example/x.js"></script>',
+    '<link rel="stylesheet" href="https://fonts.example/f.css">',
+    '<link rel="preconnect" href="https://fonts.example">',
+    '<div style="background: url(https://x.example/b.png)"></div>',
+])  # fmt: skip
+def test_check_nothing_is_loaded_from_another_domain(tmp_path: Path, body: str) -> None:
+    (tmp_path / "es").mkdir()
+    (tmp_path / "es/a.webp").write_bytes(b"")
+    page(tmp_path, "es/a.html", body)
+    assert any("from another domain" in p for p in check_site(tmp_path).problems)
+
+
+def test_check_links_to_other_domains_are_fine(tmp_path: Path) -> None:
+    page(tmp_path, "es/a.html", '<a href="https://doi.org/10.1/a">DOI</a>')
+    assert check_site(tmp_path).passed
+
+
+def test_check_stylesheet_loading_from_another_domain(tmp_path: Path) -> None:
+    page(tmp_path, "es/a.html", "<p>x</p>")
+    (tmp_path / "s.css").write_text("@font-face { src: url('https://x.example/f.woff2'); }")
+    assert any("s.css: loads from another domain" in p for p in check_site(tmp_path).problems)
+    (tmp_path / "s.css").write_text("@import 'https://x.example/more.css';")
+    assert any("s.css: loads from another domain" in p for p in check_site(tmp_path).problems)
+    (tmp_path / "s.css").write_text("@font-face { src: url('fonts/f.woff2'); }")
+    assert check_site(tmp_path).passed
+
+
 def test_check_orphan_study_page(tmp_path: Path) -> None:
     page(tmp_path, "es/estudio/a.html", SIGNALS_OK)
     page(tmp_path, "es/estudio/b.html", SIGNALS_OK)

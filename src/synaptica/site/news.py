@@ -51,7 +51,11 @@ STUDY_COLUMNS = (
     "study_id", "doi", "pmid", "pmcid", "title", "journal", "published_on", "entered_on",
     "authors", "sources", "review_status", "species", "integrity", "integrity_notices",
     "license", "publication_types", "news_type",
+    # Figure 1 from PMC's open-access bucket (step 23b); null without one.
+    "figure_label", "figure_file", "figure_thumb", "figure_width", "figure_height",
+    "figure_license", "figure_license_url", "figure_credit", "figure_source_url",
 )  # fmt: skip
+FIGURE_THUMB = 240  # longest side of the thumbnail (synaptica.figures.THUMB)
 SOURCE_NAMES = {
     "pubmed": "PubMed (NLM)", "europepmc": "Europe PMC", "biorxiv": "bioRxiv",
     "medrxiv": "medRxiv", "journals": "RSS", "crossref": "Crossref",
@@ -158,10 +162,29 @@ def study_type(row: dict[str, Any]) -> str | None:
     return kind if kind in TYPES else None
 
 
+def figure_record(row: dict[str, Any]) -> dict[str, Any] | None:
+    """The study's figure for the templates, or None. Whether its files are in the
+    private cache is checked when the site is built (``SiteBuilder``)."""
+    if not row.get("figure_file") or "journals" in (row.get("sources") or []):
+        return None  # Nature, Science and Cell: metadata and links only, never a figure
+    w, h = row["figure_width"], row["figure_height"]
+    scale = min(1.0, FIGURE_THUMB / max(w, h))
+    n = re.search(r"\d+", row.get("figure_label") or "")
+    return {
+        "file": row["figure_file"], "thumb": row["figure_thumb"], "width": w, "height": h,
+        "thumb_width": round(w * scale), "thumb_height": round(h * scale),
+        "n": n[0] if n else None, "license": row["figure_license"],
+        "license_url": row["figure_license_url"], "credit": row["figure_credit"],
+        "source_url": row["figure_source_url"],
+    }  # fmt: skip
+
+
 def study_record(
     row: dict[str, Any], derived_root: Path | None, events: list[Event] | None = None
 ) -> dict[str, Any]:
     row = {k: iso(v) for k, v in row.items()}
+    figure = figure_record(row)
+    row = {k: v for k, v in row.items() if not k.startswith("figure_")}
     summary = {lang: summary_for(row, lang, derived_root=derived_root) for lang in ("es", "en")}
     summary = reviewed(row, summary, events or [], derived_root)  # Sofía's spot-check (step R)
     issue = print_issue(row)
@@ -170,7 +193,7 @@ def study_record(
     shown_on = row["entered_on"] if issue else row["published_on"]
     return {**row, "slug": slug(row["study_id"]), "type": study_type(row),
             "url": original_url(row), "summary": summary, "shown_on": shown_on,
-            "issue_on": iso(issue)}  # fmt: skip
+            "issue_on": iso(issue), "figure": figure}  # fmt: skip
 
 
 def licence_name(value: str | None) -> str | None:
@@ -199,6 +222,9 @@ def licence_lines(study: dict[str, Any], lang: str, t: dict[str, str]) -> list[s
         lines.append(t["lic_original_closed"])
     else:
         lines.append(t["lic_original"].format(lic=lic) if lic else t["lic_original_none"])
+    if f := study.get("figure"):
+        label = t["fig_n"].format(n=f["n"]) if f["n"] else t["fig"]
+        lines.append(t["lic_figure"].format(label=label, credit=f["credit"], lic=f["license"]))
     return lines
 
 

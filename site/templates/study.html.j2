@@ -1,6 +1,7 @@
 {# One study (plan, step 23): signals, our text (verified or fallback), metadata, link to
    the original and every licence. Never the abstract. From the «Noche» mock-up
-   (spikes/web/v3/templates/study.html.j2), without figures (they come after step 28). #}
+   (spikes/web/v3/templates/study.html.j2). Figure 1 of the original when it has one
+   (step 23b). #}
 {% extends "base.html.j2" %}
 {% import "macros.html.j2" as m with context %}
 {% block title %}{{ s.title | truncate(60) }}{% endblock %}
@@ -15,6 +16,7 @@
     {{ m.summary(s, full=True) }}
     {% if s.url %}<p><a class="button" href="{{ s.url }}" rel="noopener" target="_blank">{{ t.original }} ↗</a></p>{% endif %}
   </div>
+  {% if s.figure %}<div class="study-fig">{{ m.figure(s, "full", lazy=True) }}</div>{% endif %}
   {{ m.meta_table(s) }}
   <section class="study-lic" aria-labelledby="lic-h">
     <h2 id="lic-h">{{ t.licences }}</h2>

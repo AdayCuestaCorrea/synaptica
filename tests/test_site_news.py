@@ -61,7 +61,10 @@ def warehouse(data: Path, studies=STUDIES, items=NEWS) -> Path:
             authors varchar[], sources varchar[], review_status varchar, species varchar,
             integrity varchar, integrity_notices varchar[], license varchar,
             publication_types varchar[], news_type varchar, news_candidate boolean,
-            is_neuro boolean)""")
+            is_neuro boolean, figure_label varchar, figure_file varchar,
+            figure_thumb varchar, figure_width integer, figure_height integer,
+            figure_license varchar, figure_license_url varchar, figure_credit varchar,
+            figure_source_url varchar)""")
         con.execute("""create table fct_news_item (news_item_id varchar, story_id varchar,
             origin varchar, feed varchar, outlet varchar, lang varchar, url varchar,
             title varchar, published_at timestamp, entered_on date, is_neuro boolean)""")
@@ -270,3 +273,58 @@ def test_the_fact_of_the_day_is_a_verified_sentence_with_its_source(tmp_path: Pa
     # the fact, its second sentence, with its source linked.
     assert '<p class="fact-text">Dos.</p>' in es and '<p class="fact-text">Lead two.</p>' in en
     assert 'href="estudio/doi_10.1_new.html">Neuron</a>' in es
+
+
+# -- figures (step 23b) -------------------------------------------------------------------
+
+FIGURE = {"figure_label": "Figure 1.", "figure_file": "pmc1.webp", "figure_thumb": "pmc1-t.webp",
+          "figure_width": 760, "figure_height": 380, "figure_license": "CC BY 4.0",
+          "figure_license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "figure_credit": "Ramón et al.",
+          "figure_source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1/"}  # fmt: skip
+
+
+def with_figure(tmp_path: Path, cached: bool = True) -> Path:
+    data = warehouse(
+        tmp_path / "data", studies=[study("doi:10.1/new", pmcid="PMC1", **FIGURE), *STUDIES[1:]]
+    )
+    if cached:
+        (data / "cache" / "figures").mkdir(parents=True)
+        for name in ("pmc1.webp", "pmc1-t.webp"):
+            (data / "cache" / "figures" / name).write_bytes(b"RIFF....WEBP")
+    return build(tmp_path, data)
+
+
+def test_figure_is_self_hosted_with_credit_and_passes_the_check(tmp_path: Path) -> None:
+    out = with_figure(tmp_path)
+    assert check_site(out).passed, check_site(out).problems
+    assert (out / "static" / "fig" / "pmc1.webp").exists()
+    assert (out / "static" / "fig" / "pmc1-t.webp").exists()
+    news_es = (out / "es" / "noticias.html").read_text(encoding="utf-8")
+    assert 'src="../static/fig/pmc1-t.webp"' in news_es
+    assert 'Ramón et al. <span class="credit-lic">CC BY 4.0</span>' in news_es
+    pages = [p.read_text(encoding="utf-8") for p in (out / "es" / "estudio").glob("*.html")]
+    page_es = next(p for p in pages if "fig/pmc1.webp" in p)
+    assert "Figura 1 · Ramón et al." in page_es and "vía PMC" in page_es
+    assert 'href="https://creativecommons.org/licenses/by/4.0/"' in page_es
+    assert "Redimensionada y convertida a WebP" in page_es  # in the licences block
+    page_en = next(p.read_text(encoding="utf-8") for p in (out / "en" / "study").glob("*.html")
+                   if "fig/pmc1.webp" in p.read_text(encoding="utf-8"))  # fmt: skip
+    assert "Figure 1 · Ramón et al." in page_en and "via PMC" in page_en
+
+
+def test_figure_missing_from_the_cache_is_not_shown(tmp_path: Path) -> None:
+    out = with_figure(tmp_path, cached=False)
+    assert check_site(out).passed
+    assert not (out / "static" / "fig").exists()
+    assert "Ramón et al." not in (out / "es" / "noticias.html").read_text(encoding="utf-8")
+
+
+def test_nature_science_cell_never_show_a_figure(tmp_path: Path) -> None:
+    nsc = study("doi:10.1/nsc", sources=["journals"], journal="Nature", pmcid="PMC1", **FIGURE)
+    data = warehouse(tmp_path / "data", studies=[nsc])
+    (data / "cache" / "figures").mkdir(parents=True)
+    for name in ("pmc1.webp", "pmc1-t.webp"):
+        (data / "cache" / "figures" / name).write_bytes(b"x")
+    out = build(tmp_path, data)  # even if a figure row reached it, it is not used
+    assert not (out / "static" / "fig").exists()

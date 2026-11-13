@@ -32,7 +32,7 @@
       {{ m.gap_if("types") }}
     </div>
     <div class="list" id="latest-list" data-page="{{ page_size }}">
-      {% for s in news.latest %}{{ m.row(s) }}{% endfor %}
+      {% for s in news.latest %}{{ m.row(s, thumb=True) }}{% endfor %}
     </div>
     {% if not news.latest %}<p class="empty-state">{{ t.latest_empty }}</p>{% endif %}
     <p class="empty" data-filter-empty hidden>{{ t.filter_empty }}</p>

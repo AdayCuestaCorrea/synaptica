@@ -21,11 +21,16 @@ New in SYNAPTICA:
 From Paleo again with the search (step 23), adapted to its index of
 ``[kind, text, extra, url]`` rows: every study page is in the search index of its language,
 and every local URL of the index points to an existing file.
+
+Added with the study figures (step 23b): nothing is loaded from another domain (images,
+scripts, stylesheets, fonts, CSS ``url()``), and every figure shows its authors' credit
+(``data-figure-credit``) next to its licence.
 """
 
 from __future__ import annotations
 
 import json
+import re
 import tomllib
 from dataclasses import dataclass, field
 from html.parser import HTMLParser
@@ -42,6 +47,14 @@ SIGNALS = ("review", "subject", "integrity")
 LINKED_FOLDERS = ("es/estudio", "en/study")
 SEARCH_INDEXES = (("es/buscar.json", "es/estudio"), ("en/search.json", "en/study"))
 I18N_DIR = Path(__file__).parent / "i18n"
+# Elements that make the browser load something: none may come from another domain
+# (CLAUDE.md: the site loads nothing from other domains; links to the originals are fine).
+RESOURCE_TAGS = {"img", "script", "source", "iframe", "video", "audio", "embed", "track",
+                 "object", "input"}  # fmt: skip
+RESOURCE_RELS = {"stylesheet", "icon", "preload", "modulepreload", "manifest", "prefetch",
+                 "apple-touch-icon", "preconnect", "dns-prefetch"}  # fmt: skip
+CSS_IMPORT = re.compile(r"""@import\s+['"]\s*(?:https?:)?//""", re.I)  # url() is CSS_URL
+CSS_URL = re.compile(r"""url\(\s*['"]?\s*(?:https?:)?//""", re.I)
 
 
 class _PageParser(HTMLParser):
@@ -54,6 +67,8 @@ class _PageParser(HTMLParser):
         self.stack: list[str] = []
         self.unbalanced: list[str] = []
         self.figures: list[tuple[bool, str]] = []  # (has an image, caption text)
+        self.figure_credits: list[tuple[str, str]] = []  # (data-figure-credit, caption)
+        self.external: list[str] = []  # resources loaded from another domain
         self._figure: list[Any] | None = None
         self._in_figcaption = False
         # Text of chosen elements, collected until the element closes.
@@ -82,7 +97,18 @@ class _PageParser(HTMLParser):
         if tag == "figcaption":
             self._in_figcaption = True
         if tag == "figure":
-            self._figure = [False, ""]
+            self._figure = [False, "", a.get("data-figure-credit")]
+        rels = set(a.get("rel", "").lower().split())
+        for name in ("src", "data", "poster"):
+            if tag in RESOURCE_TAGS and _external(a.get(name, "")):
+                self.external.append(a[name])
+        if tag in RESOURCE_TAGS and a.get("srcset"):
+            self.external += [u for u in (c.split()[0] for c in a["srcset"].split(",") if
+                                          c.strip()) if _external(u)]  # fmt: skip
+        if tag == "link" and rels & RESOURCE_RELS and _external(a.get("href", "")):
+            self.external.append(a["href"])
+        if _external_css(a.get("style", "")):
+            self.external.append(f"style of <{tag}>")
         if tag == "img" and a.get("src"):
             if self._figure is not None:
                 self._figure[0] = True
@@ -107,6 +133,8 @@ class _PageParser(HTMLParser):
             self._in_figcaption = False
         if tag == "figure" and self._figure is not None:
             self.figures.append((self._figure[0], self._figure[1]))
+            if self._figure[2] is not None:
+                self.figure_credits.append((self._figure[2], " ".join(self._figure[1].split())))
             self._figure = None
         if tag in VOID:
             return
@@ -161,6 +189,15 @@ def _target(ref: str, root: Path, page: Path) -> Path | None:
     return (page.parent / parsed.path).resolve()
 
 
+def _external(ref: str) -> bool:
+    ref = ref.strip()
+    return ref.startswith("//") or urlparse(ref).scheme in ("http", "https")
+
+
+def _external_css(text: str) -> bool:
+    return bool(CSS_URL.search(text) or CSS_IMPORT.search(text))
+
+
 def _licensed(caption: str) -> bool:
     lower = caption.lower()
     return "CC" in caption or "OFL" in caption or "domain" in lower or "dominio" in lower
@@ -209,6 +246,11 @@ def check_site(root: Path) -> CheckReport:
         for src, credit in parser.credited_images:
             if not _licensed(parser.texts_by_id.get(credit, "")):
                 report.problems.append(f"{rel}: image {src} without a licence in #{credit}")
+        for credit, caption in parser.figure_credits:
+            if not credit or credit not in caption:
+                report.problems.append(f"{rel}: figure without its authors' credit in sight")
+        for ref in parser.external:
+            report.problems.append(f"{rel}: resource from another domain {ref}")
         for src in parser.loose_images:
             report.problems.append(f"{rel}: image {src} without a credit")
         for study, signals in parser.studies:
@@ -224,6 +266,9 @@ def check_site(root: Path) -> CheckReport:
         for page in sorted((root / folder).glob("*.html")):
             if page.resolve() not in linked | redirects:
                 report.problems.append(f"{page.relative_to(root)}: no page links to it")
+    for css in sorted(root.rglob("*.css")):
+        if _external_css(css.read_text(encoding="utf-8")):
+            report.problems.append(f"{css.relative_to(root)}: loads from another domain")
     for index, folder in SEARCH_INDEXES:
         if not (root / index).exists():
             continue

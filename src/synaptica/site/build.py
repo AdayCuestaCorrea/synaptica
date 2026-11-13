@@ -163,6 +163,33 @@ class SiteBuilder:
             digest.update((dst / name).read_bytes())
         self.asset_v = digest.hexdigest()[:10]
 
+    def _figures(self) -> None:
+        """Copy each study figure from the private cache to ``static/fig/`` (step 23b), so
+        the site loads nothing from other domains. A figure whose files are not in the
+        cache (``syn figures`` has not fetched them again yet) is not shown."""
+        self.figures = 0
+        if self.news_data is None or self.data_dir is None:
+            return
+        n = self.news_data
+        src, dst = self.data_dir / "cache" / "figures", self.out / "static" / "fig"
+        # A study can be in several lists as separate records: every copy is updated.
+        records = [*n.latest, *n.nsc, *n.week_studies, *(e for e in n.examples.values() if e),
+                   *n.by_id.values()]  # fmt: skip
+        copied: set[str] = set()
+        for s in records:
+            f = s.get("figure")
+            if not f:
+                continue
+            if not ((src / f["file"]).is_file() and (src / f["thumb"]).is_file()):
+                s["figure"] = None
+                continue
+            if f["file"] not in copied:
+                dst.mkdir(parents=True, exist_ok=True)
+                for name in (f["file"], f["thumb"]):
+                    shutil.copyfile(src / name, dst / name)
+                copied.add(f["file"])
+        self.figures = len(copied)
+
     # -- pages ---------------------------------------------------------------------------
 
     def path(self, lang: str, kind: str, key: str | None = None) -> str:
@@ -357,6 +384,7 @@ class SiteBuilder:
     def build(self) -> dict[str, Any]:
         self._clean()
         self._static()
+        self._figures()
         for lang in LANGS:
             for kind in self.kinds:
                 getattr(self, kind)(lang)
@@ -368,7 +396,8 @@ class SiteBuilder:
             if "search" in self.kinds:
                 self.search_index(lang)
         self.root()
-        return {"pages": len(self.written), "kinds": list(self.kinds), "out": str(self.out)}
+        return {"pages": len(self.written), "kinds": list(self.kinds), "out": str(self.out),
+                "figures": self.figures}  # fmt: skip
 
 
 def build_site(out: Path, data_dir: Path | None = None) -> dict[str, Any]:
