@@ -1,5 +1,5 @@
 {# Home page, steps 21 and 23: hero, the six sections and «Today» (the featured study and
-   three headlines). The fact of the day comes with step 26. From the «Noche» mock-up (spikes/web/v3/templates/index.html.j2). #}
+   three headlines). The fact of the day (step 26) is a sentence of a verified summary, with its study. From the «Noche» mock-up (spikes/web/v3/templates/index.html.j2). #}
 {% extends "base.html.j2" %}
 {% import "macros.html.j2" as m with context %}
 {% block title %}{{ t.hub }}{% endblock %}
@@ -64,6 +64,14 @@
       {% endfor %}
     </div>
     <div class="today-side">
+      {% set fact = news.fact %}
+      {% if fact %}
+      <aside class="fact-day" aria-labelledby="fact-h">
+        <p class="label" id="fact-h">{{ t.fact_day }}</p>
+        <p class="fact-text">{{ fact.text[lang] }}</p>
+        <p class="fact-src">{{ t.fact_source }} <a href="{{ url('study', fact.study.slug) }}">{{ fact.study.journal or t.fact_study }}</a> · <span class="label label--ok">✓ {{ t.verified }}</span></p>
+      </aside>
+      {% endif %}
       <a class="week-link" href="{{ url('week') }}">{{ t.week_link }} · {{ news.week }} →</a>
     </div>
   </div>

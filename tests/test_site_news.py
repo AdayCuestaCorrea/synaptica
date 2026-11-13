@@ -238,3 +238,35 @@ def test_print_issue_date_is_shown_apart_not_as_the_day(tmp_path: Path) -> None:
     page = (out / "en/study/doi_10.1_glia.html").read_text()
     assert "Study in animals published in Glia in the January 2027 issue." in page
     assert "Print issue" in page and "January 2027" in page
+
+
+def _verified(data: Path, sid: str, en: list[str], es: list[str]) -> None:
+    for lang, lines in (("en", en), ("es", es)):
+        path = text_path(sid, lang, verified=True, derived_root=data / "derived")
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps({
+            "status": "verified", "generator": "groq/qwen",
+            "sentences": [{"text": t, "fact_ids": ["f1"]} for t in lines],
+            "judge": {"passed": True, "generator": "groq/oss"},
+        }), encoding="utf-8")  # fmt: skip
+
+
+def test_the_fact_of_the_day_is_a_verified_sentence_with_its_source(tmp_path: Path) -> None:
+    data = warehouse(tmp_path / "data")
+    home = (build(tmp_path, data) / "es/index.html").read_text()
+    assert "Dato del día" not in home  # no verified summary: no fact
+    _verified(data, "doi:10.1/new", ["Lead one.", "Lead two."], ["Uno.", "Dos."])
+    home = (build(tmp_path / "a", data) / "es/index.html").read_text()
+    assert "Dato del día" not in home  # the only verified study is the lead
+    _verified(
+        data,
+        "doi:10.1/trial",
+        ["It was tested.", "Seizures fell by 30%."],
+        ["Se probó.", "Las crisis bajaron un 30 %."],
+    )
+    out = build(tmp_path / "b", data)
+    es, en = (out / "es/index.html").read_text(), (out / "en/index.html").read_text()
+    # The newest verified study (by id on the same day: trial) leads; the other gives
+    # the fact, its second sentence, with its source linked.
+    assert '<p class="fact-text">Dos.</p>' in es and '<p class="fact-text">Lead two.</p>' in en
+    assert 'href="estudio/doi_10.1_new.html">Neuron</a>' in es

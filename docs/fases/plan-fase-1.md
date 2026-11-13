@@ -64,19 +64,19 @@ Leyenda: 🟢 se puede hacer en cuanto cierre la Fase 0 · 🟡 necesita la cola
 | 21 ✅ | Esqueleto: `build.py` con Jinja2, `i18n/{es,en}.toml`, rutas `es/` y `en/`, plantilla base con el aviso médico y el pie de licencias; `syn site --check` copiado de Paleo (hreflang, créditos, enlaces, huérfanas) **más** aviso médico en cada página y señales en cada estudio | build con datos sembrados | `site --check` verde |
 | 22 ✅ | Páginas fijas: Cómo evaluamos, Fuentes y licencias (generada desde la semilla de fuentes), Estado de los datos (desde `runs/`), Acerca de | `site --check` | las cuatro en ES y EN |
 | 23 ✅ | Neuro News: Última hora y Nature · Science · Cell, con sus señales; página semanal (25); estudios de ejemplo en «Cómo evaluamos»; buscador de la maqueta (v100) con la comprobación del índice de Paleo | idem | portada con datos de fixtures |
-| 24a 🟢 | Clásicos: propuesta semanal por citas de OpenAlex, que entra en la cola de Sofía; mientras no esté aprobado, el bloque no muestra nada | test «nada sin aprobar» | propuesta generada |
+| 24a ✅ | Clásicos: propuesta semanal por citas de OpenAlex, que entra en la cola de Sofía; mientras no esté aprobado, el bloque no muestra nada | test «nada sin aprobar» | propuesta generada |
 | 24b 🟡 | Aprobación de los Clásicos por el flujo D5 | — | bloque con los aprobados |
 | 25 ✅ | Resumen semanal (misma cadena y comprobaciones) | FakeLLM | página semanal ES y EN |
 | R ✅ | Cola de revisión: pasar `spikes/s4/` (models, intake, apply, review_page) a `src/synaptica/review/` según el ADR 0005; aplicar la frase que sugiera Sofía en la nota; activar `review-intake.yml` y la variable `REVIEWER_LOGIN` (🔵, ajustes de GitHub: con el OK de Aday) | tests de S4 pasados al paquete, sin red | la página de revisión sale del paquete y un Issue de prueba se aplica |
-| 26 🟢 | Dato curioso del día (**hueco en SCOPE**: no dice de dónde sale; propuesta: un hecho ya verificado de los resúmenes del día, con su cita) | test «el dato tiene fuente» | se decide con Aday antes del paso |
+| 26 ✅ | Dato curioso del día (**hueco en SCOPE**: no dice de dónde sale; propuesta: un hecho ya verificado de los resúmenes del día, con su cita) | test «el dato tiene fuente» | se decide con Aday antes del paso |
 | 23b | Figuras de PMC de acceso abierto en las tarjetas y en la página de cada estudio, cada una con su licencia (`spikes/web/images.py`); va después del 28, porque hay que decidir si los binarios van a la rama `data` (v101) | que cada figura lleve su licencia | figuras con crédito y `site --check` |
-| 27 🔵 | Pages: el sitio en la raíz, con la maqueta de S3 en `/spikes/s3/c/` (fusionar `pages.yml`; lo confirma Aday) | — | publicado y medido |
+| 27 ✅ | Pages: el sitio en la raíz, con la maqueta de S3 en `/spikes/s3/c/` (fusionar `pages.yml`; lo confirma Aday) | — | publicado y medido |
 
 ### G. Operación
 | # | Paso | Tests | Hecho cuando |
 |---|---|---|---|
-| 28 🔵 | `pipeline.yml`: cron y respaldo, `syn check`, ingesta, LLM con `continue-on-error`, build, site + check, informe y commit en la rama `data` (rechaza `cache/` y `.duckdb`); secretos `NCBI_API_KEY` y `GROQ_API_KEY` con el OK de Aday; activar `review-intake.yml` y la variable `REVIEWER_LOGIN` (paso R; hasta aquí, `syn review intake` a mano) | ejecución manual en seco | primera ejecución verde |
-| 29 🔵 | Espejo semanal de los marts en BigQuery (load jobs, WIF ya creado; cupo de 10 GiB de por vida medido en el informe) | test de la selección de marts y del tamaño | consumo anotado |
+| 28 ✅ | `pipeline.yml`: cron y respaldo, `syn check`, ingesta, LLM con `continue-on-error`, build, site + check, informe y commit en la rama `data` (rechaza `cache/` y `.duckdb`); secretos `NCBI_API_KEY` y `GROQ_API_KEY` con el OK de Aday; activar `review-intake.yml` y la variable `REVIEWER_LOGIN` (paso R; hasta aquí, `syn review intake` a mano) | ejecución manual en seco | primera ejecución verde |
+| 29 ✅ | Espejo semanal de los marts en BigQuery (load jobs, WIF ya creado; cupo de 10 GiB de por vida medido en el informe) | test de la selección de marts y del tamaño | consumo anotado |
 | 30 | 14 días autónomos, visto bueno de Sofía y `fase-1.md` | — | cierre |
 
 **Cola de revisión (paso R):** la necesitan el 14b y el 24b. Nada más de la Fase 1 depende de D5, porque solo Neuro Diseases bloquea la publicación, y es de la Fase 3.

@@ -103,6 +103,7 @@ uv run syn ingest biorxiv --days 7        # preprints de bioRxiv y medRxiv + enl
 uv run syn ingest journals                # RSS de Nature, Science y Cell (Crossref por ISSN de respaldo)
 uv run syn ingest news                    # SINC, The Conversation y ScienceDaily
 uv run syn ingest openalex                # tema y citas por DOI de las revistas generalistas
+uv run syn ingest classics                # los más citados de cada subcampo, una vez por semana (Clásicos)
 uv run syn news neuro [--provider groq]   # ¿es neurociencia? reglas de OpenAlex; el LLM solo con --provider
 uv run syn news classify --provider groq  # tipo de cada pieza de Neuro News (lee el almacén: antes syn build)
 uv run syn news group --provider groq     # misma noticia entre medios e idiomas (pares al LLM)
@@ -113,6 +114,8 @@ uv run syn judge --provider groq [--limit 40] [--until HH:MM] # juez de otra fam
 uv run syn recheck                        # vuelve a comprobar los textos en español que fallaron, sin LLM
 uv run syn weekly --provider groq [--week 2026-W45]   # resumen semanal: misma cadena, comprobaciones y juez
 uv run syn build                          # dbt build: modelos + tests (desde la Fase 1)
+uv run syn mirror export --out DIR        # marts a Parquet para el espejo semanal en BigQuery (tope 1 GiB)
+uv run syn mirror record --dir DIR [--stored S]   # anota filas y bytes en mirror/bigquery.jsonl
 uv run syn review queue --out Q                 # cola del día: resúmenes por muestreo (peor español primero), tope 40/10
 uv run syn review queue --out Q --run DIR       # … más los textos de una ejecución pasada (p. ej. runs/18/qwen9b)
 uv run syn review page --queue Q --out DIR      # páginas de revisión de Sofía (pública y privada)

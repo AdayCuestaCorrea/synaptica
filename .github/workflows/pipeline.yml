@@ -23,6 +23,10 @@ on:
         description: Classify and summarize with Groq
         type: boolean
         default: true
+      mirror:
+        description: Mirror the marts in BigQuery (otherwise only on Mondays)
+        type: boolean
+        default: false
 
 concurrency:
   group: pipeline
@@ -38,6 +42,7 @@ jobs:
     permissions:
       contents: write # commit to the data branch
       actions: read # step durations for the run report
+      id-token: write # OIDC token for the BigQuery mirror (Workload Identity Federation)
     env:
       SYN_DATA_DIR: ${{ github.workspace }}/data
       NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
@@ -99,7 +104,7 @@ jobs:
         run: |
           failed=""
           for cmd in "pubmed --days 3" "crossref --days 3" "europepmc --days 3" \
-                     "biorxiv --days 7" "journals" "news" "openalex"; do
+                     "biorxiv --days 7" "journals" "news" "openalex" "classics"; do
             uv run syn ingest $cmd || failed="$failed ${cmd%% *}"
           done
           if [ -n "$failed" ]; then
@@ -145,6 +150,45 @@ jobs:
       - name: dbt build
         if: ${{ !cancelled() && env.SKIP != 'true' }}
         run: uv run syn build
+
+      - name: Mirror due?
+        # Weekly (D1): on Mondays, or by hand. Each load replaces the tables, and the
+        # sandbox's 10 GiB of storage are for life (S2), so it is measured every time.
+        id: mirror
+        if: ${{ !cancelled() && env.SKIP != 'true' }}
+        run: |
+          if [ "$(date -u +%u)" = 1 ] || [ "${{ inputs.mirror }}" = true ]; then
+            echo "due=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: google-github-actions/auth@v3.0.0
+        if: ${{ !cancelled() && steps.mirror.outputs.due == 'true' }}
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_SA_EMAIL }}
+
+      - name: Mirror the marts in BigQuery
+        if: ${{ !cancelled() && steps.mirror.outputs.due == 'true' }}
+        continue-on-error: true # the site and the data commit do not depend on it
+        env:
+          GCP_PROJECT: ${{ vars.GCP_PROJECT }}
+        run: |
+          out="$RUNNER_TEMP/mirror"
+          uv run syn mirror export --out "$out"
+          bq --project_id="$GCP_PROJECT" --location=EU show synaptica >/dev/null 2>&1 \
+            || bq --project_id="$GCP_PROJECT" --location=EU mk --dataset synaptica
+          echo "{" > "$out/stored.json"
+          sep=""
+          for t in $(jq -r '.[].name' "$out/manifest.json"); do
+            bq --project_id="$GCP_PROJECT" --location=EU load --replace \
+              --source_format=PARQUET --parquet_enable_list_inference \
+              "synaptica.$t" "$out/$t.parquet"
+            bytes=$(bq --project_id="$GCP_PROJECT" show --format=json "synaptica.$t" | jq -r .numBytes)
+            echo "$sep\"$t\": $bytes" >> "$out/stored.json"
+            sep=","
+          done
+          echo "}" >> "$out/stored.json"
+          uv run syn mirror record --dir "$out" --stored "$out/stored.json" | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Build the website
         id: site

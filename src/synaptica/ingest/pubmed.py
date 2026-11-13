@@ -60,6 +60,7 @@ ARTICLE_ID_TYPES = {"pubmed", "doi", "pmc", "pmcid", "pii"}
 LOOKBACK_MARGIN = 2  # extra days of stored files read to know which PMIDs are already in
 MEDLINE_RECHECK_DAYS = 7
 MEDLINE_MAX_AGE_DAYS = 90
+ABSTRACT_DAYS = 7  # the summaries' window (narrative.pipeline.WINDOW_DAYS)
 # Final statuses: indexed with MeSH, or never to be indexed (NLM selects MEDLINE journals).
 FINAL_STATUSES = {"MEDLINE", "OLDMEDLINE", "PubMed-not-MEDLINE"}
 
@@ -237,6 +238,18 @@ def _cache_abstract(cache_root: Path, pmid: str, sections: Abstract) -> bool:
     return True
 
 
+def abstracts_missing(indexed: dict, cache_root: Path, today: dt.date) -> set[str]:
+    """Recent records with an abstract that is not in the cache (step 28: the cache is not
+    in git, and in Actions it starts empty or is evicted after 7 days unused). Only the
+    last :data:`ABSTRACT_DAYS` days, the window of the summaries: their efetch is asked
+    again so the summary chain and the judge can read them."""
+    since = today - dt.timedelta(days=ABSTRACT_DAYS - 1)
+    folder = cache_root / "pubmed" / "abstract"
+    return {p for p, e in indexed.items()
+            if e.first_seen >= since and e.payload.get("has_abstract")
+            and not (folder / f"{p}.json").exists()}  # fmt: skip
+
+
 # --- the step --------------------------------------------------------------------------
 
 
@@ -278,6 +291,7 @@ def ingest(
             for p, entry in indexed.items()
             if medline_recheck_due(entry.payload.get("status"), entry.first_seen, today)
         }
+        | abstracts_missing(indexed, cache_root, today)
     )
     records = fetch_medline(client, due, params, throttle)
     medline_versions = medline.save(
