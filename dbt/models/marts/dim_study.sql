@@ -101,13 +101,16 @@ select
             'Comment', 'Editorial', 'News', 'Erratum', 'Published Erratum',
             'review', 'review-article', 'case-report', 'letter', 'editorial', 'news'
         ]) as news_candidate,
-    t.news_type,
+    -- A Nature, Science or Cell paper is classified as an item of the journal feeds
+    -- (``journal:<doi>``, step 14a), the rest as ``study:<id>``.
+    coalesce(t.news_type, tj.news_type) as news_type,
     p.published_doi,
     po.preprint_doi,
     o.primary_field as openalex_field
 from merged as m
 left join {{ ref('int_study__integrity') }} as i on i.doi = m.doi
 left join {{ ref('stg_derived__news_types') }} as t on t.item_id = 'study:' || m.study_id
+left join {{ ref('stg_derived__news_types') }} as tj on tj.item_id = 'journal:' || m.doi
 left join {{ ref('int_preprints__latest') }} as p on p.doi = m.doi and p.published_doi is not null
 left join preprint_of as po on po.published_doi = m.doi
 left join (

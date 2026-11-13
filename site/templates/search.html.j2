@@ -1,0 +1,12 @@
+{# Search results page (plan, step 23): search.js fills it from the index; without
+   JavaScript it says so. From the «Noche» mock-up (spikes/web/v3/templates/search.html.j2). #}
+{% extends "base.html.j2" %}
+{% block title %}{{ t.search }}{% endblock %}
+{% block main %}
+<section class="prose search-page" data-search-page data-n="{{ t.search_n }}" data-none="{{ t.search_none }}">
+  <h1>{{ t.search }}</h1>
+  <p class="search-status" aria-live="polite">{{ t.search_hint }}</p>
+  <noscript><p>{{ t.search_noscript }}</p></noscript>
+  <ol class="results"></ol>
+</section>
+{% endblock %}

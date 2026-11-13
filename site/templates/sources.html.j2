@@ -1,0 +1,36 @@
+{# «Fuentes y licencias» / «Sources and licences» (plan, step 22), from the seeds
+   dbt/seeds/sources.csv and journals.csv and from images.toml. #}
+{% extends "base.html.j2" %}
+{% block title %}{{ t.sources }}{% endblock %}
+{% block main %}
+<article class="prose prose--wide">
+  <h1>{{ t.sources }}</h1>
+  <p>{{ t.sources_intro }}</p>
+  <h2>{{ t.sources_data }}</h2>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th scope="col">{{ t.col_source }}</th><th scope="col">{{ t.col_role }}</th><th scope="col">{{ t.col_takes }}</th><th scope="col">{{ t.col_licence }}</th></tr></thead>
+      <tbody>
+        {% for s in sources %}
+        <tr>
+          <th scope="row">{% if s.url %}<a href="{{ s.url }}" rel="noopener" target="_blank">{{ s.name }}</a>{% else %}{{ s.name }}{% endif %}
+            {% if s.source == "journals" %}<br><small>{% for j in journals %}<a href="{{ j.rss }}" rel="noopener" target="_blank">{{ j.name }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</small>{% endif %}</th>
+          <td data-label="{{ t.col_role }}">{{ s["role_" ~ lang] }}</td>
+          <td data-label="{{ t.col_takes }}">{{ s["takes_" ~ lang] }}</td>
+          <td data-label="{{ t.col_licence }}">{{ s["licence_" ~ lang] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <h2>{{ t.sources_ours }}</h2>
+  <p>{{ t.footer_text }}</p>
+  <h2>{{ t.sources_images }}</h2>
+  <ul>
+    <li>{{ t.img_hero.format(author=hero_author, licence=hero_licence) }}</li>
+    <li>{{ t.img_art }}</li>
+  </ul>
+  <h2>{{ t.sources_fonts }}</h2>
+  <p>{{ t.footer_fonts }}</p>
+</article>
+{% endblock %}

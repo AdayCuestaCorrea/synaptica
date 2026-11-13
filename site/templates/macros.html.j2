@@ -1,0 +1,129 @@
+{# Imported "with context": t and gaps come from the page. From the «Noche» mock-up
+   (spikes/web/v3/templates/macros.html.j2). #}
+
+{# Own drawing (CC BY-SA 4.0), inline so it takes the colours of the theme. #}
+{% macro art(name) -%}{% include "art/" ~ name ~ ".svg.j2" %}{%- endmacro %}
+
+{# A gap or proposal: a short tag that links to the list at the bottom of the page. #}
+{% macro gap(key) -%}
+{% set g = gaps[key] %}
+<a class="gap-tag gap-tag--{{ g[0] }}" href="#gap-{{ key }}"><span aria-hidden="true">{{ t[g[0]] }}</span><span class="vh">{{ t[g[0]] }}: {{ g[1] }}</span></a>
+{%- endmacro %}
+
+{% macro gap_list() -%}
+<section class="gaps" id="gaps" aria-labelledby="gaps-h">
+  <h2 id="gaps-h">{{ t.gaps_title }}</h2>
+  <p>{{ t.gaps_intro }}</p>
+  <ul>
+    {% for k, g in gaps.items() %}<li id="gap-{{ k }}"><strong class="gap-tag gap-tag--{{ g[0] }}">{{ t[g[0]] }}</strong> {{ g[1] }}</li>{% endfor %}
+  </ul>
+</section>
+{%- endmacro %}
+
+{# A gap only when the page has it (a list may or may not need it). #}
+{% macro gap_if(key) -%}{% if key in gaps %}{{ gap(key) }}{% endif %}{%- endmacro %}
+
+{# --- Studies (step 23). From the mock-up's macros and spikes/web/shared/parts.html.j2. --- #}
+
+{# The three signals as chips. Always the three, also «no notices». #}
+{% macro chips(s) -%}
+<ul class="chips">
+  {% for g in signals(s) %}
+  {% if g.provisional %}
+  <li class="chip chip--{{ g.key }} is-{{ g.state }} is-provisional" data-signal="{{ g.key }}"><a href="#gap-journal_name"><span class="vh">{{ g.label }}: </span>{{ g.short }}<span class="vh"> ({{ t.provisional }})</span></a></li>
+  {% else %}
+  <li class="chip chip--{{ g.key }} is-{{ g.state }}" data-signal="{{ g.key }}"><span class="vh">{{ g.label }}: </span>{{ g.short }}</li>
+  {% endif %}
+  {% endfor %}
+</ul>
+{%- endmacro %}
+
+{# The signals with their labels, for the study page. #}
+{% macro signals_full(s) -%}
+<dl class="signals">
+  {% for g in signals(s) %}
+  <div class="signal is-{{ g.state }}">
+    <dt>{{ g.label }}</dt>
+    <dd><span data-signal="{{ g.key }}">{{ g.text }}</span>{% if g.provisional %} {{ gap_if("journal_name") }}{% endif %}
+      {% if g.notices %}<small class="notices">{{ t.notices }}: {% for d in g.notices %}<a href="https://doi.org/{{ d }}" rel="noopener" target="_blank">{{ d }}</a>{% if not loop.last %}; {% endif %}{% endfor %}</small>{% endif %}</dd>
+  </div>
+  {% endfor %}
+</dl>
+{%- endmacro %}
+
+{% macro kicker(s) -%}
+<p class="kicker">{% if s.journal %}<span class="journal">{{ sj(s.journal) }}</span> · {% endif %}<time datetime="{{ s.shown_on or '' }}">{{ date(s.shown_on) or "—" }}</time>{% if s.issue_on %} · <span class="issue">{{ t.issue_of.format(month=month(s.issue_on)) }}</span>{% endif %}{% if s.type %} · <span class="type">{{ t["type_" ~ s.type] }}</span>{% endif %}</p>
+{%- endmacro %}
+
+{# The title is always the original English one: the LLM does not translate it yet. In a
+   list the gap is marked once, above it (mark=False); alone, next to the title. #}
+{% macro title_link(s, cls="row-title", tag="h3", mark=False) -%}
+<{{ tag }} class="{{ cls }}"><a href="{{ url('study', s.slug) }}" lang="en">{{ s.title or "—" }}</a>{% if mark and lang == "es" %} {{ gap_if("title_es") }}{% endif %}</{{ tag }}>
+{%- endmacro %}
+
+{# One study in a list. #}
+{% macro row(s, note=None) -%}
+<article class="row" data-type="{{ s.type or 'none' }}" data-study="{{ s.study_id }}">
+  <div class="row-text">
+    {{ kicker(s) }}
+    {{ title_link(s) }}
+    {{ chips(s) }}
+    {% if note %}<p class="row-note">{{ note }}</p>{% endif %}
+  </div>
+</article>
+{%- endmacro %}
+
+{# Verified summary or fallback text; full=True on the study page. #}
+{% macro summary(s, full=False) -%}
+{% set sm = s.summary[lang] %}
+{% if sm.kind == "verified" %}
+<div class="summary summary--verified">
+  <p class="summary-kind">✓ {{ t.verified }}</p>
+  {% if full %}
+  <ol class="sentences">
+    {% for line in sm.sentences %}<li>{{ line.text }}{% if s.url %} <a class="cite" href="{{ s.url }}" title="{{ t.cite }}" rel="noopener" target="_blank">[{{ loop.index }}]</a>{% endif %}</li>{% endfor %}
+  </ol>
+  <p class="summary-note">{{ t.verified_note }} {{ t.cite }}</p>
+  {% if sm.get("reviewed") %}<p class="summary-note">{{ t["reviewed_" ~ sm.reviewed] }}</p>{% endif %}
+  {% else %}
+  <p class="summary-text">{{ sm.sentences[0].text }}</p>
+  {% endif %}
+</div>
+{% else %}
+<div class="summary summary--fallback">
+  <p class="summary-kind">{{ t.fallback }}</p>
+  <p class="summary-text">{{ sm.text }}</p>
+  {% if full %}<p class="summary-note">{{ t.fallback_note }}</p>{% endif %}
+</div>
+{% endif %}
+{%- endmacro %}
+
+{% macro meta_table(s) -%}
+<dl class="meta">
+  {% if s.journal %}<dt>{{ t.journal }}</dt><dd>{{ s.journal }}</dd>{% endif %}
+  {% if s.issue_on %}
+  <dt>{{ t.entered }}</dt><dd>{{ date(s.entered_on) }}</dd>
+  <dt>{{ t.issue }}</dt><dd>{{ month(s.issue_on) }}</dd>
+  {% else %}
+  <dt>{{ t.date }}</dt><dd>{{ date(s.published_on) or "—" }}</dd>
+  {% endif %}
+  {% if s.authors %}<dt>{{ t.authors }}</dt><dd>{{ s.authors[:3] | join(", ") }}{% if s.authors | length > 3 %} {{ t.et_al }}{% endif %}</dd>{% endif %}
+  {% if s.doi %}<dt>DOI</dt><dd><a href="https://doi.org/{{ s.doi }}" rel="noopener" target="_blank">{{ s.doi }}</a></dd>{% endif %}
+  {% if s.pmid %}<dt>PMID</dt><dd><a href="https://pubmed.ncbi.nlm.nih.gov/{{ s.pmid }}/" rel="noopener" target="_blank">{{ s.pmid }}</a></dd>{% endif %}
+</dl>
+{%- endmacro %}
+
+{# A media story: every outlet that told it (one item until step 15 groups them). Only the
+   headline and the link: the feed summary is not ours to publish. #}
+{% macro story(items) -%}
+{% set first = items[0] %}
+<article class="story" data-story="{{ first.story_id }}">
+  <h3 class="story-title"><a href="{{ first.url }}" rel="noopener" target="_blank" lang="{{ first.lang }}">{{ first.title }}</a></h3>
+  <p class="story-count">{{ (t.sources_n if items | length == 1 else t.sources_n_pl).format(n=items | length) }}</p>
+  <ul class="story-sources">
+    {% for n in items %}
+    <li>{% if not loop.first %}<a href="{{ n.url }}" rel="noopener" target="_blank" lang="{{ n.lang }}">{{ n.outlet }}</a>{% else %}<span class="outlet">{{ n.outlet }}</span>{% endif %} <span class="langtag">{{ n.lang | upper }}</span> · <time datetime="{{ n.published_at }}">{{ date(n.published_at) }}</time> · <span class="lic">{{ n.license or t.licence_unknown }}</span></li>
+    {% endfor %}
+  </ul>
+</article>
+{%- endmacro %}

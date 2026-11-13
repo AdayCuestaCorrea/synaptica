@@ -1,0 +1,33 @@
+{# Weekly summary (plan, steps 23 and 25): the verified text of the last complete week, or
+   its fallback built from the data; then the studies it covers. From the «Noche» mock-up
+   (spikes/web/v3/templates/week.html.j2). #}
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m with context %}
+{% block title %}{{ t.week }}{% endblock %}
+{% block main %}
+<article class="prose">
+  {% if news %}
+  <p class="kicker">{{ t.week_of }} {{ news.week }}</p>
+  <h1>{{ t.week }}</h1>
+  {% set wt = news.week_text[lang] %}
+  {% if wt.kind == "verified" %}
+  <p class="label label--ok">✓ {{ t.verified }}</p>
+  <div class="week-text">{% for line in wt.sentences %}<p>{{ line.text }}</p>{% endfor %}</div>
+  {% else %}
+  <p class="label">{{ t.fallback }} {{ m.gap("week") }}</p>
+  <p class="week-text">{{ wt.text }}</p>
+  {% endif %}
+  <h2>{{ t.week_studies }} {{ m.gap_if("title_es") }}</h2>
+  {% if news.week_studies %}
+  <div class="list">
+    {% for s in news.week_studies %}{{ m.row(s) }}{% endfor %}
+  </div>
+  {% else %}
+  <p class="empty-state">{{ t.week_none }}</p>
+  {% endif %}
+  {% else %}
+  <h1>{{ t.week }}</h1>
+  <p>{{ t.no_data }} {{ m.gap("no_data") }}</p>
+  {% endif %}
+</article>
+{% endblock %}

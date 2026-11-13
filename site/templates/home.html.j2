@@ -1,0 +1,77 @@
+{# Home page, steps 21 and 23: hero, the six sections and «Today» (the featured study and
+   three headlines). The fact of the day comes with step 26. From the «Noche» mock-up (spikes/web/v3/templates/index.html.j2). #}
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m with context %}
+{% block title %}{{ t.hub }}{% endblock %}
+{% block main %}
+<section class="hero">
+  <div class="hero-text">
+    <h1>{{ t.hub }}</h1>
+    <p>{{ t.hub_sub }}</p>
+    <a class="jump" href="#hoy">{{ t.jump_today }} ↓</a>
+  </div>
+  <div class="hero-photo">
+    <img class="hero-img--dark" src="{{ static('img/cabecera-cerebro-oscuro.webp') }}" width="893" height="461" alt="{{ t.hero_alt }}" decoding="async" data-credit="credit-hero">
+    <img class="hero-img--light" src="{{ static('img/cabecera-cerebro-claro.webp') }}" width="893" height="461" alt="{{ t.hero_alt }}" decoding="async" data-credit="credit-hero">
+  </div>
+</section>
+
+<section class="sections" aria-label="{{ t.explore }}">
+  {% for sec in sections %}
+  {% if sec.key == "atlas" %}
+  <a class="card card--atlas" href="{{ atlas_url }}" rel="noopener" target="_blank">
+    <span class="card-title">{{ sec.name }}</span>
+    <span class="card-art">{{ m.art("atlas") }}</span>
+    <span class="card-text">{{ t["sec_" ~ sec.key] }} ↗</span>
+    <span class="tag tag--live">{{ t.preview }}</span>
+  </a>
+  {% else %}
+  <div class="card card--{{ sec.key }} card--soon">
+    <span class="card-title">{{ sec.name }}</span>
+    <span class="card-art">{{ m.art(sec.key) }}</span>
+    <span class="card-text">{{ t["sec_" ~ sec.key] }}</span>
+    <span class="tag">{{ t.soon_phase.format(n=sec.phase) }}<span class="soon-word"> · {{ t.soon_word }}</span></span>
+  </div>
+  {% endif %}
+  {% endfor %}
+</section>
+
+<section class="today" id="hoy" aria-labelledby="today-h">
+  <div class="sec-head">
+    <h2 id="today-h">{{ t.today }}</h2>
+    {% if news %}<span class="sec-date">{{ date(news.as_of, True) }}</span>
+    <a class="sec-more" href="{{ url('news') }}">{{ t.all_news }} ({{ news.latest | length }}) →</a>{% endif %}
+  </div>
+  {% if lead %}
+  <div class="today-grid">
+    <article class="lead" data-study="{{ lead.study_id }}">
+      <div class="lead-text">
+        {{ m.kicker(lead) }}
+        {{ m.title_link(lead, "lead-title", mark=True) }}
+        {{ m.chips(lead) }}
+        {% set sm = lead.summary[lang] %}
+        <p class="lead-sum">{% if sm.kind == "verified" %}<span class="label label--ok">✓ {{ t.verified }}</span> {{ sm.sentences[0].text }}{% else %}<span class="label">{{ t.fallback }}</span> {{ sm.text }}{% endif %}</p>
+        <p><a class="more" href="{{ url('study', lead.slug) }}">{{ t.read_more }} →</a></p>
+      </div>
+    </article>
+    <div class="today-list">
+      {% for s in headlines %}
+      <article class="headline-card" data-type="{{ s.type or 'none' }}" data-study="{{ s.study_id }}">
+        {{ m.kicker(s) }}
+        {{ m.title_link(s) }}
+        {{ m.chips(s) }}
+      </article>
+      {% endfor %}
+    </div>
+    <div class="today-side">
+      <a class="week-link" href="{{ url('week') }}">{{ t.week_link }} · {{ news.week }} →</a>
+    </div>
+  </div>
+  {% else %}
+  <p class="empty-state">{{ t.no_data }} {{ m.gap_if("no_data") }}</p>
+  {% endif %}
+</section>
+{% endblock %}
+{% block footer_images %}
+<p id="credit-hero">{{ t.footer_hero.format(author=hero_author, licence=hero_licence) }}{% if "hero_licence" in gaps %} {{ m.gap("hero_licence") }}{% endif %}</p>
+{% endblock %}

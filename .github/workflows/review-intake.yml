@@ -1,0 +1,101 @@
+# Review intake (plan, step R and 28; ADR 0005), from the draft spikes/s4/review-intake.yml.
+# Reads Sofía's review Issue, appends her decisions to the data branch, replies on the
+# Issue and closes it. Security:
+# - Only Issues by vars.REVIEWER_LOGIN run anything (checked here and again in the code).
+#   A variable, not a secret: her login is public anyway.
+# - The Issue body is untrusted text: it is never interpolated into a `run:` script
+#   (`${{ github.event.issue.body }}` would let a body inject shell commands). The code
+#   reads it from the event file that Actions writes, and picks the queue her page showed
+#   from the Issue's header (`syn review intake --queue-dir`).
+# - Least privilege: write access to contents (the data branch) and issues, nothing else.
+name: Review intake
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: review-intake
+  cancel-in-progress: false
+
+jobs:
+  intake:
+    if: >-
+      vars.REVIEWER_LOGIN != '' &&
+      github.event.issue.user.login == vars.REVIEWER_LOGIN &&
+      contains(github.event.issue.labels.*.name, 'revisión')
+    runs-on: ubuntu-latest
+    env:
+      SYN_DATA_DIR: ${{ github.workspace }}/data
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - name: Data branch
+        uses: actions/checkout@v7.0.1
+        with:
+          ref: data
+          path: data
+
+      - name: Abstracts to check her edits against (private cache, read only)
+        uses: actions/cache/restore@v6.1.0
+        with:
+          path: data/cache
+          key: synaptica-cache-${{ github.run_id }}
+          restore-keys: synaptica-cache-
+
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          enable-cache: true
+
+      - name: Install
+        run: uv sync --locked
+
+      - name: Read the Issue
+        id: intake
+        env:
+          REVIEWER: ${{ vars.REVIEWER_LOGIN }}
+        # Exit 2: an edited text has no source to check it against; the Issue stays open
+        # and Aday processes it by hand (`syn review intake --efetch`).
+        run: |
+          code=0
+          uv run syn review intake \
+            --event "$GITHUB_EVENT_PATH" \
+            --queue-dir data/review \
+            --reviewer "$REVIEWER" \
+            --reply "$RUNNER_TEMP/reply.md" > "$RUNNER_TEMP/outcome.json" || code=$?
+          cat "$RUNNER_TEMP/outcome.json"
+          echo "status=$(jq -r .status "$RUNNER_TEMP/outcome.json")" >> "$GITHUB_OUTPUT"
+          exit $code
+
+      - name: Commit to the data branch
+        if: steps.intake.outputs.status == 'processed'
+        working-directory: data
+        env:
+          NUMBER: ${{ github.event.issue.number }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add review/
+          if git diff --cached --name-only | grep -E '(^|/)cache/|\.duckdb'; then
+            echo "::error::private or local files staged; refusing to commit"
+            exit 1
+          fi
+          git diff --cached --quiet || git commit -q -m "data: review decisions from issue #$NUMBER"
+          git pull -q --rebase origin data
+          git push -q origin HEAD:data
+
+      - name: Reply and close
+        if: steps.intake.outputs.status == 'processed' || steps.intake.outputs.status == 'refused'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.issue.number }}
+          STATUS: ${{ steps.intake.outputs.status }}
+        run: |
+          gh issue comment "$NUMBER" --repo "$GITHUB_REPOSITORY" --body-file "$RUNNER_TEMP/reply.md"
+          if [ "$STATUS" = processed ]; then
+            gh issue close "$NUMBER" --repo "$GITHUB_REPOSITORY" --reason completed
+          fi

@@ -274,3 +274,101 @@ def test_spanish_that_fails_twice_keeps_the_english_and_falls_back_in_spanish(tm
     pipeline.run_judge(PassingJudge(), [STUDY], **kw)  # judges the English alone
     assert fallback.summary_for(STUDY, "en", derived_root=derived)["kind"] == "verified"
     assert fallback.summary_for(STUDY, "es", derived_root=derived)["kind"] == "fallback"
+
+
+def test_fallback_text_names_a_future_print_issue_not_a_day() -> None:
+    from synaptica.narrative.fallback import fallback_text
+
+    s = {"species": "animals", "journal": "Glia", "review_status": "journal",
+         "published_on": "2027-01-01", "entered_on": "2026-11-13"}  # fmt: skip
+    assert (
+        fallback_text(s, "es")
+        == "Estudio en animales publicado en Glia en el número de enero de 2027."
+    )
+    assert fallback_text(s | {"published_on": "2026-11-12"}, "en") == (
+        "Study in animals published in Glia on 12 November 2026."
+    )
+
+
+def test_quota_order_is_by_tiers_then_newest(tmp_path):
+    """SCOPE §8: (1) journal feeds, (2) linked to the media (empty for now), (3) the rest
+    published in a journal, (4) preprints and unknown; newest first within each tier."""
+    path = tmp_path / "w.duckdb"
+    with duckdb.connect(str(path)) as con:
+        con.execute(
+            "create table dim_study (study_id varchar, doi varchar, pmid varchar, pmcid "
+            "varchar, title varchar, journal varchar, published_on date, entered_on date, "
+            "sources varchar[], review_status varchar, species varchar, integrity varchar, "
+            "news_candidate boolean, news_type varchar)"
+        )
+        rows = [  # (id, entered, sources, review status, published)
+            ("pre-new", "2026-11-09", ["biorxiv"], "preprint", "2026-11-09"),
+            ("unknown", "2026-11-09", ["europepmc"], "unknown", "2026-11-09"),
+            ("journal-old", "2026-11-05", ["pubmed"], "journal", "2026-11-04"),
+            ("journal-issue", "2026-11-08", ["pubmed"], "journal", "2027-01-01"),
+            ("journal-new", "2026-11-08", ["pubmed"], "journal", "2026-11-08"),
+            ("nsc-old", "2026-11-04", ["journals"], "journal", "2026-11-04"),
+        ]
+        for sid, entered, sources, review, published in rows:
+            con.execute(
+                "insert into dim_study values (?, ?, null, null, 'T', 'J', ?, ?, ?, ?, "
+                "'humans', 'none', true, 'disease')",
+                [sid, sid, published, entered, sources, review],
+            )
+    got = [r["study_id"] for r in pipeline.studies_to_summarize(TODAY, path)]
+    assert got == ["nsc-old", "journal-issue", "journal-new", "journal-old", "pre-new",
+                   "unknown"]  # fmt: skip
+
+
+def test_the_deadline_is_the_next_time_of_day():
+    night = dt.datetime(2026, 11, 14, 1, 10)
+    assert pipeline.deadline("07:30", night) == dt.datetime(2026, 11, 14, 7, 30)
+    assert pipeline.deadline("07:30", night.replace(hour=23)) == dt.datetime(2026, 11, 15, 7, 30)
+    assert pipeline.deadline(None, night) is None
+
+
+def test_a_deadline_stops_before_the_next_study_and_the_rest_stays_pending(tmp_path):
+    cache_abstract(tmp_path)
+    cache_abstract(tmp_path, pmid="112")
+    two = [STUDY, {**STUDY, "study_id": "10.1/other", "pmid": "112"}]
+    ticks = iter([dt.datetime(2026, 11, 14, 7, 29), dt.datetime(2026, 11, 14, 7, 30)])
+    kw = {"derived_root": tmp_path / "d", "cache_root": tmp_path, "now": NOW}
+    result = pipeline.run_facts(FakeLLM(), two, until=dt.datetime(2026, 11, 14, 7, 30),
+                                clock=lambda: next(ticks), **kw)  # fmt: skip
+    assert (result.done, result.stopped) == (1, "deadline")
+    again = pipeline.run_facts(FakeLLM(), two, **kw)  # the next run resumes
+    assert (again.up_to_date, again.done, again.stopped) == (1, 1, None)
+
+
+def test_recheck_passes_a_spanish_text_once_the_checks_are_fixed(tmp_path, monkeypatch):
+    from synaptica.narrative import checks
+
+    derived, cache = tmp_path / "derived", tmp_path / "cache"
+    cache_abstract(cache)
+
+    class TypoLLM(FakeLLM):
+        def complete_json(self, system, user, output, max_tokens):
+            answer = super().complete_json(system, user, output, max_tokens)
+            if output.__name__ == "AdaptedText":
+                answer.sentences[1].text = answer.sentences[1].text.replace("animales", "animlaes")
+            return answer
+
+    kw = {"derived_root": derived, "cache_root": cache, "now": NOW}
+    pipeline.run_facts(TypoLLM(), [STUDY], **kw)
+    pipeline.run_write(TypoLLM(), [STUDY], **kw)
+    assert pipeline.run_recheck(derived, NOW).counts == {"failed": 1}  # still a typo
+
+    real = write_mod.prompt_versions
+    monkeypatch.setattr(write_mod, "prompt_versions", lambda: {**real(), "es": "next"})
+    assert pipeline.run_recheck(derived, NOW).counts == {"stale": 1}  # `syn write` redoes it
+    monkeypatch.setattr(write_mod, "prompt_versions", real)
+
+    # The word turns out to be valid (step 20: terms the dictionary lacked).
+    monkeypatch.setattr(checks, "_extra_words", lambda: frozenset({"animlaes"}))
+    assert pipeline.run_recheck(derived, NOW).counts == {"verified": 1}
+    shown = json.loads(write_mod.text_path("10.1/spindles", "es", verified=True,
+                                           derived_root=derived).read_text())  # fmt: skip
+    assert shown["problems"] == [] and shown["rechecked_at"] == NOW.isoformat()
+    assert pipeline.run_recheck(derived, NOW).total == 0  # nothing left: idempotent
+    assert pipeline.run_judge(PassingJudge(), [STUDY], **kw).counts == {"passed": 1}
+    assert fallback.summary_for(STUDY, "es", derived_root=derived)["kind"] == "verified"

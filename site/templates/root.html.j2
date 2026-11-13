@@ -1,0 +1,20 @@
+{# The root of the site: sends to the Spanish home page and links to both languages. #}
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ t.es.root_title }}</title>
+<meta http-equiv="refresh" content="0; url={{ homes.es }}">
+<link rel="alternate" hreflang="es" href="{{ homes.es }}">
+<link rel="alternate" hreflang="en" href="{{ homes.en }}">
+<link rel="stylesheet" href="{{ static('synaptica.css') }}?v={{ asset_v }}">
+</head>
+<body>
+<main class="wrap">
+  <p><a href="{{ homes.es }}" lang="es">{{ t.es.lang_name }}</a> · <a href="{{ homes.en }}" lang="en">{{ t.en.lang_name }}</a></p>
+  <p class="disclaimer" lang="es">{{ t.es.disclaimer }}</p>
+  <p class="disclaimer" lang="en">{{ t.en.disclaimer }}</p>
+</main>
+</body>
+</html>

@@ -125,6 +125,11 @@ def _atomic_write(path: Path, text: str) -> None:
     tmp.replace(path)
 
 
+def _daily_limit(r: httpx.Response) -> bool:
+    text = r.text.lower()
+    return "per day" in text or "(tpd)" in text or "(rpd)" in text
+
+
 def post_json(
     client: httpx.Client,
     url: str,
@@ -144,6 +149,11 @@ def post_json(
             continue
         if r.status_code < 400:
             return r
+        if r.status_code == 429 and _daily_limit(r):
+            # Waiting cannot help: the provider counts a day (step 28; Groq says "tokens per
+            # day (TPD)" or "requests per day (RPD)"). The command stops, as with our own
+            # count, instead of retrying every study for hours.
+            raise QuotaExhausted(f"provider daily limit: {r.text[:200]}")
         if r.status_code == 429 or r.status_code >= 500:
             if attempt == retries:
                 raise HttpError(r.status_code, r.text[:500])
@@ -413,3 +423,28 @@ class LLM:
                 raise
         self.last_headers = {k: v for k, v in r.headers.items() if k.startswith("x-ratelimit")}
         return r.json()
+
+
+def check_key(provider_name: str, client: httpx.Client | None = None) -> tuple[bool, str]:
+    """Is the provider's API key set and accepted? ``GET /models``, which spends no tokens
+    (step 28, option A of Aday): in Actions the LLM steps run with ``continue-on-error``,
+    so a missing or revoked key would leave the run green with fallback texts, as it did
+    once in paleo-atlas. The key itself is never printed."""
+    provider = PROVIDERS[provider_name]
+    if not provider.api_key_env:
+        return True, "local provider, no key"
+    key = provider.api_key()
+    if not key:
+        return False, f"{' or '.join(provider.api_key_env)} not set"
+    own = client is None
+    client = client or httpx.Client(timeout=30, headers={"User-Agent": USER_AGENT})
+    try:
+        r = client.get(f"{provider.base_url}/models", headers={"Authorization": f"Bearer {key}"})
+    except httpx.TransportError as exc:
+        return False, f"{provider.name} unreachable ({type(exc).__name__})"
+    finally:
+        if own:
+            client.close()
+    if r.status_code == 200:
+        return True, f"{provider.name} accepts the key"
+    return False, f"{provider.name} refused the key (HTTP {r.status_code})"

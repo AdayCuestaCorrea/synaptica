@@ -28,6 +28,8 @@ news_app = typer.Typer(help="Neuro News: neuroscience filter, type and grouping.
 app.add_typer(news_app, name="news")
 eval_app = typer.Typer(help="Evaluations against hand labels (eval/).")
 app.add_typer(eval_app, name="eval")
+review_app = typer.Typer(help="Sofía's review queue: her page and her Issues (ADR 0005).")
+app.add_typer(review_app, name="review")
 
 
 def _llm(provider: str | None, model: str | None):
@@ -115,9 +117,19 @@ def run_checks() -> list[Check]:
 
 
 @app.command()
-def doctor() -> None:
+def doctor(
+    llm: Annotated[
+        str | None,
+        typer.Option(help="Also check that this provider accepts its API key (no tokens)."),
+    ] = None,
+) -> None:
     """Check the environment and the variables the pipeline needs (exit 1 on a failure)."""
     checks = run_checks()
+    if llm:
+        from synaptica.llm import check_key
+
+        ok, detail = check_key(llm)
+        checks.append(Check(f"{llm} API key", ok, detail))
     for c in checks:
         mark = "✓" if c.ok else "✗"
         note = "" if c.required else " (optional)"
@@ -421,6 +433,9 @@ def eval_news(
 
 
 LimitOption = Annotated[int | None, typer.Option(help="Call the model for N studies at most.")]
+UntilOption = Annotated[
+    str | None, typer.Option(help="Start no new study after this local time (HH:MM).")
+]
 StudyOption = Annotated[
     list[str] | None, typer.Option("--study", help="Only this study_id (repeatable).")
 ]
@@ -438,8 +453,19 @@ def _narrative_studies(study: list[str] | None) -> list[dict]:
 
 def _outcomes(verb: str, result) -> str:
     counts = ", ".join(f"{k} {v}" for k, v in sorted(result.counts.items())) or "nothing new"
-    return (f"{verb} {result.done} of {result.total} studies "
+    line = (f"{verb} {result.done} of {result.total} studies "
             f"({result.up_to_date} up to date): {counts}")  # fmt: skip
+    if result.stopped == "deadline":
+        line += "; deadline reached, the rest stays pending"
+    return line
+
+
+def _until(until: str | None):
+    import datetime as dt
+
+    from synaptica.narrative import pipeline
+
+    return pipeline.deadline(until, dt.datetime.now())
 
 
 @app.command()
@@ -448,6 +474,7 @@ def facts(
     model: ModelOption = None,
     limit: LimitOption = None,
     study: StudyOption = None,
+    until: UntilOption = None,
 ) -> None:
     """Verified facts of the studies to summarize -> derived/facts/ (quotes only in
     data/cache/). Reads the warehouse: run `syn build` and `syn news classify` first."""
@@ -462,7 +489,9 @@ def facts(
     studies = _narrative_studies(study)
     try:
         with make_client() as client:  # Europe PMC full text, on demand
-            result = pipeline.run_facts(llm, studies, client=client, limit=limit)
+            result = pipeline.run_facts(
+                llm, studies, client=client, limit=limit, until=_until(until)
+            )
     except QuotaExhausted as exc:
         typer.echo(f"LLM quota used up: {exc}; the rest waits for the next run", err=True)
         raise typer.Exit(0) from exc
@@ -475,6 +504,7 @@ def write(
     model: ModelOption = None,
     limit: LimitOption = None,
     study: StudyOption = None,
+    until: UntilOption = None,
 ) -> None:
     """English and Spanish summaries from the facts, checked -> derived/texts/ (or
     derived/texts_review/ when they fail; the site then shows the fallback text)."""
@@ -487,11 +517,22 @@ def write(
         raise typer.Exit(0)
     studies = _narrative_studies(study)
     try:
-        result = pipeline.run_write(llm, studies, limit=limit)
+        result = pipeline.run_write(llm, studies, limit=limit, until=_until(until))
     except QuotaExhausted as exc:
         typer.echo(f"LLM quota used up: {exc}; the rest waits for the next run", err=True)
         raise typer.Exit(0) from exc
     typer.echo(_outcomes("Wrote", result))
+
+
+@app.command()
+def recheck() -> None:
+    """Today's Spanish checks again on the failed Spanish texts, with no model call: those
+    that pass now move to derived/texts/ (still to be judged)."""
+    from synaptica.narrative import pipeline
+
+    result = pipeline.run_recheck()
+    counts = ", ".join(f"{k} {v}" for k, v in sorted(result.counts.items())) or "nothing"
+    typer.echo(f"Rechecked {result.done} Spanish texts: {counts}")
 
 
 # Decision D4: the judge is of another family than the writer.
@@ -504,6 +545,7 @@ def judge(
     model: ModelOption = None,
     limit: LimitOption = None,
     study: StudyOption = None,
+    until: UntilOption = None,
 ) -> None:
     """Independent judge (another model family) on the verified summaries: a text is
     published only if it passes; a rejected one goes to derived/texts_review/."""
@@ -519,7 +561,7 @@ def judge(
         raise typer.Exit(1)
     studies = _narrative_studies(study)
     try:
-        result = pipeline.run_judge(LLM(provider, name), studies, limit=limit)
+        result = pipeline.run_judge(LLM(provider, name), studies, limit=limit, until=_until(until))
     except QuotaExhausted as exc:
         typer.echo(f"LLM quota used up: {exc}; the rest waits for the next run", err=True)
         raise typer.Exit(0) from exc
@@ -593,6 +635,33 @@ def build(
 
 
 @app.command()
+def site(
+    out: Annotated[str | None, typer.Option(help="Output folder [default: site/_build].")] = None,
+    check: Annotated[
+        bool, typer.Option("--check", help="Only check the built site (links, hreflang…).")
+    ] = False,
+) -> None:
+    """Render the static website (ES + EN), or check it (adapted from paleo-atlas)."""
+    out_dir = Path(out) if out else config.project_root() / "site" / "_build"
+    if check:
+        from synaptica.site.check import check_site
+
+        result = check_site(out_dir)
+        for problem in result.problems[:50]:
+            typer.echo(f"  {problem}")
+        typer.echo(f"Checked {result.pages} pages: {len(result.problems)} problems")
+        raise typer.Exit(0 if result.passed else 1)
+    from synaptica.site.build import build_site
+
+    try:
+        built = build_site(out_dir, data_dir=config.get_paths().data)
+    except RuntimeError as exc:  # a folder `syn site` did not create
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(1) from exc
+    typer.echo(f"Site: {built['pages']} pages ({', '.join(built['kinds'])}) → {out_dir}")
+
+
+@app.command()
 def check() -> None:
     """Exit 0 if any source has something new, 1 if nothing changed and 2 if the check
     itself failed (adapted from paleo-atlas, its ADR D10). On 2 the workflow runs
@@ -626,3 +695,106 @@ def check() -> None:
         raise typer.Exit(0)
     typer.echo("no changes")
     raise typer.Exit(1)
+
+
+# --- review queue (plan, step R; ADR 0005) -------------------------------------------------
+
+QueueOption = Annotated[Path, typer.Option(help="Review queue (JSON) the page shows.")]
+
+
+def _review_dir() -> Path:
+    """Her decision log: ``review/`` in the data folder (the data branch, from step 28)."""
+    return config.get_paths().data / "review"
+
+
+@review_app.command("queue")
+def review_queue(
+    out: Annotated[Path, typer.Option(help="Write the queue (JSON) here.")],
+    today: Annotated[str | None, typer.Option(help="Day (ISO, UTC); default today.")] = None,
+    run: Annotated[
+        list[Path] | None,
+        typer.Option(help="Also a past run's texts (its derived/ and summary.json); repeatable."),
+    ] = None,
+) -> None:
+    """Today's queue: every source of items, minus what she decided, capped (40 on a
+    weekday, 10 at the weekend). Then ``syn review page --queue`` on the same file."""
+    import datetime as dt
+
+    from synaptica.review.collect import collect, run_spot_checks
+
+    paths = config.get_paths()
+    day = dt.date.fromisoformat(today) if today else dt.datetime.now(dt.UTC).date()
+    extra = [item for r in run or [] for item in run_spot_checks(r)]
+    q = collect(paths.data / "warehouse.duckdb", paths.derived, _review_dir(), day, extra)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(q.model_dump_json(indent=1) + "\n", encoding="utf-8")
+    held = sum(bool(i.warnings) for i in q.items)
+    typer.echo(f"queue: {len(q.items)} items ({held} held edits) -> {out}")
+
+
+@review_app.command("page")
+def review_page(
+    queue: QueueOption,
+    out: Annotated[Path, typer.Option(help="Folder for the pages.")],
+    label: Annotated[str, typer.Option(help="Round label, in the file names.")] = "",
+) -> None:
+    """Her two review pages (public, and private for Neuro Diseases) from a queue."""
+    from synaptica.review.models import Queue
+    from synaptica.review.page import OUT, page_items, render
+
+    q = Queue.model_validate_json(queue.read_text("utf-8"))
+    out.mkdir(parents=True, exist_ok=True)
+    for variant, default in OUT.items():
+        items = page_items(q, variant)
+        if not items:
+            continue  # no empty page to send her
+        name = f"{default.stem}-{label}{default.suffix}" if label else default.name
+        (out / name).write_text(render(q, variant, label), encoding="utf-8")
+        typer.echo(f"{variant}: {len(items)} items -> {out / name}")
+
+
+@review_app.command("round")
+def review_round(
+    queue: QueueOption, out: Annotated[Path, typer.Option(help="Folder of the round.")]
+) -> None:
+    """Next round: apply her log to the queue and write what still waits for her."""
+    from synaptica.review.apply import publishable
+    from synaptica.review.models import Queue
+    from synaptica.review.rounds import round_pages
+
+    q = Queue.model_validate_json(queue.read_text("utf-8"))
+    waiting, sts = round_pages(q, _review_dir(), out)
+    published = sum(publishable(st) for st in sts.values())
+    typer.echo(f"waiting: {len(waiting.items)} · publishable: {published} -> {out}")
+
+
+@review_app.command("intake")
+def review_intake(
+    event: Annotated[Path, typer.Option(help="The GitHub `issues` event (JSON).")],
+    reviewer: Annotated[str, typer.Option(help="Her GitHub login (a repository variable).")],
+    reply: Annotated[Path, typer.Option(help="Write the reply for the Issue here.")],
+    cache_root: Annotated[Path | None, typer.Option(help="Abstract cache.")] = None,
+    efetch: Annotated[
+        list[Path] | None,
+        typer.Option(help="PubMed efetch XML for abstracts not in the cache; repeatable."),
+    ] = None,
+    queue: Annotated[Path | None, typer.Option(help="Review queue (JSON) the page showed.")] = None,
+    queue_dir: Annotated[
+        Path | None, typer.Option(help="Or pick queue-<day>.json here by the Issue's header.")
+    ] = None,
+) -> None:
+    """Read one of her Issues: applied, held (back to her queue) or refused; exit 2 when an
+    edited text has no source to check it against (the Issue waits)."""
+    import json
+
+    from synaptica.review.intake import queue_for, run
+
+    if queue is None and queue_dir is not None:
+        queue = queue_for(event, queue_dir)
+    if queue is None:
+        typer.echo("No queue: pass --queue, or --queue-dir with a queue-<day>.json.", err=True)
+        raise typer.Exit(1)
+    result = run(event, queue, _review_dir(), reviewer, reply, cache_root=cache_root, efetch=efetch)
+    typer.echo(json.dumps(result))
+    if result["status"] == "error":
+        raise typer.Exit(2)

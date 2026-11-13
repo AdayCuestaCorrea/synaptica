@@ -29,7 +29,7 @@ Documentos de referencia:
 **Contenido de salud.**
 - El aviso «no es consejo médico» se ve en todas las páginas. La web nunca recomienda tratamientos.
 - Una ficha de Neuro Diseases solo se genera si su aprobación por Sofía está registrada en los datos (por ejemplo `reviewed_by`, `reviewed_at`).
-- Cada estudio muestra sus señales: revisado por pares o preprint, en humanos o en animales, retractado o corregido.
+- Cada estudio muestra sus señales: publicado en revista o preprint (la web explica en «Cómo evaluamos» que lo primero no prueba la revisión por pares), en humanos o en animales, retractado o corregido.
 
 **Textos generados con LLM.**
 - Pasan las mismas comprobaciones que en Paleo Atlas: cada frase cita su fuente, las cifras y los nombres coinciden con ella, y nunca hay 8 o más palabras seguidas copiadas.
@@ -89,6 +89,7 @@ docs/                propuesta.md, fuentes.md, adr/, fases/
 uv sync
 uv run syn --help
 uv run syn doctor                         # entorno y variables necesarias (exit 1 si falta algo)
+uv run syn doctor --llm groq              # … y que Groq acepta la clave (sin gastar tokens): la CI se pone en rojo si no
 uv run syn report start --trigger local   # abre el registro de una ejecución en data/runs/
 uv run syn report finish                  # lo completa e imprime el informe en Markdown
 uv run syn report ran-today               # exit 0 si hoy (UTC) ya hubo una ejecución correcta
@@ -106,14 +107,21 @@ uv run syn news neuro [--provider groq]   # ¿es neurociencia? reglas de OpenAle
 uv run syn news classify --provider groq  # tipo de cada pieza de Neuro News (lee el almacén: antes syn build)
 uv run syn news group --provider groq     # misma noticia entre medios e idiomas (pares al LLM)
 uv run syn eval news --gold eval/news/labels.csv [--pairs eval/news/pairs.csv]   # macro F1 del LLM y del baseline (grupo eval)
-uv run syn facts --provider groq [--limit 40]   # hechos verificados de los estudios a resumir (lee el almacén)
-uv run syn write --provider groq [--limit 40]   # resumen EN → ES con comprobaciones; si falla, texto de respaldo
-uv run syn judge --provider groq [--limit 40]   # juez de otra familia (gpt-oss-120b): sin su aprobado no se publica
+uv run syn facts --provider groq [--limit 40] [--until HH:MM] # hechos verificados de los estudios a resumir (lee el almacén)
+uv run syn write --provider groq [--limit 40] [--until HH:MM] # resumen EN → ES con comprobaciones; si falla, texto de respaldo
+uv run syn judge --provider groq [--limit 40] [--until HH:MM] # juez de otra familia (gpt-oss-120b): sin su aprobado no se publica
+uv run syn recheck                        # vuelve a comprobar los textos en español que fallaron, sin LLM
 uv run syn weekly --provider groq [--week 2026-W45]   # resumen semanal: misma cadena, comprobaciones y juez
 uv run syn build                          # dbt build: modelos + tests (desde la Fase 1)
+uv run syn review queue --out Q                 # cola del día: resúmenes por muestreo (peor español primero), tope 40/10
+uv run syn review queue --out Q --run DIR       # … más los textos de una ejecución pasada (p. ej. runs/18/qwen9b)
+uv run syn review page --queue Q --out DIR      # páginas de revisión de Sofía (pública y privada)
+uv run syn review round --queue Q --out DIR     # siguiente ronda: aplica su registro y deja lo pendiente
+uv run syn review intake --event E (--queue Q | --queue-dir D) --reviewer LOGIN --reply R [--efetch X]   # lee un Issue suyo (exit 2: espera fuente)
 SYN_DATA_DIR=/tmp/syn-ci uv run python scripts/seed_fixture_data.py   # fixtures como si vinieran de las fuentes
 SYN_DATA_DIR=/tmp/syn-ci uv run syn build --as-of 2026-11-09          # dbt sobre esas fixtures (como la CI)
 uv run syn site && uv run syn site --check
+scripts/gpu_batch.sh RUN_DIR CMD...       # lote LLM local: systemd-inhibit, vitales de la GPU a CSV, para a 85 °C
 ```
 
 Actualiza esta lista cada vez que se añada un comando.

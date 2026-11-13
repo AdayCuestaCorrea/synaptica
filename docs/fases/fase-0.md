@@ -127,7 +127,7 @@ D2, D6 y D7 siguen con la recomendación de `SCOPE.md` §8:
 - «El contenido de salud tiene dos barreras: comprobaciones mecánicas y un juez de otra familia de modelos. Medí cuánto coincide el juez con una revisora humana (kappa ≈ 0,60) en vez de suponerlo.»
 
 ## Lo que pasa a la Fase 1
-- Pasar el script de datos del visor (`spikes/s3/build_assets.py`) a `src/synaptica/atlas/` con tests, y reescribir el visor en `site/static/` (ADR D3).
+- Pasar el script de datos del visor (`spikes/s3/build_assets.py`) a `src/synaptica/atlas/` con tests, y reescribir el visor en `site/static/` (ADR D3). *Corrección (2026-11-13, SCOPE v98): se hace en la Fase 2, con Neuro Atlas y después de su estudio de UX; en la Fase 1 la portada enlaza al prototipo de S3.*
 - El espejo semanal de los marts en BigQuery (D1).
 - Volver a ejecutar S5 con los prompts v2 (D4).
 - El flujo de revisión de Sofía según el ADR de D5: activar el workflow de recepción (con permiso de Aday), pasar el código al paquete y aplicar las frases que sugiera en la nota.

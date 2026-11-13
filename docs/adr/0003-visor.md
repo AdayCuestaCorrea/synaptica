@@ -73,6 +73,8 @@ En un móvil real (Samsung Galaxy S23 Ultra, con Chrome y Brave) funciona. Al to
 
 En la Fase 1, el script de S3 (`spikes/s3/build_assets.py`) pasa a `src/synaptica/atlas/` con tests, y el visor a `site/static/`. El código del spike no se publica tal cual: se reescribe a partir de él.
 
+> **Corrección (2026-11-13, SCOPE v98):** ese paso se hace en la **Fase 2**, al construir Neuro Atlas y después de su estudio de UX, que puede cambiar el visor. Durante la Fase 1 la portada enlaza al prototipo de S3 en `/spikes/s3/c/`, presentado como prototipo; «no se publica tal cual» se refiere a la sección Neuro Atlas.
+
 ## Alternativas consideradas
 - **siibra-explorer embebido (A):**
   - clicar una región exige un plugin que se aprueba en cada visita;

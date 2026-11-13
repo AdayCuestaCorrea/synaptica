@@ -1,0 +1,20 @@
+{# «Cómo evaluamos» / «How we evaluate» (plan, steps 22 and 23): the text, then one real
+   study per state (retracted, corrected, preprint) from the warehouse, or a gap. #}
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m with context %}
+{% block title %}{{ t.method }}{% endblock %}
+{% block main %}
+<article class="prose">
+  <h1>{{ t.method }}</h1>
+  <p class="draft">{{ t.draft }} · {{ m.gap("method_review") }}</p>
+  {% include "text/method_" ~ lang ~ ".html.j2" %}
+  <section class="examples" aria-labelledby="examples-h">
+    <h2 id="examples-h">{{ t.examples }}</h2>
+    <p>{{ t.examples_intro }} {{ m.gap_if("title_es") }}</p>
+    {% for state, s in examples %}
+    <h3>{{ t["example_" ~ state] }}</h3>
+    {% if s %}{{ m.row(s) }}{% else %}<p>{{ m.gap("example_" ~ state) }}</p>{% endif %}
+    {% endfor %}
+  </section>
+</article>
+{% endblock %}

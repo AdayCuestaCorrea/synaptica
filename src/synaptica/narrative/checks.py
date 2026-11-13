@@ -278,19 +278,33 @@ OVERCLAIMS: dict[str, tuple[str, str]] = {  # key -> (English regex, Spanish reg
     "alarm": (r"\balarming|devastating|deadly|terrifying|epidemic of",
               r"\balarmante|devastador\w*|mortal(?:es)?\b|aterrador\w*|epidemia de"),
 }  # fmt: skip
-CAUSAL = (r"\bcaus(?:e|es|ed|ing)\b|\blead(?:s|ing)? to\b|\bled to\b|\bdriv(?:e|es|en)\b"
-          r"|\bcontribut\w+ to\b|\bresults? in\b|\btriggers?\b|\bdue to\b|\bbecause of\b",
-          r"\bcausa\w*|\bprovoca\w*|\bconduce\w* a\b|\bcontribuy\w+ a\b"
+# Every tense (step 18: "resulted in" and "triggered" passed in English, and only the
+# Spanish check caught "desencadenaban").
+CAUSAL = (r"\bcaus(?:e|es|ed|ing)\b|\blead(?:s|ing)? to\b|\bled to\b"
+          r"|\bdr(?:ive|ives|iven|ove|iving)\b|\bcontribut\w+ to\b"
+          r"|\bresult(?:s|ed|ing)? in\b|\btrigger(?:s|ed|ing)?\b"
+          r"|\bdue to\b|\bbecause of\b",
+          r"\bcaus(?:a|an|as|ó|aron|ando|ar|ad[oa]s?|ará|arán|aría|arían)\b|\bprovoca\w*"
+          r"|\bconduce\w* a\b|\bcontribuy\w+ a\b"
           r"|\bdesencadena\w*")  # fmt: skip
 PREDICTS = (r"\bpredict\w*|\bforecast\w*", r"\bpredec\w*|\bpredic\w*|\bpronostic\w*")
 # Words of uncertainty only: "associated" is not a hedge but a description (turning it
-# into a cause is the causal rule's job), and "could" and "appear" are too often ability
-# or sight ("could be measured", "a line appeared") to count.
-HEDGES = (r"\bmay\b|\bmight\b|\bsuggest\w*|\bpossibl\w*|\blikely\b|\b(?:appears?|seems?) to\b"
+# into a cause is the causal rule's job), and "appear" is too often sight ("a line
+# appeared") to count. "Could" counts unless it is ability ("could be measured", "could
+# be seen": a participle follows); step 18 found "could be a helpful tool" flagged as
+# certain. In Spanish the causal rule is the verb and the noun, not "causal" nor
+# "causalidad", as in English ("does not establish causality" was flagged).
+# Step 20 (184 texts): "more likely" and "less likely" compare probabilities, they do not
+# hedge (as "associated"); "suggest" is also "proponer" and "sugerir" in the past
+# ("sugerían"), "could" also "podía", "unclear" also "poco claro".
+HEDGES = (r"\bmay\b|\bmight\b|\bsuggest\w*|\bpossibl\w*|(?<!more )(?<!less )\blikely\b"
+          r"|\b(?:appears?|seems?) to\b"
+          r"|\bcould (?:be (?!\w+(?:ed|en)\b)|help|serve|offer|improve|benefit)"
           r"|\bpreliminar\w*|\bpotential\w*|\bunclear\b|\bneeds? confirm\w*",
           r"\bpodr[íi]\w+|\bsugier\w+|\bsugiere\w*|\bposibl\w*|\bprobabl\w*|\bparec\w+"
           r"|\bpreliminar\w*|\bquiz[aá]s?\b|\btal vez\b|\bapunta\w*|\bpotencial\w*"
-          r"|\bno está claro\b|\bconfirmar\w*")  # fmt: skip
+          r"|\bno está claro\b|\bpoco clar\w+|\bconfirmar\w*|\bsuger\w+|\bsugir\w+"
+          r"|\bpropon\w+|\bpropus\w+|\bpropuest\w+|\bpod[íi]a\w*")  # fmt: skip
 
 _CLAIMS = {**OVERCLAIMS, "causal": CAUSAL, "predicts": PREDICTS}
 
@@ -387,6 +401,19 @@ def _in_extra(word: str) -> bool:
     return bool(forms & extra)
 
 
+_CLITICS = re.compile(r"(?:(?:me|te|se|nos|os)(?=l[oae]s?$|$))?(?:l[oae]s?|me|te|se|nos|os)$")
+_UNSTRESS = str.maketrans("áéí", "aei")
+
+
+def _without_clitics(word: str) -> str | None:
+    """A gerund or an infinitive without its pronouns: «despejándolos» → «despejando»,
+    «dárselo» → «dar». None when the word does not end like one."""
+    base = _CLITICS.sub("", word)
+    if base == word or not re.search(r"(?:ndo|[aeií]r)$", base.translate(_UNSTRESS)):
+        return None
+    return base.translate(_UNSTRESS)
+
+
 def unknown_words_es(sentence: str, english: str = "") -> list[str]:
     """Words of a Spanish sentence that are neither in the dictionary nor in our list,
     nor the twin of a word of its English sentence."""
@@ -409,6 +436,8 @@ def unknown_words_es(sentence: str, english: str = "") -> list[str]:
         lower = word.lower()
         if _dictionary().lookup(word) or _dictionary().lookup(lower) or _in_extra(lower):
             continue
+        if (base := _without_clitics(lower)) and _dictionary().lookup(base):
+            continue  # "despejándolos": the dictionary has no forms with pronouns (step 18)
         if not _shares_stem(lower, english_words):
             out.append(word)
     return out

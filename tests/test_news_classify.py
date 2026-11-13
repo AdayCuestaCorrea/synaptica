@@ -37,15 +37,24 @@ class FakeLLM:
         return output.model_validate({"items": items})
 
 
-def make_warehouse(path):
+def make_warehouse(path, nsc=False):
     with duckdb.connect(str(path)) as con:
         con.execute("create table dim_study (study_id varchar, title varchar, "
-                    "news_candidate boolean, entered_on date)")  # fmt: skip
-        con.execute("insert into dim_study values "
-                    "('10.1/a', 'Alzheimer study', true, '2026-11-09'), "
-                    "('10.1/b', 'A review', false, '2026-11-09'), "
-                    "('10.1/c', 'Old study', true, '2026-10-01'), "
-                    "('10.1/d', 'Sleep spindles skip', true, '2026-11-08')")  # fmt: skip
+                    "news_candidate boolean, entered_on date, sources varchar[], "
+                    "is_neuro boolean)")  # fmt: skip
+        con.execute(
+            "insert into dim_study values "
+            "('10.1/a', 'Alzheimer study', true, '2026-11-09', ['pubmed'], true), "
+            "('10.1/b', 'A review', false, '2026-11-09', ['pubmed'], true), "
+            "('10.1/c', 'Old study', true, '2026-10-01', ['pubmed'], true), "
+            "('10.1/d', 'Sleep spindles skip', true, '2026-11-08', ['pubmed'], true)"
+        )
+        if nsc:
+            con.execute(
+                "insert into dim_study values "
+                "('10.1/n', 'Nature paper', false, '2026-11-09', ['journals'], true), "
+                "('10.1/m', 'Nature, not neuro', false, '2026-11-09', ['journals'], false)"
+            )
         con.execute(
             "create table fct_news_item (news_item_id varchar, title varchar, "
             "feed_summary varchar, lang varchar, is_neuro boolean, entered_on date)"
@@ -57,8 +66,9 @@ def make_warehouse(path):
 
 
 def test_only_prefiltered_studies_and_neuro_news_of_the_window_are_classified(tmp_path):
-    items = classify.items_to_classify(TODAY, make_warehouse(tmp_path / "w.duckdb"))
-    assert sorted(items) == ["news:x", "study:10.1/a", "study:10.1/d"]
+    items = classify.items_to_classify(TODAY, make_warehouse(tmp_path / "w.duckdb", nsc=True))
+    # A Nature, Science or Cell paper is not a Latest candidate but is shown with its type.
+    assert sorted(items) == ["news:x", "study:10.1/a", "study:10.1/d", "study:10.1/n"]
     assert items["news:x"]["summary"] == "Resumen del medio"
 
 
