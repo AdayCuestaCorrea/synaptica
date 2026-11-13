@@ -423,6 +423,9 @@ def eval_news(
 
 
 LimitOption = Annotated[int | None, typer.Option(help="Call the model for N studies at most.")]
+UntilOption = Annotated[
+    str | None, typer.Option(help="Start no new study after this local time (HH:MM).")
+]
 StudyOption = Annotated[
     list[str] | None, typer.Option("--study", help="Only this study_id (repeatable).")
 ]
@@ -440,8 +443,19 @@ def _narrative_studies(study: list[str] | None) -> list[dict]:
 
 def _outcomes(verb: str, result) -> str:
     counts = ", ".join(f"{k} {v}" for k, v in sorted(result.counts.items())) or "nothing new"
-    return (f"{verb} {result.done} of {result.total} studies "
+    line = (f"{verb} {result.done} of {result.total} studies "
             f"({result.up_to_date} up to date): {counts}")  # fmt: skip
+    if result.stopped == "deadline":
+        line += "; deadline reached, the rest stays pending"
+    return line
+
+
+def _until(until: str | None):
+    import datetime as dt
+
+    from synaptica.narrative import pipeline
+
+    return pipeline.deadline(until, dt.datetime.now())
 
 
 @app.command()
@@ -450,6 +464,7 @@ def facts(
     model: ModelOption = None,
     limit: LimitOption = None,
     study: StudyOption = None,
+    until: UntilOption = None,
 ) -> None:
     """Verified facts of the studies to summarize -> derived/facts/ (quotes only in
     data/cache/). Reads the warehouse: run `syn build` and `syn news classify` first."""
@@ -464,7 +479,9 @@ def facts(
     studies = _narrative_studies(study)
     try:
         with make_client() as client:  # Europe PMC full text, on demand
-            result = pipeline.run_facts(llm, studies, client=client, limit=limit)
+            result = pipeline.run_facts(
+                llm, studies, client=client, limit=limit, until=_until(until)
+            )
     except QuotaExhausted as exc:
         typer.echo(f"LLM quota used up: {exc}; the rest waits for the next run", err=True)
         raise typer.Exit(0) from exc
@@ -477,6 +494,7 @@ def write(
     model: ModelOption = None,
     limit: LimitOption = None,
     study: StudyOption = None,
+    until: UntilOption = None,
 ) -> None:
     """English and Spanish summaries from the facts, checked -> derived/texts/ (or
     derived/texts_review/ when they fail; the site then shows the fallback text)."""
@@ -489,7 +507,7 @@ def write(
         raise typer.Exit(0)
     studies = _narrative_studies(study)
     try:
-        result = pipeline.run_write(llm, studies, limit=limit)
+        result = pipeline.run_write(llm, studies, limit=limit, until=_until(until))
     except QuotaExhausted as exc:
         typer.echo(f"LLM quota used up: {exc}; the rest waits for the next run", err=True)
         raise typer.Exit(0) from exc
@@ -506,6 +524,7 @@ def judge(
     model: ModelOption = None,
     limit: LimitOption = None,
     study: StudyOption = None,
+    until: UntilOption = None,
 ) -> None:
     """Independent judge (another model family) on the verified summaries: a text is
     published only if it passes; a rejected one goes to derived/texts_review/."""
@@ -521,7 +540,7 @@ def judge(
         raise typer.Exit(1)
     studies = _narrative_studies(study)
     try:
-        result = pipeline.run_judge(LLM(provider, name), studies, limit=limit)
+        result = pipeline.run_judge(LLM(provider, name), studies, limit=limit, until=_until(until))
     except QuotaExhausted as exc:
         typer.echo(f"LLM quota used up: {exc}; the rest waits for the next run", err=True)
         raise typer.Exit(0) from exc

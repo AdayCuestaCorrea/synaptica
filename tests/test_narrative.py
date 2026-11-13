@@ -318,3 +318,23 @@ def test_quota_order_is_by_tiers_then_newest(tmp_path):
     got = [r["study_id"] for r in pipeline.studies_to_summarize(TODAY, path)]
     assert got == ["nsc-old", "journal-issue", "journal-new", "journal-old", "pre-new",
                    "unknown"]  # fmt: skip
+
+
+def test_the_deadline_is_the_next_time_of_day():
+    night = dt.datetime(2026, 11, 14, 1, 10)
+    assert pipeline.deadline("07:30", night) == dt.datetime(2026, 11, 14, 7, 30)
+    assert pipeline.deadline("07:30", night.replace(hour=23)) == dt.datetime(2026, 11, 15, 7, 30)
+    assert pipeline.deadline(None, night) is None
+
+
+def test_a_deadline_stops_before_the_next_study_and_the_rest_stays_pending(tmp_path):
+    cache_abstract(tmp_path)
+    cache_abstract(tmp_path, pmid="112")
+    two = [STUDY, {**STUDY, "study_id": "10.1/other", "pmid": "112"}]
+    ticks = iter([dt.datetime(2026, 11, 14, 7, 29), dt.datetime(2026, 11, 14, 7, 30)])
+    kw = {"derived_root": tmp_path / "d", "cache_root": tmp_path, "now": NOW}
+    result = pipeline.run_facts(FakeLLM(), two, until=dt.datetime(2026, 11, 14, 7, 30),
+                                clock=lambda: next(ticks), **kw)  # fmt: skip
+    assert (result.done, result.stopped) == (1, "deadline")
+    again = pipeline.run_facts(FakeLLM(), two, **kw)  # the next run resumes
+    assert (again.up_to_date, again.done, again.stopped) == (1, 1, None)

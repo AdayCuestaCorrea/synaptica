@@ -27,6 +27,7 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -53,9 +54,31 @@ class RunResult:
     done: int = 0
     up_to_date: int = 0
     counts: dict[str, int] = field(default_factory=dict)  # outcome -> studies
+    stopped: str | None = None  # "deadline" when ``until`` cut the run
 
     def add(self, outcome: str) -> None:
         self.counts[outcome] = self.counts.get(outcome, 0) + 1
+
+    def should_stop(self, limit: int | None, until: dt.datetime | None,
+                    clock: Callable[[], dt.datetime]) -> bool:  # fmt: skip
+        """Before each study: stop at ``limit`` model calls, or at ``until`` (local time;
+        nothing new starts after it and the rest stays pending, as ``paleo narrate``)."""
+        if limit is not None and self.done >= limit:
+            return True
+        if until is not None and clock() >= until:
+            self.stopped = "deadline"
+            return True
+        return False
+
+
+def deadline(until: str | None, now: dt.datetime) -> dt.datetime | None:
+    """The next ``until`` (HH:MM, local time) after ``now``: 07:30 at 23:00 means tomorrow
+    morning. Copied from ``paleo-atlas/src/paleo/cli.py`` (``_deadline``)."""
+    if not until:
+        return None
+    hour, minute = (int(x) for x in until.split(":"))
+    target = now.replace(hour=hour, minute=minute, second=0, microsecond=0)
+    return target if target > now else target + dt.timedelta(days=1)
 
 
 def media_linked(con: duckdb.DuckDBPyConnection) -> list[str]:
@@ -99,11 +122,13 @@ def run_facts(
     derived_root: Path | None = None,
     cache_root: Path | None = None,
     now: dt.datetime | None = None,
+    until: dt.datetime | None = None,
+    clock: Callable[[], dt.datetime] = dt.datetime.now,
 ) -> RunResult:
     """Facts of each study with an abstract; ``limit`` counts model calls, not studies."""
     result = RunResult(total=len(studies))
     for study in studies:
-        if limit is not None and result.done >= limit:
+        if result.should_stop(limit, until, clock):
             break
         found = abstract_for(study, cache_root=cache_root, client=client)
         if found is None:
@@ -133,11 +158,13 @@ def run_write(
     derived_root: Path | None = None,
     cache_root: Path | None = None,
     now: dt.datetime | None = None,
+    until: dt.datetime | None = None,
+    clock: Callable[[], dt.datetime] = dt.datetime.now,
 ) -> RunResult:
     """English and Spanish texts of each study whose facts are ``ok``."""
     result = RunResult(total=len(studies))
     for study in studies:
-        if limit is not None and result.done >= limit:
+        if result.should_stop(limit, until, clock):
             break
         key = study["study_id"]
         doc = facts_mod.load(facts_mod.facts_path(key, derived_root))
@@ -177,11 +204,13 @@ def run_judge(
     derived_root: Path | None = None,
     cache_root: Path | None = None,
     now: dt.datetime | None = None,
+    until: dt.datetime | None = None,
+    clock: Callable[[], dt.datetime] = dt.datetime.now,
 ) -> RunResult:
     """Verdict of the judge on each study whose texts are verified and not judged yet."""
     result = RunResult(total=len(studies))
     for study in studies:
-        if limit is not None and result.done >= limit:
+        if result.should_stop(limit, until, clock):
             break
         texts = judge_mod.pending(study["study_id"], derived_root)
         if texts is None:
