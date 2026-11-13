@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 95** · 2026-11-13 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 96** · 2026-11-13 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -342,3 +342,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 93 | 2026-11-13 | S3, tinción real de rata en 2D: debajo del corte real solo se pinta el portaobjetos, no la tinción dibujada, que asomaba como un halo por los bordes y las roturas del corte y podía pasar por tejido (decisión de Aday) |
 | 94 | 2026-11-13 | Maqueta web «Noche»: la cabecera «Tu portal de neurociencia» usa la imagen que aportó Aday (cerebro de perfil y neurona ampliada) en lugar de los dibujos SVG; enmarcada en los dos temas y, en móvil, a todo el ancho bajo el texto. Falta confirmar su origen y su licencia: la web lo dice en el pie de la imagen y en los huecos |
 | 95 | 2026-11-13 | **Fase 0 cerrada** por Aday. D3 cerrada: Sofía da por buena la maqueta C con la tinción doble, el humano completado y el Nissl de rata en 2D ([ADR 0003](docs/adr/0003-visor.md), aceptado); casilla de S3 marcada; [`docs/fases/fase-0.md`](docs/fases/fase-0.md) completo. La rama `fase-1` puede fusionarse en `main` (excepción de la fila 54) |
+| 96 | 2026-11-13 | Maqueta web: la imagen de la cabecera la generó Sofía con ChatGPT (crédito corregido). Sin fondo, con `spikes/web/hero_image.py`: color a transparencia sobre una estimación local del fondo, quitando el grano. Hay una versión por tema: líneas blancas en oscuro, y tinta y acento en claro, con el acento solo en los rellenos grandes |

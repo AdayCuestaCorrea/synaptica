@@ -295,9 +295,13 @@ a:hover { text-decoration-thickness: 2px; }
 .hero-brain { position: absolute; left: 0; bottom: 0; height: 200px; width: 58%; }
 .hero-neuron { position: absolute; right: 0; top: 0; width: 46%; height: 150px; --art-line: var(--ink); }
 .hero-art .credit { position: absolute; left: 0; right: 0; bottom: 0; text-align: right; }
-/* Header image (Aday, 2026-11-13): a dark drawing, framed like a card in both themes. */
+/* Header image (Sofía, 2026-11-13): line art on a transparent background, one version per
+   theme (spikes/web/hero_image.py): white lines in the dark theme, ink lines in the light one. */
 .hero-photo { margin: 0; }
-.hero-photo img { display: block; width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--rule); }
+.hero-photo img { display: block; width: 100%; height: auto; }
+.hero-photo .hero-img--light { display: none; }
+:root[data-theme="light"] .hero-photo .hero-img--dark { display: none; }
+:root[data-theme="light"] .hero-photo .hero-img--light { display: block; }
 .hero-photo .credit { margin-top: 4px; text-align: right; }
 
 /* Six section cards, Sofía's 3 × 2 */

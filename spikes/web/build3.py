@@ -78,7 +78,7 @@ T3: dict[str, dict[str, str]] = {
         "jump_today": "Noticias de hoy",
         "hero_alt": "Dibujo de un cerebro de perfil con estructuras internas resaltadas en "
                     "verde y, ampliada en un círculo, una neurona",
-        "hero_credit": "Imagen de cabecera aportada por Aday: origen y licencia por confirmar",
+        "hero_credit": "Imagen de cabecera: Sofía, generada con ChatGPT",
         "about": "Sobre nosotros", "search": "Buscar", "search_ph": "Buscar estudios, temas, "
                                                                     "siglas…",
         "search_title": "Buscar", "search_none": "Nada coincide con «{q}».",
@@ -130,7 +130,7 @@ T3: dict[str, dict[str, str]] = {
         "gap_illus": "Ilustraciones: dibujos propios en SVG (CC BY-SA 4.0), con el estilo "
                      "que eligió Sofía y algo más de detalle; también el cerebro de Neuro "
                      "Atlas, que sustituye a las capturas del visor. La imagen de la cabecera "
-                     "la aportó Aday: falta confirmar su origen y su licencia. "
+                     "la generó Sofía con ChatGPT; se le quitó el fondo para los dos temas. "
                      "Son esquemas, no anatomía exacta.",
         "footer_images": "Imágenes: ilustraciones propias (CC BY-SA 4.0); figuras de "
                          "estudios de acceso abierto de PMC, cada una con su licencia.",
@@ -144,7 +144,7 @@ T3: dict[str, dict[str, str]] = {
         "jump_today": "Today's news",
         "hero_alt": "Drawing of a brain in profile with inner structures highlighted in green "
                     "and, enlarged in a circle, a neuron",
-        "hero_credit": "Header image provided by Aday: source and licence to be confirmed",
+        "hero_credit": "Header image: Sofía, made with ChatGPT",
         "about": "About us", "search": "Search", "search_ph": "Search studies, topics, "
                                                              "acronyms…",
         "search_title": "Search", "search_none": "Nothing matches «{q}».",
@@ -194,9 +194,9 @@ T3: dict[str, dict[str, str]] = {
                       "Paleo Atlas.",
         "gap_illus": "Illustrations: our own SVG drawings (CC BY-SA 4.0), in the style Sofía "
                      "chose with a bit more detail; also the brain of Neuro Atlas, which "
-                     "replaces the viewer captures. The header image was provided by Aday: its "
-                     "source and licence are still to be confirmed. They are sketches, not exact "
-                     "anatomy.",
+                     "replaces the viewer captures. The header image was made by Sofía with "
+                     "ChatGPT, its background removed for both themes. They are sketches, not "
+                     "exact anatomy.",
         "footer_images": "Images: our own illustrations (CC BY-SA 4.0); figures from PMC "
                          "open-access studies, each with its licence.",
         "about_title": "About us",
