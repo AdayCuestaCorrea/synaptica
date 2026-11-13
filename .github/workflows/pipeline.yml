@@ -37,7 +37,9 @@ permissions:
 
 jobs:
   update:
-    runs-on: ubuntu-latest
+    # Pinned during the Phase 1 closing clock (v124): ubuntu-latest moves to 26.04 in
+    # November 2026 and a runner change must not count as an intervention.
+    runs-on: ubuntu-24.04
     timeout-minutes: 120
     permissions:
       contents: write # commit to the data branch
@@ -275,7 +277,7 @@ jobs:
   deploy:
     needs: update
     if: always() && needs.update.outputs.site == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       pages: write
       id-token: write
