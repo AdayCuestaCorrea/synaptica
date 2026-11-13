@@ -109,6 +109,7 @@ uv run syn eval news --gold eval/news/labels.csv [--pairs eval/news/pairs.csv]  
 uv run syn facts --provider groq [--limit 40] [--until HH:MM] # hechos verificados de los estudios a resumir (lee el almacén)
 uv run syn write --provider groq [--limit 40] [--until HH:MM] # resumen EN → ES con comprobaciones; si falla, texto de respaldo
 uv run syn judge --provider groq [--limit 40] [--until HH:MM] # juez de otra familia (gpt-oss-120b): sin su aprobado no se publica
+uv run syn recheck                        # vuelve a comprobar los textos en español que fallaron, sin LLM
 uv run syn weekly --provider groq [--week 2026-W45]   # resumen semanal: misma cadena, comprobaciones y juez
 uv run syn build                          # dbt build: modelos + tests (desde la Fase 1)
 uv run syn review queue --out Q                 # cola del día: resúmenes por muestreo (peor español primero), tope 40/10

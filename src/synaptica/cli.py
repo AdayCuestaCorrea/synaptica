@@ -514,6 +514,17 @@ def write(
     typer.echo(_outcomes("Wrote", result))
 
 
+@app.command()
+def recheck() -> None:
+    """Today's Spanish checks again on the failed Spanish texts, with no model call: those
+    that pass now move to derived/texts/ (still to be judged)."""
+    from synaptica.narrative import pipeline
+
+    result = pipeline.run_recheck()
+    counts = ", ".join(f"{k} {v}" for k, v in sorted(result.counts.items())) or "nothing"
+    typer.echo(f"Rechecked {result.done} Spanish texts: {counts}")
+
+
 # Decision D4: the judge is of another family than the writer.
 DEFAULT_JUDGE_MODELS = {"groq": "openai/gpt-oss-120b"}
 

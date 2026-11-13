@@ -129,3 +129,54 @@ def test_spanish_causality_named_as_a_limit_is_not_a_causal_claim():
     assert check_claims_es(["Pollution was linked to anxiety."],
                            ["La contaminación causó ansiedad."]) == [
         "sentence 1: 'causal' is not in the English sentence"]  # fmt: skip
+
+
+@pytest.mark.parametrize(
+    ("en", "es"),
+    [  # step 20: the caution kept in other words, or no caution to keep
+        (
+            "The authors suggest lipids drive it.",
+            "Los autores proponen que los lípidos lo impulsan.",
+        ),
+        ("Doctors suggested thicker liquids.", "Los médicos sugerían líquidos más espesos."),
+        ("It could improve walking.", "Investigó si podía mejorar la marcha."),
+        ("Cells with unclear boundaries.", "Células con límites poco claros."),
+        (
+            "Women were more likely to develop it.",
+            "Las mujeres tenían mayor riesgo de desarrollarla.",
+        ),
+    ],
+)
+def test_caution_in_other_words_and_compared_odds_pass(en, es):
+    assert check_claims_es([en], [es]) == []
+
+
+def test_a_promise_is_not_the_caution_of_potential():
+    # Step 20: «potential insights» became «perspectivas prometedoras».
+    assert check_claims_es(["The results offer potential insights."],
+                           ["Los resultados ofrecen perspectivas prometedoras."]) == [
+        "sentence 1: the English sentence is cautious and this is not"]  # fmt: skip
+
+
+def test_more_likely_in_the_facts_is_no_caution_to_keep():
+    facts = ["Women were more likely to develop multiple sclerosis."]
+    assert claim_problems("Women had a higher risk of multiple sclerosis.", facts) == []
+
+
+@pytest.mark.parametrize(
+    "es",
+    [  # step 20: valid terms the dictionary lacks, added to our list
+        "Cruzan la barrera hematoencefálica.",
+        "Medimos la microbiota y la noradrenalina.",
+        "Tras la trombólisis y la radiocirugía estereotáctica.",
+        "Tomografía por emisión de positrones.",
+    ],
+)
+def test_step_20_terms_pass(es):
+    assert unknown_words_es(es, "Unrelated words.") == []
+
+
+@pytest.mark.parametrize("word", ["kilopascula", "carecientes", "aprendible"])
+def test_doubtful_words_still_fail(word):
+    # Left out of the list on purpose: a typo or a non-standard form (step 20).
+    assert unknown_words_es(f"Una {word} cosa.", "A thing.") == [word]

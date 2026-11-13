@@ -338,3 +338,37 @@ def test_a_deadline_stops_before_the_next_study_and_the_rest_stays_pending(tmp_p
     assert (result.done, result.stopped) == (1, "deadline")
     again = pipeline.run_facts(FakeLLM(), two, **kw)  # the next run resumes
     assert (again.up_to_date, again.done, again.stopped) == (1, 1, None)
+
+
+def test_recheck_passes_a_spanish_text_once_the_checks_are_fixed(tmp_path, monkeypatch):
+    from synaptica.narrative import checks
+
+    derived, cache = tmp_path / "derived", tmp_path / "cache"
+    cache_abstract(cache)
+
+    class TypoLLM(FakeLLM):
+        def complete_json(self, system, user, output, max_tokens):
+            answer = super().complete_json(system, user, output, max_tokens)
+            if output.__name__ == "AdaptedText":
+                answer.sentences[1].text = answer.sentences[1].text.replace("animales", "animlaes")
+            return answer
+
+    kw = {"derived_root": derived, "cache_root": cache, "now": NOW}
+    pipeline.run_facts(TypoLLM(), [STUDY], **kw)
+    pipeline.run_write(TypoLLM(), [STUDY], **kw)
+    assert pipeline.run_recheck(derived, NOW).counts == {"failed": 1}  # still a typo
+
+    real = write_mod.prompt_versions
+    monkeypatch.setattr(write_mod, "prompt_versions", lambda: {**real(), "es": "next"})
+    assert pipeline.run_recheck(derived, NOW).counts == {"stale": 1}  # `syn write` redoes it
+    monkeypatch.setattr(write_mod, "prompt_versions", real)
+
+    # The word turns out to be valid (step 20: terms the dictionary lacked).
+    monkeypatch.setattr(checks, "_extra_words", lambda: frozenset({"animlaes"}))
+    assert pipeline.run_recheck(derived, NOW).counts == {"verified": 1}
+    shown = json.loads(write_mod.text_path("10.1/spindles", "es", verified=True,
+                                           derived_root=derived).read_text())  # fmt: skip
+    assert shown["problems"] == [] and shown["rechecked_at"] == NOW.isoformat()
+    assert pipeline.run_recheck(derived, NOW).total == 0  # nothing left: idempotent
+    assert pipeline.run_judge(PassingJudge(), [STUDY], **kw).counts == {"passed": 1}
+    assert fallback.summary_for(STUDY, "es", derived_root=derived)["kind"] == "verified"

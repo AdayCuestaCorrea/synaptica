@@ -35,6 +35,7 @@ from typing import Any
 import duckdb
 import httpx
 
+from synaptica.config import get_paths
 from synaptica.llm import LLM, LLMOutputError
 from synaptica.narrative import facts as facts_mod
 from synaptica.narrative import judge as judge_mod
@@ -227,6 +228,17 @@ def run_judge(
             result.add("model_error")
             continue
         result.add("passed" if verdict.passed else "rejected")
+    return result
+
+
+def run_recheck(derived_root: Path | None = None, now: dt.datetime | None = None) -> RunResult:
+    """Today's Spanish checks again on every failed Spanish text, with no model call."""
+    root = derived_root if derived_root is not None else get_paths().derived
+    paths = sorted((root / "texts_review").glob("*.es.json"))
+    result = RunResult(total=len(paths))
+    for path in paths:
+        result.add(write_mod.recheck_es(path, root, now))
+        result.done += 1
     return result
 
 

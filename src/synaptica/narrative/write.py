@@ -201,3 +201,34 @@ def write_study(
     _save(facts_doc, "es", verified=not feedback, llm=llm, sentences=es_sentences,
           problems=feedback, word_count=None, derived_root=derived_root, now=now)  # fmt: skip
     return {"en": "verified", "es": "failed" if feedback else "verified"}
+
+
+def recheck_es(path: Path, derived_root: Path | None = None,
+               now: dt.datetime | None = None) -> str:  # fmt: skip
+    """Run today's Spanish checks again on a failed Spanish text, with no model call
+    (``syn recheck``, step 20: the checks had false positives). Returns ``verified``
+    (moved to ``texts/``), ``failed`` (problems updated), or ``stale`` when its English is
+    not verified with the same facts and prompts any more (``syn write`` redoes it)."""
+    record = json.loads(path.read_text(encoding="utf-8"))
+    key = record["study_id"]
+    en_path = text_path(key, "en", verified=True, derived_root=derived_root)
+    en = json.loads(en_path.read_text(encoding="utf-8")) if en_path.exists() else None
+    versions = prompt_versions()
+    if (en is None or en["facts_hash"] != record["facts_hash"]
+            or record["prompt_version"] != versions["es"]
+            or en["prompt_version"] != versions["en"] or not record["sentences"]):  # fmt: skip
+        return "stale"
+    en_texts = [s["text"] for s in en["sentences"]]
+    es = [s["text"] for s in record["sentences"]]
+    problems = [*check_alignment(en_texts, es), *check_claims_es(en_texts, es),
+                *check_spelling_es(en_texts, es)]  # fmt: skip
+    stamp = (now or dt.datetime.now(dt.UTC)).isoformat(timespec="seconds")
+    record = {**record, "problems": _public(problems), "rechecked_at": stamp}
+    if problems:
+        _atomic_write(path, json.dumps(record, ensure_ascii=False, indent=1) + "\n")
+        return "failed"
+    record["status"] = "verified"
+    target = text_path(key, "es", verified=True, derived_root=derived_root)
+    _atomic_write(target, json.dumps(record, ensure_ascii=False, indent=1) + "\n")
+    path.unlink()
+    return "verified"

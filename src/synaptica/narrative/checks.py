@@ -294,12 +294,17 @@ PREDICTS = (r"\bpredict\w*|\bforecast\w*", r"\bpredec\w*|\bpredic\w*|\bpronostic
 # be seen": a participle follows); step 18 found "could be a helpful tool" flagged as
 # certain. In Spanish the causal rule is the verb and the noun, not "causal" nor
 # "causalidad", as in English ("does not establish causality" was flagged).
-HEDGES = (r"\bmay\b|\bmight\b|\bsuggest\w*|\bpossibl\w*|\blikely\b|\b(?:appears?|seems?) to\b"
+# Step 20 (184 texts): "more likely" and "less likely" compare probabilities, they do not
+# hedge (as "associated"); "suggest" is also "proponer" and "sugerir" in the past
+# ("sugerían"), "could" also "podía", "unclear" also "poco claro".
+HEDGES = (r"\bmay\b|\bmight\b|\bsuggest\w*|\bpossibl\w*|(?<!more )(?<!less )\blikely\b"
+          r"|\b(?:appears?|seems?) to\b"
           r"|\bcould (?:be (?!\w+(?:ed|en)\b)|help|serve|offer|improve|benefit)"
           r"|\bpreliminar\w*|\bpotential\w*|\bunclear\b|\bneeds? confirm\w*",
           r"\bpodr[íi]\w+|\bsugier\w+|\bsugiere\w*|\bposibl\w*|\bprobabl\w*|\bparec\w+"
           r"|\bpreliminar\w*|\bquiz[aá]s?\b|\btal vez\b|\bapunta\w*|\bpotencial\w*"
-          r"|\bno está claro\b|\bconfirmar\w*")  # fmt: skip
+          r"|\bno está claro\b|\bpoco clar\w+|\bconfirmar\w*|\bsuger\w+|\bsugir\w+"
+          r"|\bpropon\w+|\bpropus\w+|\bpropuest\w+|\bpod[íi]a\w*")  # fmt: skip
 
 _CLAIMS = {**OVERCLAIMS, "causal": CAUSAL, "predicts": PREDICTS}
 
