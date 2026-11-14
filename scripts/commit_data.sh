@@ -37,6 +37,8 @@ fi
 git config user.name "github-actions[bot]"
 git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 git commit -q -m "$message"
-git pull -q --rebase origin data
+# --autostash: a checkpoint leaves runs/ (tracked, modified) out of the commit, and a
+# plain rebase refuses to run with it (run 43614465935).
+git pull -q --rebase --autostash origin data
 git push -q origin HEAD:data
 echo "$message"

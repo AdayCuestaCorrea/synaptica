@@ -128,3 +128,21 @@ Además, el diseño lo agravó en dos cosas:
 - **La clasificación en lotes de 40** (antes 20) con `max_tokens` 1000: una respuesta ocupa unos 25 tokens por elemento, y así salen la mitad de llamadas bajo el tope. Lleva `--limit 800`, que cubre los ~650 elementos nuevos de cada día. El lote de 20 fue el que se midió en S5; si Sofía ve peor la clasificación con el 14b, se vuelve a 20.
 - El job pasa a 150 minutos: las tres etapas suman como máximo 115.
 
+## Revisión (2026-11-14, noche): primera ejecución con las etapas
+
+[Run 43614465935](https://github.com/AdayCuestaCorrea/synaptica/actions/runs/43614465935), a mano con Groq. Terminó entera y el informe dice **«failed»** por un paso tolerado que falló: la parte C de la v143 funciona.
+
+| Etapa | Resultado |
+|---|---|
+| Juez de lo pendiente | 71 juzgados en 20 min (60 aprobados, 11 rechazados; 2 sin abstract en caché) |
+| Filtro y clasificación | 172 elementos respondidos por el LLM; 513 clasificados en 17 min, con **128 sin respuesta** (lotes de 40); después, `syn news group` 15 min sin salida, hasta el tiempo límite de 40 min de la etapa |
+| Hechos y resúmenes | 0: el cupo diario de Qwen (200 000 tokens) estaba agotado por la ejecución cortada |
+| Juez de lo nuevo | 30 juzgados (28 aprobados, 2 rechazados) |
+
+Con eso **quedan juzgados los 101 de la carga inicial**: no queda ningún estudio pendiente del juez (212 con textos en la rama `data`).
+
+**Fallos y arreglo (v146).**
+- **Los puntos de guardado no subieron nada.** Hicieron su commit, pero el `git pull --rebase` se negó porque `runs/` (versionado y modificado, fuera del commit a propósito) quedaba sin guardar. Esos commits subieron con el final; en un corte duro se habrían perdido. Ahora el pull lleva `--autostash`, probado reproduciendo el caso (`runs/` modificado y el remoto un commit por delante).
+- **Lotes de 40: el modelo deja sin responder uno de cada cinco.** Se vuelve a lotes de 20 (0 sin respuesta en la ejecución anterior).
+- **Un comando podía comerse la etapa.** Cada comando del filtro y la clasificación lleva su tiempo máximo (`timeout`): filtro 8 min, clasificación 20, agrupación 5, dbt 4. El filtro y la clasificación guardan cada lote, así que un corte pierde un lote como mucho; la agrupación guarda al final y, si no le da tiempo, lo intenta al día siguiente. La clasificación ya no lleva `--limit`: hace lo que quepa en sus 20 minutos.
+

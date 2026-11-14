@@ -159,12 +159,14 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: |
           failed=""
-          step() { uv run syn "$@" || failed="$failed [$*]"; }
-          step news neuro --provider groq
-          # ~650 new items a day; batches of 40 at about one call a minute (v145).
-          step news classify --provider groq --limit 800
-          step news group --provider groq
-          step build
+          # Each command gets a hard time box (v146): `syn news group` sat 15 minutes and
+          # the stage timed out (run 43614465935). The classifier saves every batch, so a
+          # cut loses one batch at most; what is left waits for tomorrow.
+          step() { local m=$1; shift; timeout "${m}m" uv run syn "$@" || failed="$failed [$*]"; }
+          step 8 news neuro --provider groq
+          step 20 news classify --provider groq
+          step 5 news group --provider groq
+          step 4 build
           if [ -n "$failed" ]; then
             echo "::error::LLM commands failed:$failed"
             exit 1

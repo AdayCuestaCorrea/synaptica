@@ -11,7 +11,7 @@
 | 14b · ~100 titulares etiquetados por Sofía: macro F1 del clasificador frente al baseline y validación del juez | pendiente (Sofía) |
 | 24b · Primera elección de Clásicos | pendiente (Sofía) |
 | 15 · Precisión y recall de la agrupación con un LLM real | pendiente: primera ejecución con Groq |
-| 20 · Juicio de los 101 estudios de la carga que quedaron pendientes | pendiente: la ejecución del 2026-11-14 no llegó a usar el LLM (tope OTPM de Groq, v143); se juzgan primero en la siguiente |
+| 20 · Juicio de los 101 estudios de la carga que quedaron pendientes | hecho el 2026-11-14 (run 43614465935): 88 aprobados y 13 rechazados en total; ninguno pendiente (v146) |
 | Retractaciones que solo conoce Retraction Watch (casilla de ingesta) | hecho: en `main` y en la rama `data` desde el 2026-11-13 (v140–v141) |
 | 23b · Figuras de PMC | hecho en la rama `fase-1-figuras-titulos` (v125–v128): metadatos en la rama `data` y WebP en la caché de Actions; cobertura medida, 25 de 200 estudios de Última hora. Se fusiona después del 2026-11-17 |
 | 23c · Títulos en español | hecho en la misma rama (v129–v136), con la prueba real de 40 títulos en Groq; se fusiona después del 2026-11-17 |
