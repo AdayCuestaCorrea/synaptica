@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1101/lm.054292.126",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "3ef670a7d07b9936",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-14T17:22:57+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Earlier research indicates that groups of neurons in the hippocampus can connect different memories of a place over periods ranging from five hours to seven days.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "This study looked at how memories of neutral and unpleasant situations connect over longer periods and checked which neurons fire again when those memories are recalled.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The connection between the two types of memories was seen when they were separated by hours, days, or weeks, but not when the gap was extremely short or extremely long.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Memories that were linked had more neurons firing in both the hippocampus and the amygdala, but this extra overlap was not statistically different from what would be expected by chance.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "When linked memories were recalled, more neurons became active in the CA1 region of the hippocampus and in the lateral and basolateral parts of the amygdala.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

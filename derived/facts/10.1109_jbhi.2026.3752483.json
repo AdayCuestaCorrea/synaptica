@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1109/jbhi.2026.3752483",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "8877fba624bfa9a7",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-14T17:23:58+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers created a new computational model called a two-stream structure mapping generative-discriminative network.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The model uses genetic data to create representations of both functional and structural brain networks.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The system calculates a measure of uncertainty for each type of data source to determine its reliability.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The method combines different types of data to classify individuals with schizophrenia.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The new model showed promising results in classifying schizophrenia when compared to other existing methods.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The study also identified specific features related to the disease across multiple data types.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

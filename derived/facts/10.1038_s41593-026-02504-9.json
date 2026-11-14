@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1038/s41593-026-02504-9",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "60eea52d5e4e0fef",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-14T17:15:41+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "About 15% of the genetic risk for autism spectrum disorder comes from new mutations that cause haploinsufficiency.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study used a CRISPR-based gene activation method to target enhancers of the CHD8 and SCN2A genes in human stem cell-derived neurons and brain organoids.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The gene activation method caused a lasting rise in the expression of CHD8 and SCN2A in the mutant cells and organoids.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The treatment restored normal gene expression levels and corrected physiological changes linked to the mutations.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The results support using enhancer-targeted gene activation as a potential treatment for autism and other neurodevelopmental disorders.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

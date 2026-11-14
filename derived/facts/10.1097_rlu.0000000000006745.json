@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1097/rlu.0000000000006745",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "769ae3a6f4753e00",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-14T17:20:53+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "A 62-year-old man experienced dizziness, slurred speech, and weakness in his left arm over several months.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Magnetic resonance imaging revealed a mass in the right frontal lobe of his brain.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Doctors initially suspected the brain mass was a metastasis from a small intestine cancer the man had been treated for eight and a half years earlier.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "A PET/CT scan showed high metabolic activity in the brain tumor but no active cancer in the rest of the body.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "After the tumor was surgically removed, lab tests identified it as a sarcoma, a type of cancer that starts in connective tissue.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The man received radiation therapy to the brain after the surgery.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

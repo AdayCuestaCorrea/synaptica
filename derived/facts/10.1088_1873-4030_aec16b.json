@@ -1,0 +1,40 @@
+{
+ "study_id": "10.1088/1873-4030/aec16b",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "75c17bde22599cfd",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-14T17:16:43+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study is a systematic review that traces the technological development of micro-magnetic stimulation systems, covering the shift from early discrete inductors to modern MEMS-based coils, arrays, and wireless devices.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "Micro-magnetic stimulation is described as a method that offers high spatial precision and temporal resolution without requiring direct physical contact between electrodes and tissue.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "The review compares different manufacturing approaches, such as standard MEMS and heterogeneous integration, and analyzes how the shape of the coils affects the focus and selectivity of the magnetic field.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "The review discusses recent advances in frequency-division multiple access and autonomous power allocation techniques used for targeting multiple sites simultaneously.",
+   "subject": "other"
+  },
+  {
+   "id": "f5",
+   "statement": "Future research directions mentioned include sub-millimeter-scale integration, co-optimization of power and signal, and intelligent closed-loop neural interfaces for large-scale neuromodulation systems.",
+   "subject": "other"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording",
+  "statement copies the source wording"
+ ]
+}

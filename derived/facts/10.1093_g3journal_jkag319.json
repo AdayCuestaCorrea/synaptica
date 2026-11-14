@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1093/g3journal/jkag319",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "f6d4deac59ea5a45",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-14T17:18:49+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "In fruit flies, a protein called Sex Peptide transferred from males makes mated females sleep less during the day and eat more than females that have not mated.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "P2 neurons were chosen for study because they produce a hormone linked to eating and sleeping, connect directly to the fly's main sleep control area, and are known to change sleep and eating habits when flies are isolated.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The researchers used a genetic tool to either turn on or turn off the P2 neurons in both mated and unmated female flies.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Sleep time was tracked with activity monitors, and food intake was measured using capillary feeder devices and a blue-dye method.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The study found that changing the activity of P2 neurons did not stop mated females from sleeping less and eating more than unmated females.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The results suggest that P2 neurons are probably not the main brain cells that process the male protein to control post-mating sleep and eating changes.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors note that future research is needed to see if these neurons control other behaviors after mating or affect sleep and eating only in specific situations.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

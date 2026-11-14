@@ -30,5 +30,17 @@
     "f6"
    ]
   }
- ]
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-14T17:28:07+00:00"
+ }
 }

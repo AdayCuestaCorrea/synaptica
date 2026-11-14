@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1109/tnnls.2026.3746646",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "e959fcd48b02e3f8",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-14T17:26:01+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Standard reinforcement learning approaches often fail when new tasks are added because they are designed for a single, unchanging set of tasks.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers developed a new algorithm called GCRL-ICMA to help robots learn multiple navigation tasks without losing previously learned skills.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The method uses a combined technique that merges two existing strategies to identify and protect important neural connections from earlier tasks.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The system improves learning by mixing new data with selected successful examples from past tasks during the training process.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "A specific component was added to help the robot adapt to new situations while reducing the harmful effects of old, less relevant strategies.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "Tests on a series of navigation tasks showed that the new method partially reduces memory loss and makes the robot better at adapting to different environments.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

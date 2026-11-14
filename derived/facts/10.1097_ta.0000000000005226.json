@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1097/ta.0000000000005226",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "99cc548ef2237dee",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-14T17:21:55+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used male C57BL/6 mice that were assigned to either a sham surgery or a trauma and hemorrhagic shock model treated with either lactated Ringer's or fresh-frozen plasma.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The trauma and hemorrhagic shock procedure involved abdominal surgery, blood loss, injection of bone material to simulate fractures, and crushing of hindlimb muscles.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "All groups of mice showed normal movement abilities four days after the procedure.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Mice treated with fresh-frozen plasma showed stronger fear responses to the environment eight days later than those treated with lactated Ringer's, suggesting better memory retention.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "There were no differences between the groups in their fear responses to specific cues.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The two resuscitation methods led to different patterns of specific molecules in the hippocampus, but did not change the expression of genes responsible for making these molecules.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "Mice treated with lactated Ringer's had higher levels of a harmful form of chondroitin sulfate, while fresh-frozen plasma treatment reduced this harmful form and increased a different form.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f8",
+   "statement": "The study concludes that using plasma for resuscitation is linked to better spatial memory and changes in the structure of the blood vessel lining compared to using crystalloid fluids.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

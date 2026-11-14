@@ -1,0 +1,39 @@
+{
+ "study_id": "10.1093/neuonc/noag283",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "2668cabf6bf93a8a",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-14T17:19:51+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "A new international competition and public database were created to test computer programs that identify different areas inside brain tumor slides.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The study tested six different artificial intelligence methods to see how well they could classify the tumor regions.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The best-performing computer models, which used large pre-trained networks and data expansion, achieved an accuracy of 0.69.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The results were limited by the fact that some tumor types were much rarer than others and by disagreements between the human experts labeling the data.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors conclude that accurately classifying these tumor sub-regions is still an unsolved problem due to the lack of a single standard for labeling.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

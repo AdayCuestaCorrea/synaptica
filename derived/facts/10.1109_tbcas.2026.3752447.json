@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1109/tbcas.2026.3752447",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "f410bad0941b3bca",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-14T17:24:59+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study introduces a new electronic device designed to deliver electrical stimulation to nerves through 16 separate channels at the same time.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "The device uses a capacitor to monitor the amount of electrical charge sent to each channel and an inductor to save energy during the stimulation process.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "The stimulator reached a maximum energy efficiency of 88%, with performance variation staying under 4.1% across a range of tissue resistances and charge levels.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "When two channels were stimulated at the same time, the difference in delivered charge between them was less than 0.98%.",
+   "subject": "other"
+  },
+  {
+   "id": "f5",
+   "statement": "Among the stimulators compared in the study, this design had the smallest estimated physical size for devices with 16 or more channels.",
+   "subject": "other"
+  },
+  {
+   "id": "f6",
+   "statement": "The device was tested in living subjects to show that it could successfully stimulate multiple channels at once.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

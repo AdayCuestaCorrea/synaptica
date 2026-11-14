@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1093/bioinformatics/btag829",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "b8f4bbef7222ae06",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-14T17:17:46+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers created a new deep learning tool called CroSP that uses a multi-view graph autoencoder to process data.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The tool combines data on gene activity, physical location, and tissue appearance into a simplified internal format.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "When tested on various datasets with different resolutions, the tool better identified distinct tissue regions and outlined structures in the brain and olfactory bulb.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The method was applied to human breast cancer samples to analyze gene variation, immune environments, and interactions between cells.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The findings suggest the tool is useful for studying both healthy and diseased tissues.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

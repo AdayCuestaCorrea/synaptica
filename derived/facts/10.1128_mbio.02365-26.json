@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1128/mbio.02365-26",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "10c72a03de45a284",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-14T17:27:05+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used single-cell RNA sequencing to sort HIV-1-infected C20 microglial cells into low and high infection groups based on viral RNA levels, revealing a gradual rather than all-or-nothing change in gene activity.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "While basic immune and cell cycle pathways were active in all infected cells, high viral loads suppressed interferon and hypoxia signals while boosting growth and protein production signals, and reduced cell movement and structure genes.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The observed gene changes, excluding cell division markers, were also seen in microglia derived from induced pluripotent stem cells, suggesting the results apply beyond the specific lab cell line used.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The researchers found networks of small regulatory RNA molecules (miRNAs) that were active in infected cells, including some previously linked to HIV replication and brain diseases.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The study suggests that these viral-driven changes in microglia may contribute to brain inflammation and cognitive problems in people living with HIV, working alongside known viral proteins.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

@@ -1,13 +1,15 @@
 {
  "study_id": "10.1021/acs.jmedchem.6c01872",
  "lang": "es",
- "status": "verified",
+ "status": "rejected_by_judge",
  "generator": "ollama/paleo-qwen3.5-9b",
  "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
  "facts_hash": "62e335b3d52cfd1c",
  "generated_at": "2026-11-13T13:41:47+00:00",
  "word_count": null,
- "problems": [],
+ "problems": [
+  "judge: Summary overstates therapeutic claim, implying treatment efficacy beyond the preclinical evidence."
+ ],
  "sentences": [
   {
    "text": "Los investigadores desarrollaron un nuevo compuesto para tratar condiciones neuroinflamatorias dirigiéndose a la enzima monoacilglicerol lipasa; administrado por vía oral a ratas Wistar macho, este compuesto demostró una potente capacidad de bloqueo enzimático y mantuvo una vida media de 5,7 horas.",
@@ -29,5 +31,17 @@
    ]
   }
  ],
- "rechecked_at": "2026-11-13T13:47:20+00:00"
+ "rechecked_at": "2026-11-13T13:47:20+00:00",
+ "judge": {
+  "faithful": true,
+  "no_overclaim": false,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Summary overstates therapeutic claim, implying treatment efficacy beyond the preclinical evidence.",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-14T17:30:14+00:00"
+ }
 }
