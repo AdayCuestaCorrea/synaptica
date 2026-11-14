@@ -1,13 +1,15 @@
 {
  "study_id": "10.1007/s00590-026-05024-1",
  "lang": "es",
- "status": "verified",
+ "status": "rejected_by_judge",
  "generator": "ollama/paleo-qwen3.5-9b",
  "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
  "facts_hash": "412db2e2b85e4f3f",
  "generated_at": "2026-11-13T13:36:34+00:00",
  "word_count": null,
- "problems": [],
+ "problems": [
+  "judge: Mischaracterizes participants as having … rather than Duchenne muscular dystrophy."
+ ],
  "sentences": [
   {
    "text": "Los investigadores emplearon un diseño de cohorte retrospectivo para examinar si la cirugía de fusión espinal altera la trayectoria del deterioro de la función pulmonar y de la fuerza de los músculos respiratorios en dieciséis niños con condiciones espinales no ambulatorias, con una edad media de 17,9 años.",
@@ -30,5 +32,17 @@
     "f6"
    ]
   }
- ]
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Mischaracterizes participants as having \"spinal conditions\" rather than Duchenne muscular dystrophy.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-14T16:22:09+00:00"
+ }
 }

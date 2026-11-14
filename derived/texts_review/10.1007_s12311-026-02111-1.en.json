@@ -1,13 +1,15 @@
 {
  "study_id": "10.1007/s12311-026-02111-1",
  "lang": "en",
- "status": "verified",
+ "status": "rejected_by_judge",
  "generator": "ollama/paleo-qwen3.5-9b",
  "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
  "facts_hash": "19187c120708d510",
  "generated_at": "2026-11-13T13:38:12+00:00",
  "word_count": 98,
- "problems": [],
+ "problems": [
+  "judge: Spanish version misstates the primary outcome as energy cost rather than dual-task cost of sway area"
+ ],
  "sentences": [
   {
    "text": "A randomized controlled trial involving 26 stroke patients investigated whether electrical stimulation applied to the cerebellum opposite the injury site could improve performance during dual tasks, such as walking while counting backward.",
@@ -33,5 +35,17 @@
     "f9"
    ]
   }
- ]
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": false,
+  "passed": false,
+  "reason": "Spanish version misstates the primary outcome as energy cost rather than dual-task cost of sway area",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-14T16:27:18+00:00"
+ }
 }

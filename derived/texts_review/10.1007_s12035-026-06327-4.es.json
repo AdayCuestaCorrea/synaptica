@@ -1,13 +1,15 @@
 {
  "study_id": "10.1007/s12035-026-06327-4",
  "lang": "es",
- "status": "verified",
+ "status": "rejected_by_judge",
  "generator": "ollama/paleo-qwen3.5-9b",
  "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
  "facts_hash": "1f38762b9b3192fe",
  "generated_at": "2026-11-13T13:37:57+00:00",
  "word_count": null,
- "problems": [],
+ "problems": [
+  "judge: Overstates causality by saying mutations directly cause cerebral palsy"
+ ],
  "sentences": [
   {
    "text": "Los investigadores examinaron cómo una variante específica de la proteína PLXNB3 impide la conexión con SEMA4A en humanos, mientras que la reducción del gen Plxnb3 en cerebros de ratones en desarrollo impidió que las neuronas se desplazaran a sus posiciones correctas.",
@@ -28,5 +30,17 @@
     "f4"
    ]
   }
- ]
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": false,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Overstates causality by saying mutations directly cause cerebral palsy",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-14T16:26:17+00:00"
+ }
 }

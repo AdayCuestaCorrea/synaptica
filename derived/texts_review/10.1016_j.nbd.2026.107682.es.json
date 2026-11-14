@@ -1,13 +1,15 @@
 {
  "study_id": "10.1016/j.nbd.2026.107682",
  "lang": "es",
- "status": "verified",
+ "status": "rejected_by_judge",
  "generator": "ollama/paleo-qwen3.5-9b",
  "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
  "facts_hash": "728a6091588589ab",
  "generated_at": "2026-11-13T13:40:23+00:00",
  "word_count": null,
- "problems": [],
+ "problems": [
+  "judge: Overstates findings as a 'key cause' rather than an important mechanism."
+ ],
  "sentences": [
   {
    "text": "Los investigadores examinaron un modelo de ratón transgénico que carece de una copia del gen Arid1b en las células que forman interneuronas inhibitorias específicas, midiendo cómo estas interneuronas se conectan con neuronas excitadoras en cortes cerebrales de ratones bebés y adolescentes.",
@@ -30,5 +32,17 @@
     "f6"
    ]
   }
- ]
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": false,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Overstates findings as a 'key cause' rather than an important mechanism.",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-14T16:33:31+00:00"
+ }
 }

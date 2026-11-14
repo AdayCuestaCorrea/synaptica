@@ -1,13 +1,15 @@
 {
  "study_id": "10.1016/j.ejphar.2026.179541",
  "lang": "en",
- "status": "verified",
+ "status": "rejected_by_judge",
  "generator": "ollama/paleo-qwen3.5-9b",
  "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
  "facts_hash": "1f6deb15212fb8e9",
  "generated_at": "2026-11-13T13:39:56+00:00",
  "word_count": 134,
- "problems": [],
+ "problems": [
+  "judge: Calls the model a 'brain injury' model, which is not stated in the abstract."
+ ],
  "sentences": [
   {
    "text": "Researchers investigated whether combining brivaracetam and sertraline works better than using them separately to stop seizures and fix related behavior problems in a mouse model of brain injury. The study used male BALB/c mice given pentylenetetrazol to create a seizure model known as kindling.",
@@ -30,5 +32,17 @@
     "f6"
    ]
   }
- ]
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Calls the model a 'brain injury' model, which is not stated in the abstract.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-14T16:32:21+00:00"
+ }
 }

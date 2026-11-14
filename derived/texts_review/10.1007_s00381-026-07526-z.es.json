@@ -1,13 +1,15 @@
 {
  "study_id": "10.1007/s00381-026-07526-z",
  "lang": "es",
- "status": "verified",
+ "status": "rejected_by_judge",
  "generator": "ollama/paleo-qwen3.5-9b",
  "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
  "facts_hash": "1ffaa541f55a7edd",
  "generated_at": "2026-11-13T13:36:08+00:00",
  "word_count": null,
- "problems": [],
+ "problems": [
+  "judge: Overstates postoperative improvements as significant when abstract reports only non‑significant changes after correction."
+ ],
  "sentences": [
   {
    "text": "Un estudio de cohorte retrospectivo que involucró a 34 niños de 6 a 16 años evaluó la función cognitiva basal mediante pruebas de diseño de bloques, amplitud de dígitos, atención visual y memoria narrativa.",
@@ -31,5 +33,17 @@
     "f7"
    ]
   }
- ]
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": false,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Overstates postoperative improvements as significant when abstract reports only non‑significant changes after correction.",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-14T16:20:09+00:00"
+ }
 }

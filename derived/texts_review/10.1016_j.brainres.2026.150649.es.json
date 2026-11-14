@@ -1,13 +1,15 @@
 {
  "study_id": "10.1016/j.brainres.2026.150649",
  "lang": "es",
- "status": "verified",
+ "status": "rejected_by_judge",
  "generator": "ollama/paleo-qwen3.5-9b",
  "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
  "facts_hash": "9ab9f68e1eb59633",
  "generated_at": "2026-11-13T13:38:53+00:00",
  "word_count": null,
- "problems": [],
+ "problems": [
+  "judge: Adds unsupported claim about increased speed of the response curve, which is not stated in the abstract."
+ ],
  "sentences": [
   {
    "text": "Este estudio investigó cómo los niveles variables de oxígeno influyen en la excitabilidad de la corteza motora en treinta y siete personas que participaron en una prueba aleatorizada que implicó respirar aire con concentraciones bajas, normales y altas de oxígeno. Los investigadores aplicaron pulsos magnéticos para medir la facilidad con la que los señales motoras viajaban desde el cerebro hasta los músculos bajo estas diferentes condiciones.",
@@ -31,5 +33,17 @@
     "f7"
    ]
   }
- ]
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Adds unsupported claim about increased speed of the response curve, which is not stated in the abstract.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-14T16:29:17+00:00"
+ }
 }
