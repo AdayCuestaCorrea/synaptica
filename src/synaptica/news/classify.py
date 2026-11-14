@@ -33,7 +33,7 @@ from synaptica.config import get_paths
 from synaptica.llm import LLM, prompt
 from synaptica.store import _atomic_write, utc_today
 
-BATCH = 20
+BATCH = 40  # v145: half the calls under the 1000 OTPM cap (~25 tokens per item)
 WINDOW_DAYS = 7
 TYPES = ("healthy_brain", "disease", "clinical_trial", "technique", "noise")
 
@@ -120,7 +120,7 @@ def classify_batch(
     lines = [f"{i}. [{item['lang']}] {model_input(item)}"
              for i, (_, item) in enumerate(batch, start=1)]  # fmt: skip
     answer = llm.complete_json(system, "ITEMS:\n" + "\n".join(lines), BatchTypes,
-                               max_tokens=800)  # fmt: skip
+                               max_tokens=1_000)  # fmt: skip
     by_index = {t.index: t.type for t in answer.items}
     return {key: by_index[i] for i, (key, _) in enumerate(batch, start=1) if i in by_index}
 

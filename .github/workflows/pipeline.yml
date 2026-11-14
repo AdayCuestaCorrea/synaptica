@@ -40,7 +40,7 @@ jobs:
     # Pinned during the Phase 1 closing clock (v124): ubuntu-latest moves to 26.04 in
     # November 2026 and a runner change must not count as an intervention.
     runs-on: ubuntu-24.04
-    timeout-minutes: 120
+    timeout-minutes: 150 # the three Groq stages take up to 115
     permissions:
       contents: write # commit to the data branch
       actions: read # step durations for the run report
@@ -127,31 +127,66 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: uv run syn doctor --llm groq
 
-      - name: Classify and summarize (Groq)
-        # What is up to date is skipped. When the free quota runs out each command stops
-        # and the rest keeps its fallback text until tomorrow. The writer (qwen3.8-27b)
-        # shares its daily quota between classifying and summarizing; the judge
-        # (gpt-oss-120b) has its own.
-        # v143: each command runs even if an earlier one failed (run 43600053060 lost the
-        # whole step to the first error), and the step fails at the end if any did; its
-        # real outcome goes to the run report. Qwen is capped at 1000 output tokens per
-        # minute (~2.6 min per study), so writing has deadlines and the judge runs first
-        # on the texts waiting from earlier days, then again on today's.
-        id: llm
+      # Groq in three stages (v145), each with its own deadline, continue-on-error and a
+      # checkpoint push of derived/ after it: a run cut hard (43609191046) keeps what the
+      # earlier stages did. What is up to date is skipped; when the free quota runs out a
+      # command stops and the rest waits for tomorrow. The writer (qwen3.8-27b) has an
+      # output-tokens-per-minute cap of 1000 (v143) shared by classifying and writing;
+      # the judge (gpt-oss-120b) has its own quota, so it goes first, on the texts
+      # waiting from earlier days. Each stage runs every command even if one fails, and
+      # fails at the end if any did; the real outcomes go to the run report.
+      - name: Judge pending texts (Groq)
+        id: llm-judge
         if: ${{ !cancelled() && env.RUN == 'true' && (github.event_name == 'schedule' || inputs.llm) }}
         continue-on-error: true
-        timeout-minutes: 75 # the site and the data commit must still run
+        timeout-minutes: 25
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: uv run syn judge --provider groq --until "$(date -u -d '+20 min' +%H:%M)"
+
+      - name: Checkpoint after judging
+        if: ${{ !cancelled() && steps.llm-judge.outcome != 'skipped' && steps.llm-judge.outcome != '' }}
+        continue-on-error: true # the final commit tries again
+        working-directory: data
+        run: ../scripts/commit_data.sh checkpoint judge
+
+      - name: Filter and classify (Groq)
+        id: llm-news
+        if: ${{ !cancelled() && env.RUN == 'true' && (github.event_name == 'schedule' || inputs.llm) }}
+        continue-on-error: true
+        timeout-minutes: 40
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: |
           failed=""
           step() { uv run syn "$@" || failed="$failed [$*]"; }
           step news neuro --provider groq
-          step news classify --provider groq
+          # ~650 new items a day; batches of 40 at about one call a minute (v145).
+          step news classify --provider groq --limit 800
           step news group --provider groq
           step build
+          if [ -n "$failed" ]; then
+            echo "::error::LLM commands failed:$failed"
+            exit 1
+          fi
+
+      - name: Checkpoint after classifying
+        if: ${{ !cancelled() && steps.llm-news.outcome != 'skipped' && steps.llm-news.outcome != '' }}
+        continue-on-error: true # the final commit tries again
+        working-directory: data
+        run: ../scripts/commit_data.sh checkpoint classify
+
+      - name: Summarize (Groq)
+        id: llm-write
+        if: ${{ !cancelled() && env.RUN == 'true' && (github.event_name == 'schedule' || inputs.llm) }}
+        continue-on-error: true
+        timeout-minutes: 50
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          failed=""
+          step() { uv run syn "$@" || failed="$failed [$*]"; }
           by() { date -u -d "+$1 min" +%H:%M; }  # each command gets its share of the step
-          step judge --provider groq --until "$(by 20)"
           step facts --provider groq --limit 20 --until "$(by 15)"
           step write --provider groq --limit 20 --until "$(by 20)"
           step recheck
@@ -163,6 +198,14 @@ jobs:
             echo "::error::LLM commands failed:$failed"
             exit 1
           fi
+
+      - name: Checkpoint the private cache
+        # The facts' quotes live only in the cache: keep them even if the run is cut later.
+        if: ${{ !cancelled() && steps.llm-write.outcome != 'skipped' && steps.llm-write.outcome != '' }}
+        uses: actions/cache/save@v6.1.0
+        with:
+          path: data/cache
+          key: synaptica-cache-${{ github.run_id }}-llm
 
       - name: dbt build
         if: ${{ !cancelled() && env.SKIP != 'true' }}
@@ -244,7 +287,9 @@ jobs:
             > "$RUNNER_TEMP/jobs.json" || echo '{}' > "$RUNNER_TEMP/jobs.json"
           # The API shows a failed continue-on-error step as a success: pass the real ones.
           uv run syn report finish --jobs "$RUNNER_TEMP/jobs.json" \
-            --outcome "Classify and summarize (Groq)=${{ steps.llm.outcome }}" \
+            --outcome "Judge pending texts (Groq)=${{ steps.llm-judge.outcome }}" \
+            --outcome "Filter and classify (Groq)=${{ steps.llm-news.outcome }}" \
+            --outcome "Summarize (Groq)=${{ steps.llm-write.outcome }}" \
             --outcome "Authenticate to Google Cloud=${{ steps.gcp-auth.outcome }}" \
             --outcome "Mirror the marts in BigQuery=${{ steps.mirror-load.outcome }}" \
             | tee -a "$GITHUB_STEP_SUMMARY"
@@ -253,25 +298,7 @@ jobs:
         # Always, so new raw data and the run log are kept even if dbt or the site fail.
         if: always() && env.SKIP != 'true'
         working-directory: data
-        run: |
-          git add -A
-          if git diff --cached --name-only | grep -E '(^|/)cache/|\.duckdb'; then
-            echo "::error::private or local files staged; refusing to commit"
-            exit 1
-          fi
-          if git diff --cached --quiet; then
-            echo "No data changes."
-            exit 0
-          fi
-          message="Data update $(date -u +%F)"
-          if [ -z "$(git diff --cached --name-only | grep -v '^runs/')" ]; then
-            message="Run log $(date -u +%F)"
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -q -m "$message"
-          git pull -q --rebase origin data
-          git push -q origin HEAD:data
+        run: ../scripts/commit_data.sh final
 
       - name: Save the private cache
         if: always() && env.SKIP != 'true'

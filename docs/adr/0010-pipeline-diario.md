@@ -115,3 +115,16 @@ Además, el diseño lo agravó en dos cosas:
 **Consecuencia.** Menos resúmenes al día (unos 20 en vez de 40) mientras dure el tope. Si Groq lo quita o resulta ser solo de Qwen, `MODEL_LIMITS` es el único sitio que hay que cambiar. Aday mirará el desglose «in / out» de cada modelo en la página de límites de su cuenta de Groq.
 
 **Reloj de cierre.** Aday decide reiniciarlo (v144): el arreglo es un commit que hace funcionar el pipeline, y se acumulaban fallos de Actions.
+
+## Revisión (2026-11-14, tarde): la ejecución manual con el arreglo, cortada
+
+[Run 43609191046](https://github.com/AdayCuestaCorrea/synaptica/actions/runs/43609191046), a mano con Groq y el arreglo de la v143. El tope de salida ya no tumbó ninguna llamada: el filtro respondió 206 elementos en 10 minutos y la clasificación, 641 en 33 minutos (una llamada por minuto). A los 45 minutos de paso, el job se cortó con *The operation was canceled*. Aday no lo canceló, no saltó ningún tiempo límite y GitHub no tenía incidencias publicadas. **No corrió ni un paso con `always()`, ni siquiera los «Post»**: fue un corte duro, no una cancelación normal. Se perdieron las 847 decisiones (estaban en `derived/`, sin commit) y buena parte del cupo de Qwen del día.
+
+**Lección.** Un pipeline que solo guarda al final lo pierde todo con un corte duro, y `always()` no protege de eso. Como la causa no está en nuestras manos, el diseño tiene que asumir que puede repetirse.
+
+**Arreglo (v145).**
+- **Tres etapas de Groq**, cada una con su plazo y `continue-on-error`: juez de lo pendiente (gpt-oss, con cupo propio, así que no espera a nadie) → filtro y clasificación → hechos, resúmenes y juez de lo nuevo.
+- **Un punto de guardado tras cada etapa** (`scripts/commit_data.sh checkpoint`): commit y push de lo producido a la rama `data`, sin `runs/` (el registro de la ejecución se completa al final). Es el mismo script del commit final, con su misma comprobación de archivos privados. Tras la última etapa, un guardado intermedio de la caché, porque las citas de los hechos solo viven allí.
+- **La clasificación en lotes de 40** (antes 20) con `max_tokens` 1000: una respuesta ocupa unos 25 tokens por elemento, y así salen la mitad de llamadas bajo el tope. Lleva `--limit 800`, que cubre los ~650 elementos nuevos de cada día. El lote de 20 fue el que se midió en S5; si Sofía ve peor la clasificación con el 14b, se vuelve a 20.
+- El job pasa a 150 minutos: las tres etapas suman como máximo 115.
+
