@@ -372,6 +372,7 @@ a.gl:hover, a.gl:focus-visible { color: var(--link); background: var(--accent-so
 .classic { margin: 0 0 14px; }
 .classic-title { font-weight: 700; }
 .classic-meta { margin: 2px 0 0; font-size: 0.88rem; color: var(--muted); }
+.classic-integrity { margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; }
 /* Fact of the day (step 26). */
 .fact-day { margin: 0 0 16px; padding: 14px 16px; border: var(--card-border); border-radius: var(--radius); background: var(--surface); }
 .fact-text { margin: 4px 0 8px; }

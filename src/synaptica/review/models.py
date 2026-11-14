@@ -22,9 +22,16 @@ import hashlib
 import json
 from datetime import UTC, datetime
 from enum import StrEnum
-from typing import Annotated, Literal
+from typing import Annotated, Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    field_validator,
+    model_serializer,
+    model_validator,
+)
 
 
 class Strict(BaseModel):
@@ -120,6 +127,20 @@ class Candidate(Strict):
     title: str
     year: int
     cited_by: int
+    # Its notices (dim_integrity, v148); a retracted work is never proposed.
+    integrity: Literal["none", "concern", "corrected"] = "none"
+    integrity_notices: list[str] = []
+
+    @model_serializer(mode="wrap")
+    def _without_empty_integrity(self, handler: Any) -> dict[str, Any]:
+        """A candidate without notices dumps as before v148, so the ``content_sha256`` of
+        the items she already answered (and their queue files) stays the same."""
+        out = handler(self)
+        if self.integrity == "none":
+            out.pop("integrity", None)
+            if not self.integrity_notices:
+                out.pop("integrity_notices", None)
+        return out
 
 
 class CandidatesContent(Strict):

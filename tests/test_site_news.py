@@ -53,7 +53,7 @@ NEWS = [
 ]  # fmt: skip
 
 
-def warehouse(data: Path, studies=STUDIES, items=NEWS) -> Path:
+def warehouse(data: Path, studies=STUDIES, items=NEWS, integrity=()) -> Path:
     data.mkdir(parents=True, exist_ok=True)
     path = data / "warehouse.duckdb"
     with duckdb.connect(str(path)) as con:
@@ -67,9 +67,15 @@ def warehouse(data: Path, studies=STUDIES, items=NEWS) -> Path:
         con.execute("""create table fct_news_item (news_item_id varchar, story_id varchar,
             origin varchar, feed varchar, outlet varchar, lang varchar, url varchar,
             title varchar, published_at timestamp, entered_on date, is_neuro boolean)""")
+        con.execute("""create table dim_integrity (doi varchar, integrity varchar,
+            integrity_notices varchar[], integrity_sources varchar[], last_notice_on date)""")
         con.execute("create table news_feeds (feed varchar, license varchar)")
         con.execute("insert into news_feeds values ('sinc', 'CC BY 4.0')")
-        for table, rows in (("dim_study", studies), ("fct_news_item", items)):
+        for table, rows in (
+            ("dim_study", studies),
+            ("fct_news_item", items),
+            ("dim_integrity", integrity),
+        ):
             for r in rows:
                 cols = ", ".join(r)
                 con.execute(f"insert into {table} ({cols}) values "

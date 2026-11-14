@@ -64,6 +64,10 @@
       <li class="classic">
         <a class="classic-title" href="https://doi.org/{{ w.doi }}" lang="en" rel="noopener">{{ w.title }}</a>
         <p class="classic-meta">{{ w.year }} · {{ t.classics_cited.format(n=("{:,}".format(w.cited_by).replace(",", " ") if lang == "es" else "{:,}".format(w.cited_by))) }}{% if w.subfield %} · {{ w.subfield[lang] }}{% endif %}</p>
+        {% if w.integrity != "none" %}{% set g = signals(w)[2] %}
+        <p class="classic-integrity"><span class="chip chip--integrity is-{{ g.state }}" data-signal="integrity"><span class="vh">{{ g.label }}: </span>{{ g.short }}</span>
+          <small class="notices">{{ t.notices.format(sources=g.notice_sources | join(" · ")) }}{% if g.notices %}: {% endif %}{% for d in g.notices %}<a href="https://doi.org/{{ d }}" rel="noopener" target="_blank">{{ d }}</a>{% if not loop.last %}; {% endif %}{% endfor %}</small></p>
+        {% endif %}
       </li>
       {% endfor %}
     </ol>
