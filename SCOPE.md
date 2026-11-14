@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 146** · 2026-11-14 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 148** · 2026-11-14 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
