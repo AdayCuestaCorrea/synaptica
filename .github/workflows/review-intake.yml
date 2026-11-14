@@ -1,18 +1,29 @@
 # Review intake (plan, step R and 28; ADR 0005), from the draft spikes/s4/review-intake.yml.
-# Reads Sofía's review Issue, appends her decisions to the data branch, replies on the
-# Issue and closes it. Security:
-# - Only Issues by vars.REVIEWER_LOGIN run anything (checked here and again in the code).
-#   A variable, not a secret: her login is public anyway.
-# - The Issue body is untrusted text: it is never interpolated into a `run:` script
-#   (`${{ github.event.issue.body }}` would let a body inject shell commands). The code
-#   reads it from the event file that Actions writes, and picks the queue her page showed
-#   from the Issue's header (`syn review intake --queue-dir`).
+# Reads Sofía's review Issues, appends her decisions to the data branch, replies on each
+# Issue and closes it.
+#
+# Every run reads ALL her open Issues with the label, oldest number first
+# (`syn review sweep`), not only the one that triggered it: GitHub keeps one pending run per
+# concurrency group and cancels the rest (seen on 2026-11-14: five parts in 20 s, #12 and
+# #13 cancelled), so the last run picks up what the cancelled ones missed. Decisions
+# already recorded are not applied twice (the intake's deduplication).
+#
+# Security:
+# - Only Issues by vars.REVIEWER_LOGIN run anything: checked in the `if` for the triggering
+#   Issue, by `gh issue list --author` for the rest, and again in the code.
+#   A variable, not a secret: her login is public anyway. workflow_dispatch (a manual
+#   sweep) is open only to people with write access to the repository.
+# - Issue text is untrusted: it is never interpolated into a `run:` script
+#   (`${{ github.event.issue.body }}` would let a body inject shell commands). It goes from
+#   `gh` to a JSON file that the code reads; the shell only handles Issue numbers and the
+#   reply files the code wrote (plan.json).
 # - Least privilege: write access to contents (the data branch) and issues, nothing else.
 name: Review intake
 
 on:
   issues:
     types: [opened]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -25,12 +36,15 @@ concurrency:
 jobs:
   intake:
     if: >-
-      vars.REVIEWER_LOGIN != '' &&
-      github.event.issue.user.login == vars.REVIEWER_LOGIN &&
-      contains(github.event.issue.labels.*.name, 'revisión')
+      vars.REVIEWER_LOGIN != '' && (
+        github.event_name == 'workflow_dispatch' || (
+          github.event.issue.user.login == vars.REVIEWER_LOGIN &&
+          contains(github.event.issue.labels.*.name, 'revisión')))
     runs-on: ubuntu-24.04
     env:
       SYN_DATA_DIR: ${{ github.workspace }}/data
+      GH_TOKEN: ${{ github.token }}
+      REVIEWER: ${{ vars.REVIEWER_LOGIN }}
     steps:
       - uses: actions/checkout@v7.0.1
 
@@ -54,28 +68,33 @@ jobs:
       - name: Install
         run: uv sync --locked
 
-      - name: Read the Issue
+      - name: Her open review Issues
+        run: |
+          gh issue list --repo "$GITHUB_REPOSITORY" --state open --label revisión \
+            --author "$REVIEWER" --limit 100 \
+            --json number,title,body,author,createdAt,labels,comments > "$RUNNER_TEMP/issues.json"
+
+      - name: Read the Issues
         id: intake
-        env:
-          REVIEWER: ${{ vars.REVIEWER_LOGIN }}
-        # Exit 2: an edited text has no source to check it against; the Issue stays open
-        # and Aday processes it by hand (`syn review intake --efetch`).
+        # Exit 2: an edited text has no source to check it against; that Issue stays open,
+        # with a notice for her, and Aday processes it by hand (`syn review intake --efetch`).
         run: |
           code=0
-          uv run syn review intake \
-            --event "$GITHUB_EVENT_PATH" \
+          uv run syn review sweep \
+            --issues "$RUNNER_TEMP/issues.json" \
             --queue-dir data/review \
             --reviewer "$REVIEWER" \
-            --reply "$RUNNER_TEMP/reply.md" > "$RUNNER_TEMP/outcome.json" || code=$?
-          cat "$RUNNER_TEMP/outcome.json"
-          echo "status=$(jq -r .status "$RUNNER_TEMP/outcome.json")" >> "$GITHUB_OUTPUT"
-          exit $code
+            --out "$RUNNER_TEMP/intake" || code=$?
+          if [ "$code" -ne 0 ] && [ "$code" -ne 2 ]; then exit "$code"; fi
+          plan="$RUNNER_TEMP/intake/plan.json"
+          echo "processed=$(jq -r '[.[] | select(.status == "processed") | "#\(.number)"] | join(", ")' "$plan")" >> "$GITHUB_OUTPUT"
+          echo "waiting=$([ "$code" -eq 2 ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
 
       - name: Commit to the data branch
-        if: steps.intake.outputs.status == 'processed'
+        if: steps.intake.outputs.processed != ''
         working-directory: data
         env:
-          NUMBER: ${{ github.event.issue.number }}
+          NUMBERS: ${{ steps.intake.outputs.processed }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -84,18 +103,29 @@ jobs:
             echo "::error::private or local files staged; refusing to commit"
             exit 1
           fi
-          git diff --cached --quiet || git commit -q -m "data: review decisions from issue #$NUMBER"
+          git diff --cached --quiet || git commit -q -m "data: review decisions from issue $NUMBERS"
           git pull -q --rebase origin data
           git push -q origin HEAD:data
 
       - name: Reply and close
-        if: steps.intake.outputs.status == 'processed' || steps.intake.outputs.status == 'refused'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          NUMBER: ${{ github.event.issue.number }}
-          STATUS: ${{ steps.intake.outputs.status }}
         run: |
-          gh issue comment "$NUMBER" --repo "$GITHUB_REPOSITORY" --body-file "$RUNNER_TEMP/reply.md"
-          if [ "$STATUS" = processed ]; then
-            gh issue close "$NUMBER" --repo "$GITHUB_REPOSITORY" --reason completed
-          fi
+          dir="$RUNNER_TEMP/intake"
+          jq -c '.[]' "$dir/plan.json" | while read -r row; do
+            number=$(jq -r '.number' <<< "$row")
+            reply=$(jq -r '.reply // empty' <<< "$row")
+            close=$(jq -r '.close' <<< "$row")
+            [[ "$number" =~ ^[0-9]+$ ]] || { echo "::error::bad number"; exit 1; }
+            if [ -n "$reply" ]; then
+              [[ "$reply" =~ ^reply-[0-9]+\.md$ ]] || { echo "::error::bad reply"; exit 1; }
+              gh issue comment "$number" --repo "$GITHUB_REPOSITORY" --body-file "$dir/$reply"
+            fi
+            if [ "$close" = true ]; then
+              gh issue close "$number" --repo "$GITHUB_REPOSITORY" --reason completed
+            fi
+          done
+
+      - name: An Issue waits for Aday
+        if: steps.intake.outputs.waiting == 'true'
+        run: |
+          echo "::error::an Issue edits a text whose source is not in the cache: run syn review intake --efetch by hand"
+          exit 1

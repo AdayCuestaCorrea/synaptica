@@ -852,6 +852,34 @@ def review_intake(
         raise typer.Exit(2)
 
 
+@review_app.command("sweep")
+def review_sweep(
+    issues: Annotated[
+        Path, typer.Option(help="Her open Issues: `gh issue list --json number,title,body,…`.")
+    ],
+    queue_dir: Annotated[Path, typer.Option(help="The queue-<day>.json files.")],
+    reviewer: Annotated[str, typer.Option(help="Her GitHub login (a repository variable).")],
+    out: Annotated[Path, typer.Option(help="Folder for plan.json and the replies.")],
+    cache_root: Annotated[Path | None, typer.Option(help="Abstract cache.")] = None,
+    efetch: Annotated[
+        list[Path] | None,
+        typer.Option(help="PubMed efetch XML for abstracts not in the cache; repeatable."),
+    ] = None,
+) -> None:
+    """Every open review Issue of hers, oldest first (the intake workflow): exit 2 when one
+    waits for Aday (an edited text without its source)."""
+    import json
+
+    from synaptica.review.sweep import sweep
+
+    rows = json.loads(issues.read_text("utf-8"))
+    plan = sweep(rows, queue_dir, _review_dir(), reviewer, out, cache_root, efetch)
+    for row in plan:
+        typer.echo(json.dumps({"number": row["number"]} | row["result"]))
+    if any(row["status"] == "error" for row in plan):
+        raise typer.Exit(2)
+
+
 @mirror_app.command("export")
 def mirror_export(
     out: Annotated[Path, typer.Option(help="Folder for the Parquet files.")],
