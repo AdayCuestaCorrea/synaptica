@@ -122,9 +122,17 @@ REPORT_STEP = "Run report"  # the step that calls `syn report finish`: never fin
 
 
 def step_results(
-    jobs: Path, job_name: str = "update", now: dt.datetime | None = None
+    jobs: Path,
+    job_name: str = "update",
+    now: dt.datetime | None = None,
+    outcomes: dict[str, str] | None = None,
 ) -> list[dict[str, Any]]:
     """Name, conclusion and seconds of the steps of this job (GitHub API dump).
+
+    The API reports a failed step with ``continue-on-error`` as a success (run 43600053060:
+    the Groq step failed and showed "success"), so the workflow passes the real
+    ``steps.<id>.outcome`` of those steps in ``outcomes`` (step name -> outcome); a
+    "failure" there wins over the API's conclusion.
 
     The API can still show a step that has just ended as in progress: such a step
     (started, not completed, not the report itself) is kept with its time up to ``now``
@@ -140,7 +148,10 @@ def step_results(
         started = dt.datetime.fromisoformat(step["started_at"])
         if step.get("completed_at"):
             completed = dt.datetime.fromisoformat(step["completed_at"])
-            out.append({"name": step["name"], "conclusion": step["conclusion"],
+            conclusion = step["conclusion"]
+            if (outcomes or {}).get(step["name"]) == "failure":
+                conclusion = "failure"
+            out.append({"name": step["name"], "conclusion": conclusion,
                         "seconds": int((completed - started).total_seconds())})  # fmt: skip
         elif step["name"] != REPORT_STEP and now is not None:
             out.append({"name": step["name"], "conclusion": "in_progress",
@@ -195,6 +206,7 @@ def finish_run(
     data: Path,
     *,
     run_results: Path | None = None,
+    outcomes: dict[str, str] | None = None,
     jobs: Path | None = None,
     summary: dict[str, Any] | None = None,
     now: dt.datetime | None = None,
@@ -219,7 +231,7 @@ def finish_run(
          if r.get("summary") and r["started_at"] < run["started_at"]),
         None,
     )  # fmt: skip
-    steps = step_results(jobs, now=moment) if jobs else []
+    steps = step_results(jobs, now=moment, outcomes=outcomes) if jobs else []
     dbt = dbt_issues(run_results)
     failed = any(s["conclusion"] == "failure" for s in steps) or bool(
         dbt and any(i["status"] in FAILED for i in dbt["issues"])

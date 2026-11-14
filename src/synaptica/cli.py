@@ -160,15 +160,24 @@ def report_finish(
     jobs: Annotated[
         Path | None, typer.Option(help="GitHub API dump of this run's jobs (step durations).")
     ] = None,
+    outcome: Annotated[
+        list[str] | None,
+        typer.Option(
+            help="'Step name=outcome' of a continue-on-error step (repeatable): the API "
+            "shows such a step as a success even when it failed."
+        ),
+    ] = None,
 ) -> None:
     """Complete the current run record and print the report as Markdown."""
     from synaptica import report
 
+    outcomes = dict(o.rsplit("=", 1) for o in outcome or [] if "=" in o)
     try:
         run = report.finish_run(
             config.get_paths().data,
             run_results=config.project_root() / "dbt" / "target" / "run_results.json",
             jobs=jobs,
+            outcomes=outcomes,
         )
     except RuntimeError as exc:
         typer.echo(str(exc), err=True)

@@ -25,7 +25,7 @@ import re
 import time
 from collections import deque
 from collections.abc import Callable
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from importlib import resources
 from pathlib import Path
 from typing import Any
@@ -69,6 +69,10 @@ class Limits:
     tokens_per_minute: int
     requests_per_day: int
     tokens_per_day: int
+    # Output tokens per minute (OTPM), a separate cap some Groq organizations get. Groq
+    # counts a request's ``max_tokens`` as its expected output *before* running it, and
+    # rejects outright a request asking for more than the cap ("Request too large").
+    output_tokens_per_minute: int | None = None
 
 
 @dataclass(frozen=True)
@@ -106,6 +110,13 @@ PROVIDERS: dict[str, Provider] = {
         limits=GROQ_FREE,
         extra_body={"reasoning_effort": "low"},
     ),
+}
+
+# Model-specific limits, replacing the provider's. Qwen on Groq: our organization got an
+# OTPM cap of 1000 by 2026-11-14 (the 429 of run 43600053060: "output tokens per minute
+# (OTPM): Limit 1000, Requested 1500"); on 2026-11-13 a call with max_tokens=4000 passed.
+MODEL_LIMITS: dict[str, Limits] = {
+    "qwen/qwen3.8-27b": replace(GROQ_FREE, output_tokens_per_minute=1_000),
 }
 
 # Model-specific overrides of the provider's extra_body.
@@ -149,6 +160,10 @@ def post_json(
             continue
         if r.status_code < 400:
             return r
+        if r.status_code == 429 and "request too large" in r.text.lower():
+            # A single request above a per-minute cap (e.g. max_tokens above the OTPM cap):
+            # waiting cannot help either, and it is our configuration to fix.
+            raise HttpError(r.status_code, r.text[:500])
         if r.status_code == 429 and _daily_limit(r):
             # Waiting cannot help: the provider counts a day (step 28; Groq says "tokens per
             # day (TPD)" or "requests per day (RPD)"). The command stops, as with our own
@@ -185,7 +200,7 @@ class RateLimiter:
         self.clock = clock
         self.sleep = sleep
         self.today = today
-        self._window: deque[tuple[float, int]] = deque()
+        self._window: deque[tuple[float, int, int]] = deque()  # (time, tokens, output)
 
     def _load(self) -> dict[str, Any]:
         if self.usage_path.exists():
@@ -196,7 +211,14 @@ class RateLimiter:
         usage = self._load().get(self.today().isoformat(), {})
         return usage.get(model, {"requests": 0, "tokens": 0})
 
-    def acquire(self, model: str, estimated_tokens: int) -> None:
+    def acquire(self, model: str, estimated_tokens: int, output_tokens: int = 0) -> None:
+        """Wait until the call fits this minute's budget. ``output_tokens`` is the call's
+        ``max_tokens``, which a provider with an OTPM cap reserves before running it."""
+        otpm = self.limits.output_tokens_per_minute
+        if otpm is not None and output_tokens > otpm:
+            raise ValueError(
+                f"{model}: max_tokens {output_tokens} exceeds the {otpm} output tokens/minute limit"
+            )
         if estimated_tokens > self.limits.tokens_per_minute:
             raise ValueError(
                 f"{model}: a single call of ~{estimated_tokens} tokens exceeds the "
@@ -212,16 +234,18 @@ class RateLimiter:
             now = self.clock()
             while self._window and now - self._window[0][0] >= 60:
                 self._window.popleft()
-            tokens = sum(t for _, t in self._window)
+            tokens = sum(t for _, t, _ in self._window)
+            output = sum(o for _, _, o in self._window)
             if (
                 len(self._window) < self.limits.requests_per_minute
                 and tokens + estimated_tokens <= self.limits.tokens_per_minute
+                and (otpm is None or output + output_tokens <= otpm)
             ):
                 return
             self.sleep(max(0.5, 60 - (now - self._window[0][0])))
 
-    def record(self, model: str, tokens: int) -> None:
-        self._window.append((self.clock(), tokens))
+    def record(self, model: str, tokens: int, output_tokens: int = 0) -> None:
+        self._window.append((self.clock(), tokens, output_tokens))
         usage = self._load()
         day = usage.setdefault(self.today().isoformat(), {}).setdefault(
             model, {"requests": 0, "tokens": 0}
@@ -286,8 +310,11 @@ class LLM:
         self.temperature = temperature
         cache_root = get_paths().cache
         self.cache_dir = cache_dir if cache_dir is not None else cache_root / "llm"
-        if limiter is None and self.provider.limits is not None:
-            limiter = RateLimiter(self.provider.limits, cache_root / "llm_usage.json")
+        limits = None
+        if self.provider.limits is not None:
+            limits = MODEL_LIMITS.get(model, self.provider.limits)
+        if limiter is None and limits is not None:
+            limiter = RateLimiter(limits, cache_root / "llm_usage.json")
         self.limiter = limiter
         self.client = client or httpx.Client(
             timeout=httpx.Timeout(timeout), headers={"User-Agent": USER_AGENT}
@@ -333,7 +360,14 @@ class LLM:
         max_tokens: int = 2_000,
         use_cache: bool = True,
     ) -> T:
-        """Ask for an answer matching ``output`` (a pydantic model) and validate it."""
+        """Ask for an answer matching ``output`` (a pydantic model) and validate it.
+
+        ``max_tokens`` is cut to the model's output-tokens-per-minute cap when it has one
+        (a larger request would be rejected without running)."""
+        cap = self.limiter.limits.output_tokens_per_minute if self.limiter else None
+        if cap is not None and max_tokens > cap:
+            log.warning("%s: max_tokens %d cut to the %d OTPM cap", self.label, max_tokens, cap)
+            max_tokens = cap
         schema = output.model_json_schema()
         messages = [
             {
@@ -376,7 +410,7 @@ class LLM:
                 if attempt:
                     raise LLMOutputError(f"{self.label}: invalid output ({exc})") from exc
                 log.warning("%s: invalid output, retrying with more tokens (%s)", self.label, exc)
-                payload["max_tokens"] = max_tokens * 2
+                payload["max_tokens"] = min(max_tokens * 2, cap or max_tokens * 2)
         record = {
             "model": self.label,
             "created": dt.datetime.now(dt.UTC).isoformat(),
@@ -393,7 +427,7 @@ class LLM:
             sum(len(m["content"]) for m in messages) // CHARS_PER_TOKEN + payload["max_tokens"]
         )
         if self.limiter:
-            self.limiter.acquire(self.model, estimated)
+            self.limiter.acquire(self.model, estimated, payload["max_tokens"])
         started = time.monotonic()
         body = self._post(payload)
         seconds = time.monotonic() - started
@@ -403,7 +437,9 @@ class LLM:
         self.stats.prompt_tokens += usage.get("prompt_tokens", 0)
         self.stats.completion_tokens += usage.get("completion_tokens", 0)
         if self.limiter:
-            self.limiter.record(self.model, usage.get("total_tokens", estimated))
+            self.limiter.record(
+                self.model, usage.get("total_tokens", estimated), payload["max_tokens"]
+            )
         content = body["choices"][0]["message"].get("content") or ""
         return content, usage, seconds
 

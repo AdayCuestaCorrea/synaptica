@@ -52,7 +52,7 @@ La decisión es la de D1 (DuckDB como almacén y BigQuery como espejo semanal de
 - `syn mirror export` saca solo los marts (`dim_study`, `fct_news_item`) a Parquet con el `COPY` de DuckDB y se niega por encima de 1 GiB. Después, `bq load --replace` por tabla: las cargas son gratis y no necesitan DML.
 - `syn mirror record` anota filas, bytes en Parquet y bytes almacenados (`bq show`) en `mirror/bigquery.jsonl` de la rama `data`, porque los 10 GiB del sandbox son para siempre.
 - Va con `continue-on-error`: si el sandbox cambia o se agota, la web no se entera.
-- La autenticación (WIF) también va con `continue-on-error`, y el espejo solo corre si salió bien (v139). Antes no lo llevaba: un fallo de la federación habría puesto en rojo la ejecución del lunes y contado como intervención en el reloj de cierre. El informe de la ejecución sigue marcando el paso como fallido.
+- La autenticación (WIF) también va con `continue-on-error`, y el espejo solo corre si salió bien (v139). Antes no lo llevaba: un fallo de la federación habría puesto en rojo la ejecución del lunes y contado como intervención en el reloj de cierre. ~~El informe de la ejecución sigue marcando el paso como fallido.~~ **Era falso** (corregido en la v143, ver «Revisión»): la API marca como «success» un paso con `continue-on-error` aunque falle, y ahora el pipeline le pasa al informe el resultado real.
 
 ## Alternativas consideradas
 
@@ -87,4 +87,31 @@ La decisión es la de D1 (DuckDB como almacén y BigQuery como espejo semanal de
 - Tests sin red: reintento de 429 y 5xx con `retry-after` (`tests/test_http.py`); parada inmediata del 429 diario y reintento de los demás, y `check_key` sin clave, con 401 y con 200 y `syn doctor --llm groq` (`tests/test_cli.py`); `syn mirror export` y `record` (`tests/test_mirror.py`); el tope diario del contador propio: para antes de llamar, por tokens y por peticiones; lo lee una ejecución nueva el mismo día; va por modelo, y vuelve a empezar el día siguiente en UTC (`tests/test_llm_quota.py`).
 - Tres ejecuciones manuales sin LLM en verde el 2026-11-13: [43445443061](https://github.com/AdayCuestaCorrea/synaptica/actions/runs/43445443061) (la primera, con la caché de Actions vacía, que destapó lo arreglado en la v116), [43451355876](https://github.com/AdayCuestaCorrea/synaptica/actions/runs/43451355876) y [43453985082](https://github.com/AdayCuestaCorrea/synaptica/actions/runs/43453985082).
 - Juez en local el día 1 (v111): se paró solo al agotar el cupo, tras 83 estudios.
-- **Pendiente de verificar:** la primera ejecución con Groq (la programada del 2026-11-14) y el primer espejo real (un lunes, o a mano con el OK de Aday). Sus cifras se añadirán aquí como «Revisión».
+- Primer espejo real: ejecución manual [43512077811](https://github.com/AdayCuestaCorrea/synaptica/actions/runs/43512077811) del 2026-11-13, en verde. Crea el dataset `synaptica` (EU) y carga `dim_study` (4313 filas, 1,7 MB almacenados) y `fct_news_item` (373). El log trae avisos `gcloud.config.config-helper … no active account`, inofensivos: `bq` usa las credenciales de la federación.
+
+## Revisión (2026-11-14): primera ejecución programada con Groq
+
+[Run 43600053060](https://github.com/AdayCuestaCorrea/synaptica/actions/runs/43600053060). La lanzó el cron de las 06:17, pero arrancó a las 13:30 UTC (7 h 13 min tarde; Paleo tiene retrasos parecidos cada día). En verde, con «Status: ok» en el informe.
+
+| | Cifra |
+|---|---|
+| Ingesta | PubMed 679 nuevos; Crossref 118 avisos; Retraction Watch 63 registros; Europe PMC 76; preprints 25; noticias 1 |
+| dbt | 97/97 las dos veces |
+| Elementos clasificados | **0** |
+| Resúmenes escritos / verificados / juzgados | **0 / 0 / 0**; los 101 juicios pendientes de la carga inicial (v111), sin hacer |
+| Cupo de Groq | 5 peticiones rechazadas, sin tokens |
+
+**Qué falló.** `syn news neuro` recibió un 429 que no era de cupo: *Request too large for model `qwen/qwen3.8-27b` … output tokens per minute (OTPM): Limit 1000, Requested 1500*. Groq ha puesto a la organización un tope de 1000 tokens de salida por minuto para Qwen, aparte del de tokens por minuto (el 2026-11-13 una llamada con `max_tokens=4000` pasó). Groq cuenta el `max_tokens` como salida prevista *antes* de ejecutar: una petición que pide más que el tope se rechaza sin ejecutarse.
+
+Además, el diseño lo agravó en dos cosas:
+1. El paso era un script con `bash -e`: el primer error dejó sin correr `classify`, `group`, `facts`, `write`, `recheck` y `judge`.
+2. **El fallo no se vio.** La API de GitHub da `conclusion: success` a un paso con `continue-on-error` que falla, y `syn report` se fiaba de ella. Por eso el informe dijo «ok» y el respaldo no lo reintentó. Lo mismo valía para la autenticación de Google: lo que dice la v139 sobre ella era falso.
+
+**Arreglo (v143, opción A + C de Aday).**
+- **A, ajustarse al tope.** `Limits.output_tokens_per_minute` y `MODEL_LIMITS`: Qwen en Groq con 1000. El limitador reserva el `max_tokens` de cada llamada en la ventana de un minuto, y `complete_json` lo recorta al tope (también al reintentar con más tokens). Un 429 «Request too large» no se reintenta. Los `max_tokens` se fijan por llamada a partir de las salidas medidas en la caché local (999 respuestas: frases EN máx. 342 y ES 381; hechos con Qwen en Groq máx. 874; lotes de 20 elementos máx. 496; juez máx. 342): neuro y group 600, classify 800, facts 1000, frases EN y ES 800 (resumen semanal 1000), juez 800 como estaba.
+- **C, que no vuelva a pasar en silencio.** Cada comando del LLM corre aunque falle el anterior, y el paso falla al final si alguno falló. El pipeline pasa a `syn report finish` el `steps.<id>.outcome` real del paso del LLM, de la autenticación y del espejo (`--outcome`). Si alguno falló, la ejecución queda «failed» y la de respaldo lo reintenta.
+- **Ritmo.** Con el tope salen unos 2,6 minutos por estudio (hechos + EN + ES), así que `facts` y `write` bajan a `--limit 20` y cada comando tiene su plazo con `--until`. El juez corre primero, con lo pendiente de días anteriores, y otra vez al final. El paso sube a 75 minutos.
+
+**Consecuencia.** Menos resúmenes al día (unos 20 en vez de 40) mientras dure el tope. Si Groq lo quita o resulta ser solo de Qwen, `MODEL_LIMITS` es el único sitio que hay que cambiar. Aday mirará el desglose «in / out» de cada modelo en la página de límites de su cuenta de Groq.
+
+**Reloj de cierre.** Aday decide reiniciarlo (v144): el arreglo es un commit que hace funcionar el pipeline, y se acumulaban fallos de Actions.

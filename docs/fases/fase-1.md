@@ -11,7 +11,7 @@
 | 14b · ~100 titulares etiquetados por Sofía: macro F1 del clasificador frente al baseline y validación del juez | pendiente (Sofía) |
 | 24b · Primera elección de Clásicos | pendiente (Sofía) |
 | 15 · Precisión y recall de la agrupación con un LLM real | pendiente: primera ejecución con Groq |
-| 20 · Juicio de los 101 estudios de la carga que quedaron pendientes | pendiente: ejecución programada del 2026-11-14 |
+| 20 · Juicio de los 101 estudios de la carga que quedaron pendientes | pendiente: la ejecución del 2026-11-14 no llegó a usar el LLM (tope OTPM de Groq, v143); se juzgan primero en la siguiente |
 | Retractaciones que solo conoce Retraction Watch (casilla de ingesta) | hecho: en `main` y en la rama `data` desde el 2026-11-13 (v140–v141) |
 | 23b · Figuras de PMC | hecho en la rama `fase-1-figuras-titulos` (v125–v128): metadatos en la rama `data` y WebP en la caché de Actions; cobertura medida, 25 de 200 estudios de Última hora. Se fusiona después del 2026-11-17 |
 | 23c · Títulos en español | hecho en la misma rama (v129–v136), con la prueba real de 40 títulos en Groq; se fusiona después del 2026-11-17 |
@@ -78,6 +78,8 @@ Caché privada en Actions, parada con el 429 de cupo diario, comprobación previ
 | Carga inicial (200 estudios, Qwen 9B) | 34 min; inglés 184 pasan; español 123 → 165 tras `syn recheck` | v110 |
 | Juez, día 1 | 83 juzgados, 67 aprobados (81 %), 16 rechazados; 101 pendientes | v111 |
 | Espejo de BigQuery | unos 0,9 MB en Parquet (4053 estudios y 366 noticias) | v117 |
+| Primer espejo real | 4313 estudios (1,7 MB en BigQuery) y 373 noticias; dataset creado en EU | v142 |
+| Primera programada con Groq (2026-11-14) | arranca 7 h 13 min tarde; ingesta y dbt bien; **0 clasificados, 0 resúmenes, 0 juicios**: 429 «Request too large» por un tope nuevo de 1000 tokens de salida por minuto en Qwen, invisible en el informe | v143 |
 | Macro F1 del clasificador frente al baseline | *pendiente (14b)* | — |
 | Precisión y recall de la agrupación | *pendiente (15)* | — |
 | Primera ejecución con Groq: clasificados, resúmenes, juzgados y cupo | *pendiente (2026-11-14)* | — |

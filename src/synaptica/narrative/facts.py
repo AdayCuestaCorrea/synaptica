@@ -88,7 +88,7 @@ def extract_facts(
     or ``too_few`` (fewer than :data:`MIN_FACTS` verified)."""
     system, version = prompt("extract_facts")
     answer = llm.complete_json(
-        system, f"TITLE: {study['title']}\n\nABSTRACT:\n{abstract}", Extraction, max_tokens=2_000
+        system, f"TITLE: {study['title']}\n\nABSTRACT:\n{abstract}", Extraction, max_tokens=1_000
     )
     facts, quotes, rejected = [], {}, []
     for fact in answer.facts:

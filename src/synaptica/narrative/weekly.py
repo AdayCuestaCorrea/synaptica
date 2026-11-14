@@ -180,7 +180,9 @@ def write_weekly(
     feedback: list[str] = []
     en: list[tuple[str, list[str]]] = []
     for _ in range(write_mod.ATTEMPTS):
-        en = write_mod.write_en(llm, support, feedback, "weekly_en", fact_lines=lines)
+        en = write_mod.write_en(
+            llm, support, feedback, "weekly_en", fact_lines=lines, max_tokens=1_000
+        )
         report = check_text(en, support, abstracts, min_words=MIN_WORDS, max_words=MAX_WORDS)
         feedback = report.summary()
         if report.passed:
@@ -200,7 +202,7 @@ def write_weekly(
     en_texts = [t for t, _ in en]
     es: list[str] = []
     for _ in range(write_mod.ATTEMPTS):
-        es = write_mod.adapt_es(llm, en_texts, feedback)
+        es = write_mod.adapt_es(llm, en_texts, feedback, max_tokens=1_000)
         feedback = [*check_alignment(en_texts, es), *check_claims_es(en_texts, es),
                     *check_spelling_es(en_texts, es)]  # fmt: skip
         if not feedback:
