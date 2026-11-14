@@ -25,7 +25,8 @@ def study(sid: str, **kw) -> dict:
         "title": f"Title of {sid}", "journal": "Neuron", "published_on": AS_OF,
         "entered_on": AS_OF, "authors": ["A. One"], "sources": ["pubmed"],
         "review_status": "journal", "species": "animals", "integrity": "none",
-        "integrity_notices": [], "license": "cc by", "publication_types": [],
+        "integrity_notices": [], "integrity_sources": [], "license": "cc by",
+        "publication_types": [],
         "news_type": None, "news_candidate": True, "is_neuro": True,
     }  # fmt: skip
     return row | kw
@@ -40,7 +41,7 @@ STUDIES = [
     study("doi:10.1/pre", review_status="preprint", sources=["biorxiv"], license=None),
     study("doi:10.1/nsc", sources=["journals"], journal="Nature"),
     study("doi:10.1/ret", integrity="retracted", news_candidate=False,
-          integrity_notices=["10.1/notice"]),
+          integrity_notices=["10.1/notice"], integrity_sources=["crossref", "retraction_watch"]),
 ]  # fmt: skip
 NEWS = [
     {"news_item_id": "news:a", "story_id": "news:a", "origin": "outlet", "feed": "sinc",
@@ -52,14 +53,15 @@ NEWS = [
 ]  # fmt: skip
 
 
-def warehouse(data: Path, studies=STUDIES, items=NEWS) -> Path:
+def warehouse(data: Path, studies=STUDIES, items=NEWS, integrity=()) -> Path:
     data.mkdir(parents=True, exist_ok=True)
     path = data / "warehouse.duckdb"
     with duckdb.connect(str(path)) as con:
         con.execute("""create table dim_study (study_id varchar, doi varchar, pmid varchar,
             pmcid varchar, title varchar, journal varchar, published_on date, entered_on date,
             authors varchar[], sources varchar[], review_status varchar, species varchar,
-            integrity varchar, integrity_notices varchar[], license varchar,
+            integrity varchar, integrity_notices varchar[], integrity_sources varchar[],
+            license varchar,
             publication_types varchar[], news_type varchar, news_candidate boolean,
             is_neuro boolean, figure_label varchar, figure_file varchar,
             figure_thumb varchar, figure_width integer, figure_height integer,
@@ -68,9 +70,15 @@ def warehouse(data: Path, studies=STUDIES, items=NEWS) -> Path:
         con.execute("""create table fct_news_item (news_item_id varchar, story_id varchar,
             origin varchar, feed varchar, outlet varchar, lang varchar, url varchar,
             title varchar, published_at timestamp, entered_on date, is_neuro boolean)""")
+        con.execute("""create table dim_integrity (doi varchar, integrity varchar,
+            integrity_notices varchar[], integrity_sources varchar[], last_notice_on date)""")
         con.execute("create table news_feeds (feed varchar, license varchar)")
         con.execute("insert into news_feeds values ('sinc', 'CC BY 4.0')")
-        for table, rows in (("dim_study", studies), ("fct_news_item", items)):
+        for table, rows in (
+            ("dim_study", studies),
+            ("fct_news_item", items),
+            ("dim_integrity", integrity),
+        ):
             for r in rows:
                 cols = ", ".join(r)
                 con.execute(f"insert into {table} ({cols}) values "
@@ -355,3 +363,41 @@ def test_untranslated_title_keeps_the_original_and_the_gap(tmp_path: Path) -> No
     news_es = (out / "es" / "noticias.html").read_text(encoding="utf-8")
     assert 'lang="es">Título nuevo</a>' in news_es
     assert 'lang="en">Title of doi:10.1/trial</a>' in news_es and 'id="gap-title_es"' in news_es
+
+
+def test_withdrawn_preprint_is_signalled_in_both_languages(tmp_path: Path) -> None:
+    withdrawn = study(
+        "doi:10.1/wd",
+        review_status="preprint",
+        sources=["biorxiv"],
+        integrity="withdrawn",
+        news_candidate=False,
+        title="WITHDRAWN: X",
+    )
+    data = warehouse(tmp_path / "data", studies=[*STUDIES, withdrawn])
+    loaded = news.load(data / "warehouse.duckdb")
+    assert "doi:10.1/wd" not in [s["study_id"] for s in loaded.latest]
+    record = news.study_record(withdrawn, None)
+    es = {s["key"]: s for s in news.signals(record, news_mod_i18n("es"))}["integrity"]
+    en = {s["key"]: s for s in news.signals(record, news_mod_i18n("en"))}["integrity"]
+    assert (es["text"], en["text"]) == ("Retirado por los autores", "Withdrawn by the authors")
+    assert "retirado del servidor de preprints" in record["summary"]["es"]["text"]
+    assert "withdrawn it from the preprint server" in record["summary"]["en"]["text"]
+
+
+def news_mod_i18n(lang: str) -> dict:
+    import tomllib
+
+    from synaptica.site import build as build_mod
+
+    path = Path(build_mod.__file__).parent / "i18n" / f"{lang}.toml"
+    return tomllib.loads(path.read_text(encoding="utf-8"))
+
+
+def test_notices_name_the_databases_they_come_from(site: Path) -> None:
+    # Crossref and Retraction Watch (v140): the source is attributed next to the notice.
+    en = (site / "en/study/doi_10.1_ret.html").read_text()
+    es = (site / "es/estudio/doi_10.1_ret.html").read_text()
+    assert "Notices in Crossref · Retraction Watch" in en
+    assert "Avisos en Crossref · Retraction Watch" in es
+    assert 'href="https://doi.org/10.1/notice"' in en

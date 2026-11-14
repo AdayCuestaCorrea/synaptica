@@ -247,6 +247,18 @@ class BatchStore:
                 out[key] = BatchEntry(first_seen=first, last_seen=day, payload=payload)
         return out
 
+    def all(self) -> dict[str, BatchEntry]:
+        """Every key in every file, oldest first so the newest payload wins: for a
+        source published as one full snapshot (Retraction Watch), whose state is the sum
+        of its daily changes."""
+        out: dict[str, BatchEntry] = {}
+        for path in sorted(self.root.glob("*.jsonl")) if self.root.exists() else []:
+            day = dt.date.fromisoformat(path.stem)
+            for key, payload in self.read_day(day).items():
+                first = out[key].first_seen if key in out else day
+                out[key] = BatchEntry(first_seen=first, last_seen=day, payload=payload)
+        return out
+
     def save(
         self,
         records: dict[str, Any],

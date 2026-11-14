@@ -195,7 +195,7 @@ def collect(
     ``extra`` (``run_spot_checks``) goes before the day's spot-check."""
     from synaptica.news.classics import proposal  # the Clásicos of the week (step 24a)
 
-    classics = proposal(derived_root.parent / "raw", review_dir, today)
+    classics = proposal(derived_root.parent / "raw", review_dir, today, warehouse)
     from synaptica.news.topics import queue_items  # her switch for each topic
 
     # The topic switches go last: a quick yes or no that never takes a text's place; the

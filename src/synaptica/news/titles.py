@@ -50,7 +50,7 @@ from synaptica.llm import LLM, LLMOutputError, prompt
 from synaptica.narrative import checks
 from synaptica.store import _atomic_write
 
-BATCH = 20
+BATCH = 10  # 10 Spanish titles fit the writer's 1000 output tokens a minute (v143)
 MIN_RATIO, MAX_RATIO = 0.6, 1.6
 MAX_CHARS = 400
 
@@ -305,7 +305,7 @@ def translate_batch(
 ) -> dict[str, str]:
     lines = [f"{i}. {item['title']}" for i, (_, item) in enumerate(batch, start=1)]
     answer = llm.complete_json(system, "TITLES:\n" + "\n".join(lines), BatchTitles,
-                               max_tokens=4_000)  # fmt: skip
+                               max_tokens=1_000)  # fmt: skip
     by_index = {t.index: t.title_es for t in answer.items}
     return {key: by_index[i] for i, (key, _) in enumerate(batch, start=1) if i in by_index}
 

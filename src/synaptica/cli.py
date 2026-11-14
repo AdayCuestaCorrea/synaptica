@@ -160,15 +160,24 @@ def report_finish(
     jobs: Annotated[
         Path | None, typer.Option(help="GitHub API dump of this run's jobs (step durations).")
     ] = None,
+    outcome: Annotated[
+        list[str] | None,
+        typer.Option(
+            help="'Step name=outcome' of a continue-on-error step (repeatable): the API "
+            "shows such a step as a success even when it failed."
+        ),
+    ] = None,
 ) -> None:
     """Complete the current run record and print the report as Markdown."""
     from synaptica import report
 
+    outcomes = dict(o.rsplit("=", 1) for o in outcome or [] if "=" in o)
     try:
         run = report.finish_run(
             config.get_paths().data,
             run_results=config.project_root() / "dbt" / "target" / "run_results.json",
             jobs=jobs,
+            outcomes=outcomes,
         )
     except RuntimeError as exc:
         typer.echo(str(exc), err=True)
@@ -226,6 +235,27 @@ def ingest_crossref(
         raise typer.Exit(code=1) from exc
     listed = ", ".join(f"{k} {v}" for k, v in result.notices.items())
     typer.echo(f"Crossref: {listed}; {result.new_versions} new or changed notices stored")
+
+
+@ingest_app.command("retractionwatch")
+def ingest_retractionwatch() -> None:
+    """Retraction Watch database (via Crossref), for retractions with no Crossref notice."""
+    from synaptica.http import HttpError, make_client
+    from synaptica.ingest import retractionwatch
+
+    try:
+        with make_client() as client:
+            result = retractionwatch.ingest(client)
+    except HttpError as exc:
+        typer.echo(f"Retraction Watch failed: {exc}", err=True)
+        raise typer.Exit(code=1) from exc
+    if not result.downloaded:
+        typer.echo("Retraction Watch: not modified since the last run")
+        return
+    typer.echo(
+        f"Retraction Watch: {result.rows} rows, {result.kept} with a DOI or PMID; "
+        f"{result.new_versions} new or changed records stored ({result.removed} removed)"
+    )
 
 
 @ingest_app.command("europepmc")

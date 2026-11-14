@@ -17,11 +17,10 @@ again.
 Limits: list queries 3 requests/s with ``mailto`` (``docs/fuentes.md``), cursor paging.
 Measured on 2026-11-12 (one day): 826 notices of all kinds, 186 KB once trimmed, 37 s.
 
-Known gap: retractions that Crossref only knows from Retraction Watch (``source:
-retraction-watch``, with no notice deposited by the publisher) appear in the
-``updated-by`` field of the retracted work, not as a notice, so this list misses them.
-Covering them needs a per-DOI lookup for the studies the site keeps showing (Clásicos)
-or the Retraction Watch dataset; left for later (plan, step 8).
+Retractions that Crossref only knows from Retraction Watch (``source: retraction-watch``,
+with no notice deposited by the publisher) appear in the ``updated-by`` field of the
+retracted work, not as a notice, so this list misses them: they come from the Retraction
+Watch dataset instead (``synaptica.ingest.retractionwatch``, v140).
 """
 
 from __future__ import annotations

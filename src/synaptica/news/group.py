@@ -132,7 +132,7 @@ def judge_pairs(
             f"{i}. A: {_short(items[a])}\n   B: {_short(items[b])}"
             for i, (a, b) in enumerate(batch, start=1)
         )
-        answer = llm.complete_json(system, user, PairAnswers, max_tokens=2_000)
+        answer = llm.complete_json(system, user, PairAnswers, max_tokens=600)
         by_index = {p.index: p.same for p in answer.pairs}
         for i, (a, b) in enumerate(batch, start=1):
             if i in by_index:
