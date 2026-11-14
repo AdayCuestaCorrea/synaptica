@@ -134,3 +134,43 @@ def test_cli_start_finish_and_ran_today(tmp_path, monkeypatch):
     assert runner.invoke(cli.app, ["report", "ran-today"]).exit_code == 0
     again = runner.invoke(cli.app, ["report", "finish"])
     assert again.exit_code == 1 and "syn report start" in again.output
+
+
+def test_a_tolerated_step_that_failed_marks_the_run_failed(tmp_path):
+    # Run 43600053060: the Groq step (continue-on-error) failed and the API said
+    # "success"; the workflow passes its real outcome (v143), so the backup run retries.
+    jobs = tmp_path / "jobs.json"
+    jobs.write_text(json.dumps({"jobs": [{"name": "update", "steps": [
+        {"name": "Classify and summarize (Groq)", "conclusion": "success",
+         "started_at": "2026-11-02T06:24:00Z", "completed_at": "2026-11-02T06:24:16Z"},
+        {"name": "Build the website", "conclusion": "success",
+         "started_at": "2026-11-02T06:24:16Z", "completed_at": "2026-11-02T06:24:20Z"},
+    ]}]}))  # fmt: skip
+    data = tmp_path / "data"
+    report.start_run(data, trigger="schedule", changed=True, now=T0)
+    run = report.finish_run(data, run_results=tmp_path / "none.json", jobs=jobs,
+                            outcomes={"Classify and summarize (Groq)": "failure",
+                                      "Build the website": "success"})  # fmt: skip
+    assert run["status"] == "failed"
+    assert run["steps"][0]["conclusion"] == "failure"
+    assert not report.ran_today(data, today=T0.date())
+
+
+def test_report_finish_reads_outcomes_from_the_command_line(tmp_path, monkeypatch):
+    from typer.testing import CliRunner
+
+    from synaptica.cli import app
+
+    jobs = tmp_path / "jobs.json"
+    jobs.write_text(json.dumps({"jobs": [{"name": "update", "steps": [
+        {"name": "Authenticate to Google Cloud", "conclusion": "success",
+         "started_at": "2026-11-02T06:24:00Z", "completed_at": "2026-11-02T06:24:02Z"},
+    ]}]}))  # fmt: skip
+    monkeypatch.setenv("SYN_DATA_DIR", str(tmp_path / "data"))
+    report.start_run(tmp_path / "data", trigger="manual", changed=True, now=T0)
+    result = CliRunner().invoke(app, [
+        "report", "finish", "--jobs", str(jobs),
+        "--outcome", "Authenticate to Google Cloud=failure", "--outcome", "Mirror=",
+    ])  # fmt: skip
+    assert result.exit_code == 0, result.output
+    assert "Authenticate to Google Cloud | failure" in result.output

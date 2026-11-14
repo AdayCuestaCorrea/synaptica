@@ -132,22 +132,36 @@ jobs:
         # and the rest keeps its fallback text until tomorrow. The writer (qwen3.8-27b)
         # shares its daily quota between classifying and summarizing; the judge
         # (gpt-oss-120b) has its own.
+        # v143: each command runs even if an earlier one failed (run 43600053060 lost the
+        # whole step to the first error), and the step fails at the end if any did; its
+        # real outcome goes to the run report. Qwen is capped at 1000 output tokens per
+        # minute (~2.6 min per study), so writing has deadlines and the judge runs first
+        # on the texts waiting from earlier days, then again on today's.
+        id: llm
         if: ${{ !cancelled() && env.RUN == 'true' && (github.event_name == 'schedule' || inputs.llm) }}
         continue-on-error: true
-        timeout-minutes: 60 # the site and the data commit must still run
+        timeout-minutes: 75 # the site and the data commit must still run
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: |
-          uv run syn news neuro --provider groq
-          uv run syn news classify --provider groq
-          uv run syn news group --provider groq
-          uv run syn build
-          uv run syn facts --provider groq --limit 40
-          uv run syn write --provider groq --limit 40
-          uv run syn recheck
-          uv run syn judge --provider groq
+          failed=""
+          step() { uv run syn "$@" || failed="$failed [$*]"; }
+          step news neuro --provider groq
+          step news classify --provider groq
+          step news group --provider groq
+          step build
+          by() { date -u -d "+$1 min" +%H:%M; }  # each command gets its share of the step
+          step judge --provider groq --until "$(by 20)"
+          step facts --provider groq --limit 20 --until "$(by 15)"
+          step write --provider groq --limit 20 --until "$(by 20)"
+          step recheck
+          step judge --provider groq --until "$(by 10)"
           if [ "$(date -u +%u)" = 1 ]; then
-            uv run syn weekly --provider groq
+            step weekly --provider groq
+          fi
+          if [ -n "$failed" ]; then
+            echo "::error::LLM commands failed:$failed"
+            exit 1
           fi
 
       - name: dbt build
@@ -176,6 +190,7 @@ jobs:
           service_account: ${{ vars.GCP_SA_EMAIL }}
 
       - name: Mirror the marts in BigQuery
+        id: mirror-load
         if: ${{ !cancelled() && steps.mirror.outputs.due == 'true' && steps.gcp-auth.outcome == 'success' }}
         continue-on-error: true # the site and the data commit do not depend on it
         env:
@@ -227,7 +242,12 @@ jobs:
         run: |
           gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/attempts/${{ github.run_attempt }}/jobs" \
             > "$RUNNER_TEMP/jobs.json" || echo '{}' > "$RUNNER_TEMP/jobs.json"
-          uv run syn report finish --jobs "$RUNNER_TEMP/jobs.json" | tee -a "$GITHUB_STEP_SUMMARY"
+          # The API shows a failed continue-on-error step as a success: pass the real ones.
+          uv run syn report finish --jobs "$RUNNER_TEMP/jobs.json" \
+            --outcome "Classify and summarize (Groq)=${{ steps.llm.outcome }}" \
+            --outcome "Authenticate to Google Cloud=${{ steps.gcp-auth.outcome }}" \
+            --outcome "Mirror the marts in BigQuery=${{ steps.mirror-load.outcome }}" \
+            | tee -a "$GITHUB_STEP_SUMMARY"
 
       - name: Commit to the data branch
         # Always, so new raw data and the run log are kept even if dbt or the site fail.

@@ -101,6 +101,7 @@ def write_en(
     prompt_name: str = "write_en",
     *,
     fact_lines: list[str] | None = None,
+    max_tokens: int = 800,
 ) -> list[tuple[str, list[str]]]:
     """English sentences with their fact ids. ``fact_lines`` replaces the plain list of
     facts (the weekly summary groups them by study)."""
@@ -111,17 +112,17 @@ def write_en(
                   *feedback,
                   "A number must be written exactly as in a cited fact or dropped; a name must "
                   "appear in the facts; a copied run of words must be rephrased."]  # fmt: skip
-    out = llm.complete_json(system, "\n".join(lines), Summary, max_tokens=2_500)
+    out = llm.complete_json(system, "\n".join(lines), Summary, max_tokens=max_tokens)
     return [(s.text.strip(), s.fact_ids) for s in out.sentences]
 
 
-def adapt_es(llm: LLM, en: list[str], feedback: list[str]) -> list[str]:
+def adapt_es(llm: LLM, en: list[str], feedback: list[str], max_tokens: int = 800) -> list[str]:
     system = prompt("adapt_es")[0]
     lines = ["FRASES EN INGLÉS:", *(f"{i}. {t}" for i, t in enumerate(en, start=1))]
     if feedback:
         lines += ["", "Tu respuesta anterior no pasó estas comprobaciones. Corrígelas todas:",
                   *feedback]  # fmt: skip
-    out = llm.complete_json(system, "\n".join(lines), AdaptedText, max_tokens=1_500)
+    out = llm.complete_json(system, "\n".join(lines), AdaptedText, max_tokens=max_tokens)
     by_index = {s.index: s.text.strip() for s in out.sentences}
     return [by_index.get(i, "") for i in range(1, len(en) + 1)]
 

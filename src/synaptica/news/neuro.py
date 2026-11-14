@@ -137,7 +137,7 @@ def ask_batch(llm: LLM, system: str, batch: list[tuple[str, dict[str, Any]]]) ->
     lines = [f"{i}. [{item.get('lang', 'en')}] {model_input(item)}"
              for i, (_, item) in enumerate(batch, start=1)]  # fmt: skip
     answer = llm.complete_json(system, "ITEMS:\n" + "\n".join(lines), BatchDecisions,
-                               max_tokens=1_500)  # fmt: skip
+                               max_tokens=600)  # 20 short answers: ~250 tokens  # fmt: skip
     by_index = {d.index: d.neuro for d in answer.items}
     return {key: by_index[i] for i, (key, _) in enumerate(batch, start=1) if i in by_index}
 
