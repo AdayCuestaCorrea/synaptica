@@ -279,7 +279,8 @@ class SiteBuilder:
             return []
         from synaptica.news.classics import approved
 
-        return approved(self.data_dir / "raw", self.data_dir / "review", self.news_data.as_of)
+        return approved(self.data_dir / "raw", self.data_dir / "review", self.news_data.as_of,
+                        self.data_dir / "warehouse.duckdb")  # fmt: skip
 
     def week(self, lang: str) -> None:
         n, t = self.news_data, self.i18n[lang]

@@ -69,8 +69,9 @@ def decide_pick(review: Path, item, dois: list[str]) -> None:
 
 def test_the_proposal_skips_her_picks_and_rests_what_was_proposed(tmp_path: Path) -> None:
     raw, review = tmp_path / "raw", tmp_path / "review"
+    wh = warehouse(tmp_path / "data") / "warehouse.duckdb"
     ingest(raw)
-    item = classics.proposal(raw, review, MONDAY)
+    item = classics.proposal(raw, review, MONDAY, wh)
     assert item.item_type is ItemType.CLASSICS and item.item_id == "classics-2026-w47"
     dois = [c.doi for c in item.content.candidates]
     assert len(dois) == 16 and dois[:2] == ["10.1/2805-0", "10.1/2805-1"]  # 2 per subfield
@@ -81,22 +82,23 @@ def test_the_proposal_skips_her_picks_and_rests_what_was_proposed(tmp_path: Path
     (review / "queue-2026-11-16.json").write_text(queue.model_dump_json())
     next_week = MONDAY + dt.timedelta(days=7)
     ingest(raw, next_week)
-    later = [c.doi for c in classics.proposal(raw, review, next_week).content.candidates]
+    later = [c.doi for c in classics.proposal(raw, review, next_week, wh).content.candidates]
     assert later[:2] == ["10.1/2805-2", "10.1/2805-3"]  # her pick and last week's rest
-    assert classics.proposal(raw, review, MONDAY + dt.timedelta(days=14)) is None  # no listing
+    assert classics.proposal(raw, review, MONDAY + dt.timedelta(days=14), wh) is None  # no listing
 
 
 def test_nothing_on_the_site_until_she_has_chosen(tmp_path: Path) -> None:
     data = warehouse(tmp_path / "data")
     raw, review = data / "raw", data / "review"
     ingest(raw, AS_OF)
-    assert classics.approved(raw, review, AS_OF) == []
+    wh = data / "warehouse.duckdb"
+    assert classics.approved(raw, review, AS_OF, wh) == []
     page = (build(tmp_path, data) / "es" / "noticias.html").read_text()
     assert "tab-classics" not in page and "p-classics" not in page
 
-    item = classics.proposal(raw, review, AS_OF)
+    item = classics.proposal(raw, review, AS_OF, wh)
     decide_pick(review, item, ["10.1/2804-1", "10.1/2805-0"])
-    shown = classics.approved(raw, review, AS_OF)
+    shown = classics.approved(raw, review, AS_OF, wh)
     assert [w["doi"] for w in shown] == ["10.1/2805-0", "10.1/2804-1"]  # most cited first
     assert shown[0]["subfield"]["es"] == "Neurociencia cognitiva"
     site = build(tmp_path / "again", data)
@@ -105,6 +107,55 @@ def test_nothing_on_the_site_until_she_has_chosen(tmp_path: Path) -> None:
     assert "tab-classics" in es and "https://doi.org/10.1/2805-0" in es
     assert "1\N{NO-BREAK SPACE}000 citas" in es and "1,000 citations" in en
     assert "Work 2805-1" not in es  # proposed, not chosen
+    assert "classic-integrity" not in es  # no notices: no signal
+
+
+def notice(doi: str, integrity: str) -> dict:
+    return {
+        "doi": doi,
+        "integrity": integrity,
+        "integrity_notices": [f"{doi}-notice"],
+        "integrity_sources": ["retraction_watch"],
+        "last_notice_on": dt.date(2025, 1, 2),
+    }
+
+
+def test_a_retracted_work_is_never_proposed_and_a_concern_carries_its_signal(
+    tmp_path: Path,
+) -> None:
+    raw, review = tmp_path / "raw", tmp_path / "review"
+    ingest(raw)
+    wh = warehouse(tmp_path / "data", integrity=[
+        notice("10.1/2805-0", "retracted"), notice("10.1/2805-1", "partially_retracted"),
+        notice("10.1/2805-2", "concern"),
+    ]) / "warehouse.duckdb"  # fmt: skip
+    cands = {c.doi: c for c in classics.proposal(raw, review, MONDAY, wh).content.candidates}
+    assert "10.1/2805-0" not in cands and "10.1/2805-1" not in cands
+    assert cands["10.1/2805-2"].integrity == "concern"  # proposed, flagged: she decides
+    assert cands["10.1/2805-2"].integrity_notices == ["10.1/2805-2-notice"]
+    assert cands["10.1/2805-3"].integrity == "none"  # the next one takes the free place
+    # Without a warehouse nothing is checked, so nothing is proposed.
+    assert classics.proposal(raw, review, MONDAY, tmp_path / "none.duckdb") is None
+
+
+def test_a_pick_retracted_later_stays_on_the_site_with_its_signal(tmp_path: Path) -> None:
+    data = warehouse(tmp_path / "data")
+    raw, review = data / "raw", data / "review"
+    ingest(raw, AS_OF)
+    item = classics.proposal(raw, review, AS_OF, data / "warehouse.duckdb")
+    decide_pick(review, item, ["10.1/2805-0", "10.1/2804-1"])
+    data = warehouse(tmp_path / "later", integrity=[notice("10.1/2805-0", "retracted")])
+    for sub in ("raw", "review"):
+        (data / sub).symlink_to(tmp_path / "data" / sub)
+    shown = {w["doi"]: w for w in classics.approved(data / "raw", data / "review", AS_OF,
+                                                     data / "warehouse.duckdb")}  # fmt: skip
+    assert shown["10.1/2805-0"]["integrity"] == "retracted"
+    assert shown["10.1/2804-1"]["integrity"] == "none"
+    site = build(tmp_path, data)
+    es = (site / "es" / "noticias.html").read_text()
+    en = (site / "en" / "news.html").read_text()
+    assert es.count("classic-integrity") == 1 and en.count("classic-integrity") == 1
+    assert "https://doi.org/10.1/2805-0-notice" in es and "Retraction Watch" in en
 
 
 def test_the_queue_carries_the_weeks_classics(tmp_path: Path) -> None:
@@ -117,3 +168,13 @@ def test_the_queue_carries_the_weeks_classics(tmp_path: Path) -> None:
         "classics-2026-w47", "topic-memory", "topic-addiction", "topic-neurodegeneration",
         "topic-neuroinflammation", "topic-sleep"]  # her topic switches go last  # fmt: skip
     assert json.loads(q.model_dump_json())["items"][0]["content"]["kind"] == "candidates"
+
+
+def test_a_candidate_without_notices_hashes_as_before() -> None:
+    from synaptica.review.models import Candidate
+
+    plain = Candidate(doi="10.1/a", title="A", year=2001, cited_by=5)
+    assert plain.model_dump() == {"doi": "10.1/a", "title": "A", "year": 2001, "cited_by": 5}
+    flagged = plain.model_copy(update={"integrity": "corrected", "integrity_notices": ["10.1/n"]})
+    assert flagged.model_dump()["integrity"] == "corrected"
+    assert Candidate.model_validate(flagged.model_dump()) == flagged  # round trip

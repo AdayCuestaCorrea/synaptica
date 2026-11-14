@@ -1,6 +1,20 @@
 version: 2
 
 models:
+  - name: dim_integrity
+    description: >
+      One row per DOI with a retraction, concern or correction notice (Crossref or
+      Retraction Watch), whether or not it is one of our studies; for the Clásicos.
+    columns:
+      - name: doi
+        data_tests: [unique, not_null]
+      - name: integrity
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [retracted, partially_retracted, concern, corrected]
+
   - name: dim_study
     description: >
       One row per study, merged by DOI from PubMed, bioRxiv/medRxiv, Europe PMC and the
@@ -78,6 +92,20 @@ models:
               arguments: {values: [healthy_brain, disease, clinical_trial, technique, noise]}
 
 unit_tests:
+  - name: dim_integrity_keeps_dois_only
+    description: >
+      Every DOI with a notice, ours or not; a Retraction Watch row known only by its
+      PubMed ID is left out (nothing identified by DOI can match it).
+    model: dim_integrity
+    given:
+      - input: ref('int_study__integrity')
+        rows:
+          - {study_id: "10.1/classic", integrity: retracted, notice_dois: ["10.1/n"], sources: [retraction_watch], last_notice_on: 2020-01-02}
+          - {study_id: "pmid:123", integrity: concern, notice_dois: [], sources: [retraction_watch], last_notice_on: 2021-03-04}
+    expect:
+      rows:
+        - {doi: "10.1/classic", integrity: retracted, integrity_notices: ["10.1/n"], integrity_sources: [retraction_watch], last_notice_on: 2020-01-02}
+
   - name: pubmed_candidate_signals
     description: Each signal from PubMed, and notices left out of the studies.
     model: int_study__candidates

@@ -81,6 +81,7 @@ details.en div { margin-top: 0.5rem; font-size: 0.95rem; color: var(--muted); di
 .cands { display: grid; gap: 0.5rem; }
 .cands label { display: flex; align-items: flex-start; }
 .cands small { color: var(--muted); display: block; }
+.cands .cand-integrity { color: var(--warn); font-weight: 600; }
 .opts input, .cands input { accent-color: var(--accent); margin: 0.2rem 0 0; }
 .opts label:has(input:checked), .cands label:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
 .cands label:has(input:disabled) { opacity: 0.55; cursor: not-allowed; }
@@ -316,6 +317,16 @@ function pairControls(item) {
     question("Nota", "(opcional; se verá en la web, en español y en inglés)", textbox(item, "note_es", "Por qué este grado", ""))];
 }
 
+// A concern or a correction on a candidate (v148; a retracted work is never proposed).
+const INTEGRITY = { concern: "Con aviso de preocupación de la revista", corrected: "Corregido" };
+function integrityNote(cand) {
+  if (!cand.integrity || cand.integrity === "none") return [];
+  const note = el("small", { class: "cand-integrity" }, document.createTextNode(`⚠ ${INTEGRITY[cand.integrity]}`));
+  (cand.integrity_notices || []).forEach((d, i) => note.append(document.createTextNode(i ? "; " : ": "),
+    el("a", { href: `https://doi.org/${d}`, target: "_blank", rel: "noopener", text: d })));
+  return [note];
+}
+
 function candidatesControls(item) {
   const c = item.content;
   const picked = () => (ans(item).dois = ans(item).dois || []);
@@ -335,7 +346,8 @@ function candidatesControls(item) {
     box.append(el("label", { for: id }, input, el("span", {},
       document.createTextNode(cand.title),
       el("small", {}, document.createTextNode(`${cand.year} · ${cand.cited_by.toLocaleString("es-ES")} citas · `),
-        el("a", { href: `https://doi.org/${cand.doi}`, target: "_blank", rel: "noopener", text: "abrir ↗" })))));
+        el("a", { href: `https://doi.org/${cand.doi}`, target: "_blank", rel: "noopener", text: "abrir ↗" })),
+      ...integrityNote(cand))));
   });
   sync();
   return [question(`Elige hasta ${c.max_picks} que publicarías`, "(si no eliges ninguno, esta semana no hay Clásicos; «abrir» lleva al artículo)", box)];
