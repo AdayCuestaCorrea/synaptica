@@ -461,7 +461,7 @@ def eval_news(
         "eval/news/labels.csv"
     ),
     pairs: Annotated[
-        Path | None, typer.Option(help="Hand-labelled pairs: key_a,key_b,text_a,text_b,same.")
+        Path | None, typer.Option(help="Hand-labelled pairs: key_a,key_b,same (yes/no).")
     ] = None,
     out: Annotated[Path | None, typer.Option(help="Write the Markdown report here.")] = None,
 ) -> None:
@@ -469,19 +469,73 @@ def eval_news(
     with --pairs, precision and recall of the same-story pairs."""
     from synaptica.news import classify, evaluate, group
 
-    if not gold.exists():
+    report = ""
+    if gold.exists():
+        llm_types = {k: r["type"] for k, r in classify.load_types(classify.types_path()).items()}
+        report = evaluate.report_markdown(evaluate.evaluate(evaluate.load_gold(gold), llm_types))
+    elif pairs is None:
         typer.echo(f"No labels at {gold} yet (Sofía's labels arrive with step 14b).", err=True)
         raise typer.Exit(1)
-    llm_types = {k: r["type"] for k, r in classify.load_types(classify.types_path()).items()}
-    report = evaluate.report_markdown(evaluate.evaluate(evaluate.load_gold(gold), llm_types))
     if pairs is not None:
+        # The gold holds only keys and yes/no; the texts come from the warehouse.
+        labelled = evaluate.load_pairs(pairs)
+        if not classify.warehouse_path().exists():
+            typer.echo("No warehouse yet: run `syn build` first (pair texts live there).", err=True)
+            raise typer.Exit(1)
+        keys = [p[k] for p in labelled for k in ("key_a", "key_b")]
+        items = evaluate.news_texts(keys, classify.warehouse_path())
+        texts = {k: evaluate.pair_text(v) for k, v in items.items()}
         answers = evaluate.load_answers(group.pairs_path())
-        result = evaluate.evaluate_pairs(evaluate.load_pairs(pairs), answers)
-        report += "\n" + evaluate.pairs_markdown(result)
+        result = evaluate.evaluate_pairs(labelled, answers, texts)
+        report += ("\n" if report else "") + evaluate.pairs_markdown(result)
     if out:
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(report, encoding="utf-8")
     typer.echo(report)
+
+
+@eval_app.command("pairs-sheet")
+def eval_pairs_sheet(
+    out: Annotated[Path, typer.Option(help="The sheet (CSV), outside the repository.")],
+    top: Annotated[int, typer.Option(help="Pairs most alike by TF-IDF.")] = 30,
+    sample: Annotated[int, typer.Option(help="Pairs at random from the rest.")] = 20,
+) -> None:
+    """Blind sheet of same-story pairs for Aday: every LLM "yes", the most alike, every
+    pair across languages and a random control, without the LLM's answer (no LLM call)."""
+    from synaptica.news import classify, evaluate, group, pair_sheet
+
+    if not classify.warehouse_path().exists():
+        typer.echo("No warehouse yet: run `syn build` first.", err=True)
+        raise typer.Exit(1)
+    if not pair_sheet.outside_repo(out):
+        typer.echo(f"{out}: the sheet has the feeds' texts; write it outside the repository.",
+                   err=True)  # fmt: skip
+        raise typer.Exit(1)
+    answers = evaluate.load_answers(group.pairs_path())
+    keys = [k for p in answers for k in p]
+    items = evaluate.news_texts(keys, classify.warehouse_path())
+    pairs = pair_sheet.select(answers, items, top=top, sample=sample)
+    pair_sheet.write_sheet(out, pairs, items)
+    typer.echo(f"{len(pairs)} pairs of {len(answers)} judged to {out}. Fill `same` with yes or "
+               "no, then `syn eval pairs-gold`.")  # fmt: skip
+
+
+@eval_app.command("pairs-gold")
+def eval_pairs_gold(
+    sheet: Annotated[Path, typer.Option(help="The labelled sheet.")],
+    out: Annotated[Path, typer.Option(help="The gold: keys and yes/no only.")] = Path(
+        "eval/news/pairs.csv"
+    ),
+) -> None:
+    """Keep only key_a,key_b,same of the labelled sheet (the texts stay out of the repo)."""
+    from synaptica.news import pair_sheet
+
+    try:
+        n = pair_sheet.to_gold(sheet, out)
+    except ValueError as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(1) from exc
+    typer.echo(f"{n} labelled pairs to {out}.")
 
 
 LimitOption = Annotated[int | None, typer.Option(help="Call the model for N studies at most.")]

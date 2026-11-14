@@ -109,6 +109,8 @@ uv run syn news neuro [--provider groq]   # ¿es neurociencia? reglas de OpenAle
 uv run syn news classify --provider groq  # tipo de cada pieza de Neuro News (lee el almacén: antes syn build)
 uv run syn news group --provider groq     # misma noticia entre medios e idiomas (pares al LLM)
 uv run syn eval news --gold eval/news/labels.csv [--pairs eval/news/pairs.csv]   # macro F1 del LLM y del baseline (grupo eval)
+uv run syn eval pairs-sheet --out FUERA/hoja.csv [--top 30 --sample 20]   # hoja ciega de pares para Aday (fuera del repo; sin LLM)
+uv run syn eval pairs-gold --sheet FUERA/hoja.csv   # → eval/news/pairs.csv solo con claves y sí/no
 uv run syn facts --provider groq [--limit 40] [--until HH:MM] # hechos verificados de los estudios a resumir (lee el almacén)
 uv run syn write --provider groq [--limit 40] [--until HH:MM] # resumen EN → ES con comprobaciones; si falla, texto de respaldo
 uv run syn judge --provider groq [--limit 40] [--until HH:MM] # juez de otra familia (gpt-oss-120b): sin su aprobado no se publica
