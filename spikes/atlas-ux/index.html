@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>Neuro Atlas · maquetas</title>
+<!-- Phase 2, Neuro Atlas UX study (docs/fases/fase-2-atlas-ux.md): static mock-ups of decisions
+     UX-1 to UX-6 for Sofía. Not the viewer: still images of the S3 prototype, one file per atlas,
+     and buttons that only switch screens. Colours from site/static/noche.css («Noche»). -->
+<style>
+:root {
+  --bg: #0b1020; --surface: #121a2e; --surface-2: #18223a; --ink: #e9eef8; --muted: #a9b4cc;
+  --rule: #26324d; --accent: #63d2c6; --on-accent: #04201d; --accent-soft: #173a40; --link: #8fe3da;
+  --warn: #f5c26b; --gap-bg: #3a3214; --gap-ink: #f2e3a6; --gap-line: #c9a93a; --atlas-bg: #101a33;
+  --pick: #a78bfa; --radius: 14px; --radius-s: 8px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); }
+body { font: 1rem/1.55 "Atkinson Hyperlegible", system-ui, sans-serif; overflow-wrap: anywhere; }
+a { color: var(--link); }
+button { font: inherit; color: inherit; cursor: pointer; }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 .4em; }
+img { max-width: 100%; display: block; }
+
+/* Mock-up chrome (not part of the web) */
+.mk-head { padding: 16px; border-bottom: 1px solid var(--rule); background: var(--surface); }
+.mk-head p { margin: .2em 0; color: var(--muted); max-width: 70em; }
+.mk-tabs { display: flex; flex-wrap: wrap; gap: 6px; padding: 12px 16px; border-bottom: 1px solid var(--rule); position: sticky; top: 0; background: var(--bg); z-index: 20; }
+.mk-tabs button { border: 1px solid var(--rule); background: var(--surface); border-radius: 999px; padding: 6px 12px; font-size: .9rem; }
+.mk-tabs button[aria-selected="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 700; }
+.mk-tabs .sep { flex-basis: 100%; height: 0; }
+.screen { display: none; padding: 16px; gap: 20px; }
+.screen.on { display: grid; grid-template-columns: minmax(0, 1fr) 300px; align-items: start; }
+@media (max-width: 1100px) { .screen.on { grid-template-columns: minmax(0, 1fr); } }
+.notes { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 14px 16px; font-size: .95rem; }
+.notes h3 { font-size: 1.05rem; }
+.notes ul { padding-left: 1.1em; margin: .3em 0 .8em; }
+.notes li { margin: .3em 0; }
+.notes .tag { display: inline-block; font-size: .75rem; border: 1px solid var(--rule); border-radius: 999px; padding: 0 8px; color: var(--muted); }
+.frame { border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; background: var(--bg); }
+.frame-label { font-size: .8rem; color: var(--muted); margin: 0 0 6px; }
+.desk { overflow-x: auto; }
+.desk > .page { min-width: 900px; }
+.phone-row { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; justify-content: center; }
+.phone { width: 360px; max-width: 100%; height: 740px; border: 10px solid #000; border-radius: 34px; overflow: hidden; position: relative; background: var(--bg); box-shadow: 0 0 0 1px var(--rule); }
+.phone .page { height: 100%; overflow-y: auto; }
+
+/* The future web, «Noche» look */
+.site-head { display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--rule); }
+.brand { font-weight: 700; letter-spacing: .02em; }
+.site-head nav { display: flex; gap: 14px; font-size: .9rem; color: var(--muted); margin-left: auto; }
+.site-head nav b { color: var(--accent); }
+.phone .site-head nav { display: none; }
+.medical { margin: 0; padding: 6px 16px; font-size: .85rem; background: var(--gap-bg); color: var(--gap-ink); border-bottom: 1px solid var(--gap-line); }
+.page-body { padding: 14px 16px 20px; }
+.intro { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; margin-bottom: 10px; }
+.intro h1 { font-size: 1.6rem; margin: 0; }
+.intro p { margin: 0; color: var(--muted); }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0; position: relative; }
+.search { flex: 1 1 260px; display: flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--rule); border-radius: 999px; padding: 8px 14px; color: var(--muted); min-height: 44px; }
+.btn { min-height: 44px; border: 1px solid var(--rule); background: var(--surface); border-radius: 999px; padding: 8px 14px; }
+.btn.primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 700; }
+.btn[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.brains { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.brains.with-card { grid-template-columns: 1fr 1fr 300px; }
+.brain { background: var(--atlas-bg); border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+.brain .bh { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; font-weight: 700; }
+.brain .bh small { font-weight: 400; color: var(--muted); }
+.brain .stage { position: relative; height: 300px; padding: 6px; }
+.brain .stage { overflow: hidden; }
+.brain .stage img { width: 100%; height: 100%; object-fit: contain; }
+.brain .credit { font-size: .78rem; color: var(--muted); padding: 6px 12px; border-top: 1px solid var(--rule); background: var(--surface); }
+.brain .credit a { color: var(--muted); }
+.pin { position: absolute; padding: 3px 8px; border-radius: 6px; background: var(--surface); border: 1px solid var(--rule); font-size: .82rem; white-space: nowrap; box-shadow: 0 1px 4px #0006; }
+.overlay-msg { position: absolute; inset: auto 10px 10px 10px; background: #0b1020d9; border: 1px solid var(--rule); border-radius: var(--radius-s); padding: 6px 10px; font-size: .85rem; }
+.loading .stage img { filter: saturate(.5) brightness(.75); }
+.bar { height: 6px; border-radius: 3px; background: var(--rule); margin-top: 6px; overflow: hidden; }
+.bar i { display: block; height: 100%; width: 45%; background: var(--accent); }
+
+.regions { margin-top: 14px; }
+.regions h2 { font-size: 1.1rem; }
+.regions .row { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 10px; }
+.chip { border: 1px solid var(--rule); background: var(--surface); border-radius: 999px; padding: 5px 12px; font-size: .9rem; }
+.chip.sel { border-color: var(--pick); color: var(--pick); }
+.lvl { font-size: .8rem; color: var(--muted); }
+
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 14px; font-size: .95rem; }
+.card h2 { font-size: 1.25rem; }
+.card .meta { color: var(--muted); font-size: .85rem; margin: 0 0 8px; }
+.card h3 { font-size: .95rem; margin-top: 12px; color: var(--muted); }
+.card .actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.hole { border: 1px dashed var(--gap-line); color: var(--gap-ink); background: #3a321433; border-radius: var(--radius-s); padding: 6px 10px; font-size: .88rem; }
+.grade { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--rule); border-radius: 999px; padding: 2px 10px; font-size: .85rem; }
+.ex { font-size: .72rem; color: var(--warn); border: 1px solid var(--warn); border-radius: 4px; padding: 0 4px; margin-left: 4px; }
+abbr[data-g] { text-decoration: underline dotted; cursor: help; position: relative; }
+.gloss { position: absolute; z-index: 30; left: 0; top: 1.6em; width: 260px; background: var(--surface-2); border: 1px solid var(--accent); border-radius: var(--radius-s); padding: 8px 10px; font-size: .85rem; color: var(--ink); box-shadow: 0 4px 14px #0008; font-weight: 400; }
+.gloss[hidden] { display: none; }
+
+.menu { position: absolute; top: 52px; right: 0; z-index: 10; width: 340px; background: var(--surface-2); border: 1px solid var(--rule); border-radius: var(--radius); padding: 12px; box-shadow: 0 6px 20px #0009; }
+.menu h3 { font-size: .85rem; color: var(--muted); margin: 8px 0 4px; }
+.seg { display: flex; flex-wrap: wrap; gap: 4px; }
+.seg button { border: 1px solid var(--rule); background: var(--surface); border-radius: var(--radius-s); padding: 6px 10px; min-height: 40px; font-size: .9rem; }
+.seg button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.coords { font-size: .85rem; color: var(--muted); display: grid; grid-template-columns: auto 1fr auto; gap: 4px 8px; align-items: center; }
+.coords span.track { height: 4px; background: var(--rule); border-radius: 2px; position: relative; }
+.coords span.track::after { content: ""; position: absolute; left: 40%; top: -5px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); }
+
+.fiche { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 18px; }
+.fiche section { margin-bottom: 16px; }
+.fiche h2 { font-size: 1.15rem; border-bottom: 1px solid var(--rule); padding-bottom: 4px; }
+.study { border: 1px solid var(--rule); border-radius: var(--radius-s); padding: 8px 10px; margin: 6px 0; background: var(--surface); }
+.sig { display: inline-block; font-size: .75rem; border: 1px solid var(--rule); border-radius: 999px; padding: 0 8px; margin-right: 4px; color: var(--muted); }
+details { border: 1px solid var(--rule); border-radius: var(--radius-s); padding: 6px 10px; background: var(--surface); }
+summary { cursor: pointer; }
+.mono { font-family: ui-monospace, monospace; font-size: .8rem; }
+
+/* Phone-only parts */
+.switch { display: flex; border: 1px solid var(--rule); border-radius: 999px; overflow: hidden; }
+.switch button { flex: 1; border: 0; background: var(--surface); padding: 10px; min-height: 44px; }
+.switch button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); font-weight: 700; }
+.phone .brain .stage { height: 300px; }
+.sheet { position: absolute; left: 0; right: 0; bottom: 0; background: var(--surface); border-top: 1px solid var(--rule); border-radius: 18px 18px 0 0; padding: 8px 16px 16px; box-shadow: 0 -6px 20px #0009; max-height: 58%; overflow-y: auto; }
+.sheet .grip { width: 44px; height: 5px; border-radius: 3px; background: var(--rule); margin: 0 auto 10px; }
+.half .brain .stage { height: 170px; }
+.credits-page dt { font-weight: 700; margin-top: 10px; }
+.credits-page dd { margin: 2px 0 0; color: var(--muted); font-size: .9rem; }
+</style>
+</head>
+<body>
+<div class="mk-head">
+  <h1 style="font-size:1.3rem">Neuro Atlas · maquetas para Sofía</h1>
+  <p><strong>Esto no es la web ni el visor:</strong> son pantallas de ejemplo para decidir cómo será Neuro Atlas. Los cerebros son fotos fijas del prototipo de S3; los botones solo cambian de pantalla.</p>
+  <p>Los recuadros amarillos de borde discontinuo son <strong>huecos</strong>: ahí irá contenido que todavía no existe (textos verificados, tu revisión). Lo marcado <span class="ex">ejemplo</span> es solo para enseñar el formato.</p>
+</div>
+
+<div class="mk-tabs" role="tablist">
+  <button role="tab" data-s="s1" aria-selected="true">1 · Entrar</button>
+  <button role="tab" data-s="s2">2 · Mientras carga</button>
+  <button role="tab" data-s="s3">3 · Elegir una región</button>
+  <button role="tab" data-s="s4">4 · Más opciones</button>
+  <button role="tab" data-s="s5">5 · Ficha de la región</button>
+  <span class="sep"></span>
+  <button role="tab" data-s="s6">6 · Móvil: entrar</button>
+  <button role="tab" data-s="s7">7 · Móvil: región elegida</button>
+  <button role="tab" data-s="s8">8 · Móvil: lado a lado</button>
+  <button role="tab" data-s="s9">9 · Créditos</button>
+</div>
+
+<!-- 1 · Desktop, landing -->
+<section class="screen on" id="s1">
+  <div>
+    <p class="frame-label">Ordenador</p>
+    <div class="frame desk"><div class="page">
+      <header class="site-head"><span class="brand">SYNAPTICA</span><nav><span>Neuro News</span><b>Neuro Atlas</b><span>Neuro Lab</span><span>Glosario</span></nav></header>
+      <p class="medical">Esto no es consejo médico. Ante cualquier duda de salud, consulta a un profesional.</p>
+      <div class="page-body">
+        <div class="intro"><h1>Neuro Atlas</h1><p>Gira los dos cerebros y toca una zona para saber qué hace. <a href="#">¿En qué se parecen un cerebro humano y uno de rata?</a></p></div>
+        <div class="toolbar">
+          <div class="search">🔍 Busca una región: «hipocampo», «CA1», «amygdala»…</div>
+          <button class="btn" aria-pressed="false">Recortar</button>
+          <button class="btn">Más opciones ▾</button>
+        </div>
+        <div class="brains">
+          <div class="brain"><div class="bh">Rata <small>Waxholm v4.01</small></div><div class="stage"><img src="img/rata-3d.webp" alt="Cerebro de rata en 3D, visto de lado, coloreado por familias de regiones"></div><div class="credit">Waxholm v4.01 · CC BY 4.0 · <a href="#">créditos</a></div></div>
+          <div class="brain"><div class="bh">Humano <small>Julich-Brain v3.1 y capas</small></div><div class="stage"><img src="img/humano-3d.webp" alt="Cerebro humano en 3D, visto de lado, coloreado por familias de regiones"></div><div class="credit">Julich-Brain v3.1 · CC BY-NC-SA 4.0 · y 3 capas más · <a href="#">créditos</a></div></div>
+        </div>
+        <div class="regions">
+          <h2>Regiones, de fuera a dentro</h2>
+          <p class="lvl">Superficie <span class="ex">orden de ejemplo: lo decide Sofía</span></p>
+          <div class="row"><span class="chip">Corteza motora</span><span class="chip">Corteza somatosensorial</span><span class="chip">Corteza visual</span><span class="chip">Corteza auditiva</span><span class="chip">Corteza prefrontal</span><span class="chip">Cerebelo</span></div>
+          <p class="lvl">Interior</p>
+          <div class="row"><span class="chip">Hipocampo</span><span class="chip">Amígdala</span><span class="chip">Tálamo</span><span class="chip">Hipotálamo</span><span class="chip">Ganglios basales</span><span class="chip">Tronco del encéfalo</span></div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+  <aside class="notes">
+    <h3>Qué ves aquí</h3>
+    <ul>
+      <li>Los dos cerebros lado a lado, como en el prototipo, pero <strong>solo con tres controles</strong>: el buscador, «Recortar» y «Más opciones».</li>
+      <li>Debajo, la <strong>lista de regiones de fuera a dentro</strong>, como propusiste. Tocar una es lo mismo que tocarla en el cerebro.</li>
+      <li>Bajo cada cerebro, <strong>una sola línea de créditos</strong>; las citas completas están en «créditos».</li>
+    </ul>
+    <h3>Cambia respecto al prototipo</h3>
+    <ul>
+      <li>Desaparecen la fila de 9 botones y las barras de milímetros (siguen en «Más opciones», pantalla 4).</li>
+      <li>El buscador entiende español, inglés y siglas.</li>
+    </ul>
+    <p><span class="tag">UX-1</span> <span class="tag">UX-3</span> <span class="tag">UX-6</span></p>
+  </aside>
+</section>
+
+<!-- 2 · Desktop, loading -->
+<section class="screen" id="s2">
+  <div>
+    <p class="frame-label">Ordenador, con una conexión lenta</p>
+    <div class="frame desk"><div class="page">
+      <header class="site-head"><span class="brand">SYNAPTICA</span><nav><span>Neuro News</span><b>Neuro Atlas</b><span>Neuro Lab</span><span>Glosario</span></nav></header>
+      <p class="medical">Esto no es consejo médico. Ante cualquier duda de salud, consulta a un profesional.</p>
+      <div class="page-body">
+        <div class="intro"><h1>Neuro Atlas</h1><p>Gira los dos cerebros y toca una zona para saber qué hace. <a href="#">¿En qué se parecen un cerebro humano y uno de rata?</a></p></div>
+        <div class="toolbar"><div class="search">🔍 Busca una región: «hipocampo», «CA1», «amygdala»…</div><button class="btn">Más opciones ▾</button></div>
+        <div class="brains loading">
+          <div class="brain"><div class="bh">Rata <small>Waxholm v4.01</small></div><div class="stage"><img src="img/rata-3d.webp" alt="Imagen fija del cerebro de rata mientras carga el 3D"><div class="overlay-msg">Preparando el cerebro en 3D… <div class="bar"><i></i></div></div></div><div class="credit">Waxholm v4.01 · CC BY 4.0 · <a href="#">créditos</a></div></div>
+          <div class="brain"><div class="bh">Humano <small>Julich-Brain v3.1 y capas</small></div><div class="stage"><img src="img/humano-3d.webp" alt="Imagen fija del cerebro humano mientras carga el 3D"><div class="overlay-msg">Preparando el cerebro en 3D… <div class="bar"><i style="width:20%"></i></div></div></div><div class="credit">Julich-Brain v3.1 · CC BY-NC-SA 4.0 · y 3 capas más · <a href="#">créditos</a></div></div>
+        </div>
+        <div class="regions"><h2>Regiones, de fuera a dentro</h2><div class="row"><span class="chip">Corteza motora</span><span class="chip">Corteza visual</span><span class="chip">Hipocampo</span><span class="chip">Amígdala</span><span class="chip">…</span></div></div>
+      </div>
+    </div></div>
+  </div>
+  <aside class="notes">
+    <h3>Qué ves aquí</h3>
+    <ul>
+      <li>En cuanto se abre la página ya se puede <strong>leer, buscar y usar la lista</strong>. Los cerebros salen primero como foto fija y se vuelven 3D al terminar de cargar, sin pulsar nada.</li>
+      <li>Si buscas o eliges una región antes, se abre su tarjeta igual.</li>
+    </ul>
+    <h3>Por qué</h3>
+    <ul>
+      <li>Hoy, en un móvil con red lenta, son unos <strong>19 segundos</strong> en blanco hasta poder hacer algo. Así hay algo útil desde el principio.</li>
+      <li>La tinción real del humano (1,6 MB más) sigue cargándose solo si la pides.</li>
+    </ul>
+    <p><span class="tag">UX-5</span></p>
+  </aside>
+</section>
+
+<!-- 3 · Desktop, region picked -->
+<section class="screen" id="s3">
+  <div>
+    <p class="frame-label">Ordenador · has tocado el hipocampo de la rata</p>
+    <div class="frame desk"><div class="page" style="min-width:1100px">
+      <header class="site-head"><span class="brand">SYNAPTICA</span><nav><span>Neuro News</span><b>Neuro Atlas</b><span>Neuro Lab</span><span>Glosario</span></nav></header>
+      <p class="medical">Esto no es consejo médico. Ante cualquier duda de salud, consulta a un profesional.</p>
+      <div class="page-body">
+        <div class="toolbar"><div class="search">🔍 HF · Formación hipocampal</div><button class="btn" aria-pressed="true">Recortar</button><button class="btn">Más opciones ▾</button></div>
+        <div class="brains with-card">
+          <div class="brain"><div class="bh">Rata <small>Waxholm v4.01</small></div><div class="stage"><img src="img/rata-hipocampo-3d.webp" alt="Cerebro de rata recortado, con la formación hipocampal marcada en violeta"><span class="pin" style="left:46%;top:28%"><abbr>HF</abbr> Formación hipocampal</span></div><div class="credit">Waxholm v4.01 · CC BY 4.0 · <a href="#">créditos</a></div></div>
+          <div class="brain"><div class="bh">Humano <small>la pareja, marcada</small></div><div class="stage"><img src="img/humano-hipocampo-3d.webp" alt="Cerebro humano recortado, con las áreas del hipocampo marcadas en violeta"><div class="overlay-msg">Pareja marcada. Este cerebro no se ha movido. <button class="btn" style="min-height:32px;padding:2px 10px;margin-left:6px">Ir a la pareja</button></div></div><div class="credit">Julich-Brain v3.1 · CC BY-NC-SA 4.0 · y 3 capas más · <a href="#">créditos</a></div></div>
+          <div class="card">
+            <h2><abbr data-g="HF">HF</abbr> · Formación hipocampal <span class="ex">nombre en español: lo revisa Sofía</span></h2>
+            <p class="meta">Rata · los dos hemisferios · del atlas Waxholm</p>
+            <div class="hole">[Aquí: 2–3 frases verificadas sobre qué hace, con su fuente]</div>
+            <h3>En el cerebro humano</h3>
+            <p style="margin:.2em 0"><abbr data-g="CA1">CA1</abbr>, <abbr data-g="CA2">CA2</abbr>, <abbr data-g="CA3">CA3</abbr>, <abbr data-g="DG">DG</abbr> y <abbr data-g="Subc">Subc</abbr> <small style="color:var(--muted)">(Julich-Brain)</small></p>
+            <p style="margin:.4em 0"><span class="grade">◐ Equivalencia parcial</span><span class="ex">grado de ejemplo</span></p>
+            <div class="hole">[Aquí: tu nota breve sobre la equivalencia]</div>
+            <div class="actions"><button class="btn">Ver lado a lado</button><button class="btn primary">Ficha completa →</button></div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+  <aside class="notes">
+    <h3>Qué ves aquí</h3>
+    <ul>
+      <li>Al tocar una región se abre a la derecha una <strong>tarjeta corta</strong>: nombre, qué hace, su pareja en el otro cerebro con el grado y tu nota, y el enlace a la ficha completa.</li>
+      <li>Pasa el ratón por <strong>CA1</strong> o <strong>HF</strong>: sale el recuadro del glosario (tu petición P6).</li>
+      <li>El grado se dice con palabra e icono, nunca solo con color: <span class="grade">● Clara</span> <span class="grade">◐ Parcial</span> <span class="grade">◌ Discutida</span></li>
+    </ul>
+    <h3>Cambia respecto al prototipo, y te lo preguntamos</h3>
+    <ul>
+      <li><strong>El cerebro humano marca la pareja, pero no gira solo.</strong> Para girarlo y llevar el corte hasta ella, «Ir a la pareja». En S3 pediste que girara solo; al probarlo, desorientaba (parecía que «se reiniciaba»). ¿Qué prefieres?</li>
+      <li>Las regiones internas, como el hipocampo, se ven <strong>recortando el cerebro solo</strong> al elegirlas (o con el resto translúcido, si va fluido en el móvil).</li>
+      <li>Los códigos internos del atlas pasan a la ficha completa.</li>
+    </ul>
+    <p><span class="tag">UX-2</span> <span class="tag">UX-4</span></p>
+  </aside>
+</section>
+
+<!-- 4 · Desktop, more options -->
+<section class="screen" id="s4">
+  <div>
+    <p class="frame-label">Ordenador · «Más opciones» abierto, con el corte activado</p>
+    <div class="frame desk"><div class="page">
+      <header class="site-head"><span class="brand">SYNAPTICA</span><nav><span>Neuro News</span><b>Neuro Atlas</b><span>Neuro Lab</span><span>Glosario</span></nav></header>
+      <p class="medical">Esto no es consejo médico. Ante cualquier duda de salud, consulta a un profesional.</p>
+      <div class="page-body">
+        <div class="toolbar">
+          <div class="search">🔍 HF · Formación hipocampal</div>
+          <button class="btn" aria-pressed="true">Recortar</button>
+          <button class="btn" aria-pressed="true">Más opciones ▴</button>
+          <div class="menu">
+            <h3>Vista</h3>
+            <div class="seg"><button aria-pressed="false">Solo 3D</button><button aria-pressed="true">3D + corte</button></div>
+            <h3>Aspecto</h3>
+            <div class="seg"><button aria-pressed="true">Color</button><button aria-pressed="false">Atlas en blanco y negro</button><button aria-pressed="false">Tinción dibujada</button><button aria-pressed="false">Tinción real · 1,6 MB</button></div>
+            <h3>Selección</h3>
+            <div class="seg"><button aria-pressed="false">Aislar la región</button></div>
+            <h3>Coordenadas (mm)</h3>
+            <details open><summary>Rata: desde Bregma</summary>
+              <div class="coords"><span>ML</span><span class="track"></span><span>−2,50</span><span>AP</span><span class="track"></span><span>−4,97</span><span>DV</span><span class="track"></span><span>−3,00</span></div>
+            </details>
+            <details style="margin-top:6px"><summary>Humano: espacio MNI</summary></details>
+            <p class="lvl" style="margin:.6em 0 0">Se recuerda la próxima vez que entres.</p>
+          </div>
+        </div>
+        <div class="brains">
+          <div class="brain"><div class="bh">Rata <small>corte coronal</small></div><div class="stage"><img src="img/rata-hipocampo-corte.webp" alt="Corte coronal de la rata a Bregma −4,97 mm con la formación hipocampal en violeta"></div><div class="credit">Waxholm v4.01 · CC BY 4.0 · <a href="#">créditos</a></div></div>
+          <div class="brain"><div class="bh">Humano <small>corte coronal</small></div><div class="stage"><img src="img/humano-hipocampo-corte.webp" alt="Corte coronal humano a y = −22 mm con el hipocampo en violeta"></div><div class="credit">Julich-Brain v3.1 · CC BY-NC-SA 4.0 · y 3 capas más · <a href="#">créditos</a></div></div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+  <aside class="notes">
+    <h3>Qué ves aquí</h3>
+    <ul>
+      <li>Todo lo que tiene hoy el prototipo sigue ahí, <strong>dentro de «Más opciones»</strong>: el corte 2D, los tres modos (color, atlas en blanco y negro, tinción dibujada o real), aislar y los milímetros desde Bregma.</li>
+      <li>La tinción real dice lo que pesa antes de pedirla.</li>
+      <li>Lo que elijas se recuerda la próxima vez.</li>
+    </ul>
+    <h3>Te preguntamos</h3>
+    <ul><li>¿Hay algo de aquí que quieras <strong>siempre a la vista</strong>, por ejemplo el corte para estudiantes?</li></ul>
+    <p><span class="tag">UX-3</span></p>
+  </aside>
+</section>
+
+<!-- 5 · Region page -->
+<section class="screen" id="s5">
+  <div>
+    <p class="frame-label">Ordenador · ficha completa (también se lee bien en el móvil)</p>
+    <div class="frame desk"><div class="page">
+      <header class="site-head"><span class="brand">SYNAPTICA</span><nav><span>Neuro News</span><b>Neuro Atlas</b><span>Neuro Lab</span><span>Glosario</span></nav></header>
+      <p class="medical">Esto no es consejo médico. Ante cualquier duda de salud, consulta a un profesional.</p>
+      <div class="page-body">
+        <p class="lvl"><a href="#">Neuro Atlas</a> › Rata › Formación hipocampal</p>
+        <h1 style="font-size:1.7rem"><abbr data-g="HF">HF</abbr> · Formación hipocampal</h1>
+        <p class="lvl">Rata · atlas Waxholm v4.01 · <a href="#">Ver en el atlas 3D</a></p>
+        <div class="fiche">
+          <div>
+            <section><h2>Qué hace</h2><div class="hole">[Aquí: la descripción, frase a frase con su fuente, revisada por Sofía]</div></section>
+            <section><h2>En el cerebro humano</h2>
+              <p><abbr data-g="CA1">CA1</abbr>, <abbr data-g="CA2">CA2</abbr>, <abbr data-g="CA3">CA3</abbr>, <abbr data-g="DG">DG</abbr> y <abbr data-g="Subc">Subc</abbr> · <span class="grade">◐ Equivalencia parcial</span><span class="ex">ejemplo</span></p>
+              <div class="hole">[Aquí: tu nota sobre la equivalencia]</div>
+              <p><a href="#">Ver lado a lado</a></p></section>
+            <section><h2>Enfermedades relacionadas</h2><div class="hole">[Aquí: lista desde Wikidata, revisada por Sofía antes de publicarse, con enlace a Neuro Diseases]</div></section>
+            <section><h2>Lo que hemos aprendido en animales</h2>
+              <div class="study"><span class="sig">Publicado en revista</span><span class="sig">En animales</span><span class="ex">ejemplo de formato</span><div class="hole" style="margin-top:6px">[Título y resumen verificado de un estudio real en roedores]</div></div>
+              <div class="study"><span class="sig">Preprint, sin revisar</span><span class="sig">En animales</span><span class="ex">ejemplo de formato</span><div class="hole" style="margin-top:6px">[Otro estudio]</div></div></section>
+            <section><h2>Lo que sabemos en humanos</h2>
+              <div class="study"><span class="sig">Publicado en revista</span><span class="sig">En humanos</span><span class="ex">ejemplo de formato</span><div class="hole" style="margin-top:6px">[Título y resumen verificado de un estudio real en personas]</div></div></section>
+          </div>
+          <div>
+            <section><h2>Cómo se estudia</h2><div class="row" style="display:flex;flex-wrap:wrap;gap:6px"><span class="chip">Electrofisiología</span><span class="chip">Optogenética</span><span class="chip">Inmunofluorescencia</span></div><p class="lvl"><span class="ex">ejemplo</span> Saldrá de los estudios clasificados; cada técnica enlaza a Neuro Lab.</p></section>
+            <section><h2>Siglas</h2><p style="font-size:.9rem"><abbr data-g="HF">HF</abbr> · <abbr data-g="CA1">CA1</abbr> · <abbr data-g="DG">DG</abbr> → glosario</p></section>
+            <section><details><summary>Datos del atlas</summary><p class="mono">Waxholm ID 1021 · HF · Hippocampal formation</p></details></section>
+            <section><h2>Créditos</h2><p style="font-size:.85rem;color:var(--muted)">Regiones: Waxholm v4.01, CC BY 4.0 (Kleven et al. 2023, Nature Methods). Textos: SYNAPTICA, CC BY-SA 4.0.</p></section>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+  <aside class="notes">
+    <h3>Qué ves aquí</h3>
+    <ul>
+      <li>Cada región tiene <strong>su propia página</strong>, una por atlas y en los dos idiomas. Se puede enlazar desde una noticia, una técnica o el glosario, y se lee sin el 3D.</li>
+      <li>Los estudios en <strong>animales</strong> y en <strong>humanos</strong> van por separado, con sus etiquetas (revista o preprint, animales o humanos, retractado o corregido).</li>
+      <li>El nombre y el código oficial del atlas siguen aquí, en «Datos del atlas».</li>
+    </ul>
+    <h3>Te preguntamos</h3>
+    <ul>
+      <li>¿Cuántos estudios por región, por ejemplo los 5 más recientes de cada tipo?</li>
+      <li>¿Quieres revisar la lista de enfermedades de cada región antes de que se publique?</li>
+    </ul>
+    <p><span class="tag">UX-2</span></p>
+  </aside>
+</section>
+
+<!-- 6 · Phone, landing -->
+<section class="screen" id="s6">
+  <div>
+    <p class="frame-label">Móvil</p>
+    <div class="phone-row">
+      <div class="phone"><div class="page">
+        <header class="site-head"><span class="brand">SYNAPTICA</span><span style="margin-left:auto">☰</span></header>
+        <p class="medical">No es consejo médico.</p>
+        <div class="page-body">
+          <h1 style="font-size:1.4rem">Neuro Atlas</h1>
+          <p style="margin:.2em 0 .6em;color:var(--muted);font-size:.92rem">Toca una zona para saber qué hace. <a href="#">¿Humano y rata, en qué se parecen?</a></p>
+          <div class="switch" role="group" aria-label="Cerebro"><button aria-pressed="true" data-sw="h">Humano</button><button aria-pressed="false" data-sw="r">Rata</button></div>
+          <div class="toolbar"><div class="search" style="flex-basis:100%">🔍 Busca una región</div><button class="btn">Recortar</button><button class="btn">Más opciones ▾</button></div>
+          <div class="brain"><div class="stage"><img id="swImg" src="img/humano-3d.webp" alt="Cerebro humano en 3D"></div><div class="credit" id="swCredit">Julich-Brain v3.1 · CC BY-NC-SA 4.0 · y 3 capas más · <a href="#">créditos</a></div></div>
+          <div class="regions"><h2>Regiones, de fuera a dentro</h2><div class="row"><span class="chip">Corteza motora</span><span class="chip">Corteza visual</span><span class="chip">Hipocampo</span><span class="chip">Amígdala</span><span class="chip">…</span></div></div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+  <aside class="notes">
+    <h3>Qué ves aquí</h3>
+    <ul>
+      <li>En el móvil se ve <strong>un cerebro cada vez</strong>, con el interruptor «Humano | Rata» arriba (pruébalo: funciona en esta maqueta).</li>
+      <li>Así carga la mitad y responde antes al tocar; los dos juntos siguen a un toque (pantalla 8).</li>
+      <li>Botones grandes, fáciles de tocar con el dedo.</li>
+    </ul>
+    <h3>Te preguntamos</h3>
+    <ul><li>¿Qué cerebro tiene que ver primero alguien que no sabe nada: <strong>humano o rata</strong>?</li></ul>
+    <p><span class="tag">UX-1</span> <span class="tag">UX-3</span></p>
+  </aside>
+</section>
+
+<!-- 7 · Phone, region picked -->
+<section class="screen" id="s7">
+  <div>
+    <p class="frame-label">Móvil · has tocado el hipocampo de la rata</p>
+    <div class="phone-row">
+      <div class="phone"><div class="page">
+        <header class="site-head"><span class="brand">SYNAPTICA</span><span style="margin-left:auto">☰</span></header>
+        <p class="medical">No es consejo médico.</p>
+        <div class="page-body">
+          <div class="switch"><button aria-pressed="false">Humano</button><button aria-pressed="true">Rata</button></div>
+          <div class="brain" style="margin-top:10px"><div class="stage"><img src="img/rata-hipocampo-3d.webp" alt="Cerebro de rata recortado con la formación hipocampal marcada"></div></div>
+        </div>
+        <div class="sheet">
+          <div class="grip"></div>
+          <h2 style="font-size:1.15rem"><abbr data-g="HF">HF</abbr> · Formación hipocampal</h2>
+          <p class="meta" style="color:var(--muted);font-size:.85rem;margin:0 0 6px">Rata · los dos hemisferios</p>
+          <div class="hole">[2–3 frases verificadas: qué hace]</div>
+          <p style="margin:.6em 0 .2em;font-size:.9rem"><strong>En el humano:</strong> <abbr data-g="CA1">CA1</abbr>, CA2, CA3, DG y Subc</p>
+          <p style="margin:.2em 0"><span class="grade">◐ Parcial</span><span class="ex">ejemplo</span></p>
+          <div class="actions" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px"><button class="btn">Ver en el humano</button><button class="btn">Lado a lado</button><button class="btn primary">Ficha completa</button></div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+  <aside class="notes">
+    <h3>Qué ves aquí</h3>
+    <ul>
+      <li>La tarjeta <strong>sube desde abajo</strong> y tapa solo la parte de abajo; el cerebro sigue a la vista. Se baja deslizando.</li>
+      <li>«Ver en el humano» cambia de cerebro con la pareja ya marcada.</li>
+      <li>Al tocar una sigla sale el glosario (en el móvil no hay «pasar el ratón»).</li>
+    </ul>
+    <h3>Cambia respecto al prototipo</h3>
+    <ul><li>Antes el otro cerebro giraba solo, y en el móvil a veces fuera de la pantalla. Ahora nada se mueve sin que lo pidas.</li></ul>
+    <p><span class="tag">UX-2</span> <span class="tag">UX-4</span></p>
+  </aside>
+</section>
+
+<!-- 8 · Phone, side by side -->
+<section class="screen" id="s8">
+  <div>
+    <p class="frame-label">Móvil · «Lado a lado»</p>
+    <div class="phone-row">
+      <div class="phone"><div class="page half">
+        <header class="site-head"><span class="brand">SYNAPTICA</span><span style="margin-left:auto">✕</span></header>
+        <p class="medical">No es consejo médico.</p>
+        <div class="page-body" style="display:grid;gap:8px">
+          <p style="margin:0"><strong>Formación hipocampal</strong> · <span class="grade">◐ Parcial</span><span class="ex">ejemplo</span></p>
+          <div class="brain"><div class="bh">Rata <small>HF</small></div><div class="stage"><img src="img/rata-hipocampo-3d.webp" alt="Rata con la formación hipocampal marcada"></div><div class="credit">Waxholm v4.01 · CC BY 4.0</div></div>
+          <div class="brain"><div class="bh">Humano <small>CA1, CA2, CA3, DG, Subc</small></div><div class="stage"><img src="img/humano-hipocampo-3d.webp" alt="Humano con el hipocampo marcado"></div><div class="credit">Julich-Brain v3.1 · CC BY-NC-SA 4.0 · y 3 capas</div></div>
+          <div class="hole">[Tu nota sobre la equivalencia]</div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+  <aside class="notes">
+    <h3>Qué ves aquí</h3>
+    <ul>
+      <li>La comparación: los dos cerebros, uno encima del otro, <strong>cada uno con su región marcada</strong> y la nota de la equivalencia.</li>
+      <li>Cada cerebro sigue con <strong>su propia línea de créditos</strong>: se enseñan juntos, pero sus datos nunca se mezclan (licencias distintas).</li>
+    </ul>
+    <p><span class="tag">UX-1</span> <span class="tag">UX-6</span></p>
+  </aside>
+</section>
+
+<!-- 9 · Credits -->
+<section class="screen" id="s9">
+  <div>
+    <p class="frame-label">Página «Créditos del atlas» (dentro de «Fuentes y licencias»)</p>
+    <div class="frame desk"><div class="page">
+      <header class="site-head"><span class="brand">SYNAPTICA</span><nav><span>Neuro News</span><b>Neuro Atlas</b><span>Neuro Lab</span><span>Glosario</span></nav></header>
+      <p class="medical">Esto no es consejo médico. Ante cualquier duda de salud, consulta a un profesional.</p>
+      <div class="page-body credits-page">
+        <h1 style="font-size:1.6rem">Créditos de Neuro Atlas</h1>
+        <p style="color:var(--muted)">Cada cerebro sale de atlas distintos, cada uno con su licencia. Nunca combinamos datos de dos atlas en uno: los enseñamos uno al lado del otro.</p>
+        <h2 style="font-size:1.2rem">Rata</h2>
+        <dl>
+          <dt>Waxholm Space atlas of the Sprague Dawley rat brain, v4.01 · CC BY 4.0</dt>
+          <dd>Kleven et al. 2023, Nature Methods, https://doi.org/10.1038/s41592-023-02034-3. Cambios: volumen de etiquetas reducido y colores propios de SYNAPTICA.</dd>
+        </dl>
+        <h2 style="font-size:1.2rem">Humano</h2>
+        <dl>
+          <dt>Julich-Brain Cytoarchitectonic Atlas, v3.1 · CC BY-NC-SA 4.0</dt>
+          <dd>Lewis, Mohlberg, Bludau, Caspers, Eickhoff, Amunts y Pieperhoff. EBRAINS. https://doi.org/10.25493/KNSN-XB4</dd>
+          <dt>CerebrA · CC0 1.0 (sus etiquetas vienen de Mindboggle-101, CC BY-NC-SA 3.0; seguimos la más estricta)</dt>
+          <dd>Manera et al. 2020, Scientific Data. Solo donde Julich-Brain no tiene nada: tronco, cerebelo, caudado, putamen, pálido, ventrículos.</dd>
+          <dt>CIT168 · CC BY 4.0</dt>
+          <dd>Pauli, Nili y Tyszka 2018, Scientific Data. Hipotálamo, núcleos mamilares y habénula.</dd>
+          <dt>Sustancia blanca de la plantilla ICBM 2009c · aviso de copyright de McGill</dt>
+          <dd>Copyright (C) 1993-2004 Louis Collins, McConnell Brain Imaging Centre, Montreal Neurological Institute, McGill University.</dd>
+        </dl>
+        <p class="lvl">Y en la web: el visor Niivue (BSD-2-Clause), la tinción BigBrain y los cortes de Nissl de la rata, con su licencia.</p>
+      </div>
+    </div></div>
+  </div>
+  <aside class="notes">
+    <h3>Qué ves aquí</h3>
+    <ul>
+      <li>Hoy, bajo el cerebro humano hay <strong>cinco bloques de citas</strong>. Ahora bajo cada cerebro hay una línea («Julich-Brain v3.1 · CC BY-NC-SA 4.0 · créditos») y el detalle está aquí.</li>
+      <li>Así se cumple lo que piden las licencias (autor, licencia, cambios y enlace) sin tapar el cerebro.</li>
+    </ul>
+    <p><span class="tag">UX-6</span></p>
+  </aside>
+</section>
+
+<script>
+// Screen tabs.
+const tabs = document.querySelectorAll(".mk-tabs [role=tab]");
+function show(id) {
+  tabs.forEach((t) => t.setAttribute("aria-selected", String(t.dataset.s === id)));
+  document.querySelectorAll(".screen").forEach((s) => s.classList.toggle("on", s.id === id));
+  try { history.replaceState(null, "", "#" + id); } catch {}
+}
+tabs.forEach((t) => t.addEventListener("click", () => show(t.dataset.s)));
+const fromHash = () => { if (/^#s[1-9]$/.test(location.hash)) show(location.hash.slice(1)); };
+fromHash();
+addEventListener("hashchange", fromHash);
+
+// Phone switch on screen 6: one brain at a time.
+const swImg = document.getElementById("swImg");
+const swCredit = document.getElementById("swCredit");
+document.querySelectorAll("[data-sw]").forEach((b) => b.addEventListener("click", () => {
+  const rat = b.dataset.sw === "r";
+  document.querySelectorAll("[data-sw]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+  swImg.src = rat ? "img/rata-3d.webp" : "img/humano-3d.webp";
+  swImg.alt = rat ? "Cerebro de rata en 3D" : "Cerebro humano en 3D";
+  swCredit.innerHTML = rat
+    ? 'Waxholm v4.01 · CC BY 4.0 · <a href="#">créditos</a>'
+    : 'Julich-Brain v3.1 · CC BY-NC-SA 4.0 · y 3 capas más · <a href="#">créditos</a>';
+}));
+
+// Glossary box on a short name (request P6): hover or focus on desktop, tap on touch screens.
+const FULL = { HF: "Hippocampal formation (formación hipocampal)", CA1: "Cornu ammonis 1", CA2: "Cornu ammonis 2", CA3: "Cornu ammonis 3", DG: "Dentate gyrus (giro dentado)", Subc: "Subicular complex (complejo subicular)" };
+document.querySelectorAll("abbr[data-g]").forEach((a) => {
+  a.tabIndex = 0;
+  const box = document.createElement("span");
+  box.className = "gloss";
+  box.hidden = true;
+  box.innerHTML = `<strong>${a.dataset.g}</strong> · ${FULL[a.dataset.g] || ""}<br><span class="hole" style="display:block;margin-top:6px">[definición corta del glosario, revisada por Sofía]</span>`;
+  a.append(box);
+  const on = () => (box.hidden = false);
+  const off = () => (box.hidden = true);
+  a.addEventListener("mouseenter", on);
+  a.addEventListener("mouseleave", off);
+  a.addEventListener("focus", on);
+  a.addEventListener("blur", off);
+  a.addEventListener("click", (e) => { e.stopPropagation(); box.hidden = !box.hidden; });
+});
+</script>
+</body>
+</html>

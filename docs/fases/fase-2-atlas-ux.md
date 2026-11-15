@@ -4,6 +4,8 @@
 >
 > **Cómo leerlo:** los apartados 1–5 y 8 están escritos para Sofía, sin tecnicismos. Los apartados 6, 7 y el anexo son para Aday.
 
+**Maquetas** de estas decisiones para Sofía (pantallas estáticas, no el visor): [`spikes/atlas-ux/`](../../spikes/atlas-ux/README.md) (v157).
+
 **Fuentes:** [notas de UX de S3](../../spikes/s3/results/notas-ux.md) · [peticiones de Sofía](../../spikes/s3/results/peticiones-sofia.md) · maquetas [A](../../spikes/s3/results/maqueta-a.md), [B](../../spikes/s3/results/maqueta-b.md) y [C](../../spikes/s3/results/maqueta-c.md) · [ADR D3](../adr/0003-visor.md) · [cobertura](../../spikes/s3/results/cobertura.md) y [tinción](../../spikes/s3/results/tincion.md) · `SCOPE.md` §4 y §7 (Neuro Atlas) · [propuesta](../propuesta.md) · el prototipo publicado (`/spikes/s3/c/`, revisado en Chrome de escritorio el 2026-11-15).
 
 ## 1. De dónde partimos
