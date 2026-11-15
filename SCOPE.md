@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 175** · 2026-11-15 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 176** · 2026-11-15 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -419,3 +419,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 173 | 2026-11-15 | Neuro Atlas, petición de Aday: **las barras de milímetros mueven el corte sin elegir nada.** Mientras se mueve una barra, el cerebro conserva sus colores (si había algo elegido en él, se suelta). Cuando la barra lleva 0,6 s quieta, se elige la región del punto y su pareja, si la tiene. Sustituye a la mejora M2 de S3, que elegía en directo mientras se arrastraba. Escribir los milímetros a mano sigue eligiendo al momento. Probado en Chrome: HF elegido, barra AP movida (la rata en color, el humano con su pareja) y, a los 0,6 s, DLG elegido sin tocar el humano |
 | 174 | 2026-11-15 | Neuro Atlas, **opción A de Aday** (frente a quitar el corte mientras hay una región elegida o no mover el corte al elegir): con «Recortar», una región elegida por clic, buscador, lista o «Ir a la pareja» ya no queda cortada por la mitad. El corte 3D se coloca justo por fuera de ella, del lado de la cámara (un vóxel antes de su borde izquierdo), y el corte 2D sigue pasando por su centro. Un corte colocado con las barras se respeta. El borde de cada región se calcula una vez a partir del volumen cargado. Probado en Chrome: HF elegido con el corte puesto queda entero (corte en la columna 23, la región empieza en la 24) |
 | 175 | 2026-11-15 | Neuro Atlas, petición de Aday: la región elegida al quedarse quieta una barra (0,6 s) también se ve **entera**. El corte 3D se coloca por fuera de ella, como con un clic. Con la barra ML, el corte y la barra saltan al borde de la región. Probado en Chrome: barra AP movida, a los 0,6 s se elige la sustancia gris periacueductal (PAG) y el corte queda en la columna 81, con la región desde la 82 |
+| 176 | 2026-11-15 | **Neuro Atlas a main** con el OK de Aday, tras verlo en local. Avance directo de `fase-2`: main no había cambiado desde la v153, así que no hubo que renumerar. Comprobado antes del push lo mismo que la CI: ruff, `uv sync --locked`, `syn doctor`, fixtures + `syn build` (103 sin errores), `syn site` + `--check` (239 páginas sin problemas) y pytest. Sale en la web con el run diario del 2026-11-16 (la web se construye en `pipeline.yml`, que no cambia). Sigue abierta en la Fase 2 la revisión de Sofía (preguntas en su hoja) |
