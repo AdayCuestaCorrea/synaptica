@@ -457,6 +457,7 @@ class VolumeViewer {
       Promise.all(late.map(layer)).then((exs) => {
         exs.forEach((ex, k) => join(late[k], ex)); // values already lifted by OFFSET here
         this.vol.calMinMax();
+        this.minX = null; // new regions: their edges are computed again when needed
         this.lateDone = true;
         this.apply();
       }).catch((e) => console.error(e));
@@ -1292,6 +1293,7 @@ class VolumeViewer {
     // brain repainted, and the next frame on screen.
     const t = { read: performance.now() - (this.upAt || performance.now()) };
     this.pick(v, { partner: true, timing: t });
+    this.cutBeside(this.focus); // option A (v174): the clicked region is not cut in half
     if (this.upAt && v) {
       const t0 = this.upAt;
       requestAnimationFrame(() => {
@@ -1380,8 +1382,51 @@ class VolumeViewer {
     this.nv.scene.crosshairPos = [0, 1, 2].map((a) => Math.min(1, Math.max(0, frac[a])));
     const side = this.rows[[...indices][0]].side;
     if (!state.clip) this.nv.setRenderAzimuthElevation(side === "R" ? 270 : AZIMUTH, ELEVATION);
+    this.cutBeside(indices, false);
     this.syncPlanes();
     this.nv.drawScene();
+  }
+
+  // Aday's option A (v174): with the cut on, a region that is chosen (a click, the search, the
+  // list, «Ir a la pareja») is not cut in half: the cut goes just outside it, on the camera's
+  // side (the cut takes away what lies left of it), and the 2D slice stays through its middle
+  // (the slice follows the point's AP, the cut its ML). A cut placed with the sliders is left
+  // where it is. draw: redraw here (false when the caller redraws).
+  cutBeside(indices, draw = true) {
+    if (!state.clip || !indices.size && !indices.length) return;
+    const minX = this.leftEdges();
+    let x = Infinity;
+    for (const i of indices) x = Math.min(x, minX[i]);
+    if (!Number.isFinite(x) || x >= 32767) return;
+    const pos = [...this.nv.scene.crosshairPos];
+    const vox = this.vol.convertFrac2Vox(pos);
+    vox[0] = Math.max(0, x - 1); // one voxel outside the region
+    pos[0] = Math.min(1, Math.max(0, this.vol.convertVox2Frac(vox)[0]));
+    this.nv.scene.crosshairPos = pos;
+    if (draw) {
+      this.syncPlanes();
+      this.nv.drawScene();
+    }
+  }
+
+  // The left-most voxel column (x) of every region, from the loaded volume, once (and again
+  // after the late layer joins).
+  leftEdges() {
+    if (this.minX) return this.minX;
+    const img = this.vol.img;
+    const [, nx, ny, nz] = this.vol.hdr.dims;
+    const minX = new Int16Array(this.n).fill(32767);
+    for (let z = 0, i = 0; z < nz; z++) {
+      for (let y = 0; y < ny; y++) {
+        for (let x = 0; x < nx; x++, i++) {
+          if (!img[i]) continue;
+          const r = this.regionOf(img[i]);
+          if (r && x < minX[r]) minX[r] = x;
+        }
+      }
+    }
+    this.minX = minX;
+    return minX;
   }
 
   // Improvement M1 (Aday): pick an area from the search box, as a click would, both sides.
