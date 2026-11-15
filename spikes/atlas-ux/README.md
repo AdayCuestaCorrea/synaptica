@@ -18,6 +18,7 @@ python -m http.server 8767 --bind 127.0.0.1 --directory spikes/atlas-ux
   |---|---|---|
   | `rata-3d.webp`, `rata-hipocampo-3d.webp`, `rata-hipocampo-corte.webp` | Waxholm v4.01 (Kleven et al. 2023) | CC BY 4.0 |
   | `humano-3d.webp`, `humano-hipocampo-3d.webp`, `humano-hipocampo-corte.webp` | Julich-Brain v3.1 + CerebrA + CIT168 + sustancia blanca ICBM 2009c | CC BY-NC-SA 4.0 (la más estricta de sus capas; detalle en el [ADR D3](../../docs/adr/0003-visor.md)) |
+  | `humano-julich-3d.webp` (copiada a `site/static/img/atlas/humano.webp`: imagen fija de la página de Neuro Atlas, v162) | Julich-Brain v3.1 solo; las otras capas se quitan en memoria antes de la captura | CC BY-NC-SA 4.0 |
 
   Cambios: colores de la paleta propia de SYNAPTICA, fondo del atlas de la web, recorte de márgenes.
 - `capture.mjs`: genera las capturas con el navegador sin interfaz, contra el prototipo servido en local (mismo cliente que `spikes/s3/measure.mjs`).
@@ -28,7 +29,7 @@ python -m http.server 8767 --bind 127.0.0.1 --directory spikes/atlas-ux
 python -m http.server 8766 --bind 127.0.0.1 --directory spikes/s3/site &   # anota el PID y ciérralo con kill <PID>
 node spikes/atlas-ux/capture.mjs
 cd spikes/atlas-ux/img
-for f in rata-3d humano-3d rata-hipocampo-3d humano-hipocampo-3d; do
+for f in rata-3d humano-3d rata-hipocampo-3d humano-hipocampo-3d humano-julich-3d; do
   magick $f.webp -fuzz 4% -trim +repage -bordercolor '#101a33' -border 60 -quality 86 $f.webp; done
 for f in rata-hipocampo-corte humano-hipocampo-corte; do
   magick $f.webp -gravity south -crop 100%x52%+0+0 +repage -fuzz 4% -trim +repage \

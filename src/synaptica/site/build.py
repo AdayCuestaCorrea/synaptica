@@ -354,7 +354,6 @@ class SiteBuilder:
         t = self.i18n[lang]
         src = self.site_dir / "static" / "atlas"
         gaps = {k: ("gap", t[f"gap_{k}"]) for k in ("atlas_order", "atlas_names", "atlas_viewer")}
-        gaps["atlas_human_still"] = ("gap", t["gap_atlas_human_still"])
         brains = [{"key": b, "families": atlas_page.regions(src, b),
                    "credits": atlas_page.credits(src, b)} for b in atlas_page.BRAINS]  # fmt: skip
         self.render(lang, "atlas", "atlas.html.j2", gaps=gaps, brains=brains)

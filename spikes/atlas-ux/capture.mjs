@@ -179,6 +179,30 @@ try {
   await sleep(3000);
   await shot(cdp, "waxholm", "rata-hipocampo-corte");
   await shot(cdp, "julich", "humano-hipocampo-corte");
+
+  // 4. The human brain with Julich-Brain alone, for the still of the Neuro Atlas page
+  // (SCOPE v162, Aday's option A): one atlas, one licence in the file. The other layers are
+  // dropped in memory (their voxels go back to background); nothing is chosen or cut.
+  await cdp.send("Page.reload");
+  for (let i = 0; i < 120; i++) {
+    const ready = await cdp.eval(`!!(window.__viewers && __viewers.julich.vol)`).catch(() => false);
+    if (ready) break;
+    await sleep(500);
+  }
+  await sleep(2000);
+  await cdp.eval(`(() => {
+    const v = __viewers.julich;
+    const first = Math.min(...v.extras.map((x) => x.from)); // first row of the other layers
+    const img = v.vol.img;
+    let dropped = 0;
+    for (let i = 0; i < img.length; i++) if (img[i] && img[i] - 16 >= first) { img[i] = 0; dropped++; }
+    v.vol.calMinMax();
+    v.nv.opts.backColor = ${JSON.stringify(ATLAS_BG)};
+    v.nv.updateGLVolume();
+    return dropped;
+  })()`);
+  await sleep(1500);
+  await shot(cdp, "julich", "humano-julich-3d");
 } finally {
   proc.kill();
   await sleep(500);

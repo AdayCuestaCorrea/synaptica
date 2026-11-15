@@ -30,12 +30,13 @@
         {% if b.key == "rat" %}
         <img src="{{ static('img/atlas/rata.webp') }}" width="1137" height="552" alt="{{ t.atlas_rat_alt }}" decoding="async">
         {% else %}
-        <div class="brain-still-gap">{{ m.gap("atlas_human_still") }}</div>
+        <img src="{{ static('img/atlas/humano.webp') }}" width="789" height="618" alt="{{ t.atlas_human_alt }}" decoding="async">
         {% endif %}
         <figcaption>{{ t.atlas_credit }}: <a href="{{ main.source_url }}" rel="noopener">{{ main.short }}</a> · <a href="{{ main.licence_url }}" rel="noopener license">{{ main.licence }}</a>
           {%- if b.credits | length > 1 %}. {{ t.atlas_layers }}:
           {% for c in b.credits[1:] %}<a href="{{ c.source_url }}" rel="noopener">{{ c.short }}</a> (<a href="{{ c.licence_url }}" rel="noopener license">{{ c.licence }}</a>){% if not loop.last %} · {% endif %}{% endfor %}
-          {%- endif %}</figcaption>
+          {%- endif %}
+          {%- if b.key == "human" %}. {{ t.atlas_human_still_note }}{% endif %}</figcaption>
       </figure>
       <h3 class="brain-count">{{ t.atlas_regions }} <span>{{ t.atlas_regions_count.format(n=n) }}</span></h3>
       {% for depth in ("surface", "interior") %}
