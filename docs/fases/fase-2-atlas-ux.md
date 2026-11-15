@@ -188,7 +188,7 @@ Los dos cerebros vienen de atlas distintos con licencias distintas:
 
 **Decisión de Aday: B ahora, y probar C** en el primer paso de código; si no va fluido en el móvil, se queda B con «Recortar» automático para las internas.
 
-**Actualización (2026-11-15, SCOPE v165):** después de medirlo en el paso 4, Aday elige **C en todas partes**. El resto del cerebro se vuelve translúcido mientras haya una región elegida. Con una región elegida, el giro baja de 21 a 7 fps en el móvil simulado; falta comprobarlo en un móvil real. Aday acepta también los 13,6 s del primer cerebro en el móvil simulado, frente al objetivo de 12 s. Con «movimiento reducido» activado en el sistema, nunca hay giros animados.
+**Actualización (2026-11-15, SCOPE v165):** después de medirlo en el paso 4, Aday elige **C en todas partes**. El resto del cerebro se vuelve translúcido mientras haya una región elegida. Con una región elegida, el giro baja de 21 a 7 fps en el móvil simulado; falta comprobarlo en un móvil real. Aday acepta también los 13,6 s del primer cerebro en el móvil simulado, frente al objetivo de 12 s. **Ajuste (v169):** la translucidez solo se aplica en reposo. Al girar, acercar o mover el punto, el cerebro es opaco; con «Recortar» también. Así el giro mantiene su fluidez. Con «movimiento reducido» activado en el sistema, nunca hay giros animados.
 
 > **Ojo: cambia una petición de Sofía.** En S3 pidió que el otro visor gire y lleve su corte hasta la pareja (P3, respuesta Q3). Con B eso pasa al pulsar «Ir a la pareja», no solo. Se le pregunta (pregunta 5) y, si prefiere el giro automático, se vuelve a A, mejor suavizado.
 

@@ -466,6 +466,21 @@ class VolumeViewer {
     this.apply();
   }
 
+  // UX-4 C, Aday's refinement (v169): the rest of the brain is see-through only at rest, with a
+  // region selected and no cut (the cut already shows the inside). While the brain is turned,
+  // zoomed or its point moved, it is solid: easier to follow, and turning keeps its speed
+  // (see-through, it fell from 21 to 7 fps on the simulated phone).
+  get seeThrough() {
+    return SEE_THROUGH < 255 && !this.busy && !state.clip && !state.isolate;
+  }
+
+  setBusy(on) {
+    if (Boolean(this.busy) === on) return;
+    const before = this.seeThrough;
+    this.busy = on;
+    if (this.vol && this.focus.size && before !== this.seeThrough) this.apply();
+  }
+
   // The same 3D tap again, once the brain is drawn solid (UX-4 C, see picked).
   tapAgain(at) {
     this.retrying = true;
@@ -504,9 +519,17 @@ class VolumeViewer {
       this.nv.mousePos = [this.lastClick.x * dpr, this.lastClick.y * dpr];
     });
     this.canvas.addEventListener("pointermove", (e) => {
-      if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > down.slop) this.tag.hidden = true;
+      if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > down.slop) {
+        this.tag.hidden = true;
+        this.setBusy(true); // turning, zooming or moving the point: solid (v169)
+      }
+    });
+    this.canvas.addEventListener("pointercancel", () => {
+      down = null;
+      this.setBusy(false);
     });
     this.canvas.addEventListener("pointerup", (e) => {
+      this.setBusy(false);
       if (!down) return;
       const quick = performance.now() - down.t < 600;
       const still = Math.hypot(e.clientX - down.x, e.clientY - down.y) <= down.slop;
@@ -553,7 +576,7 @@ class VolumeViewer {
             rgb = [grey, grey, grey];
           }
           if (state.isolate) a = 0;
-          else a = SEE_THROUGH; // UX-4 C
+          else if (this.seeThrough) a = SEE_THROUGH; // UX-4 C, at rest only
         }
         R.push(rgb[0]); G.push(rgb[1]); B.push(rgb[2]); A.push(a);
         I.push(r.index ? r.index + OFFSET + (edge ? this.n : 0) : 0);
@@ -741,10 +764,14 @@ class VolumeViewer {
       unit.textContent = TXT.mm;
       name.textContent = F.axes[key];
       range.addEventListener("input", () => {
+        this.setBusy(true); // moving the point with the slider: solid until it is let go (v169)
         this.setPlane(axis, range.value / 1000);
         this.pickAtPoint({ partner: false, defer: true }); // M2: live in this brain only
       });
-      range.addEventListener("change", () => this.pickAtPoint({ partner: true })); // on release
+      range.addEventListener("change", () => {
+        this.pickAtPoint({ partner: true }); // on release
+        this.setBusy(false);
+      });
       // Applied on Enter or when the field loses focus, so typing "-3.2" does not jump at "-".
       number.addEventListener("change", () => {
         const v = parseFloat(number.value);
@@ -1181,8 +1208,7 @@ class VolumeViewer {
       // UX-4 C: while something is selected the rest is almost transparent, and a tap on it
       // goes through. Once solid again, the same tap is tried once more: on tissue it picks
       // the region there; on the background nothing else happens (v168).
-      const retry = this.focus.size > 0 && !state.isolate && SEE_THROUGH < 255
-        && this.lastTap && !this.retrying;
+      const retry = this.focus.size > 0 && this.seeThrough && this.lastTap && !this.retrying;
       const at = this.lastTap;
       this.lastTap = null;
       this.pick(0, { partner: false });
