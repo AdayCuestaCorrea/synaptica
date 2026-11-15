@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 176** · 2026-11-15 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 177** · 2026-11-15 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -221,6 +221,7 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 | La señal `review_status = journal` se muestra como «Publicado en revista» / «Published in a journal», no como «revisado por pares» | Decisión de Aday (v98): ni Crossref ni PubMed dicen de forma fiable si hubo revisión por pares; «Cómo evaluamos» lo explica. El nombre final lo confirma Sofía |
 | Buscador de la maqueta en la Fase 1, con el paso 23; el glosario se queda en la Fase 2 (§4) | Decisión de Aday (v100): el buscador solo busca lo que la web ya tiene (estudios, noticias, páginas), sin contenido nuevo ni revisión; el glosario tiene definiciones solo en español y sin revisar, y no puede existir en un idioma sin el otro. Cuando entre el buscador, vuelve de Paleo la comprobación del índice de búsqueda |
 | La Fase 2 empieza en paralelo a la Fase 1, en la rama `fase-2` (desde `main`), y se fusiona en `main` cuando esté lista, sin esperar al cierre de la Fase 1 | Decisión de Aday (v154, cambiada en la v159): esperar a los 14 días de autonomía de la Fase 1 retrasaba demasiado la web. El reloj solo se reinicia con una ejecución programada en rojo o un arreglo del pipeline, así que cada fusión pasa antes `syn site --check` y la CI |
+| Siguiente trabajo de la Fase 2 tras Neuro Atlas: Neuro Glossary | Decisión de Aday (v177, opción A), frente al esqueleto de Neuro Lab o a llevar a la cola de Sofía los datos de las regiones: ya hay maqueta (v80), 17 términos de ejemplo y 7 propuestos por Sofía, y cierra la petición P6 de S3 en el visor. Ninguna definición se publica sin su aprobación registrada en `review/decisions.jsonl` ni sin su versión en inglés |
 
 ### Abiertas
 
@@ -420,3 +421,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 174 | 2026-11-15 | Neuro Atlas, **opción A de Aday** (frente a quitar el corte mientras hay una región elegida o no mover el corte al elegir): con «Recortar», una región elegida por clic, buscador, lista o «Ir a la pareja» ya no queda cortada por la mitad. El corte 3D se coloca justo por fuera de ella, del lado de la cámara (un vóxel antes de su borde izquierdo), y el corte 2D sigue pasando por su centro. Un corte colocado con las barras se respeta. El borde de cada región se calcula una vez a partir del volumen cargado. Probado en Chrome: HF elegido con el corte puesto queda entero (corte en la columna 23, la región empieza en la 24) |
 | 175 | 2026-11-15 | Neuro Atlas, petición de Aday: la región elegida al quedarse quieta una barra (0,6 s) también se ve **entera**. El corte 3D se coloca por fuera de ella, como con un clic. Con la barra ML, el corte y la barra saltan al borde de la región. Probado en Chrome: barra AP movida, a los 0,6 s se elige la sustancia gris periacueductal (PAG) y el corte queda en la columna 81, con la región desde la 82 |
 | 176 | 2026-11-15 | **Neuro Atlas a main** con el OK de Aday, tras verlo en local. Avance directo de `fase-2`: main no había cambiado desde la v153, así que no hubo que renumerar. Comprobado antes del push lo mismo que la CI: ruff, `uv sync --locked`, `syn doctor`, fixtures + `syn build` (103 sin errores), `syn site` + `--check` (239 páginas sin problemas) y pytest. Sale en la web con el run diario del 2026-11-16 (la web se construye en `pipeline.yml`, que no cambia). Sigue abierta en la Fase 2 la revisión de Sofía (preguntas en su hoja) |
+| 177 | 2026-11-15 | Fase 2, decisión de Aday (opción A): **Neuro Glossary** es lo siguiente tras Neuro Atlas (§8). Antes de escribir código, opciones para Aday sobre el origen de las definiciones, su entrada en la cola de Sofía y el enlace desde el visor. Visto al leer: la casilla habla de «16 términos de la propuesta» y la tabla de `docs/propuesta.md` tiene 17; no se cambia hasta que Aday lo confirme |
