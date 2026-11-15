@@ -38,6 +38,22 @@ NSC_DAYS = 30  # Nature · Science · Cell: few a day, so a month
 MEDIA_DAYS = 7
 MEDIA_MAX = 60
 TODAY_HEADLINES = 3
+LEAD_DAYS = 3  # the featured study of «Today» is chosen among the last 3 days
+LEAD_CHARS = 320  # …and shows its verified sentences up to about this length
+
+
+def lead_excerpt(sentences: list[dict[str, Any]], budget: int = LEAD_CHARS) -> str:
+    """The start of a verified summary for the featured study: the first sentence always,
+    then the next ones while the text stays within ``budget`` characters. Counted in
+    characters, not sentences: a stored sentence sometimes holds two (seen 2026-11-15)."""
+    out: list[str] = []
+    for s in sentences:
+        text = " ".join([*out, s["text"]])
+        if out and len(text) > budget:
+            break
+        out.append(s["text"])
+    return " ".join(out)
+
 
 TRIAL_TYPES = {
     "Clinical Trial", "Randomized Controlled Trial", "Clinical Trial, Phase I",
@@ -98,12 +114,30 @@ class NewsData:
 
     @property
     def lead(self) -> dict[str, Any] | None:
-        """The featured study of «Today»: the newest with a verified summary in both
-        languages; without any, the newest study (shown with its fallback text)."""
-        pool = self.nsc + self.latest
+        """The featured study of «Today»: among the studies of the last ``LEAD_DAYS`` days
+        with a verified summary in both languages and no integrity notice, the one that
+        best shows the site (Aday, 2026-11-15: the newest alone once led with a modelling
+        paper without subjects): Nature · Science · Cell first, then known subjects
+        (humans or animals), then a type other than noise, then the newest. Without any,
+        the newest verified; without that, the newest study (with its fallback text)."""
+        nsc_ids = {s["study_id"] for s in self.nsc}
+        pool = self.nsc + [s for s in self.latest if s["study_id"] not in nsc_ids]
         pool = sorted(pool, key=lambda s: (s["entered_on"] or "", s["study_id"]), reverse=True)
         verified = [s for s in pool if all(v["kind"] == "verified"
                                            for v in s["summary"].values())]  # fmt: skip
+        days = [str(s["entered_on"])[:10] for s in verified if s["entered_on"]]
+        if days:
+            newest = dt.date.fromisoformat(max(days))
+            since = (newest - dt.timedelta(days=LEAD_DAYS - 1)).isoformat()
+            recent = [s for s in verified if str(s["entered_on"] or "")[:10] >= since
+                      and (s.get("integrity") or "none") == "none"]  # fmt: skip
+            if recent:
+                return max(recent, key=lambda s: (
+                    s["study_id"] in nsc_ids,
+                    (s.get("species") or "unknown") != "unknown",
+                    (s.get("news_type") or "noise") != "noise",
+                    s["entered_on"] or "", s["study_id"],
+                ))  # fmt: skip
         return (verified or self.latest or self.nsc or [None])[0]
 
     @property
