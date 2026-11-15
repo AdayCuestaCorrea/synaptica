@@ -114,7 +114,19 @@ def align(old: list[str], new: list[str]) -> list[int | None]:
     place, however much she changed it (a short fix scored below 0.5 when compared one by
     one; seen in the S4 dry run). Sentences left over in a stretch, or inserted, are hers
     and cite nothing, unless one still reads like a reviewed sentence of the stretch.
+
+    A reviewed "sentence" may be a whole paragraph (the local qwen9b batch stores them so),
+    while she sends one sentence per line: each one is split with ``sentences`` first and
+    the index returned is still the paragraph's, whose citations its sentences inherit.
+    Without the split, a lightly fixed sentence did not read like its paragraph and was
+    held as new (seen on 2026-11-14, ALMS1 and pmid 42997793).
     """
+    parent = [i for i, x in enumerate(old) for _ in sentences(x) or [x]]
+    flat = [s for x in old for s in sentences(x) or [x]]
+    return [None if i is None else parent[i] for i in _align(flat, new)]
+
+
+def _align(old: list[str], new: list[str]) -> list[int | None]:
     out: list[int | None] = [None] * len(new)
     norm_old, norm_new = [checks.normalize(x) for x in old], [checks.normalize(x) for x in new]
     sm = difflib.SequenceMatcher(None, norm_old, norm_new, autojunk=False)
@@ -271,7 +283,8 @@ def process(
         return Outcome("refused", reason=str(e))
 
     out = Outcome("processed")
-    intake = {"reviewed_by": author, "reviewed_at": issue["created_at"], "source": source}
+    intake = {"reviewed_by": author, "reviewed_at": issue["created_at"], "source": source,
+              "rechecked_at": None}  # fmt: skip
     for raw in block.decisions:
         what = f"{raw.get('item_type')}/{raw.get('item_id')}"
         if signature(raw) in recorded:
@@ -368,14 +381,19 @@ def parts_note(event: dict, data_dir: Path) -> str:
             "Si no las enviaste, vuelve a la página y pulsa sus botones.")  # fmt: skip
 
 
+def dump(d: Decision) -> dict:
+    """A decision as a log row; ``rechecked_at`` only when set (older rows lack it)."""
+    return d.model_dump(mode="json", exclude=set() if d.rechecked_at else {"rechecked_at"})
+
+
 def write(out: Outcome, data_dir: Path) -> None:
     data_dir.mkdir(parents=True, exist_ok=True)
     with (data_dir / "decisions.jsonl").open("a", encoding="utf-8") as f:
         for d in out.applied:
-            f.write(json.dumps(d.model_dump(mode="json"), ensure_ascii=False) + "\n")
+            f.write(json.dumps(dump(d), ensure_ascii=False) + "\n")
     with (data_dir / "held.jsonl").open("a", encoding="utf-8") as f:
         for h in out.held:
-            row = {"decision": h.decision.model_dump(mode="json"), "warnings": h.warnings}
+            row = {"decision": dump(h.decision), "warnings": h.warnings}
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
 
 

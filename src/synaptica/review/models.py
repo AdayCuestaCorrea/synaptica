@@ -318,11 +318,15 @@ class Decision(Strict):
     reviewed_by: str = Field(min_length=1)  # GitHub login of the Issue's author
     reviewed_at: datetime  # creation date of the Issue, UTC
     source: str = Field(pattern=r"^issue#\d+$")
+    # Set only by `syn review recheck-held`: her held edit passed the checks of a later
+    # version of the code and was applied then (her text, her login and date untouched).
+    # The intake always sets it to None, so an Issue cannot claim it.
+    rechecked_at: datetime | None = None
 
-    @field_validator("reviewed_at")
+    @field_validator("reviewed_at", "rechecked_at")
     @classmethod
-    def _utc(cls, v: datetime) -> datetime:
-        return _as_utc(v)
+    def _utc(cls, v: datetime | None) -> datetime | None:
+        return None if v is None else _as_utc(v)
 
     @model_validator(mode="after")
     def _payload(self) -> Decision:
