@@ -466,11 +466,12 @@ class VolumeViewer {
     this.apply();
   }
 
-  // UX-4 C, Aday's refinement (v169–v170): the rest of the brain is see-through only at rest,
-  // with a region selected. While the brain is turned, zoomed or its point moved, it is solid:
-  // easier to follow, and turning keeps its speed (see-through, it fell from 21 to 7 fps on the
-  // simulated phone). With the cut on as well: the cut goes through the region picked in this
-  // brain, not through the counterpart marked in the other, which stays inside (UX-4 B).
+  // UX-4 C, Aday's refinements (v169–v171): with a region selected, the rest of the brain is
+  // see-through, also while it is turned to look from another angle; while it is zoomed or its
+  // point moved it is solid, see-through again once let go. With the cut on as well: the cut
+  // goes through the region picked in this brain, not through the counterpart marked in the
+  // other, which stays inside (UX-4 B). Turning see-through costs speed (21 → 7 fps on the
+  // simulated phone).
   get seeThrough() {
     return SEE_THROUGH < 255 && !this.busy && !state.isolate;
   }
@@ -513,8 +514,14 @@ class VolumeViewer {
     // the whole jump from there (the brain "reset" upside down). The press sets it first.
     // A finger also wobbles more than a mouse: SLOP CSS px still count as a tap.
     const SLOP = (e) => (e.pointerType === "mouse" ? 6 : 12);
+    const fingers = new Set(); // pointers down on the canvas: two or more are a pinch
     this.canvas.addEventListener("pointerdown", (e) => {
-      down = { x: e.clientX, y: e.clientY, t: performance.now(), slop: SLOP(e) };
+      fingers.add(e.pointerId);
+      const box = this.canvas.getBoundingClientRect();
+      const px = this.nv.uiData.dpr || 1;
+      // Turning is a one-finger drag on the 3D view; on the 2D slice a drag moves the point.
+      const turning = this.nv.inRenderTile((e.clientX - box.left) * px, (e.clientY - box.top) * px) >= 0;
+      down = { x: e.clientX, y: e.clientY, t: performance.now(), slop: SLOP(e), turning };
       this.lastClick = at(e);
       const dpr = this.nv.uiData.dpr || 1;
       this.nv.mousePos = [this.lastClick.x * dpr, this.lastClick.y * dpr];
@@ -522,15 +529,25 @@ class VolumeViewer {
     this.canvas.addEventListener("pointermove", (e) => {
       if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > down.slop) {
         this.tag.hidden = true;
-        this.setBusy(true); // turning, zooming or moving the point: solid (v169)
+        // Aday (v171): turning keeps the see-through; zooming (a pinch) or moving the point on
+        // the 2D slice makes the brain solid until it is let go.
+        if (!down.turning || fingers.size > 1) this.setBusy(true);
       }
     });
-    this.canvas.addEventListener("pointercancel", () => {
+    this.canvas.addEventListener("pointercancel", (e) => {
+      fingers.delete(e.pointerId);
       down = null;
       this.setBusy(false);
     });
+    // Zooming with the wheel: solid while the wheel turns, see-through again a moment after.
+    this.canvas.addEventListener("wheel", () => {
+      this.setBusy(true);
+      clearTimeout(this.wheelTimer);
+      this.wheelTimer = setTimeout(() => this.setBusy(false), 300);
+    }, { passive: true });
     // A drag that ends outside the canvas (the mouse let go beyond its edge) ends too.
-    addEventListener("pointerup", () => {
+    addEventListener("pointerup", (e) => {
+      fingers.delete(e.pointerId);
       down = null;
       this.setBusy(false);
     });

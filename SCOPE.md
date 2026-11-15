@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 170** · 2026-11-15 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 171** · 2026-11-15 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -414,3 +414,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 168 | 2026-11-15 | Neuro Atlas, petición de Aday: **cada cerebro puede tener su propia selección.** Solo una región con pareja sincroniza el otro cerebro (lo marca, como antes); sin pareja, el otro conserva su selección y su tarjeta. Arreglo que destapó la prueba: con UX-4 C, un toque sobre el cerebro translúcido lo atravesaba y contaba como fondo. Ahora ese toque vuelve el cerebro opaco y se repite una vez en el mismo punto: sobre tejido elige la región; sobre el fondo solo suelta la selección. Probado en Chrome con selecciones distintas en los dos cerebros, tocando el cerebro translúcido y el fondo de cada uno |
 | 169 | 2026-11-15 | Neuro Atlas, ajuste de UX-4 C pedido por Aday: **translúcido solo en reposo.** El resto del cerebro solo se vuelve translúcido con una región elegida, sin tocarlo y sin «Recortar» (el corte ya enseña el interior). Mientras se gira, se acerca o se mueve el punto (arrastrando en el lienzo o con las barras de milímetros) es opaco, y al soltar vuelve a translúcido. Así el giro ya no baja a 7 fps. Cada cambio cuesta un repintado: ~60 ms en el ordenador y ~0,2 s en el móvil simulado (pesimista), un pequeño salto al empezar a girar. Probado en Chrome: reposo, arrastre, soltar y con o sin corte |
 | 170 | 2026-11-15 | Neuro Atlas, corrección de la v169 tras verlo Aday: en reposo no se veía translúcido, solo gris. Su vista guardada era «3D + corte», que siempre lleva «Recortar», y la v169 desactivaba la translucidez con el corte. Ahora es **translúcido en reposo también con el corte**: el corte pasa por la región elegida en ese cerebro, no por la pareja que marca el otro, que se quedaba dentro y oculta (UX-4 B). Además, un arrastre que termina fuera del lienzo también devuelve la translucidez. Probado en Chrome con su vista guardada |
+| 171 | 2026-11-15 | Neuro Atlas, ajuste de Aday: **girar el cerebro mantiene la translucidez.** El arrastre con un dedo en la vista 3D gira sin cambiarla. Lo demás la quita mientras dura y la devuelve al soltar: acercar (pellizco o rueda), arrastrar en el corte 2D para mover el punto y las barras de milímetros. Coste aceptado: girar translúcido va a ~7 fps en el móvil simulado (21 opaco); queda probarlo en un móvil real. Probado en Chrome con eventos de toque: giro, corte 2D, pellizco y rueda |
