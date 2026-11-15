@@ -272,6 +272,12 @@ function panelPartner(box, source, pair, onGo = () => {}) {
 // white, grey fill and contours, like a printed atlas plate; "stain": a drawn Nissl-like stain
 // (step 7.7), always with the notice that it is an illustration.
 const MODES = ["color", "atlas", "stain"];
+// Step 4, trial of UX-4 C: with ?ver=N (0-255) the rest of the brain gets that opacity while a
+// region is selected. Not in the interface until it is measured and seen to work.
+const SEE_THROUGH = (() => {
+  const n = Number(new URLSearchParams(location.search).get("ver"));
+  return new URLSearchParams(location.search).has("ver") && n >= 0 && n <= 255 ? n : null;
+})();
 // UX-3 B: the last choice of «Más opciones» is remembered in this browser (and only there).
 const STORE = "synaptica-atlas-view";
 function remembered() {
@@ -399,20 +405,41 @@ class VolumeViewer {
     });
     await this.nv.attachToCanvas(this.canvas);
     this.nv.setInterpolation(true); // nearest neighbour: labels must not blend
-    await this.nv.loadVolumes([{ url, name: url.split("/").pop() }]);
+    // Step 4: the bytes were asked for together with Niivue (prefetch), not after it.
+    const name = url.split("/").pop();
+    this.nv.addVolume(await NVImage.loadFromUrl({ url, name, buffer: await prefetch(url) }));
     this.vol = this.nv.volumes[0];
     const img = this.vol.img;
     // Sofía's review: where Julich-Brain has no label, the next layer's, and so on (same grid;
     // built so that they never overlap). Done in memory, on screen: the files stay apart.
-    const layers = await Promise.all(this.extras.map((x) => NVImage.loadFromUrl({ url: x.url })));
-    layers.forEach((ex, k) => {
-      if (ex.img.length !== img.length) throw new Error(`${this.extras[k].name}: other grid`);
-      const from = this.extras[k].from;
-      for (let i = 0; i < img.length; i++) if (!img[i] && ex.img[i]) img[i] = ex.img[i] + from - 1;
+    // Step 4: a layer marked `late` (the white matter, the heaviest) joins once the brain can
+    // already be used; the others before. In atlas mode all join first (its contours need them).
+    const now = this.extras.filter((x) => !x.late || state.mode === "atlas");
+    const late = this.extras.filter((x) => !now.includes(x));
+    // Niivue reads the format from the name's extension (.nii.gz).
+    const layer = async (x) => NVImage.loadFromUrl({ url: x.url, name: `${x.name}.nii.gz`, buffer: await prefetch(x.url) });
+    const join = (x, ex) => {
+      if (ex.img.length !== img.length) throw new Error(`${x.name}: other grid`);
+      const add = x.from - 1 + OFFSET; // joins after the lift: the base is lifted already
+      for (let i = 0; i < img.length; i++) if (!img[i] && ex.img[i]) img[i] = ex.img[i] + add;
+    };
+    (await Promise.all(now.map(layer))).forEach((ex, k) => {
+      const x = now[k];
+      if (ex.img.length !== img.length) throw new Error(`${x.name}: other grid`);
+      for (let i = 0; i < img.length; i++) if (!img[i] && ex.img[i]) img[i] = ex.img[i] + x.from - 1;
     });
     for (let i = 0; i < img.length; i++) if (img[i]) img[i] += OFFSET;
     this.vol.calMinMax();
-    this.coords = await (await fetch(`${DATA}/${this.atlas}/coords.json`)).json();
+    this.lateDone = !late.length;
+    if (late.length) {
+      Promise.all(late.map(layer)).then((exs) => {
+        exs.forEach((ex, k) => join(late[k], ex)); // values already lifted by OFFSET here
+        this.vol.calMinMax();
+        this.lateDone = true;
+        this.apply();
+      }).catch((e) => console.error(e));
+    }
+    this.coords = JSON.parse(new TextDecoder().decode(await prefetch(`${DATA}/${this.atlas}/coords.json`)));
     this.nv.setRenderAzimuthElevation(AZIMUTH, ELEVATION);
     this.nv.onLocationChange = (loc) => {
       this.syncPlanes();
@@ -460,6 +487,7 @@ class VolumeViewer {
       const still = Math.hypot(e.clientX - down.x, e.clientY - down.y) <= down.slop;
       down = null;
       if (!quick || !still) return;
+      this.upAt = performance.now(); // step 4: start of the tap's timing (picked)
       const r = this.canvas.getBoundingClientRect();
       const dpr = this.nv.uiData.dpr || 1;
       if (this.nv.inRenderTile((e.clientX - r.left) * dpr, (e.clientY - r.top) * dpr) < 0) return;
@@ -496,6 +524,7 @@ class VolumeViewer {
             rgb = [grey, grey, grey];
           }
           if (state.isolate) a = 0;
+          else if (SEE_THROUGH != null) a = SEE_THROUGH; // step 4 trial of UX-4 C (?ver=N)
         }
         R.push(rgb[0]); G.push(rgb[1]); B.push(rgb[2]); A.push(a);
         I.push(r.index ? r.index + OFFSET + (edge ? this.n : 0) : 0);
@@ -636,7 +665,7 @@ class VolumeViewer {
 
   apply() {
     if (!this.vol) return;
-    if (state.mode === "atlas") this.markEdges();
+    if (state.mode === "atlas" && this.lateDone) this.markEdges(); // contours once all layers are in
     this.cleanSlice();
     if (REAL_STAIN[this.atlas] && this.realOn !== (this.real ? this.nv.volumes.includes(this.real) : false)) {
       this.syncReal(); // calls apply() again once the volume is in or out
@@ -1111,7 +1140,19 @@ class VolumeViewer {
     const raw = loc && loc.values && loc.values[at] ? Math.round(loc.values[at].value) : 0;
     const v = this.regionOf(raw);
     this.showTag(v ? this.rows[v] : null);
-    this.pick(v, { partner: true });
+    // Step 4 (SCOPE v164): how long a tap takes, by parts, for scripts/atlas_measure.mjs. From
+    // the finger lifting to: the region read (Niivue's pick), this brain repainted, the other
+    // brain repainted, and the next frame on screen.
+    const t = { read: performance.now() - (this.upAt || performance.now()) };
+    this.pick(v, { partner: true, timing: t });
+    if (this.upAt && v) {
+      const t0 = this.upAt;
+      requestAnimationFrame(() => {
+        t.frame = performance.now() - t0;
+        ((window.__atlasPerf ||= {}).taps ||= []).push({ atlas: this.atlas, ...t });
+      });
+    }
+    this.upAt = null;
   }
 
   // Select region index v (0 = none). partner: also tell the other brain (pair, panel, point).
@@ -1120,17 +1161,21 @@ class VolumeViewer {
   // defer (step 7.9, slider drags): repainting the highlight (apply) is what stuttered on a real
   // phone, so while dragging it waits until the finger stops for APPLY_PAUSE ms or lets go; the
   // panel still follows live.
-  pick(v, { partner = true, atPoint = false, defer = false } = {}) {
+  pick(v, { partner = true, atPoint = false, defer = false, timing = null } = {}) {
     const same = v === (this.selectedIndex || 0);
+    const t0 = performance.now();
     if (!same) {
       this.selectedIndex = v || null;
       this.focus = new Set(v ? [v] : []);
       if (defer) this.applySoon();
       else this.applyNow();
     } else if (!defer && this.applyTimer) this.applyNow();
+    if (timing) timing.thisBrain = performance.now() - t0;
     if (same && (!partner || this.passedOn)) return;
     this.passedOn = partner;
+    const t1 = performance.now();
     this.onPick(v ? regionFromRow(this.atlas, this.rows[v]) : null, { partner, atPoint });
+    if (timing) timing.otherBrain = performance.now() - t1;
   }
 
   applySoon() {
@@ -1282,6 +1327,20 @@ function strong(hexColour) {
   return "#" + [r, g, b].map((v) => Math.round((v + m) * 255).toString(16).padStart(2, "0")).join("");
 }
 
+// Step 4: the volumes are asked for as soon as the viewer starts, side by side with Niivue,
+// instead of one after the other (Niivue first, then each volume): on «Slow 4G» that was most of
+// the wait. Each URL is fetched once; Niivue reads the bytes from here.
+const fetched = new Map();
+function prefetch(url) {
+  if (!fetched.has(url)) {
+    fetched.set(url, fetch(url).then((r) => {
+      if (!r.ok) throw new Error(`${url}: ${r.status}`);
+      return r.arrayBuffer();
+    }));
+  }
+  return fetched.get(url);
+}
+
 async function json(url) {
   const r = await fetch(url);
   if (!r.ok) throw new Error(`${url}: ${r.status}`);
@@ -1307,7 +1366,8 @@ async function loadData() {
   HUMAN_LAYERS.forEach((name, i) => {
     const from = rows.length;
     rows.push(...layers[i].rows.slice(1).map((r) => ({ ...r, index: r.index + from - 1, source: name })));
-    extras.push({ name, url: `${DATA}/${name}/labels.nii.gz`, from });
+    // Step 4: the white matter (0.29 MB, the heaviest layer) joins after the brain is usable.
+    extras.push({ name, url: `${DATA}/${name}/labels.nii.gz`, from, late: name === "icbm_wm" });
   });
   return {
     waxholm: { labels: wl },
@@ -1413,6 +1473,16 @@ async function main() {
     Object.keys(sections).forEach((a) => status(a, UI.noGl));
     return;
   }
+  // The first brain's volumes, now (the human on a phone; both on a wide screen). The late layer
+  // waits for the others, so it does not share their bandwidth.
+  // The late layer is asked for only once its brain is usable (VolumeViewer.load): before, it
+  // took bandwidth from Niivue itself (measured, SCOPE v164).
+  const firstAtlases = narrow.matches ? ["julich"] : ["julich", "waxholm"];
+  for (const a of firstAtlases) {
+    prefetch(`${DATA}/${a}/labels.nii.gz`);
+    prefetch(`${DATA}/${a}/coords.json`);
+  }
+  if (firstAtlases.includes("julich")) ["cerebra", "cit168"].forEach((n) => prefetch(`${DATA}/${n}/labels.nii.gz`));
   const data = await loadData();
   const viewers = (window.__atlas = {});
   const items = {}; // search entries per atlas, from the label tables (no 3D needed)
@@ -1441,8 +1511,16 @@ async function main() {
       panelPicked(v.panel, region, pair, atPoint ? P.nonePoint : P.none);
       if (region) announce(UI.picked(names(region).full, SEARCH[BRAIN_OF[atlas]]));
       if (!partner) return; // M2: the other brain follows when the slider is let go
-      other.highlight(region ? partnerOf(region, pair) : null);
       panelPartner(other.panel, region, pair, () => goToPair(otherAtlas));
+      // Step 4: the brain that was touched is painted first; the other one in the next frame,
+      // so a tap shows at once even when both brains have to change.
+      const token = (other.partnerToken = {});
+      requestAnimationFrame(() => setTimeout(() => {
+        if (other.partnerToken !== token) return;
+        const t = performance.now();
+        other.highlight(region ? partnerOf(region, pair) : null);
+        ((window.__atlasPerf ||= {}).partner ||= []).push(performance.now() - t);
+      }));
     };
   }
 
@@ -1567,8 +1645,7 @@ async function main() {
   })).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
   // UX-5 B: the viewer comes right after the page, by itself. On a phone, only the brain shown.
-  const first = narrow.matches ? [active] : ["julich", "waxholm"];
-  await Promise.all(first.map(load));
+  await Promise.all(firstAtlases.map(load));
   narrow.addEventListener("change", () => !narrow.matches && Object.keys(sections).forEach(load));
 }
 
@@ -1631,13 +1708,11 @@ function searchBoth(input, items, choose) {
 }
 
 if (root) {
-  // UX-5 B: nothing of the viewer competes with the page; Niivue is asked for once it has loaded.
-  const start = () => {
-    niivueReady = script(root.dataset.niivue).then(() => ({ Niivue, NVImage, SLICE_TYPE } = window.niivue));
-    main().catch((e) => console.error(e));
-  };
-  if (document.readyState === "complete") start();
-  else addEventListener("load", start, { once: true });
+  // UX-5 B: the page first. A module runs once the page is parsed, when its text is already on
+  // screen; waiting for the «load» event as well (images, fonts) cost ~0.6 s on «Slow 4G» and
+  // won nothing (measured, SCOPE v164), so the viewer starts here.
+  niivueReady = script(root.dataset.niivue).then(() => ({ Niivue, NVImage, SLICE_TYPE } = window.niivue));
+  main().catch((e) => console.error(e));
 }
 
 // Measurement hook (step 4, as in spikes/s3/measure.mjs): turn the loaded brains for ms and

@@ -1,0 +1,1675 @@
+{
+  "page": "http://127.0.0.1:8767/es/atlas.html",
+  "date": "2026-11-15T19:12:44.874Z",
+  "browser": "Chrome/157.0.8103.50",
+  "scenarios": {
+    "phone": {
+      "width": 390,
+      "height": 844,
+      "dpr": 3,
+      "mobile": true,
+      "net": "Slow 4G",
+      "cpu": 4,
+      "wait": [
+        "julich"
+      ]
+    },
+    "desktop": {
+      "width": 1280,
+      "height": 900,
+      "dpr": 1,
+      "mobile": false,
+      "net": "none",
+      "cpu": 4,
+      "wait": [
+        "julich",
+        "waxholm"
+      ]
+    }
+  },
+  "runs": [
+    {
+      "scenario": "phone",
+      "run": 1,
+      "firstPaintMs": 1556,
+      "domReadyMs": 1992,
+      "loadMs": 11871,
+      "humanReadyMs": 13628,
+      "ratReadyMs": null,
+      "timeline": [
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-700.woff2",
+          593,
+          1503
+        ],
+        [
+          "/static/synaptica.css?v=ac60ca429e",
+          595,
+          1369
+        ],
+        [
+          "/static/site.js?v=ac60ca429e",
+          595,
+          1211
+        ],
+        [
+          "/static/search.js?v=ac60ca429e",
+          595,
+          1962
+        ],
+        [
+          "/static/viewer/viewer.js?v=ac60ca429e",
+          595,
+          1619
+        ],
+        [
+          "/static/atlas.js?v=ac60ca429e",
+          595,
+          1953
+        ],
+        [
+          "/static/img/atlas/humano.webp",
+          621,
+          1919
+        ],
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-400.woff2",
+          1485,
+          2178
+        ],
+        [
+          "/static/img/atlas/rata.webp",
+          1541,
+          2552
+        ],
+        [
+          "/static/vendor/niivue-0.69.0/niivue.umd.js?v=ac60ca429e",
+          1970,
+          11594
+        ],
+        [
+          "/static/atlas/julich/labels.nii.gz",
+          1985,
+          10136
+        ],
+        [
+          "/static/atlas/julich/coords.json",
+          1986,
+          2578
+        ],
+        [
+          "/static/atlas/cerebra/labels.nii.gz",
+          1987,
+          5886
+        ],
+        [
+          "/static/atlas/cit168/labels.nii.gz",
+          1987,
+          4694
+        ],
+        [
+          "/static/atlas/waxholm/labels.json",
+          1988,
+          3836
+        ],
+        [
+          "/static/atlas/julich/labels.json",
+          1988,
+          3737
+        ],
+        [
+          "/static/atlas/pairs.json",
+          1989,
+          4378
+        ],
+        [
+          "/static/atlas/cerebra/labels.json",
+          1989,
+          4478
+        ],
+        [
+          "/static/atlas/cit168/labels.json",
+          1990,
+          4969
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.json",
+          1990,
+          5070
+        ]
+      ],
+      "loadedBrains": [
+        "julich"
+      ],
+      "requests": 23,
+      "bytes": 2155444,
+      "hosts": [
+        "127.0.0.1:8767"
+      ],
+      "failed": [],
+      "files": [
+        [
+          "/es/atlas.html",
+          17587
+        ],
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-700.woff2",
+          17786
+        ],
+        [
+          "/static/synaptica.css",
+          9325
+        ],
+        [
+          "/static/site.js",
+          1937
+        ],
+        [
+          "/static/search.js",
+          2385
+        ],
+        [
+          "/static/atlas.js",
+          941
+        ],
+        [
+          "/static/viewer/viewer.js",
+          26044
+        ],
+        [
+          "/static/img/atlas/humano.webp",
+          78385
+        ],
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-400.woff2",
+          17354
+        ],
+        [
+          "/static/img/atlas/rata.webp",
+          71747
+        ],
+        [
+          "/static/vendor/niivue-0.69.0/niivue.umd.js",
+          802617
+        ],
+        [
+          "/static/atlas/julich/labels.nii.gz",
+          539396
+        ],
+        [
+          "/static/atlas/julich/coords.json",
+          461
+        ],
+        [
+          "/static/atlas/cerebra/labels.nii.gz",
+          156725
+        ],
+        [
+          "/static/atlas/cit168/labels.nii.gz",
+          76481
+        ],
+        [
+          "/static/atlas/waxholm/labels.json",
+          22308
+        ],
+        [
+          "/static/atlas/julich/labels.json",
+          17975
+        ],
+        [
+          "/static/atlas/pairs.json",
+          1649
+        ],
+        [
+          "/static/atlas/cerebra/labels.json",
+          1533
+        ],
+        [
+          "/static/atlas/cit168/labels.json",
+          754
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.json",
+          601
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.nii.gz",
+          291041
+        ],
+        [
+          "/static/favicon.svg",
+          412
+        ]
+      ],
+      "taps": [
+        {
+          "at": [
+            0.5,
+            0.45
+          ],
+          "atlas": "julich",
+          "read": 57.4,
+          "thisBrain": 205.2,
+          "otherBrain": 5.5,
+          "frame": 286.4,
+          "otherBrainLater": 0.3,
+          "panel": "Area PFt · Area PFt (IPL)"
+        },
+        {
+          "at": [
+            0.45,
+            0.5
+          ],
+          "atlas": "julich",
+          "read": 35.9,
+          "thisBrain": 199.1,
+          "otherBrain": 2.9,
+          "frame": 241.1,
+          "otherBrainLater": 0,
+          "panel": "Area 3b · Area 3b (PostCG)"
+        },
+        {
+          "at": [
+            0.55,
+            0.4
+          ],
+          "atlas": "julich",
+          "read": 37.3,
+          "thisBrain": 202,
+          "otherBrain": 2.1,
+          "frame": 246.9,
+          "otherBrainLater": 0,
+          "panel": "Area PF · Area PF (IPL)"
+        }
+      ],
+      "touch": {
+        "before": {
+          "azimuth": 90,
+          "zoom": 1
+        },
+        "afterDrag": {
+          "azimuth": 233.2,
+          "zoom": 1
+        },
+        "afterPinch": {
+          "azimuth": 233.2,
+          "zoom": 2
+        }
+      },
+      "fps": {
+        "julich": 21
+      }
+    },
+    {
+      "scenario": "phone",
+      "run": 2,
+      "firstPaintMs": 1528,
+      "domReadyMs": 1995,
+      "loadMs": 11823,
+      "humanReadyMs": 13615,
+      "ratReadyMs": null,
+      "timeline": [
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-700.woff2",
+          588,
+          1500
+        ],
+        [
+          "/static/synaptica.css?v=ac60ca429e",
+          588,
+          1375
+        ],
+        [
+          "/static/site.js?v=ac60ca429e",
+          589,
+          1208
+        ],
+        [
+          "/static/atlas.js?v=ac60ca429e",
+          590,
+          1958
+        ],
+        [
+          "/static/search.js?v=ac60ca429e",
+          590,
+          1967
+        ],
+        [
+          "/static/viewer/viewer.js?v=ac60ca429e",
+          590,
+          1616
+        ],
+        [
+          "/static/img/atlas/humano.webp",
+          616,
+          1916
+        ],
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-400.woff2",
+          1487,
+          2208
+        ],
+        [
+          "/static/img/atlas/rata.webp",
+          1522,
+          2557
+        ],
+        [
+          "/static/vendor/niivue-0.69.0/niivue.umd.js?v=ac60ca429e",
+          1975,
+          11599
+        ],
+        [
+          "/static/atlas/julich/labels.nii.gz",
+          1987,
+          10141
+        ],
+        [
+          "/static/atlas/julich/coords.json",
+          1988,
+          2575
+        ],
+        [
+          "/static/atlas/cerebra/labels.nii.gz",
+          1989,
+          5883
+        ],
+        [
+          "/static/atlas/cit168/labels.nii.gz",
+          1989,
+          4724
+        ],
+        [
+          "/static/atlas/waxholm/labels.json",
+          1989,
+          3841
+        ],
+        [
+          "/static/atlas/julich/labels.json",
+          1990,
+          3733
+        ],
+        [
+          "/static/atlas/pairs.json",
+          1990,
+          4374
+        ],
+        [
+          "/static/atlas/cerebra/labels.json",
+          1990,
+          4482
+        ],
+        [
+          "/static/atlas/cit168/labels.json",
+          1991,
+          4966
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.json",
+          1991,
+          5075
+        ]
+      ],
+      "loadedBrains": [
+        "julich"
+      ],
+      "requests": 22,
+      "bytes": 2155032,
+      "hosts": [
+        "127.0.0.1:8767"
+      ],
+      "failed": [],
+      "files": [
+        [
+          "/es/atlas.html",
+          17587
+        ],
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-700.woff2",
+          17786
+        ],
+        [
+          "/static/synaptica.css",
+          9325
+        ],
+        [
+          "/static/site.js",
+          1937
+        ],
+        [
+          "/static/search.js",
+          2385
+        ],
+        [
+          "/static/atlas.js",
+          941
+        ],
+        [
+          "/static/viewer/viewer.js",
+          26044
+        ],
+        [
+          "/static/img/atlas/humano.webp",
+          78385
+        ],
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-400.woff2",
+          17354
+        ],
+        [
+          "/static/img/atlas/rata.webp",
+          71747
+        ],
+        [
+          "/static/vendor/niivue-0.69.0/niivue.umd.js",
+          802617
+        ],
+        [
+          "/static/atlas/julich/labels.nii.gz",
+          539396
+        ],
+        [
+          "/static/atlas/julich/coords.json",
+          461
+        ],
+        [
+          "/static/atlas/cerebra/labels.nii.gz",
+          156725
+        ],
+        [
+          "/static/atlas/cit168/labels.nii.gz",
+          76481
+        ],
+        [
+          "/static/atlas/waxholm/labels.json",
+          22308
+        ],
+        [
+          "/static/atlas/julich/labels.json",
+          17975
+        ],
+        [
+          "/static/atlas/pairs.json",
+          1649
+        ],
+        [
+          "/static/atlas/cerebra/labels.json",
+          1533
+        ],
+        [
+          "/static/atlas/cit168/labels.json",
+          754
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.json",
+          601
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.nii.gz",
+          291041
+        ]
+      ],
+      "taps": [
+        {
+          "at": [
+            0.5,
+            0.45
+          ],
+          "atlas": "julich",
+          "read": 72.1,
+          "thisBrain": 194.6,
+          "otherBrain": 0.5,
+          "frame": 277.7,
+          "otherBrainLater": 0.6,
+          "panel": "Area PFt · Area PFt (IPL)"
+        },
+        {
+          "at": [
+            0.45,
+            0.5
+          ],
+          "atlas": "julich",
+          "read": 36,
+          "thisBrain": 192.8,
+          "otherBrain": 6.8,
+          "frame": 239.6,
+          "otherBrainLater": 0.1,
+          "panel": "Area 3b · Area 3b (PostCG)"
+        },
+        {
+          "at": [
+            0.55,
+            0.4
+          ],
+          "atlas": "julich",
+          "read": 35.4,
+          "thisBrain": 184.9,
+          "otherBrain": 0.8,
+          "frame": 221.8,
+          "otherBrainLater": 0,
+          "panel": "Area PF · Area PF (IPL)"
+        }
+      ],
+      "touch": {
+        "before": {
+          "azimuth": 90,
+          "zoom": 1
+        },
+        "afterDrag": {
+          "azimuth": 233.2,
+          "zoom": 1
+        },
+        "afterPinch": {
+          "azimuth": 233.2,
+          "zoom": 2
+        }
+      },
+      "fps": {
+        "julich": 21
+      }
+    },
+    {
+      "scenario": "phone",
+      "run": 3,
+      "firstPaintMs": 1532,
+      "domReadyMs": 1997,
+      "loadMs": 11810,
+      "humanReadyMs": 13598,
+      "ratReadyMs": null,
+      "timeline": [
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-700.woff2",
+          596,
+          1507
+        ],
+        [
+          "/static/synaptica.css?v=ac60ca429e",
+          597,
+          1373
+        ],
+        [
+          "/static/site.js?v=ac60ca429e",
+          598,
+          1206
+        ],
+        [
+          "/static/viewer/viewer.js?v=ac60ca429e",
+          598,
+          1623
+        ],
+        [
+          "/static/atlas.js?v=ac60ca429e",
+          598,
+          1948
+        ],
+        [
+          "/static/search.js?v=ac60ca429e",
+          598,
+          1965
+        ],
+        [
+          "/static/img/atlas/humano.webp",
+          623,
+          1924
+        ],
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-400.woff2",
+          1488,
+          2207
+        ],
+        [
+          "/static/img/atlas/rata.webp",
+          1524,
+          2557
+        ],
+        [
+          "/static/vendor/niivue-0.69.0/niivue.umd.js?v=ac60ca429e",
+          1973,
+          11598
+        ],
+        [
+          "/static/atlas/julich/labels.nii.gz",
+          1988,
+          10140
+        ],
+        [
+          "/static/atlas/julich/coords.json",
+          1989,
+          2582
+        ],
+        [
+          "/static/atlas/cerebra/labels.nii.gz",
+          1989,
+          5890
+        ],
+        [
+          "/static/atlas/cit168/labels.nii.gz",
+          1990,
+          4723
+        ],
+        [
+          "/static/atlas/waxholm/labels.json",
+          1991,
+          3840
+        ],
+        [
+          "/static/atlas/julich/labels.json",
+          1991,
+          3740
+        ],
+        [
+          "/static/atlas/pairs.json",
+          1991,
+          4382
+        ],
+        [
+          "/static/atlas/cerebra/labels.json",
+          1992,
+          4482
+        ],
+        [
+          "/static/atlas/cit168/labels.json",
+          1992,
+          4973
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.json",
+          1993,
+          5074
+        ]
+      ],
+      "loadedBrains": [
+        "julich"
+      ],
+      "requests": 22,
+      "bytes": 2155032,
+      "hosts": [
+        "127.0.0.1:8767"
+      ],
+      "failed": [],
+      "files": [
+        [
+          "/es/atlas.html",
+          17587
+        ],
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-700.woff2",
+          17786
+        ],
+        [
+          "/static/synaptica.css",
+          9325
+        ],
+        [
+          "/static/site.js",
+          1937
+        ],
+        [
+          "/static/search.js",
+          2385
+        ],
+        [
+          "/static/atlas.js",
+          941
+        ],
+        [
+          "/static/viewer/viewer.js",
+          26044
+        ],
+        [
+          "/static/img/atlas/humano.webp",
+          78385
+        ],
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-400.woff2",
+          17354
+        ],
+        [
+          "/static/img/atlas/rata.webp",
+          71747
+        ],
+        [
+          "/static/vendor/niivue-0.69.0/niivue.umd.js",
+          802617
+        ],
+        [
+          "/static/atlas/julich/labels.nii.gz",
+          539396
+        ],
+        [
+          "/static/atlas/julich/coords.json",
+          461
+        ],
+        [
+          "/static/atlas/cerebra/labels.nii.gz",
+          156725
+        ],
+        [
+          "/static/atlas/cit168/labels.nii.gz",
+          76481
+        ],
+        [
+          "/static/atlas/waxholm/labels.json",
+          22308
+        ],
+        [
+          "/static/atlas/julich/labels.json",
+          17975
+        ],
+        [
+          "/static/atlas/pairs.json",
+          1649
+        ],
+        [
+          "/static/atlas/cerebra/labels.json",
+          1533
+        ],
+        [
+          "/static/atlas/cit168/labels.json",
+          754
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.json",
+          601
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.nii.gz",
+          291041
+        ]
+      ],
+      "taps": [
+        {
+          "at": [
+            0.5,
+            0.45
+          ],
+          "atlas": "julich",
+          "read": 68.4,
+          "thisBrain": 172.9,
+          "otherBrain": 0.5,
+          "frame": 257.2,
+          "otherBrainLater": 0.5,
+          "panel": "Area PFt · Area PFt (IPL)"
+        },
+        {
+          "at": [
+            0.45,
+            0.5
+          ],
+          "atlas": "julich",
+          "read": 32.3,
+          "thisBrain": 182.6,
+          "otherBrain": 0.2,
+          "frame": 225.3,
+          "otherBrainLater": 0,
+          "panel": "Area 3b · Area 3b (PostCG)"
+        },
+        {
+          "at": [
+            0.55,
+            0.4
+          ],
+          "atlas": "julich",
+          "read": 38.3,
+          "thisBrain": 192,
+          "otherBrain": 0.8,
+          "frame": 235,
+          "otherBrainLater": 0,
+          "panel": "Area PF · Area PF (IPL)"
+        }
+      ],
+      "touch": {
+        "before": {
+          "azimuth": 90,
+          "zoom": 1
+        },
+        "afterDrag": {
+          "azimuth": 233.2,
+          "zoom": 1
+        },
+        "afterPinch": {
+          "azimuth": 233.2,
+          "zoom": 2
+        }
+      },
+      "fps": {
+        "julich": 21
+      }
+    },
+    {
+      "scenario": "desktop",
+      "run": 1,
+      "firstPaintMs": 164,
+      "domReadyMs": 81,
+      "loadMs": 555,
+      "humanReadyMs": 5435,
+      "ratReadyMs": 3591,
+      "timeline": [
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-700.woff2",
+          16,
+          23
+        ],
+        [
+          "/static/synaptica.css?v=ac60ca429e",
+          16,
+          22
+        ],
+        [
+          "/static/site.js?v=ac60ca429e",
+          17,
+          23
+        ],
+        [
+          "/static/search.js?v=ac60ca429e",
+          18,
+          42
+        ],
+        [
+          "/static/atlas.js?v=ac60ca429e",
+          18,
+          45
+        ],
+        [
+          "/static/img/atlas/humano.webp",
+          18,
+          24
+        ],
+        [
+          "/static/viewer/viewer.js?v=ac60ca429e",
+          18,
+          24
+        ],
+        [
+          "/static/vendor/niivue-0.69.0/niivue.umd.js?v=ac60ca429e",
+          63,
+          154
+        ],
+        [
+          "/static/atlas/julich/labels.nii.gz",
+          75,
+          92
+        ],
+        [
+          "/static/atlas/julich/coords.json",
+          76,
+          90
+        ],
+        [
+          "/static/atlas/waxholm/labels.nii.gz",
+          76,
+          93
+        ],
+        [
+          "/static/atlas/waxholm/coords.json",
+          76,
+          90
+        ],
+        [
+          "/static/atlas/cerebra/labels.nii.gz",
+          76,
+          92
+        ],
+        [
+          "/static/atlas/cit168/labels.nii.gz",
+          76,
+          92
+        ],
+        [
+          "/static/atlas/waxholm/labels.json",
+          78,
+          94
+        ],
+        [
+          "/static/atlas/julich/labels.json",
+          79,
+          96
+        ],
+        [
+          "/static/atlas/pairs.json",
+          79,
+          95
+        ],
+        [
+          "/static/atlas/cerebra/labels.json",
+          79,
+          96
+        ],
+        [
+          "/static/atlas/cit168/labels.json",
+          79,
+          96
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.json",
+          80,
+          97
+        ],
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-400.woff2",
+          88,
+          96
+        ],
+        [
+          "/static/img/atlas/rata.webp",
+          147,
+          149
+        ]
+      ],
+      "loadedBrains": [
+        "waxholm",
+        "julich"
+      ],
+      "requests": 24,
+      "bytes": 2705495,
+      "hosts": [
+        "127.0.0.1:8767"
+      ],
+      "failed": [],
+      "files": [
+        [
+          "/es/atlas.html",
+          17587
+        ],
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-700.woff2",
+          17786
+        ],
+        [
+          "/static/synaptica.css",
+          9325
+        ],
+        [
+          "/static/site.js",
+          1937
+        ],
+        [
+          "/static/search.js",
+          2385
+        ],
+        [
+          "/static/atlas.js",
+          941
+        ],
+        [
+          "/static/viewer/viewer.js",
+          26044
+        ],
+        [
+          "/static/img/atlas/humano.webp",
+          78385
+        ],
+        [
+          "/static/vendor/niivue-0.69.0/niivue.umd.js",
+          802617
+        ],
+        [
+          "/static/atlas/julich/labels.nii.gz",
+          539396
+        ],
+        [
+          "/static/atlas/julich/coords.json",
+          461
+        ],
+        [
+          "/static/atlas/waxholm/labels.nii.gz",
+          549643
+        ],
+        [
+          "/static/atlas/waxholm/coords.json",
+          820
+        ],
+        [
+          "/static/atlas/cerebra/labels.nii.gz",
+          156725
+        ],
+        [
+          "/static/atlas/cit168/labels.nii.gz",
+          76481
+        ],
+        [
+          "/static/atlas/waxholm/labels.json",
+          22308
+        ],
+        [
+          "/static/atlas/julich/labels.json",
+          17975
+        ],
+        [
+          "/static/atlas/pairs.json",
+          1649
+        ],
+        [
+          "/static/atlas/cerebra/labels.json",
+          1533
+        ],
+        [
+          "/static/atlas/cit168/labels.json",
+          754
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.json",
+          601
+        ],
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-400.woff2",
+          17354
+        ],
+        [
+          "/static/img/atlas/rata.webp",
+          71747
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.nii.gz",
+          291041
+        ]
+      ],
+      "taps": [
+        {
+          "at": [
+            0.5,
+            0.45
+          ],
+          "atlas": "waxholm",
+          "read": 71.9,
+          "thisBrain": 262.7,
+          "otherBrain": 8,
+          "frame": 356,
+          "otherBrainLater": 203.5,
+          "panel": "Au1 · Primary auditory area"
+        },
+        {
+          "at": [
+            0.45,
+            0.5
+          ],
+          "atlas": "waxholm",
+          "read": 35.3,
+          "thisBrain": 272.1,
+          "otherBrain": 5.4,
+          "frame": 326.2,
+          "otherBrainLater": 178.7,
+          "panel": "S2 · Secondary somatosensory area"
+        },
+        {
+          "at": [
+            0.55,
+            0.4
+          ],
+          "atlas": "waxholm",
+          "read": 38.8,
+          "thisBrain": 262.6,
+          "otherBrain": 2.6,
+          "frame": 318.4,
+          "otherBrainLater": 200,
+          "panel": "V1 · Primary visual area"
+        }
+      ],
+      "touch": null,
+      "fps": {
+        "waxholm": 18,
+        "julich": 18
+      }
+    },
+    {
+      "scenario": "desktop",
+      "run": 2,
+      "firstPaintMs": 112,
+      "domReadyMs": 142,
+      "loadMs": 576,
+      "humanReadyMs": 5482,
+      "ratReadyMs": 3573,
+      "timeline": [
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-700.woff2",
+          17,
+          25
+        ],
+        [
+          "/static/synaptica.css?v=ac60ca429e",
+          18,
+          25
+        ],
+        [
+          "/static/site.js?v=ac60ca429e",
+          19,
+          26
+        ],
+        [
+          "/static/viewer/viewer.js?v=ac60ca429e",
+          19,
+          28
+        ],
+        [
+          "/static/search.js?v=ac60ca429e",
+          19,
+          47
+        ],
+        [
+          "/static/atlas.js?v=ac60ca429e",
+          19,
+          49
+        ],
+        [
+          "/static/img/atlas/humano.webp",
+          19,
+          28
+        ],
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-400.woff2",
+          72,
+          74
+        ],
+        [
+          "/static/img/atlas/rata.webp",
+          105,
+          107
+        ],
+        [
+          "/static/vendor/niivue-0.69.0/niivue.umd.js?v=ac60ca429e",
+          120,
+          168
+        ],
+        [
+          "/static/atlas/julich/labels.nii.gz",
+          135,
+          149
+        ],
+        [
+          "/static/atlas/julich/coords.json",
+          136,
+          148
+        ],
+        [
+          "/static/atlas/waxholm/labels.nii.gz",
+          137,
+          149
+        ],
+        [
+          "/static/atlas/waxholm/coords.json",
+          138,
+          148
+        ],
+        [
+          "/static/atlas/cerebra/labels.nii.gz",
+          138,
+          149
+        ],
+        [
+          "/static/atlas/cit168/labels.nii.gz",
+          138,
+          151
+        ],
+        [
+          "/static/atlas/waxholm/labels.json",
+          139,
+          151
+        ],
+        [
+          "/static/atlas/julich/labels.json",
+          140,
+          152
+        ],
+        [
+          "/static/atlas/pairs.json",
+          140,
+          152
+        ],
+        [
+          "/static/atlas/cerebra/labels.json",
+          140,
+          152
+        ],
+        [
+          "/static/atlas/cit168/labels.json",
+          141,
+          152
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.json",
+          141,
+          152
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.nii.gz",
+          5037,
+          5039
+        ]
+      ],
+      "loadedBrains": [
+        "waxholm",
+        "julich"
+      ],
+      "requests": 24,
+      "bytes": 2705495,
+      "hosts": [
+        "127.0.0.1:8767"
+      ],
+      "failed": [],
+      "files": [
+        [
+          "/es/atlas.html",
+          17587
+        ],
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-700.woff2",
+          17786
+        ],
+        [
+          "/static/synaptica.css",
+          9325
+        ],
+        [
+          "/static/site.js",
+          1937
+        ],
+        [
+          "/static/search.js",
+          2385
+        ],
+        [
+          "/static/atlas.js",
+          941
+        ],
+        [
+          "/static/viewer/viewer.js",
+          26044
+        ],
+        [
+          "/static/img/atlas/humano.webp",
+          78385
+        ],
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-400.woff2",
+          17354
+        ],
+        [
+          "/static/img/atlas/rata.webp",
+          71747
+        ],
+        [
+          "/static/vendor/niivue-0.69.0/niivue.umd.js",
+          802617
+        ],
+        [
+          "/static/atlas/julich/labels.nii.gz",
+          539396
+        ],
+        [
+          "/static/atlas/julich/coords.json",
+          461
+        ],
+        [
+          "/static/atlas/waxholm/labels.nii.gz",
+          549643
+        ],
+        [
+          "/static/atlas/waxholm/coords.json",
+          820
+        ],
+        [
+          "/static/atlas/cerebra/labels.nii.gz",
+          156725
+        ],
+        [
+          "/static/atlas/cit168/labels.nii.gz",
+          76481
+        ],
+        [
+          "/static/atlas/waxholm/labels.json",
+          22308
+        ],
+        [
+          "/static/atlas/julich/labels.json",
+          17975
+        ],
+        [
+          "/static/atlas/pairs.json",
+          1649
+        ],
+        [
+          "/static/atlas/cerebra/labels.json",
+          1533
+        ],
+        [
+          "/static/atlas/cit168/labels.json",
+          754
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.json",
+          601
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.nii.gz",
+          291041
+        ]
+      ],
+      "taps": [
+        {
+          "at": [
+            0.5,
+            0.45
+          ],
+          "atlas": "waxholm",
+          "read": 73.4,
+          "thisBrain": 260.4,
+          "otherBrain": 7.9,
+          "frame": 356.1,
+          "otherBrainLater": 199.1,
+          "panel": "Au1 · Primary auditory area"
+        },
+        {
+          "at": [
+            0.45,
+            0.5
+          ],
+          "atlas": "waxholm",
+          "read": 45.9,
+          "thisBrain": 262.1,
+          "otherBrain": 0.2,
+          "frame": 321.3,
+          "otherBrainLater": 182.2,
+          "panel": "S2 · Secondary somatosensory area"
+        },
+        {
+          "at": [
+            0.55,
+            0.4
+          ],
+          "atlas": "waxholm",
+          "read": 39.7,
+          "thisBrain": 255.9,
+          "otherBrain": 2.2,
+          "frame": 305.4,
+          "otherBrainLater": 180.5,
+          "panel": "V1 · Primary visual area"
+        }
+      ],
+      "touch": null,
+      "fps": {
+        "waxholm": 18,
+        "julich": 18
+      }
+    },
+    {
+      "scenario": "desktop",
+      "run": 3,
+      "firstPaintMs": 104,
+      "domReadyMs": 147,
+      "loadMs": 544,
+      "humanReadyMs": 5418,
+      "ratReadyMs": 3499,
+      "timeline": [
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-700.woff2",
+          15,
+          24
+        ],
+        [
+          "/static/synaptica.css?v=ac60ca429e",
+          15,
+          25
+        ],
+        [
+          "/static/site.js?v=ac60ca429e",
+          16,
+          25
+        ],
+        [
+          "/static/viewer/viewer.js?v=ac60ca429e",
+          16,
+          26
+        ],
+        [
+          "/static/search.js?v=ac60ca429e",
+          16,
+          42
+        ],
+        [
+          "/static/atlas.js?v=ac60ca429e",
+          16,
+          47
+        ],
+        [
+          "/static/img/atlas/humano.webp",
+          16,
+          27
+        ],
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-400.woff2",
+          65,
+          67
+        ],
+        [
+          "/static/img/atlas/rata.webp",
+          93,
+          94
+        ],
+        [
+          "/static/vendor/niivue-0.69.0/niivue.umd.js?v=ac60ca429e",
+          129,
+          165
+        ],
+        [
+          "/static/atlas/julich/labels.nii.gz",
+          141,
+          159
+        ],
+        [
+          "/static/atlas/julich/coords.json",
+          141,
+          157
+        ],
+        [
+          "/static/atlas/waxholm/labels.nii.gz",
+          141,
+          159
+        ],
+        [
+          "/static/atlas/waxholm/coords.json",
+          142,
+          157
+        ],
+        [
+          "/static/atlas/cerebra/labels.nii.gz",
+          143,
+          158
+        ],
+        [
+          "/static/atlas/cit168/labels.nii.gz",
+          143,
+          159
+        ],
+        [
+          "/static/atlas/waxholm/labels.json",
+          144,
+          161
+        ],
+        [
+          "/static/atlas/julich/labels.json",
+          144,
+          162
+        ],
+        [
+          "/static/atlas/pairs.json",
+          145,
+          160
+        ],
+        [
+          "/static/atlas/cerebra/labels.json",
+          145,
+          161
+        ],
+        [
+          "/static/atlas/cit168/labels.json",
+          145,
+          162
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.json",
+          145,
+          162
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.nii.gz",
+          4954,
+          4958
+        ]
+      ],
+      "loadedBrains": [
+        "waxholm",
+        "julich"
+      ],
+      "requests": 24,
+      "bytes": 2705495,
+      "hosts": [
+        "127.0.0.1:8767"
+      ],
+      "failed": [],
+      "files": [
+        [
+          "/es/atlas.html",
+          17587
+        ],
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-700.woff2",
+          17786
+        ],
+        [
+          "/static/synaptica.css",
+          9325
+        ],
+        [
+          "/static/site.js",
+          1937
+        ],
+        [
+          "/static/search.js",
+          2385
+        ],
+        [
+          "/static/atlas.js",
+          941
+        ],
+        [
+          "/static/viewer/viewer.js",
+          26044
+        ],
+        [
+          "/static/img/atlas/humano.webp",
+          78385
+        ],
+        [
+          "/static/fonts/atkinson-hyperlegible-latin-400.woff2",
+          17354
+        ],
+        [
+          "/static/img/atlas/rata.webp",
+          71747
+        ],
+        [
+          "/static/vendor/niivue-0.69.0/niivue.umd.js",
+          802617
+        ],
+        [
+          "/static/atlas/julich/labels.nii.gz",
+          539396
+        ],
+        [
+          "/static/atlas/julich/coords.json",
+          461
+        ],
+        [
+          "/static/atlas/waxholm/labels.nii.gz",
+          549643
+        ],
+        [
+          "/static/atlas/waxholm/coords.json",
+          820
+        ],
+        [
+          "/static/atlas/cerebra/labels.nii.gz",
+          156725
+        ],
+        [
+          "/static/atlas/cit168/labels.nii.gz",
+          76481
+        ],
+        [
+          "/static/atlas/waxholm/labels.json",
+          22308
+        ],
+        [
+          "/static/atlas/julich/labels.json",
+          17975
+        ],
+        [
+          "/static/atlas/pairs.json",
+          1649
+        ],
+        [
+          "/static/atlas/cerebra/labels.json",
+          1533
+        ],
+        [
+          "/static/atlas/cit168/labels.json",
+          754
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.json",
+          601
+        ],
+        [
+          "/static/atlas/icbm_wm/labels.nii.gz",
+          291041
+        ]
+      ],
+      "taps": [
+        {
+          "at": [
+            0.5,
+            0.45
+          ],
+          "atlas": "waxholm",
+          "read": 70.7,
+          "thisBrain": 259.8,
+          "otherBrain": 2,
+          "frame": 345.7,
+          "otherBrainLater": 209.9,
+          "panel": "Au1 · Primary auditory area"
+        },
+        {
+          "at": [
+            0.45,
+            0.5
+          ],
+          "atlas": "waxholm",
+          "read": 38.6,
+          "thisBrain": 237.9,
+          "otherBrain": 0.1,
+          "frame": 282.6,
+          "otherBrainLater": 175.3,
+          "panel": "S2 · Secondary somatosensory area"
+        },
+        {
+          "at": [
+            0.55,
+            0.4
+          ],
+          "atlas": "waxholm",
+          "read": 40.8,
+          "thisBrain": 265,
+          "otherBrain": 0.6,
+          "frame": 311.2,
+          "otherBrainLater": 179.4,
+          "panel": "V1 · Primary visual area"
+        }
+      ],
+      "touch": null,
+      "fps": {
+        "waxholm": 18,
+        "julich": 18
+      }
+    }
+  ]
+}

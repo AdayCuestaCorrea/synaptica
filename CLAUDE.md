@@ -131,6 +131,7 @@ SYN_DATA_DIR=/tmp/syn-ci uv run syn build --as-of 2026-11-09          # dbt sobr
 uv run syn site && uv run syn site --check
 uv sync --group atlas && uv run --group atlas syn atlas build [--offline] [--cache data/cache/atlas]   # datos de Neuro Atlas → site/static/atlas/ (a mano, cuando cambia un atlas; nunca en el pipeline)
 scripts/gpu_batch.sh RUN_DIR CMD...       # lote LLM local: systemd-inhibit, vitales de la GPU a CSV, para a 85 °C
+node scripts/atlas_serve.mjs DIR & node scripts/atlas_measure.mjs   # Neuro Atlas: tiempos y toque en móvil simulado y ordenador (DIR = salida de syn site; mata el servidor por PID)
 ```
 
 Actualiza esta lista cada vez que se añada un comando.

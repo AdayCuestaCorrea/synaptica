@@ -252,6 +252,22 @@ Medidas del prototipo con un móvil simulado (390 × 844, «Slow 4G», CPU ×4, 
 - respuesta a un toque, medida y por debajo de **0,3 s** en el móvil simulado si se puede (pintar primero el cerebro tocado y después el otro);
 - ningún atlas por encima de los 3 MB del presupuesto de D3.
 
+### Medido en el paso 4 (2026-11-15, SCOPE v164)
+
+Medido sobre la web construida (`syn site`), servida con gzip como GitHub Pages, con `scripts/atlas_measure.mjs`. Las condiciones son las de S3: móvil de 390 × 844 con «Slow 4G», CPU ×4 y gráficos por software, así que los números son pesimistas. Se hicieron tres pasadas; los datos están en [`atlas-medidas/`](atlas-medidas/).
+
+| | Objetivo | Móvil simulado | Ordenador (CPU ×4, sin límite de red) |
+|---|---|---|---|
+| Texto, buscador y lista en pantalla | < 5 s | **2,0 s** (primer pintado 1,5 s) | 0,1 s |
+| Primer cerebro listo | < 12 s | **13,6 s** (humano; antes de este paso, 17,1 s) | 5,4 s el humano y 3,5 s la rata |
+| Respuesta a un toque, hasta el siguiente fotograma | < 0,3 s | **0,22–0,29 s** | 0,28–0,36 s el cerebro tocado; el otro, ~0,2 s después |
+| Fluidez al girar | — | 21 fps | 18 fps |
+| Peso descargado | — | 2,16 MB (todo de la propia web) | 2,71 MB, los dos cerebros |
+
+- **De 17,1 a 13,6 s.** La medida mostró que todo se descargaba en fila: Niivue (0,8 MB), después el volumen y después las capas. Ahora los volúmenes se piden a la vez que Niivue, en cuanto se analiza la página, y la sustancia blanca (0,29 MB) llega cuando el cerebro ya se puede usar. Lo que queda es casi todo bajar 1,6 MB a la velocidad de «Slow 4G» (unos 9 s) y unos 2 s de proceso con la CPU ×4.
+- **El toque** se mide por partes. Leer la región tarda 35–70 ms y repintar el cerebro tocado unos 200 ms. En el ordenador, el otro cerebro se repinta en el fotograma siguiente, así que el toque se ve antes.
+- **Prueba de UX-4 C** (el resto del cerebro translúcido al elegir una región; se activa con `?ver=4` en la dirección): se ve bien, con el hipocampo y la amígdala visibles sin recortar en los dos cerebros. Su coste es la fluidez del giro con una región elegida: **de 21 a 7 fps** en el móvil simulado y de 18 a 14 en el ordenador. El toque no cambia. Falta probarlo en un móvil real.
+
 ## 8. Preguntas para Sofía
 
 Cuantas más respuestas, mejor; ninguna corre prisa antes de que empiece el código.

@@ -51,7 +51,7 @@
       <figure class="brain-still">
         <div class="stage">
           {% if b.key == "rat" %}
-          <img src="{{ static('img/atlas/rata.webp') }}" width="1137" height="552" alt="{{ t.atlas_rat_alt }}" decoding="async">
+          <img src="{{ static('img/atlas/rata.webp') }}" width="1137" height="552" alt="{{ t.atlas_rat_alt }}" decoding="async" loading="lazy">
           {% else %}
           <img src="{{ static('img/atlas/humano.webp') }}" width="789" height="618" alt="{{ t.atlas_human_alt }}" decoding="async">
           {% endif %}
