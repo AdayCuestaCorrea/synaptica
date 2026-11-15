@@ -109,6 +109,8 @@ uv run syn news neuro [--provider groq]   # ¿es neurociencia? reglas de OpenAle
 uv run syn news classify --provider groq  # tipo de cada pieza de Neuro News (lee el almacén: antes syn build)
 uv run syn news group --provider groq     # misma noticia entre medios e idiomas (pares al LLM)
 uv run syn eval news --gold eval/news/labels.csv [--pairs eval/news/pairs.csv]   # macro F1 del LLM y del baseline (grupo eval)
+uv run syn eval pairs-sheet --out FUERA/hoja.csv [--top 30 --sample 20]   # hoja ciega de pares para Aday (fuera del repo; sin LLM)
+uv run syn eval pairs-gold --sheet FUERA/hoja.csv   # → eval/news/pairs.csv solo con claves y sí/no
 uv run syn facts --provider groq [--limit 40] [--until HH:MM] # hechos verificados de los estudios a resumir (lee el almacén)
 uv run syn write --provider groq [--limit 40] [--until HH:MM] # resumen EN → ES con comprobaciones; si falla, texto de respaldo
 uv run syn judge --provider groq [--limit 40] [--until HH:MM] # juez de otra familia (gpt-oss-120b): sin su aprobado no se publica
@@ -122,6 +124,7 @@ uv run syn review queue --out Q --run DIR       # … más los textos de una eje
 uv run syn review page --queue Q --out DIR      # páginas de revisión de Sofía (pública y privada)
 uv run syn review round --queue Q --out DIR     # siguiente ronda: aplica su registro y deja lo pendiente
 uv run syn review intake --event E (--queue Q | --queue-dir D) --reviewer LOGIN --reply R [--efetch X]   # lee un Issue suyo (exit 2: espera fuente)
+uv run syn review sweep --issues I --queue-dir D --reviewer LOGIN --out DIR   # todos sus Issues abiertos, del más antiguo al más nuevo (lo que corre el workflow)
 SYN_DATA_DIR=/tmp/syn-ci uv run python scripts/seed_fixture_data.py   # fixtures como si vinieran de las fuentes
 SYN_DATA_DIR=/tmp/syn-ci uv run syn build --as-of 2026-11-09          # dbt sobre esas fixtures (como la CI)
 uv run syn site && uv run syn site --check

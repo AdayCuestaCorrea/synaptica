@@ -78,26 +78,50 @@ def test_groups_union_find_is_transitive():
     }
 
 
+TEXTS = {
+    "a": "Sleep spindles help mice remember",
+    "b": "Sleep spindles help mice remember things",
+    "c": "Sleep spindles in mice",
+    "d": "A new drug for migraine",
+}
+
+
 def test_pair_metrics_for_answers_and_tfidf(tmp_path):
+    """The gold holds keys and yes/no; the texts come from the warehouse (here, a dict)."""
     gold = tmp_path / "pairs.csv"
-    gold.write_text(
-        "key_a,key_b,text_a,text_b,same\n"
-        "a,b,Sleep spindles help mice remember,Sleep spindles help mice remember things,yes\n"
-        "a,d,Sleep spindles help mice remember,A new drug for migraine,no\n"
-        "c,d,Sleep spindles in mice,A new drug for migraine,no\n"
-        "b,c,Sleep spindles help mice remember things,Spindles while mice sleep,yes\n",
-        encoding="utf-8",
-    )
+    gold.write_text("key_a,key_b,same\na,b,yes\na,d,no\nc,d,no\nb,c,yes\n", encoding="utf-8")
     pairs = evaluate.load_pairs(gold)
     answers = {("a", "b"): True, ("a", "d"): True}  # one right, one wrong, one missing
-    result = evaluate.evaluate_pairs(pairs, answers)
+    result = evaluate.evaluate_pairs(pairs, answers, TEXTS)
     assert result["llm"]["precision"] == 0.5 and result["llm"]["recall"] == 0.5
     assert result["tfidf"]["pairs"] == 4 and 0 <= result["tfidf"]["f1"] <= 1
-    assert "| llm | 4 (2) |" in evaluate.pairs_markdown(result)
+    assert result["missing"] == []
+    report = evaluate.pairs_markdown(result)
+    assert "| llm | 4 (2) |" in report and "not a uniform sample" in report
+
+
+def test_items_missing_from_the_warehouse_are_left_out_of_tfidf_only():
+    pairs = [{"key_a": "a", "key_b": "b", "same": True},
+             {"key_a": "c", "key_b": "x", "same": False},
+             {"key_a": "c", "key_b": "d", "same": False}]  # fmt: skip
+    result = evaluate.evaluate_pairs(pairs, {}, TEXTS)
+    assert result["llm"]["pairs"] == 3 and result["tfidf"]["pairs"] == 2
+    assert result["missing"] == ["x"]
+    assert "Not in the warehouse (left out of TF-IDF): 1 items (x)." in evaluate.pairs_markdown(
+        result
+    )
 
 
 def test_pair_labels_must_be_yes_or_no(tmp_path):
     bad = tmp_path / "pairs.csv"
-    bad.write_text("key_a,key_b,text_a,text_b,same\na,b,x,y,maybe\n", encoding="utf-8")
+    bad.write_text("key_a,key_b,same\na,b,maybe\n", encoding="utf-8")
     with pytest.raises(ValueError, match="yes or no"):
+        evaluate.load_pairs(bad)
+
+
+def test_the_gold_refuses_texts(tmp_path):
+    """The repository is public and the feeds' summaries are copyrighted."""
+    bad = tmp_path / "pairs.csv"
+    bad.write_text("key_a,key_b,text_a,text_b,same\na,b,x,y,yes\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="exactly the columns key_a,key_b,same"):
         evaluate.load_pairs(bad)

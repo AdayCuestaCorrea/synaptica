@@ -7,8 +7,11 @@ cross-validation so it is never scored on what it was trained on — and, for th
 grouping (step 15), the pair precision, recall and F1 of the LLM's stored answers and of
 TF-IDF similarity with a cross-validated threshold. Removed: taxa and the blind sample.
 
-Pair labels (``eval/news/pairs.csv``: ``key_a,key_b,text_a,text_b,same`` with yes/no)
-are made by Aday (not health content; plan, step 15).
+Pair labels (``eval/news/pairs.csv``: ``key_a,key_b,same`` with yes/no) are made by
+Aday (not health content; plan, step 15) on the blind sheet of ``news.pair_sheet``. The
+file holds only keys and answers (decision of Aday, option A, 2026-11-14): the repository
+is public and the feeds' summaries (ScienceDaily's) are copyrighted, so the texts the
+TF-IDF baseline needs are read from the warehouse (``fct_news_item``).
 
 The gold labels (``eval/news/labels.csv``: ``key,lang,text,type``) come from Sofía
 through the review flow (step 14b, after D5); until then the command works on any file
@@ -123,13 +126,50 @@ def report_markdown(result: dict[str, Any]) -> str:
 # --- grouping (step 15) -------------------------------------------------------------
 
 
+PAIR_COLUMNS = ("key_a", "key_b", "same")
+
+
 def load_pairs(path: Path) -> list[dict[str, Any]]:
+    """Rows ``{key_a, key_b, same}``. Any other column is refused: texts never go in the
+    repository (see the module docstring); ``syn eval pairs-gold`` strips the sheet."""
     with path.open(encoding="utf-8") as f:
-        rows = list(csv.DictReader(f))
+        reader = csv.DictReader(f)
+        rows = list(reader)
+        columns = tuple(reader.fieldnames or ())
+    if columns != PAIR_COLUMNS:
+        want, got = ",".join(PAIR_COLUMNS), ",".join(columns)
+        raise ValueError(f"{path} must have exactly the columns {want} "
+                         f"(texts are read from the warehouse), not {got}")  # fmt: skip
     bad = [r for r in rows if r["same"] not in ("yes", "no")]
     if bad:
         raise ValueError(f"'same' must be yes or no in {path}: {bad[:2]}")
     return [{**r, "same": r["same"] == "yes"} for r in rows]
+
+
+def news_texts(keys: Sequence[str], warehouse: Path) -> dict[str, dict[str, Any]]:
+    """Key -> {lang, outlet, title, summary, published} from ``fct_news_item``, whatever
+    its date or type (the gold may be older than the grouping's look-back window)."""
+    import duckdb
+
+    wanted = sorted(set(keys))
+    if not wanted:
+        return {}
+    with duckdb.connect(str(warehouse), read_only=True) as con:
+        rows = con.execute(
+            "select news_item_id, lang, outlet, title, feed_summary, published_at "
+            "from fct_news_item where news_item_id in (select unnest(?))",
+            [wanted],
+        ).fetchall()
+    return {
+        k: {"lang": lang, "outlet": outlet, "title": title or "", "summary": summary or "",
+            "published": published}
+        for k, lang, outlet, title, summary, published in rows
+    }  # fmt: skip
+
+
+def pair_text(item: dict[str, Any]) -> str:
+    """What TF-IDF compares: the title and the feed's summary."""
+    return f"{item['title']} {item['summary']}".strip()
 
 
 def load_answers(path: Path) -> dict[tuple[str, str], bool]:
@@ -185,16 +225,21 @@ def grouping_scores(sims: Sequence[float], same: Sequence[bool]) -> dict[str, An
 
 
 def evaluate_pairs(
-    pairs: list[dict[str, Any]], answers: dict[tuple[str, str], bool]
+    pairs: list[dict[str, Any]],
+    answers: dict[tuple[str, str], bool],
+    texts: dict[str, str],
 ) -> dict[str, Any]:
+    """The LLM's answers on every labelled pair; TF-IDF on the pairs whose two texts are
+    in ``texts`` (key -> text, from the warehouse). ``missing``: keys without text."""
     from synaptica.news.group import tfidf_similarity
 
     out = {"llm": judged_scores(answers, pairs)}
-    if len(pairs) >= 2 and len({p["same"] for p in pairs}) == 2:
-        texts = [t for p in pairs for t in (p["text_a"], p["text_b"])]
-        matrix = tfidf_similarity(texts)
-        sims = [matrix[2 * i, 2 * i + 1] for i in range(len(pairs))]
-        out["tfidf"] = grouping_scores(sims, [p["same"] for p in pairs])
+    have = [p for p in pairs if p["key_a"] in texts and p["key_b"] in texts]
+    if len(have) >= 2 and len({p["same"] for p in have}) == 2:
+        matrix = tfidf_similarity([texts[p[k]] for p in have for k in ("key_a", "key_b")])
+        sims = [matrix[2 * i, 2 * i + 1] for i in range(len(have))]
+        out["tfidf"] = grouping_scores(sims, [p["same"] for p in have])
+    out["missing"] = sorted({p[k] for p in pairs for k in ("key_a", "key_b")} - set(texts))
     return out
 
 
@@ -203,7 +248,16 @@ def pairs_markdown(result: dict[str, Any]) -> str:
              "| Method | Pairs (same) | Precision | Recall | F1 | Threshold |",
              "|---|---:|---:|---:|---:|---:|"]  # fmt: skip
     for name, g in result.items():
+        if name == "missing":
+            continue
         cut = "—" if g["threshold"] is None else f"{g['threshold']:.3f}"
         lines.append(f"| {name} | {g['pairs']} ({g['same']}) | {g['precision']:.2f} | "
                      f"{g['recall']:.2f} | {g['f1']:.2f} | {cut} |")  # fmt: skip
+    if result.get("missing"):
+        shown = ", ".join(result["missing"][:5]) + ("…" if len(result["missing"]) > 5 else "")
+        lines += ["", f"Not in the warehouse (left out of TF-IDF): "
+                  f"{len(result['missing'])} items ({shown})."]  # fmt: skip
+    lines += ["", "The pairs come from the blind sheet (`syn eval pairs-sheet`), which picks "
+              "the likely duplicates, not a uniform sample: these figures describe those pairs, "
+              "not the whole stream."]  # fmt: skip
     return "\n".join(lines) + "\n"
