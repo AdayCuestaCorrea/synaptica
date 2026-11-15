@@ -121,3 +121,13 @@ def queue_item(term: Term, text: Text, source: dict[str, Any]) -> ReviewItem | N
                           sources=sorted(sources.values(), key=lambda s: s.id))  # fmt: skip
     return ReviewItem(item_type=ItemType.GLOSSARY, item_id=term.term_id, title_es=term.term,
                       content=content)  # fmt: skip
+
+
+def review_items() -> list[ReviewItem]:
+    """Her review items for every term whose texts pass, in the order of ``terms.csv``."""
+    from synaptica.glossary import load_terms
+    from synaptica.glossary.sources import load_sources
+
+    texts, sources = load_texts(), load_sources()
+    items = [queue_item(t, texts[t.term_id], sources.get(t.term_id, {})) for t in load_terms()]
+    return [i for i in items if i is not None]

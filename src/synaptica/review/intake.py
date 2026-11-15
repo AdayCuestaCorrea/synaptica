@@ -49,7 +49,15 @@ from synaptica.config import get_paths
 from synaptica.narrative import checks
 from synaptica.narrative.sources import abstract_for
 from synaptica.review.issue_block import BlockError, decode
-from synaptica.review.models import Action, Decision, Queue, ReviewItem, TextContent, check_against
+from synaptica.review.models import (
+    Action,
+    Decision,
+    ItemType,
+    Queue,
+    ReviewItem,
+    TextContent,
+    check_against,
+)
 
 PUBMED = "pubmed-"
 # The other sources of a study's abstract (step R: the spot-check of published summaries),
@@ -199,12 +207,32 @@ def source_texts(queue: Queue, cache_root: Path, efetch: list[Path]) -> dict[str
         found = abstract_for(study_source(sid), cache_root=cache_root)
         if found:
             out[sid] = found[0]
+    out |= glossary_source_texts(queue)
     for path in efetch:
         for art in ET.parse(path).getroot().iter("PubmedArticle"):
             pmid = art.findtext(".//MedlineCitation/PMID") or ""
             text = "\n".join("".join(t.itertext()) for t in art.iter("AbstractText"))
             if pmid in pmids and text and PUBMED + pmid not in out:
                 out[PUBMED + pmid] = text
+    return out
+
+
+def glossary_source_texts(queue: Queue) -> dict[str, str]:
+    """The Wikipedia lead each glossary item cites (``wikipedia-<lang>-<term_id>``), from
+    the committed ``glossary/sources.json``; only at the revision the item cites, so a
+    source refreshed since then is never used to check an edit of the older item."""
+    from synaptica.glossary.sources import load_sources
+
+    leads = load_sources()
+    out = {}
+    for item in queue.items:
+        if item.item_type is not ItemType.GLOSSARY or not isinstance(item.content, TextContent):
+            continue
+        for s in item.content.sources:
+            lang = s.id.removeprefix("wikipedia-")[:2]
+            entry = leads.get(item.item_id, {}).get(lang) or {}
+            if entry.get("accepted") and entry.get("url") == s.url:
+                out[s.id] = entry["lead"]
     return out
 
 
@@ -222,7 +250,8 @@ def missing_sources(event: dict, queue: Queue, texts: dict[str, str]) -> list[st
         item = items.get((raw.get("item_type"), raw.get("item_id")))
         if raw.get("action") == "edit" and item and isinstance(item.content, TextContent):
             out |= {s.id for s in item.content.sources
-                    if study_source(s.id) and s.id not in texts}  # fmt: skip
+                    if (study_source(s.id) or s.id.startswith("wikipedia-"))
+                    and s.id not in texts}  # fmt: skip
     return sorted(out)
 
 

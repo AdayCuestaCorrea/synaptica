@@ -163,7 +163,8 @@ def test_the_queue_carries_the_weeks_classics(tmp_path: Path) -> None:
 
     data = warehouse(tmp_path / "data")
     ingest(data / "raw", MONDAY)
-    q = collect(data / "warehouse.duckdb", data / "derived", data / "review", MONDAY)
+    q = collect(data / "warehouse.duckdb", data / "derived", data / "review", MONDAY,
+                glossary=[])  # glossary terms: test_glossary_queue  # fmt: skip
     assert [i.item_id for i in q.items] == [
         "classics-2026-w47", "topic-memory", "topic-addiction", "topic-neurodegeneration",
         "topic-neuroinflammation", "topic-sleep"]  # her topic switches go last  # fmt: skip
