@@ -39,7 +39,7 @@ VOID = {
 }  # fmt: skip
 SIGNALS = ("review", "subject", "integrity")
 # Folders of pages that must be reachable from another page (not only from search).
-LINKED_FOLDERS = ("es/estudio", "en/study")
+LINKED_FOLDERS = ("es/estudio", "en/study", "es/atlas/regiones", "en/atlas/regions")
 SEARCH_INDEXES = (("es/buscar.json", "es/estudio"), ("en/search.json", "en/study"))
 I18N_DIR = Path(__file__).parent / "i18n"
 

@@ -8,7 +8,7 @@
 {% block scripts %}<script src="{{ static('atlas.js') }}?v={{ asset_v }}" defer></script>
 <script type="module" src="{{ static('viewer/viewer.js') }}?v={{ asset_v }}"></script>{% endblock %}
 {% block main %}
-<article class="atlas" data-atlas-viewer="{{ static('atlas') }}" data-niivue="{{ static('vendor/niivue-0.69.0/niivue.umd.js') }}?v={{ asset_v }}">
+<article class="atlas" data-atlas-viewer="{{ static('atlas') }}" data-region-pages="{{ region_urls | tojson | forceescape }}" data-niivue="{{ static('vendor/niivue-0.69.0/niivue.umd.js') }}?v={{ asset_v }}">
   <header class="atlas-head">
     <h1>{{ t.atlas }}</h1>
     <p class="lede">{{ t.atlas_intro }}</p>
@@ -88,5 +88,18 @@
     </section>
     {% endfor %}
   </div>
+
+  <section class="pairs" aria-labelledby="pairs-h">
+    <h2 id="pairs-h">{{ t.pairs_h }}</h2>
+    <p>{{ t.pairs_intro }} {{ m.gap("pair_grade") }}</p>
+    <ul class="pairs-list">
+      {% for p in pair_pages %}
+      <li><a href="{{ url('region', p.rat.page) }}" lang="en">{{ p.rat.name }}</a>{% if p.rat.acronym %} <span class="acr">{{ p.rat.acronym }}</span>{% endif %}
+        <span aria-hidden="true">↔</span><span class="vh">{{ t.pairs_with }}</span>
+        {% for h in p.human %}<a href="{{ url('region', h.page) }}" lang="en">{{ h.name }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+        <span class="grade-tag">{% if p.grade %}{{ t["grade_" ~ p.grade] }}{% else %}{{ t.grade_pending }}{% endif %}</span></li>
+      {% endfor %}
+    </ul>
+  </section>
 </article>
 {% endblock %}

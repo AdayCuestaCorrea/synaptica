@@ -63,3 +63,71 @@ def credits(atlas_dir: Path, brain: str) -> list[dict[str, str]]:
         keep = ("short", "licence", "licence_url", "source_url")
         out.append({"atlas": atlas} | {k: lic[k] for k in keep})
     return out
+
+
+# ---------------------------------------------------------------- region pages (step 5)
+# Aday's option B (SCOPE v166): only the regions of the rat ↔ human pairs get a page for now,
+# with what the data already hold (name, brain, family, atlas and licence, counterpart). The
+# description, studies, diseases and techniques are gaps until they exist and Sofía reviews them.
+
+BRAIN_OF = {"waxholm": "rat", "julich": "human", "cerebra": "human", "cit168": "human",
+            "icbm_wm": "human"}  # fmt: skip
+
+
+def slug(text: str) -> str:
+    """ASCII, lower case, hyphens: «CA1 (Hippocampus)» → «ca1-hippocampus»."""
+    import re
+    import unicodedata
+
+    plain = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode()
+    return re.sub(r"[^a-z0-9]+", "-", plain.lower()).strip("-")
+
+
+def _rat_family(rows: list[dict[str, Any]], node: int) -> str:
+    """The family of a Waxholm node: the one most of its pieces belong to (ties: first)."""
+    counts: dict[str, int] = {}
+    for r in rows[1:]:
+        if node in (r.get("path") or [r.get("id")]):
+            fam = r.get("group") or "other"
+            counts[fam] = counts.get(fam, 0) + int(r.get("voxels") or 1)
+    return max(counts, key=lambda f: counts[f]) if counts else "other"
+
+
+def region_pages(atlas_dir: Path) -> list[dict[str, Any]]:
+    """One entry per region of the pairs, both sides: its page key, names, family, atlas and
+    counterparts. Page keys carry the atlas (``waxholm-…``, ``julich-…``) so a rat and a human
+    region of the same name never share one; a clash is refused."""
+    pairs = _load(atlas_dir / "pairs.json")["pairs"]
+    rat_rows = _load(atlas_dir / "waxholm" / "labels.json")["rows"]
+    human_rows = {a: _load(atlas_dir / a / "labels.json")["rows"] for a in BRAINS["human"]}
+    pages: dict[str, dict[str, Any]] = {}
+
+    def add(entry: dict[str, Any]) -> dict[str, Any]:
+        key = entry["page"]
+        if key in pages:
+            if pages[key]["key"] != entry["key"]:
+                raise ValueError(f"two regions would share the page {key}")
+            return pages[key]
+        pages[key] = entry | {"pairs": []}
+        return pages[key]
+
+    for n, p in enumerate(pairs):
+        w = p["waxholm"]
+        rat = add({
+            "brain": "rat", "atlas": "waxholm", "key": f"w{w['id']}",
+            "page": f"waxholm-{slug(w['name'])}", "name": w["name"],
+            "acronym": w.get("acronym"), "family": _rat_family(rat_rows, w["id"]),
+        })  # fmt: skip
+        humans = []
+        for hr in p["human"]:
+            row = next(r for r in human_rows[hr["atlas"]][1:] if r["area_id"] == hr["area_id"])
+            humans.append(add({
+                "brain": "human", "atlas": hr["atlas"], "key": f"j{hr['area_id']}",
+                "page": f"{hr['atlas']}-{slug(hr['name'])}", "name": hr["name"],
+                "acronym": None, "family": row.get("group") or "other",
+            }))  # fmt: skip
+        pair = {"index": n, "kind": p["kind"], "grade": p.get("grade"), "note": p.get("note")}
+        rat["pairs"].append(pair | {"counterparts": [h["page"] for h in humans]})
+        for h in humans:
+            h["pairs"].append(pair | {"counterparts": [rat["page"]]})
+    return list(pages.values())

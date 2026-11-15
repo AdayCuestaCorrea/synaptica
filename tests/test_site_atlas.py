@@ -100,3 +100,45 @@ def test_the_home_card_opens_the_atlas_page(tmp_path: Path) -> None:
     SiteBuilder(out, images=LICENSED).build()
     home = (out / "es" / "index.html").read_text("utf-8")
     assert 'class="card card--atlas" href="atlas.html"' in home
+
+
+# ---------------------------------------------------------------- region pages (step 5)
+
+ATLAS = Path(__file__).parents[1] / "site" / "static" / "atlas"
+
+
+def test_slug_is_plain_ascii() -> None:
+    assert (
+        atlas.slug("Subc (Hippocampus, Subicular complex)") == "subc-hippocampus-subicular-complex"
+    )
+    assert atlas.slug("Área 4a") == "area-4a"
+
+
+def test_region_pages_cover_both_sides_of_every_pair() -> None:
+    pages = atlas.region_pages(ATLAS)
+    by_page = {r["page"]: r for r in pages}
+    assert len(by_page) == len(pages)  # one page per region
+    pairs = json.loads((ATLAS / "pairs.json").read_text("utf-8"))["pairs"]
+    assert sum(r["brain"] == "rat" for r in pages) == len(pairs)
+    assert sum(r["brain"] == "human" for r in pages) == sum(len(p["human"]) for p in pairs)
+    for r in pages:
+        assert r["page"].startswith(r["atlas"] + "-")  # a rat and a human page never clash
+        for p in r["pairs"]:
+            for other in p["counterparts"]:  # links go both ways, across brains only
+                assert by_page[other]["brain"] != r["brain"]
+                assert any(r["page"] in q["counterparts"] for q in by_page[other]["pairs"])
+            assert p["grade"] is None  # Sofía's, still pending
+
+
+def test_region_pages_are_built_linked_and_mark_their_gaps(tmp_path: Path) -> None:
+    out = tmp_path / "site"
+    SiteBuilder(out, images=LICENSED).build()
+    assert check_site(out).passed  # also: every region page is linked from another page
+    page = (out / "es" / "atlas" / "regiones" / "waxholm-hippocampal-formation.html").read_text()
+    assert "julich-ca1-hippocampus.html" in page and "#w1021" in page
+    assert "Waxholm v4.01" in page and "CC BY 4.0" in page
+    for gap in ("gap-region_text", "gap-region_studies", "gap-region_diseases", "gap-pair_grade"):
+        assert gap in page
+    assert (out / "en" / "atlas" / "regions" / "julich-ca1-hippocampus.html").exists()
+    atlas_page = (out / "es" / "atlas.html").read_text()
+    assert "regiones/waxholm-hippocampal-formation.html" in atlas_page  # the pairs section

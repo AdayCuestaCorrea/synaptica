@@ -1,0 +1,40 @@
+{# A region of Neuro Atlas (step 5, SCOPE v166; UX-2 C: the full page next to the viewer's
+   short card). Option B of Aday: only the regions of the rat ↔ human pairs, with what the
+   atlas data already hold; what is not written yet is a gap, never filled by guess. #}
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m with context %}
+{% block title %}{{ r.name }} · {{ t.atlas }}{% endblock %}
+{% block main %}
+<article class="prose region">
+  <p class="crumbs"><a href="{{ url('atlas') }}">{{ t.atlas }}</a> › {{ t["brain_" ~ r.brain] }}</p>
+  <h1><span lang="en">{{ r.name }}</span>{% if r.acronym %} <span class="acr">{{ r.acronym }}</span>{% endif %}</h1>
+  <p class="region-facts">
+    <span class="swatch-label">{{ t["brain_" ~ r.brain] }}</span> · {{ t["fam_" ~ r.family] }}
+    {% if lang == "es" %} · {{ m.gap("atlas_names") }}{% endif %}
+  </p>
+  <p><a class="btn-link" href="{{ url('atlas') }}#{{ r.key }}">{{ t.region_view }} →</a></p>
+
+  <h2>{{ t.region_text_h }}</h2>
+  <p class="muted">{{ m.gap("region_text") }}</p>
+
+  <h2>{{ t.region_pair_h.format(brain=t["brain_" ~ ("human" if r.brain == "rat" else "rat")] | lower) }}</h2>
+  {% for p in r.pairs %}
+  <ul class="pair-list">
+    {% for key in p.counterparts %}{% set c = by_page[key] %}
+    <li><a href="{{ url('region', c.page) }}" lang="en">{{ c.name }}</a>{% if c.acronym %} <span class="acr">{{ c.acronym }}</span>{% endif %}</li>
+    {% endfor %}
+  </ul>
+  <p>{{ t.grade }}: {% if p.grade %}<strong>{{ t["grade_" ~ p.grade] }}</strong>{% else %}{{ t.grade_pending }} {{ m.gap("pair_grade") }}{% endif %}</p>
+  {% if p.note %}<p>{{ p.note }}</p>{% endif %}
+  {% endfor %}
+
+  <h2>{{ t.region_studies_h }}</h2>
+  <p class="muted">{{ m.gap("region_studies") }}</p>
+  <h2>{{ t.region_diseases_h }}</h2>
+  <p class="muted">{{ m.gap("region_diseases") }}</p>
+  <h2>{{ t.region_methods_h }}</h2>
+  <p class="muted">{{ m.gap("region_methods") }}</p>
+
+  <p class="region-credit">{{ t.atlas_credit }}: <a href="{{ credit.source_url }}" rel="noopener">{{ credit.short }}</a> · <a href="{{ credit.licence_url }}" rel="noopener license">{{ credit.licence }}</a></p>
+</article>
+{% endblock %}

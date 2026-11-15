@@ -24,7 +24,7 @@
     <a class="brand" href="{{ url('home') }}"><svg class="brand-mark" aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="2.2"/><circle cx="18" cy="18" r="2.2"/><path d="M8.6 10.6 15.9 7M8.6 13.4l7.3 3.6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>SYNAPTICA</a>
     <nav class="nav" aria-label="SYNAPTICA">
       {% for k, label, href in nav %}
-      <a href="{{ href }}"{% if page_kind == k or (k == "news" and page_kind in ("study", "week")) %} aria-current="page"{% endif %}>{{ label }}</a>
+      <a href="{{ href }}"{% if page_kind == k or (k == "news" and page_kind in ("study", "week")) or (k == "atlas" and page_kind == "region") %} aria-current="page"{% endif %}>{{ label }}</a>
       {% endfor %}
     </nav>
     {% if search %}

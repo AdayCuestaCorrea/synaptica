@@ -12,6 +12,8 @@
 const root = document.querySelector("[data-atlas-viewer]");
 const lang = document.documentElement.lang === "en" ? "en" : "es";
 const DATA = root ? root.dataset.atlasViewer.replace(/\/$/, "") : ""; // static/atlas
+// Region pages (step 5): viewer key of the area → its page, relative to the atlas page.
+const REGION_PAGES = root ? JSON.parse(root.dataset.regionPages || "{}") : {};
 let Niivue, NVImage, SLICE_TYPE;
 
 // Background of the 3D view: the page's --atlas-bg, so it follows the light and dark themes.
@@ -128,6 +130,7 @@ const P = {
     grades: { clear: "clara", partial: "parcial", disputed: "discutida" },
     gradePending: "pendiente de Sofía",
     goPair: "Ir a la pareja",
+    page: "Ficha completa de la región",
     marked: "Pareja marcada; este cerebro no se ha movido.",
     pairOf: "Pareja de",
     inOther: "En el otro cerebro",
@@ -149,6 +152,7 @@ const P = {
     grades: { clear: "clear", partial: "partial", disputed: "disputed" },
     gradePending: "pending Sofía's review",
     goPair: "Go to the counterpart",
+    page: "Full page of the region",
     marked: "Counterpart marked; this brain has not moved.",
     pairOf: "Counterpart of",
     inOther: "In the other brain",
@@ -229,6 +233,9 @@ function panelPicked(box, region, pair, empty = P.none) {
     const p = h("p", { class: "pair" }, `${P.inOther}: ${other}. `);
     p.append(h("span", { class: "grade" }, `${P.grade}: ${gradeOf(pair)}`));
     box.append(p);
+    // Step 5: the regions of the pairs have their own page (the rat's, by the pair's node).
+    const page = REGION_PAGES[region.atlas === "waxholm" ? `w${pair.waxholm.id}` : `j${region.areaId}`];
+    if (page) box.append(h("p", {}, h("a", { href: page }, `${P.page} →`)));
   }
   if (P.origName) box.append(h("p", { class: "muted small" }, P.origName));
 }
@@ -1650,6 +1657,16 @@ async function main() {
 
   // UX-5 B: the viewer comes right after the page, by itself. On a phone, only the brain shown.
   await Promise.all(firstAtlases.map(load));
+  // Step 5: «Ver en el visor» from a region page arrives with the area's key as the hash.
+  const fromHash = () => {
+    const key = decodeURIComponent(location.hash.slice(1));
+    for (const atlas of ["waxholm", "julich"]) {
+      const item = items[atlas].find((it) => it.key === key);
+      if (item) return choose(atlas, item);
+    }
+  };
+  addEventListener("hashchange", fromHash);
+  fromHash();
   narrow.addEventListener("change", () => !narrow.matches && Object.keys(sections).forEach(load));
 }
 

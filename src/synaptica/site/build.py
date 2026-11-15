@@ -47,6 +47,7 @@ PATHS = {
         "about": "es/sobre-nosotros.html", "glossary": "es/glosario.html",
         "search": "es/buscar.html", "search_index": "es/buscar.json",
         "topic": "es/temas/{key}.html", "atlas": "es/atlas.html",
+        "region": "es/atlas/regiones/{key}.html",
     },
     "en": {
         "home": "en/index.html", "news": "en/news.html", "study": "en/study/{key}.html",
@@ -54,7 +55,7 @@ PATHS = {
         "sources": "en/sources.html", "status": "en/status.html", "about": "en/about.html",
         "glossary": "en/glossary.html", "search": "en/search.html",
         "search_index": "en/search.json", "topic": "en/topics/{key}.html",
-        "atlas": "en/atlas.html",
+        "atlas": "en/atlas.html", "region": "en/atlas/regions/{key}.html",
     },
 }  # fmt: skip
 NAV = ("home", "news", "atlas", "method", "glossary", "about")  # header, in this order, when built
@@ -329,6 +330,12 @@ class SiteBuilder:
         out += [[t["kind_section"], sec["name"], t["sec_" + sec["key"]],
                  self.atlas_link(lang) if sec["key"] == "atlas" else ""]
                 for sec in SECTIONS]  # fmt: skip
+        if "atlas" in self.kinds:
+            out += [[t["kind_region"], r["name"],
+                     " ".join(filter(None, [r["acronym"], t["brain_" + r["brain"]],
+                                            t["fam_" + r["family"]]])),
+                     self.path(lang, "region", r["page"])]
+                    for r in self.atlas_data["pages"]]  # fmt: skip
         if self.news_data:
             out += [[t["kind_study"], s["title"],
                      " ".join(filter(None, [s["journal"], s["type"] and t["type_" + s["type"]]])),
@@ -354,13 +361,46 @@ class SiteBuilder:
     def atlas_link(self, lang: str) -> str:
         return self.path(lang, "atlas") if "atlas" in self.kinds else ATLAS_URL
 
-    def atlas(self, lang: str) -> None:
-        t = self.i18n[lang]
+    @functools.cached_property
+    def atlas_data(self) -> dict[str, Any]:
+        """Region lists, credits and region pages, read once from site/static/atlas/."""
         src = self.site_dir / "static" / "atlas"
-        gaps = {k: ("gap", t[f"gap_{k}"]) for k in ("atlas_order", "atlas_names")}
-        brains = [{"key": b, "families": atlas_page.regions(src, b),
-                   "credits": atlas_page.credits(src, b)} for b in atlas_page.BRAINS]  # fmt: skip
-        self.render(lang, "atlas", "atlas.html.j2", gaps=gaps, brains=brains)
+        credits = {b: atlas_page.credits(src, b) for b in atlas_page.BRAINS}
+        pages = atlas_page.region_pages(src)
+        return {
+            "brains": [{"key": b, "families": atlas_page.regions(src, b), "credits": credits[b]}
+                       for b in atlas_page.BRAINS],
+            "credit": {c["atlas"]: c for cs in credits.values() for c in cs},
+            "pages": pages,
+            "by_page": {r["page"]: r for r in pages},
+            "pairs": json.loads((src / "pairs.json").read_text("utf-8"))["pairs"],
+        }  # fmt: skip
+
+    def atlas(self, lang: str) -> None:
+        t, d = self.i18n[lang], self.atlas_data
+        gaps = {k: ("gap", t[f"gap_{k}"]) for k in ("atlas_order", "atlas_names", "pair_grade")}
+        # Pair n: the rat page and the human pages (step 5), for the «Parejas» section.
+        pair_pages = [
+            {"rat": next(r for r in d["pages"] if r["brain"] == "rat"
+                         and any(x["index"] == n for x in r["pairs"])),
+             "human": [r for r in d["pages"] if r["brain"] == "human"
+                       and any(x["index"] == n for x in r["pairs"])],
+             "grade": p.get("grade")}
+            for n, p in enumerate(d["pairs"])
+        ]  # fmt: skip
+        here = posixpath.dirname(self.path(lang, "atlas"))  # the viewer links from the atlas page
+        region_urls = {r["key"]: posixpath.relpath(self.path(lang, "region", r["page"]), here)
+                       for r in d["pages"]}  # fmt: skip
+        self.render(lang, "atlas", "atlas.html.j2", gaps=gaps, brains=d["brains"],
+                    pair_pages=pair_pages, region_urls=region_urls)  # fmt: skip
+
+    def region(self, lang: str, r: dict[str, Any]) -> None:
+        t, d = self.i18n[lang], self.atlas_data
+        gaps = {k: ("gap", t[f"gap_{k}"])
+                for k in ("region_text", "region_studies", "region_diseases", "region_methods",
+                          "pair_grade", "atlas_names")}  # fmt: skip
+        self.render(lang, "region", "region.html.j2", key=r["page"], r=r, gaps=gaps,
+                    credit=d["credit"][r["atlas"]], by_page=d["by_page"])  # fmt: skip
 
     def about(self, lang: str) -> None:
         t = self.i18n[lang]
@@ -387,6 +427,9 @@ class SiteBuilder:
                     self.study(lang, s)
                 for key in self.topic_hits:
                     self.topic(lang, key)
+            if "atlas" in self.kinds:
+                for r in self.atlas_data["pages"]:
+                    self.region(lang, r)
             if "search" in self.kinds:
                 self.search_index(lang)
         self.root()
