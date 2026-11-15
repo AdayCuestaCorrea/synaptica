@@ -26,10 +26,12 @@ from pathlib import Path
 from typing import Any
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
+from markupsafe import Markup
 
 from synaptica import report
 from synaptica.config import project_root
 from synaptica.site import atlas as atlas_page
+from synaptica.site import glossary as glossary_mod
 from synaptica.site import news as news_mod
 
 LANGS = ("es", "en")
@@ -74,9 +76,10 @@ SECTIONS = [
 # atlas page is not built, and the atlas page links to it until the new viewer (step 3).
 ATLAS_URL = "https://adaycuestacorrea.github.io/synaptica/spikes/s3/c/"
 STYLESHEETS = ("noche.css", "base.css")  # joined, in this order, into static/synaptica.css
-SCRIPTS = ("site.js", "search.js", "atlas.js")
+SCRIPTS = ("site.js", "search.js", "atlas.js", "glossary.js")
 # Pages built so far (steps 21 to 23); one study page per study shown comes on top.
-KINDS = ("home", "news", "week", "method", "sources", "status", "about", "search", "atlas")
+KINDS = ("home", "news", "week", "method", "sources", "status", "about", "search", "atlas",
+         "glossary")  # fmt: skip
 RECENT_RUNS = 14  # rows of the run table on «Estado de los datos»
 
 
@@ -135,6 +138,16 @@ class SiteBuilder:
         )
         self.asset_v = ""
         self.written: list[Path] = []
+        # Neuro Glossary (Phase 2): only what Sofía approved. With nothing approved yet
+        # there is no page and no link to it (v181), rather than an empty page.
+        self.gl: dict[str, glossary_mod.Glossary] = {}
+        if "glossary" in self.kinds:
+            from synaptica.glossary.texts import published
+
+            entries = published(data_dir / "review" if data_dir is not None else None)
+            self.gl = {lang: glossary_mod.Glossary(entries, lang) for lang in LANGS}
+            if not entries:
+                self.kinds = tuple(k for k in self.kinds if k != "glossary")
         self.news_data: news_mod.NewsData | None = None
         if data_dir is not None and {"home", "news", "week", "method"} & set(self.kinds):
             self.news_data = news_mod.load(
@@ -401,6 +414,21 @@ class SiteBuilder:
                           "pair_grade", "atlas_names")}  # fmt: skip
         self.render(lang, "region", "region.html.j2", key=r["page"], r=r, gaps=gaps,
                     credit=d["credit"][r["atlas"]], by_page=d["by_page"])  # fmt: skip
+
+    def glossary(self, lang: str) -> None:
+        gl, t = self.gl[lang], self.i18n[lang]
+        entries = gl.page_entries()
+        gaps = {}
+        if any(e["pending"] for e in entries):
+            gaps["glossary_en"] = ("gap", t["gap_glossary_en"])
+        labels = {k: t[k] for k in ("gl_also", "gl_see", "gl_review", "gl_pending")}
+        page_data = json.dumps(
+            {"glossary": gl.page_data(), "labels": labels},
+            ensure_ascii=False,
+            separators=(",", ":"),
+        ).replace("</", "<\\/")
+        self.render(lang, "glossary", "glossary.html.j2", entries=entries, gaps=gaps,
+                    page_data=Markup(page_data))  # fmt: skip
 
     def about(self, lang: str) -> None:
         t = self.i18n[lang]

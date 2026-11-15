@@ -131,3 +131,64 @@ def review_items() -> list[ReviewItem]:
     texts, sources = load_texts(), load_sources()
     items = [queue_item(t, texts[t.term_id], sources.get(t.term_id, {})) for t in load_terms()]
     return [i for i in items if i is not None]
+
+
+# ---- what the site shows -------------------------------------------------------------
+
+PUBLISHED = ("approved", "edited")  # her approval, or her correction that passed (or kept)
+
+
+@dataclass(frozen=True)
+class Entry:
+    """A term the site shows: approved or corrected by her, at the current version."""
+
+    term: Term
+    meaning: dict[str, str | None]  # None: her text has no «TERM (meaning):» opening
+    definition: dict[str, str | None]  # None in English: her Spanish edit awaits its English
+    sources: list[Source]
+    reviewed_at: str
+    mark: str  # approved | edited | kept
+
+
+def _split(term: Term, text: str) -> tuple[str | None, str]:
+    """«NMDA (N-metil-D-aspartato): Tipo de receptor…» -> meaning, definition. Greedy, so
+    a meaning with brackets inside («5-hidroxitriptamina (serotonina)») stays whole."""
+    m = re.match(rf"{re.escape(term.term)} \((.+)\):\s*(.+)", text, re.S)
+    return (m.group(1), m.group(2)) if m else (None, text)
+
+
+def published(review_dir: Path | None) -> list[Entry]:
+    """The terms she approved or corrected, in the version on the table today. Pending,
+    rejected or held terms are left out, and so is a decision on an older version (its
+    text, source or draft changed since: the hash, as everywhere in the review). Unlike
+    the summaries (``apply.publishable``, already public), nothing shows before her yes."""
+    from synaptica.review.apply import read_log, state
+
+    events = read_log(review_dir) if review_dir is not None and review_dir.exists() else []
+    out = []
+    for item in review_items():
+        st = state(item, events)
+        if st.status not in PUBLISHED or st.reviewed_by is None or st.reviewed_at is None:
+            continue
+        content = st.text or item.content
+        assert isinstance(content, TextContent)
+        term = next(t for t in _terms() if t.term_id == item.item_id)
+        meaning: dict[str, str | None] = {}
+        definition: dict[str, str | None] = {}
+        for lang in LANGS:
+            if lang == "en" and st.awaiting_en:
+                meaning[lang] = definition[lang] = None
+                continue
+            text = " ".join(s.text for s in getattr(content, lang))
+            meaning[lang], definition[lang] = _split(term, text)
+        mark = "kept" if st.kept_reason else st.status
+        out.append(Entry(term=term, meaning=meaning, definition=definition,
+                         sources=list(content.sources),
+                         reviewed_at=st.reviewed_at.date().isoformat(), mark=mark))  # fmt: skip
+    return out
+
+
+def _terms() -> list[Term]:
+    from synaptica.glossary import load_terms
+
+    return load_terms()

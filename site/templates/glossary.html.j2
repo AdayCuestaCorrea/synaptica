@@ -1,0 +1,39 @@
+{# Neuro Glossary (Phase 2). Copied and adapted from the mock-up (spikes/web/v3/templates/
+   glossary.html.j2, v80), itself from Paleo Atlas: same A–Z and search; only the terms
+   Sofía approved, each with its Wikipedia source and the date she reviewed it. #}
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m with context %}
+{% block title %}{{ t.glossary }}{% endblock %}
+{% block scripts %}<script src="{{ static('glossary.js') }}?v={{ asset_v }}" defer></script>{% endblock %}
+{% block main %}
+{% set letters = entries | map(attribute="letter") | unique | list %}
+<article class="gl-page">
+  <h1>{{ t.glossary }}</h1>
+  <p class="gl-intro">{{ t.gl_intro.format(n=entries | length) }}</p>
+  <div class="gl-tools">
+    <input type="search" id="gl-q" placeholder="{{ t.gl_search }}" aria-label="{{ t.gl_search }}" autocomplete="off" hidden>
+    <nav class="gl-az" aria-label="{{ t.gl_letters }}">{% for l in letters %}<a href="#l-{{ l }}">{{ l }}</a>{% endfor %}</nav>
+  </div>
+  <p class="gl-none" hidden>{{ t.search_none }}</p>
+  {% for l in letters %}
+  <section class="gl-letter" id="l-{{ l }}">
+    <h2>{{ l }}</h2>
+    <dl>
+      {% for e in entries if e.letter == l %}
+      <div class="gl-entry" id="{{ e.id }}" data-q="{{ e.search }}">
+        <dt>{{ e.term }}{% if e.meaning %} <span class="gl-meaning">({{ e.meaning }})</span>{% endif %}</dt>
+        {% if e.pending %}
+        <dd><span class="gl-pending">{{ t.gl_pending }}</span> {{ m.gap("glossary_en") }}</dd>
+        {% else %}
+        <dd>{{ e.html | safe }}</dd>
+        {% endif %}
+        <dd class="gl-review">{{ t["gl_reviewed_" ~ e.mark].format(date=date(e.reviewed_at)) }} ·
+          {{ t.gl_source }} {% for s in e.sources %}<a href="{{ s.url }}" rel="noopener">Wikipedia ({{ t["lang_" ~ s.lang] }}): «{{ s.title }}»</a>{{ ", " if not loop.last }}{% endfor %} · CC BY-SA 4.0</dd>
+      </div>
+      {% endfor %}
+    </dl>
+  </section>
+  {% endfor %}
+</article>
+<script type="application/json" id="page-data">{{ page_data }}</script>
+{% endblock %}

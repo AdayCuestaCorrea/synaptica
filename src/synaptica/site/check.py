@@ -26,6 +26,7 @@ and every local URL of the index points to an existing file.
 from __future__ import annotations
 
 import json
+import re
 import tomllib
 from dataclasses import dataclass, field
 from html.parser import HTMLParser
@@ -174,6 +175,16 @@ def _disclaimers() -> dict[str, str]:
     return out
 
 
+_GL_ENTRY = re.compile(r'<div class="gl-entry" id="([^"]+)"(.*?)</div>', re.S)
+
+
+def _unsourced_terms(text: str) -> list[str]:
+    """Glossary entries without a Wikipedia revision link (oldid) or the licence: every
+    published term cites the text it was checked against (Neuro Glossary, v181)."""
+    return [m.group(1) for m in _GL_ENTRY.finditer(text)
+            if "oldid=" not in m.group(2) or "CC BY-SA 4.0" not in m.group(2)]  # fmt: skip
+
+
 def check_site(root: Path) -> CheckReport:
     report = CheckReport()
     disclaimer = _disclaimers()
@@ -215,6 +226,8 @@ def check_site(root: Path) -> CheckReport:
             missing = [s for s in SIGNALS if not signals.get(s)]
             if missing:
                 report.problems.append(f"{rel}: study {study} without {', '.join(missing)}")
+        for term in _unsourced_terms(page.read_text(encoding="utf-8")):
+            report.problems.append(f"{rel}: glossary term {term} without its source or licence")
         if parser.unbalanced or parser.stack:
             unclosed = ", ".join(parser.stack[-3:])
             report.problems.append(
