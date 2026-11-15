@@ -466,6 +466,20 @@ class VolumeViewer {
     this.apply();
   }
 
+  // The same 3D tap again, once the brain is drawn solid (UX-4 C, see picked).
+  tapAgain(at) {
+    this.retrying = true;
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      const box = this.canvas.getBoundingClientRect();
+      const dpr = this.nv.uiData.dpr || 1;
+      this.nv.mousePos = [(at.clientX - box.left) * dpr, (at.clientY - box.top) * dpr];
+      this.lastClick = { x: at.clientX - box.left, y: at.clientY - box.top };
+      this.tapFrom = [...this.nv.scene.crosshairPos];
+      this.canvas.dispatchEvent(new MouseEvent("dblclick", { ...at, bubbles: true }));
+      this.retrying = false;
+    }));
+  }
+
   // In the 3D view Niivue only reads the voxel under the pointer (depth picking) on a double
   // click, double tap or long press. To behave like B, a short click that barely moves sends it
   // the double click it listens for. 2D slices already pick on a single click.
@@ -501,10 +515,11 @@ class VolumeViewer {
       this.upAt = performance.now(); // step 4: start of the tap's timing (picked)
       // Aday (v167): Niivue's 3D pick leaves the point where it was when the ray hits no
       // tissue, and still reports the region there. Where the point was, to tell (picked).
-      this.tapFrom = [...this.nv.scene.crosshairPos];
       const r = this.canvas.getBoundingClientRect();
       const dpr = this.nv.uiData.dpr || 1;
       if (this.nv.inRenderTile((e.clientX - r.left) * dpr, (e.clientY - r.top) * dpr) < 0) return;
+      this.tapFrom = [...this.nv.scene.crosshairPos]; // 3D only: a 2D click always moves it
+      this.lastTap = { clientX: e.clientX, clientY: e.clientY };
       this.canvas.dispatchEvent(
         new MouseEvent("dblclick", { clientX: e.clientX, clientY: e.clientY, bubbles: true }),
       );
@@ -1163,9 +1178,18 @@ class VolumeViewer {
       // Aday (v167): a tap outside the brain lets go of the selection in this brain only; it
       // takes its colours back, and the other brain keeps what it shows.
       this.upAt = null;
+      // UX-4 C: while something is selected the rest is almost transparent, and a tap on it
+      // goes through. Once solid again, the same tap is tried once more: on tissue it picks
+      // the region there; on the background nothing else happens (v168).
+      const retry = this.focus.size > 0 && !state.isolate && SEE_THROUGH < 255
+        && this.lastTap && !this.retrying;
+      const at = this.lastTap;
+      this.lastTap = null;
       this.pick(0, { partner: false });
+      if (retry) this.tapAgain(at);
       return;
     }
+    this.lastTap = null;
     // Step 4 (SCOPE v164): how long a tap takes, by parts, for scripts/atlas_measure.mjs. From
     // the finger lifting to: the region read (Niivue's pick), this brain repainted, the other
     // brain repainted, and the next frame on screen.
@@ -1537,6 +1561,9 @@ async function main() {
       panelPicked(v.panel, region, pair, atPoint ? P.nonePoint : P.none);
       if (region) announce(UI.picked(names(region).full, SEARCH[BRAIN_OF[atlas]]));
       if (!partner) return; // M2: the other brain follows when the slider is let go
+      // Aday (v168): only a region with a counterpart moves the other brain; without one, the
+      // other brain keeps its own selection, so each brain can show a different region.
+      if (!pair) return;
       panelPartner(other.panel, region, pair, () => goToPair(otherAtlas));
       // Step 4: the brain that was touched is painted first; the other one in the next frame,
       // so a tap shows at once even when both brains have to change.
