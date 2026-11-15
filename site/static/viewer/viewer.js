@@ -292,6 +292,8 @@ const SEE_THROUGH = (() => {
 // Zoom (v172): a wheel notch, and the range for the 3D view and the 2D slice. Buttons take two
 // notches per press.
 const ZOOM_STEP = 1.1;
+// Sliders (v173): how long a slider must be still before the region at the point is picked.
+const SLIDE_PAUSE = 600;
 const ZOOM_RANGE = [0.5, 6];
 const ZOOM = {
   es: { group: "Zoom", in: "Acercar", out: "Alejar" },
@@ -826,15 +828,19 @@ class VolumeViewer {
       const unit = document.createElement("span");
       unit.textContent = TXT.mm;
       name.textContent = F.axes[key];
+      // Aday (v173): while a slider moves, the brain keeps its colours (any selection in this
+      // brain is let go) and nothing is picked; the region at the point is picked once the
+      // slider has been still for SLIDE_PAUSE ms, with its counterpart in the other brain.
+      // This replaces S3's live pick while dragging (improvement M2).
       range.addEventListener("input", () => {
         this.setBusy(true); // moving the point with the slider: solid until it is let go (v169)
         this.setPlane(axis, range.value / 1000);
-        this.pickAtPoint({ partner: false, defer: true }); // M2: live in this brain only
+        if (this.tag) this.tag.hidden = true;
+        if (this.focus.size) this.pick(0, { partner: false, defer: true });
+        clearTimeout(this.slideTimer);
+        this.slideTimer = setTimeout(() => this.pickAtPoint({ partner: true }), SLIDE_PAUSE);
       });
-      range.addEventListener("change", () => {
-        this.pickAtPoint({ partner: true }); // on release
-        this.setBusy(false);
-      });
+      range.addEventListener("change", () => this.setBusy(false)); // let go
       // Applied on Enter or when the field loses focus, so typing "-3.2" does not jump at "-".
       number.addEventListener("change", () => {
         const v = parseFloat(number.value);
