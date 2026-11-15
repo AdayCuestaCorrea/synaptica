@@ -1,6 +1,6 @@
 # Fase 2 · Estudio de UX y UI de Neuro Atlas
 
-> **Estado: borrador del 2026-11-15** (rama `fase-2`). Las decisiones marcadas **UX-n** están **pendientes de Aday**: cada una trae 2–3 opciones y una recomendación, y no se aplican hasta que él responda. Las preguntas para Sofía están en el apartado 8. No hay código del visor todavía.
+> **Estado: borrador del 2026-11-15** (rama `fase-2`). Aday ha decidido UX-1–UX-6 (2026-11-15, las opciones recomendadas). UX-4 cambia una petición de Sofía y queda pendiente de que ella la confirme. Faltan sus respuestas a las preguntas del apartado 8. No hay código del visor todavía.
 >
 > **Cómo leerlo:** los apartados 1–5 y 8 están escritos para Sofía, sin tecnicismos. Los apartados 6, 7 y el anexo son para Aday.
 
@@ -144,7 +144,7 @@ Los dos cerebros vienen de atlas distintos con licencias distintas:
 - **En pantalla** los dos cerebros pueden estar juntos (es como poner dos libros uno al lado del otro), pero cada uno lleva **su línea de créditos** debajo («Rata · Waxholm v4.01 · CC BY 4.0 · créditos») y la cita completa está en la página de créditos (ver UX-6).
 - **Los textos propios** (qué hace cada región, notas) se escriben desde Wikipedia y los estudios, no desde los atlas, y no incluyen material de los atlas con licencia NC.
 
-## 6. Decisiones de diseño (pendientes de Aday)
+## 6. Decisiones de diseño (decididas por Aday el 2026-11-15)
 
 ### UX-1 · ¿Cuántos cerebros se ven a la vez?
 
@@ -154,7 +154,7 @@ Los dos cerebros vienen de atlas distintos con licencias distintas:
 | **B.** Uno cada vez (humano por defecto) con interruptor, y la vista «lado a lado» solo al comparar | Pantalla limpia; carga la mitad al entrar | En el ordenador desaprovecha el ancho y esconde lo que nos diferencia |
 | **C.** Según la pantalla: los dos en el ordenador; uno con interruptor en el móvil, y «lado a lado» al comparar | Lo mejor de cada una; en el móvil, la comparación sigue a un toque | Dos diseños que mantener y probar |
 
-**Recomendación: C.** En el ordenador hay sitio y la comparación es el gancho; en el móvil, cargar y mover un solo cerebro es lo que hace que responda rápido.
+**Decisión de Aday: C.** En el ordenador hay sitio y la comparación es el gancho; en el móvil, cargar y mover un solo cerebro es lo que hace que responda rápido.
 
 ### UX-2 · ¿Dónde vive la información de cada región?
 
@@ -164,7 +164,7 @@ Los dos cerebros vienen de atlas distintos con licencias distintas:
 | **B.** Solo en páginas propias por región; el visor solo navega | Páginas ligeras, accesibles y enlazables | Cada toque saca al usuario del visor |
 | **C.** Tarjeta corta en el visor y ficha completa en su página propia | Explorar sin salir y leer a fondo cuando se quiere; las fichas son páginas estáticas como el resto de la web (se generan con `syn site` y pasan `site --check`) | Dos sitios donde mostrar lo mismo (se generan de los mismos datos) |
 
-**Recomendación: C.** Además, las fichas sirven de destino para los enlaces desde Noticias, Neuro Lab y el glosario, y funcionan aunque el 3D falle.
+**Decisión de Aday: C.** Además, las fichas sirven de destino para los enlaces desde Noticias, Neuro Lab y el glosario, y funcionan aunque el 3D falle.
 
 ### UX-3 · ¿Cómo se ordenan los controles?
 
@@ -174,7 +174,7 @@ Los dos cerebros vienen de atlas distintos con licencias distintas:
 | **B.** A la vista solo el buscador, «Recortar» y «Más opciones»; dentro: vista (solo 3D / 3D + corte), aspecto (color / atlas / tinción dibujada o real), «Aislar» y las coordenadas en mm | Pantalla limpia; todo sigue a un toque; en el móvil cabe en una fila | Hay que descubrir «Más opciones» |
 | **C.** Dos modos, «Explorar» y «Estudiar», que cambian los controles visibles | Claro para cada público | Una decisión más al entrar; la frontera entre modos es arbitraria |
 
-**Recomendación: B**, recordando la última elección en el navegador.
+**Decisión de Aday: B**, recordando la última elección en el navegador.
 
 ### UX-4 · ¿Qué hace el otro cerebro, y cómo se ven las regiones internas?
 
@@ -184,7 +184,9 @@ Los dos cerebros vienen de atlas distintos con licencias distintas:
 | **B.** El otro cerebro marca la pareja sin moverse; un botón «Ir a la pareja» lo gira y lleva el corte | Nadie pierde lo que estaba mirando | Un toque más |
 | **C.** B, y además las regiones internas se ven solas: al elegir una, el resto del cerebro se vuelve translúcido hasta que se suelta la selección | Hipocampo y amígdala visibles sin saber qué es «recortar» | Hay que probar que el visor lo pinta bien y rápido en el móvil antes de prometerlo |
 
-**Recomendación: B ahora, y probar C** en el primer paso de código; si no va fluido en el móvil, se queda B con «Recortar» automático para las internas. Con «movimiento reducido» activado en el sistema, nunca hay giros animados.
+**Decisión de Aday: B ahora, y probar C** en el primer paso de código; si no va fluido en el móvil, se queda B con «Recortar» automático para las internas. Con «movimiento reducido» activado en el sistema, nunca hay giros animados.
+
+> **Ojo: cambia una petición de Sofía.** En S3 pidió que el otro visor gire y lleve su corte hasta la pareja (P3, respuesta Q3). Con B eso pasa al pulsar «Ir a la pareja», no solo. Se le pregunta (pregunta 5) y, si prefiere el giro automático, se vuelve a A, mejor suavizado.
 
 ### UX-5 · ¿Cuándo se carga el visor?
 
@@ -194,7 +196,7 @@ Los dos cerebros vienen de atlas distintos con licencias distintas:
 | **B.** Primero la página (texto, buscador, lista y una imagen fija de cada cerebro); el visor se carga justo después, solo | Hay algo útil en unos segundos; el visor llega sin pedirlo | La imagen fija es un archivo más por cerebro que generar |
 | **C.** El visor solo al pulsar «Ver en 3D» | La carga más ligera | Esconde lo más vistoso de la web, que Sofía quiere como puerta de entrada (propuesta) |
 
-**Recomendación: B.** En el móvil, con UX-1 C, solo se carga el cerebro que se ve; el otro, al cambiar. La tinción real sigue cargándose solo si se pide.
+**Decisión de Aday: B.** En el móvil, con UX-1 C, solo se carga el cerebro que se ve; el otro, al cambiar. La tinción real sigue cargándose solo si se pide.
 
 ### UX-6 · ¿Cómo se enseñan los créditos y licencias?
 
@@ -204,7 +206,7 @@ Los dos cerebros vienen de atlas distintos con licencias distintas:
 | **B.** Una línea por cerebro (atlas, versión, licencia, «créditos») y la cita completa en la página de créditos del atlas | Cumple las licencias (autor, licencia, cambios, enlace) sin ocupar sitio | La cita completa queda a un clic |
 | **C.** Un botón ⓘ sobre cada cerebro que abre los créditos | Lo más limpio | Las licencias CC piden un crédito razonablemente visible; un icono solo se queda corto |
 
-**Recomendación: B.** Las fichas de región llevan también su línea del atlas de origen.
+**Decisión de Aday: B.** Las fichas de región llevan también su línea del atlas de origen.
 
 ## 7. Accesibilidad y rendimiento
 
@@ -241,7 +243,7 @@ Medidas del prototipo con un móvil simulado (390 × 844, «Slow 4G», CPU ×4, 
 - **Sin otros dominios ni seguimiento:** todo sale de la propia web.
 - **Sin medir todavía:** cuánto tarda en responder un toque en el móvil. Se mide en el primer paso de código, por partes (leer la región, repintar el cerebro tocado, repintar el otro).
 
-**Objetivos propuestos para la Fase 2** (a confirmar por Aday; se miden con el mismo `measure.mjs`):
+**Objetivos propuestos para la Fase 2** (a confirmar por Aday en el primer paso de código; se miden con el mismo `measure.mjs`):
 
 - texto, buscador y lista utilizables en **menos de 5 s** en el móvil simulado (UX-5 B);
 - el primer cerebro del móvil listo en **menos de 12 s** (UX-1 C: un solo atlas y Niivue: unos 1,9 MB con el humano y sus cuatro capas, 1,35 MB con la rata; la sustancia blanca, la capa que más pesa, puede llegar después);
@@ -267,7 +269,7 @@ Cuantas más respuestas, mejor; ninguna corre prisa antes de que empiece el cód
 
 ## 9. Lo que viene después de este estudio
 
-Cuando Aday responda a UX-1–UX-6 y Sofía a las preguntas: se cierra este documento, se marca la casilla del estudio en `SCOPE.md` y empieza el siguiente paso de Neuro Atlas (pasar `build_assets.py` a `src/synaptica/atlas/` con tests y reescribir el visor en `site/static/`). Las respuestas de Sofía que sean contenido (nombres, grados, orden) van a su cola de revisión, no se publican sin ella.
+Con UX-1–UX-6 decididas, falta que Sofía responda a las preguntas (y confirme UX-4). Entonces: se cierra este documento, se marca la casilla del estudio en `SCOPE.md` y empieza el siguiente paso de Neuro Atlas (pasar `build_assets.py` a `src/synaptica/atlas/` con tests y reescribir el visor en `site/static/`). Las respuestas de Sofía que sean contenido (nombres, grados, orden) van a su cola de revisión, no se publican sin ella.
 
 ## Anexo para Aday · de nota de UX a propuesta
 

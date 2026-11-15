@@ -123,3 +123,10 @@ En la Fase 1, el script de S3 (`spikes/s3/build_assets.py`) pasa a `src/synaptic
 - **Peticiones de Sofía:** [`peticiones-sofia.md`](../../spikes/s3/results/peticiones-sofia.md). **Notas de UX** para la Fase 2: [`notas-ux.md`](../../spikes/s3/results/notas-ux.md).
 - **Maqueta publicada:** https://adaycuestacorrea.github.io/synaptica/spikes/s3/c/ (workflow `.github/workflows/pages.yml`).
 - **Tests sin red:** `uv run pytest spikes/s3/tests` (datos y licencias de `build_assets.py`).
+
+## Revisión (2026-11-15, Fase 2, estudio de UX)
+
+Decisiones de Aday en el [estudio de UX de Neuro Atlas](../fases/fase-2-atlas-ux.md) que tocan este visor (SCOPE v156). Niivue y los volúmenes propios no cambian:
+- **UX-1:** en el móvil se ve y se carga un cerebro cada vez, con interruptor; en el ordenador, los dos.
+- **UX-4:** al elegir una región, el otro cerebro marca la pareja **sin girar**; gira y lleva su corte al pulsar «Ir a la pareja». Cambia la respuesta Q3 de Sofía a P3, así que queda pendiente de que ella lo confirme.
+- **UX-5:** primero el texto y una imagen fija de cada cerebro; el visor se carga justo después (la mitigación que este ADR dejaba abierta).
