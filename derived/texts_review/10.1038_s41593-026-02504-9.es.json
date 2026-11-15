@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1038/s41593-026-02504-9",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "33764605bc16731c",
+ "generated_at": "2026-11-15T14:29:23+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 4: words not in the Spanish dictionary ['haploinsuficiencia']"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores aplicaron un método de activación génica basado en CRISPR para dirigir los potenciadores de los genes CHD8 y SCN2A en neuronas derivadas de células madre humanas y en organoides cerebrales.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Esta intervención provocó un aumento duradero en la expresión de estos genes dentro de las células y organoides mutantes.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "En consecuencia, el tratamiento restauró los niveles normales de expresión génica y corrigió los cambios fisiológicos asociados a las mutaciones.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Estos hallazgos son relevantes porque aproximadamente el 15% del riesgo genético del trastorno del espectro autista proviene de nuevas mutaciones que causan haploinsuficiencia.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que los resultados respaldan el uso de la activación génica dirigida a potenciadores como un tratamiento potencial para el autismo y otros trastornos del neurodesarrollo.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-15T14:49:01+00:00"
+}

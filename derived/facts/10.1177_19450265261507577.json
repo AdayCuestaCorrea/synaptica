@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1177/19450265261507577",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "84e05001bac5adf9",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-15T14:23:09+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study examined two related families from Balochistan, Pakistan, who had hearing loss and vision problems.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Whole-exome sequencing and targeted testing found specific changes in the MYO7A gene that matched the disease pattern in both families.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Computer-based analysis predicted that the gene changes found in these families would harm the protein's function.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "One of the gene changes found in family HL-76 may be a new addition to the known list of MYO7A mutations.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The other gene change, found in family HL-79, has been seen before and is already listed in databases as likely causing disease.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The results provide a genetic diagnosis for both families, which can guide future medical care and family planning advice.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

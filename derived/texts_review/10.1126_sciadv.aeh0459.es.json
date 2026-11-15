@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1126/sciadv.aeh0459",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "a575117732ab3a8f",
+ "generated_at": "2026-11-15T14:39:44+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: words not in the Spanish dictionary ['sudoríparas']"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron un anillo portátil que detecta simultáneamente la actividad de las glándulas sudoríparas y las señales de flujo sanguíneo mediante luz de 960 y 1250 nanómetros, en lugar de contactos eléctricos.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Al compararlo con los sensores cutáneos eléctricos tradicionales, la nueva señal basada en luz coincidió con la señal estándar el 86 % de las veces.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "En pruebas de estrés simples de dos categorías, el anillo basado en luz acertó el 92,3 % de las veces, frente al 77,95 % del sensor eléctrico, y en pruebas más complejas de múltiples categorías, el método óptico obtuvo un 100 % frente al 74,58 % para datos a corto plazo y un 89,72 % frente al 43,20 % para datos a largo plazo, en comparación con el método eléctrico.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Un pequeño modelo de inteligencia artificial que se ejecuta directamente en el anillo alcanzó una precisión del 87,53 % sin necesidad de un ordenador externo.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-15T14:49:01+00:00"
+}

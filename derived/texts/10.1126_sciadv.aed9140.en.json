@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1126/sciadv.aed9140",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "3c5422ca4fe91c5c",
+ "generated_at": "2026-11-15T14:34:38+00:00",
+ "word_count": 117,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers used a mouse model of focal ischemic stroke to investigate the mechanisms behind reduced rehabilitation efficacy.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "They identified Lynx1, a protein that modulates nicotinic acetylcholine receptors, as a factor limiting neural plasticity, noting that its levels in neurons surrounding the injury dropped temporarily before returning to normal.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Reducing Lynx1 activity resulted in more clustering of synapses and a higher rate of change in dendritic spines, which improved both natural motor recovery and the effectiveness of rehabilitation during the chronic stage.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "A drug targeting Lynx1 given during the chronic phase boosted rehabilitation benefits, suggesting that how dendritic spines change in the area around the stroke is a major factor in how well rehabilitation works.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-15T14:49:03+00:00"
+ }
+}

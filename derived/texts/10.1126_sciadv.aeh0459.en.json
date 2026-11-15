@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1126/sciadv.aeh0459",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "a575117732ab3a8f",
+ "generated_at": "2026-11-15T14:39:44+00:00",
+ "word_count": 114,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed a wearable ring that detects sweat gland activity and blood flow signals simultaneously using light at 960 and 1250 nanometers, rather than electrical contacts.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "When compared with traditional electrical skin sensors, the new light-based signal matched the standard signal 86% of the time.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "In simple two-category stress tests, the light-based ring was correct 92.3% of the time, while the electrical sensor was correct 77.95% of the time, and in more complex multi-category tests, the light-based method scored 100% versus 74.58% for short-term data and 89.72% versus 43.20% for long-term data compared to the electrical method.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "A small AI model running directly on the ring achieved 87.53% accuracy without needing an external computer.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-15T14:50:03+00:00"
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s00429-026-03224-3",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "2131efe006cd1314",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-15T14:26:15+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study analyzed brain scans from 295 older adults who were part of the Vanderbilt Memory and Aging Project.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers measured the density and cross-sectional area of three different groups of nerve fibers in each small region of the brain's white matter.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The cross-sectional area of the less dominant nerve fiber groups shrank the fastest as the participants got older.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "People with mild cognitive impairment had smaller cross-sectional areas in these less dominant fiber groups compared to those without cognitive issues.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "A larger cross-sectional area in these specific fiber groups was linked to better performance on executive function tasks.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The pattern of age-related decline in these fibers was consistent regardless of how many different fiber bundles crossed in a specific area, suggesting the fiber type itself drives the aging effect.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The study suggests that measuring fiber cross-section is a more reliable indicator of brain changes in complex areas than measuring fiber density.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

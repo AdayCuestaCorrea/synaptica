@@ -1,0 +1,53 @@
+{
+ "study_id": "10.1126/sciadv.aed3856",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "9f2b774b48a84727",
+ "generated_at": "2026-11-15T14:31:35+00:00",
+ "word_count": 140,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A study using primate stem cells and mice found that the protein DACH1 is more common in human cells that make neurons, where it helps control the creation of basal radial glia, a type of precursor cell.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "When DACH1 was removed from human brain precursor cells, fewer basal radial glia were made, whereas removing the equivalent gene in mice did not change the number of these cells produced.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Forcing DACH1 to be active in the mouse brain caused basal radial glia to form, a process regulated by the gene LHX2 through a DNA region that evolved specifically in primates.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Adding this primate-specific DNA region to mice increased basal radial glia, while DACH1 helps create these cells by blocking a small RNA molecule that would otherwise reduce the activity of genes involved in cell division structures.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-15T14:49:03+00:00"
+ }
+}

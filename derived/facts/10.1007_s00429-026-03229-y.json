@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s00429-026-03229-y",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "5c57552dae758caa",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-15T14:27:18+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study analyzed brain scans from more than 500 healthy young people to look at how the signal difference between gray and white matter changes with age.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The difference in signal intensity at the boundary between gray and white matter increased as the participants got older.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "As age increased, the thickness of the brain's outer layer decreased at a steady rate, while the degree of folding decreased in a curved pattern.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "When the researchers adjusted for the signal difference at the tissue boundary, the link between age and the measured brain features became weaker.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The amount of white matter in the brain was linked to the signal contrast, the thickness of the cortex, and the level of folding.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Even after considering the signal difference, the relationship between age and the brain's thickness and folding was still statistically present.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The results suggest that researchers need to consider this signal difference when studying how the brain changes during development.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,39 @@
+{
+ "study_id": "10.1007/s00415-026-14257-3",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "96b0cf2c3c8e9648",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-15T14:25:14+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study analyzed blood or spinal fluid samples from six patients who had a specific, previously unknown staining pattern on brain tissue.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers used mass spectrometry to identify the protein targeted by the antibodies and confirmed the result with standard lab tests.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "The specific antibody test showed no positive results in 100 healthy individuals or 303 people with other diseases.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Five of the patients, who had detailed clinical records, all had breast or lung cancer and suffered from specific neurological conditions like limbic encephalitis or ataxia.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "NECAB1 is identified as a new antibody target linked to neurological disorders that occur alongside lung or breast cancer.",
+   "subject": "other"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source"
+ ]
+}

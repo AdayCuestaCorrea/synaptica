@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1002/dneu.70073",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "7576a7b7061759ad",
+ "generated_at": "2026-11-15T14:42:49+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: words not in the Spanish dictionary ['preictal']"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron un modelo informático denominado PM-BGAQAN para clasificar las señales cerebrales y cardíacas en tres estados epilépticos: preictal, ictal e interictal.",
+   "fact_ids": [
+    "f1",
+    "f7"
+   ]
+  },
+  {
+   "text": "El sistema filtra el ruido de fondo, analiza patrones en distintas escalas temporales para combinar los datos e incorpora un componente que tiene en cuenta la incertidumbre para mejorar la fiabilidad de las características extraídas.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Tras ajustar los parámetros de la red mediante un algoritmo de optimización, el modelo se evaluó en dos conjuntos de datos que incluían registros de EEG de cuero cabelludo y EEG portátil con ECG.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "El modelo alcanzó una precisión global del 99,86 por ciento, mientras que obtuvo una precisión media del 98,06 por ciento al probarse con datos de individuos no incluidos en la fase de entrenamiento.",
+   "fact_ids": [
+    "f8",
+    "f9"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que este enfoque constituye una estrategia eficaz para predecir los estados epilépticos a partir de señales combinadas del cerebro y el corazón.",
+   "fact_ids": [
+    "f10"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-15T14:49:01+00:00"
+}

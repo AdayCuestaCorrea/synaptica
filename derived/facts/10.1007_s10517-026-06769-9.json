@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1007/s10517-026-06769-9",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "c5d6c2c6523edee6",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-15T14:29:23+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study examined how melatonin affects brain function and a specific blood protein in rats with induced acute stroke.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Rats were treated for seven days with either a rectal suppository containing 2.5 mg of melatonin or an injection of citicoline.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Researchers evaluated the rats' neurological condition on days 3 and 7 using specific behavioral tests and measured S100B protein in their blood.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Melatonin treatment resulted in a partial improvement in neurological deficits and lower levels of S100B protein in the blood.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Melatonin was more effective than citicoline at correcting neurological deficits in the rats.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Citicoline was more effective than melatonin at reducing the levels of S100B protein in the blood.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

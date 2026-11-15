@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1016/j.neurot.2026.e00971",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "a9b7f3e477fa44e6",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-15T14:22:05+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used experimental models of subarachnoid hemorrhage to test the effects of SCIMP deficiency and activation.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "SCIMP binds to Toll-like receptors and brings in Lyn kinase to create a signaling pathway that adjusts inflammatory responses.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "Turning on this pathway changes the production of cytokines and affects how T cells are activated by antigen presentation.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "Lacking SCIMP made neuroinflammation worse, damaged the blood-brain barrier, and led to poorer neurological results.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Activating SCIMP reduced inflammatory damage and helped tissue recover.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The results suggest the SCIMP-TLR-Lyn pathway could be a target for treatments aimed at reducing secondary brain injury.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

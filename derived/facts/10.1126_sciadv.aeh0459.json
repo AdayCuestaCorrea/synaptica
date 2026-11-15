@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1126/sciadv.aeh0459",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "ee7357d4747b0720",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-15T14:17:26+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study introduces a wearable ring that uses light instead of electrical contacts to detect sweat gland activity for stress monitoring.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "The device uses two specific light wavelengths, 960 and 1250 nanometers, to measure sweat changes and blood flow signals at the same time.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "When compared with traditional electrical skin sensors, the new light-based signal matched the standard signal 86% of the time.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "For simple two-category stress tests, the light-based ring was correct 92.3% of the time, while the electrical sensor was correct 77.95% of the time.",
+   "subject": "other"
+  },
+  {
+   "id": "f5",
+   "statement": "In more complex multi-category tests, the light-based method scored 100% versus 74.58% for short-term data and 89.72% versus 43.20% for long-term data compared to the electrical method.",
+   "subject": "other"
+  },
+  {
+   "id": "f6",
+   "statement": "A small AI model running directly on the ring achieved 87.53% accuracy without needing an external computer.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

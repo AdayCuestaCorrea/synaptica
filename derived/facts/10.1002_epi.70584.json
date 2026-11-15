@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1002/epi.70584",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "480cb68a4c715908",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-15T14:24:11+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a cross-sectional survey format to collect data from members of the International League Against Epilepsy between February and May 2025.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Participants were presented with five clinical scenarios involving acute symptomatic seizures caused by stroke, head injury, meningitis, low sodium levels, or alcohol withdrawal.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Out of 963 doctors from 92 countries, about 62% said they would start seizure medication for visible seizures, while 61% would do so for seizures seen only on brain scans.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Doctors' decisions varied widely, with the most disagreement occurring for seizures caused by alcohol withdrawal and for seizures detected only by monitoring equipment.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Among 291 doctors who treat newborns, 75% said they would continue seizure medication after the baby left the hospital.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source",
+  "quote not found verbatim in the source",
+  "numbers not in the quote",
+  "quote not found verbatim in the source"
+ ]
+}

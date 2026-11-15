@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1126/sciadv.aed9140",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "3c5422ca4fe91c5c",
+ "generated_at": "2026-11-15T14:34:38+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores utilizaron un modelo de ratón de ictus isquémico focal para investigar los mecanismos que subyacen a la reducción de la eficacia de la rehabilitación.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Identificaron Lynx1, una proteína que modula los receptores nicotínicos de acetilcolina, como un factor limitante de la plasticidad neuronal, y observaron que sus niveles en las neuronas que rodean la lesión disminuyen temporalmente antes de volver a la normalidad.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "La reducción de la actividad de Lynx1 provocó un mayor agrupamiento de sinapsis y una mayor tasa de cambio en las espinas dendríticas, lo que mejoró tanto la recuperación motora natural como la eficacia de la rehabilitación durante la fase crónica.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Un fármaco dirigido contra Lynx1 administrado durante la fase crónica potenció los beneficios de la rehabilitación, lo que sugiere que la forma en que cambian las espinas dendríticas en la zona circundante al ictus es un factor determinante para el éxito de la rehabilitación.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-15T14:49:03+00:00"
+ }
+}

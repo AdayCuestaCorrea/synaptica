@@ -1,0 +1,58 @@
+{
+ "study_id": "10.1007/s11571-026-10607-z",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "464fda7352b3ff36",
+ "generated_at": "2026-11-15T14:46:55+00:00",
+ "word_count": 142,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers evaluated a reliability-weighted planning algorithm across 1,800 runs in six deterministic 8x8 mazes featuring varying levels of model error.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "While this method and a standard model-free approach achieved perfect success rates when only the planning model was corrupted, the reliability-aware method's success dropped to 60% on larger grids as corruption increased.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The model-free method's initial failure within a 200-episode limit was attributed by the authors to insufficient training time, as its success rate reached 100% at 1,000 episodes.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "In environments with random action errors, the reliability-weighted method showed greater resilience to corruption but underperformed a fixed planning method when no corruption was present, while simplified intrinsic-exploration algorithms failed to solve a 16x16 maze within 200 episodes.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "The authors present the connection to hippocampal replay as a computational analogy rather than a claim about actual neural mechanisms.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-15T14:50:04+00:00"
+ }
+}

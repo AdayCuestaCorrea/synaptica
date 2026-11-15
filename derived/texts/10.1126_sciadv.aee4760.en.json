@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1126/sciadv.aee4760",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "c100a9833e6935d2",
+ "generated_at": "2026-11-15T14:37:41+00:00",
+ "word_count": 120,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers analyzed single-cell gene expression and chromatin accessibility, a measure of how open DNA is for reading, in human brain tissue to investigate how Alzheimer's disease affects the hippocampus.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "The study identified over 1,000 connections between DNA structure changes and gene activity, revealing that a specific hippocampal neuron type suffered significant damage and cell-death gene activation while another type remained more resistant.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "In immune-support cells, genetic switches linked to inflammation and metabolism were activated, and comparisons with the prefrontal cortex showed that although inflammation levels were similar, immune cell responses differed by brain region.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors concluded that many genetic changes linked to Alzheimer's are unique to humans, with known risk genes concentrated in the regulatory regions of immune cells.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-15T14:49:04+00:00"
+ }
+}

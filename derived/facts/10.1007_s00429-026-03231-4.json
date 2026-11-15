@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1007/s00429-026-03231-4",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "fc898bb65badda8f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-15T14:28:21+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study was a prospective investigation into the relationship between specific cognitive deficits and white matter changes in individuals with tumors in the right side of the brain.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Thirty-four patients underwent brain imaging and four cognitive tests before surgery, while twenty-two of them were re-tested after the operation.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The control group consisted of thirty-four participants from the Human Connectome Project.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Before surgery, difficulties with spatial awareness, recognizing facial emotions, and understanding others' mental states were linked to structural abnormalities in the white matter of the right hemisphere.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Specifically, visuospatial problems were associated with changes in the frontal aslant tract, arcuate fasciculus, and two parts of the superior longitudinal fasciculus.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Deficits in recognizing facial emotions were associated with the third part of the superior longitudinal fasciculus and the uncinate fasciculus, while mentalizing deficits were linked to the arcuate fasciculus.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "After surgery, exploratory results suggested that new social-emotional deficits were associated with structural changes in the inferior longitudinal fasciculus and parts of the superior longitudinal fasciculus.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "New visuospatial deficits after surgery showed a trend toward a decrease in the volume of the right frontal aslant tract.",
+   "subject": "humans"
+  },
+  {
+   "id": "f9",
+   "statement": "Compared to the control group, changes in the left hemisphere were seen in all patients, while changes in the right hemisphere were mainly found in those who had cognitive deficits.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

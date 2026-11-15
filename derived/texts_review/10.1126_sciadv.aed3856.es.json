@@ -1,0 +1,48 @@
+{
+ "study_id": "10.1126/sciadv.aed3856",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "9f2b774b48a84727",
+ "generated_at": "2026-11-15T14:31:35+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 4: 'causal' is not in the English sentence",
+  "sentence 1: words not in the Spanish dictionary ['glios']",
+  "sentence 2: words not in the Spanish dictionary ['glios']",
+  "sentence 3: words not in the Spanish dictionary ['glios']",
+  "sentence 4: words not in the Spanish dictionary ['glios']"
+ ],
+ "sentences": [
+  {
+   "text": "Un estudio que utilizó células madre de primates y ratones reveló que la proteína DACH1 es más abundante en las células humanas que generan neuronas, donde ayuda a controlar la creación de glios radiales basales, un tipo de célula precursora.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Al eliminar DACH1 de las células precursoras del cerebro humano, se produjeron menos glios radiales basales, mientras que la eliminación del gen equivalente en ratones no alteró el número de estas células generadas.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Forzar la actividad de DACH1 en el cerebro de ratones provocó la formación de glios radiales basales, un proceso regulado por el gen LHX2 a través de una región del ADN que evolucionó específicamente en primates.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Añadir esta región del ADN específica de primates a los ratones aumentó los glios radiales basales, mientras que DACH1 contribuye a la creación de estas células al bloquear una molécula de ARN pequeño que, de otro modo, reduciría la actividad de los genes implicados en las estructuras de división celular.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-15T14:49:01+00:00"
+}

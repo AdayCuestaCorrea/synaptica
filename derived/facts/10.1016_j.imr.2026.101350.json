@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1016/j.imr.2026.101350",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "78a966d7d5e46e0d",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-15T14:21:03+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Computer simulations were used to compare how low-frequency and high-frequency electrical pulses spread through tissue at a specific acupuncture point.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "Animals were given five daily injections of a chemical to create a model of diabetic nerve pain.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The electrical treatment was applied to two different body locations using either low, high, or a mix of frequencies.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Researchers measured the amount of a specific brain chemical, the levels of certain receptors, and the number of specific nerve cells in the brain.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The computer model predicted that the low-frequency setting would stimulate a wider area of tissue than the high-frequency setting.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The chemical injection caused high blood sugar, weight loss, and sensitivity to touch, but did not cause sensitivity to cold.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The electrical treatment reduced touch sensitivity only when applied to one specific location, and the low-frequency setting worked best.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "The low-frequency treatment helped restore the levels of the brain chemical, saved specific nerve cells, and brought receptor levels back to normal.",
+   "subject": "animals"
+  },
+  {
+   "id": "f9",
+   "statement": "Giving the animals certain drugs blocked the beneficial effects of the electrical treatment.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

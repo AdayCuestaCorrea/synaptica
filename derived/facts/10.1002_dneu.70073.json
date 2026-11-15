@@ -1,0 +1,62 @@
+{
+ "study_id": "10.1002/dneu.70073",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "af8593ffd89c7d7d",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-15T14:18:28+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers developed a new computer model called PM-BGAQAN to predict three different seizure states from brain and heart signals.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The system uses a specific filter to reduce background noise in the recordings while keeping the important signal details.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "A second part of the model analyzes the signals to find patterns across different time scales and combines the brain and heart data.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The model includes a component that accounts for uncertainty in the data to make the features more reliable.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "An optimization algorithm was used to fine-tune the network settings for better performance.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The model was tested on two existing datasets: one containing scalp EEG recordings and another containing wearable EEG and ECG data.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "The goal was to classify the signals into three states: before a seizure, during a seizure, and between seizures.",
+   "subject": "computational"
+  },
+  {
+   "id": "f8",
+   "statement": "The model achieved an overall accuracy of 99.86 percent in its tests.",
+   "subject": "computational"
+  },
+  {
+   "id": "f9",
+   "statement": "When tested on data from people not used in the training phase, the model reached an average accuracy of 98.06 percent.",
+   "subject": "computational"
+  },
+  {
+   "id": "f10",
+   "statement": "The authors suggest the model is an effective strategy for predicting seizure states from combined brain and heart signals.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

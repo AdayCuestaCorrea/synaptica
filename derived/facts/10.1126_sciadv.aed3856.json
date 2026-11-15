@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1126/sciadv.aed3856",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "2b8ecdc1778ce865",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-15T14:14:21+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "A comparison of gene activity in developing brain cells from humans and mice found that the protein DACH1 is more common in human cells that make neurons.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "The study used primate stem cells and mice to show that a specific set of genes controls the creation of basal radial glia.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "When DACH1 was removed from human brain precursor cells, fewer basal radial glia were made and the resulting neurons were more likely to be of a type that connects to the spinal cord.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "Removing the equivalent gene in mice did not change the number of basal radial glia produced.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Forcing DACH1 to be active in the mouse brain caused basal radial glia to form and increased the production of neurons that connect the two brain hemispheres.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The gene for DACH1 is controlled by another gene called LHX2 through a DNA region that evolved specifically in primates.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "Adding this primate-specific DNA region to mice increased basal radial glia, while removing it from primates reduced their production.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "DACH1 helps create basal radial glia by blocking a small RNA molecule that would otherwise reduce the activity of genes involved in cell division structures.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

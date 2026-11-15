@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1126/sciadv.aee4760",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "0a9fc489e91f0a6f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-15T14:16:25+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study analyzed single-cell gene expression and chromatin accessibility from human brain tissue to understand how Alzheimer's disease affects the hippocampus.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers found over 1,000 connections between DNA structure changes and gene activity that are linked to the disease.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "A specific type of neuron in the hippocampus showed significant damage and activation of cell-death genes, while another type in the same region was more resistant.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "In immune-support cells, specific genetic switches were activated that are strongly linked to changes in inflammation and metabolism.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Comparing the hippocampus to the prefrontal cortex showed that while inflammation was similar, the way immune cells responded differed by brain region.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Many of the genetic changes linked to Alzheimer's are unique to humans, and known risk genes are concentrated in the regulatory regions of immune cells.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

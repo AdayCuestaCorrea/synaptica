@@ -1,0 +1,60 @@
+{
+ "study_id": "10.1002/dneu.70073",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "7576a7b7061759ad",
+ "generated_at": "2026-11-15T14:42:49+00:00",
+ "word_count": 119,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed a computer model named PM-BGAQAN to classify brain and heart signals into three seizure states: pre-ictal, ictal, and inter-ictal.",
+   "fact_ids": [
+    "f1",
+    "f7"
+   ]
+  },
+  {
+   "text": "The system filters background noise, analyzes patterns across time scales to combine the data, and includes a component that accounts for uncertainty to enhance feature reliability.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "After fine-tuning network settings with an optimization algorithm, the model was evaluated on two datasets comprising scalp EEG and wearable EEG with ECG recordings.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The model achieved an overall accuracy of 99.86 percent, while reaching an average accuracy of 98.06 percent when tested on data from individuals not included in the training phase.",
+   "fact_ids": [
+    "f8",
+    "f9"
+   ]
+  },
+  {
+   "text": "The authors suggest this approach is an effective strategy for predicting seizure states from combined brain and heart signals.",
+   "fact_ids": [
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-15T14:50:03+00:00"
+ }
+}

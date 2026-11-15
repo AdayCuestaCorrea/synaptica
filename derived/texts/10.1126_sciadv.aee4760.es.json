@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1126/sciadv.aee4760",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "c100a9833e6935d2",
+ "generated_at": "2026-11-15T14:37:41+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron la expresión génica a nivel de célula única y la accesibilidad de la cromatina, una medida de lo abierto que está el ADN para su lectura, en tejido cerebral humano para estudiar cómo la enfermedad de Alzheimer afecta al hipocampo.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "El estudio identificó más de 1000 conexiones entre los cambios en la estructura del ADN y la actividad génica, revelando que un tipo específico de neurona hipocampal sufrió daños significativos y activación de genes de muerte celular, mientras que otro tipo resultó más resistente.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "En las células de soporte inmunitario, se activaron interruptores genéticos vinculados a la inflamación y al metabolismo, y las comparaciones con la corteza prefrontal mostraron que, aunque los niveles de inflamación eran similares, las respuestas de las células inmunitarias variaban según la región cerebral.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyeron que muchos de los cambios genéticos asociados con el Alzheimer son exclusivos de los humanos, con los genes de riesgo conocidos concentrados en las regiones reguladoras de las células inmunitarias.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-15T14:49:04+00:00"
+ }
+}

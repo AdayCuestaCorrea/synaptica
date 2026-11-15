@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1126/sciadv.aed9140",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "d2f1f0e4613cf192",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-15T14:15:22+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a mouse model of focal ischemic stroke to investigate the mechanisms behind reduced rehabilitation efficacy.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Lynx1, a protein that modulates nicotinic acetylcholine receptors, was identified as a factor that limits neural plasticity after a stroke.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "In the brain region surrounding the stroke injury, the levels of Lynx1 in specific neurons dropped temporarily and then went back to normal.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Reducing Lynx1 activity led to more clustering of synapses and a higher rate of change in dendritic spines in the area around the stroke.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Suppressing Lynx1 improved both natural motor recovery and the effectiveness of rehabilitation during the chronic stage after a stroke.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "A drug designed to target Lynx1, given during the chronic phase, was found to boost the benefits of rehabilitation.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The results suggest that how dendritic spines change in the area around the stroke is a major factor in how well rehabilitation works.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}
