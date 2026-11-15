@@ -50,7 +50,7 @@
         {{ m.title_link(lead, "lead-title", mark=True) }}
         {{ m.chips(lead) }}
         {% set sm = lead.summary[lang] %}
-        <p class="lead-sum">{% if sm.kind == "verified" %}<span class="label label--ok">✓ {{ t.verified }}</span> {{ sm.sentences[0].text }}{% else %}<span class="label">{{ t.fallback }}</span> {{ sm.text }}{% endif %}</p>
+        <p class="lead-sum">{% if sm.kind == "verified" %}<span class="label label--ok">✓ {{ t.verified }}</span> {{ lead_excerpt(sm.sentences) }}{% else %}<span class="label">{{ t.fallback }}</span> {{ sm.text }}{% endif %}</p>
         <p><a class="more" href="{{ url('study', lead.slug) }}">{{ t.read_more }} →</a></p>
       </div>
     </article>

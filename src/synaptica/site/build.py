@@ -237,7 +237,7 @@ class SiteBuilder:
         from synaptica.news.topics import TOPICS
 
         self.render(lang, "home", "home.html.j2", gaps=gaps, topic_hits=self.topic_hits,
-                    topic_names=TOPICS,
+                    topic_names=TOPICS, lead_excerpt=news_mod.lead_excerpt,
                     lead=n.lead if n else None, headlines=n.headlines if n else [])  # fmt: skip
 
     def news(self, lang: str) -> None:

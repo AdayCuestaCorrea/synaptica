@@ -316,3 +316,59 @@ def test_notices_name_the_databases_they_come_from(site: Path) -> None:
     assert "Notices in Crossref · Retraction Watch" in en
     assert "Avisos en Crossref · Retraction Watch" in es
     assert 'href="https://doi.org/10.1/notice"' in en
+
+
+# ---- the featured study of «Today» (Aday, 2026-11-15) ----------------------------------
+
+
+def _rec(sid, day, *, verified=True, species="unknown", news_type=None, integrity="none"):
+    kind = "verified" if verified else "fallback"
+    summary = {"es": {"kind": kind}, "en": {"kind": kind}}
+    return {"study_id": sid, "entered_on": day, "species": species, "news_type": news_type,
+            "integrity": integrity, "summary": summary}  # fmt: skip
+
+
+def _data(latest, nsc=()):
+    return news.NewsData(as_of=dt.date(2026, 11, 15), latest=list(latest), nsc=list(nsc),
+                         stories=[], examples={}, week="2026-W46", week_studies=[],
+                         week_text={})  # fmt: skip
+
+
+def test_the_lead_prefers_known_subjects_over_the_newest_modelling_paper():
+    model = _rec("model", "2026-11-15", news_type="healthy_brain")
+    mice = _rec("mice", "2026-11-14", species="animals", news_type="disease")
+    assert _data([model, mice]).lead is mice
+
+
+def test_the_lead_prefers_nature_science_cell_then_type():
+    noise = _rec("noise", "2026-11-15", species="humans", news_type="noise")
+    typed = _rec("typed", "2026-11-14", species="humans", news_type="disease")
+    assert _data([noise, typed]).lead is typed
+    cell = _rec("cell", "2026-11-13")
+    assert _data([noise, typed], nsc=[cell]).lead is cell
+
+
+def test_the_lead_stays_recent_and_clean():
+    old = _rec("old", "2026-11-12", species="humans", news_type="disease")  # 4 days back
+    retracted = _rec("retr", "2026-11-15", species="humans", news_type="disease",
+                     integrity="retracted")  # fmt: skip
+    plain = _rec("plain", "2026-11-14")
+    assert _data([retracted, plain, old]).lead is plain
+
+
+def test_without_verified_summaries_the_lead_is_the_newest():
+    a, b = _rec("a", "2026-11-15", verified=False), _rec("b", "2026-11-14", verified=False)
+    assert _data([a, b]).lead is a
+    assert _data([_rec("x", None)]).lead["study_id"] == "x"  # no date: never crashes
+
+
+def test_the_lead_shows_its_verified_sentences_within_a_length(tmp_path: Path) -> None:
+    long = "x" * 330 + "."
+    assert news.lead_excerpt([{"text": long}, {"text": "Two."}]) == long
+    assert news.lead_excerpt([{"text": "One."}, {"text": "Two."}]) == "One. Two."
+    assert news.lead_excerpt([{"text": "y" * 400}, {"text": "Two."}]) == "y" * 400  # never empty
+    data = warehouse(tmp_path / "data")
+    _verified(data, "doi:10.1/new", ["One.", "Two."], ["Uno.", long])
+    es = (build(tmp_path, data) / "es/index.html").read_text()
+    lead = es.split('class="lead-sum"')[1].split("</p>")[0]
+    assert "Uno." in lead and long not in lead
