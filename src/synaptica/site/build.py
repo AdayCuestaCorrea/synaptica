@@ -160,12 +160,16 @@ class SiteBuilder:
             shutil.copy(src / name, dst / name)
         for folder in ("fonts", "img"):
             shutil.copytree(src / folder, dst / folder)
-        if "atlas" in self.kinds:  # the viewer's data, each atlas in its folder with its licence
-            shutil.copytree(src / "atlas", dst / "atlas")
+        if "atlas" in self.kinds:  # the viewer, Niivue, and its data, each atlas with its licence
+            for folder in ("atlas", "viewer", "vendor"):
+                shutil.copytree(src / folder, dst / folder)
         # A fingerprint of CSS and JS in their URLs: a browser never keeps an old copy.
         digest = hashlib.sha256()
+        extra = [dst / "viewer" / "viewer.js"] if "atlas" in self.kinds else []
         for name in ("synaptica.css", *SCRIPTS):
             digest.update((dst / name).read_bytes())
+        for path in extra:
+            digest.update(path.read_bytes())
         self.asset_v = digest.hexdigest()[:10]
 
     # -- pages ---------------------------------------------------------------------------
@@ -353,7 +357,7 @@ class SiteBuilder:
     def atlas(self, lang: str) -> None:
         t = self.i18n[lang]
         src = self.site_dir / "static" / "atlas"
-        gaps = {k: ("gap", t[f"gap_{k}"]) for k in ("atlas_order", "atlas_names", "atlas_viewer")}
+        gaps = {k: ("gap", t[f"gap_{k}"]) for k in ("atlas_order", "atlas_names")}
         brains = [{"key": b, "families": atlas_page.regions(src, b),
                    "credits": atlas_page.credits(src, b)} for b in atlas_page.BRAINS]  # fmt: skip
         self.render(lang, "atlas", "atlas.html.j2", gaps=gaps, brains=brains)

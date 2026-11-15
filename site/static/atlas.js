@@ -24,7 +24,12 @@
     for (const group of document.querySelectorAll(".depth-group")) {
       group.hidden = !group.querySelector(".family:not([hidden])");
     }
-    none.hidden = !q || hits > 0;
-    none.textContent = none.hidden ? "" : form.dataset.none;
+    // The viewer's suggestions (static/viewer/viewer.js) also cover the atlases' parent
+    // regions («HF»): no «no match» while they offer something. They update after this.
+    setTimeout(() => {
+      const offered = document.querySelector("#atlas-suggest li[role=option]");
+      none.hidden = !q || hits > 0 || Boolean(offered);
+      none.textContent = none.hidden ? "" : form.dataset.none;
+    });
   });
 })();

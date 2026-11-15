@@ -137,3 +137,17 @@ Decisiones de Aday en el [estudio de UX de Neuro Atlas](../fases/fase-2-atlas-ux
 - **Dónde viven los datos** (decisión de Aday): en el repositorio, en `site/static/atlas/`, regenerados a mano cuando cambia un atlas. Alternativas descartadas: la rama `data` (habría que tocar `pipeline.yml`, y el atlas no es un dato diario) y generarlos en cada ejecución (unos 665 MB de descargas y dependencias pesadas en el pipeline diario).
 - **Dependencias:** grupo opcional `atlas`, que no instalan ni la CI ni el pipeline.
 - **Presupuesto:** se mide por cerebro en la carga inicial (rata 0,71 MB; humano, con sus cuatro capas, 1,22 MB). BigBrain (1,62 MB) y los cortes de Nissl (unos 26 KB cada uno) solo se bajan si se piden.
+
+### El visor en la web (2026-11-15, SCOPE v163)
+
+- **Dónde está:** `site/static/viewer/viewer.js`, copiado del visor C de S3 (`spikes/s3/site/c/c.js` y `common/common.js`). Niivue 0.69.0 se sirve desde la propia web (`site/static/vendor/niivue-0.69.0/`, con su licencia BSD-2-Clause), sin otros dominios. `syn site` copia las dos carpetas y los datos de `site/static/atlas/` solo cuando construye la página de Neuro Atlas.
+- **Parches de Niivue:** se conservan todos los del prototipo, cada uno con su comentario. Son el desplazamiento de etiquetas (incidencia 1139), el toque que equivale a un doble clic, la posición del puntero al tocar y la resolución limitada en pantallas táctiles. Subir de versión obliga a repetir las pruebas táctiles de S3.
+- **Cambios respecto al prototipo:**
+  - Un solo buscador para los dos cerebros, que es el de la página.
+  - Los nombres de la lista eligen su región.
+  - Controles según UX-3 B, recordados en el navegador.
+  - El otro cerebro marca la pareja sin girar, y el botón «Ir a la pareja» lo lleva hasta ella (UX-4 B).
+  - En el móvil, un cerebro cada vez y solo se carga el que se ve (UX-1 C).
+  - Niivue se pide cuando la página ya ha cargado, y el lienzo ocupa el sitio de la imagen fija (UX-5 B).
+  - El fondo del 3D sigue el tema de la web.
+  - Sin WebGL 2, la página lo dice y la lista sigue funcionando.

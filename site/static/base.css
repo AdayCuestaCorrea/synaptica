@@ -380,7 +380,7 @@ a.gl:hover, a.gl:focus-visible { color: var(--link); background: var(--accent-so
    under the other on a phone; region lists folded by family. */
 .atlas { margin: 18px 0 0; }
 .atlas-head { max-width: 62rem; }
-.atlas-soon { color: var(--muted); }
+.atlas-hint { color: var(--muted); }
 .atlas-find { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; margin: 18px 0 6px; }
 .atlas-find label { font-weight: 700; }
 .atlas-find input { flex: 1 1 16rem; min-width: 0; max-width: 28rem; padding: 10px 12px; font: inherit; color: var(--ink); background: var(--surface); border: var(--card-border); border-radius: var(--radius-s); }
@@ -390,7 +390,6 @@ a.gl:hover, a.gl:focus-visible { color: var(--link); background: var(--accent-so
 .brain { min-width: 0; }
 .brain h2 { margin: 0 0 10px; }
 .brain-still { margin: 0 0 14px; }
-.brain-still img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: contain; border-radius: var(--radius); background: var(--surface); }
 .brain-still figcaption { margin-top: 6px; font-size: 0.82rem; color: var(--muted); }
 .brain-count { display: flex; gap: 8px; align-items: baseline; margin: 0 0 4px; }
 .brain-count span, .family-n { font-weight: 400; font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
@@ -403,3 +402,55 @@ a.gl:hover, a.gl:focus-visible { color: var(--link); background: var(--accent-so
 .swatch { flex: none; width: 0.8em; height: 0.8em; border-radius: 3px; align-self: center; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.15); }
 .acr, .layer { font-size: 0.78rem; color: var(--muted); }
 .layer { padding: 0 5px; border: var(--card-border); border-radius: 999px; }
+/* Neuro Atlas viewer (step 3, SCOPE v163): the canvas takes the still's place once loaded. */
+.atlas-q { position: relative; flex: 1 1 16rem; min-width: 0; max-width: 28rem; display: flex; }
+.atlas-q input { flex: 1; max-width: none; }
+.atlas-suggest { position: absolute; z-index: 6; top: 100%; left: 0; right: 0; margin: 2px 0 0; padding: 4px 0; list-style: none; background: var(--surface); color: var(--ink); border: var(--card-border); border-radius: var(--radius-s); box-shadow: 0 4px 14px rgb(0 0 0 / 0.3); max-height: 18em; overflow-y: auto; }
+.atlas-suggest li { display: flex; flex-wrap: wrap; gap: 2px 6px; align-items: baseline; padding: 8px 12px; min-height: 44px; box-sizing: border-box; cursor: pointer; font-size: 0.92rem; }
+.atlas-suggest li[aria-selected="true"], .atlas-suggest li:hover { background: var(--accent-soft); }
+.atlas-suggest li.empty { color: var(--muted); cursor: default; }
+.atlas-tools { position: relative; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 14px; }
+.atlas-tools .btn, .seg button, .brain-switch button, .go-pair { min-height: 44px; padding: 8px 14px; font: inherit; font-size: 0.92rem; color: var(--ink); background: var(--surface); border: var(--card-border); border-radius: var(--radius-s); cursor: pointer; }
+.atlas-tools [aria-pressed="true"], .seg button[aria-pressed="true"], .atlas-tools [aria-expanded="true"] { border-color: var(--accent); color: var(--accent-ink); box-shadow: inset 0 0 0 1px var(--accent); }
+.atlas-tools button:focus-visible, .brain-switch button:focus-visible, .go-pair:focus-visible, .rname:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.atlas-more { flex-basis: 100%; display: grid; gap: 8px; padding: 12px; background: var(--surface); border: var(--card-border); border-radius: var(--radius); }
+.more-row { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; margin: 0; }
+.more-label { min-width: 5rem; font-weight: 700; font-size: 0.9rem; }
+.seg { display: flex; flex-wrap: wrap; gap: 4px; }
+.more-note { margin: 0; font-size: 0.82rem; color: var(--muted); }
+.brain-switch { display: none; }
+.stage { position: relative; aspect-ratio: 4 / 3; max-width: 100%; overflow: hidden; border-radius: var(--radius); background: var(--atlas-bg); }
+.stage img, .stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.stage img { object-fit: contain; }
+.stage canvas { display: block; visibility: hidden; touch-action: none; }
+.stage canvas.axes { pointer-events: none; }
+.is-live .stage img { visibility: hidden; }
+.is-live .stage canvas { visibility: visible; }
+.stage-status { position: absolute; left: 10px; bottom: 10px; right: 10px; margin: 0; padding: 6px 10px; font-size: 0.85rem; background: var(--surface); color: var(--ink); border-radius: var(--radius-s); opacity: 0.92; }
+.stage .tag { position: absolute; transform: translate(10px, -50%); pointer-events: none; white-space: nowrap; padding: 3px 8px; border-radius: 6px; font-size: 0.85rem; line-height: 1.3; background: var(--surface); color: var(--ink); border: var(--card-border); box-shadow: 0 1px 4px rgb(0 0 0 / 0.25); }
+.stage .tag.left { transform: translate(calc(-100% - 10px), -50%); }
+.planes { display: grid; gap: 4px; margin: 6px 0; font-size: 0.88rem; }
+.planes label { display: grid; grid-template-columns: 8.5em 1fr 5.5em 2em; gap: 8px; align-items: center; }
+.planes input[type="range"] { width: 100%; min-width: 0; accent-color: var(--accent); }
+.planes input[type="number"] { width: 100%; min-width: 0; font: inherit; font-variant-numeric: tabular-nums; text-align: right; color: var(--ink); background: var(--surface); border: var(--card-border); border-radius: 6px; }
+.planes .frame { margin: 4px 0 0; font-size: 0.8rem; color: var(--muted); }
+.panel { margin: 0 0 12px; padding: 10px 12px; min-height: 4.5em; background: var(--surface); border: var(--card-border); border-radius: var(--radius); font-size: 0.92rem; }
+.panel:empty { display: none; }
+.panel h3 { margin: 0 0 4px; font-size: 1rem; }
+.panel p { margin: 2px 0; }
+.panel .muted, .panel .small { color: var(--muted); }
+.panel .small { font-size: 0.82rem; }
+.panel .grade { font-style: italic; }
+.panel abbr { text-decoration: underline dotted; cursor: help; }
+.go-pair { margin-top: 6px; }
+.licence-extra { margin: -6px 0 12px; font-size: 0.8rem; color: var(--muted); }
+.rname { padding: 0; font: inherit; color: inherit; text-align: left; background: none; border: 0; }
+button.rname { cursor: pointer; text-decoration: underline dotted var(--muted); text-underline-offset: 3px; }
+button.rname:hover { color: var(--accent-ink); }
+@media (max-width: 799px) {
+  .brain-switch:not([hidden]) { display: flex; margin: 0 0 12px; border: var(--card-border); border-radius: 999px; overflow: hidden; }
+  .brain-switch button { flex: 1; border: 0; border-radius: 0; }
+  .brain-switch button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); font-weight: 700; }
+  .brains[data-active="rat"] #human, .brains[data-active="human"] #rat { display: none; }
+  .planes label { grid-template-columns: 6.5em 1fr 4.8em 2em; }
+}

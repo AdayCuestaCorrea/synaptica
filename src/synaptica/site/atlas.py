@@ -42,9 +42,11 @@ def regions(atlas_dir: Path, brain: str) -> list[dict[str, Any]]:
             fam = row.get("group") or "other"
             if fam not in by_family:
                 raise ValueError(f"{atlas}: family {fam!r} has no place in the region list")
+            # The viewer's key of the area, both sides (static/viewer/viewer.js, searchIndex).
+            key = f"w{row['id']}" if atlas == "waxholm" else f"j{row['area_id']}"
             by_family[fam].setdefault((row["name"], atlas), {
                 "name": row["name"], "acronym": row.get("acronym"), "atlas": atlas,
-                "colour": row["color_calm"],
+                "colour": row["color_calm"], "key": key,
             })  # fmt: skip
     return [
         {"family": fam, "depth": "surface" if fam in SURFACE else "interior",

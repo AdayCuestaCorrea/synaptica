@@ -25,7 +25,8 @@ def write(root: Path, name: str, rows: list[dict]) -> None:
 
 
 def row(name: str, side: str, group: str, acronym: str | None = None) -> dict:
-    return {"name": name, "side": side, "group": group, "acronym": acronym, "color_calm": "#aabbcc"}
+    return {"name": name, "side": side, "group": group, "acronym": acronym, "color_calm": "#aabbcc",
+            "id": len(name), "area_id": name.upper()}  # fmt: skip
 
 
 @pytest.fixture
@@ -47,7 +48,13 @@ def test_regions_join_both_sides_and_go_from_the_surface_inwards(atlas_dir: Path
     assert [f["family"] for f in fams] == ["cortex", "hippocampus"]
     assert [f["depth"] for f in fams] == ["surface", "interior"]
     assert fams[1]["regions"] == [
-        {"name": "Cornu ammonis 1", "acronym": "CA1", "atlas": "waxholm", "colour": "#aabbcc"}
+        {
+            "name": "Cornu ammonis 1",
+            "acronym": "CA1",
+            "atlas": "waxholm",
+            "colour": "#aabbcc",
+            "key": "w15",
+        }
     ]
 
 
@@ -76,11 +83,16 @@ def test_the_page_lists_both_brains_with_their_credits(tmp_path: Path) -> None:
     for credit in ("Waxholm v4.01", "Julich-Brain v3.1", "CC BY 4.0", "CC BY-NC-SA 4.0"):
         assert credit in page
     assert 'id="rat"' in page and 'id="human"' in page
-    assert page.count("<li data-q=") > 400  # every region of both brains, sides joined
+    assert page.count("<li data-key=") > 400  # every region of both brains, sides joined
     assert (out / "en" / "atlas.html").exists()
     # The viewer's data travel with the site, each atlas with its licence.
     for folder in ("waxholm", "julich", "cerebra", "cit168", "icbm_wm", "bigbrain", "nissl"):
         assert (out / "static" / "atlas" / folder / "licence.json").exists()
+    # The viewer and Niivue (with its licence) are served by the site itself: no other domain.
+    assert (out / "static" / "viewer" / "viewer.js").exists()
+    assert (out / "static" / "vendor" / "niivue-0.69.0" / "LICENSE").exists()
+    assert 'data-niivue="../static/vendor/niivue-0.69.0/niivue.umd.js' in page
+    assert 'data-atlas-viewer="../static/atlas"' in page
 
 
 def test_the_home_card_opens_the_atlas_page(tmp_path: Path) -> None:

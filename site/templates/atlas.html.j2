@@ -1,24 +1,46 @@
-{# Neuro Atlas (Phase 2, SCOPE v161; study docs/fases/fase-2-atlas-ux.md). The page comes
-   first (text, search, region list, a still per brain) and the viewer after it (UX-5); one
-   credit line per brain (UX-6). Until step 3, the viewer is the S3 prototype, linked. #}
+{# Neuro Atlas (Phase 2, SCOPE v161–v163; study docs/fases/fase-2-atlas-ux.md). The page comes
+   first (text, search, region list, a still per brain) and the viewer after it, over the still
+   (UX-5 B; static/viewer/viewer.js); one credit line per brain (UX-6). Without JavaScript or 3D
+   graphics the page still works: the stills, the search over the lists and the lists. #}
 {% extends "base.html.j2" %}
 {% import "macros.html.j2" as m with context %}
 {% block title %}{{ t.atlas }}{% endblock %}
-{% block scripts %}<script src="{{ static('atlas.js') }}?v={{ asset_v }}" defer></script>{% endblock %}
+{% block scripts %}<script src="{{ static('atlas.js') }}?v={{ asset_v }}" defer></script>
+<script type="module" src="{{ static('viewer/viewer.js') }}?v={{ asset_v }}"></script>{% endblock %}
 {% block main %}
-<article class="atlas">
+<article class="atlas" data-atlas-viewer="{{ static('atlas') }}" data-niivue="{{ static('vendor/niivue-0.69.0/niivue.umd.js') }}?v={{ asset_v }}">
   <header class="atlas-head">
     <h1>{{ t.atlas }}</h1>
     <p class="lede">{{ t.atlas_intro }}</p>
-    <p class="atlas-soon">{{ t.atlas_viewer_soon }} <a href="{{ prototype_url }}" rel="noopener" target="_blank">{{ t.atlas_open_prototype }} ↗</a> {{ m.gap("atlas_viewer") }}</p>
+    <p class="atlas-hint">{{ t.atlas_hint }}</p>
   </header>
 
   <form class="atlas-find" role="search" data-atlas-find data-none="{{ t.atlas_search_none }}" onsubmit="return false">
     <label for="atlas-q">{{ t.atlas_search }}</label>
-    <input id="atlas-q" type="search" placeholder="{{ t.atlas_search_ph }}" autocomplete="off">
+    <span class="atlas-q">
+      <input id="atlas-q" type="search" placeholder="{{ t.atlas_search_ph }}" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-controls="atlas-suggest" aria-expanded="false">
+      <ul id="atlas-suggest" class="atlas-suggest" role="listbox" aria-label="{{ t.atlas_search }}" hidden></ul>
+    </span>
     <p class="atlas-none" role="status" aria-live="polite" hidden></p>
   </form>
   <p class="atlas-note">{{ t.atlas_names_note }} {{ m.gap("atlas_names") }} {{ m.gap("atlas_order") }}</p>
+
+  <div class="atlas-tools" hidden>
+    <button type="button" class="btn" data-clip aria-pressed="false">{{ t.atlas_clip }}</button>
+    <button type="button" class="btn" data-more aria-expanded="false" aria-controls="atlas-more">{{ t.atlas_more }}</button>
+    <div class="atlas-more" id="atlas-more" hidden>
+      <p class="more-row"><span class="more-label">{{ t.atlas_view }}</span>
+        <span class="seg"><button type="button" data-view="3d" aria-pressed="true">{{ t.atlas_view_3d }}</button><button type="button" data-view="slice" aria-pressed="false">{{ t.atlas_view_slice }}</button></span></p>
+      <p class="more-row"><span class="more-label">{{ t.atlas_look }}</span>
+        <span class="seg"><button type="button" data-look="color" aria-pressed="true">{{ t.atlas_look_color }}</button><button type="button" data-look="atlas" aria-pressed="false">{{ t.atlas_look_atlas }}</button><button type="button" data-look="drawn" aria-pressed="false">{{ t.atlas_look_drawn }}</button><button type="button" data-look="real" aria-pressed="false">{{ t.atlas_look_real }}</button></span></p>
+      <p class="more-row"><span class="seg"><button type="button" data-isolate aria-pressed="false">{{ t.atlas_isolate }}</button></span></p>
+      <p class="more-note">{{ t.atlas_more_note }}</p>
+    </div>
+  </div>
+  <div class="brain-switch" role="group" aria-label="{{ t.atlas_brain }}" hidden>
+    <button type="button" data-brain="human" aria-pressed="true">{{ t.brain_human }}</button><button type="button" data-brain="rat" aria-pressed="false">{{ t.brain_rat }}</button>
+  </div>
+  <p class="vh atlas-live" aria-live="polite"></p>
 
   <div class="brains">
     {% for b in brains %}
@@ -27,17 +49,23 @@
       <h2 id="brain-{{ b.key }}">{{ t["brain_" ~ b.key] }}</h2>
       {% set main = b.credits[0] %}
       <figure class="brain-still">
-        {% if b.key == "rat" %}
-        <img src="{{ static('img/atlas/rata.webp') }}" width="1137" height="552" alt="{{ t.atlas_rat_alt }}" decoding="async">
-        {% else %}
-        <img src="{{ static('img/atlas/humano.webp') }}" width="789" height="618" alt="{{ t.atlas_human_alt }}" decoding="async">
-        {% endif %}
+        <div class="stage">
+          {% if b.key == "rat" %}
+          <img src="{{ static('img/atlas/rata.webp') }}" width="1137" height="552" alt="{{ t.atlas_rat_alt }}" decoding="async">
+          {% else %}
+          <img src="{{ static('img/atlas/humano.webp') }}" width="789" height="618" alt="{{ t.atlas_human_alt }}" decoding="async">
+          {% endif %}
+          <canvas aria-label="{{ t.atlas_canvas_label.format(brain=t['brain_' ~ b.key]) }}"></canvas>
+          <p class="stage-status" role="status" hidden></p>
+        </div>
         <figcaption>{{ t.atlas_credit }}: <a href="{{ main.source_url }}" rel="noopener">{{ main.short }}</a> · <a href="{{ main.licence_url }}" rel="noopener license">{{ main.licence }}</a>
           {%- if b.credits | length > 1 %}. {{ t.atlas_layers }}:
           {% for c in b.credits[1:] %}<a href="{{ c.source_url }}" rel="noopener">{{ c.short }}</a> (<a href="{{ c.licence_url }}" rel="noopener license">{{ c.licence }}</a>){% if not loop.last %} · {% endif %}{% endfor %}
           {%- endif %}
           {%- if b.key == "human" %}. {{ t.atlas_human_still_note }}{% endif %}</figcaption>
       </figure>
+      <div class="panel" aria-live="polite"></div>
+      <div class="licence-extra" hidden></div>
       <h3 class="brain-count">{{ t.atlas_regions }} <span>{{ t.atlas_regions_count.format(n=n) }}</span></h3>
       {% for depth in ("surface", "interior") %}
       {% set fams = b.families | selectattr("depth", "equalto", depth) | list %}
@@ -49,7 +77,7 @@
         <summary><span class="swatch" style="background:{{ f.regions[0].colour }}"></span>{{ t["fam_" ~ f.family] }} <span class="family-n">{{ f.regions | length }}</span></summary>
         <ul class="regions">
           {% for r in f.regions %}
-          <li data-q="{{ (r.name ~ ' ' ~ (r.acronym or '') ~ ' ' ~ t['fam_' ~ f.family]) | lower }}"><span class="swatch" style="background:{{ r.colour }}"></span>{{ r.name }}{% if r.acronym %} <span class="acr">{{ r.acronym }}</span>{% endif %}{% if b.credits | length > 1 %} <span class="layer">{{ (b.credits | selectattr("atlas", "equalto", r.atlas) | first).short }}</span>{% endif %}</li>
+          <li data-key="{{ r.key }}" data-q="{{ (r.name ~ ' ' ~ (r.acronym or '') ~ ' ' ~ t['fam_' ~ f.family]) | lower }}"><span class="swatch" style="background:{{ r.colour }}"></span><span class="rname">{{ r.name }}</span>{% if r.acronym %} <span class="acr">{{ r.acronym }}</span>{% endif %}{% if b.credits | length > 1 %} <span class="layer">{{ (b.credits | selectattr("atlas", "equalto", r.atlas) | first).short }}</span>{% endif %}</li>
           {% endfor %}
         </ul>
       </details>
