@@ -34,6 +34,8 @@ app.add_typer(review_app, name="review")
 app.add_typer(mirror_app, name="mirror")
 atlas_app = typer.Typer(help="Neuro Atlas: the viewer's data files, one folder per atlas.")
 app.add_typer(atlas_app, name="atlas")
+glossary_app = typer.Typer(help="Neuro Glossary: terms, their Wikipedia sources and texts.")
+app.add_typer(glossary_app, name="glossary")
 
 
 def _llm(provider: str | None, model: str | None):
@@ -1040,3 +1042,27 @@ def mirror_record(
     sizes = json.loads(stored.read_text("utf-8")) if stored and stored.exists() else None
     entry = mirror.record(config.get_paths().data / "mirror" / "bigquery.jsonl", tables, sizes)
     typer.echo(json.dumps(entry))
+
+
+@glossary_app.command("sources")
+def glossary_sources(
+    refresh: Annotated[
+        bool, typer.Option("--refresh", help="Look up every term again, not only new ones.")
+    ] = False,
+) -> None:
+    """Wikipedia lead (EN and ES) of each glossary term -> src/synaptica/glossary/sources.json.
+    By hand, never in the pipeline; exit 1 if a lookup failed."""
+    from synaptica.glossary import load_terms
+    from synaptica.glossary.sources import update_sources
+    from synaptica.http import make_client
+
+    terms = load_terms()
+    with make_client() as client:
+        r = update_sources(client, terms, refresh=refresh)
+    typer.echo(
+        f"Glossary sources: {r.asked} of {r.terms} terms asked; accepted EN {r.accepted['en']}, "
+        f"ES {r.accepted['es']}; {r.changed} changed"
+    )
+    if r.failed:
+        typer.echo(f"Failed: {', '.join(r.failed)}", err=True)
+        raise typer.Exit(code=1)

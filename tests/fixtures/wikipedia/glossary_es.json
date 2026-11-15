@@ -1,0 +1,42 @@
+{
+  "batchcomplete": true,
+  "query": {
+    "pages": [
+      {
+        "pageid": 34297,
+        "ns": 0,
+        "title": "Dopamina",
+        "extract": "La dopamina (C6H3(OH)2-CH2-CH2-NH2)  es un neurotransmisor producido en una amplia variedad de animales, tanto vertebrados como invertebrados. Según su estructura química, la dopamina es una feniletilamina, una catecolamina que cumple funciones de neurotransmisor en el sistema nervioso central, activando los cinco tipos de receptores celulares de dopamina: D1 (relacionado con un efecto activador), D2 (relacionado con un efecto inhibidor), D3, D4 y D5, y sus variantes. La dopamina se produce principalmente en las neuronas dopaminérgicas del área tegmental ventral y la sustancia negra, en el troncoencéfalo. La dopamina es también una neurohormona liberada por el hipotálamo, donde su función principal es inhibir la liberación de prolactina del lóbulo anterior de la hipófisis.\nEn el cerebro de pacientes con enfermedad de Parkinson degeneran y mueren las neuronas dopaminérgicas de la sustancia negra, las cuales proyectan hacia el putamen y núcleo caudado del estriado, ambos parte de los ganglios basales e implicados en la regulación del movimiento voluntario. La reducción de actividad dopaminérgica a este nivel provoca la pérdida de control de los movimientos voluntarios. El tratamiento para esta enfermedad es restaurativo, ya que intentar compensar la pérdida de dopamina que se produce por la muerte neuronal dopaminérgica. Sin embargo, para poder hacer llegar la dopamina hasta el cerebro y compensar su déficit, se administra su precursor, la L-Dopa (levodopa), normalmente junto a la carbidopa para evitar la degradación de la L-Dopa en plasma y aumentar la cantidad de precursor que llega al cerebro. Una vez atravesada la barrera hematoencefálica, la L-Dopa es metabolizada hasta dopamina gracias a la dopa descarboxilasa.\n\n",
+        "revisions": [
+          {
+            "revid": 175867770,
+            "parentid": 174643825
+          }
+        ],
+        "pageprops": {
+          "page_image_free": "Dopamine_3D_ball.png",
+          "wikibase_item": "Q170304"
+        }
+      },
+      {
+        "pageid": 10530956,
+        "ns": 0,
+        "title": "Pars compacta",
+        "extract": "La pars compacta (SNpc)​ es una porción de la sustancia negra, situada en el mesencéfalo. Está formada por neuronas dopaminérgicas y situada medial a la pars reticulata. La enfermedad de Parkinson se caracteriza por la muerte de neuronas dopaminérgicas en esta región.​",
+        "revisions": [
+          {
+            "revid": 171077616,
+            "parentid": 154092654
+          }
+        ],
+        "pageprops": {
+          "wikibase_item": "Q3366041"
+        }
+      }
+    ]
+  },
+  "limits": {
+    "extracts": 20,
+    "langlinks": 500
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "batchcomplete": true,
+  "query": {
+    "redirects": [
+      {
+        "from": "DREADD",
+        "to": "Receptor activated solely by a synthetic ligand"
+      }
+    ],
+    "pages": [
+      {
+        "ns": 0,
+        "title": "No such neuro article xyz",
+        "missing": true
+      },
+      {
+        "pageid": 48548,
+        "ns": 0,
+        "title": "Dopamine",
+        "extract": "Dopamine (DA, a contraction of 3,4-dihydroxyphenethylamine) is a neuromodulatory molecule that plays several important roles in cells. It is an organic chemical of the catecholamine and phenethylamine families. It is an amine synthesized by removing a carboxyl group through decarboxylation from a molecule of its precursor chemical, L-DOPA, which is synthesized in the brain and kidneys. Dopamine is also synthesized in plants and most animals. In the brain, dopamine functions as a neurotransmitter—a chemical released by neurons (nerve cells) to send signals to other nerve cells. The brain includes several distinct dopamine pathways, one of which plays a major role in the motivational component of reward-motivated behavior. The anticipation of most types of rewards increases the level of dopamine in the brain, and many addictive drugs increase dopamine release or block its reuptake into neurons following release. Other dopaminergic pathways are involved in motor control and controlling the release of various hormones. These pathways and cell groups form a dopamine system which is neuromodulatory.\nIn popular culture and media, dopamine is often portrayed as the main chemical of pleasure, but the current opinion in pharmacology is that dopamine instead confers motivational salience; in other words, dopamine signals the perceived motivational prominence (i.e., the desirability or aversiveness) of an outcome, which in turn directs behavior toward or away from achieving that outcome.\nOutside the central nervous system, dopamine functions primarily as a local paracrine messenger. In blood vessels, it inhibits norepinephrine release and acts as a vasodilator; in the kidneys, it increases sodium excretion and urine output; in the pancreas, it reduces insulin production; in the digestive system, it hinders gastrointestinal motility and protects intestinal mucosa; and in the immune system, it reduces the activity of lymphocytes. With the exception of the blood vessels, dopamine is synthesized locally within these systems and exerts its effects near the cells that release it.\nSeveral notable diseases of the nervous system are associated with dysfunctions of the dopamine system, and some of the key medications used to treat them work by altering the effects of dopamine. Parkinson's disease, a degenerative condition causing tremors and impaired motor control, is caused by a loss of dopamine-secreting neurons in the substantia nigra. Its metabolic precursor, L-DOPA, can be manufactured; Levodopa, a pure form of L-DOPA, is the most widely used treatment for Parkinson's. Several models of schizophrenia link altered dopamine expression with the disorder; most antipsychotic drugs used to treat it are dopamine antagonists. Similar drugs are also used as anti-nausea agents. Restless legs syndrome and attention deficit hyperactivity disorder (ADHD) are associated with decreased dopamine activity. Dopaminergic stimulants can be addictive in high doses, but are used at lower doses to treat ADHD. Dopamine itself is available as a manufactured medication for intravenous injection. It is useful in the treatment of severe heart failure or cardiogenic shock. In newborn babies it may be used for hypotension and septic shock.",
+        "revisions": [
+          {
+            "revid": 1383948590,
+            "parentid": 1383142589
+          }
+        ],
+        "pageprops": {
+          "page_image_free": "Dopamine_3D_ball.png",
+          "toc": "",
+          "wikibase-badge-Q17437798": "",
+          "wikibase-shortdesc": "Organic chemical that functions both as a hormone and a neurotransmitter",
+          "wikibase_item": "Q170304"
+        },
+        "langlinks": [
+          {
+            "lang": "es",
+            "title": "Dopamina"
+          }
+        ]
+      },
+      {
+        "pageid": 4512803,
+        "ns": 0,
+        "title": "Receptor activated solely by a synthetic ligand",
+        "extract": "A receptor activated solely by a synthetic ligand (RASSL) or designer receptor exclusively activated by designer drugs (DREADD), is a class of artificially engineered protein receptors used in the field of chemogenetics which are selectively activated by certain ligands. They are used in biomedical research, in particular in neuroscience to manipulate the activity of neurons. \nOriginally differentiated by the approach used to engineer them, RASSLs and DREADDs are often used interchangeably now to represent an engineered receptor-ligand system. These systems typically utilize G protein-coupled receptors (GPCR) engineered to respond exclusively to synthetic ligands, like clozapine N-oxide (CNO), and not to endogenous ligands. Several types of these receptors exists, derived from muscarinic or κ-opioid receptors.",
+        "revisions": [
+          {
+            "revid": 1383494930,
+            "parentid": 1328341597
+          }
+        ],
+        "pageprops": {
+          "wikibase-shortdesc": "Artificial biochemical receptors only responsive to predesigned drugs",
+          "wikibase_item": "Q7302367"
+        }
+      },
+      {
+        "pageid": 5212259,
+        "ns": 0,
+        "title": "Pars compacta",
+        "extract": "The pars compacta (SNpc, SNc) is one of two subdivisions of the substantia nigra of the midbrain (the other being the pars reticulata); it is situated medial to the pars reticulata. It is formed by dopaminergic neurons. It projects to the striatum and portions of the cerebral cortex. It is functionally involved in fine motor control.\nParkinson's disease is characterized by the death of dopaminergic neurons in this region.",
+        "revisions": [
+          {
+            "revid": 1369113635,
+            "parentid": 1320353242
+          }
+        ],
+        "pageprops": {
+          "page_image_free": "Substantia_nigra_pars_compacta.jpg",
+          "wikibase-shortdesc": "Dopamine-releasing portion of the substantia nigra",
+          "wikibase_item": "Q3366041"
+        },
+        "langlinks": [
+          {
+            "lang": "es",
+            "title": "Pars compacta"
+          }
+        ]
+      }
+    ]
+  },
+  "limits": {
+    "extracts": 20,
+    "langlinks": 500
+  }
+}
