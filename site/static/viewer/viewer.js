@@ -839,7 +839,10 @@ class VolumeViewer {
         if (this.tag) this.tag.hidden = true;
         if (this.focus.size) this.pick(0, { partner: false, defer: true });
         clearTimeout(this.slideTimer);
-        this.slideTimer = setTimeout(() => this.pickAtPoint({ partner: true }), SLIDE_PAUSE);
+        this.slideTimer = setTimeout(() => {
+          this.pickAtPoint({ partner: true });
+          this.cutBeside(this.focus); // v175: the region picked here is shown whole too
+        }, SLIDE_PAUSE);
       });
       range.addEventListener("change", () => this.setBusy(false)); // let go
       // Applied on Enter or when the field loses focus, so typing "-3.2" does not jump at "-".
@@ -1391,7 +1394,8 @@ class VolumeViewer {
   // list, «Ir a la pareja») is not cut in half: the cut goes just outside it, on the camera's
   // side (the cut takes away what lies left of it), and the 2D slice stays through its middle
   // (the slice follows the point's AP, the cut its ML). A cut placed with the sliders is left
-  // where it is. draw: redraw here (false when the caller redraws).
+  // where it is until it rests and a region is picked (v175). draw: redraw here (false when the
+  // caller redraws).
   cutBeside(indices, draw = true) {
     if (!state.clip || !indices.size && !indices.length) return;
     const minX = this.leftEdges();
