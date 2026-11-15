@@ -38,6 +38,8 @@ CAP_WEEKDAY, CAP_WEEKEND = 40, 10
 # New glossary terms a day (Phase 2, v180): her held edits of terms do not count. Before
 # the optional spot-check, as in her page's ORDER; 3 at the weekend leave room in the 10.
 GLOSSARY_WEEKDAY, GLOSSARY_WEEKEND = 8, 3
+# Not before her grant interview on 2026-11-17: her page does not change before (v183).
+GLOSSARY_FROM = dt.date(2026, 11, 18)
 LANGS = ("es", "en")
 
 
@@ -156,7 +158,7 @@ def collect(
     if glossary is None:
         from synaptica.glossary.texts import review_items
 
-        glossary = review_items()
+        glossary = review_items() if today >= GLOSSARY_FROM else []
     # The topic switches go last: a quick yes or no that never takes a text's place.
     items = [*(extra or []), *([classics] if classics else []), *glossary,
              *news_spot_checks(warehouse, derived_root), *queue_items()]  # fmt: skip

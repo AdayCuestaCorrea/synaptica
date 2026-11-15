@@ -161,18 +161,29 @@ def published(review_dir: Path | None) -> list[Entry]:
     """The terms she approved or corrected, in the version on the table today. Pending,
     rejected or held terms are left out, and so is a decision on an older version (its
     text, source or draft changed since: the hash, as everywhere in the review). Unlike
-    the summaries (``apply.publishable``, already public), nothing shows before her yes."""
+    the summaries (``apply.publishable``, already public), nothing shows before her yes.
+
+    One more way in (Aday's option B, v183): a term she proposed herself in her review
+    (action ``propose``) shows her Spanish, as she wrote it, before she sees its item:
+    only if ``texts.csv`` carries her words exactly and they pass the checks (the item
+    exists). Its English is a draft she has not seen, so the English page shows the gap
+    until she approves the item; her rejection of the item takes the term off."""
     from synaptica.review.apply import read_log, state
 
     events = read_log(review_dir) if review_dir is not None and review_dir.exists() else []
+    proposed = _proposed(events)
+    texts = load_texts()
     out = []
     for item in review_items():
         st = state(item, events)
+        term = next(t for t in _terms() if t.term_id == item.item_id)
         if st.status not in PUBLISHED or st.reviewed_by is None or st.reviewed_at is None:
+            entry = _her_proposal(term, texts[term.term_id], item, st.status, proposed)
+            if entry is not None:
+                out.append(entry)
             continue
         content = st.text or item.content
         assert isinstance(content, TextContent)
-        term = next(t for t in _terms() if t.term_id == item.item_id)
         meaning: dict[str, str | None] = {}
         definition: dict[str, str | None] = {}
         for lang in LANGS:
@@ -186,6 +197,34 @@ def published(review_dir: Path | None) -> list[Entry]:
                          sources=list(content.sources),
                          reviewed_at=st.reviewed_at.date().isoformat(), mark=mark))  # fmt: skip
     return out
+
+
+def _proposed(events: list[Any]) -> dict[str, Any]:
+    """Her latest proposal of each term, by the term as she wrote it."""
+    from synaptica.review.models import Action
+
+    out = {}
+    for e in events:
+        d = e.decision
+        if d.item_type is ItemType.GLOSSARY and d.action is Action.PROPOSE and not e.held:
+            out[str(d.payload.get("term", ""))] = d
+    return out
+
+
+def _her_proposal(term: Term, text: Text, item: ReviewItem, status: str,
+                  proposed: dict[str, Any]) -> Entry | None:  # fmt: skip
+    """Her own Spanish for a term she proposed (option B, v183), or None."""
+    d = proposed.get(term.term)
+    if d is None or status == "rejected" or not text.origin["es"].startswith("issue#"):
+        return None
+    if (d.payload.get("meaning_es"), d.payload.get("explanation_es")) != (
+        text.meaning["es"], text.definition["es"],
+    ):  # fmt: skip
+        return None  # not her words: never shown as hers
+    return Entry(term=term, meaning={"es": text.meaning["es"], "en": None},
+                 definition={"es": text.definition["es"], "en": None},
+                 sources=list(item.content.sources),
+                 reviewed_at=d.reviewed_at.date().isoformat(), mark="proposed")  # fmt: skip
 
 
 def _terms() -> list[Term]:

@@ -16,11 +16,25 @@ GLOSSARY = review_items()
 
 
 def queue(data: Path, today: dt.date = MONDAY) -> Queue:
-    return collect.collect(data / "warehouse.duckdb", data / "derived", data / "review", today)
+    """With the terms passed in: by default they wait for GLOSSARY_FROM (own test)."""
+    return collect.collect(data / "warehouse.duckdb", data / "derived", data / "review", today,
+                           glossary=GLOSSARY)  # fmt: skip
 
 
 def kinds(q: Queue) -> list[str]:
     return [i.item_type.value for i in q.items if i.item_type is not ItemType.NEWS_TOPIC]
+
+
+def test_no_terms_in_her_queue_before_the_18th(tmp_path: Path) -> None:
+    """Her grant interview is on 2026-11-17: her page does not change before (v183)."""
+    data = data_dir(tmp_path, a=4)
+
+    def default(day):
+        q = collect.collect(data / "warehouse.duckdb", data / "derived", data / "review", day)
+        return kinds(q).count("glossary")
+
+    assert default(dt.date(2026, 11, 16)) == default(dt.date(2026, 11, 17)) == 0
+    assert default(dt.date(2026, 11, 18)) == collect.GLOSSARY_WEEKDAY
 
 
 def test_all_24_terms_become_items():

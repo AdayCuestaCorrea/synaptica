@@ -139,3 +139,70 @@ def test_without_approved_terms_the_viewer_gets_no_index(tmp_path: Path) -> None
     SiteBuilder(out, images=LICENSED, data_dir=tmp_path / "data", kinds=(*KINDS, "atlas")).build()
     assert not (out / "es/glosario-atlas.json").exists()
     assert "data-glossary-index" not in (out / "es/atlas.html").read_text()
+
+
+# ---- her own proposals (option B, v183) ----------------------------------------------
+
+PROPOSALS = Path(__file__).parent / "fixtures" / "review" / "glossary_proposals.jsonl"
+HERS = {"nmda", "bdnf", "5-ht", "pet", "ltd", "stn", "ros"}
+
+
+def proposals(data: Path, edit=None) -> None:
+    """Her 7 real proposals (issues #14 and #15 on the data branch), optionally edited."""
+    (data / "review").mkdir(parents=True, exist_ok=True)
+    lines = PROPOSALS.read_text("utf-8").splitlines()
+    if edit:
+        lines = [edit(json.loads(x)) for x in lines]
+        lines = [json.dumps(x) for x in lines]
+    (data / "review" / "decisions.jsonl").write_text("\n".join(lines) + "\n", "utf-8")
+
+
+def test_her_proposals_show_her_spanish_and_the_english_gap(tmp_path: Path) -> None:
+    data = tmp_path / "data"
+    proposals(data)
+    entries = {e.term.term_id: e for e in published(data / "review")}
+    assert set(entries) == HERS  # the 17 terms of the proposal: not hers, not shown
+    nmda = entries["nmda"]
+    assert nmda.mark == "proposed" and nmda.reviewed_at == "2026-11-14"
+    assert nmda.meaning == {"es": "N-metil-D-aspartato", "en": None}
+    assert nmda.definition["en"] is None
+    out = build(tmp_path, data)
+    es, en = (out / "es/glosario.html").read_text(), (out / "en/glossary.html").read_text()
+    assert "Tipo de receptor de glutamato implicado en la plasticidad sináptica" in es
+    assert "Propuesta y escrita por nuestra revisora científica el 14 nov 2026" in es
+    assert en.count('class="gl-pending"') == 7 and "#gap-glossary_en" in en
+    assert "Type of glutamate receptor" not in en  # the LLM draft she has not seen
+    assert check_site(out).problems == []
+
+
+def test_only_her_exact_words_are_shown_as_hers(tmp_path: Path) -> None:
+    def change(d):
+        if d["payload"]["term"] == "PET":
+            d["payload"]["explanation_es"] += " Otra frase."
+        return d
+
+    data = tmp_path / "data"
+    proposals(data, change)
+    assert "pet" not in {e.term.term_id for e in published(data / "review")}
+
+
+def test_approving_the_item_adds_the_english_and_rejecting_takes_it_off(tmp_path: Path) -> None:
+    data = tmp_path / "data"
+    proposals(data)
+    decide(data, ("nmda", "approve", {}), ("ros", "reject", {}))
+    entries = {e.term.term_id: e for e in published(data / "review")}
+    assert entries["nmda"].mark == "approved"
+    assert entries["nmda"].definition["en"].startswith("Type of glutamate receptor")
+    assert "ros" not in entries and "bdnf" in entries
+
+
+def test_her_stn_shows_in_the_viewer_in_spanish_only(tmp_path: Path) -> None:
+    data = tmp_path / "data"
+    proposals(data)
+    out = tmp_path / "site"
+    SiteBuilder(out, images=LICENSED, data_dir=data, kinds=(*KINDS, "atlas")).build()
+    es = json.loads((out / "es/glosario-atlas.json").read_text())
+    en = json.loads((out / "en/glossary-atlas.json").read_text())
+    assert es["regions"]["waxholm:STh"]["term"] == "stn"
+    assert es["terms"]["stn"]["definition"].startswith("Estructura de los ganglios basales")
+    assert en["terms"]["stn"]["definition"] is None  # the viewer says «pending»
