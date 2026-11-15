@@ -499,6 +499,9 @@ class VolumeViewer {
       down = null;
       if (!quick || !still) return;
       this.upAt = performance.now(); // step 4: start of the tap's timing (picked)
+      // Aday (v167): Niivue's 3D pick leaves the point where it was when the ray hits no
+      // tissue, and still reports the region there. Where the point was, to tell (picked).
+      this.tapFrom = [...this.nv.scene.crosshairPos];
       const r = this.canvas.getBoundingClientRect();
       const dpr = this.nv.uiData.dpr || 1;
       if (this.nv.inRenderTile((e.clientX - r.left) * dpr, (e.clientY - r.top) * dpr) < 0) return;
@@ -1149,8 +1152,20 @@ class VolumeViewer {
   picked(loc) {
     const at = this.nv.volumes.indexOf(this.vol); // 1 while the real stain is under it
     const raw = loc && loc.values && loc.values[at] ? Math.round(loc.values[at].value) : 0;
-    const v = this.regionOf(raw);
+    let v = this.regionOf(raw);
+    if (this.tapFrom) {
+      const moved = this.nv.scene.crosshairPos.some((x, a) => Math.abs(x - this.tapFrom[a]) > 1e-6);
+      this.tapFrom = null;
+      if (!moved) v = 0; // the tap hit the background of the 3D view
+    }
     this.showTag(v ? this.rows[v] : null);
+    if (!v) {
+      // Aday (v167): a tap outside the brain lets go of the selection in this brain only; it
+      // takes its colours back, and the other brain keeps what it shows.
+      this.upAt = null;
+      this.pick(0, { partner: false });
+      return;
+    }
     // Step 4 (SCOPE v164): how long a tap takes, by parts, for scripts/atlas_measure.mjs. From
     // the finger lifting to: the region read (Niivue's pick), this brain repainted, the other
     // brain repainted, and the next frame on screen.
