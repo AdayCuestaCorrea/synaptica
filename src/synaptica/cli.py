@@ -32,6 +32,8 @@ mirror_app = typer.Typer(help="Weekly mirror of the marts in BigQuery (D1, step 
 review_app = typer.Typer(help="Sofía's review queue: her page and her Issues (ADR 0005).")
 app.add_typer(review_app, name="review")
 app.add_typer(mirror_app, name="mirror")
+atlas_app = typer.Typer(help="Neuro Atlas: the viewer's data files, one folder per atlas.")
+app.add_typer(atlas_app, name="atlas")
 
 
 def _llm(provider: str | None, model: str | None):
@@ -738,6 +740,41 @@ def build(
     if as_of:
         cmd += ["--vars", f"{{as_of: '{as_of}'}}"]
     raise typer.Exit(subprocess.run(cmd, env=env, check=False).returncode)
+
+
+@atlas_app.command("build")
+def atlas_build(
+    out: Annotated[
+        str | None, typer.Option(help="Output folder [default: site/static/atlas].")
+    ] = None,
+    cache: Annotated[
+        str | None, typer.Option(help="Download cache [default: data/cache/atlas].")
+    ] = None,
+    offline: Annotated[
+        bool, typer.Option("--offline", help="Only the cache: fail instead of downloading.")
+    ] = False,
+    no_nissl: Annotated[
+        bool, typer.Option("--no-nissl", help="Skip the rat's Nissl sections (146 images).")
+    ] = False,
+) -> None:
+    """Build the Neuro Atlas data from the atlases (by hand when an atlas changes; ADR D3).
+
+    Needs the optional group: `uv sync --group atlas`. Never part of the daily pipeline."""
+    try:
+        from synaptica.atlas.build import build, http_fetch
+    except ImportError as exc:  # numpy, nibabel, siibra… live in the optional group
+        typer.echo(f"Missing the atlas group ({exc.name}): run `uv sync --group atlas`.", err=True)
+        raise typer.Exit(1) from exc
+    out_dir = Path(out) if out else config.project_root() / "site" / "static" / "atlas"
+    cache_dir = Path(cache) if cache else config.get_paths().cache / "atlas"
+    report = build(out_dir, cache_dir, nissl_sections=not no_nissl,
+                   fetch=None if offline else http_fetch())  # fmt: skip
+    for brain, r in report["initial_load"].items():
+        flag = "" if r["within_budget"] else "  OVER THE 3 MB BUDGET"
+        typer.echo(f"{brain:6} initial load {r['bytes'] / 1e6:5.2f} MB{flag}")
+    for folder, n in report["on_demand"].items():
+        typer.echo(f"{folder:8} on request  {n / 1e6:5.2f} MB")
+    typer.echo(f"Neuro Atlas data → {out_dir}")
 
 
 @app.command()

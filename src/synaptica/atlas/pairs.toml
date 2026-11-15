@@ -1,0 +1,101 @@
+# Rat ↔ human pairs of Neuro Atlas: which Waxholm region goes with which human regions.
+#
+# These are the 12 test pairs of spike S3 (Phase 0), proposals only: none has a grade yet. The
+# grade (clear, partial or disputed) and the short note are Sofía's (SCOPE §7, «Rata ↔ humano»);
+# her table replaces this seed. Only IDs and names: no geometry of either atlas, so the pairs are
+# SYNAPTICA's own data and never a derived work of the two atlases (CLAUDE.md, "Licencias").
+#
+# waxholm: Waxholm/BrainGlobe id. atlas: the human layer (julich, cerebra, cit168, icbm_wm).
+# human: region names exactly as in that layer's labels.json.
+
+[[pair]]
+kind = "surface"
+waxholm = 408  # M1
+atlas = "julich"
+human = ["Area 4a (PreCG)", "Area 4p (PreCG)"]
+
+[[pair]]
+kind = "internal"
+waxholm = 1021  # HF
+atlas = "julich"
+human = [
+    "CA1 (Hippocampus)",
+    "CA2 (Hippocampus)",
+    "CA3 (Hippocampus)",
+    "DG (Hippocampus)",
+    "Subc (Hippocampus, Subicular complex)",
+]
+
+[[pair]]
+kind = "third"
+waxholm = 501  # Am-u
+atlas = "julich"
+human = [
+    "CM (Amygdala)",
+    "LB (Amygdala)",
+    "SF (Amygdala)",
+    "Astr (Amygdala)",
+    "VTM (Amygdala)",
+    "IF (Amygdala)",
+    "MF (Amygdala)",
+]
+
+[[pair]]
+kind = "cerebellum"
+waxholm = 1047
+atlas = "cerebra"
+human = [
+    "Cerebellum Gray Matter",
+    "Cerebellum White Matter",
+    "Vermal lobules I-V",
+    "Vermal lobules VI-VII",
+    "Vermal lobules VIII-X",
+]
+
+[[pair]]
+kind = "brainstem"
+waxholm = 47
+atlas = "cerebra"
+human = ["Brainstem"]
+
+[[pair]]
+kind = "striatum"
+waxholm = 197
+atlas = "cerebra"
+human = ["Caudate", "Putamen"]
+
+[[pair]]
+kind = "pallidum"
+waxholm = 1028
+atlas = "cerebra"
+human = ["Pallidum"]
+
+[[pair]]
+kind = "ventricles"
+waxholm = 1048
+atlas = "cerebra"
+human = ["Lateral Ventricle", "Third Ventricle", "Fourth Ventricle"]
+
+[[pair]]
+kind = "optic chiasm"
+waxholm = 42
+atlas = "cerebra"
+human = ["Optic Chiasm"]
+
+[[pair]]
+kind = "hypothalamus"
+waxholm = 1034
+atlas = "cit168"
+human = ["Hypothalamus (HTH)", "Mammillary nucleus (MN)"]
+
+[[pair]]
+kind = "epithalamus"
+waxholm = 1083
+atlas = "cit168"
+human = ["Habenular nuclei (HN)"]
+
+[[pair]]
+kind = "white matter"
+waxholm = 1001
+atlas = "icbm_wm"
+human = ["Cerebral white matter (not divided into tracts)"]

@@ -37,6 +37,9 @@ build-backend = "uv_build"
 dev = [
     "ruff",
     "pytest",
+    # Tests of `syn atlas build` (src/synaptica/atlas/): they write tiny synthetic NIfTI
+    # volumes. Pure Python, small; numpy and scipy already come with scikit-learn (eval).
+    "nibabel>=5.5.0",
     { include-group = "eval" },
 ]
 # `syn eval news` (plan, step 14a): the classical baseline of the news classifier, TF-IDF
@@ -44,6 +47,22 @@ dev = [
 # Only for the evaluation and its tests (in `dev`); the daily pipeline does not install it.
 eval = [
     "scikit-learn>=1.9.1",
+]
+# `syn atlas build` (Neuro Atlas, Phase 2; SCOPE v160): the viewer's data from the atlases,
+# run by hand when an atlas changes. Only `uv sync --group atlas`; neither the CI nor the
+# daily pipeline installs it. Same packages as spike-s3, which it replaces.
+atlas = [
+    # Waxholm rat atlas: annotation volume and structure tree.
+    "brainglobe-atlasapi>=3.0.3",
+    # Julich-Brain human atlas: maximum probability maps and EBRAINS metadata.
+    "siibra>=1.0.1a27",
+    # Read and write NIfTI label volumes.
+    "nibabel>=5.5.0",
+    # Resampling (flat skull), bounding boxes and downsampling of label volumes.
+    "numpy>=2.3",
+    "scipy>=1.18.1",
+    # Rat Nissl sections: read the image tiles, write the 2D sections as WebP.
+    "pillow>=13.0.0",
 ]
 # Spike S2 (decision D1): the same dbt project on BigQuery sandbox and on DuckDB.
 # Only `uv sync --group spike-s2`; the regular CI does not install it.

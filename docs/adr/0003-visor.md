@@ -130,3 +130,10 @@ Decisiones de Aday en el [estudio de UX de Neuro Atlas](../fases/fase-2-atlas-ux
 - **UX-1:** en el móvil se ve y se carga un cerebro cada vez, con interruptor; en el ordenador, los dos.
 - **UX-4:** al elegir una región, el otro cerebro marca la pareja **sin girar**; gira y lleva su corte al pulsar «Ir a la pareja». Cambia la respuesta Q3 de Sofía a P3, así que queda pendiente de que ella lo confirme.
 - **UX-5:** primero el texto y una imagen fija de cada cerebro; el visor se carga justo después (la mitigación que este ADR dejaba abierta).
+
+### Datos del visor en el paquete (2026-11-15, SCOPE v160)
+
+- El generador del spike pasa a `src/synaptica/atlas/` (`syn atlas build`) con tests. Generado desde la caché de S3, da los mismos archivos que aprobó Sofía.
+- **Dónde viven los datos** (decisión de Aday): en el repositorio, en `site/static/atlas/`, regenerados a mano cuando cambia un atlas. Alternativas descartadas: la rama `data` (habría que tocar `pipeline.yml`, y el atlas no es un dato diario) y generarlos en cada ejecución (unos 665 MB de descargas y dependencias pesadas en el pipeline diario).
+- **Dependencias:** grupo opcional `atlas`, que no instalan ni la CI ni el pipeline.
+- **Presupuesto:** se mide por cerebro en la carga inicial (rata 0,71 MB; humano, con sus cuatro capas, 1,22 MB). BigBrain (1,62 MB) y los cortes de Nissl (unos 26 KB cada uno) solo se bajan si se piden.

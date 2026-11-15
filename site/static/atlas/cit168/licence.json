@@ -1,0 +1,11 @@
+{
+  "atlas": "CIT168 subcortical atlas (Reinforcement Learning Atlas), deterministic map in MNI152 2009c nonlinear asymmetric",
+  "short": "CIT168",
+  "version": "v1.1.0",
+  "licence": "CC BY 4.0",
+  "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source": "OSF project jkzwp, CIT168toMNI152-2009c_det.nii.gz and labels.txt",
+  "source_url": "https://osf.io/jkzwp/",
+  "citation": "Pauli W. M., Nili A. N., Tyszka J. M. 2018, A high-resolution probabilistic in vivo atlas of human subcortical brain nuclei, Scientific Data 5:180063, https://doi.org/10.1038/sdata.2018.63",
+  "derived": "Split into left and right at the midline; only the structures with at least half of their voxels outside Julich-Brain and CerebrA, and only those voxels (layers.py); compact indices; centred like the Julich-Brain label volume (same grid). Changes made by SYNAPTICA. Not combined with any other atlas file."
+}

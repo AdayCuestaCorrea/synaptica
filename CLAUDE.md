@@ -129,6 +129,7 @@ uv run syn review recheck-held --queue Q [--efetch X]   # sus ediciones retenida
 SYN_DATA_DIR=/tmp/syn-ci uv run python scripts/seed_fixture_data.py   # fixtures como si vinieran de las fuentes
 SYN_DATA_DIR=/tmp/syn-ci uv run syn build --as-of 2026-11-09          # dbt sobre esas fixtures (como la CI)
 uv run syn site && uv run syn site --check
+uv sync --group atlas && uv run --group atlas syn atlas build [--offline] [--cache data/cache/atlas]   # datos de Neuro Atlas → site/static/atlas/ (a mano, cuando cambia un atlas; nunca en el pipeline)
 scripts/gpu_batch.sh RUN_DIR CMD...       # lote LLM local: systemd-inhibit, vitales de la GPU a CSV, para a 85 °C
 ```
 

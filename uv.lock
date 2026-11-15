@@ -2699,7 +2699,16 @@ dependencies = [
 ]
 
 [package.dev-dependencies]
+atlas = [
+    { name = "brainglobe-atlasapi" },
+    { name = "nibabel" },
+    { name = "numpy" },
+    { name = "pillow" },
+    { name = "scipy" },
+    { name = "siibra" },
+]
 dev = [
+    { name = "nibabel" },
     { name = "pytest" },
     { name = "ruff" },
     { name = "scikit-learn" },
@@ -2736,7 +2745,16 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
+atlas = [
+    { name = "brainglobe-atlasapi", specifier = ">=3.0.3" },
+    { name = "nibabel", specifier = ">=5.5.0" },
+    { name = "numpy", specifier = ">=2.3" },
+    { name = "pillow", specifier = ">=13.0.0" },
+    { name = "scipy", specifier = ">=1.18.1" },
+    { name = "siibra", specifier = ">=1.0.1a27" },
+]
 dev = [
+    { name = "nibabel", specifier = ">=5.5.0" },
     { name = "pytest" },
     { name = "ruff" },
     { name = "scikit-learn", specifier = ">=1.9.1" },
