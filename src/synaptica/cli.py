@@ -934,6 +934,33 @@ def review_sweep(
         raise typer.Exit(2)
 
 
+@review_app.command("recheck-held")
+def review_recheck_held(
+    queue: Annotated[Path, typer.Option(help="The review queue (JSON) her held edits came from.")],
+    cache_root: Annotated[Path | None, typer.Option(help="Abstract cache.")] = None,
+    efetch: Annotated[
+        list[Path] | None,
+        typer.Option(help="PubMed efetch XML for abstracts not in the cache; repeatable."),
+    ] = None,
+) -> None:
+    """Her held edits checked again with today's code: those that pass now are applied
+    (same decision, `rechecked_at` set); exit 2 when a source has no text to check against."""
+    import datetime as dt
+    import json
+
+    from synaptica.review import recheck
+    from synaptica.review.intake import source_texts
+    from synaptica.review.models import Queue
+
+    q = Queue.model_validate_json(queue.read_text("utf-8"))
+    texts = source_texts(q, cache_root or config.get_paths().cache, efetch or [])
+    now = dt.datetime.now(dt.UTC).replace(microsecond=0)
+    result = recheck.run(_review_dir(), q, texts, now)
+    typer.echo(json.dumps(result))
+    if result["without_source"]:
+        raise typer.Exit(2)
+
+
 @mirror_app.command("export")
 def mirror_export(
     out: Annotated[Path, typer.Option(help="Folder for the Parquet files.")],

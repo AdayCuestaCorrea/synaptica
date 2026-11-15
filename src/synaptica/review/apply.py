@@ -94,8 +94,10 @@ def read_log(data_dir: Path) -> list[Event]:
                                     tuple(row["warnings"])))  # fmt: skip
             else:
                 events.append(Event(Decision.model_validate(row)))
-    # Time order; on a tie, the Issue number, then the order in the file (stable sort).
-    return sorted(events, key=lambda e: (e.decision.reviewed_at, _issue(e.decision.source)))
+    # Time order; on a tie, the Issue number, then a recheck after the held edit it
+    # releases (same date and Issue, but decisions.jsonl is read first), then file order.
+    return sorted(events, key=lambda e: (e.decision.reviewed_at, _issue(e.decision.source),
+                                         e.decision.rechecked_at is not None))  # fmt: skip
 
 
 def _issue(source: str) -> int:

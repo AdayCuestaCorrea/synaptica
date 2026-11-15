@@ -125,6 +125,7 @@ uv run syn review page --queue Q --out DIR      # páginas de revisión de Sofí
 uv run syn review round --queue Q --out DIR     # siguiente ronda: aplica su registro y deja lo pendiente
 uv run syn review intake --event E (--queue Q | --queue-dir D) --reviewer LOGIN --reply R [--efetch X]   # lee un Issue suyo (exit 2: espera fuente)
 uv run syn review sweep --issues I --queue-dir D --reviewer LOGIN --out DIR   # todos sus Issues abiertos, del más antiguo al más nuevo (lo que corre el workflow)
+uv run syn review recheck-held --queue Q [--efetch X]   # sus ediciones retenidas, con las comprobaciones de hoy: aplica las que ya pasan (exit 2: falta fuente)
 SYN_DATA_DIR=/tmp/syn-ci uv run python scripts/seed_fixture_data.py   # fixtures como si vinieran de las fuentes
 SYN_DATA_DIR=/tmp/syn-ci uv run syn build --as-of 2026-11-09          # dbt sobre esas fixtures (como la CI)
 uv run syn site && uv run syn site --check

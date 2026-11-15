@@ -102,6 +102,10 @@ Sus respuestas a las preguntas finales:
 - Pasar el código de `spikes/s4/` al paquete (`src/synaptica/review/`).
 - Que el pipeline diario genere la cola y la página (en Pages, en una ruta a la que nada enlaza y con `noindex`) y guarde la cola mostrada para la recepción.
 
+## Revisiones
+
+- **2026-11-15 (SCOPE v152): ediciones retenidas por error.** Los resúmenes de la tanda local qwen9b guardan párrafos y ella devuelve una frase por línea; `align` comparaba una cosa con otra y retuvo 2 de sus 8 ediciones del 2026-11-14 con un «frase nueva sin fuente» falso. Ahora cada párrafo revisado se parte en frases antes de alinear, y cada frase hereda las citas de su párrafo. El registro sigue siendo solo de añadir: `syn review recheck-held` vuelve a comprobar sus ediciones retenidas con el código de hoy y apunta las que pasan como la misma decisión suya (autora, fecha, Issue y texto intactos) con un campo nuevo, `rechecked_at`. La recepción lo pone siempre a vacío, así que un Issue no puede reclamarlo; sin el abstract no se libera nada (exit 2). Decisión de Aday: opción A.
+
 ## Pruebas
 
 - **Código:** [`spikes/s4/`](../../spikes/s4/):
