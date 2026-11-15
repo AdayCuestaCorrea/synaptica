@@ -19,10 +19,11 @@
 <section class="sections" aria-label="{{ t.explore }}">
   {% for sec in sections %}
   {% if sec.key == "atlas" %}
-  <a class="card card--atlas" href="{{ atlas_url }}" rel="noopener" target="_blank">
+  {% set external = atlas_url == prototype_url %}
+  <a class="card card--atlas" href="{{ atlas_url }}"{% if external %} rel="noopener" target="_blank"{% endif %}>
     <span class="card-title">{{ sec.name }}</span>
     <span class="card-art">{{ m.art("atlas") }}</span>
-    <span class="card-text">{{ t["sec_" ~ sec.key] }} ↗</span>
+    <span class="card-text">{{ t["sec_" ~ sec.key] }}{% if external %} ↗{% endif %}</span>
     <span class="tag tag--live">{{ t.preview }}</span>
   </a>
   {% else %}

@@ -1,0 +1,63 @@
+{# Neuro Atlas (Phase 2, SCOPE v161; study docs/fases/fase-2-atlas-ux.md). The page comes
+   first (text, search, region list, a still per brain) and the viewer after it (UX-5); one
+   credit line per brain (UX-6). Until step 3, the viewer is the S3 prototype, linked. #}
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m with context %}
+{% block title %}{{ t.atlas }}{% endblock %}
+{% block scripts %}<script src="{{ static('atlas.js') }}?v={{ asset_v }}" defer></script>{% endblock %}
+{% block main %}
+<article class="atlas">
+  <header class="atlas-head">
+    <h1>{{ t.atlas }}</h1>
+    <p class="lede">{{ t.atlas_intro }}</p>
+    <p class="atlas-soon">{{ t.atlas_viewer_soon }} <a href="{{ prototype_url }}" rel="noopener" target="_blank">{{ t.atlas_open_prototype }} ↗</a> {{ m.gap("atlas_viewer") }}</p>
+  </header>
+
+  <form class="atlas-find" role="search" data-atlas-find data-none="{{ t.atlas_search_none }}" onsubmit="return false">
+    <label for="atlas-q">{{ t.atlas_search }}</label>
+    <input id="atlas-q" type="search" placeholder="{{ t.atlas_search_ph }}" autocomplete="off">
+    <p class="atlas-none" role="status" aria-live="polite" hidden></p>
+  </form>
+  <p class="atlas-note">{{ t.atlas_names_note }} {{ m.gap("atlas_names") }} {{ m.gap("atlas_order") }}</p>
+
+  <div class="brains">
+    {% for b in brains %}
+    {% set n = b.families | map(attribute="regions") | map("length") | sum %}
+    <section class="brain" id="{{ b.key }}" aria-labelledby="brain-{{ b.key }}">
+      <h2 id="brain-{{ b.key }}">{{ t["brain_" ~ b.key] }}</h2>
+      {% set main = b.credits[0] %}
+      <figure class="brain-still">
+        {% if b.key == "rat" %}
+        <img src="{{ static('img/atlas/rata.webp') }}" width="1137" height="552" alt="{{ t.atlas_rat_alt }}" decoding="async">
+        {% else %}
+        <div class="brain-still-gap">{{ m.gap("atlas_human_still") }}</div>
+        {% endif %}
+        <figcaption>{{ t.atlas_credit }}: <a href="{{ main.source_url }}" rel="noopener">{{ main.short }}</a> · <a href="{{ main.licence_url }}" rel="noopener license">{{ main.licence }}</a>
+          {%- if b.credits | length > 1 %}. {{ t.atlas_layers }}:
+          {% for c in b.credits[1:] %}<a href="{{ c.source_url }}" rel="noopener">{{ c.short }}</a> (<a href="{{ c.licence_url }}" rel="noopener license">{{ c.licence }}</a>){% if not loop.last %} · {% endif %}{% endfor %}
+          {%- endif %}</figcaption>
+      </figure>
+      <h3 class="brain-count">{{ t.atlas_regions }} <span>{{ t.atlas_regions_count.format(n=n) }}</span></h3>
+      {% for depth in ("surface", "interior") %}
+      {% set fams = b.families | selectattr("depth", "equalto", depth) | list %}
+      {% if fams %}
+      <div class="depth-group">
+      <h4 class="depth">{{ t["depth_" ~ depth] }}</h4>
+      {% for f in fams %}
+      <details class="family" data-family="{{ f.family }}">
+        <summary><span class="swatch" style="background:{{ f.regions[0].colour }}"></span>{{ t["fam_" ~ f.family] }} <span class="family-n">{{ f.regions | length }}</span></summary>
+        <ul class="regions">
+          {% for r in f.regions %}
+          <li data-q="{{ (r.name ~ ' ' ~ (r.acronym or '') ~ ' ' ~ t['fam_' ~ f.family]) | lower }}"><span class="swatch" style="background:{{ r.colour }}"></span>{{ r.name }}{% if r.acronym %} <span class="acr">{{ r.acronym }}</span>{% endif %}{% if b.credits | length > 1 %} <span class="layer">{{ (b.credits | selectattr("atlas", "equalto", r.atlas) | first).short }}</span>{% endif %}</li>
+          {% endfor %}
+        </ul>
+      </details>
+      {% endfor %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </section>
+    {% endfor %}
+  </div>
+</article>
+{% endblock %}

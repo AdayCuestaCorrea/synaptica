@@ -37,7 +37,7 @@ def test_build_passes_the_check(tmp_path: Path) -> None:
         assert (out / rel).exists(), rel
     report = check_site(out)
     assert report.passed, report.problems
-    assert report.pages == 17  # root + 8 kinds in 2 languages; no study without data
+    assert report.pages == 19  # root + 9 kinds in 2 languages; no study without data
 
 
 def test_build_is_idempotent(tmp_path: Path) -> None:

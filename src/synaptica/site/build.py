@@ -29,6 +29,7 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoes
 
 from synaptica import report
 from synaptica.config import project_root
+from synaptica.site import atlas as atlas_page
 from synaptica.site import news as news_mod
 
 LANGS = ("es", "en")
@@ -45,7 +46,7 @@ PATHS = {
         "sources": "es/fuentes.html", "status": "es/estado.html",
         "about": "es/sobre-nosotros.html", "glossary": "es/glosario.html",
         "search": "es/buscar.html", "search_index": "es/buscar.json",
-        "topic": "es/temas/{key}.html",
+        "topic": "es/temas/{key}.html", "atlas": "es/atlas.html",
     },
     "en": {
         "home": "en/index.html", "news": "en/news.html", "study": "en/study/{key}.html",
@@ -53,9 +54,10 @@ PATHS = {
         "sources": "en/sources.html", "status": "en/status.html", "about": "en/about.html",
         "glossary": "en/glossary.html", "search": "en/search.html",
         "search_index": "en/search.json", "topic": "en/topics/{key}.html",
+        "atlas": "en/atlas.html",
     },
 }  # fmt: skip
-NAV = ("home", "news", "method", "glossary", "about")  # header, in this order, when built
+NAV = ("home", "news", "atlas", "method", "glossary", "about")  # header, in this order, when built
 FOOTER_LINKS = ("method", "sources", "status", "about")
 
 # Sofía's six sections, in her order; the phase each arrives in comes from SCOPE §4.
@@ -67,12 +69,13 @@ SECTIONS = [
     {"key": "history", "name": "Neuro History", "phase": 4},
     {"key": "experiments", "name": "Neuro Experiments", "phase": 4},
 ]
-# Until Phase 2, the Neuro Atlas card opens the S3 prototype (ADR 0003, correction of v98).
+# The S3 prototype (ADR 0003, correction of v98): the Neuro Atlas card opens it while the
+# atlas page is not built, and the atlas page links to it until the new viewer (step 3).
 ATLAS_URL = "https://adaycuestacorrea.github.io/synaptica/spikes/s3/c/"
 STYLESHEETS = ("noche.css", "base.css")  # joined, in this order, into static/synaptica.css
-SCRIPTS = ("site.js", "search.js")
+SCRIPTS = ("site.js", "search.js", "atlas.js")
 # Pages built so far (steps 21 to 23); one study page per study shown comes on top.
-KINDS = ("home", "news", "week", "method", "sources", "status", "about", "search")
+KINDS = ("home", "news", "week", "method", "sources", "status", "about", "search", "atlas")
 RECENT_RUNS = 14  # rows of the run table on «Estado de los datos»
 
 
@@ -157,6 +160,8 @@ class SiteBuilder:
             shutil.copy(src / name, dst / name)
         for folder in ("fonts", "img"):
             shutil.copytree(src / folder, dst / folder)
+        if "atlas" in self.kinds:  # the viewer's data, each atlas in its folder with its licence
+            shutil.copytree(src / "atlas", dst / "atlas")
         # A fingerprint of CSS and JS in their URLs: a browser never keeps an old copy.
         digest = hashlib.sha256()
         for name in ("synaptica.css", *SCRIPTS):
@@ -193,7 +198,8 @@ class SiteBuilder:
             lang=lang, t=t, page_kind=kind, url=url, static=static, asset_v=self.asset_v,
             other_lang=other(lang),
             other_url=posixpath.relpath(self.path(other(lang), kind, key), here),
-            nav=nav, footer_links=footer_links, sections=SECTIONS, atlas_url=ATLAS_URL,
+            nav=nav, footer_links=footer_links, sections=SECTIONS, prototype_url=ATLAS_URL,
+            atlas_url=url("atlas") if "atlas" in self.kinds else ATLAS_URL,
             hero_licence=hero["licence"] or t["licence_pending"], hero_author=hero["author"],
             gaps=gaps, search=search, news=self.news_data,
             date=lambda v, long=False: news_mod.fmt_date(v, lang, long),
@@ -317,7 +323,8 @@ class SiteBuilder:
                for k in ("news", "week", "method", "sources", "status", "about")
                if k in self.kinds]  # fmt: skip
         out += [[t["kind_section"], sec["name"], t["sec_" + sec["key"]],
-                 ATLAS_URL if sec["key"] == "atlas" else ""] for sec in SECTIONS]  # fmt: skip
+                 self.atlas_link(lang) if sec["key"] == "atlas" else ""]
+                for sec in SECTIONS]  # fmt: skip
         if self.news_data:
             out += [[t["kind_study"], s["title"],
                      " ".join(filter(None, [s["journal"], s["type"] and t["type_" + s["type"]]])),
@@ -339,6 +346,18 @@ class SiteBuilder:
 
     def status(self, lang: str) -> None:
         self.render(lang, "status", "status.html.j2", runs=recent_runs(self.data_dir))
+
+    def atlas_link(self, lang: str) -> str:
+        return self.path(lang, "atlas") if "atlas" in self.kinds else ATLAS_URL
+
+    def atlas(self, lang: str) -> None:
+        t = self.i18n[lang]
+        src = self.site_dir / "static" / "atlas"
+        gaps = {k: ("gap", t[f"gap_{k}"]) for k in ("atlas_order", "atlas_names", "atlas_viewer")}
+        gaps["atlas_human_still"] = ("gap", t["gap_atlas_human_still"])
+        brains = [{"key": b, "families": atlas_page.regions(src, b),
+                   "credits": atlas_page.credits(src, b)} for b in atlas_page.BRAINS]  # fmt: skip
+        self.render(lang, "atlas", "atlas.html.j2", gaps=gaps, brains=brains)
 
     def about(self, lang: str) -> None:
         t = self.i18n[lang]

@@ -15,6 +15,7 @@
 <link rel="icon" href="{{ static('favicon.svg') }}" type="image/svg+xml">
 <script src="{{ static('site.js') }}?v={{ asset_v }}"></script>
 {% if search %}<script src="{{ static('search.js') }}?v={{ asset_v }}" defer></script>{% endif %}
+{% block scripts %}{% endblock %}
 </head>
 <body>
 <a class="skip" href="#main">{{ t.skip }}</a>

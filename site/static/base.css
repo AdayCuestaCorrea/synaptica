@@ -376,3 +376,31 @@ a.gl:hover, a.gl:focus-visible { color: var(--link); background: var(--accent-so
 /* Fact of the day (step 26). */
 .fact-day { margin: 0 0 16px; padding: 14px 16px; border: var(--card-border); border-radius: var(--radius); background: var(--surface); }
 .fact-text { margin: 4px 0 8px; }
+/* Neuro Atlas page (Phase 2, SCOPE v161). Two brains side by side on a wide screen, one
+   under the other on a phone; region lists folded by family. */
+.atlas { margin: 18px 0 0; }
+.atlas-head { max-width: 62rem; }
+.atlas-soon { color: var(--muted); }
+.atlas-find { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; margin: 18px 0 6px; }
+.atlas-find label { font-weight: 700; }
+.atlas-find input { flex: 1 1 16rem; min-width: 0; max-width: 28rem; padding: 10px 12px; font: inherit; color: var(--ink); background: var(--surface); border: var(--card-border); border-radius: var(--radius-s); }
+.atlas-none { flex-basis: 100%; margin: 0; color: var(--muted); }
+.atlas-note { margin: 0 0 18px; font-size: 0.9rem; color: var(--muted); }
+.brains { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: 28px; }
+.brain { min-width: 0; }
+.brain h2 { margin: 0 0 10px; }
+.brain-still { margin: 0 0 14px; }
+.brain-still img { display: block; width: 100%; height: auto; border-radius: var(--radius); background: var(--surface); }
+.brain-still-gap { display: grid; place-items: center; aspect-ratio: 1137 / 552; max-width: 100%; border: 1px dashed var(--rule); border-radius: var(--radius); background: var(--surface); }
+.brain-still figcaption { margin-top: 6px; font-size: 0.82rem; color: var(--muted); }
+.brain-count { display: flex; gap: 8px; align-items: baseline; margin: 0 0 4px; }
+.brain-count span, .family-n { font-weight: 400; font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.depth { margin: 14px 0 4px; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.family { border-top: var(--sec-rule); }
+.family summary { display: flex; gap: 8px; align-items: center; padding: 8px 2px; cursor: pointer; }
+.family summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.regions { list-style: none; margin: 0 0 10px; padding: 0 0 0 4px; columns: 2 14rem; column-gap: 20px; }
+.regions li { display: flex; flex-wrap: wrap; gap: 2px 6px; align-items: baseline; break-inside: avoid; padding: 3px 0; font-size: 0.92rem; overflow-wrap: anywhere; }
+.swatch { flex: none; width: 0.8em; height: 0.8em; border-radius: 3px; align-self: center; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.15); }
+.acr, .layer { font-size: 0.78rem; color: var(--muted); }
+.layer { padding: 0 5px; border: var(--card-border); border-radius: 999px; }
