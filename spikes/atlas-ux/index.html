@@ -70,6 +70,11 @@ img { max-width: 100%; display: block; }
 .brain .bh small { font-weight: 400; color: var(--muted); }
 .brain .stage { position: relative; height: 300px; padding: 6px; }
 .brain .stage { overflow: hidden; }
+.brain .stage.split { display: grid; grid-template-columns: 3fr 2fr; grid-template-rows: 100%; gap: 6px; }
+.brain .stage.split figure { margin: 0; min-width: 0; height: 100%; display: flex; flex-direction: column; }
+.brain .stage.split figcaption { font-size: .75rem; color: var(--muted); text-align: center; }
+.brain .stage.split img { flex: 1 1 0; min-height: 0; height: auto; }
+.page-body.room { padding-bottom: 150px; }
 .brain .stage img { width: 100%; height: 100%; object-fit: contain; }
 .brain .credit { font-size: .78rem; color: var(--muted); padding: 6px 12px; border-top: 1px solid var(--rule); background: var(--surface); }
 .brain .credit a { color: var(--muted); }
@@ -275,7 +280,7 @@ summary { cursor: pointer; }
     <div class="frame desk"><div class="page">
       <header class="site-head"><span class="brand">SYNAPTICA</span><nav><span>Neuro News</span><b>Neuro Atlas</b><span>Neuro Lab</span><span>Glosario</span></nav></header>
       <p class="medical">Esto no es consejo médico. Ante cualquier duda de salud, consulta a un profesional.</p>
-      <div class="page-body">
+      <div class="page-body room">
         <div class="toolbar">
           <div class="search">🔍 HF · Formación hipocampal</div>
           <button class="btn" aria-pressed="true">Recortar</button>
@@ -296,8 +301,8 @@ summary { cursor: pointer; }
           </div>
         </div>
         <div class="brains">
-          <div class="brain"><div class="bh">Rata <small>corte coronal</small></div><div class="stage"><img src="img/rata-hipocampo-corte.webp" alt="Corte coronal de la rata a Bregma −4,97 mm con la formación hipocampal en violeta"></div><div class="credit">Waxholm v4.01 · CC BY 4.0 · <a href="#">créditos</a></div></div>
-          <div class="brain"><div class="bh">Humano <small>corte coronal</small></div><div class="stage"><img src="img/humano-hipocampo-corte.webp" alt="Corte coronal humano a y = −22 mm con el hipocampo en violeta"></div><div class="credit">Julich-Brain v3.1 · CC BY-NC-SA 4.0 · y 3 capas más · <a href="#">créditos</a></div></div>
+          <div class="brain"><div class="bh">Rata <small>3D + corte</small></div><div class="stage split"><figure><img src="img/rata-hipocampo-3d.webp" alt="Cerebro de rata en 3D, recortado, con la formación hipocampal en violeta"><figcaption>3D (recorte sagital)</figcaption></figure><figure><img src="img/rata-hipocampo-corte.webp" alt="Corte coronal de la rata a Bregma −4,97 mm con la formación hipocampal en violeta"><figcaption>Corte coronal</figcaption></figure></div><div class="credit">Waxholm v4.01 · CC BY 4.0 · <a href="#">créditos</a></div></div>
+          <div class="brain"><div class="bh">Humano <small>3D + corte</small></div><div class="stage split"><figure><img src="img/humano-hipocampo-3d.webp" alt="Cerebro humano en 3D, recortado, con el hipocampo en violeta"><figcaption>3D (recorte sagital)</figcaption></figure><figure><img src="img/humano-hipocampo-corte.webp" alt="Corte coronal humano a y = −22 mm con el hipocampo en violeta"><figcaption>Corte coronal</figcaption></figure></div><div class="credit">Julich-Brain v3.1 · CC BY-NC-SA 4.0 · y 3 capas más · <a href="#">créditos</a></div></div>
         </div>
       </div>
     </div></div>
@@ -305,6 +310,7 @@ summary { cursor: pointer; }
   <aside class="notes">
     <h3>Qué ves aquí</h3>
     <ul>
+      <li>Con «3D + corte», <strong>cada cerebro enseña a la vez</strong> su 3D y su corte coronal, sincronizados como en el prototipo; «Solo 3D» quita el corte.</li>
       <li>Todo lo que tiene hoy el prototipo sigue ahí, <strong>dentro de «Más opciones»</strong>: el corte 2D, los tres modos (color, atlas en blanco y negro, tinción dibujada o real), aislar y los milímetros desde Bregma.</li>
       <li>La tinción real dice lo que pesa antes de pedirla.</li>
       <li>Lo que elijas se recuerda la próxima vez.</li>
