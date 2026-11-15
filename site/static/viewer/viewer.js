@@ -466,12 +466,13 @@ class VolumeViewer {
     this.apply();
   }
 
-  // UX-4 C, Aday's refinement (v169): the rest of the brain is see-through only at rest, with a
-  // region selected and no cut (the cut already shows the inside). While the brain is turned,
-  // zoomed or its point moved, it is solid: easier to follow, and turning keeps its speed
-  // (see-through, it fell from 21 to 7 fps on the simulated phone).
+  // UX-4 C, Aday's refinement (v169–v170): the rest of the brain is see-through only at rest,
+  // with a region selected. While the brain is turned, zoomed or its point moved, it is solid:
+  // easier to follow, and turning keeps its speed (see-through, it fell from 21 to 7 fps on the
+  // simulated phone). With the cut on as well: the cut goes through the region picked in this
+  // brain, not through the counterpart marked in the other, which stays inside (UX-4 B).
   get seeThrough() {
-    return SEE_THROUGH < 255 && !this.busy && !state.clip && !state.isolate;
+    return SEE_THROUGH < 255 && !this.busy && !state.isolate;
   }
 
   setBusy(on) {
@@ -525,6 +526,11 @@ class VolumeViewer {
       }
     });
     this.canvas.addEventListener("pointercancel", () => {
+      down = null;
+      this.setBusy(false);
+    });
+    // A drag that ends outside the canvas (the mouse let go beyond its edge) ends too.
+    addEventListener("pointerup", () => {
       down = null;
       this.setBusy(false);
     });
