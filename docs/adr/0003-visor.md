@@ -151,3 +151,4 @@ Decisiones de Aday en el [estudio de UX de Neuro Atlas](../fases/fase-2-atlas-ux
   - Niivue se pide cuando la página ya ha cargado, y el lienzo ocupa el sitio de la imagen fija (UX-5 B).
   - El fondo del 3D sigue el tema de la web.
   - Sin WebGL 2, la página lo dice y la lista sigue funcionando.
+- **UX-4 C (2026-11-15, SCOPE v165):** con una región elegida, el resto del cerebro pasa a opacidad 4/255 en el volumen de etiquetas, sin mallas ni archivos nuevos. Medido en el paso 4: el giro con una región elegida baja de 21 a 7 fps en el móvil simulado. `?ver=N` permite compararlo en un móvil real.

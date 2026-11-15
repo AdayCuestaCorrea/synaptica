@@ -272,11 +272,15 @@ function panelPartner(box, source, pair, onGo = () => {}) {
 // white, grey fill and contours, like a printed atlas plate; "stain": a drawn Nissl-like stain
 // (step 7.7), always with the notice that it is an illustration.
 const MODES = ["color", "atlas", "stain"];
-// Step 4, trial of UX-4 C: with ?ver=N (0-255) the rest of the brain gets that opacity while a
-// region is selected. Not in the interface until it is measured and seen to work.
+// UX-4 C (Aday, 2026-11-15, SCOPE v165): while a region is selected, the rest of the brain is
+// see-through (opacity SEE_THROUGH of 255), so inner regions show without cutting; it turns solid
+// again when the selection goes. 4 was the lowest that still shows the brain's shape (step 4
+// trial); it costs smoothness while turning (21 → 7 fps on the simulated phone). ?ver=N (0-255)
+// overrides it, to compare on a real phone; ?ver=255 is the solid grey of UX-4 B.
 const SEE_THROUGH = (() => {
-  const n = Number(new URLSearchParams(location.search).get("ver"));
-  return new URLSearchParams(location.search).has("ver") && n >= 0 && n <= 255 ? n : null;
+  const q = new URLSearchParams(location.search);
+  const n = Number(q.get("ver"));
+  return q.has("ver") && n >= 0 && n <= 255 ? n : 4;
 })();
 // UX-3 B: the last choice of «Más opciones» is remembered in this browser (and only there).
 const STORE = "synaptica-atlas-view";
@@ -524,7 +528,7 @@ class VolumeViewer {
             rgb = [grey, grey, grey];
           }
           if (state.isolate) a = 0;
-          else if (SEE_THROUGH != null) a = SEE_THROUGH; // step 4 trial of UX-4 C (?ver=N)
+          else a = SEE_THROUGH; // UX-4 C
         }
         R.push(rgb[0]); G.push(rgb[1]); B.push(rgb[2]); A.push(a);
         I.push(r.index ? r.index + OFFSET + (edge ? this.n : 0) : 0);

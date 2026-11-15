@@ -186,7 +186,9 @@ Los dos cerebros vienen de atlas distintos con licencias distintas:
 | **B.** El otro cerebro marca la pareja sin moverse; un botón «Ir a la pareja» lo gira y lleva el corte | Nadie pierde lo que estaba mirando | Un toque más |
 | **C.** B, y además las regiones internas se ven solas: al elegir una, el resto del cerebro se vuelve translúcido hasta que se suelta la selección | Hipocampo y amígdala visibles sin saber qué es «recortar» | Hay que probar que el visor lo pinta bien y rápido en el móvil antes de prometerlo |
 
-**Decisión de Aday: B ahora, y probar C** en el primer paso de código; si no va fluido en el móvil, se queda B con «Recortar» automático para las internas. Con «movimiento reducido» activado en el sistema, nunca hay giros animados.
+**Decisión de Aday: B ahora, y probar C** en el primer paso de código; si no va fluido en el móvil, se queda B con «Recortar» automático para las internas.
+
+**Actualización (2026-11-15, SCOPE v165):** después de medirlo en el paso 4, Aday elige **C en todas partes**. El resto del cerebro se vuelve translúcido mientras haya una región elegida. Con una región elegida, el giro baja de 21 a 7 fps en el móvil simulado; falta comprobarlo en un móvil real. Aday acepta también los 13,6 s del primer cerebro en el móvil simulado, frente al objetivo de 12 s. Con «movimiento reducido» activado en el sistema, nunca hay giros animados.
 
 > **Ojo: cambia una petición de Sofía.** En S3 pidió que el otro visor gire y lleve su corte hasta la pareja (P3, respuesta Q3). Con B eso pasa al pulsar «Ir a la pareja», no solo. Se le pregunta (pregunta 5) y, si prefiere el giro automático, se vuelve a A, mejor suavizado.
 
