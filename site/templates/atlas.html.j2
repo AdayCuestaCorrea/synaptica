@@ -8,7 +8,7 @@
 {% block scripts %}<script src="{{ static('atlas.js') }}?v={{ asset_v }}" defer></script>
 <script type="module" src="{{ static('viewer/viewer.js') }}?v={{ asset_v }}"></script>{% endblock %}
 {% block main %}
-<article class="atlas" data-atlas-viewer="{{ static('atlas') }}" data-region-pages="{{ region_urls | tojson | forceescape }}" data-niivue="{{ static('vendor/niivue-0.69.0/niivue.umd.js') }}?v={{ asset_v }}">
+<article class="atlas" data-atlas-viewer="{{ static('atlas') }}" data-region-pages="{{ region_urls | tojson | forceescape }}" data-niivue="{{ static('vendor/niivue-0.69.0/niivue.umd.js') }}?v={{ asset_v }}"{% if glossary_index %} data-glossary-index="{{ glossary_index }}"{% endif %}>
   <header class="atlas-head">
     <h1>{{ t.atlas }}</h1>
     <p class="lede">{{ t.atlas_intro }}</p>

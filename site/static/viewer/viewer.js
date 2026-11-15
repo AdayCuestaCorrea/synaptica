@@ -139,6 +139,10 @@ const P = {
     noPairThere: (n) => `${n} aún no tiene pareja en este cerebro.`,
     rat: "rata",
     human: "humano",
+    glossary: "Glosario",
+    partOf: "Forma parte de",
+    glossaryPending: "Definición en inglés pendiente.",
+    seeGlossary: "Ver en el glosario",
   },
   en: {
     none: "No region selected.",
@@ -161,12 +165,16 @@ const P = {
     noPairThere: (n) => `${n} has no counterpart in this brain yet.`,
     rat: "rat",
     human: "human",
+    glossary: "Glossary",
+    partOf: "Part of",
+    glossaryPending: "English definition pending.",
+    seeGlossary: "See in the glossary",
   },
 }[lang];
 
 // Name and short name of a region. Waxholm gives an acronym; for Julich-Brain the short name is
 // the part before the brackets ("CA1 (Hippocampus)" → "CA1"). The short name carries a stable
-// data-glossary key, so Neuro Glossary (Phase 2) can attach its definition to it.
+// data-glossary key, "atlas:short", which Neuro Glossary maps to its terms (glossary/regions.csv).
 function names(region) {
   const short = region.acronym || region.name.split(" (")[0];
   return { full: region.name, short };
@@ -196,9 +204,11 @@ function h(tag, attrs = {}, ...children) {
   return e;
 }
 
-function abbr(region) {
+// ``atlas``: for the regions of a pair, which carry no atlas of their own.
+function abbr(region, atlas = region.source || region.atlas) {
   const n = names(region);
-  return h("abbr", { "data-glossary": n.short, title: n.full }, n.short);
+  return h("abbr", { "data-glossary": `${atlas}:${n.short}`, "data-full": n.full, tabindex: "0" },
+    n.short);
 }
 
 function title(region) {
@@ -259,7 +269,7 @@ function panelPartner(box, source, pair, onGo = () => {}) {
   const list = h("p", {});
   shown.forEach((r, i) => {
     if (i) list.append(", ");
-    list.append(abbr(r));
+    list.append(abbr(r, source.atlas === "waxholm" ? "julich" : "waxholm"));
     const n = names(r);
     // Waxholm: "M1 · Primary motor area"; Julich-Brain: "CA1 (Hippocampus)", the rest of the name.
     if (n.short !== n.full) {
@@ -1942,3 +1952,81 @@ window.__spin = (ms = 3000) =>
     };
     requestAnimationFrame(step);
   });
+
+// ---- Neuro Glossary in the viewer (P6 of S3; SCOPE v182) ---------------------------------
+// Hovering over, focusing or tapping a region's short name (abbr[data-glossary]) shows a
+// popover: short and full name always; and, when the region is a glossary term Sofía approved,
+// its meaning and definition with a link to its entry. The map and the texts come from
+// syn site (glossary-atlas.json, approved terms only), fetched once, on the first use; the
+// popover reuses the glossary's .gl-pop style. Without that file only the names are shown.
+(() => {
+  if (!root) return;
+  const url = root.dataset.glossaryIndex;
+  let index = null;
+  let loading = null;
+  const load = () => (loading ||= url
+    ? fetch(url).then((r) => (r.ok ? r.json() : null)).catch(() => null).then((g) => (index = g))
+    : Promise.resolve(null));
+  let pop = null;
+  let anchor = null;
+  let closeTimer = 0;
+  const close = () => {
+    clearTimeout(closeTimer);
+    if (pop) pop.remove();
+    if (anchor) anchor.removeAttribute("aria-describedby");
+    pop = anchor = null;
+  };
+  function content(a) {
+    const [, short] = a.dataset.glossary.split(/:(.*)/s);
+    const box = h("div", { class: "gl-pop", role: "tooltip", id: "atlas-gl-pop" });
+    const head = h("p", { class: "gl-pop__term" }, short);
+    if (a.dataset.full && a.dataset.full !== short) {
+      head.append(h("span", { class: "gl-pop__also" }, ` · ${a.dataset.full}`));
+    }
+    box.append(head);
+    const hit = index && index.regions[a.dataset.glossary];
+    const term = hit && index.terms[hit.term];
+    if (term) {
+      const name = term.meaning ? `${term.term} (${term.meaning})` : term.term;
+      box.append(h("p", { class: "gl-pop__foot" },
+        `${hit.relation === "part" ? P.partOf : P.glossary}: ${name}`));
+      const def = h("p", { class: "gl-pop__def" });
+      if (term.definition) def.textContent = term.definition;
+      else { def.textContent = P.glossaryPending; def.classList.add("is-pending"); }
+      box.append(def);
+      box.append(h("p", { class: "gl-pop__foot" },
+        h("a", { href: `${index.page}#${hit.term}` }, `${P.seeGlossary} →`)));
+    }
+    return box;
+  }
+  async function open(a) {
+    clearTimeout(closeTimer);
+    if (anchor === a) return;
+    await load();
+    close();
+    anchor = a;
+    pop = content(a);
+    document.body.append(pop);
+    a.setAttribute("aria-describedby", pop.id);
+    const r = a.getBoundingClientRect();
+    const w = document.documentElement.clientWidth;
+    pop.style.left = `${Math.max(8, Math.min(r.left + scrollX, scrollX + w - pop.offsetWidth - 8))}px`;
+    pop.style.top = `${r.bottom + scrollY + 6}px`;
+  }
+  const target = (e) => e.target.closest && e.target.closest("abbr[data-glossary]");
+  const later = () => { clearTimeout(closeTimer); closeTimer = setTimeout(close, 300); };
+  document.addEventListener("mouseover", (e) => {
+    const a = target(e);
+    if (a && root.contains(a)) open(a);
+    else if (pop && pop.contains(e.target)) clearTimeout(closeTimer);
+    else if (pop) later();
+  });
+  document.addEventListener("focusin", (e) => { const a = target(e); if (a && root.contains(a)) open(a); });
+  document.addEventListener("focusout", (e) => { if (target(e) === anchor) later(); });
+  document.addEventListener("click", (e) => {
+    const a = target(e);
+    if (a && root.contains(a)) { open(a); return; }  // a tap opens it; another tap elsewhere closes
+    if (pop && !pop.contains(e.target)) close();
+  });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+})();

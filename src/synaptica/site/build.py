@@ -49,7 +49,7 @@ PATHS = {
         "about": "es/sobre-nosotros.html", "glossary": "es/glosario.html",
         "search": "es/buscar.html", "search_index": "es/buscar.json",
         "topic": "es/temas/{key}.html", "atlas": "es/atlas.html",
-        "region": "es/atlas/regiones/{key}.html",
+        "region": "es/atlas/regiones/{key}.html", "glossary_atlas": "es/glosario-atlas.json",
     },
     "en": {
         "home": "en/index.html", "news": "en/news.html", "study": "en/study/{key}.html",
@@ -58,6 +58,7 @@ PATHS = {
         "glossary": "en/glossary.html", "search": "en/search.html",
         "search_index": "en/search.json", "topic": "en/topics/{key}.html",
         "atlas": "en/atlas.html", "region": "en/atlas/regions/{key}.html",
+        "glossary_atlas": "en/glossary-atlas.json",
     },
 }  # fmt: skip
 NAV = ("home", "news", "atlas", "method", "glossary", "about")  # header, in this order, when built
@@ -404,8 +405,20 @@ class SiteBuilder:
         here = posixpath.dirname(self.path(lang, "atlas"))  # the viewer links from the atlas page
         region_urls = {r["key"]: posixpath.relpath(self.path(lang, "region", r["page"]), here)
                        for r in d["pages"]}  # fmt: skip
+        # P6: the viewer's region names show their glossary definition (only approved terms).
+        glossary_index = None
+        if "glossary" in self.kinds:
+            from synaptica.glossary.regions import atlas_index
+
+            rel = self.path(lang, "glossary_atlas")
+            index = atlas_index(self.gl[lang],
+                                posixpath.relpath(self.path(lang, "glossary"), here))  # fmt: skip
+            (self.out / rel).parent.mkdir(parents=True, exist_ok=True)
+            (self.out / rel).write_text(json.dumps(index, ensure_ascii=False), "utf-8")
+            glossary_index = posixpath.relpath(rel, here)
         self.render(lang, "atlas", "atlas.html.j2", gaps=gaps, brains=d["brains"],
-                    pair_pages=pair_pages, region_urls=region_urls)  # fmt: skip
+                    pair_pages=pair_pages, region_urls=region_urls,
+                    glossary_index=glossary_index)  # fmt: skip
 
     def region(self, lang: str, r: dict[str, Any]) -> None:
         t, d = self.i18n[lang], self.atlas_data

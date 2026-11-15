@@ -96,3 +96,46 @@ def test_the_check_catches_a_term_without_its_source(tmp_path: Path) -> None:
     assert "es/glosario.html: glossary term da without its source or licence" in (
         check_site(out).problems
     )
+
+
+# ---- the viewer (P6) ------------------------------------------------------------------
+
+
+def test_every_mapped_region_exists_in_its_atlas_and_term_in_the_glossary() -> None:
+    """The viewer's key is the atlas and its short name (viewer.js ``names``)."""
+    from synaptica.config import project_root
+    from synaptica.glossary.regions import load_region_terms
+
+    atlas = project_root() / "site/static/atlas"
+    shorts = {}
+    for name in ("waxholm", "julich"):
+        rows = json.loads((atlas / name / "labels.json").read_text("utf-8"))["rows"]
+        shorts[name] = {r.get("acronym") or r["name"].split(" (")[0] for r in rows}
+    for r in load_region_terms():
+        assert r["short"] in shorts[r["atlas"]], r
+        assert r["term_id"] in ITEMS, r
+
+
+def test_the_atlas_page_gets_the_approved_region_terms_only(tmp_path: Path) -> None:
+    data = tmp_path / "data"
+    decide(data, ("vta", "approve", {}), ("nac", "approve", {}), ("da", "approve", {}))
+    out = tmp_path / "site"
+    SiteBuilder(out, images=LICENSED, data_dir=data, kinds=(*KINDS, "atlas")).build()
+    index = json.loads((out / "es/glosario-atlas.json").read_text())
+    assert index["page"] == "glosario.html"
+    assert index["regions"]["waxholm:VTA"] == {"term": "vta", "relation": "same"}
+    assert index["regions"]["julich:AcbM"] == {"term": "nac", "relation": "part"}
+    assert "waxholm:STh" not in index["regions"]  # STN is not approved
+    assert set(index["terms"]) == {"vta", "nac"}  # DA is not a region
+    assert index["terms"]["vta"]["meaning"] == "Área tegmental ventral"
+    en = json.loads((out / "en/glossary-atlas.json").read_text())
+    assert en["terms"]["vta"]["definition"].startswith("Midbrain region")
+    assert 'data-glossary-index="glosario-atlas.json"' in (out / "es/atlas.html").read_text()
+    assert check_site(out).problems == []
+
+
+def test_without_approved_terms_the_viewer_gets_no_index(tmp_path: Path) -> None:
+    out = tmp_path / "site"
+    SiteBuilder(out, images=LICENSED, data_dir=tmp_path / "data", kinds=(*KINDS, "atlas")).build()
+    assert not (out / "es/glosario-atlas.json").exists()
+    assert "data-glossary-index" not in (out / "es/atlas.html").read_text()
