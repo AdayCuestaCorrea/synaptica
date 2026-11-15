@@ -289,6 +289,15 @@ const SEE_THROUGH = (() => {
   const n = Number(q.get("ver"));
   return q.has("ver") && n >= 0 && n <= 255 ? n : 4;
 })();
+// Zoom (v172): a wheel notch, and the range for the 3D view and the 2D slice. Buttons take two
+// notches per press.
+const ZOOM_STEP = 1.1;
+const ZOOM_RANGE = [0.5, 6];
+const ZOOM = {
+  es: { group: "Zoom", in: "Acercar", out: "Alejar" },
+  en: { group: "Zoom", in: "Zoom in", out: "Zoom out" },
+}[lang];
+
 // UX-3 B: the last choice of «Más opciones» is remembered in this browser (and only there).
 const STORE = "synaptica-atlas-view";
 function remembered() {
@@ -463,6 +472,7 @@ class VolumeViewer {
     this.tag.hidden = true;
     this.section.querySelector(".stage").append(this.tag);
     this.singleClickPicks();
+    this.buildZoom();
     this.apply();
   }
 
@@ -481,6 +491,27 @@ class VolumeViewer {
     const before = this.seeThrough;
     this.busy = on;
     if (this.vol && this.focus.size && before !== this.seeThrough) this.apply();
+  }
+
+  // Zoom (v172): 3D (Niivue's volScaleMultiplier) and 2D slice (pan2Dxyzmm[3]), each kept
+  // within ZOOM_RANGE. "both" for the buttons.
+  zoomBy(f, where = "both") {
+    const nv = this.nv;
+    const clamp = (z) => Math.min(ZOOM_RANGE[1], Math.max(ZOOM_RANGE[0], z));
+    if (where !== "2d") nv.scene.volScaleMultiplier = clamp(nv.scene.volScaleMultiplier * f);
+    if (where !== "3d") nv.scene.pan2Dxyzmm[3] = clamp(nv.scene.pan2Dxyzmm[3] * f);
+    nv.drawScene();
+  }
+
+  // «−» and «+» at the top left of the brain, for a mouse (with a finger, a pinch zooms).
+  buildZoom() {
+    const box = h("div", { class: "zoom", role: "group", "aria-label": ZOOM.group });
+    for (const [label, sign, f] of [[ZOOM.out, "−", 1 / ZOOM_STEP], [ZOOM.in, "+", ZOOM_STEP]]) {
+      const b = h("button", { type: "button", "aria-label": label, title: label }, sign);
+      b.addEventListener("click", () => this.zoomBy(f ** 2));
+      box.append(b);
+    }
+    this.section.querySelector(".stage").append(box);
   }
 
   // The same 3D tap again, once the brain is drawn solid (UX-4 C, see picked).
@@ -539,12 +570,21 @@ class VolumeViewer {
       down = null;
       this.setBusy(false);
     });
-    // Zooming with the wheel: solid while the wheel turns, see-through again a moment after.
-    this.canvas.addEventListener("wheel", () => {
+    // Aday (v172): the wheel zooms. Niivue's own wheel moved the 2D slice, or the 3D cut when
+    // the cut was on, behind the sliders' back; it is caught on the stage, before Niivue gets
+    // it. Over the 3D view it zooms the 3D, over the 2D slice the slice. Solid while it turns.
+    this.canvas.parentElement.addEventListener("wheel", (e) => {
+      if (e.target !== this.canvas) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const box = this.canvas.getBoundingClientRect();
+      const px = this.nv.uiData.dpr || 1;
+      const in3d = this.nv.inRenderTile((e.clientX - box.left) * px, (e.clientY - box.top) * px) >= 0;
+      this.zoomBy(e.deltaY < 0 ? ZOOM_STEP : 1 / ZOOM_STEP, in3d ? "3d" : "2d");
       this.setBusy(true);
       clearTimeout(this.wheelTimer);
       this.wheelTimer = setTimeout(() => this.setBusy(false), 300);
-    }, { passive: true });
+    }, { capture: true, passive: false });
     // A drag that ends outside the canvas (the mouse let go beyond its edge) ends too.
     addEventListener("pointerup", (e) => {
       fingers.delete(e.pointerId);
@@ -900,7 +940,9 @@ class VolumeViewer {
     if (state.mode === "stain") {
       const half = state.view !== "3d" && cv.width >= cv.height;
       const text = this.realSliceOn ? NOTICE.real3dRat : null;
-      this.drawNotice(g, 8 * dpr, 8 * dpr, dpr, (half ? cv.width / 2 : cv.width) - 16 * dpr, text);
+      // Below the zoom buttons where they show (a mouse; see .zoom in base.css).
+      const top = matchMedia("(pointer: fine)").matches ? 52 : 8;
+      this.drawNotice(g, 8 * dpr, top * dpr, dpr, (half ? cv.width / 2 : cv.width) - 16 * dpr, text);
     }
     if (!tile) return;
     const [left, top, w, hgt] = tile.leftTopWidthHeight;
