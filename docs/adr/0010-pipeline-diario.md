@@ -152,3 +152,9 @@ Con eso **quedan juzgados los 101 de la carga inicial**: no queda ningún estudi
 - **Arreglo:** el cliente HTTP espera como mucho `MAX_RETRY_AFTER` (300 s). Si el servidor pide más, lanza `RateLimited` (una subclase de `HttpError`) sin dormir.
 - **Misma regla que el 429 diario de Groq:** `syn ingest openalex` y `syn ingest classics` la atrapan y terminan con exit 0, diciendo que lo intentarán en el siguiente run. Los DOI siguen pendientes y se piden al día siguiente. Las demás fuentes no cambian: un `RateLimited` sigue siendo un `HttpError` y las pone en rojo, que es algo que hay que mirar.
 - **Pendiente, decisión de Aday:** una clave gratuita de OpenAlex daría cupo propio.
+
+**`syn news group` se corta solo (v187).**
+- **Qué pasó:** la ejecución programada del 2026-11-16 salió en verde en GitHub, pero su informe dijo `failed`: la agrupación llegó a los 5 min que le da `pipeline.yml` y el `timeout` la mató antes de escribir `groups.json`. Qwen en Groq tiene un tope de 1000 tokens de salida por minuto y cada llamada reserva `max_tokens=600`: una llamada de 15 pares por minuto.
+- **Arreglo:** el comando para solo a los 150 s (`--budget`), empieza por los pares más recientes, escribe los grupos con lo que ya sabe y termina en verde diciendo cuántos pares quedan. `pipeline.yml` no cambia.
+- **Reloj de la Fase 1 (decisión de Aday):** lo reinician una ejecución programada en rojo en GitHub o el arreglo de un pipeline que estaba en rojo; no un `failed` del informe por un paso tolerado ni el arreglo de un paso tolerado. Por eso ni la ejecución del 2026-11-16 ni este arreglo (ni el de la v186) lo reinician.
+
