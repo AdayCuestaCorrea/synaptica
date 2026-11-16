@@ -1,0 +1,60 @@
+# Rat ↔ human pair (its `kind` in pairs.toml) → the MeSH descriptors whose studies its region
+# pages list (SCOPE §7, «Qué hemos aprendido en animales»; Aday, v188).
+#
+# A PROPOSAL, not reviewed: the table is Sofía's to correct (row 21 of the questions sheet;
+# it enters her queue from 2026-11-18). It is not published; only the studies it finds are,
+# marked as an automatic match pending her review.
+#
+# Each descriptor counts with everything under it in the MeSH tree (mesh/A08.186.211.json),
+# and a descriptor under two of them goes to the most specific one: Globus Pallidus is under
+# Corpus Striatum in MeSH, so a pallidum study is not a striatum study too; the Brain Stem
+# branch holds the cerebellum and the midbrain, so cerebellum studies go to the cerebellum.
+# IDs only from the fetched vocabulary (a test checks each one exists there).
+
+[[region]]
+kind = "surface" # M1 ↔ areas 4a and 4p
+mesh = ["D009044"] # Motor Cortex
+
+[[region]]
+kind = "internal" # hippocampal formation
+mesh = ["D006624"] # Hippocampus
+
+[[region]]
+kind = "third" # amygdala
+mesh = ["D000679"] # Amygdala
+
+[[region]]
+kind = "cerebellum"
+mesh = ["D002531"] # Cerebellum
+
+[[region]]
+kind = "brainstem"
+mesh = ["D001933"] # Brain Stem
+
+[[region]]
+kind = "striatum"
+mesh = ["D003342"] # Corpus Striatum
+
+[[region]]
+kind = "pallidum"
+mesh = ["D005917"] # Globus Pallidus
+
+[[region]]
+kind = "ventricles"
+mesh = ["D002552"] # Cerebral Ventricles
+
+[[region]]
+kind = "optic chiasm"
+mesh = ["D009897"] # Optic Chiasm
+
+[[region]]
+kind = "hypothalamus"
+mesh = ["D007031"] # Hypothalamus
+
+[[region]]
+kind = "epithalamus"
+mesh = ["D019261"] # Epithalamus
+
+[[region]]
+kind = "white matter"
+mesh = ["D066127"] # White Matter

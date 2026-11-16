@@ -797,6 +797,22 @@ def atlas_build(
     typer.echo(f"Neuro Atlas data → {out_dir}")
 
 
+@atlas_app.command("mesh")
+def atlas_mesh() -> None:
+    """MeSH descriptors of the brain and their entry terms (NLM's SPARQL endpoint) ->
+    src/synaptica/atlas/mesh/, which matches studies to the rat ↔ human pairs. By hand,
+    never in the pipeline; the same MeSH writes the same file."""
+    from synaptica.atlas import studies
+    from synaptica.http import make_client
+
+    with make_client() as client:
+        rows = studies.fetch(client)
+    changed = studies.write_vocabulary(rows)
+    descriptors = len({r["ui"] for r in rows})
+    typer.echo(f"MeSH {studies.TREE}: {descriptors} descriptors, {len(rows)} rows"
+               + ("; changed" if changed else "; no change"))  # fmt: skip
+
+
 @app.command()
 def site(
     out: Annotated[str | None, typer.Option(help="Output folder [default: site/_build].")] = None,
