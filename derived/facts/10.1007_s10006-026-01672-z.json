@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s10006-026-01672-z",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "1b1f982881f4083b",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-16T16:00:36+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study was a retrospective analysis of patient records from a university hospital in Germany.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The participants were patients who had head and neck tumor surgery with immediate reconstruction between 2021 and 2024.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Researchers used statistical models to check if taking benzodiazepine receptor agonists or antidepressants before surgery was linked to postoperative delirium.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Being 70 years old or older was the only factor found to be significantly associated with a higher risk of developing delirium after surgery.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Using benzodiazepine receptor agonists before surgery was not significantly associated with the occurrence of postoperative delirium in this study.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "A link between antidepressant use and delirium appeared in a simple analysis but was not confirmed when other factors were taken into account.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors note that existing research on this topic is inconsistent and the overall level of evidence is low.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

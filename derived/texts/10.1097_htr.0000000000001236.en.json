@@ -1,0 +1,53 @@
+{
+ "study_id": "10.1097/htr.0000000000001236",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "313d80091adefc64",
+ "generated_at": "2026-11-16T16:28:38+00:00",
+ "word_count": 131,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A secondary analysis of a longitudinal cohort examined employment status among working-age individuals in a national database, tracking their work status at 1, 2, 5, and 10 years after brain injury.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Statistical modeling identified pre-injury employment as the strongest factor associated with work at every follow-up, with those employed at the time of injury showing higher odds of working at 1, 2, and 5 years.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Employment at 1, 2, or 5 years was associated with a higher chance of being employed at all later time points, whereas being married was only associated with higher employment odds at the one-year mark.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "Additionally, the ability to travel independently was linked to a higher chance of employment, while greater functional limitations were associated with a lower chance of working at all measured time points.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-16T16:34:46+00:00"
+ }
+}

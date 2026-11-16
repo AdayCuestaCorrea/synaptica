@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1002/micr.70334",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "b26caa9eb7017d27",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-16T15:58:32+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study examined ten frozen half-faces to test a surgical technique.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "Standard nerve grafts are usually 20 to 23 centimeters long, and longer grafts are linked to poorer results.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "After moving the nerve stump, the average distance to the center of the face was 51.5 millimeters.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The distance to the target point on the other side averaged 132.3 millimeters, which is about 40 percent shorter than the usual graft length.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "On average, six small nerve branches had to be cut to move the main nerve stump.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "In every sample, the nerve stump could be moved safely toward the center of the face.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "For the most severe facial nerve injuries, this method may lead to stronger nerve growth and quicker recovery.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

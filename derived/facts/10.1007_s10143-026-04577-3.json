@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1007/s10143-026-04577-3",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "816911e85c63cb1f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-16T16:01:37+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The ERASE study is a randomized controlled trial conducted at multiple sites.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "660 patients from seven Chinese stroke centers will be split evenly between a robotic-assisted group and a control group.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Participants in both groups will have their arteries accessed using the Seldinger technique.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The study uses a design where the doctors know which treatment is given, but the people reviewing the images do not.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The main measure of success is the clinical success rate of the procedure.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The main safety measure is the rate of complications, serious adverse events, and device malfunctions.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "Secondary measures include procedural time, radiation dose, and the volume of contrast agent used.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

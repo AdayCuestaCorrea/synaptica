@@ -1,0 +1,53 @@
+{
+ "study_id": "10.1097/htr.0000000000001236",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "313d80091adefc64",
+ "generated_at": "2026-11-16T16:28:38+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un análisis secundario de una cohorte longitudinal examinó la situación laboral de personas en edad de trabajar en una base de datos nacional, siguiendo su estado de empleo a los 1, 2, 5 y 10 años tras una lesión cerebral.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "La modelización estadística identificó el empleo previo a la lesión como el factor más fuerte asociado con el trabajo en cada seguimiento, ya que quienes estaban empleados en el momento de la lesión mostraban mayores probabilidades de trabajar a los 1, 2 y 5 años.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Además, estar empleado a los 1, 2 o 5 años se asociaba con una mayor probabilidad de seguir trabajando en todos los puntos temporales posteriores, mientras que el estado civil de casado solo se asociaba con mayores probabilidades de empleo en el primer año.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "Por otra parte, la capacidad para desplazarse de forma independiente se vinculaba con una mayor probabilidad de empleo, al tiempo que mayores limitaciones funcionales se asociaban con una menor probabilidad de trabajar en todos los puntos temporales medidos.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-16T16:34:46+00:00"
+ }
+}

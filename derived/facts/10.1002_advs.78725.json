@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1002/advs.78725",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "20dcb7bad3f72ce6",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-16T16:09:57+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study presents a flexible transistor that uses an amorphous indium gallium zinc oxide channel and a hafnium oxide gate layer to act as a synaptic device.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "The device was first made on a hard silicon base and then made flexible, keeping its electrical performance stable even when bent to a radius of about 3 centimeters.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "The transistor can sense both light and temperatures ranging from 10 to 75 degrees Celsius, allowing it to detect signals like body heat, surrounding air temperature, and sunlight.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "When exposed to light, the device mimics biological nerve cell functions such as short-term to long-term memory transitions and the cycle of learning, forgetting, and relearning.",
+   "subject": "other"
+  },
+  {
+   "id": "f5",
+   "statement": "The device performs its synaptic tasks using a very low voltage of 0.01 volts and consumes only 1.6 femtojoules of energy for each event.",
+   "subject": "other"
+  },
+  {
+   "id": "f6",
+   "statement": "The device's operation is controlled by the trapping and release of electrical carriers within defects in the indium gallium zinc oxide material.",
+   "subject": "other"
+  },
+  {
+   "id": "f7",
+   "statement": "The system was tested for classifying heatstroke risk with 99.6% accuracy between 37 and 42 degrees Celsius and for vision sensing using persistent light conductivity.",
+   "subject": "other"
+  },
+  {
+   "id": "f8",
+   "statement": "The findings suggest this technology offers a scalable foundation for low-power brain-inspired computing and wearable health monitoring devices.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

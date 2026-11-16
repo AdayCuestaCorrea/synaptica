@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1097/htr.0000000000001236",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "c335258844b7579a",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-16T16:04:46+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a secondary analysis of data from a longitudinal cohort.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The participants were people of working age who were part of a national database and had records at the time of injury and at 1, 2, 5, and 10 years later.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The main outcome measured was whether the participants were working at 1, 2, 5, and 10 years after their brain injury.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Statistical modeling showed that having a job before the injury was the strongest factor associated with having a job at every follow-up time point.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "People who were working at the time of their injury were more likely to be working at 1, 2, and 5 years after the injury.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Being employed at 1, 2, or 5 years after the injury was associated with a higher chance of being employed at all later time points.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "Being married was only associated with a higher chance of employment at the 1-year mark after the injury.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "Being able to travel independently was linked to a higher chance of employment, while having more functional limitations was linked to a lower chance of employment at all time points.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

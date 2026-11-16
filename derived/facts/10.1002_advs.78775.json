@@ -1,0 +1,39 @@
+{
+ "study_id": "10.1002/advs.78775",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "253fb021403e0bfe",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-16T16:11:01+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers used a method called atrophy network mapping to link individual brain shrinkage patterns with the brain's overall wiring diagram.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The analysis identified a specific brain network that shows stronger connections to emotion-processing areas and weaker connections to thinking and self-reflection areas.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The strength of connections within this identified network was associated with how severe the participants' depression symptoms were.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The pattern of the network's connections aligned with the levels of genes known to increase the risk of depression.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "People who had weaker connections at the specific brain spots targeted by their personalized transcranial magnetic stimulation treatment showed more improvement in their symptoms.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

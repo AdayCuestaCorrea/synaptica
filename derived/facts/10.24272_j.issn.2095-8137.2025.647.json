@@ -1,0 +1,47 @@
+{
+ "study_id": "10.24272/j.issn.2095-8137.2025.647",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "1e0a4dcc3a68f3dc",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-16T16:06:52+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers used computer simulations and engineering methods to create a repeatable model of optic nerve injury in goats.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The team built a detailed computer model of a human head to study how impact forces travel to the optic nerve.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "Computer simulations showed that impacts near the eye caused stress in the optic nerve canal that was about five times higher than stress in the part of the nerve inside the eye socket.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "Simulations indicated that hitting the optic canal directly required much less force to create the same nerve stress as hitting the area around the eye.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "Based on the simulation results, the team created a tool that uses a scope through the nose to break the bone around the optic nerve in goats.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The injury was confirmed within one day by observing a specific difference in how the pupils reacted to light.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "One month after the injury, 14 goats showed thinner layers of nerve cells and reduced electrical signals from the injured eye, while the other eye remained normal.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,41 @@
+{
+ "study_id": "10.1002/prp2.70352",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "b0bd35c7bb58a83c",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-16T15:59:34+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used rats divided into five groups: a control group, a control group given simvastatin at 30 mg/kg, a group given trimethyltin (TMT), and two TMT groups given simvastatin at 10 mg/kg or 30 mg/kg.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Neurotoxicity was induced by a single intraperitoneal injection of 8 mg/kg of trimethyltin.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "After three weeks of treatment, the researchers measured locomotor activity and learning and memory deficits using open-field and passive avoidance tests.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The study measured hippocampal levels of nitrite, glutathione, glutathione peroxidase, myeloperoxidase, BACE1, mitochondrial membrane potential, and AMPK.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Compared to the TMT group, simvastatin improved hippocampal glutathione, glutathione peroxidase, mitochondrial membrane potential, and AMPK, and reduced myeloperoxidase activity.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording",
+  "statement copies the source wording",
+  "statement copies the source wording"
+ ]
+}

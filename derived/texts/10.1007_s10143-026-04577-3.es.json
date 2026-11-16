@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1007/s10143-026-04577-3",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "45be1865beefe8dc",
+ "generated_at": "2026-11-16T16:21:29+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "El estudio ERASE es un ensayo clínico aleatorizado y multicéntrico que dividirá a 660 pacientes de siete centros de ictus en China en dos grupos de igual tamaño: uno asistido por robot y otro de control.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "En ambos grupos, los médicos accederán a las arterias mediante la técnica de Seldinger, un método para insertar catéteres, dentro de un diseño en el que los clínicos conocen el tratamiento, pero los revisores de las imágenes no.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los resultados primarios son la tasa de éxito clínico del procedimiento y la incidencia de complicaciones, eventos adversos graves y fallos del dispositivo.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Entre las medidas secundarias se incluyen el tiempo del procedimiento, la dosis de radiación y el volumen de agente de contraste utilizado.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-16T16:33:47+00:00"
+ }
+}

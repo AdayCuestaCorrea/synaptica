@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1007/s10143-026-04577-3",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "45be1865beefe8dc",
+ "generated_at": "2026-11-16T16:21:29+00:00",
+ "word_count": 98,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "The ERASE study is a randomized controlled trial conducted at multiple sites that will split 660 patients from seven Chinese stroke centers evenly between a robotic-assisted group and a control group.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Participants in both groups will have their arteries accessed using the Seldinger technique, a method for inserting catheters, within a design where doctors know the treatment but image reviewers do not.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The primary outcomes are the clinical success rate of the procedure and the rate of complications, serious adverse events, and device malfunctions.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Secondary measures include procedural time, radiation dose, and the volume of contrast agent used.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-16T16:33:47+00:00"
+ }
+}

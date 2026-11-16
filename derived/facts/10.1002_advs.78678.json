@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1002/advs.78678",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "d2b2ff6bae6dd238",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-16T15:57:30+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "In people with diarrhea-predominant irritable bowel syndrome who also have depression, the gut bacterium Bacteroides fragilis is more common, and its levels rise as depression severity scores increase.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "When mice that had been treated with antibiotics or had no gut bacteria were exposed to B. fragilis, they showed signs of depression, had lower levels of the brain enzyme SMPD4, and lost myelin in the hippocampus.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Using viral vectors to boost SMPD4 in the hippocampus of these mice improved their behavior and reversed the myelin damage.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Giving mice the bacterial lipid C1P directly increased C1P in the hippocampus and lowered the levels of SMPD4 and myelin markers, linking the bacterial product to the brain changes.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Limiting branched-chain amino acids in the diet lowered C1P signals in the body, brought back SMPD4 levels, and partially improved the depression-like behaviors in the mice.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The study suggests a pathway where the gut bacterium B. fragilis leads to brain myelin damage via a lipid called C1P, but it does not explain exactly how this lipid travels from the gut to the brain.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

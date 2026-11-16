@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1002/prp2.70352",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "694c1e427924b536",
+ "generated_at": "2026-11-16T16:16:23+00:00",
+ "word_count": 102,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers investigated the effects of simvastatin in a rat model where neurotoxicity was induced by a single intraperitoneal injection of 8 mg/kg of trimethyltin.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The animals were divided into five groups, including controls and various treatment arms, and after three weeks, the team measured locomotor activity and learning and memory deficits using open-field and passive avoidance tests.",
+   "fact_ids": [
+    "f1",
+    "f3"
+   ]
+  },
+  {
+   "text": "Hippocampal tissue was analyzed for specific markers, including nitrite, glutathione, glutathione peroxidase, myeloperoxidase, BACE1, mitochondrial membrane potential, and AMPK.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Compared to the trimethyltin group, simvastatin was associated with improved hippocampal glutathione, glutathione peroxidase, mitochondrial membrane potential, and AMPK levels, while reducing myeloperoxidase activity.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-16T16:32:47+00:00"
+ }
+}

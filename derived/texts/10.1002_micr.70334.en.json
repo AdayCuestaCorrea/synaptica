@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1002/micr.70334",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "8776940cda1ad666",
+ "generated_at": "2026-11-16T16:13:19+00:00",
+ "word_count": 100,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers examined ten frozen half-faces to evaluate a surgical technique for repositioning nerve stumps.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "While standard nerve grafts are typically 20 to 23 centimeters long, moving the stump reduced the average distance to the target point to 132.3 millimeters, which is about 40 percent shorter than the usual graft length.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "This procedure required cutting an average of six small nerve branches, yet the nerve stump could be moved safely toward the center of the face in every sample.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors conclude that for the most severe facial nerve injuries, this method may lead to stronger nerve growth and quicker recovery.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-16T16:32:47+00:00"
+ }
+}

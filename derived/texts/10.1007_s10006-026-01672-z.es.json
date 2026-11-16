@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1007/s10006-026-01672-z",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "8a79e066aa323fe1",
+ "generated_at": "2026-11-16T16:18:26+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores realizaron un análisis retrospectivo de las historias clínicas de un hospital universitario en Alemania, centrado en pacientes que se sometieron a cirugía de tumores de cabeza y cuello con reconstrucción inmediata entre 2021 y 2024.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Se aplicaron modelos estadísticos para determinar si el uso preoperatorio de agonistas de los receptores de benzodiazepina o de antidepresivos se asociaba con el desarrollo de delirium postoperatorio.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Aunque tener 70 años o más fue el único factor significativamente asociado con un mayor riesgo de delirium, el uso preoperatorio de agonistas de los receptores de benzodiazepina no se asoció significativamente con su aparición.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Si bien un análisis simple sugería una relación entre el uso de antidepresivos y el delirium, esta asociación no se confirmó al tener en cuenta otros factores.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores señalan que la investigación existente sobre este tema es inconsistente y que el nivel global de evidencia es bajo.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-16T16:33:46+00:00"
+ }
+}

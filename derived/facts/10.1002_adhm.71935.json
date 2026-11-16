@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1002/adhm.71935",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "383d5dedec63c66e",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-16T16:08:54+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers created a wireless, battery-free electrical stimulation device that uses a biodegradable conductive scaffold made with 3D printing and electrospinning.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "Daily electrical stimulation increased the release of growth factors from Schwann cells and encouraged nerve cell growth, with the strongest effects seen within 24 hours.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "In rats with a 10-millimeter gap in their sciatic nerve, the wireless system improved motor recovery, muscle health, nerve function, and nerve structure more than a scaffold alone.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The wireless system did not match the results of autograft repair for most measures, except for myelination, where it performed similarly.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

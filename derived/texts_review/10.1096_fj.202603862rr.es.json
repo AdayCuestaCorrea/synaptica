@@ -1,0 +1,62 @@
+{
+ "study_id": "10.1096/fj.202603862rr",
+ "lang": "es",
+ "status": "rejected_by_judge",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "296031e9a681482a",
+ "generated_at": "2026-11-16T16:23:31+00:00",
+ "word_count": null,
+ "problems": [
+  "judge: overstates validation of analyses and presents genes as treatment targets, which the abstract does not support"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron la expresión génica y muestras de tejido de ratas con arterias carótidas dañadas para buscar indicios de ferroptosis, una forma específica de muerte celular.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Validaron los análisis computacionales mediante tinción de tejidos y microscopía electrónica, observando que una puntuación calculada era más baja en las muestras dañadas, a pesar de la calidad de los datos no confirmada.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los datos agregados indicaron vías relacionadas con el estrés oxidativo y la remodelación tisular, mientras que los niveles de ATG13 y CDO1 disminuyeron y PLIN2 aumentó en las arterias lesionadas.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Aunque cambiaron las formas mitocondriales, esto no confirmó la ferroptosis, si bien los tres genes siguen siendo marcadores potenciales para el proceso de remodelación.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  },
+  {
+   "text": "Los autores concluyeron que los tamaños de muestra pequeños y las diferencias temporales limitan los hallazgos, lo que requiere más pruebas para validar estos genes como dianas terapéuticas.",
+   "fact_ids": [
+    "f9",
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": false,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "overstates validation of analyses and presents genes as treatment targets, which the abstract does not support",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-16T16:33:48+00:00"
+ }
+}

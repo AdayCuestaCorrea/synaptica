@@ -1,0 +1,62 @@
+{
+ "study_id": "10.1097/htr.0000000000001215",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "612da665e0f6e8e0",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-16T16:03:45+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study analyzed data from a multicenter observational cohort across rehabilitation centers in the United States.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study included 3,365 adults living in the community who had a complicated mild-to-severe traumatic brain injury and were between 1 and 30 years post-injury.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The researchers measured self-reported current pain, pain severity, and how much pain interfered with daily life.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The study also assessed levels of depression, anxiety, and misuse of opioid medications.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Cannabis use was more common in states where medical cannabis is legal, with 33% of users in legal states compared to 23% in illegal states.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "In both legal and illegal states, using cannabis was associated with higher levels of pain, depression, anxiety, and opioid misuse.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "People who used cannabis in states where it was illegal reported higher levels of depression and anxiety than users in legal states, with the difference being 1.80 points for depression and 1.58 points for anxiety.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The statistical association between state cannabis policy and the measured outcomes was small, with effect sizes ranging from 0.021 to 0.031.",
+   "subject": "humans"
+  },
+  {
+   "id": "f9",
+   "statement": "Fewer than 25% of the participants said they used cannabis only for recreational reasons.",
+   "subject": "humans"
+  },
+  {
+   "id": "f10",
+   "statement": "The authors suggest that future research should investigate whether legal barriers to accessing medical cannabis contribute to mental health disparities in people with traumatic brain injury.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

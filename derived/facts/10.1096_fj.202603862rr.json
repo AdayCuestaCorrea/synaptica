@@ -1,0 +1,62 @@
+{
+ "study_id": "10.1096/fj.202603862rr",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "3755113129625661",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-16T16:02:41+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study analyzed gene expression data and tissue samples from rats with injured carotid arteries to look for signs of a specific type of cell death called ferroptosis.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The research used single-cell data from day 28, bulk data from day 14, and physical tissue samples from three pairs of rats.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The investigators reviewed various computational analyses of the data and checked them against tissue staining and electron microscope images.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "A specific score calculated from the single-cell data appeared lower in the injured samples, but the quality of this data and the method used to calculate it have not been confirmed.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "Analysis of the bulk gene expression data pointed to biological pathways involved in oxidative stress and tissue remodeling.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The levels of the genes ATG13 and CDO1 were lower, while the level of PLIN2 was higher, in the injured arteries compared to controls.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The shape of the mitochondria changed in the injured tissue, but this change was not enough to prove that the cells were dying from ferroptosis.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "The findings suggest that ATG13, CDO1, and PLIN2 could be potential markers for the remodeling process, though this is not yet confirmed.",
+   "subject": "animals"
+  },
+  {
+   "id": "f9",
+   "statement": "The study did not prove that these genes act specifically in smooth muscle cells, that ferroptosis occurred, or that these genes are valid targets for treatment.",
+   "subject": "animals"
+  },
+  {
+   "id": "f10",
+   "statement": "The small number of animals, the different times samples were taken, and unclear data sources limit the conclusions, meaning the results need further analysis and testing.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

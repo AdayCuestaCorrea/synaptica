@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1002/advs.78678",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "5ff894a68f213f41",
+ "generated_at": "2026-11-16T16:12:02+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "En un estudio realizado en personas con síndrome del intestino irritable con predominio de diarrea y depresión, niveles más elevados de la bacteria intestinal Bacteroides fragilis se asociaron con puntuaciones de gravedad de la depresión más altas.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Cuando los ratones fueron expuestos a esta bacteria o a su producto lipídico C1P, mostraron signos similares a la depresión, niveles reducidos de la enzima cerebral SMPD4 y pérdida de mielina en el hipocampo.",
+   "fact_ids": [
+    "f2",
+    "f4"
+   ]
+  },
+  {
+   "text": "Aumentar la expresión de SMPD4 mediante vectores virales o limitar los aminoácidos de cadena ramificada en la dieta revirtió parcialmente estos cambios conductuales y de mielina en los animales.",
+   "fact_ids": [
+    "f3",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores sugieren una vía en la que B. fragilis provoca daño en la mielina cerebral a través del C1P, aunque el mecanismo por el cual este lípido viaja desde el intestino hasta el cerebro sigue sin explicarse.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-16T16:32:45+00:00"
+ }
+}

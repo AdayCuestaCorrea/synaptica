@@ -1,0 +1,62 @@
+{
+ "study_id": "10.1096/fj.202603862rr",
+ "lang": "en",
+ "status": "rejected_by_judge",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "296031e9a681482a",
+ "generated_at": "2026-11-16T16:23:31+00:00",
+ "word_count": 118,
+ "problems": [
+  "judge: overstates validation of analyses and presents genes as treatment targets, which the abstract does not support"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers examined gene expression and tissue samples from rats with injured carotid arteries to investigate signs of ferroptosis, a specific form of cell death.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "They validated computational analyses using tissue staining and electron microscopy, noting that a calculated score was lower in injured samples despite unconfirmed data quality.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Bulk data indicated pathways related to oxidative stress and tissue remodeling, while ATG13 and CDO1 levels dropped and PLIN2 increased in the injured arteries.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Although mitochondrial shapes changed, this did not confirm ferroptosis, though the three genes remain potential markers for the remodeling process.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  },
+  {
+   "text": "The authors concluded that small sample sizes and timing differences limit the findings, requiring further testing to validate these genes as treatment targets.",
+   "fact_ids": [
+    "f9",
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": false,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "overstates validation of analyses and presents genes as treatment targets, which the abstract does not support",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-16T16:33:48+00:00"
+ }
+}

@@ -1,0 +1,56 @@
+{
+ "study_id": "10.1242/dev.206189",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "d9e0d4e847b1c498",
+ "generated_at": "2026-11-16T16:30:39+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores utilizaron células bipolares retinianas en desarrollo para comparar cómo se desplazan las células durante las distintas etapas del desarrollo tisular.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Las células bipolares que nacen antes de que se forme la capa de fotorreceptores se mueven de forma dirigida y dependiente de los microtúbulos, mientras que las células nacidas más tarde se desplazan de manera más pasiva y menos dirigida, impulsadas principalmente por el movimiento del tejido circundante.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Al bloquear el movimiento del tejido completo, se redujo el desplazamiento de las células nacidas más tarde, mientras que impedir la formación de la capa de fotorreceptores provocó que estas células se movieran de forma dirigida.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Independientemente de la estrategia de movimiento empleada, las células bipolares terminaron en la capa correcta de la retina.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Los hallazgos sugieren que el entorno del tejido circundante puede influir en cómo se mueven las células, un principio que podría aplicarse a otros tejidos en desarrollo.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-16T16:34:48+00:00"
+ }
+}

@@ -1,0 +1,56 @@
+{
+ "study_id": "10.1242/dev.206189",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "d9e0d4e847b1c498",
+ "generated_at": "2026-11-16T16:30:39+00:00",
+ "word_count": 125,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers used developing retinal bipolar cells to compare how cells move during different stages of tissue development.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Bipolar cells born before the photoreceptor layer forms move in a directed way that depends on microtubules, whereas later-born cells move in a more passive and less directed manner driven mainly by the movement of the surrounding tissue.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Blocking the movement of the whole tissue reduced the displacement of later-born cells, while preventing the formation of the photoreceptor layer caused these cells to move in a directed way.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Regardless of the movement strategy used, the bipolar cells ended up in the correct layer of the retina.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "The findings suggest that the surrounding tissue environment can influence how cells move, a principle that may apply to other developing tissues.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-16T16:34:48+00:00"
+ }
+}

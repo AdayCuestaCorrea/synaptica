@@ -1,0 +1,52 @@
+{
+ "study_id": "10.3881/j.issn.1000-503x.16951",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "01eb8a163279cb55",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-16T16:07:53+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "About 5% of people with lymphoma develop a form of the disease that affects the central nervous system.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "When this type of lymphoma affects the spinal cord, it is uncommon, which makes it hard to diagnose early.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The study describes a single patient whose first signs of the disease were in the spinal cord.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Magnetic resonance imaging showed multiple areas of abnormality in the neck and lower back parts of the patient's spinal cord.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "A whole-body PET/CT scan showed high activity in the spinal cord, liver, and kidneys.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Doctors confirmed the diagnosis by examining tissue samples taken from the patient's kidney and liver under a microscope.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors compared the imaging results and fluid markers of this secondary lymphoma with those of a primary form of the disease.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The goal of the comparison was to help doctors recognize this rare condition sooner.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

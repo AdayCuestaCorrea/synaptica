@@ -1,0 +1,43 @@
+{
+ "study_id": "10.1002/micr.70334",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "8776940cda1ad666",
+ "generated_at": "2026-11-16T16:13:19+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: words not in the Spanish dictionary ['reubicación']"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores examinaron diez medias caras congeladas para evaluar una técnica quirúrgica de reubicación de los muñones nerviosos.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Si bien los injertos nerviosos estándar suelen medir entre 20 y 23 centímetros, el desplazamiento del muñón redujo la distancia media al punto objetivo a 132,3 milímetros, lo que supone una longitud aproximadamente un 40 % menor que la habitual.",
+   "fact_ids": [
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Este procedimiento requirió seccionar una media de seis pequeñas ramas nerviosas, aunque el muñón pudo desplazarse con seguridad hacia el centro de la cara en todas las muestras.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que, en el caso de las lesiones más graves del nervio facial, este método podría favorecer un crecimiento nervioso más robusto y una recuperación más rápida.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-16T16:32:44+00:00"
+}
