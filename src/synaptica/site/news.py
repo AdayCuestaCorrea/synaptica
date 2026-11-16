@@ -208,6 +208,16 @@ def study_record(
             "issue_on": iso(issue)}  # fmt: skip
 
 
+def list_record(row: dict[str, Any]) -> dict[str, Any]:
+    """A study in a list that only shows its date, title and signals (Neuro Atlas regions,
+    v189): no summaries read. It links to its page when it has one, else to the original."""
+    row = {k: iso(v) for k, v in row.items()}
+    issue = print_issue(row)
+    return {**row, "slug": slug(row["study_id"]), "type": study_type(row),
+            "url": original_url(row), "shown_on": row["entered_on"] if issue else
+            row["published_on"], "issue_on": iso(issue)}  # fmt: skip
+
+
 def licence_name(value: str | None) -> str | None:
     if not value:
         return None

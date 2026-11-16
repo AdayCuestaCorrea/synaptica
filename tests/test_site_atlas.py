@@ -142,3 +142,30 @@ def test_region_pages_are_built_linked_and_mark_their_gaps(tmp_path: Path) -> No
     assert (out / "en" / "atlas" / "regions" / "julich-ca1-hippocampus.html").exists()
     atlas_page = (out / "es" / "atlas.html").read_text()
     assert "regiones/waxholm-hippocampal-formation.html" in atlas_page  # the pairs section
+
+
+def test_region_pages_list_the_pair_studies_by_species(tmp_path: Path) -> None:
+    """v189: with a warehouse, both pages of a pair list the same studies, grouped by
+    species and marked as an automatic match; a study without a page links to the original."""
+    from test_site_news import STUDIES, study, warehouse
+
+    hippo = [
+        study("doi:10.1/rats", title="Place cells in the rat hippocampus"),
+        study("doi:10.1/people", title="Hippocampus volume in older adults", species="humans",
+              news_candidate=False),
+        study("doi:10.1/other", title="Nothing about a region here", species="humans"),
+    ]  # fmt: skip
+    data = warehouse(tmp_path / "data", studies=STUDIES + hippo)
+    out = tmp_path / "site"
+    SiteBuilder(out, images=LICENSED, data_dir=data).build()
+    assert check_site(out).passed
+    rat = (out / "es" / "atlas" / "regiones" / "waxholm-hippocampal-formation.html").read_text()
+    ca1 = (out / "en" / "atlas" / "regions" / "julich-ca1-hippocampus.html").read_text()
+    for page in (rat, ca1):
+        assert 'data-study="doi:10.1/rats"' in page and 'data-study="doi:10.1/people"' in page
+        assert "doi:10.1/other" not in page
+        assert 'href="#gap-region_match"' in page and "gap-region_studies" not in page
+    assert rat.index('data-species="humans"') < rat.index('data-species="animals"')
+    assert 'href="https://doi.org/10.1/people"' in rat  # no page of its own: the original
+    amygdala = out / "es" / "atlas" / "regiones" / "waxholm-amygdaloid-area-unspecified.html"
+    assert "Todavía no hay estudios de esta región." in amygdala.read_text()

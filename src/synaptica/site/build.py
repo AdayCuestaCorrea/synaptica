@@ -76,6 +76,7 @@ SECTIONS = [
 # The S3 prototype (ADR 0003, correction of v98): the Neuro Atlas card opens it while the
 # atlas page is not built, and the atlas page links to it until the new viewer (step 3).
 ATLAS_URL = "https://adaycuestacorrea.github.io/synaptica/spikes/s3/c/"
+REGION_STUDIES = 10  # per species group on a region page (Aday, v188)
 STYLESHEETS = ("noche.css", "base.css")  # joined, in this order, into static/synaptica.css
 SCRIPTS = ("site.js", "search.js", "atlas.js", "glossary.js")
 # Pages built so far (steps 21 to 23); one study page per study shown comes on top.
@@ -420,13 +421,42 @@ class SiteBuilder:
                     pair_pages=pair_pages, region_urls=region_urls,
                     glossary_index=glossary_index)  # fmt: skip
 
+    @functools.cached_property
+    def pair_studies(self) -> dict[str, list[dict[str, Any]]] | None:
+        """Pair kind -> its studies (v188-v189); None without a warehouse (a gap)."""
+        if self.data_dir is None or not (self.data_dir / "warehouse.duckdb").exists():
+            return None
+        from synaptica.atlas import studies
+
+        found = studies.pair_studies(self.data_dir / "warehouse.duckdb", news_mod.STUDY_COLUMNS,
+                                     cache_root=self.data_dir / "cache")  # fmt: skip
+        return {k: [news_mod.list_record(s) for s in v] for k, v in found.items()}
+
     def region(self, lang: str, r: dict[str, Any]) -> None:
+        from synaptica.atlas.studies import by_species
+
         t, d = self.i18n[lang], self.atlas_data
         gaps = {k: ("gap", t[f"gap_{k}"])
-                for k in ("region_text", "region_studies", "region_diseases", "region_methods",
+                for k in ("region_text", "region_diseases", "region_methods",
                           "pair_grade", "atlas_names")}  # fmt: skip
+        groups = None
+        if self.pair_studies is not None:
+            # Per pair (Aday, v188): every page of a pair lists the same studies.
+            seen: dict[str, dict[str, Any]] = {}
+            for p in r["pairs"]:
+                for s in self.pair_studies.get(p["kind"], []):
+                    seen.setdefault(s["study_id"], s)
+            groups = by_species(list(seen.values()), REGION_STUDIES)
+            gaps["region_match"] = ("proposal", t["gap_region_match"])
+            shown = [s for g in groups for s in g["studies"]]
+            found = self.study_gaps(lang, shown)
+            gaps.update({k: found[k] for k in ("title_es", "journal_name") if k in found})
+        else:
+            gaps["region_studies"] = ("gap", t["gap_region_studies"])
+        pages = set(self.news_data.by_id) if self.news_data else set()
         self.render(lang, "region", "region.html.j2", key=r["page"], r=r, gaps=gaps,
-                    credit=d["credit"][r["atlas"]], by_page=d["by_page"])  # fmt: skip
+                    credit=d["credit"][r["atlas"]], by_page=d["by_page"], groups=groups,
+                    study_pages=pages)  # fmt: skip
 
     def glossary(self, lang: str) -> None:
         gl, t = self.gl[lang], self.i18n[lang]
