@@ -561,6 +561,11 @@ class VolumeViewer {
     const fingers = new Set(); // pointers down on the canvas: two or more are a pinch
     this.canvas.addEventListener("pointerdown", (e) => {
       fingers.add(e.pointerId);
+      // A second finger makes it a pinch: no tap at the end of it (Aday, S23, v185).
+      if (fingers.size > 1) {
+        down = null;
+        return;
+      }
       const box = this.canvas.getBoundingClientRect();
       const px = this.nv.uiData.dpr || 1;
       // Turning is a one-finger drag on the 3D view; on the 2D slice a drag moves the point.
@@ -598,6 +603,29 @@ class VolumeViewer {
       clearTimeout(this.wheelTimer);
       this.wheelTimer = setTimeout(() => this.setBusy(false), 300);
     }, { capture: true, passive: false });
+    // Aday (S23, v185): a pinch zooms too. Niivue turned it into a slice scroll, which on the
+    // 3D view moves the cut (the wheel's old behaviour); it is caught on the stage, before
+    // Niivue's touchmove gets it. The zoom follows the change in the distance between fingers.
+    let pinch = 0;
+    const spread = (t) => Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
+    this.canvas.parentElement.addEventListener("touchmove", (e) => {
+      if (e.target !== this.canvas || e.touches.length < 2) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const d = spread(e.touches);
+      if (pinch > 0 && d > 0) {
+        const box = this.canvas.getBoundingClientRect();
+        const px = this.nv.uiData.dpr || 1;
+        const mid = [(e.touches[0].clientX + e.touches[1].clientX) / 2 - box.left,
+                     (e.touches[0].clientY + e.touches[1].clientY) / 2 - box.top];
+        const in3d = this.nv.inRenderTile(mid[0] * px, mid[1] * px) >= 0;
+        this.zoomBy(d / pinch, in3d ? "3d" : "2d");
+      }
+      pinch = d;
+    }, { capture: true, passive: false });
+    this.canvas.addEventListener("touchend", (e) => {
+      if (e.touches.length < 2) pinch = 0;
+    });
     // A drag that ends outside the canvas (the mouse let go beyond its edge) ends too.
     addEventListener("pointerup", (e) => {
       fingers.delete(e.pointerId);
@@ -617,11 +645,19 @@ class VolumeViewer {
       const r = this.canvas.getBoundingClientRect();
       const dpr = this.nv.uiData.dpr || 1;
       if (this.nv.inRenderTile((e.clientX - r.left) * dpr, (e.clientY - r.top) * dpr) < 0) return;
-      this.tapFrom = [...this.nv.scene.crosshairPos]; // 3D only: a 2D click always moves it
-      this.lastTap = { clientX: e.clientX, clientY: e.clientY };
-      this.canvas.dispatchEvent(
-        new MouseEvent("dblclick", { clientX: e.clientX, clientY: e.clientY, bubbles: true }),
-      );
+      const send = () => {
+        this.tapFrom = [...this.nv.scene.crosshairPos]; // 3D only: a 2D click always moves it
+        this.lastTap = { clientX: e.clientX, clientY: e.clientY };
+        this.canvas.dispatchEvent(
+          new MouseEvent("dblclick", { clientX: e.clientX, clientY: e.clientY, bubbles: true }),
+        );
+      };
+      // Aday (S23, v185): on a phone pointerup comes before touchend. A finger that wobbled
+      // within SLOP has Niivue still dragging (isDragging, cleared on its touchend), and its
+      // dblclick handler then ignores the pick: one tap failed, a double tap (Niivue's own)
+      // worked. With a finger the double click waits for Niivue's touchend.
+      if (e.pointerType !== "touch") send();
+      else this.canvas.addEventListener("touchend", () => setTimeout(send), { once: true });
     });
   }
 
