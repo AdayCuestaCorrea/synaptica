@@ -155,3 +155,30 @@ def test_her_words_match_the_text_and_count_in_what_she_approves(monkeypatch, tm
     after = {i.item_id: i for i in studies.review_items()}["waxholm-1021"]
     assert after.content.terms[-1] == "CA3" and after.content_sha256 != before.content_sha256
     assert studies.reviewed(review) == {}
+
+
+def test_measure_counts_the_rule_at_1_2_3_mentions_with_no_text_out(tmp_path):
+    """A2.2: against MeSH where a study has both, and per pair where it has no MeSH; the
+    report carries counts and PMIDs, never a word of an abstract."""
+    secret = "SECRET-WORDS"
+    bodies = {
+        "1": f"{secret} corpus striatum and the corpus striatum; once the cerebellum.",
+        "2": "Once the cerebellum.",  # no MeSH; its keywords already say brainstem
+        "10.1/x": "The pons, and the pons again.",  # no MeSH; the title says pallidus
+    }
+
+    def abstract(study, cache_root=None):
+        body = bodies.get(study["pmid"] or study["doi"])
+        return (body,) if body else None
+
+    m = studies.measure(warehouse(tmp_path / "w.duckdb"), abstract=abstract,
+                        match=studies.Matcher(ROWS, TERMS))  # fmt: skip
+    assert (m["studies"], m["with_mesh"], m["without_mesh"]) == (3, 1, 2)
+    # Its title says pallidum (MeSH: striatum) at every threshold; one passing cerebellum at 1.
+    assert m["check"][1] == {"tp": 1, "fp": 2, "fn": 0}
+    assert m["check"][2] == {"tp": 1, "fp": 1, "fn": 0}
+    assert m["text"][2] == {"brainstem": 2, "pallidum": 1}
+    assert m["only_at_1"] == ["2 cerebellum"]
+    assert m["lost_at_3"] == ["s3 brainstem"]  # no PMID: its study_id
+    report = studies.measure_markdown(m)
+    assert "| 2 | 1 | 1 | 0 | 0.50 | 1.00 |" in report and secret not in report

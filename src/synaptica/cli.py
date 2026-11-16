@@ -813,6 +813,22 @@ def atlas_mesh() -> None:
                + ("; changed" if changed else "; no change"))  # fmt: skip
 
 
+@atlas_app.command("measure")
+def atlas_measure() -> None:
+    """How the Neuro Atlas abstract rule (two mentions) behaves at 1, 2 or 3 mentions, with
+    the abstracts of the private cache: counts and PMIDs only, no text (A2.2). Reads the
+    warehouse (syn build first); no network, no LLM."""
+    from synaptica.atlas import studies
+
+    paths = config.get_paths()
+    warehouse = paths.data / "warehouse.duckdb"
+    if not warehouse.exists():
+        typer.echo(f"No warehouse at {warehouse}: run syn build first.", err=True)
+        raise typer.Exit(2)
+    m = studies.measure(warehouse, cache_root=paths.data / "cache")
+    typer.echo(studies.measure_markdown(m), nl=False)
+
+
 @app.command()
 def site(
     out: Annotated[str | None, typer.Option(help="Output folder [default: site/_build].")] = None,

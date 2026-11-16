@@ -27,7 +27,7 @@ import functools
 import json
 import re
 import tomllib
-from collections.abc import Callable
+from collections.abc import Callable, Iterator
 from importlib import resources
 from pathlib import Path
 from typing import Any
@@ -158,12 +158,14 @@ class Matcher:
             self.by_name[n.lower()] for n in names if n.lower() in self.by_name
         }
 
-    def text(self, head: str, body: str = "") -> set[str]:
+    def text(self, head: str, body: str = "", min_mentions: int = MIN_MENTIONS) -> set[str]:
+        """Pairs named in the title or keywords (``head``), or ``min_mentions`` times in
+        head and abstract together."""
         both = head + " " + body
         return {
             k
             for k, rx in self.patterns.items()
-            if rx.search(head) or len(rx.findall(both)) >= MIN_MENTIONS
+            if rx.search(head) or len(rx.findall(both)) >= min_mentions
         }
 
 
@@ -184,6 +186,25 @@ def pair_studies(
     plus ``basis``), newest first. Abstracts only from the cache: no client, so never the
     network."""
     match = match or matcher()
+    out: dict[str, list[dict[str, Any]]] = {}
+    for row, uis, kw, mesh_names in _rows(warehouse, columns):
+        if uis or mesh_names:
+            kinds, basis = match.mesh(uis, mesh_names), "mesh"
+        else:
+            text = abstract({k: row.get(k) for k in ("pmid", "doi", "pmcid", "sources")},
+                            cache_root=cache_root)  # fmt: skip
+            kinds = match.text(" ".join([row["title"] or "", *kw]), text[0] if text else "")
+            basis = "text"
+        for kind in sorted(kinds):
+            out.setdefault(kind, []).append(row | {"basis": basis})
+    return out
+
+
+def _rows(
+    warehouse: Path, columns: tuple[str, ...]
+) -> Iterator[tuple[dict[str, Any], list[str], list[str], list[str]]]:
+    """The neuroscience studies that are not noise, newest first: (row, MeSH UIs, keywords,
+    MeSH names)."""
     with duckdb.connect(str(warehouse), read_only=True) as con:
         have = {r[0] for r in con.execute(
             "select table_name from information_schema.tables").fetchall()}  # fmt: skip
@@ -208,20 +229,106 @@ def pair_studies(
             "s.study_id"
         ).fetchall()  # fmt: skip
     names = [*columns, "_uis", "_kw", "_names"]
-    out: dict[str, list[dict[str, Any]]] = {}
     for values in rows:
         row = dict(zip(names, values, strict=True))
-        uis, kw, mesh_names = row.pop("_uis"), row.pop("_kw"), row.pop("_names")
-        if uis or mesh_names:
-            kinds, basis = match.mesh(uis, mesh_names), "mesh"
-        else:
-            text = abstract({k: row.get(k) for k in ("pmid", "doi", "pmcid", "sources")},
-                            cache_root=cache_root)  # fmt: skip
-            kinds = match.text(" ".join([row["title"] or "", *kw]), text[0] if text else "")
-            basis = "text"
-        for kind in sorted(kinds):
-            out.setdefault(kind, []).append(row | {"basis": basis})
+        yield row, row.pop("_uis"), row.pop("_kw"), row.pop("_names")
+
+
+# ---- measuring the abstract rule (A2.2) ----------------------------------------------
+
+THRESHOLDS = (1, 2, 3)
+SHOWN_IDS = 15  # PMIDs per list in the report: public IDs, never text
+
+
+def measure(
+    warehouse: Path,
+    *,
+    cache_root: Path | None = None,
+    abstract: Callable[..., Any] = abstract_for,
+    match: Matcher | None = None,
+) -> dict[str, Any]:
+    """How the text rule (:data:`MIN_MENTIONS` in the abstract) would behave at 1, 2 or 3
+    mentions, with the abstracts of the private cache (A2.2). Two measures, only counts:
+
+    - ``check``: on the studies that have MeSH and an abstract in the cache, the text rule
+      against MeSH (what the pages use for them): per threshold, pairs it finds that MeSH
+      also gives (``tp``), pairs MeSH does not give (``fp``) and pairs it misses (``fn``);
+    - ``text``: on the studies without MeSH (where the rule is used), studies found per
+      pair at each threshold, and the PMIDs that move between 2 and 1 or 2 and 3.
+
+    Nothing of an abstract is returned: the CI log is public."""
+    match = match or matcher()
+    cols = ("study_id", "pmid", "doi", "pmcid", "sources", "title")
+    out: dict[str, Any] = {"studies": 0, "with_mesh": 0, "with_mesh_abstract": 0,
+                           "without_mesh": 0, "without_mesh_abstract": 0,
+                           "check": {n: {"tp": 0, "fp": 0, "fn": 0} for n in THRESHOLDS},
+                           "text": {n: {} for n in THRESHOLDS},
+                           "only_at_1": [], "lost_at_3": []}  # fmt: skip
+    for row, uis, kw, mesh_names in _rows(warehouse, cols):
+        out["studies"] += 1
+        has_mesh = bool(uis or mesh_names)
+        out["with_mesh" if has_mesh else "without_mesh"] += 1
+        text = abstract({k: row.get(k) for k in ("pmid", "doi", "pmcid", "sources")},
+                        cache_root=cache_root)  # fmt: skip
+        body = text[0] if text else ""
+        if body:
+            out["with_mesh_abstract" if has_mesh else "without_mesh_abstract"] += 1
+        head = " ".join([row["title"] or "", *kw])
+        found = {n: match.text(head, body, n) for n in THRESHOLDS}
+        if has_mesh:
+            if not body:
+                continue
+            truth = match.mesh(uis, mesh_names)
+            for n, kinds in found.items():
+                c = out["check"][n]
+                c["tp"] += len(kinds & truth)
+                c["fp"] += len(kinds - truth)
+                c["fn"] += len(truth - kinds)
+            continue
+        for n, kinds in found.items():
+            for kind in kinds:
+                out["text"][n][kind] = out["text"][n].get(kind, 0) + 1
+        ident = row["pmid"] or row["study_id"]
+        for kind in sorted(found[1] - found[2]):
+            out["only_at_1"].append(f"{ident} {kind}")
+        for kind in sorted(found[2] - found[3]):
+            out["lost_at_3"].append(f"{ident} {kind}")
     return out
+
+
+def measure_markdown(m: dict[str, Any]) -> str:
+    """The measure as a short Markdown report (counts and PMIDs only)."""
+    lines = [
+        "## Neuro Atlas: the abstract rule (A2.2)",
+        "",
+        f"Neuroscience studies (not noise): {m['studies']}. With MeSH: {m['with_mesh']} "
+        f"({m['with_mesh_abstract']} with an abstract in the cache). Without MeSH: "
+        f"{m['without_mesh']} ({m['without_mesh_abstract']} with an abstract in the cache).",
+        "",
+        "### Text rule against MeSH (studies with both)",
+        "",
+        "| Mentions | Found, MeSH agrees | Found, MeSH does not | Missed | Precision | Recall |",
+        "|---|---|---|---|---|---|",
+    ]
+    for n, c in m["check"].items():
+        p = f"{c['tp'] / (c['tp'] + c['fp']):.2f}" if c["tp"] + c["fp"] else "n/a"
+        r = f"{c['tp'] / (c['tp'] + c['fn']):.2f}" if c["tp"] + c["fn"] else "n/a"
+        lines.append(f"| {n} | {c['tp']} | {c['fp']} | {c['fn']} | {p} | {r} |")
+    kinds = sorted({k for per in m["text"].values() for k in per})
+    lines += ["", "### Studies without MeSH found per pair", "",
+              "| Pair | " + " | ".join(f"≥ {n} in the abstract" for n in THRESHOLDS) + " |",
+              "|---" * (len(THRESHOLDS) + 1) + "|"]  # fmt: skip
+    for k in kinds:
+        lines.append(f"| {k} | " + " | ".join(str(m["text"][n].get(k, 0)) for n in THRESHOLDS)
+                     + " |")  # fmt: skip
+    for key, label in (("only_at_1", "Found with 1 mention, not with 2"),
+                       ("lost_at_3", "Found with 2 mentions, not with 3")):  # fmt: skip
+        ids = m[key]
+        more = f" (and {len(ids) - SHOWN_IDS} more)" if len(ids) > SHOWN_IDS else ""
+        lines += ["", f"{label}: {len(ids)}{more}"]
+        if ids:
+            lines += ["", *(f"- {i}" for i in ids[:SHOWN_IDS])]
+    return "\n".join(lines) + "\n"
 
 
 SPECIES_GROUPS = ("humans", "animals", "both", "unknown")
