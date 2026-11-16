@@ -163,8 +163,9 @@ def pair_studies(
     abstract: Callable[..., Any] = abstract_for,
     match: Matcher | None = None,
 ) -> dict[str, list[dict[str, Any]]]:
-    """Pair kind → its neuroscience studies (``columns`` of ``dim_study`` plus ``basis``),
-    newest first. Abstracts only from the cache: no client, so never the network."""
+    """Pair kind → its neuroscience studies that are not noise (``columns`` of ``dim_study``
+    plus ``basis``), newest first. Abstracts only from the cache: no client, so never the
+    network."""
     match = match or matcher()
     with duckdb.connect(str(warehouse), read_only=True) as con:
         have = {r[0] for r in con.execute(
@@ -183,7 +184,9 @@ def pair_studies(
             + ("left join (select doi, flatten(list(mesh_names)) as mesh_names "
                "from stg_europepmc__records where doi is not null group by doi) e "
                "on e.doi = s.doi " if epmc else "")
+            # Not what the classifier of Neuro News called noise (Aday, v191).
             + "where s.is_neuro and s.title is not null "
+            "and coalesce(s.news_type, '') != 'noise' "
             "order by s.entered_on desc, least(s.published_on, s.entered_on) desc nulls last, "
             "s.study_id"
         ).fetchall()  # fmt: skip

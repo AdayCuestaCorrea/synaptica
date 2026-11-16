@@ -85,16 +85,20 @@ def warehouse(path: Path) -> Path:
     with duckdb.connect(str(path)) as con:
         con.execute("""create table dim_study (study_id varchar, pmid varchar, doi varchar,
             pmcid varchar, sources varchar[], title varchar, species varchar,
-            entered_on date, published_on date, is_neuro boolean)""")
+            entered_on date, published_on date, is_neuro boolean, news_type varchar)""")
         con.execute("create table int_pubmed__records (pmid varchar, mesh_uis varchar[], "
                     "keywords varchar[])")  # fmt: skip
         d = dt.date(2026, 11, 10)
-        con.executemany("insert into dim_study values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [
-            ("s1", "1", None, None, ["pubmed"], "Rats and the pallidum", "animals", d, d, True),
-            ("s2", "2", None, None, ["pubmed"], "No region in this title", "humans", d, d, True),
+        con.executemany("insert into dim_study values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [
+            ("s1", "1", None, None, ["pubmed"], "Rats and the pallidum", "animals", d, d, True,
+             None),
+            ("s2", "2", None, None, ["pubmed"], "No region in this title", "humans", d, d, True,
+             "disease"),
             ("s3", None, "10.1/x", None, ["biorxiv"], "Globus pallidus in mice", "unknown",
-             d + dt.timedelta(days=1), d, True),
-            ("s4", "4", None, None, ["pubmed"], "Globus pallidus", "unknown", d, d, False),
+             d + dt.timedelta(days=1), d, True, None),
+            ("s4", "4", None, None, ["pubmed"], "Globus pallidus", "unknown", d, d, False, None),
+            ("s5", None, "10.1/n", None, ["biorxiv"], "Globus pallidus, noise", "unknown", d, d,
+             True, "noise"),
         ])  # fmt: skip
         con.executemany("insert into int_pubmed__records values (?, ?, ?)", [
             ("1", ["D1"], []),  # MeSH says striatum: MeSH wins over the title
@@ -103,7 +107,7 @@ def warehouse(path: Path) -> Path:
     return path
 
 
-def test_pair_studies_by_mesh_or_text_newest_first_neuro_only(tmp_path):
+def test_pair_studies_by_mesh_or_text_newest_first_neuro_only_no_noise(tmp_path):
     asked = []
 
     def abstract(study, cache_root=None):
