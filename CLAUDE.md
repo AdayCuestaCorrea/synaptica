@@ -107,7 +107,7 @@ uv run syn ingest openalex                # tema y citas por DOI de las revistas
 uv run syn ingest classics                # los más citados de cada subcampo, una vez por semana (Clásicos)
 uv run syn news neuro [--provider groq]   # ¿es neurociencia? reglas de OpenAlex; el LLM solo con --provider
 uv run syn news classify --provider groq  # tipo de cada pieza de Neuro News (lee el almacén: antes syn build)
-uv run syn news group --provider groq [--budget 180]   # misma noticia entre medios e idiomas (pares al LLM); se corta solo a los 180 s
+uv run syn news group --provider groq [--budget 150]   # misma noticia entre medios e idiomas (pares al LLM); se corta solo a los 150 s
 uv run syn eval news --gold eval/news/labels.csv [--pairs eval/news/pairs.csv]   # macro F1 del LLM y del baseline (grupo eval)
 uv run syn eval pairs-sheet --out FUERA/hoja.csv [--top 30 --sample 20]   # hoja ciega de pares para Aday (fuera del repo; sin LLM)
 uv run syn eval pairs-gold --sheet FUERA/hoja.csv   # → eval/news/pairs.csv solo con claves y sí/no

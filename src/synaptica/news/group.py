@@ -41,9 +41,10 @@ from synaptica.store import _atomic_write, utc_today
 WINDOW_DAYS = 5
 LOOKBACK_DAYS = 30  # items considered on each run
 PAIR_BATCH = 15
-# Checked before each call. The pipeline's hard limit is 5 minutes; one call may still
-# wait ~60 s for the per-minute budget, so the margin covers that call and the start-up.
-BUDGET_SECONDS = 180.0
+# Checked before each call. The pipeline's hard limit is 5 minutes; a call admitted at the
+# end may still wait ~60 s for the per-minute budget and one 429 retry (run of 2026-11-16:
+# one call every ~60 s, no 429), so the margin covers that call and the start-up.
+BUDGET_SECONDS = 150.0
 SUMMARY_CHARS = 300
 
 

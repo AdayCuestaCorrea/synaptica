@@ -447,7 +447,7 @@ def news_group(
     model: ModelOption = None,
     budget: Annotated[
         float, typer.Option(help="Seconds of LLM calls; then it stops and saves the groups.")
-    ] = 180.0,
+    ] = 150.0,
 ) -> None:
     """Group the neuro news items that tell the same story (LLM on each candidate pair)
     -> derived/news/groups.json. Reads the warehouse: run `syn build` first. Stops itself
