@@ -256,6 +256,7 @@ pairs_intro = "Regiones de la rata y del humano que se corresponden. Solo enlaza
 pairs_with = "se corresponde con"
 gap_region_text = "La descripción de la región la escribe y revisa Sofía; todavía no existe."
 gap_region_studies = "Los estudios de la región salen del almacén de cada día; esta versión de la web se ha construido sin él."
+region_match_reviewed = "Estudios emparejados con la región de forma automática, con los términos de búsqueda que revisó Sofía ({date})."
 gap_region_match = "Estudios emparejados con la región de forma automática, por sus términos MeSH o, si aún no los tienen, por el título, las palabras clave o el resumen. Sofía revisará los términos de búsqueda de cada región."
 region_studies_intro = "Los mismos estudios en las dos regiones de la pareja, del más reciente al más antiguo."
 region_studies_none = "Todavía no hay estudios de esta región."

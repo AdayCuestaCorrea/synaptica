@@ -28,12 +28,13 @@
   {% if p.note %}<p>{{ p.note }}</p>{% endif %}
   {% endfor %}
 
-  <h2>{{ t.region_studies_h }}{% if groups is not none %} {{ m.gap("region_match") }}{% endif %}</h2>
+  <h2>{{ t.region_studies_h }}{% if groups is not none %} {{ m.gap_if("region_match") }}{% endif %}</h2>
   {% if groups is none %}
   <p class="muted">{{ m.gap("region_studies") }}</p>
   {% elif not groups %}
   <p class="muted">{{ t.region_studies_none }}</p>
   {% else %}
+  {% if reviewed_at %}<p class="muted region-reviewed">{{ t.region_match_reviewed | replace("{date}", reviewed_at) }}</p>{% endif %}
   <p class="muted">{{ t.region_studies_intro }}{% if lang == "es" %} {{ m.gap_if("title_es") }}{% endif %}</p>
   {% for g in groups %}
   <section class="region-studies" data-species="{{ g.species }}">

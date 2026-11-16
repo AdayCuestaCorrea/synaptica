@@ -432,6 +432,13 @@ class SiteBuilder:
                                      cache_root=self.data_dir / "cache")  # fmt: skip
         return {k: [news_mod.list_record(s) for s in v] for k, v in found.items()}
 
+    @functools.cached_property
+    def reviewed_pairs(self) -> dict[str, str]:
+        """Pair kind -> the date Sofía approved its search terms, as on the table today."""
+        from synaptica.atlas.studies import reviewed
+
+        return reviewed(self.data_dir / "review" if self.data_dir is not None else None)
+
     def region(self, lang: str, r: dict[str, Any]) -> None:
         from synaptica.atlas.studies import by_species
 
@@ -439,7 +446,7 @@ class SiteBuilder:
         gaps = {k: ("gap", t[f"gap_{k}"])
                 for k in ("region_text", "region_diseases", "region_methods",
                           "pair_grade", "atlas_names")}  # fmt: skip
-        groups = None
+        groups, reviewed_at = None, None
         if self.pair_studies is not None:
             # Per pair (Aday, v188): every page of a pair lists the same studies.
             seen: dict[str, dict[str, Any]] = {}
@@ -447,7 +454,12 @@ class SiteBuilder:
                 for s in self.pair_studies.get(p["kind"], []):
                     seen.setdefault(s["study_id"], s)
             groups = by_species(list(seen.values()), REGION_STUDIES)
-            gaps["region_match"] = ("proposal", t["gap_region_match"])
+            # «Propuesta» until she approves the terms of every pair on the page (A2.1).
+            dates = [self.reviewed_pairs.get(p["kind"]) for p in r["pairs"]]
+            if r["pairs"] and all(dates):
+                reviewed_at = max(d for d in dates if d)
+            else:
+                gaps["region_match"] = ("proposal", t["gap_region_match"])
             shown = [s for g in groups for s in g["studies"]]
             found = self.study_gaps(lang, shown)
             gaps.update({k: found[k] for k in ("title_es", "journal_name") if k in found})
@@ -456,7 +468,7 @@ class SiteBuilder:
         pages = set(self.news_data.by_id) if self.news_data else set()
         self.render(lang, "region", "region.html.j2", key=r["page"], r=r, gaps=gaps,
                     credit=d["credit"][r["atlas"]], by_page=d["by_page"], groups=groups,
-                    study_pages=pages)  # fmt: skip
+                    study_pages=pages, reviewed_at=reviewed_at)  # fmt: skip
 
     def glossary(self, lang: str) -> None:
         gl, t = self.gl[lang], self.i18n[lang]

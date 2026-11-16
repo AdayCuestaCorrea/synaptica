@@ -169,3 +169,37 @@ def test_region_pages_list_the_pair_studies_by_species(tmp_path: Path) -> None:
     assert 'href="https://doi.org/10.1/people"' in rat  # no page of its own: the original
     amygdala = out / "es" / "atlas" / "regiones" / "waxholm-amygdaloid-area-unspecified.html"
     assert "Todavía no hay estudios de esta región." in amygdala.read_text()
+
+
+def test_her_approval_of_a_pair_takes_the_proposal_tag_off(tmp_path: Path) -> None:
+    """A2.1 (Aday's option a): «Están bien» on a pair's search terms removes «propuesta»
+    from its pages; a correction leaves it until her words are on the table and approved."""
+    from synaptica.atlas import studies
+    from synaptica.review.models import Action
+    from test_review_collect import decide
+    from test_site_news import STUDIES, study, warehouse
+
+    rows = [*STUDIES, study("doi:10.1/rats", title="Place cells in the rat hippocampus")]
+    data = warehouse(tmp_path / "data", studies=rows)
+    items = {i.item_id: i for i in studies.review_items()}
+    decide(data, items["waxholm-1021"], Action.APPROVE)  # hippocampal formation
+    out = tmp_path / "site"
+    SiteBuilder(out, images=LICENSED, data_dir=data).build()
+    assert check_site(out).passed
+    rat = (out / "es" / "atlas" / "regiones" / "waxholm-hippocampal-formation.html").read_text()
+    assert "gap-region_match" not in rat and 'data-study="doi:10.1/rats"' in rat
+    assert "términos de búsqueda que revisó Sofía (2026-11-10)" in rat
+    ca1 = (out / "en" / "atlas" / "regions" / "julich-ca1-hippocampus.html").read_text()
+    assert "gap-region_match" not in ca1 and "Sofía reviewed (2026-11-10)" in ca1
+
+
+def test_a_correction_keeps_the_proposal(tmp_path: Path) -> None:
+    from synaptica.atlas import studies
+    from synaptica.review.models import Action
+    from test_review_collect import decide
+    from test_site_news import STUDIES, warehouse
+
+    data = warehouse(tmp_path / "data", studies=STUDIES)
+    items = {i.item_id: i for i in studies.review_items()}
+    decide(data, items["waxholm-1021"], Action.EDIT, {"terms": ["Hippocampus", "dentate hilus"]})
+    assert studies.reviewed(data / "review") == {}

@@ -132,3 +132,26 @@ def test_species_groups_in_order_with_a_cap():
         ("humans", 1, 0, 1),
         ("unknown", 2, 2, 4),
     ]
+
+
+def test_her_words_match_the_text_and_count_in_what_she_approves(monkeypatch, tmp_path) -> None:
+    """A2.1: her synonyms (``text`` in region_terms.toml) find studies by their text, and
+    copying them in changes the item's hash, so an approval of the old row stops counting:
+    the item goes back to her queue and the pair is a proposal again."""
+    from synaptica.review.models import Action, Decision
+
+    m = studies.Matcher(studies.vocabulary(), studies.region_terms(), {"internal": ["CA3"]})
+    assert m.text("Recurrent CA3 networks") == {"internal"}  # short, but hers: kept
+    before = {i.item_id: i for i in studies.review_items()}["waxholm-1021"]
+    review = tmp_path / "review"
+    review.mkdir()
+    d = Decision(item_type=before.item_type, item_id=before.item_id,
+                 content_sha256=before.content_sha256, action=Action.APPROVE, payload={},
+                 reviewed_by="sofia", reviewed_at=dt.datetime(2026, 11, 18, 9, tzinfo=dt.UTC),
+                 source="issue#1")  # fmt: skip
+    (review / "decisions.jsonl").write_text(d.model_dump_json() + "\n")
+    assert studies.reviewed(review) == {"internal": "2026-11-18"}
+    monkeypatch.setattr(studies, "region_text", lambda: {"internal": ["CA3"]})
+    after = {i.item_id: i for i in studies.review_items()}["waxholm-1021"]
+    assert after.content.terms[-1] == "CA3" and after.content_sha256 != before.content_sha256
+    assert studies.reviewed(review) == {}

@@ -97,6 +97,16 @@ def region_terms() -> dict[str, list[str]]:
     return {r["kind"]: r["mesh"] for r in tomllib.loads(path.read_text("utf-8"))["region"]}
 
 
+@functools.cache
+def region_text() -> dict[str, list[str]]:
+    """Pair kind → Sofía's own words for it (``text`` in region_terms.toml, copied by hand
+    from her correction): found in a study's text like the MeSH entry terms, never taken
+    as MeSH (the ``mesh`` list holds only IDs of the fetched vocabulary)."""
+    path = resources.files("synaptica.atlas") / "region_terms.toml"
+    return {r["kind"]: list(r.get("text", []))
+            for r in tomllib.loads(path.read_text("utf-8"))["region"]}  # fmt: skip
+
+
 def descriptor_kinds(rows: list[dict[str, str]], terms: dict[str, list[str]]) -> dict[str, str]:
     """Descriptor UI → pair kind: under a root descriptor of the table, the most specific
     root winning (the longest tree number that contains it)."""
@@ -120,7 +130,12 @@ def descriptor_kinds(rows: list[dict[str, str]], terms: dict[str, list[str]]) ->
 class Matcher:
     """Which pairs a study is about, by its MeSH or its text."""
 
-    def __init__(self, rows: list[dict[str, str]], terms: dict[str, list[str]]) -> None:
+    def __init__(
+        self,
+        rows: list[dict[str, str]],
+        terms: dict[str, list[str]],
+        text: dict[str, list[str]] | None = None,
+    ) -> None:
         self.by_ui = descriptor_kinds(rows, terms)
         self.by_name = {r["name"].lower(): self.by_ui[r["ui"]] for r in rows
                         if r["ui"] in self.by_ui}  # fmt: skip
@@ -131,6 +146,8 @@ class Matcher:
             # Inverted («Cortex, Motor») and qualified forms never appear in prose.
             if kind and len(term) >= MIN_TERM and ", " not in term and "(" not in term:
                 words.setdefault(kind, set()).add(term)
+        for kind, ws in (text or {}).items():  # hers: any length, she chose them
+            words.setdefault(kind, set()).update(ws)
         self.patterns = {}
         for kind, ws in sorted(words.items()):
             alt = "|".join(re.escape(w) for w in sorted(ws, key=len, reverse=True))
@@ -152,7 +169,7 @@ class Matcher:
 
 @functools.cache
 def matcher() -> Matcher:
-    return Matcher(vocabulary(), region_terms())
+    return Matcher(vocabulary(), region_terms(), region_text())
 
 
 def pair_studies(
@@ -239,7 +256,7 @@ def review_items(found: dict[str, list[dict[str, Any]]] | None = None) -> list[R
     built = project_root() / "site" / "static" / "atlas" / "pairs.json"
     rat_names = {p["waxholm"]["id"]: p["waxholm"]["name"]
                  for p in json.loads(built.read_text("utf-8"))["pairs"]}  # fmt: skip
-    rows, terms = vocabulary(), region_terms()
+    rows, terms, text = vocabulary(), region_terms(), region_text()
     items = []
     for pair in pairs["pair"]:
         kind = pair["kind"]
@@ -249,6 +266,9 @@ def review_items(found: dict[str, list[dict[str, Any]]] | None = None) -> list[R
             for w in [mine[0]["name"], *sorted({r["term"] for r in mine})]:
                 if w not in words:
                     words.append(w)
+        # Her words are part of what she approves: a new one changes the hash, so the item
+        # goes back to her queue to confirm the copy (A2.1, Aday's option a).
+        words += [w for w in text.get(kind, []) if w not in words]
         examples = [s["title"] for s in (found or {}).get(kind, [])[:EXAMPLES]]
         human = ", ".join(pair["human"])
         items.append(ReviewItem(
@@ -258,3 +278,24 @@ def review_items(found: dict[str, list[dict[str, Any]]] | None = None) -> list[R
                                  examples=examples),
         ))  # fmt: skip
     return items
+
+
+def reviewed(review_dir: Path | None) -> dict[str, str]:
+    """Pair kind → the date Sofía approved its search terms («Están bien»), only for the
+    table as it is today: ``state`` compares the hash, so a later change of the pair's row
+    (a new descriptor, her words copied in) brings the item back and the pair is a proposal
+    again until she approves it. A correction («Corregir») leaves the pair a proposal until
+    Aday copies it into region_terms.toml and she approves that version (A2.1, option a)."""
+    from synaptica.review.apply import read_log, state
+
+    if review_dir is None or not review_dir.exists():
+        return {}
+    events = read_log(review_dir)
+    pairs = tomllib.loads((resources.files("synaptica.atlas") / "pairs.toml").read_text("utf-8"))
+    kinds = {f"waxholm-{p['waxholm']}": p["kind"] for p in pairs["pair"]}
+    out = {}
+    for item in review_items():
+        st = state(item, events)
+        if st.status == "decided" and st.terms is None and st.reviewed_at is not None:
+            out[kinds[item.item_id]] = st.reviewed_at.date().isoformat()
+    return out

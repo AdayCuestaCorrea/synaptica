@@ -256,6 +256,7 @@ pairs_intro = "Rat and human regions that correspond. Only names are linked: the
 pairs_with = "corresponds to"
 gap_region_text = "Sofía writes and reviews the region's description; it does not exist yet."
 gap_region_studies = "The region's studies come from each day's warehouse; this version of the website was built without it."
+region_match_reviewed = "Studies matched to the region automatically, with the search terms Sofía reviewed ({date})."
 gap_region_match = "Studies matched to the region automatically, by their MeSH terms or, when they have none yet, by their title, keywords or abstract. Sofía will review each region's search terms."
 region_studies_intro = "The same studies on both regions of the pair, newest first."
 region_studies_none = "No studies of this region yet."

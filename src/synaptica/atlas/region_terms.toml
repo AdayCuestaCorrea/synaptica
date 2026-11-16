@@ -10,6 +10,11 @@
 # Corpus Striatum in MeSH, so a pallidum study is not a striatum study too; the Brain Stem
 # branch holds the cerebellum and the midbrain, so cerebellum studies go to the cerebellum.
 # IDs only from the fetched vocabulary (a test checks each one exists there).
+#
+# `text` (optional): Sofía's own words for a pair, copied here by hand from her correction
+# («Corregir» in her queue). They find studies by title, keywords or abstract like the MeSH
+# entry terms, but are never MeSH. They are part of what she approves: adding one changes the
+# item's hash, the pair goes back to her queue and stays «propuesta» until she approves it.
 
 [[region]]
 kind = "surface" # M1 ↔ areas 4a and 4p
