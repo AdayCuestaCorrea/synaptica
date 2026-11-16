@@ -442,9 +442,16 @@ def news_classify(
 
 
 @news_app.command("group")
-def news_group(provider: ProviderOption = None, model: ModelOption = None) -> None:
+def news_group(
+    provider: ProviderOption = None,
+    model: ModelOption = None,
+    budget: Annotated[
+        float, typer.Option(help="Seconds of LLM calls; then it stops and saves the groups.")
+    ] = 180.0,
+) -> None:
     """Group the neuro news items that tell the same story (LLM on each candidate pair)
-    -> derived/news/groups.json. Reads the warehouse: run `syn build` first."""
+    -> derived/news/groups.json. Reads the warehouse: run `syn build` first. Stops itself
+    after --budget seconds (the pipeline kills it at 5 minutes); the rest waits."""
     from synaptica.llm import QuotaExhausted
     from synaptica.news import classify, group
 
@@ -456,15 +463,18 @@ def news_group(provider: ProviderOption = None, model: ModelOption = None) -> No
         typer.echo("No warehouse yet: run `syn build` first.", err=True)
         raise typer.Exit(1)
     try:
-        result = group.run(llm)
+        result = group.run(llm, budget=budget)
     except QuotaExhausted as exc:
         typer.echo(f"LLM quota used up: {exc}; the rest waits for the next run", err=True)
         raise typer.Exit(0) from exc
-    typer.echo(
+    line = (
         f"Grouping: {result['items']} items, {result['candidates']} candidate pairs, "
         f"{result['same']} same story; {result['groups']} groups ({result['grouped']} items "
         "in groups of two or more)"
     )
+    if result["pending"]:
+        line += f"; time budget reached, {result['pending']} pairs wait for the next run"
+    typer.echo(line)
 
 
 @eval_app.command("news")

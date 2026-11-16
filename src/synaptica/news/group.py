@@ -13,13 +13,20 @@ what is grouped here are the news items of ``fct_news_item`` that are neuroscien
 not ``noise`` (types from step 14a; unclassified items wait). Measured on 2026-11-12: 36
 such items in 14 days, 322 pairs within 5 days (40 across languages); new pairs are
 ~30 a day, about 2 calls.
+
+Time box (SCOPE v187): Groq's output cap (1000 tokens a minute) and ``max_tokens=600``
+let one call of :data:`PAIR_BATCH` pairs through per minute, and the pipeline kills the
+command at 5 minutes, which also lost ``groups.json`` (run of 2026-11-16, 174 pairs
+pending). The command stops itself after :data:`BUDGET_SECONDS`, newest pairs first, and
+still writes the groups from the answers it has; the rest waits for the next run.
 """
 
 from __future__ import annotations
 
 import datetime as dt
 import json
-from collections.abc import Sequence
+import time
+from collections.abc import Callable, Sequence
 from pathlib import Path
 from typing import Any
 
@@ -34,6 +41,9 @@ from synaptica.store import _atomic_write, utc_today
 WINDOW_DAYS = 5
 LOOKBACK_DAYS = 30  # items considered on each run
 PAIR_BATCH = 15
+# Checked before each call. The pipeline's hard limit is 5 minutes; one call may still
+# wait ~60 s for the per-minute budget, so the margin covers that call and the start-up.
+BUDGET_SECONDS = 180.0
 SUMMARY_CHARS = 300
 
 
@@ -112,8 +122,13 @@ def judge_pairs(
     items: dict[str, dict[str, Any]],
     pairs: Sequence[tuple[str, str]],
     path: Path,
-) -> dict[tuple[str, str], bool]:
-    """Ask the LLM about each pair not answered for the current inputs and prompt."""
+    *,
+    deadline: float | None = None,
+    clock: Callable[[], float] = time.monotonic,
+) -> tuple[dict[tuple[str, str], bool], int]:
+    """Ask the LLM about each pair not answered for the current inputs and prompt, newest
+    pairs first, until ``deadline`` (a ``clock()`` value). Returns the answers and how many
+    pairs are still pending."""
     system, version = prompt("same_story")
     rows = {}
     if path.exists():
@@ -125,8 +140,16 @@ def judge_pairs(
                     and row["hash_a"] == input_hash(items[a])
                     and row["hash_b"] == input_hash(items[b]))  # fmt: skip
 
-    pending = [(a, b) for a, b in pairs if not current(a, b)]
+    def newest(pair: tuple[str, str]) -> tuple[float, tuple[str, str]]:
+        times = [t.timestamp() for t in (_when(items[k]) for k in pair) if t]
+        return (-max(times, default=0.0), pair)
+
+    pending = sorted((p for p in pairs if not current(*p)), key=newest)
+    asked = 0
     for start in range(0, len(pending), PAIR_BATCH):
+        if deadline is not None and clock() >= deadline:
+            break
+        asked = start + PAIR_BATCH
         batch = pending[start : start + PAIR_BATCH]
         user = "PAIRS:\n" + "\n".join(
             f"{i}. A: {_short(items[a])}\n   B: {_short(items[b])}"
@@ -141,7 +164,8 @@ def judge_pairs(
                                 "generator": llm.label, "prompt_version": version}  # fmt: skip
         path.parent.mkdir(parents=True, exist_ok=True)
         _atomic_write(path, json.dumps([rows[k] for k in sorted(rows)], indent=1) + "\n")
-    return {(a, b): rows[(a, b)]["same"] for a, b in pairs if (a, b) in rows}
+    answers = {(a, b): rows[(a, b)]["same"] for a, b in pairs if (a, b) in rows}
+    return answers, max(0, len(pending) - asked)
 
 
 def groups(keys: Sequence[str], pairs: Sequence[tuple[str, str]]) -> dict[str, str]:
@@ -166,11 +190,15 @@ def group_news(
     items: dict[str, dict[str, Any]],
     *,
     derived_root: Path | None = None,
+    budget: float | None = BUDGET_SECONDS,
+    clock: Callable[[], float] = time.monotonic,
 ) -> dict[str, int]:
     """Judge the candidate pairs and save key -> group. Items that left the window keep
-    their group from earlier runs."""
+    their group from earlier runs; pairs not answered yet count as different stories."""
+    deadline = None if budget is None else clock() + budget
     candidates = candidate_pairs(items)
-    answers = judge_pairs(llm, items, candidates, pairs_path(derived_root))
+    answers, pending = judge_pairs(llm, items, candidates, pairs_path(derived_root),
+                                   deadline=deadline, clock=clock)  # fmt: skip
     same = [pair for pair, yes in answers.items() if yes]
     assigned = groups(sorted(items), same)
     path = groups_path(derived_root)
@@ -185,7 +213,8 @@ def group_news(
     for g in assigned.values():
         sizes[g] = sizes.get(g, 0) + 1
     return {"items": len(items), "candidates": len(candidates), "same": len(same),
-            "groups": len(sizes), "grouped": sum(n for n in sizes.values() if n > 1)}  # fmt: skip
+            "groups": len(sizes), "grouped": sum(n for n in sizes.values() if n > 1),
+            "pending": pending}  # fmt: skip
 
 
 def run(
@@ -194,9 +223,10 @@ def run(
     today: dt.date | None = None,
     warehouse: Path | None = None,
     derived_root: Path | None = None,
+    budget: float | None = BUDGET_SECONDS,
 ) -> dict[str, int]:
     return group_news(llm, items_to_group(today or utc_today(), warehouse),
-                      derived_root=derived_root)  # fmt: skip
+                      derived_root=derived_root, budget=budget)  # fmt: skip
 
 
 def tfidf_similarity(texts: Sequence[str]):

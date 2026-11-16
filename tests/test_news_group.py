@@ -52,7 +52,8 @@ def test_candidates_are_the_pairs_within_five_days():
 def test_same_story_across_languages_by_union_find_and_cached_answers(tmp_path):
     judge = FakeJudge()
     result = group.group_news(judge, ITEMS, derived_root=tmp_path)
-    assert result == {"items": 5, "candidates": 6, "same": 3, "groups": 3, "grouped": 3}
+    assert result == {"items": 5, "candidates": 6, "same": 3, "groups": 3, "grouped": 3,
+                      "pending": 0}  # fmt: skip
     assert "[es] Los husos del sueño" in judge.calls[0]
     rows = {r["key"]: r["group"] for r in json.loads(group.groups_path(tmp_path).read_text())}
     assert rows["news:a"] == rows["news:b"] == rows["news:c"] == "news:a"
@@ -67,6 +68,48 @@ def test_same_story_across_languages_by_union_find_and_cached_answers(tmp_path):
     group.group_news(third, changed, derived_root=tmp_path)
     assert all("migraine, updated" in line for line in third.calls[0].splitlines()[1::2]
                if "migraine" in line)  # fmt: skip
+
+
+class Clock:
+    """Fake monotonic clock: each LLM call takes a minute (Groq's output cap, v187)."""
+
+    def __init__(self):
+        self.now = 0.0
+
+    def __call__(self):
+        return self.now
+
+
+class SlowJudge(FakeJudge):
+    def __init__(self, clock):
+        super().__init__()
+        self.clock = clock
+
+    def complete_json(self, system, user, output, max_tokens):
+        self.clock.now += 60
+        return super().complete_json(system, user, output, max_tokens)
+
+
+# 12 items within a day of each other: 66 pairs, 5 calls of 15. Two spindle stories are
+# the newest; the rest are old, distinct stories.
+MANY = {f"news:{i:02d}": item(f"Story number {i}", days=0.05 * i) for i in range(2, 12)}
+MANY |= {"news:00": item("Sleep spindles in mice"), "news:01": item("Mice spindles again")}
+
+
+def test_the_time_budget_stops_newest_first_saves_groups_and_resumes(tmp_path):
+    clock = Clock()
+    judge = SlowJudge(clock)
+    result = group.group_news(judge, MANY, derived_root=tmp_path, budget=150, clock=clock)
+    assert len(judge.calls) == 3  # asked at 0, 60 and 120 s; at 180 s the budget is over
+    assert result["candidates"] == 66 and result["pending"] == 66 - 45
+    assert "Sleep spindles in mice" in judge.calls[0].splitlines()[1]  # newest pair first
+    rows = {r["key"]: r["group"] for r in json.loads(group.groups_path(tmp_path).read_text())}
+    assert rows["news:01"] == rows["news:00"] == "news:00"  # saved even though it stopped
+
+    later = SlowJudge(Clock())
+    again = group.group_news(later, MANY, derived_root=tmp_path, budget=150, clock=later.clock)
+    assert len(later.calls) == 2 and again["pending"] == 0  # only what was left
+    assert group.group_news(FakeJudge(), MANY, derived_root=tmp_path)["pending"] == 0
 
 
 def test_groups_union_find_is_transitive():
