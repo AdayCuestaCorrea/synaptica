@@ -4,6 +4,7 @@ import datetime as dt
 import json
 
 import httpx
+import pytest
 
 from synaptica.config import project_root
 from synaptica.http import Throttle, make_client
@@ -82,3 +83,23 @@ def test_unknown_dois_are_asked_again_later_and_known_ones_never(tmp_path):
 def test_items_older_than_the_window_are_not_asked(tmp_path):
     seed_journal_items(tmp_path, day=DAY - dt.timedelta(days=openalex.LOOKBACK_DAYS))
     assert run(tmp_path, FakeOpenAlex()).asked == 0
+
+
+@pytest.mark.parametrize("command", ["openalex", "classics"])
+def test_a_used_up_budget_ends_the_command_green_and_says_so(tmp_path, monkeypatch, command):
+    """D10: running out of a daily quota is not something to look at (not red); the DOIs
+    stay due and are asked again on the next run."""
+    from typer.testing import CliRunner
+
+    from synaptica import cli, http
+    from synaptica.ingest import openalex as oa
+
+    monkeypatch.setenv("SYN_DATA_DIR", str(tmp_path))
+    monkeypatch.setattr(oa, "due_dois", lambda *a, **k: ["10.1/x"])
+    busy = httpx.Response(429, headers={"Retry-After": "23444"}, text="Insufficient budget")
+    real = http.make_client
+    monkeypatch.setattr(http, "make_client",
+                        lambda: real(transport=httpx.MockTransport(lambda r: busy)))  # fmt: skip
+    result = CliRunner().invoke(cli.app, ["ingest", command])
+    assert result.exit_code == 0, result.output
+    assert "rate limited for today" in result.output

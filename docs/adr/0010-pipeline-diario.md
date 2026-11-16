@@ -146,3 +146,9 @@ Con eso **quedan juzgados los 101 de la carga inicial**: no queda ningún estudi
 - **Lotes de 40: el modelo deja sin responder uno de cada cinco.** Se vuelve a lotes de 20 (0 sin respuesta en la ejecución anterior).
 - **Un comando podía comerse la etapa.** Cada comando del filtro y la clasificación lleva su tiempo máximo (`timeout`): filtro 8 min, clasificación 20, agrupación 5, dbt 4. El filtro y la clasificación guardan cada lote, así que un corte pierde un lote como mucho; la agrupación guarda al final y, si no le da tiempo, lo intenta al día siguiente. La clasificación ya no lleva `--limit`: hace lo que quepa en sus 20 minutos.
 
+
+**OpenAlex sin cupo (v186).**
+- **Qué pasó:** el 2026-11-16, un run lanzado a mano por la tarde se quedó 2 h 30 min en la ingesta y GitHub lo canceló. OpenAlex respondió 429 («Insufficient budget»: sin clave, el cupo es diario y el run de la mañana ya lo había gastado) con `Retry-After: 23444`, y `src/synaptica/http.py` lo respetaba sin límite.
+- **Arreglo:** el cliente HTTP espera como mucho `MAX_RETRY_AFTER` (300 s). Si el servidor pide más, lanza `RateLimited` (una subclase de `HttpError`) sin dormir.
+- **Misma regla que el 429 diario de Groq:** `syn ingest openalex` y `syn ingest classics` la atrapan y terminan con exit 0, diciendo que lo intentarán en el siguiente run. Los DOI siguen pendientes y se piden al día siguiente. Las demás fuentes no cambian: un `RateLimited` sigue siendo un `HttpError` y las pone en rojo, que es algo que hay que mirar.
+- **Pendiente, decisión de Aday:** una clave gratuita de OpenAlex daría cupo propio.

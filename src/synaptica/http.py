@@ -23,6 +23,10 @@ from synaptica.config import USER_AGENT
 log = logging.getLogger(__name__)
 
 RETRY_STATUS = {429, 500, 502, 503, 504}
+# The longest Retry-After worth waiting for. Beyond it the server is saying "come back
+# tomorrow" (OpenAlex's daily budget asked for 23444 s on 2026-11-16 and the run hung until
+# its 150-minute limit, v186): :class:`RateLimited` at once, never a sleep.
+MAX_RETRY_AFTER = 300.0
 
 
 class Throttle:
@@ -56,6 +60,15 @@ class HttpError(RuntimeError):
     def __init__(self, message: str, status_code: int | None = None) -> None:
         super().__init__(message)
         self.status_code = status_code
+
+
+class RateLimited(HttpError):
+    """The server asked to wait longer than :data:`MAX_RETRY_AFTER` (a used-up daily
+    budget): the command stops its source for today instead of sleeping for hours."""
+
+    def __init__(self, message: str, status_code: int, retry_after: float) -> None:
+        super().__init__(message, status_code)
+        self.retry_after = retry_after
 
 
 def make_client(transport: httpx.BaseTransport | None = None) -> httpx.Client:
@@ -93,7 +106,8 @@ def _request(
 ) -> Any:
     """Send a request and return what ``read`` makes of the response, retrying
     transient failures: HTTP 429/5xx, network errors and whatever ``read`` reports as
-    not ready (``(False, None, reason)``). ``Retry-After`` is honoured. Client errors
+    not ready (``(False, None, reason)``). ``Retry-After`` is honoured up to
+    :data:`MAX_RETRY_AFTER`; a longer one raises :class:`RateLimited`. Client errors
     (4xx) are raised at once with the start of the response body, for debugging."""
     sleep = sleep or time.sleep  # looked up at call time, so tests can patch time.sleep
     last_error = "unknown error"
@@ -110,6 +124,11 @@ def _request(
             if response.status_code in RETRY_STATUS:
                 last_error = f"HTTP {response.status_code}: {response.text[:300]}"
                 if (retry_after := _retry_after(response)) is not None:
+                    if retry_after > MAX_RETRY_AFTER:
+                        raise RateLimited(
+                            f"{url} asks to wait {retry_after:.0f}s ({last_error})",
+                            response.status_code, retry_after,
+                        )  # fmt: skip
                     wait = max(wait, retry_after)
             elif response.is_error:
                 raise HttpError(

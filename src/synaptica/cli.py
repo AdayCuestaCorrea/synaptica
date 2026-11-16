@@ -348,12 +348,16 @@ def ingest_news() -> None:
 def ingest_classics() -> None:
     """OpenAlex: the most cited works of each neuroscience subfield, once a week, for the
     Clásicos proposal in Sofía's queue (step 24a)."""
-    from synaptica.http import HttpError, make_client
+    from synaptica.http import HttpError, RateLimited, make_client
     from synaptica.ingest import classics
 
     try:
         with make_client() as client:
             result = classics.ingest(client)
+    except RateLimited as exc:  # its daily budget is used up: not red (D10), retried tomorrow
+        typer.echo(f"OpenAlex (Clásicos): rate limited for today, tried again on the next run: "
+                   f"{exc}", err=True)  # fmt: skip
+        raise typer.Exit(code=0) from exc
     except HttpError as exc:
         typer.echo(f"OpenAlex (Clásicos) failed: {exc}", err=True)
         raise typer.Exit(code=1) from exc
@@ -367,12 +371,16 @@ def ingest_classics() -> None:
 @ingest_app.command("openalex")
 def ingest_openalex() -> None:
     """OpenAlex topics and citations for the general-journal items (by DOI, filter only)."""
-    from synaptica.http import HttpError, make_client
+    from synaptica.http import HttpError, RateLimited, make_client
     from synaptica.ingest import openalex
 
     try:
         with make_client() as client:
             result = openalex.ingest(client)
+    except RateLimited as exc:  # its daily budget is used up: not red (D10), retried tomorrow
+        typer.echo(f"OpenAlex: rate limited for today, tried again on the next run: "
+                   f"{exc}", err=True)  # fmt: skip
+        raise typer.Exit(code=0) from exc
     except HttpError as exc:
         typer.echo(f"OpenAlex failed: {exc}", err=True)
         raise typer.Exit(code=1) from exc

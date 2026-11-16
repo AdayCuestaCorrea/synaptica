@@ -86,3 +86,16 @@ def test_post_sends_json():
     assert post_json(client, URL, {"q": "hippocampus"}) == {"id": 7}
     assert seen[0].method == "POST"
     assert seen[0].read() == b'{"q":"hippocampus"}'
+
+
+def test_a_retry_after_of_hours_raises_at_once_instead_of_sleeping():
+    """OpenAlex's used-up daily budget (2026-11-16) asked for 23444 s: the run hung (v186)."""
+    from synaptica.http import MAX_RETRY_AFTER, RateLimited
+
+    client, seen = client_with(httpx.Response(429, headers={"Retry-After": "23444"}))
+    waits = []
+    with pytest.raises(RateLimited) as err:
+        get_json(client, URL, sleep=waits.append)
+    assert waits == [] and len(seen) == 1
+    assert err.value.retry_after == 23444 > MAX_RETRY_AFTER and err.value.status_code == 429
+    assert isinstance(err.value, HttpError)  # other sources still fail red as before
