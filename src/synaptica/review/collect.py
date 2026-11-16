@@ -40,6 +40,10 @@ CAP_WEEKDAY, CAP_WEEKEND = 40, 10
 GLOSSARY_WEEKDAY, GLOSSARY_WEEKEND = 8, 3
 # Not before her grant interview on 2026-11-17: her page does not change before (v183).
 GLOSSARY_FROM = dt.date(2026, 11, 18)
+# Neuro Atlas: the pair -> MeSH table (v190), a few pairs a day from the same day, after
+# the glossary terms.
+REGION_TERMS_FROM = dt.date(2026, 11, 18)
+REGION_TERMS_WEEKDAY, REGION_TERMS_WEEKEND = 4, 2
 LANGS = ("es", "en")
 
 
@@ -146,10 +150,13 @@ def collect(
     today: dt.date,
     extra: list[ReviewItem] | None = None,
     glossary: list[ReviewItem] | None = None,
+    region_terms: list[ReviewItem] | None = None,
+    cache_root: Path | None = None,
 ) -> Queue:
     """Today's queue: every source, minus what she decided, her held edits first, capped.
     ``extra`` (``run_spot_checks``) goes before the day's spot-check. ``glossary``: the
-    Neuro Glossary terms (default: ``glossary.texts.review_items``), a few new ones a day."""
+    Neuro Glossary terms (default: ``glossary.texts.review_items``), a few new ones a day;
+    ``region_terms``, the Neuro Atlas pairs' search terms (default: from the warehouse)."""
     from synaptica.news.classics import proposal  # the Clásicos of the week (step 24a)
 
     classics = proposal(derived_root.parent / "raw", review_dir, today, warehouse)
@@ -159,8 +166,19 @@ def collect(
         from synaptica.glossary.texts import review_items
 
         glossary = review_items() if today >= GLOSSARY_FROM else []
+    if region_terms is None:
+        region_terms = []
+        if today >= REGION_TERMS_FROM and warehouse.exists():
+            from synaptica.atlas import studies
+
+            found = studies.pair_studies(
+                warehouse,
+                ("study_id", "title", "pmid", "doi", "pmcid", "sources", "species"),
+                cache_root=cache_root,
+            )
+            region_terms = studies.review_items(found)
     # The topic switches go last: a quick yes or no that never takes a text's place.
-    items = [*(extra or []), *([classics] if classics else []), *glossary,
+    items = [*(extra or []), *([classics] if classics else []), *glossary, *region_terms,
              *news_spot_checks(warehouse, derived_root), *queue_items()]  # fmt: skip
     # Midnight UTC of the day: the same inputs give the same file (``syn`` is idempotent).
     queue = Queue(generated_at=dt.datetime.combine(today, dt.time(), dt.UTC), items=items)
@@ -170,6 +188,8 @@ def collect(
     weekend = today.weekday() >= 5
     new_terms = [i for i in rest if i.item_type is ItemType.GLOSSARY]
     later = {i.key for i in new_terms[GLOSSARY_WEEKEND if weekend else GLOSSARY_WEEKDAY :]}
+    pairs = [i for i in rest if i.item_type is ItemType.SEARCH_TERMS]
+    later |= {i.key for i in pairs[REGION_TERMS_WEEKEND if weekend else REGION_TERMS_WEEKDAY :]}
     rest = [i for i in rest if i.key not in later]
     cap = CAP_WEEKEND if weekend else CAP_WEEKDAY
     return waiting.model_copy(update={"items": (held + rest)[:cap]})

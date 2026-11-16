@@ -904,7 +904,14 @@ def review_queue(
     paths = config.get_paths()
     day = dt.date.fromisoformat(today) if today else dt.datetime.now(dt.UTC).date()
     extra = [item for r in run or [] for item in run_spot_checks(r)]
-    q = collect(paths.data / "warehouse.duckdb", paths.derived, _review_dir(), day, extra)
+    q = collect(
+        paths.data / "warehouse.duckdb",
+        paths.derived,
+        _review_dir(),
+        day,
+        extra,
+        cache_root=paths.cache,
+    )
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(q.model_dump_json(indent=1) + "\n", encoding="utf-8")
     held = sum(bool(i.warnings) for i in q.items)

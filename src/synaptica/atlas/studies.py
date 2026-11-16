@@ -37,6 +37,7 @@ import httpx
 
 from synaptica.http import get_json
 from synaptica.narrative.sources import abstract_for
+from synaptica.review.models import ItemType, ReviewItem, TermsContent
 
 SPARQL = "https://id.nlm.nih.gov/mesh/sparql"
 TREE = "A08.186.211"  # Brain
@@ -216,3 +217,41 @@ def by_species(studies: list[dict[str, Any]], cap: int) -> list[dict[str, Any]]:
             groups.append({"species": sp, "studies": mine[:cap], "more": len(mine) - cap
                            if len(mine) > cap else 0, "total": len(mine)})  # fmt: skip
     return groups
+
+
+# ---- Sofía's queue (v190, option 1 of Aday) ---------------------------------------------
+
+EXAMPLES = 3
+
+
+def review_items(found: dict[str, list[dict[str, Any]]] | None = None) -> list[ReviewItem]:
+    """One ``search_terms`` item per pair, in the order of pairs.toml: the names and entry
+    terms of its MeSH descriptors and a few studies they find today (``found``, from
+    :func:`pair_studies`). She approves, or corrects the list; her correction goes into
+    region_terms.toml by hand (Aday's option 1, v190)."""
+    from synaptica.config import project_root
+
+    pairs = tomllib.loads((resources.files("synaptica.atlas") / "pairs.toml").read_text("utf-8"))
+    # The rat region's name, from the viewer's data (pairs.toml only keeps its id).
+    built = project_root() / "site" / "static" / "atlas" / "pairs.json"
+    rat_names = {p["waxholm"]["id"]: p["waxholm"]["name"]
+                 for p in json.loads(built.read_text("utf-8"))["pairs"]}  # fmt: skip
+    rows, terms = vocabulary(), region_terms()
+    items = []
+    for pair in pairs["pair"]:
+        kind = pair["kind"]
+        words: list[str] = []
+        for ui in terms[kind]:
+            mine = [r for r in rows if r["ui"] == ui]
+            for w in [mine[0]["name"], *sorted({r["term"] for r in mine})]:
+                if w not in words:
+                    words.append(w)
+        examples = [s["title"] for s in (found or {}).get(kind, [])[:EXAMPLES]]
+        human = ", ".join(pair["human"])
+        items.append(ReviewItem(
+            item_type=ItemType.SEARCH_TERMS, item_id=f"waxholm-{pair['waxholm']}",
+            title_es=f"{rat_names.get(pair['waxholm'], pair['waxholm'])} (rata) ↔ {human}",
+            content=TermsContent(region=f"waxholm-{pair['waxholm']}", terms=words,
+                                 examples=examples),
+        ))  # fmt: skip
+    return items

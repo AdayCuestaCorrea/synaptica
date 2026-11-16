@@ -102,6 +102,9 @@ class TermsContent(Strict):
     kind: Literal["terms"] = "terms"
     region: str
     terms: list[str] = Field(min_length=1)
+    # A few titles of the studies the terms find today (Neuro Atlas pairs, v190), so she
+    # sees what they bring. Not what she approves: never part of ``content_sha256``.
+    examples: list[str] = []
 
 
 class RatRegion(Strict):
@@ -224,9 +227,10 @@ class ReviewItem(Strict):
 
     @property
     def content_sha256(self) -> str:
+        content = self.content.model_dump(mode="json")
+        content.pop("examples", None)  # change every day; she approves the terms (v190)
         return canonical_sha256(
-            {"item_type": self.item_type.value, "item_id": self.item_id,
-             "content": self.content.model_dump(mode="json")}
+            {"item_type": self.item_type.value, "item_id": self.item_id, "content": content}
         )  # fmt: skip
 
 

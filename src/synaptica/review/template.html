@@ -184,7 +184,7 @@ const GROUP_HINTS = {
   disease: "La ficha de una enfermedad para Neuro Diseases. No se publica hasta que la apruebes.",
   classics: "Estudios de hace años, muy citados, que salen en el bloque «Clásicos» de Neuro News. El programa los propone por número de citas; tú eliges cuáles se publican esta semana.",
   equivalence: "Qué región del cerebro humano corresponde a una región de la rata, para la vista lado a lado de Neuro Atlas. Los dos atlas dividen el cerebro de forma distinta: a veces una región de la rata se corresponde con varias áreas humanas. Tu grado y tu nota se verán en la web.",
-  search_terms: "Para traer los estudios nuevos de cada región, el programa busca en PubMed los artículos que mencionan estas palabras.",
+  search_terms: "Neuro Atlas muestra en cada región los estudios en humanos y en animales que la mencionan. El programa los reconoce por sus términos MeSH (los que pone PubMed) o, si aún no los tienen, por estas palabras en el título o el resumen. Cada término incluye todo lo que cuelga de él en MeSH (por ejemplo, el hipocampo incluye CA1 y el giro dentado).",
   glossary: "Definiciones cortas del glosario, pensadas para alguien sin formación en neurociencia. Comprueba que son correctas y que se entienden.",
   news_topic: "Las noticias se agrupan por temas, que el lector usa como filtro. Si ocultas un tema, sus noticias no salen en la web.",
   news: "Resúmenes que escribió la IA a partir de un estudio (enlace debajo de cada uno) y que ya se pueden publicar. Comprueba que dicen lo mismo que el estudio, sin exagerar, y que el español suena natural. Revisarlos es opcional; si rechazas uno, no se publica.",
@@ -297,7 +297,11 @@ function termsControls(item) {
   const show = () => { edit.hidden = ans(item).action !== "edit"; };
   const r = radios(item, "action", [["approve", "Están bien"], ["edit", "Corregir"]], show);
   show();
-  return [el("p", { class: "hint", text: "Palabras que se buscan en PubMed para esta región:" }), list,
+  const examples = (item.content.examples || []).length
+    ? [el("p", { class: "hint", text: "Algunos estudios que encuentran hoy:" }),
+       el("ul", {}, ...item.content.examples.map((t) => el("li", { text: t, lang: "en" })))]
+    : [];
+  return [el("p", { class: "hint", text: "Palabras con las que se reconocen los estudios de esta región:" }), list, ...examples,
     question("¿Con estas palabras se encuentran los estudios de esta región?",
       "Añade las que usen los investigadores y falten (sinónimos, nombres de sus partes) y quita las que traerían otra cosa, por ejemplo una sigla que en otros campos significa algo distinto.", r),
     edit];
