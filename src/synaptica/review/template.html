@@ -57,7 +57,7 @@ main { display: grid; gap: 1.75rem; padding-block: 1.75rem 3rem; }
 article.item { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 1.25rem; display: grid; gap: 1rem; }
 article.item.blocking { border-left: 4px solid var(--warn); }
 .meta { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: baseline; font-size: 0.9rem; color: var(--muted); }
-.meta a, .sources a, .cands a { color: var(--accent); }
+.meta a, .sources a, .cands a, .where a { color: var(--accent); }
 .chip { font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.1rem 0.5rem; border-radius: 999px; background: var(--line); color: var(--muted); }
 .chip.is-done { background: var(--ok-soft); color: var(--ok); }
 .chip.is-blocking { background: var(--warn-soft); color: var(--warn); }
@@ -187,12 +187,14 @@ const GROUP_HINTS = {
   search_terms: "Neuro Atlas muestra en cada región los estudios en humanos y en animales que la mencionan. El programa los reconoce por sus términos MeSH (los que pone PubMed) o, si aún no los tienen, por estas palabras en el título o el resumen. Cada término incluye todo lo que cuelga de él en MeSH (por ejemplo, el hipocampo incluye CA1 y el giro dentado).",
   glossary: "Definiciones cortas del glosario, pensadas para alguien sin formación en neurociencia. Comprueba que son correctas y que se entienden.",
   news_topic: "Las noticias se agrupan por temas, que el lector usa como filtro. Si ocultas un tema, sus noticias no salen en la web.",
+  news_label: "Titulares de Neuro News para medir el clasificador automático: elige el tipo que le darías tú. Son 100 en total, unos pocos al día. Decide por el titular, como hace el programa; si no basta, ábrelo. Tu respuesta no cambia la web: solo sirve para saber cuánto acierta.",
   news: "Resúmenes que escribió la IA a partir de un estudio (enlace debajo de cada uno) y que ya se pueden publicar. Comprueba que dicen lo mismo que el estudio, sin exagerar, y que el español suena natural. Revisarlos es opcional; si rechazas uno, no se publica.",
 };
 const GROUPS = {
   disease: "Neuro Diseases · obligatoria", classics: "Clásicos de la semana",
   equivalence: "Rata ↔ humano", atlas: "Neuro Atlas", search_terms: "Búsquedas por región",
   lab: "Neuro Lab", glossary: "Glosario", learn: "Neuro Learn", news_topic: "Temas de noticias",
+  news_label: "Tipo de cada titular",
   news: "Resúmenes publicados (opcional)",
 };
 
@@ -364,6 +366,26 @@ function toggleControls(item) {
     radios(item, "action", [["enable", "Mostrar"], ["disable", "Ocultar"]]))];
 }
 
+// The five types of Neuro News (news/classify.py), with the definitions the classifier
+// gets (prompts/classify_news.md), so her label and its answer mean the same thing.
+const LABELS = [
+  ["healthy_brain", "Cerebro sano", "cómo funciona el sistema nervioso sano: neuronas, sinapsis, circuitos, desarrollo, envejecimiento sin enfermedad, percepción, memoria, sueño, conducta, evolución; en humanos o animales"],
+  ["disease", "Enfermedad", "trastornos neurológicos o mentales y lesiones: causas, mecanismos, factores de riesgo, diagnóstico o modelos animales, salvo ensayos de tratamientos en personas"],
+  ["clinical_trial", "Ensayo clínico", "un ensayo que prueba un tratamiento, fármaco, dispositivo o terapia en personas (aleatorizado, controlado, fases 1–3), o sus resultados"],
+  ["technique", "Técnica", "un método, herramienta o tecnología nueva para estudiar o medir el sistema nervioso, cuando el método es lo principal"],
+  ["noise", "Ruido", "no es noticia para el lector: correcciones, protocolos, opinión sin datos nuevos, congresos, financiación o carreras, o demasiado confuso para decidir"],
+];
+
+function labelControls(item) {
+  const c = item.content;
+  const where = el("small", { class: "hint where" }, document.createTextNode(`${c.source || "Fuente desconocida"} · ${c.lang === "es" ? "español" : "inglés"}`));
+  if (c.url) where.append(document.createTextNode(" · "), el("a", { href: c.url, target: "_blank", rel: "noopener", text: "abrir ↗" }));
+  const r = radios(item, "type", LABELS.map(([v, name]) => [v, name]));
+  const defs = el("details", {}, el("summary", { text: "Qué entra en cada tipo" }),
+    el("ul", {}, ...LABELS.map(([, name, def]) => el("li", {}, el("strong", { text: `${name}: ` }), document.createTextNode(def)))));
+  return [where, question("¿De qué tipo es?", "(lo principal del titular)", r), defs];
+}
+
 function textItem(item) {
   const body = textBody(item);
   // Her proposals go with «aprobar» or «lo mantengo»; «corregir» has the whole text and
@@ -376,7 +398,7 @@ function textItem(item) {
 }
 
 const CONTROLS = { text: textItem, terms: termsControls, pair: pairControls,
-  candidates: candidatesControls, toggle: toggleControls };
+  candidates: candidatesControls, toggle: toggleControls, label: labelControls };
 
 function render() {
   const list = document.getElementById("list");
@@ -396,7 +418,7 @@ function render() {
         ...item.warnings.map((w) => el("p", { text: w }))));
     }
     card.append(...CONTROLS[item.content.kind](item));
-    if (item.content.kind !== "pair") {  // the pair's note is its public text
+    if (!["pair", "label"].includes(item.content.kind)) {  // pair: its note is its public text; label: one tap
       card.append(question("Nota", "(opcional; pública)", textbox(item, "note", "Nota pública sobre tu decisión", "")));
       if (item.content.kind === "text") {
         card.append(el("p", { class: "hint", text: "La nota no cambia el texto. Para cambiar una frase, usa «Proponer otra frase»." }));
@@ -442,6 +464,9 @@ function decisionOf(item) {
   if (kind === "pair") {
     if (!a.grade) return null;
     return { ...base, action: "set_grade", payload: { grade: a.grade, note_es: (a.note_es || "").trim() || null }, note: null };
+  }
+  if (kind === "label") {
+    return a.type ? { ...base, action: "label", payload: { type: a.type }, note: null } : null;
   }
   if (kind === "candidates") {
     return a.dois && a.dois.length ? { ...base, action: "pick", payload: { dois: a.dois }, note } : null;

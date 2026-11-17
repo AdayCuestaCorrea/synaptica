@@ -3,8 +3,8 @@ step R; decision of Aday, 2026-11-13).
 
 One function per source of items, and ``collect`` joins them in a single queue, so she
 has one page to open. Each step adds its own source: for now only the optional
-spot-check of published summaries (``ItemType.NEWS``); the ~100 headline labels come with
-step 14b and the weekly Classics with step 24a.
+spot-check of published summaries (``ItemType.NEWS``), the ~100 headline labels of step
+14b (``news.labels``, a few a day) and the weekly Classics of step 24a.
 
 **Spot-check.** The summaries that passed their checks and the judge in both languages,
 worst Spanish first (the judge's ``spanish_natural``, 1-5, which does not block: ADR D4),
@@ -31,6 +31,10 @@ import duckdb
 
 from synaptica.narrative.facts import facts_path, load, slug
 from synaptica.narrative.fallback import fallback_text, verified_record
+from synaptica.news.labels import LABELS_FROM, labelled
+from synaptica.news.labels import PER_WEEKDAY as LABELS_WEEKDAY
+from synaptica.news.labels import PER_WEEKEND as LABELS_WEEKEND
+from synaptica.news.labels import TARGET as LABELS_TARGET
 from synaptica.review.apply import Event, next_queue, publishable, read_log, state, states
 from synaptica.review.models import ItemType, Queue, ReviewItem, Sentence, Source, TextContent
 
@@ -44,6 +48,8 @@ GLOSSARY_FROM = dt.date(2026, 11, 18)
 # the glossary terms.
 REGION_TERMS_FROM = dt.date(2026, 11, 18)
 REGION_TERMS_WEEKDAY, REGION_TERMS_WEEKEND = 4, 2
+# Step 14b: headlines to label (``news.labels``), after the pairs and before the optional
+# spot-check, from 2026-11-19 (her page of 2026-11-18 was announced without them).
 LANGS = ("es", "en")
 
 
@@ -152,11 +158,13 @@ def collect(
     glossary: list[ReviewItem] | None = None,
     region_terms: list[ReviewItem] | None = None,
     cache_root: Path | None = None,
+    labels: list[ReviewItem] | None = None,
 ) -> Queue:
     """Today's queue: every source, minus what she decided, her held edits first, capped.
     ``extra`` (``run_spot_checks``) goes before the day's spot-check. ``glossary``: the
     Neuro Glossary terms (default: ``glossary.texts.review_items``), a few new ones a day;
-    ``region_terms``, the Neuro Atlas pairs' search terms (default: from the warehouse)."""
+    ``region_terms``, the Neuro Atlas pairs' search terms (default: from the warehouse);
+    ``labels``, the headlines to label for step 14b (default: ``news.labels``)."""
     from synaptica.news.classics import proposal  # the Clásicos of the week (step 24a)
 
     classics = proposal(derived_root.parent / "raw", review_dir, today, warehouse)
@@ -177,12 +185,22 @@ def collect(
                 cache_root=cache_root,
             )
             region_terms = studies.review_items(found)
+    events = read_log(review_dir)
+    if labels is None:
+        labels = []
+        if today >= LABELS_FROM and warehouse.exists():
+            from synaptica.news import classify
+            from synaptica.news import labels as news_labels
+
+            stored = classify.load_types(classify.types_path(derived_root))
+            llm_types = {k: r["type"] for k, r in stored.items()}
+            labels = news_labels.review_items(llm_types, warehouse, events)
     # The topic switches go last: a quick yes or no that never takes a text's place.
     items = [*(extra or []), *([classics] if classics else []), *glossary, *region_terms,
-             *news_spot_checks(warehouse, derived_root), *queue_items()]  # fmt: skip
+             *labels, *news_spot_checks(warehouse, derived_root), *queue_items()]  # fmt: skip
     # Midnight UTC of the day: the same inputs give the same file (``syn`` is idempotent).
     queue = Queue(generated_at=dt.datetime.combine(today, dt.time(), dt.UTC), items=items)
-    waiting = next_queue(queue, states(queue, read_log(review_dir)))
+    waiting = next_queue(queue, states(queue, events))
     held = [i for i in waiting.items if i.warnings]
     rest = [i for i in waiting.items if not i.warnings]
     weekend = today.weekday() >= 5
@@ -190,6 +208,10 @@ def collect(
     later = {i.key for i in new_terms[GLOSSARY_WEEKEND if weekend else GLOSSARY_WEEKDAY :]}
     pairs = [i for i in rest if i.item_type is ItemType.SEARCH_TERMS]
     later |= {i.key for i in pairs[REGION_TERMS_WEEKEND if weekend else REGION_TERMS_WEEKDAY :]}
+    # Never past the target: the day's share, or what is left of the 100 if less.
+    to_label = [i for i in rest if i.item_type is ItemType.NEWS_LABEL]
+    left = max(0, LABELS_TARGET - len(labelled(events)))
+    later |= {i.key for i in to_label[min(LABELS_WEEKEND if weekend else LABELS_WEEKDAY, left) :]}
     rest = [i for i in rest if i.key not in later]
     cap = CAP_WEEKEND if weekend else CAP_WEEKDAY
     return waiting.model_copy(update={"items": (held + rest)[:cap]})

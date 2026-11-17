@@ -49,6 +49,7 @@ class ItemType(StrEnum):
     EQUIVALENCE = "equivalence"  # rat <-> human pair: grade and note
     CLASSICS = "classics"  # the weekly choice of Classics
     NEWS_TOPIC = "news_topic"  # a news category she can switch off
+    NEWS_LABEL = "news_label"  # her type for a Neuro News headline: the classifier's gold
 
 
 class Grade(StrEnum):
@@ -67,6 +68,7 @@ class Action(StrEnum):
     ENABLE = "enable"
     DISABLE = "disable"
     PROPOSE = "propose"  # a new item (for now, a glossary term), so there is no hash
+    LABEL = "label"  # the type of a Neuro News headline (step 14b)
 
 
 # ---- content of a queue item, one shape per kind ------------------------------------
@@ -159,8 +161,22 @@ class ToggleContent(Strict):
     label_en: str
 
 
+class LabelContent(Strict):
+    """A Neuro News headline to label (step 14b, option C of Aday). ``key`` is the
+    classifier's key (``study:<id>`` or a ``fct_news_item`` id). Only the headline: the
+    page is public and the feeds' summaries are copyrighted, so she opens the original
+    when the headline is not enough."""
+
+    kind: Literal["label"] = "label"
+    key: str = Field(min_length=1)
+    title: str = Field(min_length=1)
+    lang: Literal["es", "en"]
+    source: str  # journal or outlet
+    url: str | None = None
+
+
 Content = Annotated[
-    TextContent | TermsContent | PairContent | CandidatesContent | ToggleContent,
+    TextContent | TermsContent | PairContent | CandidatesContent | ToggleContent | LabelContent,
     Field(discriminator="kind"),
 ]
 
@@ -175,6 +191,7 @@ KIND_OF: dict[ItemType, str] = {
     ItemType.EQUIVALENCE: "pair",
     ItemType.CLASSICS: "candidates",
     ItemType.NEWS_TOPIC: "toggle",
+    ItemType.NEWS_LABEL: "label",
 }
 
 ALLOWED: dict[str, set[Action]] = {
@@ -183,6 +200,7 @@ ALLOWED: dict[str, set[Action]] = {
     "pair": {Action.SET_GRADE},
     "candidates": {Action.PICK},
     "toggle": {Action.ENABLE, Action.DISABLE},
+    "label": {Action.LABEL},
 }
 PROPOSABLE = {ItemType.GLOSSARY}
 
@@ -291,6 +309,10 @@ class Pick(Strict):
     dois: list[str] = Field(min_length=1)
 
 
+class Label(Strict):
+    type: Literal["healthy_brain", "disease", "clinical_trial", "technique", "noise"]
+
+
 class ProposeTerm(Strict):
     term: str = Field(min_length=1)
     meaning_es: str = Field(min_length=1)
@@ -307,6 +329,7 @@ PAYLOADS: dict[Action, type[Strict]] = {
     Action.ENABLE: Empty,
     Action.DISABLE: Empty,
     Action.PROPOSE: ProposeTerm,
+    Action.LABEL: Label,
 }
 
 SHA256 = r"^[0-9a-f]{64}$"

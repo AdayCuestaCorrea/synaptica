@@ -13,9 +13,10 @@ file holds only keys and answers (decision of Aday, option A, 2026-11-14): the r
 is public and the feeds' summaries (ScienceDaily's) are copyrighted, so the texts the
 TF-IDF baseline needs are read from the warehouse (``fct_news_item``).
 
-The gold labels (``eval/news/labels.csv``: ``key,lang,text,type``) come from Sofía
-through the review flow (step 14b, after D5); until then the command works on any file
-with that shape, and the tests use a small synthetic one. The LLM's answer is never a
+The gold labels (``eval/news/labels.csv``: ``key,type`` only) come from Sofía through
+her review page (step 14b, option C; ``news.labels``), written by ``syn eval labels-gold``.
+For the same reason as the pairs, the texts the baseline learns from are read from the
+warehouse: what the classifier saw (``labels.label_texts``). The LLM's answer is never a
 label. Needs the ``eval`` dependency group (scikit-learn).
 """
 
@@ -36,10 +37,19 @@ FOLDS = 5
 SEED = 7
 
 
+GOLD_COLUMNS = ("key", "type")
+
+
 def load_gold(path: Path) -> list[dict[str, str]]:
-    """Rows ``{key, lang, text, type}``; a type outside :data:`TYPES` is an error."""
+    """Rows ``{key, type}``. Any other column is refused (texts never go in the
+    repository), and so is a type outside :data:`TYPES`."""
     with path.open(encoding="utf-8") as f:
-        rows = list(csv.DictReader(f))
+        reader = csv.DictReader(f)
+        rows = list(reader)
+        columns = tuple(reader.fieldnames or ())
+    if columns != GOLD_COLUMNS:
+        raise ValueError(f"{path} must have exactly the columns {','.join(GOLD_COLUMNS)} "
+                         f"(found {','.join(columns)})")  # fmt: skip
     bad = [r["key"] for r in rows if r["type"] not in TYPES]
     if bad:
         raise ValueError(f"unknown type in {path}: {bad[:5]}")
@@ -86,14 +96,22 @@ def baseline_predictions(texts: Sequence[str], gold: Sequence[str]) -> list[str]
     return [str(p) for p in cross_val_predict(model, list(texts), list(gold), cv=folds)]
 
 
-def evaluate(gold: list[dict[str, str]], llm_types: dict[str, str]) -> dict[str, Any]:
-    """Scores of the LLM (its stored answers) and of the baseline on the same gold."""
+def evaluate(
+    gold: list[dict[str, str]], llm_types: dict[str, str], texts: dict[str, str]
+) -> dict[str, Any]:
+    """Scores of the LLM (its stored answers) on the whole gold, and of the baseline and
+    the LLM on the items whose text is still in the warehouse (the baseline needs it)."""
     labels = [r["type"] for r in gold]
     out: dict[str, Any] = {"labelled": len(gold), "support": dict(Counter(labels))}
     out["llm"] = scores(labels, [llm_types.get(r["key"]) for r in gold])
     out["llm_missing"] = sum(r["key"] not in llm_types for r in gold)
-    if len(set(labels)) > 1 and min(Counter(labels).values()) >= 2:
-        out["baseline"] = scores(labels, baseline_predictions([r["text"] for r in gold], labels))
+    known = [r for r in gold if texts.get(r["key"])]
+    out["no_text"] = len(gold) - len(known)
+    seen = [r["type"] for r in known]
+    if len(set(seen)) > 1 and min(Counter(seen).values()) >= 2:
+        out["baseline"] = scores(seen, baseline_predictions([texts[r["key"]] for r in known], seen))
+        if out["no_text"]:  # the LLM on the very same items, to compare like with like
+            out["llm_same_items"] = scores(seen, [llm_types.get(r["key"]) for r in known])
     return out
 
 
@@ -107,7 +125,7 @@ def report_markdown(result: dict[str, Any]) -> str:
         "| Configuration | Macro F1 | Accuracy | " + " | ".join(f"F1 {c}" for c in TYPES) + " |",
         "|---|---:|---:|" + "---:|" * len(TYPES),
     ]  # fmt: skip
-    for name in ("llm", "baseline"):
+    for name in ("llm", "llm_same_items", "baseline"):
         if name not in result:
             continue
         r = result[name]
@@ -118,6 +136,9 @@ def report_markdown(result: dict[str, Any]) -> str:
     if result["llm_missing"]:
         lines += ["", f"{result['llm_missing']} labelled items have no LLM answer yet "
                       "(counted as wrong)."]  # fmt: skip
+    if result.get("no_text"):
+        lines += ["", f"{result['no_text']} labelled items are no longer in the warehouse: "
+                      "the baseline (and `llm_same_items`) leave them out."]  # fmt: skip
     if "baseline" not in result:
         lines += ["", "Baseline not scored: it needs two classes with two items each."]
     return "\n".join(lines) + "\n"

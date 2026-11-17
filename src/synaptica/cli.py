@@ -479,7 +479,7 @@ def news_group(
 
 @eval_app.command("news")
 def eval_news(
-    gold: Annotated[Path, typer.Option(help="Hand labels: key,lang,text,type.")] = Path(
+    gold: Annotated[Path, typer.Option(help="Sofía's labels: key,type.")] = Path(
         "eval/news/labels.csv"
     ),
     pairs: Annotated[
@@ -493,8 +493,15 @@ def eval_news(
 
     report = ""
     if gold.exists():
+        from synaptica.news import labels
+
+        if not classify.warehouse_path().exists():
+            typer.echo("No warehouse yet: run `syn build` first (headlines live there).", err=True)
+            raise typer.Exit(1)
+        rows = evaluate.load_gold(gold)
         llm_types = {k: r["type"] for k, r in classify.load_types(classify.types_path()).items()}
-        report = evaluate.report_markdown(evaluate.evaluate(evaluate.load_gold(gold), llm_types))
+        texts = labels.label_texts([r["key"] for r in rows], classify.warehouse_path())
+        report = evaluate.report_markdown(evaluate.evaluate(rows, llm_types, texts))
     elif pairs is None:
         typer.echo(f"No labels at {gold} yet (Sofía's labels arrive with step 14b).", err=True)
         raise typer.Exit(1)
@@ -558,6 +565,27 @@ def eval_pairs_gold(
         typer.echo(str(exc), err=True)
         raise typer.Exit(1) from exc
     typer.echo(f"{n} labelled pairs to {out}.")
+
+
+@eval_app.command("labels-gold")
+def eval_labels_gold(
+    out: Annotated[Path, typer.Option(help="The gold: keys and types only.")] = Path(
+        "eval/news/labels.csv"
+    ),
+) -> None:
+    """Sofía's headline labels (step 14b) from her review log to key,type (no texts)."""
+    from synaptica.news import classify, labels
+    from synaptica.review.apply import read_log
+
+    keys = classify.load_types(classify.types_path()).keys()
+    try:
+        rows = labels.gold_rows(read_log(_review_dir()), keys)
+    except ValueError as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(1) from exc
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(labels.gold_csv(rows), encoding="utf-8")
+    typer.echo(f"{len(rows)} labels to {out} (target {labels.TARGET}).")
 
 
 LimitOption = Annotated[int | None, typer.Option(help="Call the model for N studies at most.")]

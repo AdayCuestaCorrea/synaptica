@@ -41,7 +41,7 @@ def test_every_item_type_and_action_has_an_example(queue, log):
         ItemType.ATLAS, ItemType.LAB, ItemType.LEARN,  # same "text" shape as glossary
     }  # fmt: skip
     assert {d.action.value for d in log} >= {"approve", "edit", "reject", "keep", "set_grade",
-                                             "pick", "disable", "propose"}  # fmt: skip
+                                             "pick", "disable", "propose", "label"}  # fmt: skip
 
 
 def test_all_example_decisions_apply_to_the_queue(queue, log):

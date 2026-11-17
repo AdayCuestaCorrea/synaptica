@@ -76,6 +76,7 @@ class State:
     picks: list[str] = field(default_factory=list)
     enabled: bool = True  # a news topic is shown until she hides it
     terms: list[str] | None = None
+    label: str | None = None  # her type for a Neuro News headline (step 14b)
 
 
 # ---- reading the log -----------------------------------------------------------------
@@ -185,6 +186,8 @@ def state(item: ReviewItem, events: list[Event]) -> State:
                 st.status, st.picks = "decided", list(d.payload["dois"])
             case Action.ENABLE | Action.DISABLE:
                 st.status, st.enabled = "decided", d.action is Action.ENABLE
+            case Action.LABEL:
+                st.status, st.label = "decided", d.payload["type"]
     if st.status == "pending":
         st.reviewed_by = st.reviewed_at = None
     return st

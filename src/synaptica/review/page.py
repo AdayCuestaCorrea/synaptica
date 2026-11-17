@@ -55,7 +55,7 @@ def glossary_terms(queue: Queue) -> list[str]:
 ORDER = [
     ItemType.DISEASE, ItemType.CLASSICS, ItemType.EQUIVALENCE, ItemType.ATLAS,
     ItemType.SEARCH_TERMS, ItemType.LAB, ItemType.GLOSSARY, ItemType.LEARN,
-    ItemType.NEWS_TOPIC, ItemType.NEWS,
+    ItemType.NEWS_LABEL, ItemType.NEWS_TOPIC, ItemType.NEWS,
 ]  # fmt: skip
 
 

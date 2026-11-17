@@ -5,6 +5,7 @@ label set and says nothing about the real classifier (Sofía's labels come in st
 """
 
 import datetime as dt
+import json
 
 import duckdb
 import pytest
@@ -15,6 +16,8 @@ from synaptica.news import classify, evaluate
 TODAY = dt.date(2026, 11, 9)
 NOW = dt.datetime(2026, 11, 9, 12, tzinfo=dt.UTC)
 GOLD = project_root() / "tests" / "fixtures" / "eval" / "news_gold_synthetic.csv"
+# The headlines of GOLD: in the real gold they come from the warehouse (step 14b).
+GOLD_TEXTS = json.loads((GOLD.parent / "news_gold_texts.json").read_text("utf-8"))
 
 
 class FakeLLM:
@@ -121,7 +124,7 @@ def test_scores_per_class_and_macro_f1():
 def test_evaluate_scores_the_llm_and_a_cross_validated_baseline():
     gold = evaluate.load_gold(GOLD)
     llm = {r["key"]: r["type"] for r in gold[:-1]}  # one item without an answer
-    result = evaluate.evaluate(gold, llm)
+    result = evaluate.evaluate(gold, llm, GOLD_TEXTS)
     assert result["labelled"] == 15 and result["llm_missing"] == 1
     assert result["llm"]["accuracy"] == pytest.approx(14 / 15)
     assert 0 <= result["baseline"]["macro_f1"] <= 1 and result["baseline"]["n"] == 15
@@ -131,6 +134,24 @@ def test_evaluate_scores_the_llm_and_a_cross_validated_baseline():
 
 def test_unknown_types_in_the_gold_are_rejected(tmp_path):
     bad = tmp_path / "labels.csv"
-    bad.write_text("key,lang,text,type\na,en,x,politics\n", encoding="utf-8")
+    bad.write_text("key,type\na,politics\n", encoding="utf-8")
     with pytest.raises(ValueError, match="unknown type"):
         evaluate.load_gold(bad)
+
+
+def test_the_gold_never_carries_texts(tmp_path):
+    bad = tmp_path / "labels.csv"
+    bad.write_text("key,lang,text,type\na,en,x,noise\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="exactly the columns key,type"):
+        evaluate.load_gold(bad)
+
+
+def test_items_gone_from_the_warehouse_leave_the_baseline_only():
+    gold = evaluate.load_gold(GOLD)
+    llm = {r["key"]: r["type"] for r in gold}
+    texts = dict(GOLD_TEXTS)
+    texts.pop(gold[0]["key"])
+    result = evaluate.evaluate(gold, llm, texts)
+    assert result["no_text"] == 1 and result["llm"]["n"] == 15
+    assert result["baseline"]["n"] == result["llm_same_items"]["n"] == 14
+    assert "no longer in the warehouse" in evaluate.report_markdown(result)
