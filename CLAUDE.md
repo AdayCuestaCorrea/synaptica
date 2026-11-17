@@ -134,6 +134,8 @@ uv run syn site && uv run syn site --check
 uv run syn atlas mesh                     # descriptores MeSH del cerebro → src/synaptica/atlas/mesh/ (a mano; nunca en el pipeline)
 uv sync --group atlas && uv run --group atlas syn atlas build [--offline] [--cache data/cache/atlas]   # datos de Neuro Atlas → site/static/atlas/ (a mano, cuando cambia un atlas; nunca en el pipeline)
 uv run syn glossary sources [--refresh]    # fuente de cada término de Neuro Glossary: entradilla de Wikipedia EN y ES → src/synaptica/glossary/sources.json (a mano; nunca en el pipeline)
+uv run syn glossary awaiting-en           # términos que Sofía corrigió solo en español y esperan su inglés (fila 34)
+uv run syn glossary draft-en --term ID --meaning M --definition D --model claude-opus-5-5   # su español + borrador EN a texts.csv si pasan las comprobaciones (cada borrador, con OK de Aday)
 scripts/gpu_batch.sh RUN_DIR CMD...       # lote LLM local: systemd-inhibit, vitales de la GPU a CSV, para a 85 °C
 node scripts/atlas_serve.mjs DIR & node scripts/atlas_measure.mjs   # Neuro Atlas: tiempos y toque en móvil simulado y ordenador (DIR = salida de syn site; mata el servidor por PID)
 ```

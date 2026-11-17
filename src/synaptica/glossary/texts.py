@@ -13,13 +13,23 @@ her queue only if it passes the checks her edits pass (``review.intake.edit_warn
 no 8 words copied from the source, and every number and name is in the source or in the
 text of the other language. None of this publishes anything: a definition reaches the
 site only with her approval recorded in ``review/decisions.jsonl``.
+
+**Her Spanish-only correction** (sheet row 34, Aday's option b): the English is redrafted
+in a Claude Code session from her Spanish, with Aday's OK on each draft. ``awaiting_en``
+lists the terms waiting for it; ``with_english_draft`` writes her Spanish (origin: her
+Issue) and the draft (``llm-draft``) to ``texts.csv`` only if both pass the checks. The
+text changed, so the item is back in her queue for her yes on the English; until then the
+site keeps her Spanish and the English gap (``published``, the same «her exact words»
+rule as her proposals).
 """
 
 from __future__ import annotations
 
 import csv
+import datetime as dt
+import io
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any
 
@@ -171,14 +181,14 @@ def published(review_dir: Path | None) -> list[Entry]:
     from synaptica.review.apply import read_log, state
 
     events = read_log(review_dir) if review_dir is not None and review_dir.exists() else []
-    proposed = _proposed(events)
+    proposed, edits = _proposed(events), _her_edits(events)
     texts = load_texts()
     out = []
     for item in review_items():
         st = state(item, events)
         term = next(t for t in _terms() if t.term_id == item.item_id)
         if st.status not in PUBLISHED or st.reviewed_by is None or st.reviewed_at is None:
-            entry = _her_proposal(term, texts[term.term_id], item, st.status, proposed)
+            entry = _her_proposal(term, texts[term.term_id], item, st.status, proposed, edits)
             if entry is not None:
                 out.append(entry)
             continue
@@ -199,6 +209,19 @@ def published(review_dir: Path | None) -> list[Entry]:
     return out
 
 
+def _her_edits(events: list[Any]) -> dict[str, Any]:
+    """Her latest applied Spanish-only correction of each term (not held), by term id."""
+    from synaptica.review.models import Action
+
+    out = {}
+    for e in events:
+        d = e.decision
+        if (d.item_type is ItemType.GLOSSARY and d.action is Action.EDIT and not e.held
+                and d.payload.get("es") and not d.payload.get("en")):  # fmt: skip
+            out[d.item_id] = d
+    return out
+
+
 def _proposed(events: list[Any]) -> dict[str, Any]:
     """Her latest proposal of each term, by the term as she wrote it."""
     from synaptica.review.models import Action
@@ -212,19 +235,90 @@ def _proposed(events: list[Any]) -> dict[str, Any]:
 
 
 def _her_proposal(term: Term, text: Text, item: ReviewItem, status: str,
-                  proposed: dict[str, Any]) -> Entry | None:  # fmt: skip
-    """Her own Spanish for a term she proposed (option B, v183), or None."""
-    d = proposed.get(term.term)
-    if d is None or status == "rejected" or not text.origin["es"].startswith("issue#"):
+                  proposed: dict[str, Any], edits: dict[str, Any]) -> Entry | None:  # fmt: skip
+    """Her own Spanish while its item waits for her: a term she proposed (option B, v183)
+    or one whose English was redrafted after her Spanish-only correction (row 34). Only
+    when ``texts.csv`` carries her words exactly, from that very Issue; None otherwise."""
+    if status == "rejected" or not text.origin["es"].startswith("issue#"):
         return None
-    if (d.payload.get("meaning_es"), d.payload.get("explanation_es")) != (
-        text.meaning["es"], text.definition["es"],
-    ):  # fmt: skip
-        return None  # not her words: never shown as hers
+    mine = (text.meaning["es"], text.definition["es"])
+    d, mark = proposed.get(term.term), "proposed"
+    if d is None or (d.payload.get("meaning_es"), d.payload.get("explanation_es")) != mine:
+        d, mark = edits.get(term.term_id), "edited"
+        if d is None or d.source != text.origin["es"]:
+            return None
+        if _split(term, d.payload["es"].strip()) != mine:
+            return None  # not her words: never shown as hers
     return Entry(term=term, meaning={"es": text.meaning["es"], "en": None},
                  definition={"es": text.definition["es"], "en": None},
                  sources=list(item.content.sources),
-                 reviewed_at=d.reviewed_at.date().isoformat(), mark="proposed")  # fmt: skip
+                 reviewed_at=d.reviewed_at.date().isoformat(), mark=mark)  # fmt: skip
+
+
+# ---- the English after her Spanish-only correction (row 34) -------------------------
+
+
+@dataclass(frozen=True)
+class Awaiting:
+    term: Term
+    meaning_es: str | None  # None: her text lost the «TERM (meaning):» opening
+    definition_es: str
+    source: str  # her Issue
+    english_now: str  # the draft she corrected the Spanish of, for reference
+
+
+def awaiting_en(review_dir: Path | None) -> list[Awaiting]:
+    """Terms whose Spanish she corrected alone, still waiting for their English."""
+    from synaptica.review.apply import read_log, state
+
+    events = read_log(review_dir) if review_dir is not None and review_dir.exists() else []
+    edits, texts = _her_edits(events), load_texts()
+    out = []
+    for item in review_items():
+        st = state(item, events)
+        if st.status != "edited" or not st.awaiting_en or item.item_id not in edits:
+            continue
+        term = next(t for t in _terms() if t.term_id == item.item_id)
+        meaning, definition = _split(term, edits[item.item_id].payload["es"].strip())
+        out.append(Awaiting(term, meaning, definition, edits[item.item_id].source,
+                            texts[term.term_id].sentence(term, "en")))  # fmt: skip
+    return out
+
+
+COLUMNS = ("term_id", "meaning_es", "definition_es", "es_from",
+           "meaning_en", "definition_en", "en_from")  # fmt: skip
+
+
+def with_english_draft(
+    waiting: Awaiting, meaning_en: str, definition_en: str, model: str,
+    today: dt.date, path: Path | None = None,
+) -> list[str]:  # fmt: skip
+    """Write her Spanish and the English draft to ``texts.csv``: the problems found
+    (nothing written) or [] (written). Her text must keep «TERM (meaning):»."""
+    if waiting.meaning_es is None:
+        return ["Su texto no empieza por «SIGLA (significado):»: hay que separarlo a mano."]
+    from synaptica.glossary.sources import load_sources
+
+    path = path or TEXTS
+    term = waiting.term
+    texts = load_texts(path)
+    new = replace(texts[term.term_id],
+                  meaning={"es": waiting.meaning_es, "en": meaning_en.strip()},
+                  definition={"es": waiting.definition_es, "en": definition_en.strip()},
+                  origin={"es": waiting.source,
+                          "en": f"llm-draft:{model}:{today.isoformat()}"})  # fmt: skip
+    found = problems(term, new, load_sources().get(term.term_id, {}))
+    if found:
+        return found
+    texts[term.term_id] = new
+    buf = io.StringIO()
+    writer = csv.writer(buf, lineterminator="\n")
+    writer.writerow(COLUMNS)
+    for t in texts.values():
+        writer.writerow([t.term_id, t.meaning["es"], t.definition["es"], t.origin["es"],
+                         t.meaning["en"], t.definition["en"], t.origin["en"]])  # fmt: skip
+    path.write_text(buf.getvalue(), encoding="utf-8")
+    return []
 
 
 def _terms() -> list[Term]:

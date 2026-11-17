@@ -206,3 +206,76 @@ def test_her_stn_shows_in_the_viewer_in_spanish_only(tmp_path: Path) -> None:
     assert es["regions"]["waxholm:STh"]["term"] == "stn"
     assert es["terms"]["stn"]["definition"].startswith("Estructura de los ganglios basales")
     assert en["terms"]["stn"]["definition"] is None  # the viewer says «pending»
+
+
+# ---- her Spanish-only correction and the English redrafted in a session (row 34) ----
+
+MINE = "DA (Dopamina): Neurotransmisor del movimiento y la recompensa."
+
+
+def redraft(tmp_path: Path, monkeypatch):
+    """A copy of texts.csv the test may rewrite, and her Spanish-only edit of DA."""
+    import shutil
+
+    from synaptica.glossary import texts
+
+    copy = tmp_path / "texts.csv"
+    shutil.copy(texts.TEXTS, copy)
+    monkeypatch.setattr(texts, "TEXTS", copy)
+    data = tmp_path / "data"
+    decide(data, ("da", "edit", {"es": MINE}))
+    return texts, data, copy
+
+
+def test_her_spanish_edit_is_listed_until_its_english_is_drafted(tmp_path, monkeypatch):
+    import datetime as dt
+
+    texts, data, copy = redraft(tmp_path, monkeypatch)
+    (w,) = texts.awaiting_en(data / "review")
+    assert (w.term.term_id, w.meaning_es, w.source) == ("da", "Dopamina", "issue#1")
+    assert w.definition_es == "Neurotransmisor del movimiento y la recompensa."
+    before = copy.read_text()
+    bad = texts.with_english_draft(w, "Dopamine", "Released by 42 neurons.", "claude-opus-5-5",
+                                   dt.date(2026, 11, 18))  # fmt: skip
+    assert any("42" in p for p in bad) and copy.read_text() == before  # nothing written
+    assert texts.with_english_draft(w, "Dopamine", "Neurotransmitter of movement and reward.",
+                                    "claude-opus-5-5", dt.date(2026, 11, 18)) == []  # fmt: skip
+    row = texts.load_texts()["da"]
+    assert row.origin == {"es": "issue#1", "en": "llm-draft:claude-opus-5-5:2026-11-18"}
+    assert texts.awaiting_en(data / "review") == []
+    # Others untouched: only the DA line changed.
+    changed = set(before.splitlines()) ^ set(copy.read_text().splitlines())
+    assert all(line.startswith("da,") for line in changed)
+
+
+def test_while_the_draft_waits_the_site_keeps_her_spanish_then_her_yes_adds_english(
+    tmp_path, monkeypatch
+):
+    import datetime as dt
+
+    texts, data, _ = redraft(tmp_path, monkeypatch)
+    (w,) = texts.awaiting_en(data / "review")
+    texts.with_english_draft(w, "Dopamine", "Neurotransmitter of movement and reward.",
+                             "claude-opus-5-5", dt.date(2026, 11, 18))  # fmt: skip
+    (entry,) = published(data / "review")  # the new version waits in her queue
+    assert entry.mark == "edited" and entry.definition["en"] is None
+    assert entry.definition["es"] == "Neurotransmisor del movimiento y la recompensa."
+    new = next(i for i in texts.review_items() if i.item_id == "da")
+    assert new.content_sha256 != ITEMS["da"].content_sha256  # back in her queue
+    decide(data, ("da", "approve", {}), sha=new.content_sha256)
+    (entry,) = published(data / "review")
+    assert entry.mark == "approved"
+    assert entry.definition["en"] == "Neurotransmitter of movement and reward."
+
+
+def test_a_text_without_its_opening_is_not_split_by_guess(tmp_path, monkeypatch):
+    import datetime as dt
+
+    texts, data, copy = redraft(tmp_path, monkeypatch)
+    decide(data, ("da", "edit", {"es": "Neurotransmisor del movimiento."}))
+    (w,) = texts.awaiting_en(data / "review")
+    assert w.meaning_es is None
+    before = copy.read_text()
+    assert texts.with_english_draft(w, "Dopamine", "Neurotransmitter of movement.",
+                                    "claude-opus-5-5", dt.date(2026, 11, 18))  # fmt: skip
+    assert copy.read_text() == before

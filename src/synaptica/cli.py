@@ -1132,6 +1132,45 @@ def mirror_record(
     typer.echo(json.dumps(entry))
 
 
+@glossary_app.command("awaiting-en")
+def glossary_awaiting_en() -> None:
+    """Terms whose Spanish Sofía corrected alone, waiting for their English (sheet row 34):
+    her Spanish, split, and the English draft she corrected the Spanish of."""
+    from synaptica.glossary.texts import awaiting_en
+
+    found = awaiting_en(_review_dir())
+    if not found:
+        typer.echo("No term waits for its English.")
+    for w in found:
+        typer.echo(f"{w.term.term_id} ({w.source})")
+        typer.echo(f"  es meaning:    {w.meaning_es}")
+        typer.echo(f"  es definition: {w.definition_es}")
+        typer.echo(f"  en before:     {w.english_now}")
+
+
+@glossary_app.command("draft-en")
+def glossary_draft_en(
+    term: Annotated[str, typer.Option(help="Term id (as `awaiting-en` lists it).")],
+    meaning: Annotated[str, typer.Option(help="English meaning (the expansion).")],
+    definition: Annotated[str, typer.Option(help="English definition.")],
+    model: Annotated[str, typer.Option(help="Who drafted it, for `llm-draft:`.")],
+) -> None:
+    """Her Spanish and an English draft to texts.csv, only if both pass the checks; the
+    term goes back to her queue. Each draft needs Aday's OK (row 34). Exit 1: not written."""
+    from synaptica.glossary.texts import awaiting_en, with_english_draft
+    from synaptica.store import utc_today
+
+    waiting = next((w for w in awaiting_en(_review_dir()) if w.term.term_id == term), None)
+    if waiting is None:
+        typer.echo(f"{term}: no Spanish-only correction of hers waits for its English.", err=True)
+        raise typer.Exit(1)
+    problems = with_english_draft(waiting, meaning, definition, model, utc_today())
+    if problems:
+        typer.echo("Not written:\n" + "\n".join(f"- {p}" for p in problems), err=True)
+        raise typer.Exit(1)
+    typer.echo(f"{term}: her Spanish ({waiting.source}) and the English draft in texts.csv.")
+
+
 @glossary_app.command("sources")
 def glossary_sources(
     refresh: Annotated[
