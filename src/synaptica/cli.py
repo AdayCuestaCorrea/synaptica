@@ -906,6 +906,30 @@ def atlas_sources(
         raise typer.Exit(1)
 
 
+@lab_app.command("write")
+def lab_write(
+    provider: ProviderOption = None,
+    model: ModelOption = None,
+    only: Annotated[
+        str | None, typer.Option(help="Comma-separated technique ids (redrafts them).")
+    ] = None,
+) -> None:
+    """Draft «what it lets us see» and «limits» of each technique from its Wikipedia lead
+    (facts -> EN -> ES, with the summaries' checks) -> src/synaptica/lab/texts.json. Not
+    published: the drafts wait for Sofía. By hand, only with Aday's OK; never in the
+    pipeline."""
+    from synaptica.lab import texts
+
+    llm = _llm(provider, model)
+    if llm is None:
+        typer.echo("No --provider given: nothing written.")
+        raise typer.Exit(0)
+    status = texts.write(llm, only=only.split(",") if only else None)
+    for tid, by_section in status.items():
+        typer.echo(f"{tid}: " + ", ".join(f"{k} {v}" for k, v in by_section.items()))
+    typer.echo(f"Neuro Lab texts: {len(status)} techniques drafted")
+
+
 @atlas_app.command("measure")
 def atlas_measure() -> None:
     """How the Neuro Atlas abstract rule (two mentions) behaves at 1, 2 or 3 mentions, with
