@@ -862,6 +862,50 @@ def lab_mesh() -> None:
                + ("; changed" if changed else "; no change"))  # fmt: skip
 
 
+@lab_app.command("sources")
+def lab_sources(
+    refresh: Annotated[
+        bool, typer.Option("--refresh", help="Look up every technique again.")
+    ] = False,
+) -> None:
+    """The Wikipedia lead (EN and ES) each Neuro Lab technique's texts will be written from
+    -> src/synaptica/lab/sources.json. By hand, never in the pipeline; no LLM."""
+    from synaptica.http import make_client
+    from synaptica.lab import sources
+
+    with make_client() as client:
+        r = sources.update_sources(client, refresh=refresh)
+    typer.echo(f"Neuro Lab sources: {r.asked} asked, accepted EN {r.accepted['en']} / "
+               f"ES {r.accepted['es']}, {r.changed} changed")  # fmt: skip
+    for f in r.failed:
+        typer.echo(f"  failed: {f}", err=True)
+    if r.failed:
+        raise typer.Exit(1)
+
+
+@atlas_app.command("sources")
+def atlas_sources(
+    refresh: Annotated[bool, typer.Option("--refresh", help="Look up every lead again.")] = False,
+) -> None:
+    """Per rat-human pair: its Wikidata item (by MeSH), the Wikipedia lead (EN and ES) its
+    text will be written from, and the diseases located in it (Wikidata P927; saved, not
+    published) -> src/synaptica/atlas/. By hand, never in the pipeline; no LLM."""
+    from synaptica.atlas import sources
+    from synaptica.http import make_client
+
+    with make_client() as client:
+        r = sources.update(client, refresh=refresh)
+    typer.echo(f"Neuro Atlas sources: {r.items} Wikidata items; {r.leads.asked} leads asked, "
+               f"accepted EN {r.leads.accepted['en']} / ES {r.leads.accepted['es']}; diseases "
+               + ", ".join(f"{k} {n}" for k, n in r.diseases.items()))  # fmt: skip
+    for a in r.ambiguous:
+        typer.echo(f"  ambiguous (left empty): {a}", err=True)
+    for f in r.leads.failed:
+        typer.echo(f"  failed: {f}", err=True)
+    if r.leads.failed:
+        raise typer.Exit(1)
+
+
 @atlas_app.command("measure")
 def atlas_measure() -> None:
     """How the Neuro Atlas abstract rule (two mentions) behaves at 1, 2 or 3 mentions, with

@@ -1,0 +1,258 @@
+{
+  "note": "Source of each Neuro Atlas pair's text: the Wikidata item of its MeSH descriptor (P486) and the lead of its Wikipedia article at the revision given. Written by `syn atlas sources`; do not edit by hand.",
+  "licence": "Wikipedia text: CC BY-SA 4.0, its authors (see each article's history); Wikidata: CC0",
+  "pairs": {
+    "surface": {
+      "wikidata": "Q18696",
+      "leads": {
+        "en": {
+          "title": "Motor cortex",
+          "accepted": true,
+          "revid": 1380062568,
+          "url": "https://en.wikipedia.org/w/index.php?oldid=1380062568",
+          "retrieved": "2026-11-17",
+          "lead": "The motor cortex comprises interconnected fields on the posterior frontal lobe—chiefly Brodmann area 4 (primary motor cortex, M1) and area 6 (premotor cortex and supplementary motor areas)—that plan, select and execute voluntary movements. These regions transform goals into patterned activity in descending pathways to brainstem and spinal motor circuits, enabling dexterous eye, face and limb actions. Modern work shows overlapping, action‑type representations rather than a strictly point‑to‑point \"homunculus\", and highlights direct cortico‑motoneuronal projections that underwrite fine finger control. Clinically, motor‑cortical organization shapes deficits after stroke and neurodegenerative disease and guides mapping for neurosurgery and neurotechnology."
+        },
+        "es": {
+          "title": "Corteza motora",
+          "accepted": true,
+          "revid": 173000009,
+          "url": "https://es.wikipedia.org/w/index.php?oldid=173000009",
+          "retrieved": "2026-11-17",
+          "lead": "La corteza motora comprende las áreas de la corteza cerebral responsables de los procesos de planificación, control y ejecución de las funciones motoras voluntarias."
+        }
+      }
+    },
+    "internal": {
+      "wikidata": "Q48360",
+      "leads": {
+        "en": {
+          "title": "Hippocampus",
+          "accepted": true,
+          "revid": 1385842704,
+          "url": "https://en.wikipedia.org/w/index.php?oldid=1385842704",
+          "retrieved": "2026-11-17",
+          "lead": "The hippocampus (pl.: hippocampi), also  proper,  is a major component of the brain of humans and many other vertebrates. In the human brain the hippocampus, the dentate gyrus, and the subiculum are components of the hippocampal formation located in the limbic system. \nThe hippocampus plays important roles in the consolidation of information from short-term memory to long-term memory, and in spatial memory that enables navigation. In humans and other primates the hippocampus is located in the archicortex, one of the three regions of allocortex, in each hemisphere with direct neural projections to,  and reciprocal indirect projections from the neocortex. The hippocampus, as the medial pallium, is a structure found in all vertebrates.\nIn Alzheimer's disease (and other forms of dementia), the hippocampus is one of the first regions of the brain to be damaged; short-term memory loss and disorientation are included among the early symptoms. Damage to the hippocampus can also result from oxygen starvation (hypoxia), encephalitis, or medial temporal lobe epilepsy. People with extensive, bilateral hippocampal damage may experience anterograde amnesia: the inability to form and retain new memories.\nSince different neuronal cell types are neatly organized into layers in the hippocampus, it has frequently been used as a model system for studying neurophysiology. The form of neural plasticity known as long-term potentiation (LTP) was initially discovered to occur in the hippocampus and has often been studied in this structure. LTP is widely believed to be one of the main neural mechanisms by which memories are stored in the brain.\nUsing rodents as model organisms, the hippocampus has been studied extensively as part of a brain system responsible for spatial memory and navigation. Many neurons in the rat and mouse hippocampi respond as place cells: that is, they fire bursts of action potentials when the animal passes through a specific part of its environment. Hippocampal place cells interact extensively with head direction cells, whose activity acts as an inertial compass, and conjecturally with grid cells in the neighboring entorhinal cortex."
+        },
+        "es": {
+          "title": "Hipocampo (anatomía)",
+          "accepted": true,
+          "revid": 173547931,
+          "url": "https://es.wikipedia.org/w/index.php?oldid=173547931",
+          "retrieved": "2026-11-17",
+          "lead": "El hipocampo (del latín hippocampus, y este del griego ιππος, hippos: ‘caballo’, y καμπος, kampos: el monstruo marino ‘Campe’) es una de las principales estructuras del cerebro humano y otros mamíferos. Nominado por el anatomista del siglo XVI Giulio Cesare Aranzio, quien apreció una semejanza con la forma del caballito de mar, hipocampo.\nSe trata de una estructura marginal y de estructura de capas más sencilla de la misma sustancia gris cortical del lóbulo temporal. Por ello pertenece, por una parte al sistema límbico y por otra a la arquicorteza, componiendo junto al subículo y el giro dentado la llamada formación hipocampal. Al igual que el resto de la corteza cerebral es una estructura pareada, con dos mitades que son imágenes especulares en ambos hemisferios cerebrales. Tanto en humanos como en otros primates, el hipocampo se localiza en el interior de la parte medial o interna del lóbulo temporal, bajo la superficie cortical. La forma de caballito de mar es típica de primates, pero en otros mamíferos tiene formas variadas, como la del plátano.\nAunque tiene origen en una estructura del cerebro de los vertebrados denominada palio, que comprendía funciones olfativas, en su actual diseño en los mamíferos desempeña principalmente funciones importantes en la memoria y el manejo del espacio. Los estudios sobre su función en humanos son escasos, pero se ha investigado ampliamente en roedores como parte del sistema cerebral responsable de la memoria espacial y la navegación. Muchas neuronas del hipocampo de ratas y ratones responden disparando potenciales de acción cuando el individuo atraviesa por una zona específica de su entorno, como «células de lugar» o células de posición. Las «células del lugar» del hipocampo interactúan en gran medida con las «células de orientación» de la cabeza, que actúan a modo de compás inercial, y también con las células de rejilla o de red, en las cercanías de la corteza entorrinal.\nDebido a sus capas de neuronas densamente empaquetadas, el hipocampo ha sido utilizado frecuentemente como un sistema modelo para el estudio de la neurofisiología. La forma de la plasticidad neuronal conocida como potenciación a largo plazo (LTP) fue descubierta por primera vez en el hipocampo, y todavía se estudia en esta estructura. Está muy extendida la hipótesis de que la LTP es uno de los mecanismos neurales principales por los que la memoria se almacena en el cerebro.\nEn la enfermedad de Alzheimer el hipocampo es una de las primeras regiones del cerebro en sufrir daño.​ Los problemas de memoria y desorientación aparecen entre los primeros síntomas. El daño al hipocampo también puede proceder de situaciones de carencia de oxígeno (hipoxia), inflamación del encéfalo (encefalitis) o epilepsia del lóbulo temporal. Las personas que han sufrido un daño extenso en el hipocampo pueden experimentar incapacidad para adquirir o retener nuevos recuerdos (amnesia)."
+        }
+      }
+    },
+    "third": {
+      "wikidata": "Q338924",
+      "leads": {
+        "en": {
+          "title": "Amygdala",
+          "accepted": true,
+          "revid": 1385888802,
+          "url": "https://en.wikipedia.org/w/index.php?oldid=1385888802",
+          "retrieved": "2026-11-17",
+          "lead": "The amygdala (; pl.: amygdalae  or amygdalas; also corpus amygdaloideum) is a paired  nuclear complex present in the cerebral hemispheres of vertebrates. It is considered part of the limbic system. In primates, it is located medially within the temporal lobes. It consists of many nuclei, each made up of further subnuclei. The subdivision most commonly made is into the basolateral, central, cortical, and medial nuclei together with the intercalated cell clusters. The amygdala has a primary role in the processing of memory, decision-making, and emotional responses (including fear, anxiety, and aggression). The amygdala was first identified and named by Karl Friedrich Burdach in 1822."
+        },
+        "es": {
+          "title": "Cuerpo amigdalino",
+          "accepted": true,
+          "revid": 175780021,
+          "url": "https://es.wikipedia.org/w/index.php?oldid=175780021",
+          "retrieved": "2026-11-17",
+          "lead": "El cuerpo amigdalino, complejo amigdalino o amígdala cerebral es un conjunto de núcleos de neuronas localizadas en la profundidad de los lóbulos temporales de los vertebrados complejos, incluidos los humanos.​ La amígdala forma parte del sistema límbico, y su papel principal es el procesamiento y almacenamiento de reacciones emocionales.​​"
+        }
+      }
+    },
+    "cerebellum": {
+      "wikidata": "Q130983",
+      "leads": {
+        "en": {
+          "title": "Cerebellum",
+          "accepted": true,
+          "revid": 1385745067,
+          "url": "https://en.wikipedia.org/w/index.php?oldid=1385745067",
+          "retrieved": "2026-11-17",
+          "lead": "The cerebellum (pl.: cerebella or cerebellums; Latin for 'little brain') is a major feature of the hindbrain of all vertebrates. Although usually smaller than the cerebrum, in some animals such as the mormyrid fishes it may be as large as it or even larger. In humans, the cerebellum plays an important role in motor control and cognitive functions such as attention and language as well as emotional control such as regulating fear and pleasure responses, but its movement-related functions are the most solidly established. The human cerebellum does not initiate movement, but contributes to motor coordination, precision, and accurate timing: it receives input from sensory systems of the spinal cord and from other parts of the brain, and integrates these inputs to fine-tune motor activity. Cerebellar damage produces disorders in fine movement, equilibrium, posture, and motor learning in humans.\nAnatomically, the human cerebellum has the appearance of a separate structure attached to the bottom of the brain, tucked underneath the cerebral hemispheres. Its cortical surface is covered with finely spaced parallel grooves, in striking contrast to the broad irregular convolutions of the cerebral cortex. These parallel grooves conceal the fact that the cerebellar cortex is actually a thin, continuous layer of tissue tightly folded in the style of an accordion. Within this thin layer are several types of neurons with a highly regular arrangement, the most important being Purkinje cells and granule cells. This complex neural organization gives rise to a massive signal-processing capability, but almost all of the output from the cerebellar cortex passes through a set of small deep nuclei lying in the white matter interior of the cerebellum.\nIn addition to its direct role in motor control, the cerebellum is necessary for several types of motor learning, most notably in sensorimotor relationships. Several theoretical models have been developed to explain sensorimotor calibration in terms of synaptic plasticity within the cerebellum. These models derive from those formulated by David Marr and James Albus, based on the observation that each cerebellar Purkinje cell receives two dramatically different types of input: one comprises thousands of weak inputs from the parallel fibers of the granule cells; the other is an extremely strong input from a single climbing fiber. The basic concept of the Marr–Albus theory is that the climbing fiber serves as a \"teaching signal\", which induces a long-lasting change in the strength of parallel fiber inputs. Observations of long-term depression in parallel fiber inputs have provided some support for theories of this type, but their validity remains controversial."
+        },
+        "es": {
+          "title": "Cerebelo",
+          "accepted": true,
+          "revid": 175238194,
+          "url": "https://es.wikipedia.org/w/index.php?oldid=175238194",
+          "retrieved": "2026-11-17",
+          "lead": "El cerebelo  es una región del encéfalo cuya función principal es de integrar las vías sensitivas y las vías motoras.​ Existe una gran cantidad de haces nerviosos que lo conectan con otras estructuras encefálicas y con la médula espinal. El cerebelo integra toda la información recibida para precisar y controlar las órdenes que la corteza cerebral envía al aparato locomotor a través de las vías motoras. Es el regulador del temblor fisiológico.\nPor ello, lesiones a nivel del cerebelo no suelen causar parálisis pero sí desórdenes relacionados con la ejecución de movimientos precisos, mantenimiento del equilibrio, la postura y aprendizaje motor. Los primeros estudios realizados por fisiólogos en el siglo XVIII indicaban que aquellos pacientes con daño cerebelar mostraban problemas de coordinación motora y movimiento. Durante el siglo XIX comenzaron a realizarse los primeros experimentos funcionales, causando lesiones o ablaciones cerebelares en animales. Los fisiólogos observaban que tales lesiones generaban movimientos extraños y torpes, descoordinación y debilidad muscular. Estas observaciones y estudios llevaron a la conclusión de que el cerebelo era un órgano encargado del control de la motricidad.​ Sin embargo, las investigaciones modernas han mostrado que el cerebelo tiene un papel más amplio, estando así relacionado con ciertas funciones cognitivas como la atención y el procesamiento del lenguaje, la música, el aprendizaje y otros estímulos sensoriales temporales.\nFue descrito por primera vez por Herófilo en el siglo IV a. C.​​"
+        }
+      }
+    },
+    "brainstem": {
+      "wikidata": "Q182228",
+      "leads": {
+        "en": {
+          "title": "Brainstem",
+          "accepted": true,
+          "revid": 1363586724,
+          "url": "https://en.wikipedia.org/w/index.php?oldid=1363586724",
+          "retrieved": "2026-11-17",
+          "lead": "The brainstem (or brain stem) is the posterior stalk-like part of the brain that connects the cerebrum with the spinal cord. In the human brain, the brainstem is composed of the midbrain, the pons, and the medulla oblongata. The midbrain is continuous with the thalamus of the diencephalon through the tentorial notch, and sometimes the diencephalon is included in the brainstem.\nThe brainstem is very small, making up around only 2.6 percent of the brain's total weight. It has the critical roles of regulating heart and respiratory function, helping to control heart rate and breathing rate. It also provides the main motor and sensory nerve supply to the face and neck via the cranial nerves. Ten pairs of cranial nerves come from the brainstem. Other roles include the regulation of the central nervous system and the body's sleep cycle. It is also of prime importance in the conveyance of motor and sensory pathways from the rest of the brain to the body, and from the body back to the brain. These pathways include the corticospinal tract (motor function), the dorsal column-medial lemniscus pathway (fine touch, vibration sensation, and proprioception), and the spinothalamic tract (pain, temperature, itch, and crude touch)."
+        },
+        "es": {
+          "title": "Tronco del encéfalo",
+          "accepted": true,
+          "revid": 175621867,
+          "url": "https://es.wikipedia.org/w/index.php?oldid=175621867",
+          "retrieved": "2026-11-17",
+          "lead": "El tronco del encéfalo, tronco cerebral o tallo cerebral ubicado en la parte del cuello anterior está formado por el mesencéfalo, la protuberancia anular (o puente troncoencefálico) y el bulbo raquídeo (también llamado médula oblongada).​ Es la mayor ruta de comunicación del cerebro, la médula espinal y los nervios periféricos. También controla varias funciones incluyendo la respiración, regulación del ritmo cardíaco y aspectos primarios de la localización del sonido.​ Formado por sustancia gris y blanca."
+        }
+      }
+    },
+    "striatum": {
+      "wikidata": "Q1319792",
+      "leads": {
+        "en": {
+          "title": "Striatum",
+          "accepted": true,
+          "revid": 1382457282,
+          "url": "https://en.wikipedia.org/w/index.php?oldid=1382457282",
+          "retrieved": "2026-11-17",
+          "lead": "The striatum (pl.: striata) is a cluster of interconnected nuclei that make up the largest structure of the subcortical  basal ganglia. The striatum is a critical component of the motor and reward systems; it receives glutamatergic and dopaminergic inputs from different sources; and serves as the primary input to the rest of the basal ganglia. Functionally, the striatum coordinates multiple aspects of cognition, including both motor and action planning, decision-making, motivation, reinforcement, and reward perception. The striatum is made up of the caudate nucleus, the putamen, and the ventral striatum.\nIn primates, the striatum is divided into the ventral striatum and the dorsal striatum, subdivisions that are based upon function and connections. The ventral striatum consists of the nucleus accumbens and the olfactory tubercle. The dorsal striatum consists of the caudate nucleus and the putamen. A white matter nerve tract (the internal capsule) in the dorsal striatum separates the caudate nucleus and the putamen. Anatomically, the term striatum describes its striped (striated) appearance of grey-and-white matter."
+        },
+        "es": {
+          "title": "Cuerpo estriado",
+          "accepted": true,
+          "revid": 172238242,
+          "url": "https://es.wikipedia.org/w/index.php?oldid=172238242",
+          "retrieved": "2026-11-17",
+          "lead": "El cuerpo estriado, también conocido como núcleo estriado, es una parte subcortical (al interior del encéfalo) del telencéfalo y forma parte de los núcleos basales. A su vez, el cuerpo estriado recibe información de la corteza cerebral. En los primates (incluidos los humanos), el estriado dorsal se encuentra dividido por una sección de sustancia blanca llamada la cápsula interna, formando dos sectores: el núcleo caudado y el núcleo lenticular, el cual está conformado a su vez por el putamen y el globo pálido.​ El estriado ventral está formado en primates por el núcleo accumbens y el tubérculo olfatorio.​"
+        }
+      }
+    },
+    "pallidum": {
+      "wikidata": "Q1759633",
+      "leads": {
+        "en": {
+          "title": "Globus pallidus",
+          "accepted": true,
+          "revid": 1323751073,
+          "url": "https://en.wikipedia.org/w/index.php?oldid=1323751073",
+          "retrieved": "2026-11-17",
+          "lead": "The globus pallidus (GP), also known as paleostriatum or dorsal pallidum, is a major component of the subcortical basal ganglia in the brain. It consists of two adjacent segments, one external (or lateral), known in rodents simply as the globus pallidus, and one internal (or medial). It is part of the telencephalon, but retains close functional ties with the subthalamus in the diencephalon – both of which are part of the extrapyramidal motor system.\nThe globus pallidus receives principal inputs from the striatum, and principal direct outputs to the thalamus and the substantia nigra. The latter is made up of similar neuronal elements, has similar afferents from the striatum, similar projections to the thalamus, and has a similar synaptology. Neither receives direct cortical afferents, and both receive substantial additional inputs from the intralaminar thalamic nuclei.\nGlobus pallidus is Latin for \"pale globe\"."
+        },
+        "es": {
+          "title": "Globo pálido",
+          "accepted": true,
+          "revid": 169377768,
+          "url": "https://es.wikipedia.org/w/index.php?oldid=169377768",
+          "retrieved": "2026-11-17",
+          "lead": "El globo pálido es uno de los tres núcleos que forman los núcleos basales. Transmite información desde el putamen y el caudado hacia el tálamo. Se llama así porque presenta axones bien mielinizados. Este núcleo representa la pared estrecha de la cuña, que se dirige en sentido medial del núcleo lenticular, el cual se divide en porciones externa e interna por una lámina medular medial o interna."
+        }
+      }
+    },
+    "ventricles": {
+      "wikidata": "Q105402",
+      "leads": {
+        "en": {
+          "title": "Ventricular system",
+          "accepted": true,
+          "revid": 1371408000,
+          "url": "https://en.wikipedia.org/w/index.php?oldid=1371408000",
+          "retrieved": "2026-11-17",
+          "lead": "In neuroanatomy, the ventricular system is a set of four interconnected cavities known as cerebral ventricles in the brain. Within each ventricle is a region of choroid plexus which produces the circulating cerebrospinal fluid (CSF). The ventricular system is continuous with the central canal of the spinal cord from the fourth ventricle, allowing for the flow of CSF to circulate.\nAll of the ventricular system and the central canal of the spinal cord are lined with ependyma, a specialised form of epithelium connected by tight junctions that make up the blood–cerebrospinal fluid barrier."
+        },
+        "es": {
+          "title": "Ventrículo cerebral",
+          "accepted": true,
+          "revid": 150911206,
+          "url": "https://es.wikipedia.org/w/index.php?oldid=150911206",
+          "retrieved": "2026-11-17",
+          "lead": "En el cerebro existen cuatro cavidades anatómicas denominadas ventrículos cerebrales, se encuentran interconectados entre sí, y constituyen el sistema ventricular por el que circula el líquido cefalorraquídeo.\nLos ventrículos laterales están situados a lo largo de ambos hemisferios cerebrales y constan de un asta anterior que se dirige a lóbulo frontal, un asta posterior que se dirige a lóbulo occipital y un asta inferior que se dirige hacia abajo y hacia delante en el lóbulo temporal. Los ventrículos laterales están conectados al tercer ventrículo a través del orificio interventricular de Monro (entre la columna del fórnix y el extremo rostral y medial del tálamo). El tercer ventrículo es una delgada cavidad aplanada situada entre los tálamos y atravesada por la comisura intertalámica. Está conectado con el cuarto ventrículo a través del acueducto cerebral o Silviano. Finalmente, el cuarto ventrículo está situado entre el tronco cerebral y el cerebelo. Del cuarto ventrículo sale el líquido cefalorraquídeo (LCR) al espacio subaracnoideo a través de los agujeros de Luschka y el agujero de Magendie. Los ventrículos se continúan en la médula espinal a través del canal ependimario, una estrecha cavidad que nace al final del cuarto ventrículo y recorre internamente la médula espinal hasta el cono medular donde termina, es decir en el borde inferior de L1.\nEl LCR se crea en los plexos coroideos de los ventrículos laterales, tercero y cuarto, viajando desde el ventrículo lateral al tercero y al cuarto para continuar por el canal ependimario o descargar al espacio subaracnoideo a través de los orificios de Luschka y Magendie. Recorre todo el espacio subaracnoideo para finalmente ser absorbido en las granulaciones aracnoideas, localizadas en los senos venosos, principalmente en el seno sagital superior"
+        }
+      }
+    },
+    "optic chiasm": {
+      "wikidata": "Q1071710",
+      "leads": {
+        "en": {
+          "title": "Optic chiasm",
+          "accepted": true,
+          "revid": 1379716702,
+          "url": "https://en.wikipedia.org/w/index.php?oldid=1379716702",
+          "retrieved": "2026-11-17",
+          "lead": "In neuroanatomy, the optic chiasm (), or optic chiasma (from Greek  χίασμα (khíasma) 'crossing', from Ancient Greek  χιάζω (khiázō) 'to mark with an X'), is the part of the brain where the optic nerves cross. It is located at the bottom of the brain immediately inferior to the hypothalamus. The optic chiasm is found in all vertebrates, although in cyclostomes (lampreys and hagfishes), it is located within the brain.\nThis article is about the optic chiasm of vertebrates, which is the best known nerve chiasm, but not every chiasm denotes a crossing of the body midline (e.g., in some invertebrates, see Chiasm (anatomy)). A midline crossing of nerves inside the brain is called a decussation (see Definition of types of crossings)."
+        },
+        "es": {
+          "title": "Quiasma óptico",
+          "accepted": true,
+          "revid": 175934888,
+          "url": "https://es.wikipedia.org/w/index.php?oldid=175934888",
+          "retrieved": "2026-11-17",
+          "lead": "El quiasma óptico (del gr. χίασμα, -ατος, disposición cruzada, como la de la letra χ) es la parte del cerebro donde se entrecruzan parcialmente las fibras axónicas de los nervios ópticos​ Es una estructura en forma ovalada que constituye el punto de unión entre el nervio óptico del ojo derecho y el nervio óptico del ojo izquierdo. Esta estructura mide aproximadamente 12 milímetros de ancho, 8 milímetros de largo y unos 4 milímetros de alto y se encuentra situada en la base del cerebro a unos 5 o 10 milímetros de la glándula hipofisaria. En este entrecruzamiento la mitad de las fibras pasan del nervio óptico derecho a la cintilla óptica izquierda, y viceversa. El quiasma óptico está situado en la fosa cerebral anterior, por delante de la silla turca.\nLas imágenes formadas en cada una de las retinas se cruzan al lado opuesto del cerebro en el quiasma óptico. Esto permite que las imágenes de cada lado del campo de ambos ojos se transmitan al lado apropiado del cerebro. Luego del quiasma óptico, los nervios ópticos pasan a llamarse cintillas ópticas."
+        }
+      }
+    },
+    "hypothalamus": {
+      "wikidata": "Q164386",
+      "leads": {
+        "en": {
+          "title": "Hypothalamus",
+          "accepted": true,
+          "revid": 1385824732,
+          "url": "https://en.wikipedia.org/w/index.php?oldid=1385824732",
+          "retrieved": "2026-11-17",
+          "lead": "The hypothalamus (pl.: hypothalami; from Ancient Greek  ὑπό (hupó) 'under' and  θάλαμος (thálamos) 'chamber') is a small part of the vertebrate brain that contains a number of nuclei with a variety of functions. One of the most important functions is to link the nervous system to the endocrine system via the pituitary gland. The hypothalamus is located below the thalamus and is part of the limbic system. It forms the basal part of the diencephalon. All vertebrate brains contain a hypothalamus. In humans, it is about the size of an almond.\nThe hypothalamus has the function of regulating certain metabolic processes and other activities of the autonomic nervous system. It synthesizes and secretes certain neurohormones, called releasing hormones or hypothalamic hormones, and these in turn stimulate or inhibit the secretion of hormones from the pituitary gland. The hypothalamus controls body temperature, hunger, important aspects of parenting and maternal attachment behaviours, thirst, fatigue, sleep, circadian rhythms, and is important in certain social behaviors, such as sexual and aggressive behaviors."
+        },
+        "es": {
+          "title": "Hipotálamo",
+          "accepted": true,
+          "revid": 174915722,
+          "url": "https://es.wikipedia.org/w/index.php?oldid=174915722",
+          "retrieved": "2026-11-17",
+          "lead": "El hipotálamo​ es una región del cerebro anterior, que forma parte del prosencéfalo secundario embrionario y en el adulto se encuentra situada debajo del tálamo.​ Produce diferentes hormonas, entre ellas hormona antidiurética y oxitocina, también secreta varios neuropéptidos llamados factores hipotalámicos que actúan sobre la adenohipófisis y regulan su producción hormonal. Otras funciones del hipotálamo son mantener la temperatura corporal, e influir en diferentes conductas, entre ellas las relacionadas con: la alimentación, ingesta de líquidos, apareamiento y  agresión. Es el regulador central de varias funciones viscerales autónomas y endocrinas y además actúa como punto de relevo en la información que partiendo del cerebro alcanza la médula espinal.​​"
+        }
+      }
+    },
+    "epithalamus": {
+      "wikidata": "Q849277",
+      "leads": {
+        "en": {
+          "title": "Epithalamus",
+          "accepted": true,
+          "revid": 1365443009,
+          "url": "https://en.wikipedia.org/w/index.php?oldid=1365443009",
+          "retrieved": "2026-11-17",
+          "lead": "The epithalamus (pl.: epithalami) is a posterior (dorsal) segment of the diencephalon. The epithalamus includes the habenular nuclei, the stria medullaris, the anterior and posterior paraventricular nuclei, the posterior commissure, and the pineal gland."
+        },
+        "es": {
+          "title": "Epitálamo",
+          "accepted": true,
+          "revid": 166262917,
+          "url": "https://es.wikipedia.org/w/index.php?oldid=166262917",
+          "retrieved": "2026-11-17",
+          "lead": "El epitálamo es una parte del encéfalo situada por encima del tálamo. Junto con el tálamo, el hipotálamo y el subtálamo, forma el diencéfalo. Es una zona que pertenece al sistema límbico, por lo que su función está relacionada con la vida instinto-afectiva. Está constituido por la glándula pineal que secreta la hormona melatonina y otras estructuras que no secretan hormonas, entre ellas los núcleos habenulares y las estrías medulares."
+        }
+      }
+    },
+    "white matter": {
+      "wikidata": "Q822050",
+      "leads": {
+        "en": {
+          "title": "White matter",
+          "accepted": true,
+          "revid": 1383409230,
+          "url": "https://en.wikipedia.org/w/index.php?oldid=1383409230",
+          "retrieved": "2026-11-17",
+          "lead": "White matter refers to areas of the central nervous system that are mainly made up of myelinated axons, also called tracts. Long thought to be passive tissue, white matter affects learning and brain functions, modulating the distribution of action potentials, acting as a relay and coordinating communication between different brain regions.\nWhite matter is named for its relatively light appearance resulting from the lipid content of myelin. Its white color in prepared specimens is due to its usual preservation in formaldehyde. It appears pinkish-white to the naked eye otherwise, because myelin is composed largely of lipid tissue veined with capillaries."
+        },
+        "es": {
+          "title": "Sustancia blanca",
+          "accepted": true,
+          "revid": 163973737,
+          "url": "https://es.wikipedia.org/w/index.php?oldid=163973737",
+          "retrieved": "2026-11-17",
+          "lead": "La sustancia blanca (o materia blanca) es una parte del sistema nervioso central compuesta de fibras nerviosas mielinizadas (cubiertas de mielina).​ Las fibras nerviosas contienen sobre todo muchos axones (un axón es la parte de la neurona encargada de la transmisión de información a otra célula nerviosa). La llamada sustancia gris, en cambio, está compuesta por los somas y cuerpos neuronales, que no poseen mielina, y se la relaciona más con el procesamiento de la información. La materia blanca, que por largo tiempo se pensó que era un tejido pasivo, afecta activamente en cómo aprende y funciona el cerebro. Mientras que la materia gris está asociada principalmente con el procesamiento y el conocimiento, la materia blanca modula la distribución de los potenciales de acción, actuando como un transmisor y coordinando la comunicación entre las diferentes regiones del cerebro.​\nEn el encéfalo la sustancia blanca está distribuida en el interior, mientras que la corteza encefálica y los núcleos de las células del exterior se componen de sustancia gris. Esta distribución cambia en la médula espinal, en donde la sustancia gris se halla en el centro y la blanca en el exterior o periferia.​​"
+        }
+      }
+    }
+  }
+}

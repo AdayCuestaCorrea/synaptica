@@ -16,6 +16,10 @@
 # MeSH alone misses most of them (the methods are rarely indexed in recent records).
 # Write the spellings with and without a hyphen when both are used.
 #
+# `source_en`: the English Wikipedia article its texts are written from (`syn lab sources`
+# keeps its lead only if the lead names the technique; the Spanish one is its interlanguage
+# link). Not something she approves: it does not change her card.
+#
 # `exclude` (optional): descriptors under a root that are not the technique, left out with
 # everything under them (EEG's tree holds the brain rhythms, a phenomenon; the fluorescent
 # antibody tree holds immunoassays). `exclude_terms`: entry terms of a kept descriptor that
@@ -23,6 +27,7 @@
 
 [[technique]]
 id = "perfusion"
+source_en = "Transcardial perfusion" # Wikipedia article for its texts (syn lab sources)
 name_es = "Perfusión transcardiaca"
 name_en = "Transcardial perfusion"
 mesh = []
@@ -32,6 +37,7 @@ text = ["transcardial perfusion", "transcardially perfused", "transcardiac perfu
 
 [[technique]]
 id = "western-blot"
+source_en = "Western blot" # Wikipedia article for its texts (syn lab sources)
 name_es = "Western blot"
 name_en = "Western blot"
 mesh = ["D015153"] # Blotting, Western
@@ -40,6 +46,7 @@ text = ["western blot", "western blotting", "immunoblot", "immunoblotting"]
 
 [[technique]]
 id = "immunofluorescence"
+source_en = "Immunofluorescence" # Wikipedia article for its texts (syn lab sources)
 name_es = "Inmunofluorescencia"
 name_en = "Immunofluorescence"
 mesh = ["D005455"] # Fluorescent Antibody Technique
@@ -51,6 +58,7 @@ text = ["immunofluorescence", "immunofluorescent staining", "immunofluorescent l
 
 [[technique]]
 id = "confocal"
+source_en = "Confocal microscopy" # Wikipedia article for its texts (syn lab sources)
 name_es = "Microscopía confocal"
 name_en = "Confocal microscopy"
 mesh = ["D018613"] # Microscopy, Confocal
@@ -60,6 +68,7 @@ text = ["confocal microscopy", "confocal imaging", "confocal laser scanning micr
 
 [[technique]]
 id = "electrophysiology"
+source_en = "Electrophysiology" # Wikipedia article for its texts (syn lab sources)
 name_es = "Electrofisiología"
 name_en = "Electrophysiology"
 mesh = ["D018408"] # Patch-Clamp Techniques (Electrophysiology itself is a discipline)
@@ -69,6 +78,7 @@ text = ["electrophysiology", "electrophysiological recording", "in vivo electrop
 
 [[technique]]
 id = "eeg"
+source_en = "Electroencephalography" # Wikipedia article for its texts (syn lab sources)
 name_es = "Electroencefalografía (EEG)"
 name_en = "Electroencephalography (EEG)"
 mesh = ["D004569", "D000069280"] # Electroencephalography, Electrocorticography
@@ -79,6 +89,7 @@ text = ["EEG", "electroencephalography", "electroencephalogram", "electroencepha
 
 [[technique]]
 id = "fmri"
+source_en = "Functional magnetic resonance imaging" # Wikipedia article for its texts (syn lab sources)
 name_es = "Resonancia magnética funcional (fMRI)"
 name_en = "Functional MRI (fMRI)"
 mesh = []
@@ -86,15 +97,17 @@ text = ["fMRI", "functional magnetic resonance imaging", "functional MRI"]
 
 [[technique]]
 id = "viral-tracing"
+source_en = "Viral neuronal tracing" # Wikipedia article for its texts (syn lab sources)
 name_es = "Trazado con vectores virales"
 name_en = "Viral vector tracing"
 mesh = []
-text = ["viral tracing", "viral tract tracing", "viral tract-tracing", "viral tracer",
+text = ["viral tracing", "viral neuronal tracing", "viral tract tracing", "viral tract-tracing", "viral tracer",
         "transsynaptic tracing", "trans-synaptic tracing", "monosynaptic tracing",
         "rabies tracing", "rabies virus tracing", "rabies-mediated tracing"]
 
 [[technique]]
 id = "optogenetics"
+source_en = "Optogenetics" # Wikipedia article for its texts (syn lab sources)
 name_es = "Optogenética"
 name_en = "Optogenetics"
 mesh = ["D062308"] # Optogenetics
@@ -103,6 +116,7 @@ text = ["optogenetics", "optogenetic", "optogenetically", "channelrhodopsin",
 
 [[technique]]
 id = "chemogenetics"
+source_en = "Chemogenetics" # Wikipedia article for its texts (syn lab sources)
 name_es = "DREADDs y quimiogenética"
 name_en = "DREADDs and chemogenetics"
 mesh = ["D000098972"] # Chemogenetics
@@ -111,6 +125,7 @@ text = ["chemogenetics", "chemogenetic", "chemogenetically", "DREADD",
 
 [[technique]]
 id = "fiber-photometry"
+source_en = "Fiber photometry" # Wikipedia article for its texts (syn lab sources)
 name_es = "Fotometría de fibra"
 name_en = "Fiber photometry"
 mesh = []

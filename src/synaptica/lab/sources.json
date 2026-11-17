@@ -1,0 +1,188 @@
+{
+  "note": "Source of each Neuro Lab technique: the lead of its Wikipedia article at the revision given (oldid). Written by `syn lab sources`; do not edit by hand.",
+  "licence": "Wikipedia text: CC BY-SA 4.0, its authors (see each article's history)",
+  "techniques": {
+    "perfusion": {
+      "en": {
+        "title": null,
+        "accepted": false
+      },
+      "es": {
+        "title": null,
+        "accepted": false
+      }
+    },
+    "western-blot": {
+      "en": {
+        "title": "Western blot",
+        "accepted": true,
+        "revid": 1384468270,
+        "url": "https://en.wikipedia.org/w/index.php?oldid=1384468270",
+        "retrieved": "2026-11-17",
+        "lead": "The Western blot (sometimes called the protein immunoblot), or Western blotting, is a widely used analytical technique in molecular biology and immunogenetics to detect specific proteins in a sample of tissue homogenate or extract,  and to visualize, distinguish, and quantify the different proteins in a complicated protein combination.\nWestern blot technique uses three elements to achieve its task of separating a specific protein from a complex: separation by size, transfer of protein to a solid support, and marking target protein using a primary and secondary antibody to visualize.  A synthetic or animal-derived antibody (known as the primary antibody) is created that recognizes and binds to a specific target protein. The electrophoresis membrane is washed in a solution containing the primary antibody, before excess antibody is washed off. A secondary antibody is added which recognizes and binds to the primary antibody. The secondary antibody is visualized through various methods such as staining, immunofluorescence, and radioactivity, allowing indirect detection of the specific target protein.\nOther related techniques include dot blot analysis, quantitative dot blot, immunohistochemistry and immunocytochemistry, where antibodies are used to detect proteins in tissues and cells by immunostaining, and enzyme-linked immunosorbent assay (ELISA).\nThe name Western blot is a play on the Southern blot, a technique for DNA detection named after its inventor, English biologist Edwin Southern. Similarly, detection of RNA is termed as northern blot. The term Western blot was given by W. Neal Burnette in 1981, although the method, but not the name, was independently invented in 1979 by Jaime Renart, Jakob Reiser, and George Stark, and by Harry Towbin, Theophil Staehelin, and Julian Gordon at the Friedrich Miescher Institute in Basel, Switzerland. The Towbin group also used secondary antibodies for detection, thus resembling the actual method that is almost universally used today. Between 1979 and 2019 \"it has been mentioned in the titles, abstracts, and keywords of more than 400,000 PubMed-listed publications\" and may still be the most-used protein-analytical technique."
+      },
+      "es": {
+        "title": "Western blot",
+        "accepted": true,
+        "revid": 171315780,
+        "url": "https://es.wikipedia.org/w/index.php?oldid=171315780",
+        "retrieved": "2026-11-17",
+        "lead": "El western blot, inmunoblot o  electrotransferencia, es una técnica analítica usada en biología celular y molecular para identificar proteínas específicas en una mezcla compleja de proteínas, tal como la que se presenta en extractos celulares o de tejidos. La técnica utiliza tres etapas para lograr esto: separación por tamaño, transferencia a un soporte sólido y, finalmente, visualización mediante la marcación de proteínas con el uso de anticuerpos primarios o secundarios apropiados.​\nEsta técnica es hoy en día imprescindible en varios campos de la biología, como la biología molecular, la bioquímica, la biotecnología o la inmunología.\nMediante una electroforesis en gel se separan las proteínas atendiendo al criterio que se desee: peso molecular, estructura, hidrofobicidad, etc. Hay casi tantas posibilidades como tipos de electroforesis existen. Luego son transferidas a una membrana adsorbente (típicamente de nitrocelulosa o de PVDF) para poder buscar la proteína de interés con anticuerpos específicos contra ella. Finalmente, se detecta la unión antígeno-anticuerpo por actividad enzimática o fluorescencia, entre otros métodos. De esta misma forma se puede estudiar la presencia de la proteína en el extracto y analizar su cantidad relativa respecto a las otras proteínas.​​\nLa técnica «Western blot» fue desarrollada en la Universidad de Stanford. El nombre (Western, occidental en inglés) le fue dado por W. Neal Burnette, y consiste en un juego de palabras con una técnica análoga pero que usa ADN, el Southern (sureño en inglés) blot, que en este caso debe su nombre a su descubridor, Edwin Southern. Otras técnicas que fueron nombradas siguiendo este criterio son el Northern (norteño en inglés) (en el que se separa e identifica ARN), el Eastern (oriental en inglés) blot y el Southwestern (del suroeste en inglés) blot.​​"
+      }
+    },
+    "immunofluorescence": {
+      "en": {
+        "title": "Immunofluorescence",
+        "accepted": true,
+        "revid": 1369640092,
+        "url": "https://en.wikipedia.org/w/index.php?oldid=1369640092",
+        "retrieved": "2026-11-17",
+        "lead": "Immunofluorescence (IF) is a light microscopy-based technique that allows detection and localization of a wide variety of target biomolecules within a cell or tissue at a quantitative level. The technique utilizes the binding specificity of antibodies and antigens. The specific region an antibody recognizes on an antigen is called an epitope. Several antibodies can recognize the same epitope but differ in their binding affinity. The antibody with the higher affinity for a specific epitope will surpass antibodies with a lower affinity for the same epitope.\nBy conjugating the antibody to a fluorophore, the position of the target biomolecule is visualized by exciting the fluorophore and measuring the emission of light in a specific predefined wavelength using a fluorescence microscope. It is imperative that the binding of the fluorophore to the antibody itself does not interfere with the immunological specificity of the antibody or the binding capacity of its antigen.\n\nImmunofluorescence is a widely used example of immunostaining (using antibodies to stain proteins) and is a specific example of immunohistochemistry (the use of the antibody-antigen relationship in tissues). This technique primarily utilizes fluorophores to visualize the location of the antibodies, while others provoke a color change in the environment containing the antigen of interest or make use of a radioactive label. Immunofluorescent techniques that utilized labelled antibodies were conceptualized in the 1940s by Albert H. Coons.\nImmunofluorescence is used to analyze the distribution of proteins, glycans, small biological and non-biological molecules, and visualization of structures such as intermediate-sized filaments.\nIf the topology of a cell membrane is undetermined, epitope insertion into proteins can be used in conjunction with immunofluorescence to determine structures within the cell membrane. Immunofluorescence (IF) can also be used as a \"semi-quantitative\" method to gain insight into the levels and localization patterns of DNA methylation. IF can additionally be used in combination with other, non-antibody methods of fluorescent staining, e.g., the use of DAPI to label DNA.\nExamination of immunofluorescence specimens can be conducted utilizing various microscope configurations, including the epifluorescence microscope, confocal microscope, and widefield microscope."
+      },
+      "es": {
+        "title": "Inmunofluorescencia",
+        "accepted": true,
+        "revid": 174564362,
+        "url": "https://es.wikipedia.org/w/index.php?oldid=174564362",
+        "retrieved": "2026-11-17",
+        "lead": "La inmunofluorescencia es una técnica de inmunomarcaje que hace uso de anticuerpos unidos químicamente a fluorocromos. Permite la detección de una proteína específica directamente dentro de la célula mediante la emisión de fluorescencia. Por lo tanto, posibilita determinar no solo la presencia o ausencia de una proteína, sino también su ubicación dentro de la célula o el tejido analizado. \nEs una técnica que tiene variantes cuantitativas (por ejemplo FPIA) y cualitativas (la inmunotinción de células para su observación por microscopía fluorescente)."
+      }
+    },
+    "confocal": {
+      "en": {
+        "title": "Confocal microscopy",
+        "accepted": true,
+        "revid": 1384621399,
+        "url": "https://en.wikipedia.org/w/index.php?oldid=1384621399",
+        "retrieved": "2026-11-17",
+        "lead": "Confocal microscopy is an optical imaging technique for increasing optical resolution and contrast of a micrograph by means of using a spatial pinhole to block out-of-focus light in image formation. Capturing multiple two-dimensional images at different depths in a sample enables the reconstruction of three-dimensional structures (a process known as optical sectioning) within an object. This technique is used extensively in the scientific and industrial communities and typical applications are in life sciences, semiconductor inspection and materials science.\nLight travels through the sample under a conventional microscope as far into the specimen as it can penetrate, while a confocal microscope only focuses a smaller beam of light at one narrow depth level at a time. Thus, confocal laser scanning microscopy (CLSM) achieves a controlled and highly limited depth of field."
+      },
+      "es": {
+        "title": "Microscopio confocal",
+        "accepted": true,
+        "revid": 171387244,
+        "url": "https://es.wikipedia.org/w/index.php?oldid=171387244",
+        "retrieved": "2026-11-17",
+        "lead": "El microscopio confocal es un microscopio que emplea una técnica óptica de imagen para incrementar el contraste y/o reconstruir imágenes tridimensionales utilizando un \"pinhole\" espacial (colimador de orificio delimitante) para eliminar la luz desenfocada o destellos de la lente en especímenes que son más gruesos que el plano focal.​ El pinhole es una apertura localizada delante del fotomultiplicador que evita el pasaje de fluorescencia de las regiones de la muestra que no están en foco, la luz que proviene de regiones localizadas por encima o por debajo del plano focal no converge en el pinhole y no es detectada por el fotomultiplicador. Esta técnica ha ido adquiriendo cada vez mayor popularidad entre las comunidades científica e industrial. Se aplica típicamente en las ciencias biológicas y en la inspección."
+      }
+    },
+    "electrophysiology": {
+      "en": {
+        "title": "Electrophysiology",
+        "accepted": true,
+        "revid": 1378467169,
+        "url": "https://en.wikipedia.org/w/index.php?oldid=1378467169",
+        "retrieved": "2026-11-17",
+        "lead": "Electrophysiology (from Ancient Greek: ἤλεκτρον, romanized: ēlektron, lit. 'amber' [see the etymology of \"electron\"]; φύσις, physis, 'nature, origin'; and -λογία, -logia) is the branch of physiology that studies the electrical properties of biological cells and tissues.  It involves measurements of voltage changes or electric current or manipulations on a wide variety of scales from single ion channel proteins to whole organs like the heart.  In neuroscience, it includes measurements of the electrical activity of neurons, and, in particular, action potential activity. Recordings of large-scale electric signals from the nervous system, such as electroencephalography, may also be referred to as electrophysiological recordings. They are useful for electrodiagnosis and monitoring."
+      },
+      "es": {
+        "title": "Electrofisiología",
+        "accepted": true,
+        "revid": 176094882,
+        "url": "https://es.wikipedia.org/w/index.php?oldid=176094882",
+        "retrieved": "2026-11-17",
+        "lead": "La electrofisiología (del griego ἥλεκτρον, ēlektron, \"ámbar\"; φύσις, physis, \"naturaleza, origen\"; y -λογία, -logía) es el estudio de las propiedades eléctricas de células y tejidos biológicos. Incluye medidas de cambio de voltaje o corriente eléctrica en una variedad amplia de escalas, desde el simple canal iónico de proteínas hasta órganos completos como el corazón. En neurociencias, se incluyen las medidas de la actividad eléctrica de neuronas, y particularmente actividad de potencial de acción. Registros a gran escala de señales eléctricas del sistema nervioso como Electroencefalografía, también se pueden clasificar como registros electrofisiológicos."
+      }
+    },
+    "eeg": {
+      "en": {
+        "title": "Electroencephalography",
+        "accepted": true,
+        "revid": 1383932396,
+        "url": "https://en.wikipedia.org/w/index.php?oldid=1383932396",
+        "retrieved": "2026-11-17",
+        "lead": "Electroencephalography (EEG)\nis a method to record an electrogram of the spontaneous electrical activity of the brain. The bio signals detected by EEG have been shown to represent the postsynaptic potentials of pyramidal neurons in the neocortex and allocortex. It is typically non-invasive, with the EEG electrodes placed along the scalp (commonly called \"scalp EEG\") using the International 10–20 system, or variations of it. Electrocorticography, involving surgical placement of electrodes, is sometimes called \"intracranial EEG\". EEG is widely used both as a clinical diagnostic tool, particularly in epilepsy, and as a research tool in neuroscience. Clinical interpretation of EEG recordings is performed by visual inspection of the tracing, which is the standard method. Quantitative EEG analysis may be used as an adjunct in specific clinical settings. Visual interpretation of EEG is subject to inter-rater and intra-rater variability.\nVoltage fluctuations measured by the EEG bio amplifier and electrodes allow the evaluation of normal brain activity. As the electrical activity monitored by EEG originates in neurons in the underlying brain tissue, the recordings made by the electrodes on the surface of the scalp vary in accordance with their orientation and distance to the source of the activity. Furthermore, the value recorded is distorted by intermediary tissues and bones, which act in a manner akin to resistors and capacitors in an electrical circuit. This means that not all neurons will contribute equally to an EEG signal, with an EEG predominantly reflecting the activity of cortical neurons near the electrodes on the scalp. Deep structures within the brain further away from the electrodes will not contribute directly to an EEG; these include the base of the cortical gyrus, medial walls of the major lobes, hippocampus, thalamus, and brain stem.\nA healthy human EEG will show certain patterns of activity that correlate with how awake a person is. The range of frequencies one observes are between 1 and 30 Hz, and amplitudes will vary between 20 and 100 μV. The observed frequencies are subdivided into various groups: alpha (8–13 Hz), beta (13–30 Hz), delta (0.5–4 Hz), and theta (4–7 Hz). Alpha waves are observed when a person is in a state of relaxed wakefulness and are mostly prominent over the parietal and occipital sites. During intense mental activity, beta waves are more prominent in frontal areas as well as other regions. If a relaxed person is told to open their eyes, one observes alpha activity decreasing and an increase in beta activity. Theta and delta waves are not generally seen in wakefulness – if they are, it is a sign of brain dysfunction.\nEEG can detect abnormal electrical discharges such as sharp waves, spikes, or spike-and-wave complexes, as observable in people with epilepsy; thus, it is often used to inform medical diagnosis. EEG can detect the onset and spatio-temporal (location and time) evolution of seizures and the presence of status epilepticus. It is also used to help diagnose sleep disorders, depth of anesthesia, coma, encephalopathies, cerebral hypoxia after cardiac arrest, and brain death. EEG used to be a first-line method of diagnosis for tumors, stroke, and other focal brain disorders, but this use has decreased with the advent of high-resolution anatomical imaging techniques such as magnetic resonance imaging (MRI) and computed tomography (CT). Despite its limited spatial resolution, EEG continues to be a valuable tool for research and diagnosis. It is one of the few mobile techniques available and offers millisecond-range temporal resolution, which is not possible with CT, PET, or MRI.\nDerivatives of the EEG technique include evoked potentials (EP), which involves averaging the EEG activity time-locked to the presentation of a stimulus of some sort (visual, somatosensory, or auditory). Event-related potentials (ERPs) refer to averaged EEG responses that are time-locked to more complex processing of stimuli; this technique is used in cognitive science, cognitive psychology, and psychophysiological research."
+      },
+      "es": {
+        "title": "Electroencefalografía",
+        "accepted": true,
+        "revid": 175617681,
+        "url": "https://es.wikipedia.org/w/index.php?oldid=175617681",
+        "retrieved": "2026-11-17",
+        "lead": "El electroencefalograma (EEG) es una exploración neurofisiológica que se basa en el registro de la actividad bioeléctrica cerebral en condiciones basales de reposo, en vigilia o sueño, y durante diversas activaciones (habitualmente hiperpnea y estimulación luminosa intermitente) mediante un equipo de electroencefalografía. Originalmente se empleaba el término electroencefalografía para referirse al procedimiento como técnica, y el término electroencefalograma para referirse al resultado o registro de ese procedimiento, pero con el tiempo se usa más este último para referirse a ambas cosas."
+      }
+    },
+    "fmri": {
+      "en": {
+        "title": "Functional magnetic resonance imaging",
+        "accepted": true,
+        "revid": 1371654883,
+        "url": "https://en.wikipedia.org/w/index.php?oldid=1371654883",
+        "retrieved": "2026-11-17",
+        "lead": "Functional magnetic resonance imaging or functional MRI (fMRI) measures brain activity by detecting changes associated with blood flow. This technique relies on the fact that cerebral blood flow and neuronal activation are coupled: When an area of the brain is in use, blood flow to that region increases.\nThe primary form of fMRI uses the blood-oxygen-level dependent (BOLD) contrast, discovered by Seiji Ogawa and his colleagues in 1990. This is a type of specialized brain and body scan used to map neural activity in the brain or spinal cord of humans or other animals by imaging the change in blood flow (hemodynamic response) related to energy use by nerve cells. Since the early 1990s, fMRI has come to dominate brain mapping research because it is noninvasive, typically requiring no injections, surgery, or the ingestion of substances such as radioactive tracers as in positron emission tomography. Data acquired using fMRI, however, is frequently corrupted by noise from various sources; hence, statistical procedures are used to extract the underlying signal. The resulting brain activation can be graphically represented by color-coding the strength of activation across the brain or the specific region studied. The technique can localize activity to within millimeters but, using standard techniques, no better than within a window of a few seconds. Other methods of obtaining contrast are arterial spin labeling and diffusion MRI. Diffusion MRI is similar to BOLD fMRI but provides contrast based on the magnitude of diffusion of water molecules in the brain.\nIn addition to detecting BOLD responses from activity due to tasks or stimuli, fMRI can measure resting state, or negative-task state, which shows the subjects' baseline BOLD variance. Since about 1998 studies have shown the existence and properties of the default mode network, a functionally connected neural network of apparent resting brain states.\nfMRI is used in research, and to a lesser extent, in clinical work. It can complement other measures of brain physiology such as electroencephalography (EEG), and near-infrared spectroscopy (NIRS). Newer methods which improve both spatial and time resolution are being researched, and these largely use biomarkers other than the BOLD signal. Some companies have developed commercial products such as lie detectors based on fMRI techniques, but the research is not believed to be developed enough for widespread commercial use."
+      },
+      "es": {
+        "title": "Imagen por resonancia magnética funcional",
+        "accepted": true,
+        "revid": 174082414,
+        "url": "https://es.wikipedia.org/w/index.php?oldid=174082414",
+        "retrieved": "2026-11-17",
+        "lead": "La imagen por resonancia magnética funcional (IRMf) es un procedimiento clínico y de investigación que permite mostrar en imágenes las regiones cerebrales activas, por ejemplo al ejecutar una tarea determinada. En inglés suele abreviarse fMRI (por functional magnetic resonance imaging).​ El procedimiento se realiza en el mismo resonador utilizado para obtener imágenes anatómicas por resonancia magnética para diagnóstico, pero con modificaciones especiales del software y del hardware. Para realizar una IRMf no se requiere necesariamente inyecciones de sustancia alguna ni radiación ionizante."
+      }
+    },
+    "viral-tracing": {
+      "en": {
+        "title": "Viral neuronal tracing",
+        "accepted": true,
+        "revid": 1382374595,
+        "url": "https://en.wikipedia.org/w/index.php?oldid=1382374595",
+        "retrieved": "2026-11-17",
+        "lead": "Viral neuronal tracing is the use of a virus to trace neural pathways, providing a self-replicating tracer. Viruses have the advantage of self-replication over molecular tracers but can also spread too quickly and cause degradation of neural tissue. Viruses that can infect the nervous system, called neurotropic viruses, spread through spatially close assemblies of neurons through synapses, allowing for their use in studying functionally connected neural networks.\nThe use of viruses to label functionally connected neurons stems from the work and bioassay developed by Albert Sabin. Subsequent research allowed for the incorporation of immunohistochemical techniques to systematically label neuronal connections. To date, viruses have been used to study multiple circuits in the nervous system."
+      },
+      "es": {
+        "title": null,
+        "accepted": false
+      }
+    },
+    "optogenetics": {
+      "en": {
+        "title": "Optogenetics",
+        "accepted": true,
+        "revid": 1385691656,
+        "url": "https://en.wikipedia.org/w/index.php?oldid=1385691656",
+        "retrieved": "2026-11-17",
+        "lead": "Optogenetics is a biological technique used to characterize and manipulate the activity of neurons or other cell types with light. This is achieved by expression of light-sensitive ion channels, pumps or enzymes in the target brain cells. A specialization of this field is nano-optogenetics.\nOn the level of individual cells, light-activated enzymes and transcription factors allow precise control of biochemical signaling pathways. In systems neuroscience, the ability to control the activity of a genetically defined set of neurons has been used to understand their contribution to decision making, learning, fear memory, mating, addiction, feeding, and locomotion. In a medical application of optogenetic technology, vision was partially restored in a blind patient with retinitis pigmentosa.\nBeyond individual cells, optogenetic techniques have been introduced to map the functional connectivity of the brain. By altering the activity of neurons and recording the activity of other cells using imaging and electrophysiology techniques, researchers can identify the statistical dependencies between cells and brain regions. In a broader sense, the field of optogenetics also includes methods to record cellular activity with genetically encoded indicators."
+      },
+      "es": {
+        "title": "Optogenética",
+        "accepted": true,
+        "revid": 175671547,
+        "url": "https://es.wikipedia.org/w/index.php?oldid=175671547",
+        "retrieved": "2026-11-17",
+        "lead": "La optogenética es la combinación de métodos genéticos y ópticos para controlar eventos específicos en ciertas células de tejidos vivos, incluso de mamíferos y de otros animales, con la precisión temporal necesaria (en la escala temporal del milisegundo) para mantener el ritmo intacto de funcionamiento de los sistemas biológicos. La razón de este control tan rápido y preciso reside en el uso de la luz como agente inductor.​\nLa optogenética abarca el desarrollo de proteínas sensibles a la luz (naturales o modificadas químicamente), las estrategias para introducir los genes que codifican dichas proteínas en las células o tejidos diana y, por último, la generación de sistemas de detección de los cambios de comportamiento producidos en dichas células y tejidos.​\nEstas técnicas son especialmente útiles para su empleo en la investigación en neurociencias, donde no existían métodos de estudio que permitiesen el estudio in vivo de células individualizadas."
+      }
+    },
+    "chemogenetics": {
+      "en": {
+        "title": "Chemogenetics",
+        "accepted": true,
+        "revid": 1386026431,
+        "url": "https://en.wikipedia.org/w/index.php?oldid=1386026431",
+        "retrieved": "2026-11-17",
+        "lead": "Chemogenetics is the process by which macromolecules can be engineered to interact with previously unrecognized small molecules. Chemogenetics as a term was originally coined to describe the observed effects of mutations on chalcone isomerase activity on substrate specificities in the flowers of Dianthus caryophyllus. This method is very similar to optogenetics; however, it uses chemically engineered molecules and ligands instead of light and light-sensitive channels known as opsins.\nIn recent research projects, chemogenetics has been widely used to understand the relationship between brain activity and behavior. Prior to chemogenetics, researchers used methods such as transcranial magnetic stimulation and deep brain stimulation to study the relationship between neuronal activity and behavior."
+      },
+      "es": {
+        "title": null,
+        "accepted": false
+      }
+    },
+    "fiber-photometry": {
+      "en": {
+        "title": "Fiber photometry",
+        "accepted": true,
+        "revid": 1375722789,
+        "url": "https://en.wikipedia.org/w/index.php?oldid=1375722789",
+        "retrieved": "2026-11-17",
+        "lead": "Fiber photometry is a calcium imaging technique that captures 'bulk' or population-level calcium (Ca2+) activity from specific cell-types within a brain region or functional network in order to study neural circuits Population-level calcium activity can be correlated with behavioral tasks, such as spatial learning, memory recall and goal-directed behaviors. The technique involves the surgical implantation of fiber optics into the brains of living animals. The benefits to researchers are that optical fibers are simpler to implant, less invasive and less expensive than other calcium methods, and there is less weight and stress on the animal, as compared to miniscopes. It also allows for imaging of multiple interacting brain regions and integration with other neuroscience techniques. The limitations of fiber photometry are low cellular and spatial resolution, and the fact that animals must be securely tethered to a rigid fiber bundle, which may impact the naturalistic behavior of smaller mammals such as mice."
+      },
+      "es": {
+        "title": "Fotometría de fibra",
+        "accepted": true,
+        "revid": 171533605,
+        "url": "https://es.wikipedia.org/w/index.php?oldid=171533605",
+        "retrieved": "2026-11-17",
+        "lead": "La fotometría de fibra es una técnica in vivo de medición de imágenes de calcio , y recientemente neurotransmisores, que captura la actividad del calcio (Ca 2+) a nivel de población celular o \"en grupo\" ​ de diversos tipos celulares específicos dentro de una región cerebral o red funcional para estudiar circuitos neuronales.​ ​​​​ La actividad del calcio a nivel de población se puede correlacionar con tareas conductuales, como el aprendizaje espacial, la memoria y conductas cognitivas complejas.​ La técnica implica la implantación quirúrgica de fibra óptica en el cerebro de los animales para poder hacer múltiples mediciones en el tiempo. Los implantes de fibra óptica presentan numerosos beneficios para los investigadores. Son más sencillas de implantar, menos invasivos, más livianos y más baratos que otros métodos de medición de calcio como los miniscopios. También permiten obtener imágenes de  múltiples regiones cerebrales que interactúan e integrar esa información con otras técnicas neurocientíficas. Las limitaciones de la fotometría de fibra son la baja resolución celular y espacial y el hecho de que los animales deben ser conectados  a un haz de fibras rígido, que puede limitar su movimiento y afectar el comportamiento natural de los animales más pequeños como los ratones."
+      }
+    }
+  }
+}

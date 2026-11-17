@@ -1,0 +1,88 @@
+{
+  "note": "Diseases whose anatomical location (Wikidata P927) is each pair's region, an instance or subclass of disease (Q12136). NOT PUBLISHED until Sofía answers row 16 of the questions sheet. Written by `syn atlas sources`.",
+  "licence": "Wikidata: CC0",
+  "pairs": {
+    "surface": [],
+    "internal": [],
+    "third": [],
+    "cerebellum": [
+      {
+        "qid": "Q564123",
+        "en": "cerebellar disease",
+        "es": null
+      }
+    ],
+    "brainstem": [
+      {
+        "qid": "Q1620206",
+        "en": "brainstem disease",
+        "es": "enfermedad del tronco del encéfalo"
+      },
+      {
+        "qid": "Q16971792",
+        "en": "brainstem death",
+        "es": null
+      },
+      {
+        "qid": "Q18553545",
+        "en": "brain stem medulloblastoma",
+        "es": null
+      },
+      {
+        "qid": "Q18555968",
+        "en": "brain stem infarction",
+        "es": "infarto del tronco cerebral"
+      },
+      {
+        "qid": "Q18556228",
+        "en": "brain stem cancer",
+        "es": null
+      },
+      {
+        "qid": "Q18557269",
+        "en": "brain stem angioblastoma",
+        "es": null
+      },
+      {
+        "qid": "Q18558221",
+        "en": "bulbar polio",
+        "es": null
+      },
+      {
+        "qid": "Q4955921",
+        "en": "Brainstem glioma",
+        "es": null
+      }
+    ],
+    "striatum": [],
+    "pallidum": [],
+    "ventricles": [
+      {
+        "qid": "Q18555974",
+        "en": "cerebral ventricle cancer",
+        "es": null
+      },
+      {
+        "qid": "Q71396405",
+        "en": "cerebral ventricle neoplasm",
+        "es": null
+      }
+    ],
+    "optic chiasm": [
+      {
+        "qid": "Q1071685",
+        "en": "chiasmal syndrome",
+        "es": null
+      }
+    ],
+    "hypothalamus": [
+      {
+        "qid": "Q5961220",
+        "en": "hypothalamic disease",
+        "es": null
+      }
+    ],
+    "epithalamus": [],
+    "white matter": []
+  }
+}
