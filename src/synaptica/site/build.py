@@ -246,6 +246,15 @@ class SiteBuilder:
         footer_links = [(t[k], url(k)) for k in FOOTER_LINKS if k in self.kinds]
         hero = self.images["hero"]
         gaps: dict[str, tuple[str, str]] = ctx.pop("gaps", {})
+        # C2 (row 36): published glossary terms in the study summaries and the featured
+        # excerpt, the first time each on this page; the stored text never changes.
+        gl, used = self.gl.get(lang), set()
+
+        def gl_mark(text: str | None, context: str | None = None) -> Markup | str:
+            if not text or not gl or "glossary" not in self.kinds:
+                return text or ""
+            return Markup(gl.mark_text(text, used, url("glossary"), context))
+
         page = self.env.get_template(template).render(
             lang=lang, t=t, page_kind=kind, url=url, static=static, asset_v=self.asset_v,
             other_lang=other(lang),
@@ -260,7 +269,7 @@ class SiteBuilder:
             sj=news_mod.short_journal, signals=lambda s: news_mod.signals(s, t),
             licence=lambda s: news_mod.licence_lines(s, lang, t), types=news_mod.TYPES,
             title=lambda s: news_mod.shown_title(s, lang),
-            page_size=news_mod.PAGE, **ctx,
+            page_size=news_mod.PAGE, gl_mark=gl_mark, **ctx,
         )  # fmt: skip
         path = self.out / rel
         path.parent.mkdir(parents=True, exist_ok=True)

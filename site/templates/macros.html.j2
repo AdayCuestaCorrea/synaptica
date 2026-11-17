@@ -100,8 +100,9 @@
 <div class="summary summary--verified">
   <p class="summary-kind">✓ {{ t.verified }}</p>
   {% if full %}
+  {% set ctx = sm.sentences | map(attribute="text") | join(" ") %}
   <ol class="sentences">
-    {% for line in sm.sentences %}<li>{{ line.text }}{% if s.url %} <a class="cite" href="{{ s.url }}" title="{{ t.cite }}" rel="noopener" target="_blank">[{{ loop.index }}]</a>{% endif %}</li>{% endfor %}
+    {% for line in sm.sentences %}<li>{{ gl_mark(line.text, ctx) }}{% if s.url %} <a class="cite" href="{{ s.url }}" title="{{ t.cite }}" rel="noopener" target="_blank">[{{ loop.index }}]</a>{% endif %}</li>{% endfor %}
   </ol>
   <p class="summary-note">{{ t.verified_note }} {{ t.cite }}</p>
   {% if sm.get("reviewed") %}<p class="summary-note">{{ t["reviewed_" ~ sm.reviewed] }}</p>{% endif %}
@@ -112,7 +113,7 @@
 {% else %}
 <div class="summary summary--fallback">
   <p class="summary-kind">{{ t.fallback }}</p>
-  <p class="summary-text">{{ sm.text }}</p>
+  <p class="summary-text">{% if full %}{{ gl_mark(sm.text) }}{% else %}{{ sm.text }}{% endif %}</p>
   {% if full %}<p class="summary-note">{{ t.fallback_note }}</p>{% endif %}
 </div>
 {% endif %}

@@ -12,8 +12,11 @@ Paleo Atlas ``src/paleo/site/glossary.py`` (same author, AGPL). Changes:
 * forms come from ``glossary/terms.csv``: acronyms in their exact case, names in any case.
 
 Inside a definition, the other published terms are marked (the first time each), as links
-to their entry: that is the page's cross-linking. Marking terms in the rest of the site's
-texts is a later step.
+to their entry: that is the page's cross-linking. C2 (sheet row 36, v203): the same marking
+on the summary of a study page and the excerpt of the featured study, with
+:meth:`Glossary.mark_text`: only terms with a definition in that language, the first time
+each per page, and the text itself never changes (stripped of the links it is the stored
+text, escaped: checked on every call).
 """
 
 from __future__ import annotations
@@ -69,6 +72,38 @@ class Glossary:
             return f'<a class="gl" href="{page_url}#{key}" data-gl="{key}">{m.group(0)}</a>'
 
         return self._pattern.sub(repl, escaped)
+
+    def mark_text(self, text: str, used: set[str], page_url: str,
+                  context: str | None = None) -> str:  # fmt: skip
+        """Escape ``text`` and mark the first appearance on the page (``used``, updated) of
+        each term with a definition in this language. An acronym of two letters or fewer
+        (AD, DA) only counts when one of its full names is also in ``context`` (the whole
+        summary; ``text`` by default): exact case already keeps the Spanish «da» out, but
+        not every «AD» is Alzheimer's."""
+        escaped = html.escape(text, quote=False)
+        if self._pattern is None:
+            return escaped
+        ctx = html.escape(context if context is not None else text, quote=False).lower()
+
+        def repl(m: re.Match[str]) -> str:
+            written = m.group(0)
+            key = self.key_of(written)
+            if key is None or key in used or self.pending(key):
+                return written
+            term = self.entries[key].term
+            short = len(written) <= 2 and written in self._exact
+            names = (html.escape(f, quote=False).lower() for f in term.forms_any_case)
+            if short and not any(n in ctx for n in names):
+                return written
+            used.add(key)
+            meaning = html.escape(self.meaning(key) or term.term)
+            return (f'<a class="gl" href="{page_url}#{key}" data-gl="{key}" '
+                    f'title="{meaning}">{written}</a>')  # fmt: skip
+
+        out = self._pattern.sub(repl, escaped)
+        if re.sub(r"<[^>]+>", "", out) != escaped:  # the stored text, never changed
+            raise RuntimeError(f"glossary marking changed a text: {text[:60]!r}")
+        return out
 
     def pending(self, term_id: str) -> bool:
         return self.entries[term_id].definition[self.lang] is None
