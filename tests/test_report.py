@@ -174,3 +174,46 @@ def test_report_finish_reads_outcomes_from_the_command_line(tmp_path, monkeypatc
     ])  # fmt: skip
     assert result.exit_code == 0, result.output
     assert "Authenticate to Google Cloud | failure" in result.output
+
+
+def _cut_run(tmp_path, ingest_seconds: int):
+    """A run whose report starts while Ingest still shows as running for that long."""
+    start = dt.datetime(2026, 11, 16, 17, 30, tzinfo=dt.UTC)
+    report_at = start + dt.timedelta(seconds=ingest_seconds)
+    iso = lambda t: t.isoformat().replace("+00:00", "Z")  # noqa: E731
+    jobs = tmp_path / "jobs.json"
+    jobs.write_text(json.dumps({"jobs": [{"name": "update", "steps": [
+        {"name": "Anything new?", "conclusion": "success",
+         "started_at": iso(start - dt.timedelta(seconds=30)), "completed_at": iso(start)},
+        {"name": "Ingest", "conclusion": None, "started_at": iso(start), "completed_at": None},
+        {"name": "Run report", "conclusion": None, "started_at": iso(report_at),
+         "completed_at": None},
+    ]}]}))  # fmt: skip
+    data = tmp_path / "data"
+    report.start_run(data, trigger="manual", changed=True, now=start)
+    return data, report.finish_run(data, jobs=jobs, now=report_at)
+
+
+def test_a_run_cut_while_a_step_runs_is_cancelled_not_ok(tmp_path):
+    # Run 43918679676 (2026-11-16): cancelled after 150 min in Ingest, recorded as "ok".
+    data, run = _cut_run(tmp_path, 9_001)
+    assert run["status"] == "cancelled"
+    assert run["steps"][1] == {"name": "Ingest", "conclusion": "cancelled", "seconds": 9_001,
+                               "partial": True}  # fmt: skip
+    assert not report.ran_today(data, today=dt.date(2026, 11, 16))  # the backup run still runs
+
+
+def test_a_step_that_has_just_ended_is_only_the_api_delay(tmp_path):
+    _data, run = _cut_run(tmp_path, 5)
+    assert run["status"] == "ok" and run["steps"][1]["conclusion"] == "in_progress"
+
+
+def test_every_run_status_has_its_words_on_the_status_page():
+    import tomllib
+
+    from synaptica.config import project_root
+
+    for lang in ("es", "en"):
+        path = project_root() / "src" / "synaptica" / "site" / "i18n" / f"{lang}.toml"
+        words = tomllib.loads(path.read_text("utf-8"))
+        assert {f"status_{s}" for s in ("ok", "failed", "running", "cancelled")} <= set(words)

@@ -119,6 +119,10 @@ def dbt_issues(run_results: Path | None) -> dict[str, Any] | None:
 
 
 REPORT_STEP = "Run report"  # the step that calls `syn report finish`: never finished yet
+# A step the API still shows running when the report starts: for a few seconds that is
+# only the API's delay (the step has just ended); for longer, the run was cancelled or hit
+# its time limit, since the report (``if: always()``) starts while the step is cut.
+CANCEL_AFTER_SECONDS = 120
 
 
 def step_results(
@@ -232,14 +236,20 @@ def finish_run(
         None,
     )  # fmt: skip
     steps = step_results(jobs, now=moment, outcomes=outcomes) if jobs else []
+    for s in steps:
+        if s.get("partial") and s["seconds"] > CANCEL_AFTER_SECONDS:
+            s["conclusion"] = "cancelled"
     dbt = dbt_issues(run_results)
     failed = any(s["conclusion"] == "failure" for s in steps) or bool(
         dbt and any(i["status"] in FAILED for i in dbt["issues"])
     )
+    # A cut run did not finish its work, whatever the steps before the cut did: it is
+    # neither ok (`ran-today` would let the backup run skip the day) nor a failure.
+    cancelled = any(s["conclusion"] == "cancelled" for s in steps)
     run.update(
         {
             "finished_at": _iso(moment),
-            "status": "failed" if failed else "ok",
+            "status": "cancelled" if cancelled else "failed" if failed else "ok",
             "steps": steps,
             "sources_changed": changed_sources(data, day),
             "summary": summary,
