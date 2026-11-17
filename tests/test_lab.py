@@ -205,3 +205,36 @@ def test_her_approval_takes_the_proposal_tag_off_the_technique(tmp_path: Path) -
     # A correction leaves it a proposal until her words are on the table and approved.
     decide(data, items["lab-fmri"], Action.EDIT, {"terms": ["fMRI", "BOLD"]}, n=2)
     assert "fmri" not in studies.reviewed(data / "review")
+
+
+# ---- technique <-> region (step 6, v206) -----------------------------------------------
+
+
+def test_shared_needs_two_studies_and_sorts_by_count() -> None:
+    found = {"a": [{"study_id": "1"}, {"study_id": "2"}], "b": [{"study_id": "1"}],
+             "c": [{"study_id": x} for x in "123"]}  # fmt: skip
+    assert studies.shared({"1", "2", "3"}, found) == [("c", 3), ("a", 2)]
+
+
+def test_region_and_technique_pages_link_each_other_as_a_proposal(tmp_path: Path) -> None:
+    from test_site_news import STUDIES, study
+    from test_site_news import warehouse as site_warehouse
+
+    rows = [*STUDIES,
+            study("doi:10.1/o1", title="Optogenetic silencing of the hippocampus"),
+            study("doi:10.1/o2", title="Hippocampus replay under optogenetic control"),
+            study("doi:10.1/f1", title="Hippocampus activity in fMRI")]  # fmt: skip
+    data = site_warehouse(tmp_path / "data", studies=rows)
+    out = tmp_path / "site"
+    SiteBuilder(out, images=LICENSED, data_dir=data).build()
+    assert check_site(out).passed
+    hippo = (out / "es" / "atlas" / "regiones" / "waxholm-hippocampal-formation.html").read_text()
+    assert 'href="../../lab/optogenetics.html"' in hippo and "2 estudios en común" in hippo
+    assert "lab/fmri.html" not in hippo  # only one shared study
+    assert 'href="#gap-region_methods_match"' in hippo and 'gap-region_methods"' not in hippo
+    opto = (out / "en" / "lab" / "optogenetics.html").read_text()
+    assert 'href="../atlas/regions/waxholm-hippocampal-formation.html"' in opto
+    assert opto.index("waxholm-hippocampal") < opto.index("julich-ca1")  # rat first
+    assert 'href="#gap-lab_regions_match"' in opto
+    fmri = (out / "en" / "lab" / "fmri.html").read_text()
+    assert "gap-lab_regions_match" not in fmri and 'href="#gap-lab_regions"' in fmri

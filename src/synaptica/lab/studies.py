@@ -133,6 +133,22 @@ def counts(found: dict[str, list[dict[str, Any]]]) -> dict[str, dict[str, int]]:
     return out
 
 
+# ---- technique <-> region (Neuro Atlas §7, step 6 of the plan of 2026-11-17) -----------
+
+MIN_SHARED = 2  # studies a technique and a region must share to be shown together
+
+
+def shared(
+    ids: set[str], found: dict[str, list[dict[str, Any]]], min_shared: int = MIN_SHARED
+) -> list[tuple[str, int]]:
+    """Keys of ``found`` (techniques or pairs) whose studies share at least ``min_shared``
+    with ``ids``, with how many, most first (then in ``found``'s order). A proposal: two
+    matches by MeSH or text in the same study, never a reviewed link."""
+    counts = [(k, len(ids & {s["study_id"] for s in v})) for k, v in found.items()]
+    hits = [(k, n) for k, n in counts if n >= min_shared]
+    return sorted(hits, key=lambda kn: -kn[1])
+
+
 # ---- Sofía's queue (B2-3, Aday's option A of v202: like the pairs of Neuro Atlas) ------
 
 EXAMPLES = 3

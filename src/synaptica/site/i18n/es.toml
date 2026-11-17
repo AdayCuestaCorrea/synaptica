@@ -335,3 +335,7 @@ gap_lab_studies = "Los estudios de cada técnica salen del almacén de cada día
 gap_lab_match = "Estudios emparejados con la técnica de forma automática, por sus términos MeSH o por el nombre de la técnica en el título, las palabras clave o el resumen. Sofía revisará los términos de búsqueda de cada técnica."
 gap_lab_regions = "Las regiones donde se usa cada técnica saldrán de los estudios que comparten región y técnica, como propuesta para Sofía."
 lab_match_reviewed = "Estudios emparejados con la técnica de forma automática, con los términos de búsqueda que revisó Sofía ({date})."
+gap_region_methods_match = "Técnicas que comparten al menos 2 estudios con esta región, emparejados de forma automática. Es una propuesta: Sofía revisará qué técnicas sirven para estudiar cada región."
+gap_lab_regions_match = "Regiones que comparten al menos 2 estudios con esta técnica, emparejados de forma automática. Es una propuesta: Sofía revisará dónde se usa cada técnica."
+shared_one = "1 estudio en común"
+shared_n = "{n} estudios en común"

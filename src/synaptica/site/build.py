@@ -500,7 +500,7 @@ class SiteBuilder:
         gaps = {k: ("gap", t[f"gap_{k}"])
                 for k in ("region_text", "region_diseases", "region_methods",
                           "pair_grade", "atlas_names")}  # fmt: skip
-        groups, reviewed_at = None, None
+        groups, reviewed_at, methods = None, None, []
         if self.pair_studies is not None:
             # Per pair (Aday, v188): every page of a pair lists the same studies.
             seen: dict[str, dict[str, Any]] = {}
@@ -517,12 +517,21 @@ class SiteBuilder:
             shown = [s for g in groups for s in g["studies"]]
             found = self.study_gaps(lang, shown)
             gaps.update({k: found[k] for k in ("title_es", "journal_name") if k in found})
+            if self.technique_found is not None:
+                from synaptica.lab.studies import shared, techniques
+
+                names = {x["id"]: x[f"name_{lang}"] for x in techniques()}
+                methods = [{"id": k, "name": names[k], "n": n}
+                           for k, n in shared(set(seen), self.technique_found)]  # fmt: skip
+                if methods:
+                    del gaps["region_methods"]
+                    gaps["region_methods_match"] = ("proposal", t["gap_region_methods_match"])
         else:
             gaps["region_studies"] = ("gap", t["gap_region_studies"])
         pages = set(self.news_data.by_id) if self.news_data else set()
         self.render(lang, "region", "region.html.j2", key=r["page"], r=r, gaps=gaps,
                     credit=d["credit"][r["atlas"]], by_page=d["by_page"], groups=groups,
-                    study_pages=pages, reviewed_at=reviewed_at)  # fmt: skip
+                    study_pages=pages, reviewed_at=reviewed_at, methods=methods)  # fmt: skip
 
     @functools.cached_property
     def technique_found(self) -> dict[str, list[dict[str, Any]]] | None:
@@ -557,7 +566,7 @@ class SiteBuilder:
 
         t, found = self.i18n[lang], self.technique_found
         gaps = {k: ("gap", t[f"gap_{k}"]) for k in ("lab_texts", "lab_regions")}
-        groups, reviewed_at = None, None
+        groups, reviewed_at, regions = None, None, []
         if found is not None:
             groups = by_species(found.get(tech["id"], []), TECHNIQUE_STUDIES)
             # «Propuesta» until she approves its search terms as the table is today (B2-3).
@@ -567,12 +576,30 @@ class SiteBuilder:
             shown = [s for g in groups for s in g["studies"]]
             got = self.study_gaps(lang, shown)
             gaps.update({k: got[k] for k in ("title_es", "journal_name") if k in got})
+            if "atlas" in self.kinds and self.pair_studies is not None:
+                from synaptica.lab.studies import shared
+
+                ids = {s["study_id"] for s in found.get(tech["id"], [])}
+                for kind, n in shared(ids, self.pair_studies):
+                    regions.append({"n": n, "pages": self.pair_pages[kind]})
+                if regions:
+                    del gaps["lab_regions"]
+                    gaps["lab_regions_match"] = ("proposal", t["gap_lab_regions_match"])
         else:
             gaps["lab_studies"] = ("gap", t["gap_lab_studies"])
         pages = set(self.news_data.by_id) if self.news_data else set()
         self.render(lang, "technique", "technique.html.j2", key=tech["id"], tech=tech,
                     name=tech[f"name_{lang}"], gaps=gaps, groups=groups,
-                    study_pages=pages, reviewed_at=reviewed_at)  # fmt: skip
+                    study_pages=pages, reviewed_at=reviewed_at, regions=regions)  # fmt: skip
+
+    @functools.cached_property
+    def pair_pages(self) -> dict[str, list[dict[str, Any]]]:
+        """Pair kind -> the region pages of that pair, rat first (for Neuro Lab's links)."""
+        out: dict[str, list[dict[str, Any]]] = {}
+        for r in sorted(self.atlas_data["pages"], key=lambda r: r["brain"] != "rat"):
+            for p in r["pairs"]:
+                out.setdefault(p["kind"], []).append(r)
+        return out
 
     @functools.cached_property
     def reviewed_techniques(self) -> dict[str, str]:

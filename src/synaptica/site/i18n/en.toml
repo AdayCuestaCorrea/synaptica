@@ -335,3 +335,7 @@ gap_lab_studies = "The studies of each technique come from the daily warehouse; 
 gap_lab_match = "Studies matched to the technique automatically, by their MeSH terms or by the technique's name in the title, keywords or abstract. Sofía will review each technique's search terms."
 gap_lab_regions = "The regions where each technique is used will come from the studies that share a region and a technique, as a proposal for Sofía."
 lab_match_reviewed = "Studies matched to the technique automatically, with the search terms Sofía reviewed ({date})."
+gap_region_methods_match = "Techniques that share at least 2 studies with this region, matched automatically. A proposal: Sofía will review which techniques are used to study each region."
+gap_lab_regions_match = "Regions that share at least 2 studies with this technique, matched automatically. A proposal: Sofía will review where each technique is used."
+shared_one = "1 study in common"
+shared_n = "{n} studies in common"
