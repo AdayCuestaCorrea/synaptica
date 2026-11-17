@@ -132,7 +132,8 @@ def _request(
                     wait = max(wait, retry_after)
             elif response.is_error:
                 raise HttpError(
-                    f"HTTP {response.status_code} for {response.url}: {response.text[:300]}",
+                    f"HTTP {response.status_code} for {redact(response.url)}: "
+                    f"{response.text[:300]}",
                     response.status_code,
                 )
             else:
@@ -144,6 +145,18 @@ def _request(
             log.warning("Retrying %s in %.0fs (%s)", url, wait, last_error)
             sleep(wait)
     raise HttpError(f"Giving up on {url} after {retries + 1} attempts: {last_error}")
+
+
+SECRET_PARAMS = ("api_key",)  # sent in the query string (OpenAlex): never in a message
+
+
+def redact(url: httpx.URL | str) -> str:
+    """The URL with the value of every :data:`SECRET_PARAMS` parameter hidden."""
+    url = httpx.URL(str(url))
+    if not any(url.params.get(p) for p in SECRET_PARAMS):
+        return str(url)
+    params = [(k, "***" if k in SECRET_PARAMS else v) for k, v in url.params.multi_items()]
+    return str(url.copy_with(params=params))
 
 
 def _read_json(response: httpx.Response) -> tuple[bool, Any, str]:

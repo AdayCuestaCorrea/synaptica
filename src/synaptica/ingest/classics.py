@@ -20,8 +20,8 @@ from typing import Any
 
 import httpx
 
-from synaptica.config import CONTACT_EMAIL
 from synaptica.http import Throttle, get_json
+from synaptica.ingest import openalex
 from synaptica.store import BatchStore, utc_today
 
 WORKS = "https://api.openalex.org/works"
@@ -74,7 +74,7 @@ def listing(
         "filter": f"primary_topic.subfield.id:{subfield},type:article,is_retracted:false,"
                   f"publication_year:<{before_year}",
         "sort": "cited_by_count:desc", "per_page": PER_SUBFIELD, "select": SELECT,
-        "mailto": CONTACT_EMAIL,
+        **openalex.auth_params(),
     })  # fmt: skip
     return [w for w in map(trim, body.get("results") or []) if w]
 

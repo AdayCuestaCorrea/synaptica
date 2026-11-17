@@ -69,4 +69,5 @@ class EnvVar:
 ENV_VARS: tuple[EnvVar, ...] = (
     EnvVar("SYN_DATA_DIR", "Data directory (default: ./data)"),
     EnvVar("NCBI_API_KEY", "PubMed E-utilities: 10 requests/s instead of 3"),
+    EnvVar("OPENALEX_API_KEY", "OpenAlex: a daily budget of $1 instead of $0.10 shared by IP"),
 )

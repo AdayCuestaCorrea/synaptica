@@ -7,7 +7,7 @@ import httpx
 import pytest
 
 from synaptica.config import project_root
-from synaptica.http import Throttle, make_client
+from synaptica.http import HttpError, Throttle, get_json, make_client, redact
 from synaptica.ingest import journals, openalex
 
 FIXTURE = project_root() / "tests" / "fixtures" / "openalex" / "works_most_cited_2016.json"
@@ -103,3 +103,28 @@ def test_a_used_up_budget_ends_the_command_green_and_says_so(tmp_path, monkeypat
     result = CliRunner().invoke(cli.app, ["ingest", command])
     assert result.exit_code == 0, result.output
     assert "rate limited for today" in result.output
+
+
+def test_the_free_key_is_sent_only_when_set(tmp_path, monkeypatch):
+    monkeypatch.delenv("OPENALEX_API_KEY", raising=False)
+    seed_journal_items(tmp_path)
+    fake = FakeOpenAlex()
+    run(tmp_path, fake)
+    assert "api_key" not in fake.calls[0]
+    monkeypatch.setenv("OPENALEX_API_KEY", " k-123 ")
+    assert openalex.auth_params()["api_key"] == "k-123"
+    monkeypatch.setenv("OPENALEX_API_KEY", "")
+    assert "api_key" not in openalex.auth_params()
+
+
+def test_the_key_never_appears_in_an_error():
+    def refuse(request):
+        return httpx.Response(403, text="forbidden", request=request)
+
+    with (
+        make_client(transport=httpx.MockTransport(refuse)) as client,
+        pytest.raises(HttpError) as err,
+    ):
+        get_json(client, openalex.WORKS, params={"filter": "doi:x", "api_key": "k-123"})
+    assert "k-123" not in str(err.value) and "api_key=%2A%2A%2A" in str(err.value)
+    assert redact("https://a.org/w?x=1") == "https://a.org/w?x=1"

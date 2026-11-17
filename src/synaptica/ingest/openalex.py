@@ -16,12 +16,16 @@ is looked up once: the citation count stored here is the one at that moment, and
 up-to-date counts for the Clásicos come from the step 24a listing.
 
 Limits (``docs/fuentes.md``): without a key, 10 requests/s and a daily budget of ~1000
-list queries shared by the IP. Not in Paleo Atlas.
+list queries ($0.10) shared by the IP. With the free key in ``OPENALEX_API_KEY``, $1 a day
+(:func:`auth_params`, also used by the Clásicos listing); the pipeline passes it only
+after Phase 1 closes, since that means touching ``pipeline.yml``. ``http`` hides the key
+in error messages. Not in Paleo Atlas.
 """
 
 from __future__ import annotations
 
 import datetime as dt
+import os
 from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
@@ -38,6 +42,14 @@ WORKS = "https://api.openalex.org/works"
 BATCH = 50
 LOOKBACK_DAYS = 30
 SELECT = "id,doi,type,publication_year,cited_by_count,primary_topic,topics,is_retracted"
+
+
+def auth_params() -> dict[str, str]:
+    """The contact (``mailto``) and, when set, the free API key (``OPENALEX_API_KEY``)."""
+    params = {"mailto": CONTACT_EMAIL}
+    if key := os.environ.get("OPENALEX_API_KEY", "").strip():
+        params["api_key"] = key
+    return params
 
 
 @dataclass(frozen=True)
@@ -91,7 +103,7 @@ def lookup(
         throttle.wait()
         body = get_json(client, WORKS, params={
             "filter": "doi:" + "|".join(batch), "select": SELECT, "per_page": BATCH,
-            "mailto": CONTACT_EMAIL,
+            **auth_params(),
         })  # fmt: skip
         for work in body.get("results") or []:
             trimmed = trim_work(work)

@@ -75,6 +75,9 @@ def main(
         level=logging.INFO if verbose else logging.WARNING,
         format="%(levelname)s %(name)s: %(message)s",
     )
+    # httpx logs every request URL at INFO, query string included: keys sent as a
+    # parameter (OpenAlex's api_key) would end up in the Actions log with --verbose.
+    logging.getLogger("httpx").setLevel(logging.WARNING)
 
 
 @dataclass(frozen=True)
