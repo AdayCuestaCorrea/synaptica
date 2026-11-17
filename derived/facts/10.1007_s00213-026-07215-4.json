@@ -1,0 +1,54 @@
+{
+ "study_id": "10.1007/s00213-026-07215-4",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "6acef803dd238b8a",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-17T16:23:58+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used male and female Wistar rats as the animal model.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Alcohol consumption and aversion-resistant drinking were measured in adulthood using several behavioral tests, including two-bottle choice and quinine-adulterated drinking.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Isolation during early adolescence or continuous isolation increased alcohol intake in both male and female rats compared to controls across multiple testing conditions.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Isolation restricted to late adolescence did not significantly change alcohol drinking behavior compared to the control groups.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "In female rats, only continuous isolation resulted in higher aversion-resistant drinking at the highest quinine concentration and increased drinking after a long period of abstinence.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Male rats showed similar increases in alcohol drinking whether they experienced early adolescent isolation or continuous isolation.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The findings suggest that isolation during early adolescence leads to lasting increases in alcohol-related behaviors.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "Re-socialization may offer some protection for females against aversion-resistant drinking and elevated intake after abstinence.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source"
+ ]
+}

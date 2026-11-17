@@ -1,0 +1,55 @@
+{
+ "study_id": "10.1002/path.70153",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "eda3cf093308088e",
+ "generated_at": "2026-11-17T16:37:31+00:00",
+ "word_count": 135,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers used a viral vector to increase the protein TFEB specifically in excitatory neurons of the hippocampus in young mice carrying a genetic model of Alzheimer's disease.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "This targeted boost lowered the amount of a toxic protein in the brain, reduced the number of protein clumps and damaged nerve endings, and improved the mice's ability to learn and remember locations.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "The intervention sped up the brain cells' waste-removal system and also improved the function of the cells' energy-producing structures.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "In a lab-grown cell line that produces the Alzheimer's protein, adding TFEB increased markers of the waste-removal system, boosted energy production, and lowered the amount of protein inside the cells.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors conclude that activating this specific protein in brain cells early in the disease process helps clear toxic waste and protects against further brain damage.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-17T16:57:57+00:00"
+ }
+}

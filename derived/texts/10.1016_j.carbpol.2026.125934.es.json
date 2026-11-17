@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1016/j.carbpol.2026.125934",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "367d4060c03479d5",
+ "generated_at": "2026-11-17T16:47:42+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores aislaron un polisacárido ácido de tipo pectina, una cadena de azúcar compleja denominada CSP-A, a partir de semillas de Coix lachryma-jobi, destacando su peso molecular de 15,625 kDa y sus dominios estructurales específicos.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "En ratas estresadas, este compuesto mejoró los comportamientos similares a la depresión, al tiempo que corregía los desequilibrios bacterianos intestinales, restauraba los niveles de ácidos grasos de cadena corta y reducía la inflamación del colon.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "El tratamiento también ayudó a restaurar los patrones metabólicos que suelen alterarse en las afecciones que afectan al sistema nervioso.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que el compuesto podría actuar como un prebiótico al potenciar las bacterias beneficiosas y activar una vía de señalización, presentándolo como un candidato potencial para nuevos fármacos psiquiátricos.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-17T16:58:58+00:00"
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1002/path.70153",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "31a7dff9cd6c2fca",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-17T16:22:57+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a viral vector to boost the protein TFEB only in excitatory neurons of the hippocampus in young mice that carry a genetic model of Alzheimer's disease.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Boosting TFEB in these neurons lowered the amount of a toxic protein in the brain, reduced the number of protein clumps and damaged nerve endings, and improved the mice's ability to learn and remember locations.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The researchers found that the TFEB boost sped up the brain cells' waste-removal system and also improved the function of the cells' energy-producing structures.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "In a lab-grown cell line that produces the Alzheimer's protein, adding TFEB increased markers of the waste-removal system, boosted energy production, and lowered the amount of protein inside the cells.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors conclude that activating this specific protein in brain cells early in the disease process helps clear toxic waste and protects against further brain damage.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

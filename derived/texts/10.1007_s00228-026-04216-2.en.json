@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1007/s00228-026-04216-2",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "669b05ccd5b5359c",
+ "generated_at": "2026-11-17T16:42:37+00:00",
+ "word_count": 80,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A retrospective cohort study assessed 197 stroke survivors at a median of 386 days after their event to examine medication adherence patterns.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "While 79% of participants reported high medication adherence, many did not understand the reason for taking their drugs.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "No significant differences in medication adherence were found between different ethnicities or sexes.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Longer hospital stays, greater post-stroke disability, and caregiver involvement were associated with high medication adherence, whereas the lowest levels were observed in patients who had mild strokes.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-17T16:57:58+00:00"
+ }
+}

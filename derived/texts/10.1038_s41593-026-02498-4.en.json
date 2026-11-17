@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1038/s41593-026-02498-4",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "a6cd7f7d094a54a1",
+ "generated_at": "2026-11-17T16:36:30+00:00",
+ "word_count": 90,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "In a mouse model of nerve injury, all types of GABAergic interneurons in the prelimbic cortex became more sensitive and shifted from responding to a single input type to multiple types.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "The study found that distinct groups of inhibitory and excitatory neurons in this region play separate roles in promoting neuropathic pain, with two separate neural circuits controlling its sensory and emotional aspects.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "These results explain how the medial prefrontal cortex helps guide behavior to avoid or overcome pain and how reduced activity in this area can worsen neuropathic pain.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-17T16:57:56+00:00"
+ }
+}

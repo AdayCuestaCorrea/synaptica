@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1088/1361-6560/aebd5e",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "de14f5531e14ad2e",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-17T16:34:25+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study developed a new computer network designed to align lung images by handling both large movements and small structural details.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The new method allows for continuous image alignment without needing to be retrained for each specific case.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The system uses a feedback loop to fix early alignment errors by passing information from detailed views to broader views.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The method includes a rule to ensure the aligned images match known anatomical structures and boundaries.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "In a test where some breathing phases were held out, the method had an average error of 1.28 mm and a folding rate of 0.0090%.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "When tested on unseen patients, the method had an average error of 1.53 mm and a folding rate of 0.0195%.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "On an external dataset from a different center, the method had an average error of 1.84 mm and a folding rate of 0.0806%.",
+   "subject": "computational"
+  },
+  {
+   "id": "f8",
+   "statement": "The method took 0.33 seconds to process each case.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

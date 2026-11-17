@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1093/brain/awag408",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "de605019928ae7a5",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-17T16:36:29+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "This article is a review of existing evidence suggesting that multiple sclerosis fatigue is linked to higher energy costs for movement and slow recovery after activity.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "Studies of muscle activation indicate that some individuals with multiple sclerosis cannot fully access their muscle strength, especially after physical effort.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Brain imaging suggests that people with multiple sclerosis use extra brain regions, including the cerebellum and prefrontal cortex, to maintain normal movement.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Research on metabolism and tissue damage shows that injured nerve networks in multiple sclerosis are energetically vulnerable, which may explain why they do not recover well after repeated use.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The review proposes that using extra brain resources helps maintain performance but can worsen fatigue if the body has not fully recovered from previous activity.",
+   "subject": "other"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors provide predictions for identifying a specific type of fatigue related to movement cost and suggest designs for future studies measuring activity-related fatigue.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

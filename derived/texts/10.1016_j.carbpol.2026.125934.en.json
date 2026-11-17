@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1016/j.carbpol.2026.125934",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "367d4060c03479d5",
+ "generated_at": "2026-11-17T16:47:42+00:00",
+ "word_count": 95,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers isolated a pectin-type acidic polysaccharide, a complex sugar chain, named CSP-A from Coix lachryma-jobi seeds, noting its 15.625 kDa molecular weight and specific structural domains.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "In stressed rats, this compound improved depression-like behaviors while simultaneously correcting gut bacterial imbalances, restoring short-chain fatty acid levels, and reducing colon inflammation.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "The treatment also helped restore metabolic patterns that are typically disrupted in conditions affecting the nervous system.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors suggest the compound might act as a prebiotic by boosting helpful bacteria and activating a signaling pathway, presenting it as a potential candidate for new psychiatric medication.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-17T16:58:58+00:00"
+ }
+}

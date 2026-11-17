@@ -1,0 +1,53 @@
+{
+ "study_id": "10.1007/s00213-026-07215-4",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "2b77ea25b5252f2d",
+ "generated_at": "2026-11-17T16:39:34+00:00",
+ "word_count": 116,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers examined how social isolation affects alcohol consumption and aversion-resistant drinking in male and female Wistar rats using behavioral tests such as two-bottle choice and quinine-adulterated drinking.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Isolation during early adolescence or continuous isolation increased alcohol intake in both sexes compared to controls, whereas isolation restricted to late adolescence did not significantly alter drinking behavior.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "While male rats showed similar increases in alcohol drinking regardless of the isolation timing, only continuous isolation led to higher aversion-resistant drinking in female rats at the highest quinine concentration and increased intake after abstinence.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The findings suggest that early adolescent isolation leads to lasting increases in alcohol-related behaviors, although re-socialization may offer some protection for females against specific drinking patterns.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-17T16:57:57+00:00"
+ }
+}

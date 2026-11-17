@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1007/s00228-026-04216-2",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "0eb7f4e3920cc485",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-17T16:25:01+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The research was a retrospective cohort study of stroke patients one year after their event.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study included 197 stroke survivors who were assessed at a median of 386 days after their stroke.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "79% of the participants reported high medication adherence, although many did not understand the reason for taking their drugs.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "No significant differences in medication adherence were found between different ethnicities or sexes.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Longer hospital stays, greater post-stroke disability, and caregiver involvement were associated with high medication adherence.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The lowest levels of medication adherence were observed in patients who had mild strokes.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

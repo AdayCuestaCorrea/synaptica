@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1007/s00381-026-07506-3",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "66be0c3be234986a",
+ "generated_at": "2026-11-17T16:44:39+00:00",
+ "word_count": 70,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers conducted a retrospective review of medical records from a major cancer center and children's hospital, covering the period from 2012 to 2025, to examine a group of children treated for tumors inside the spinal cord.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "In this specific cohort, every tumor was located in the neck region of the spinal cord.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "The authors concluded that treating the condition before severe symptoms appear might lead to better long-term nerve function.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-17T16:58:57+00:00"
+ }
+}

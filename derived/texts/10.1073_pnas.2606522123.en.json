@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1073/pnas.2606522123",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "a8d566310aea871f",
+ "generated_at": "2026-11-17T16:52:48+00:00",
+ "word_count": 141,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "This study examined hippocampal neurons to determine how Kv7 channels, composed of Kv7.2 and Kv7.3 subunits, are positioned at the postsynaptic density in dendritic spines to reduce calcium entry through NMDA receptors.",
+   "fact_ids": [
+    "f1",
+    "f3"
+   ]
+  },
+  {
+   "text": "The localization of these channels is facilitated by the pairing of Kv7.2 and Kv7.3 subunits and their attachment to AnkyrinG-190, the only version of AnkyrinG found in these spines.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Specific changes in the KCNQ2 gene that lead to developmental and epileptic encephalopathy were associated with significantly lower presence of Kv7 channels in spines and reduced ability to block NMDA receptor activity.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors conclude that this specific group of Kv7 channels weakens excitatory signals between neurons, suggesting that problems with these channels are involved in KCNQ2-related developmental and epileptic encephalopathy, a condition known to cause epilepsy in newborns.",
+   "fact_ids": [
+    "f6",
+    "f2"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-17T16:58:59+00:00"
+ }
+}

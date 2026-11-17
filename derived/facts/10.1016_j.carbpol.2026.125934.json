@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1016/j.carbpol.2026.125934",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "bf29fd82d15dc6bd",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-17T16:27:08+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers extracted a specific sugar compound called CSP-A from the seeds of the plant Coix lachryma-jobi, which has a molecular weight of 15.625 kDa.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "The extracted compound was identified as a pectin-type acidic polysaccharide containing specific structural domains known as homogalacturonan and rhamnogalacturonan-I.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "In animal tests, the compound improved depression-like behaviors in rats that had been stressed, while also fixing gut bacteria imbalances, restoring short-chain fatty acid levels, and reducing colon damage and inflammation.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The treatment also helped restore metabolic patterns that are typically disrupted in conditions affecting the nervous system.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors suggest the compound might work like a prebiotic by boosting helpful gut bacteria, increasing short-chain fatty acid production, and activating a specific signaling pathway to reduce depression-like symptoms.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The study presents this new sugar compound as a potential candidate for developing a new psychiatric medication.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

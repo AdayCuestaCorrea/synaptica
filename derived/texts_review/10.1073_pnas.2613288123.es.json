@@ -1,0 +1,41 @@
+{
+ "study_id": "10.1073/pnas.2613288123",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "53ac406c77dac95e",
+ "generated_at": "2026-11-17T16:54:52+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 4: words not in the Spanish dictionary ['temporización']"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores utilizaron métodos de imagen de alta resolución para comparar la estructura de las sinapsis inhibitorias situadas en el cuerpo celular frente a las localizadas en las dendritas.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Mientras que las sinapsis dendríticas suelen tener una forma compacta con cúmulos de receptores organizados en columnas alineadas, se observó que las sinapsis del cuerpo celular son más grandes y poseen una estructura más variada y compleja.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "En concreto, las sinapsis del cuerpo celular mostraban una mayor variedad de estructuras, que incluía tanto columnas alineadas como disposiciones desorganizadas en las que los sitios de liberación y los receptores no coincidían.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Las simulaciones por ordenador sugirieron que estas diferencias estructurales conducen a señales eléctricas más intensas y a propiedades de temporización distintas en las sinapsis del cuerpo celular.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-17T16:57:55+00:00"
+}

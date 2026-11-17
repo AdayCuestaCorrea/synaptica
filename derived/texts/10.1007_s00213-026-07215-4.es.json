@@ -1,0 +1,53 @@
+{
+ "study_id": "10.1007/s00213-026-07215-4",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "2b77ea25b5252f2d",
+ "generated_at": "2026-11-17T16:39:34+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores examinaron cómo el aislamiento social afecta al consumo de alcohol y a la ingesta resistente a la aversión en ratas Wistar macho y hembra, utilizando pruebas conductuales como la elección entre dos botellas y la ingesta de agua adulterada con quinina.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El aislamiento durante la adolescencia temprana o el aislamiento continuo aumentaron la ingesta de alcohol en ambos sexos en comparación con los controles, mientras que el aislamiento restringido a la adolescencia tardía no alteró significativamente el comportamiento de bebida.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Si bien las ratas macho mostraron aumentos similares en el consumo de alcohol independientemente del momento del aislamiento, solo el aislamiento continuo provocó una mayor ingesta resistente a la aversión en las ratas hembra a la concentración más alta de quinina y un aumento de la ingesta tras la abstinencia.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los hallazgos sugieren que el aislamiento durante la adolescencia temprana conduce a aumentos duraderos en las conductas relacionadas con el alcohol, aunque la reintegración social podría ofrecer cierta protección a las hembras frente a patrones de ingesta específicos.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-17T16:57:57+00:00"
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1007/s00228-026-04216-2",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "669b05ccd5b5359c",
+ "generated_at": "2026-11-17T16:42:37+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un estudio de cohorte retrospectivo evaluó a 197 supervivientes de un ictus a una mediana de 386 días tras el evento para examinar los patrones de adherencia a la medicación.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Si bien el 79% de los participantes informó de una alta adherencia a la medicación, muchos no comprendían la razón por la que tomaban sus fármacos.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "No se encontraron diferencias significativas en la adherencia a la medicación entre las distintas etnias o sexos.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Estancias hospitalarias más largas, una mayor discapacidad postictus y la implicación de los cuidadores se asociaron con una alta adherencia a la medicación, mientras que los niveles más bajos se observaron en pacientes que habían sufrido ictus leves.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-17T16:57:58+00:00"
+ }
+}

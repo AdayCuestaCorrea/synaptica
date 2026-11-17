@@ -1,0 +1,43 @@
+{
+ "study_id": "10.1073/pnas.2534149123",
+ "lang": "en",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "7efd0fa641540c06",
+ "generated_at": "2026-11-17T16:50:45+00:00",
+ "word_count": 131,
+ "problems": [
+  "sentence 3: says 'proves' but no cited fact does"
+ ],
+ "sentences": [
+  {
+   "text": "In cell lines and neurons, a tagged 20-repeat arginine-rich peptide was rapidly internalized and transported to the nucleolus, a process mediated by temperature-dependent fluid-phase endocytosis.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Using iridium-labeled dipeptide repeat proteins and RNA interference screens, researchers identified CSPG4 as a candidate surface protein, noting that inhibiting glycosaminoglycan synthesis or reducing CSPG4 levels decreased peptide uptake.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Lowering CSPG4 expression shielded neurons from the toxic effects of the 20-repeat peptide, while a dual reporter system demonstrated that a 50-repeat peptide produced by one neuron readily spread to adjacent cells in vitro.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Fluid from neurons expressing 50-repeat arginine or glycine peptides contained transmissible protein that entered other neurons in a CSPG4-dependent manner, suggesting CSPG4 facilitates the cellular uptake and intercellular transfer of these arginine-rich peptides.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ]
+}

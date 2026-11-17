@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1038/s41593-026-02498-4",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "68bce84b748dcaa7",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-17T16:21:53+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "In mice, nerve injury caused all types of GABAergic interneurons in the prelimbic cortex to become more sensitive and change from responding to one type of input to responding to multiple types.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The study found that different groups of inhibitory and excitatory neurons in the prelimbic cortex play separate roles in promoting neuropathic pain.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The sensory and emotional aspects of neuropathic pain were controlled by two separate neural circuits involving specific types of neurons that send signals to different targets.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The results explain how the medial prefrontal cortex helps guide behavior to avoid or overcome pain and how reduced activity in this area can worsen neuropathic pain.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

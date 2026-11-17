@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1073/pnas.2624837123",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "80f36a372524c75c",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-17T16:31:13+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study identifies a common genetic variant in modern humans that was inherited from Neandertals and affects the size of the occipital brain region.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "This genetic variant is located near the DAAM1 gene, which plays a role in brain development, within regions where transcription factors are expected to bind.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "People carrying the Neandertal variant show changes in DAAM1 gene activity and have occipital lobes that are approximately 0.85 cubic centimeters smaller for each copy of the variant they possess.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Individuals with two copies of the Neandertal variant have a nearly 10% lower risk of schizophrenia, a pattern not seen when looking at Neandertal ancestry in general.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The link between the variant and education level is minimal, corresponding to no more than two weeks of schooling per variant copy compared to an average of 15 years.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The Neandertal-derived variant is connected to changes in brain structure and a lower risk of schizophrenia, but it has little to no relationship with general cognitive ability.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

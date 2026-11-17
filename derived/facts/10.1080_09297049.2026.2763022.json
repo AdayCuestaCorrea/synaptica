@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1080/09297049.2026.2763022",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "6c848b4efad4e4dd",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-17T16:32:14+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study reviewed records from 17 children and teenagers who had brain tumors called craniopharyngiomas and hormone problems, most of whom had surgery and radiation.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers looked at how these young patients learned and remembered spoken words, including how their performance changed over repeated attempts.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The group showed weaknesses in learning and remembering words, even though their overall intelligence and daily skills were considered average.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Patients who had trouble sleeping had worse problems with learning and memory than those without sleep issues.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "In 75% of the patients, their ability to learn new words stopped improving or got worse as they repeated the test.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Further analysis showed these patients had a harder time remembering words from the middle of a list compared to the beginning or end.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "There was a tendency for patients to remember words that were not on the list, although they were still able to group related words together.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The results suggest that doctors should carefully check memory skills and work together to manage sleep problems in these children.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

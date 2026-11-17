@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1073/pnas.2613288123",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "457f3d02766b9c69",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-17T16:30:12+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used high-resolution imaging methods to compare the structure of inhibitory synapses located on the cell body versus those on the dendrites.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "Synapses on the cell body were found to be larger and have a more varied and complex structure than those on the dendrites.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "Dendritic synapses typically have a compact shape where receptor clusters are often organized into aligned columns.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "Cell body synapses showed a wider variety of structures, including both aligned columns and disorganized arrangements where release sites and receptors did not line up.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Computer simulations suggested that these structural differences lead to stronger electrical signals and different timing properties at cell body synapses.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

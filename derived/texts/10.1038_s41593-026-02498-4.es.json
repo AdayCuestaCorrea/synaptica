@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1038/s41593-026-02498-4",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "a6cd7f7d094a54a1",
+ "generated_at": "2026-11-17T16:36:30+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "En un modelo murino de lesión nerviosa, todos los tipos de interneuronas GABAérgicas de la corteza prelimbica se volvieron más sensibles y pasaron de responder a un único tipo de entrada a varios tipos.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "El estudio observó que grupos distintos de neuronas inhibitorias y excitatorias de esta región cumplen funciones separadas en la promoción del dolor neuropático, con dos circuitos neuronales independientes que controlan sus aspectos sensoriales y emocionales.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Estos resultados explican cómo la corteza prefrontal medial ayuda a guiar la conducta para evitar o superar el dolor y cómo la reducción de la actividad en esta área puede empeorar el dolor neuropático.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-17T16:57:56+00:00"
+ }
+}

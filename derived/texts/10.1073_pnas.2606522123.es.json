@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1073/pnas.2606522123",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "a8d566310aea871f",
+ "generated_at": "2026-11-17T16:52:48+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Este estudio examinó neuronas hipocampales para determinar cómo los canales Kv7, compuestos por subunidades Kv7.2 y Kv7.3, se posicionan en la densidad postsináptica de las espinas dendríticas para reducir la entrada de calcio a través de los receptores NMDA.",
+   "fact_ids": [
+    "f1",
+    "f3"
+   ]
+  },
+  {
+   "text": "La localización de estos canales se ve facilitada por el apareamiento de las subunidades Kv7.2 y Kv7.3 y su unión a AnkyrinG-190, la única variante de AnkyrinG presente en estas espinas.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Cambios específicos en el gen KCNQ2 que provocan encefalopatía epiléptica del desarrollo se asociaron con una presencia significativamente menor de canales Kv7 en las espinas y con una capacidad reducida para bloquear la actividad de los receptores NMDA.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que este grupo específico de canales Kv7 atenúa las señales excitatorias entre neuronas, lo que sugiere que los problemas con estos canales están implicados en la encefalopatía epiléptica del desarrollo asociada a KCNQ2, una condición conocida por causar epilepsia en recién nacidos.",
+   "fact_ids": [
+    "f6",
+    "f2"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-17T16:58:59+00:00"
+ }
+}

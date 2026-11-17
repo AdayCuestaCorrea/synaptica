@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1007/s00381-026-07506-3",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "66be0c3be234986a",
+ "generated_at": "2026-11-17T16:44:39+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores realizaron una revisión retrospectiva de las historias clínicas de un gran centro de cáncer y un hospital infantil, abarcando el período de 2012 a 2025, para examinar a un grupo de niños tratados por tumores dentro de la médula espinal.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "En esta cohorte específica, todos los tumores se encontraban en la región cervical de la médula espinal.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Los autores concluyeron que tratar la afección antes de que aparezcan síntomas graves podría conducir a una mejor función nerviosa a largo plazo.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-17T16:58:57+00:00"
+ }
+}

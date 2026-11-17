@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1080/19585969.2026.2747472",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "0b25f0e1f59d4bc2",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-17T16:33:21+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study analyzed resting-state EEG data from 26 young adults with alcohol use disorder and 35 healthy controls to look at how brain regions connect during brief, recurring brain states.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "While the overall patterns of brain activity looked similar in both groups, people with alcohol use disorder spent more time in two specific brain states labeled C and D.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "During one of these specific brain states, the alcohol use disorder group had stronger connections between the front and back of the brain, but weaker connections between the left and right sides.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The brain networks in the alcohol use disorder group were less stable and efficient during this specific state.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors suggest that looking at these brief brain states provides useful signs of how alcohol use affects the brain.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}
