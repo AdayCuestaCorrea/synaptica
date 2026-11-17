@@ -67,6 +67,8 @@ def test_fetch_pages_through_the_endpoint_and_sorts(tmp_path, monkeypatch):
     def handler(request: httpx.Request) -> httpx.Response:
         asked.append(int(request.url.params["offset"]))
         assert 'STRSTARTS(?tn, "A08.186.211.")' in request.url.params["query"]
+        # Tree labels are "…"@en: a plain equality never matched the tree's own descriptor.
+        assert 'STR(?tn) = "A08.186.211"' in request.url.params["query"]
         rows = pages[len(asked) - 1]
         return httpx.Response(200, json={"results": {"bindings": [
             {"d": {"value": f"http://id.nlm.nih.gov/mesh/{u}"}, "name": {"value": n},

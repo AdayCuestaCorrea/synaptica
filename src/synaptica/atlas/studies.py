@@ -51,13 +51,15 @@ def vocabulary_path() -> Path:
 
 
 def fetch(client: httpx.Client, tree: str = TREE) -> list[dict[str, str]]:
-    """Every descriptor under ``tree`` with each of its tree numbers and entry terms, sorted
-    (so a fetch with no change in MeSH writes the same file)."""
+    """Every descriptor under ``tree``, itself included, with each of its tree numbers and
+    entry terms, sorted (so a fetch with no change in MeSH writes the same file). Tree labels
+    carry a language tag (``"…"@en``), so the equality compares ``STR(?tn)``: without it the
+    descriptor of ``tree`` itself was left out (found in Neuro Lab's measurement, v201)."""
     query = f"""PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT DISTINCT ?d ?name ?tn ?term FROM <http://id.nlm.nih.gov/mesh> WHERE {{
   ?d a meshv:TopicalDescriptor ; rdfs:label ?name ; meshv:treeNumber ?t .
-  ?t rdfs:label ?tn . FILTER(?tn = "{tree}" || STRSTARTS(?tn, "{tree}."))
+  ?t rdfs:label ?tn . FILTER(STR(?tn) = "{tree}" || STRSTARTS(?tn, "{tree}."))
   ?d (meshv:preferredConcept|meshv:concept) ?c . ?c (meshv:preferredTerm|meshv:term) ?x .
   ?x meshv:prefLabel ?term .
 }} ORDER BY ?d ?tn ?term"""
