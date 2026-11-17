@@ -143,3 +143,65 @@ def test_lab_pages_list_the_studies_as_a_proposal(tmp_path: Path) -> None:
     none = (out / "en" / "lab" / "perfusion.html").read_text()
     assert "No recent study names this technique" in none
     assert "1 estudio reciente<" in (out / "es" / "lab.html").read_text()
+
+
+# ---- her queue (B2-3, v204) ----------------------------------------------------------
+
+
+def test_one_card_per_technique_with_its_words_once_each() -> None:
+    from synaptica.review.models import ItemType
+
+    items = studies.review_items({"eeg": [{"title": f"EEG study {n}"} for n in range(5)]})
+    assert [i.item_id for i in items] == [f"lab-{t['id']}" for t in studies.techniques()]
+    assert all(i.item_type is ItemType.SEARCH_TERMS for i in items)
+    eeg = next(i for i in items if i.item_id == "lab-eeg")
+    assert eeg.content.terms[0] == "Electroencephalography" and "ECoG" in eeg.content.terms
+    assert eeg.content.examples == ["EEG study 0", "EEG study 1", "EEG study 2"]
+    opto = next(i for i in items if i.item_id == "lab-optogenetics")
+    assert [w.lower() for w in opto.content.terms].count("optogenetics") == 1
+    confocal = next(i for i in items if i.item_id == "lab-confocal")
+    assert "Laser Scanning Microscopy" not in confocal.content.terms  # excluded
+    # New studies every day never bring back a card she answered.
+    assert [i.content_sha256 for i in items] == [i.content_sha256 for i in studies.review_items({})]
+
+
+def test_lab_cards_from_the_23rd_four_a_weekday_after_the_pairs(tmp_path: Path) -> None:
+    from synaptica.review import collect
+    from test_review_collect import data_dir
+
+    data = data_dir(tmp_path, a=4)
+
+    def techs(day: dt.date) -> list[str]:
+        q = collect.collect(data / "warehouse.duckdb", data / "derived", data / "review", day,
+                            glossary=[])  # fmt: skip
+        return [i.item_id for i in q.items if i.item_id.startswith("lab-")]
+
+    assert techs(dt.date(2026, 11, 22)) == []
+    monday = techs(dt.date(2026, 11, 23))
+    assert monday == ["lab-perfusion", "lab-western-blot", "lab-immunofluorescence",
+                      "lab-confocal"]  # fmt: skip
+    assert len(techs(dt.date(2026, 11, 28))) == collect.LAB_TERMS_WEEKEND
+
+
+def test_her_approval_takes_the_proposal_tag_off_the_technique(tmp_path: Path) -> None:
+    from synaptica.review.models import Action
+    from test_review_collect import decide
+    from test_site_news import STUDIES, study
+    from test_site_news import warehouse as site_warehouse
+
+    rows = [*STUDIES, study("doi:10.1/opto", title="Optogenetic silencing of the amygdala")]
+    data = site_warehouse(tmp_path / "data", studies=rows)
+    items = {i.item_id: i for i in studies.review_items()}
+    decide(data, items["lab-optogenetics"], Action.APPROVE)
+    assert studies.reviewed(data / "review") == {"optogenetics": "2026-11-10"}
+    out = tmp_path / "site"
+    SiteBuilder(out, images=LICENSED, data_dir=data).build()
+    assert check_site(out).passed
+    opto = (out / "es" / "lab" / "optogenetics.html").read_text()
+    assert "gap-lab_match" not in opto
+    assert "términos de búsqueda que revisó Sofía (2026-11-10)" in opto
+    fmri = (out / "es" / "lab" / "fmri.html").read_text()
+    assert 'href="#gap-lab_match"' in fmri
+    # A correction leaves it a proposal until her words are on the table and approved.
+    decide(data, items["lab-fmri"], Action.EDIT, {"terms": ["fMRI", "BOLD"]}, n=2)
+    assert "fmri" not in studies.reviewed(data / "review")

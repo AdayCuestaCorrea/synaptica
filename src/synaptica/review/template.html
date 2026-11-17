@@ -185,6 +185,7 @@ const GROUP_HINTS = {
   classics: "Estudios de hace años, muy citados, que salen en el bloque «Clásicos» de Neuro News. El programa los propone por número de citas; tú eliges cuáles se publican esta semana.",
   equivalence: "Qué región del cerebro humano corresponde a una región de la rata, para la vista lado a lado de Neuro Atlas. Los dos atlas dividen el cerebro de forma distinta: a veces una región de la rata se corresponde con varias áreas humanas. Tu grado y tu nota se verán en la web.",
   search_terms: "Neuro Atlas muestra en cada región los estudios en humanos y en animales que la mencionan. El programa los reconoce por sus términos MeSH (los que pone PubMed) o, si aún no los tienen, por estas palabras en el título o el resumen. Cada término incluye todo lo que cuelga de él en MeSH (por ejemplo, el hipocampo incluye CA1 y el giro dentado).",
+  search_terms_lab: "Neuro Lab muestra en cada técnica estudios recientes que la usan. El programa los reconoce por sus términos MeSH (los que pone PubMed) o por estas palabras en el título, las palabras clave o el resumen (dos veces). Cada término MeSH incluye todo lo que cuelga de él, salvo lo que no es la técnica (por ejemplo, los ritmos cerebrales bajo el EEG).",
   glossary: "Definiciones cortas del glosario, pensadas para alguien sin formación en neurociencia. Comprueba que son correctas y que se entienden.",
   news_topic: "Las noticias se agrupan por temas, que el lector usa como filtro. Si ocultas un tema, sus noticias no salen en la web.",
   news_label: "Titulares de Neuro News para medir el clasificador automático: elige el tipo que le darías tú. Son 100 en total, unos pocos al día. Decide por el titular, como hace el programa; si no basta, ábrelo. Tu respuesta no cambia la web: solo sirve para saber cuánto acierta.",
@@ -194,6 +195,7 @@ const GROUP_HINTS = {
 const GROUPS = {
   disease: "Neuro Diseases · obligatoria", classics: "Clásicos de la semana",
   equivalence: "Rata ↔ humano", atlas: "Neuro Atlas", search_terms: "Búsquedas por región",
+  search_terms_lab: "Búsquedas por técnica",
   lab: "Neuro Lab", glossary: "Glosario", learn: "Neuro Learn", news_topic: "Temas de noticias",
   news_label: "Tipo de cada titular",
   news: "Resúmenes publicados (opcional)", title: "Títulos traducidos (opcional)",
@@ -220,6 +222,9 @@ function el(tag, attrs = {}, ...kids) {
 }
 
 // An answer belongs to one version of the item: if the draft changes, the old answer is dropped.
+// The techniques of Neuro Lab share the pairs' item type, with their own heading.
+const groupOf = (item) =>
+  item.item_type === "search_terms" && item.item_id.startsWith("lab-") ? "search_terms_lab" : item.item_type;
 const keyOf = (item) => `${item.item_type}/${item.item_id}@${item.content_sha256.slice(0, 12)}`;
 const ans = (item) => (answers[keyOf(item)] = answers[keyOf(item)] || {});
 
@@ -307,7 +312,7 @@ function termsControls(item) {
     ? [el("p", { class: "hint", text: "Algunos estudios que encuentran hoy:" }),
        el("ul", {}, ...item.content.examples.map((t) => el("li", { text: t, lang: "en" })))]
     : [];
-  return [el("p", { class: "hint", text: "Palabras con las que se reconocen los estudios de esta región:" }), list, ...examples,
+  return [el("p", { class: "hint", text: `Palabras con las que se reconocen los estudios de esta ${groupOf(item) === "search_terms_lab" ? "técnica" : "región"}:` }), list, ...examples,
     question("¿Con estas palabras se encuentran los estudios de esta región?",
       "Añade las que usen los investigadores y falten (sinónimos, nombres de sus partes) y quita las que traerían otra cosa, por ejemplo una sigla que en otros campos significa algo distinto.", r),
     edit];
@@ -408,8 +413,8 @@ function render() {
   const list = document.getElementById("list");
   let group = null;
   for (const item of PAGE.items) {
-    if (item.item_type !== group) {
-      group = item.item_type;
+    if (groupOf(item) !== group) {
+      group = groupOf(item);
       list.append(el("h3", { class: "group", text: GROUPS[group] || group }));
       if (GROUP_HINTS[group]) list.append(el("p", { class: "hint group-hint", text: GROUP_HINTS[group] }));
     }

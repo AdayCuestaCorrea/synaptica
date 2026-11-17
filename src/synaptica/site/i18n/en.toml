@@ -334,3 +334,4 @@ gap_lab_texts = "What each technique lets us see and its limits are written from
 gap_lab_studies = "The studies of each technique come from the daily warehouse; this version of the site was built without it."
 gap_lab_match = "Studies matched to the technique automatically, by their MeSH terms or by the technique's name in the title, keywords or abstract. Sofía will review each technique's search terms."
 gap_lab_regions = "The regions where each technique is used will come from the studies that share a region and a technique, as a proposal for Sofía."
+lab_match_reviewed = "Studies matched to the technique automatically, with the search terms Sofía reviewed ({date})."

@@ -557,10 +557,13 @@ class SiteBuilder:
 
         t, found = self.i18n[lang], self.technique_found
         gaps = {k: ("gap", t[f"gap_{k}"]) for k in ("lab_texts", "lab_regions")}
-        groups = None
+        groups, reviewed_at = None, None
         if found is not None:
             groups = by_species(found.get(tech["id"], []), TECHNIQUE_STUDIES)
-            gaps["lab_match"] = ("proposal", t["gap_lab_match"])
+            # «Propuesta» until she approves its search terms as the table is today (B2-3).
+            reviewed_at = self.reviewed_techniques.get(tech["id"])
+            if reviewed_at is None:
+                gaps["lab_match"] = ("proposal", t["gap_lab_match"])
             shown = [s for g in groups for s in g["studies"]]
             got = self.study_gaps(lang, shown)
             gaps.update({k: got[k] for k in ("title_es", "journal_name") if k in got})
@@ -569,7 +572,14 @@ class SiteBuilder:
         pages = set(self.news_data.by_id) if self.news_data else set()
         self.render(lang, "technique", "technique.html.j2", key=tech["id"], tech=tech,
                     name=tech[f"name_{lang}"], gaps=gaps, groups=groups,
-                    study_pages=pages)  # fmt: skip
+                    study_pages=pages, reviewed_at=reviewed_at)  # fmt: skip
+
+    @functools.cached_property
+    def reviewed_techniques(self) -> dict[str, str]:
+        """Technique id -> the date Sofía approved its search terms, as on the table today."""
+        from synaptica.lab.studies import reviewed
+
+        return reviewed(self.data_dir / "review" if self.data_dir is not None else None)
 
     def glossary(self, lang: str) -> None:
         gl, t = self.gl[lang], self.i18n[lang]

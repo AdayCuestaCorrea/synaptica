@@ -30,6 +30,7 @@ import httpx
 from synaptica.atlas import studies as atlas_studies
 from synaptica.http import get_json
 from synaptica.narrative.sources import abstract_for
+from synaptica.review.models import ItemType, ReviewItem, TermsContent
 
 
 def vocabulary_path() -> Path:
@@ -129,4 +130,57 @@ def counts(found: dict[str, list[dict[str, Any]]]) -> dict[str, dict[str, int]]:
         mine = found.get(t["id"], [])
         mesh = sum(s["basis"] == "mesh" for s in mine)
         out[t["id"]] = {"studies": len(mine), "mesh": mesh, "text": len(mine) - mesh}
+    return out
+
+
+# ---- Sofía's queue (B2-3, Aday's option A of v202: like the pairs of Neuro Atlas) ------
+
+EXAMPLES = 3
+PREFIX = "lab-"  # item ids of the techniques, beside the pairs' «waxholm-…»
+
+
+def words(tech: dict[str, Any], rows: list[dict[str, str]] | None = None) -> list[str]:
+    """What she approves for a technique, in order: each MeSH descriptor's name and its
+    entry terms (without the excluded ones), then the table's own words."""
+    rows = kept(vocabulary()) if rows is None else rows
+    out: list[str] = []
+    for ui in tech["mesh"]:
+        mine = [r for r in rows if r["ui"] == ui]
+        if not mine:
+            continue
+        out += [mine[0]["name"], *sorted({r["term"] for r in mine})]
+    out += tech.get("text", [])
+    seen: set[str] = set()  # once each, whatever the case (MeSH «Optogenetics», ours too)
+    return [w for w in out if not (w.lower() in seen or seen.add(w.lower()))]
+
+
+def review_items(found: dict[str, list[dict[str, Any]]] | None = None) -> list[ReviewItem]:
+    """One ``search_terms`` item per technique, in the table's order, with a few studies
+    its terms find today (``found``). She approves, or corrects the list; her correction
+    goes into technique_terms.toml (``text``) by hand, as for the pairs (v190)."""
+    items = []
+    for tech in techniques():
+        examples = [s["title"] for s in (found or {}).get(tech["id"], [])[:EXAMPLES]]
+        items.append(ReviewItem(
+            item_type=ItemType.SEARCH_TERMS, item_id=PREFIX + tech["id"],
+            title_es=tech["name_es"],
+            content=TermsContent(region=PREFIX + tech["id"], terms=words(tech),
+                                 examples=examples),
+        ))  # fmt: skip
+    return items
+
+
+def reviewed(review_dir: Path | None) -> dict[str, str]:
+    """Technique id → the date Sofía approved its search terms («Están bien») as the table
+    is today; a later change of its row brings it back to her queue (the hash)."""
+    from synaptica.review.apply import read_log, state
+
+    if review_dir is None or not review_dir.exists():
+        return {}
+    events = read_log(review_dir)
+    out = {}
+    for item in review_items():
+        st = state(item, events)
+        if st.status == "decided" and st.terms is None and st.reviewed_at is not None:
+            out[item.item_id.removeprefix(PREFIX)] = st.reviewed_at.date().isoformat()
     return out

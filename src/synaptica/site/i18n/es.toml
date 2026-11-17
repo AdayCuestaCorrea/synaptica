@@ -334,3 +334,4 @@ gap_lab_texts = "Qué permite ver cada técnica y sus límites lo escribimos a p
 gap_lab_studies = "Los estudios de cada técnica salen del almacén de cada día; esta versión de la web se ha construido sin él."
 gap_lab_match = "Estudios emparejados con la técnica de forma automática, por sus términos MeSH o por el nombre de la técnica en el título, las palabras clave o el resumen. Sofía revisará los términos de búsqueda de cada técnica."
 gap_lab_regions = "Las regiones donde se usa cada técnica saldrán de los estudios que comparten región y técnica, como propuesta para Sofía."
+lab_match_reviewed = "Estudios emparejados con la técnica de forma automática, con los términos de búsqueda que revisó Sofía ({date})."

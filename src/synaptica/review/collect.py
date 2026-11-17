@@ -56,6 +56,10 @@ GLOSSARY_FROM = dt.date(2026, 11, 18)
 # the glossary terms.
 REGION_TERMS_FROM = dt.date(2026, 11, 18)
 REGION_TERMS_WEEKDAY, REGION_TERMS_WEEKEND = 4, 2
+# Neuro Lab: the technique -> MeSH + words table (B2-3, v204), as many a day, once her 12
+# pairs are done (4 a day from 2026-11-18 end on the 20th): not two sets of terms at once.
+LAB_TERMS_FROM = dt.date(2026, 11, 23)
+LAB_TERMS_WEEKDAY, LAB_TERMS_WEEKEND = 4, 2
 # Step 14b: headlines to label (``news.labels``), after the pairs and before the optional
 # spot-check, from 2026-11-19 (her page of 2026-11-18 was announced without them).
 # Spanish titles (step 23c): a few a day at random, after the summaries' spot-check.
@@ -236,6 +240,15 @@ def collect(
                 cache_root=cache_root,
             )
             region_terms = studies.review_items(found)
+        if today >= LAB_TERMS_FROM and warehouse.exists():
+            from synaptica.lab import studies as lab
+
+            found = lab.technique_studies(
+                warehouse,
+                ("study_id", "title", "pmid", "doi", "pmcid", "sources", "species"),
+                cache_root=cache_root,
+            )
+            region_terms += lab.review_items(found)
     events = read_log(review_dir)
     if labels is None:
         labels = []
@@ -259,8 +272,11 @@ def collect(
     weekend = today.weekday() >= 5
     new_terms = [i for i in rest if i.item_type is ItemType.GLOSSARY]
     later = {i.key for i in new_terms[GLOSSARY_WEEKEND if weekend else GLOSSARY_WEEKDAY :]}
-    pairs = [i for i in rest if i.item_type is ItemType.SEARCH_TERMS]
+    terms = [i for i in rest if i.item_type is ItemType.SEARCH_TERMS]
+    pairs = [i for i in terms if not i.item_id.startswith("lab-")]
     later |= {i.key for i in pairs[REGION_TERMS_WEEKEND if weekend else REGION_TERMS_WEEKDAY :]}
+    techs = [i for i in terms if i.item_id.startswith("lab-")]
+    later |= {i.key for i in techs[LAB_TERMS_WEEKEND if weekend else LAB_TERMS_WEEKDAY :]}
     # Never past the target: the day's share, or what is left of the 100 if less.
     to_label = [i for i in rest if i.item_type is ItemType.NEWS_LABEL]
     left = max(0, LABELS_TARGET - len(labelled(events)))

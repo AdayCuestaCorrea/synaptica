@@ -20,6 +20,7 @@
   {% elif not groups %}
   <p class="muted">{{ t.lab_studies_none }}</p>
   {% else %}
+  {% if reviewed_at %}<p class="muted region-reviewed">{{ t.lab_match_reviewed | replace("{date}", reviewed_at) }}</p>{% endif %}
   <p class="muted">{{ t.lab_studies_intro }}{% if lang == "es" %} {{ m.gap_if("title_es") }}{% endif %}</p>
   {% for g in groups %}
   <section class="region-studies" data-species="{{ g.species }}">
