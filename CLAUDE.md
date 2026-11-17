@@ -98,6 +98,7 @@ uv run syn ingest pubmed --days 3         # registros nuevos de PubMed a data/ra
 uv run syn ingest crossref --days 3       # avisos de retractación, corrección… a data/raw/crossref/notices/
 uv run syn ingest retractionwatch         # base de Retraction Watch (CSV de Crossref, descarga condicional): solo los cambios
 uv run pytest
+DATA_DIR=RUTA scripts/ci_local.sh         # lo mismo que la CI antes de cada push (+ site --check sobre datos reales con DATA_DIR); no se espera a Actions (v195)
 uv run ruff check . && uv run ruff format --check .
 uv run syn ingest europepmc --days 3      # acceso abierto de Europe PMC (el texto completo, bajo demanda)
 uv run syn ingest biorxiv --days 7        # preprints de bioRxiv y medRxiv + enlaces a su versión publicada
