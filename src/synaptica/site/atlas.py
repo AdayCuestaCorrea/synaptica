@@ -6,7 +6,8 @@ the human list shows the four layers side by side, each region tagged with the l
 from, and no geometry is joined (CLAUDE.md, "Licencias").
 
 The order of the regions is Sofía's to set (SCOPE §7, «Orden de las regiones»). Until she does,
-the families of the calm palette go from the surface inwards, as she proposed, and the names
+the families of the calm palette go from the surface inwards, as she proposed, the regions of
+the rat ↔ human pairs first in each family (v207), and the names
 stay as in the atlases (English): their Spanish names are hers to review (study question 4).
 """
 
@@ -29,10 +30,14 @@ def _load(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text("utf-8"))
 
 
-def regions(atlas_dir: Path, brain: str) -> list[dict[str, Any]]:
+def regions(atlas_dir: Path, brain: str, first: set[str] = frozenset()) -> list[dict[str, Any]]:
     """The families of one brain, from the surface inwards, each with its regions.
 
-    One entry per region name (both sides together), sorted by name inside its family:
+    Provisional order (plan of 2026-11-17, option A, until Sofía answers row 10): inside a
+    family, the regions with a counterpart in the other brain (viewer keys in ``first``)
+    come first, then the rest, each part by name.
+
+    One entry per region name (both sides together), sorted inside its family:
     ``{"family", "depth" ("surface" | "interior"), "regions": [{"name", "acronym", "atlas",
     "colour"}]}``. Families with no region are left out.
     """
@@ -50,7 +55,8 @@ def regions(atlas_dir: Path, brain: str) -> list[dict[str, Any]]:
             })  # fmt: skip
     return [
         {"family": fam, "depth": "surface" if fam in SURFACE else "interior",
-         "regions": sorted(found.values(), key=lambda r: (r["name"].lower(), r["atlas"]))}
+         "regions": sorted(found.values(),
+                           key=lambda r: (r["key"] not in first, r["name"].lower(), r["atlas"]))}
         for fam, found in by_family.items() if found
     ]  # fmt: skip
 

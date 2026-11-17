@@ -203,3 +203,16 @@ def test_a_correction_keeps_the_proposal(tmp_path: Path) -> None:
     items = {i.item_id: i for i in studies.review_items()}
     decide(data, items["waxholm-1021"], Action.EDIT, {"terms": ["Hippocampus", "dentate hilus"]})
     assert studies.reviewed(data / "review") == {}
+
+
+def test_regions_with_a_pair_come_first_in_their_family(tmp_path: Path) -> None:
+    """Provisional order (v207, until Sofía answers row 10): paired regions first, then the
+    rest, each part by name, inside each family."""
+    write(tmp_path, "waxholm", [row("Alpha area", "L", "cortex"),
+                                row("Primary motor area", "L", "cortex", "M1"),
+                                row("Zeta area", "L", "cortex")])  # fmt: skip
+    plain = [r["name"] for r in atlas.regions(tmp_path, "rat")[0]["regions"]]
+    assert plain == ["Alpha area", "Primary motor area", "Zeta area"]
+    motor = f"w{len('Primary motor area')}"
+    paired = [r["name"] for r in atlas.regions(tmp_path, "rat", {motor})[0]["regions"]]
+    assert paired == ["Primary motor area", "Alpha area", "Zeta area"]

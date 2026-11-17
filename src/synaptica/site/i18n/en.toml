@@ -298,7 +298,7 @@ fam_hindbrain = "Hindbrain and cerebellum"
 fam_white_matter = "White matter"
 fam_ventricles = "Ventricles"
 fam_other = "Other"
-gap_atlas_order = "Sofía decides the order of the regions. Until then they go from the surface inwards, by family."
+gap_atlas_order = "Sofía decides the order of the regions. Until then they go from the surface inwards, by family, and in each family the regions with a counterpart in the other brain come first."
 gap_atlas_names = "Sofía reviews the Spanish names of the regions."
 
 # Neuro Glossary (Phase 2, v181)

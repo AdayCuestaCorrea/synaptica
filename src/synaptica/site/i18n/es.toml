@@ -298,7 +298,7 @@ fam_hindbrain = "Rombencéfalo y cerebelo"
 fam_white_matter = "Sustancia blanca"
 fam_ventricles = "Ventrículos"
 fam_other = "Otras"
-gap_atlas_order = "El orden de las regiones lo decide Sofía. Mientras tanto van de la superficie hacia dentro, por familias."
+gap_atlas_order = "El orden de las regiones lo decide Sofía. Mientras tanto van de la superficie hacia dentro, por familias, y en cada familia primero las regiones que tienen pareja en el otro cerebro."
 gap_atlas_names = "Los nombres en español de las regiones los revisa Sofía."
 
 # Neuro Glossary (Phase 2, v181)

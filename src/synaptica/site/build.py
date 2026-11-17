@@ -437,7 +437,8 @@ class SiteBuilder:
         credits = {b: atlas_page.credits(src, b) for b in atlas_page.BRAINS}
         pages = atlas_page.region_pages(src)
         return {
-            "brains": [{"key": b, "families": atlas_page.regions(src, b), "credits": credits[b]}
+            "brains": [{"key": b, "credits": credits[b],
+                        "families": atlas_page.regions(src, b, {r["key"] for r in pages})}
                        for b in atlas_page.BRAINS],
             "credit": {c["atlas"]: c for cs in credits.values() for c in cs},
             "pages": pages,
