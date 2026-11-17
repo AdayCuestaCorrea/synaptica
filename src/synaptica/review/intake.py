@@ -186,6 +186,14 @@ def edit_warnings(item: ReviewItem, payload: dict, source_texts: dict[str, str])
                 out.append(f"({label}) «{name}» no aparece en el texto revisado ni en su fuente.")
         for run in checks.copied_runs(text, source_grams):
             out.append(f"({label}) Copia 8 palabras seguidas de la fuente: «{run}».")
+        if item.item_type is ItemType.TITLE and lang == "es":
+            # Her title passes the checks of the translated ones (step 23c), against the
+            # English original, which she does not change.
+            from synaptica.news.titles import check_title
+
+            original = " ".join(s.text for s in content.en)
+            out += [f"(español) {p}" for p in check_title(original, " ".join(sentences(text)),
+                                                           lang="es")]  # fmt: skip
         if content.sources:
             mine = sentences(text)
             matched = align([s.text for s in getattr(content, lang)], mine)

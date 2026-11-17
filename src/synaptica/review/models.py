@@ -50,6 +50,7 @@ class ItemType(StrEnum):
     CLASSICS = "classics"  # the weekly choice of Classics
     NEWS_TOPIC = "news_topic"  # a news category she can switch off
     NEWS_LABEL = "news_label"  # her type for a Neuro News headline: the classifier's gold
+    TITLE = "title"  # optional spot-check of a Spanish title (step 23c), against the English
 
 
 class Grade(StrEnum):
@@ -187,6 +188,7 @@ KIND_OF: dict[ItemType, str] = {
     ItemType.GLOSSARY: "text",
     ItemType.LEARN: "text",
     ItemType.NEWS: "text",
+    ItemType.TITLE: "text",
     ItemType.SEARCH_TERMS: "terms",
     ItemType.EQUIVALENCE: "pair",
     ItemType.CLASSICS: "candidates",

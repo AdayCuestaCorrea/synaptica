@@ -109,6 +109,7 @@ uv run syn ingest classics                # los más citados de cada subcampo, u
 uv run syn news neuro [--provider groq]   # ¿es neurociencia? reglas de OpenAlex; el LLM solo con --provider
 uv run syn news classify --provider groq  # tipo de cada pieza de Neuro News (lee el almacén: antes syn build)
 uv run syn news group --provider groq [--budget 150]   # misma noticia entre medios e idiomas (pares al LLM); se corta solo a los 150 s
+uv run syn titles --provider groq [--limit N]   # títulos en español de lo que enseña la web, con comprobaciones; si fallan, el original (código fusionado; en el pipeline, tras el cierre de la Fase 1)
 uv run syn eval news --gold eval/news/labels.csv [--pairs eval/news/pairs.csv]   # macro F1 del LLM y del baseline (grupo eval)
 uv run syn eval pairs-sheet --out FUERA/hoja.csv [--top 30 --sample 20]   # hoja ciega de pares para Aday (fuera del repo; sin LLM)
 uv run syn eval pairs-gold --sheet FUERA/hoja.csv   # → eval/news/pairs.csv solo con claves y sí/no
@@ -119,6 +120,7 @@ uv run syn judge --provider groq [--limit 40] [--until HH:MM] # juez de otra fam
 uv run syn recheck                        # vuelve a comprobar los textos en español que fallaron, sin LLM
 uv run syn weekly --provider groq [--week 2026-W45]   # resumen semanal: misma cadena, comprobaciones y juez
 uv run syn build                          # dbt build: modelos + tests (desde la Fase 1)
+uv run syn figures                        # Figura 1 de Última hora desde el bucket abierto de PMC (WebP a data/cache/)
 uv run syn mirror export --out DIR        # marts a Parquet para el espejo semanal en BigQuery (tope 1 GiB)
 uv run syn mirror record --dir DIR [--stored S]   # anota filas y bytes en mirror/bigquery.jsonl
 uv run syn review queue --out Q                 # cola del día: resúmenes por muestreo (peor español primero), tope 40/10

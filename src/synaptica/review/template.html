@@ -189,13 +189,14 @@ const GROUP_HINTS = {
   news_topic: "Las noticias se agrupan por temas, que el lector usa como filtro. Si ocultas un tema, sus noticias no salen en la web.",
   news_label: "Titulares de Neuro News para medir el clasificador automático: elige el tipo que le darías tú. Son 100 en total, unos pocos al día. Decide por el titular, como hace el programa; si no basta, ábrelo. Tu respuesta no cambia la web: solo sirve para saber cuánto acierta.",
   news: "Resúmenes que escribió la IA a partir de un estudio (enlace debajo de cada uno) y que ya se pueden publicar. Comprueba que dicen lo mismo que el estudio, sin exagerar, y que el español suena natural. Revisarlos es opcional; si rechazas uno, no se publica.",
+  title: "Unos pocos títulos al día, elegidos al azar, que la IA tradujo del inglés y ya se ven en la web. Pasaron comprobaciones automáticas (cifras, nombres, organismos, sin afirmar más que el original), pero no las lee ningún juez. Comprueba que dicen lo mismo que el original en inglés y que suenan naturales. Es opcional; si rechazas uno, la web vuelve a mostrar el original en inglés.",
 };
 const GROUPS = {
   disease: "Neuro Diseases · obligatoria", classics: "Clásicos de la semana",
   equivalence: "Rata ↔ humano", atlas: "Neuro Atlas", search_terms: "Búsquedas por región",
   lab: "Neuro Lab", glossary: "Glosario", learn: "Neuro Learn", news_topic: "Temas de noticias",
   news_label: "Tipo de cada titular",
-  news: "Resúmenes publicados (opcional)",
+  news: "Resúmenes publicados (opcional)", title: "Títulos traducidos (opcional)",
 };
 
 let answers = {};
@@ -266,8 +267,11 @@ function textBody(item) {
     open.addEventListener("click", () => { area.hidden = false; open.hidden = true; area.focus(); });
     return el("div", { class: "sent" }, el("p", { text: s.text }), open, area);
   }));
-  const en = el("details", { class: "en" }, el("summary", { text: "Ver la versión en inglés" }),
-    el("div", {}, ...c.en.map((s) => el("p", { text: s.text }))));
+  // A title is checked against its English original, so that one is open (step 23c).
+  const isTitle = item.item_type === "title";
+  const en = el("details", { class: "en", ...(isTitle ? { open: "" } : {}) },
+    el("summary", { text: isTitle ? "Título original en inglés" : "Ver la versión en inglés" }),
+    el("div", {}, ...c.en.map((s) => el("p", { text: s.text, lang: "en" }))));
   const src = el("div", { class: "sources" }, ...c.sources.map((s) =>
     s.url.startsWith("https://") ? el("a", { href: s.url, target: "_blank", rel: "noopener", text: `${s.label} ↗` })
                                  : el("span", { text: s.label })));

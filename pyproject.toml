@@ -19,6 +19,11 @@ dependencies = [
     # Validates the JSON answers of the LLM (decision D4, as in Paleo Atlas and spike S5).
     # Same version as the spike groups; dbt already installs it, now it is declared.
     "pydantic>=2.14.3",
+    # Study figures from PMC's open-access bucket (plan, step 23b; Aday, option ii):
+    # resized and re-encoded to WebP, never cropped. A wheel with libwebp inside, pinned by
+    # uv.lock, so local, CI and pipeline give the same files; ubuntu-24.04 has no
+    # ImageMagick. Same version as the spike-s3 group.
+    "pillow>=13.0.0",
     # Spanish spelling check of the summaries (plan, step 17; SCOPE v73): Hunspell in pure
     # Python (MPL 2.0), with LibreOffice's RLA-ES dictionary in narrative/hunspell/.
     "spylls>=0.1.7",

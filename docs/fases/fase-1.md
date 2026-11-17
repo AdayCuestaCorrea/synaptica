@@ -120,6 +120,5 @@ Caché privada en Actions, parada con el 429 de cupo diario, comprobación previ
 
 ## Lo que pasa a la Fase 2
 *Pendiente al cierre.* Por ahora:
-- 23b (figuras de PMC), si no entra antes del cierre;
-- títulos en español (backlog, v101);
+- 23b (figuras de PMC) y 23c (títulos en español), si no entran antes del cierre;
 - el estudio de UX de Neuro Atlas y el visor en `site/static/` (ADR D3, v98).

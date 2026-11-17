@@ -188,6 +188,33 @@ class SiteBuilder:
             digest.update(path.read_bytes())
         self.asset_v = digest.hexdigest()[:10]
 
+    def _figures(self) -> None:
+        """Copy each study figure from the private cache to ``static/fig/`` (step 23b), so
+        the site loads nothing from other domains. A figure whose files are not in the
+        cache (``syn figures`` has not fetched them again yet) is not shown."""
+        self.figures = 0
+        if self.news_data is None or self.data_dir is None:
+            return
+        n = self.news_data
+        src, dst = self.data_dir / "cache" / "figures", self.out / "static" / "fig"
+        # A study can be in several lists as separate records: every copy is updated.
+        records = [*n.latest, *n.nsc, *n.week_studies, *(e for e in n.examples.values() if e),
+                   *n.by_id.values()]  # fmt: skip
+        copied: set[str] = set()
+        for s in records:
+            f = s.get("figure")
+            if not f:
+                continue
+            if not ((src / f["file"]).is_file() and (src / f["thumb"]).is_file()):
+                s["figure"] = None
+                continue
+            if f["file"] not in copied:
+                dst.mkdir(parents=True, exist_ok=True)
+                for name in (f["file"], f["thumb"]):
+                    shutil.copyfile(src / name, dst / name)
+                copied.add(f["file"])
+        self.figures = len(copied)
+
     # -- pages ---------------------------------------------------------------------------
 
     def path(self, lang: str, kind: str, key: str | None = None) -> str:
@@ -226,6 +253,7 @@ class SiteBuilder:
             month=lambda v: news_mod.fmt_month(v, lang),
             sj=news_mod.short_journal, signals=lambda s: news_mod.signals(s, t),
             licence=lambda s: news_mod.licence_lines(s, lang, t), types=news_mod.TYPES,
+            title=lambda s: news_mod.shown_title(s, lang),
             page_size=news_mod.PAGE, **ctx,
         )  # fmt: skip
         path = self.out / rel
@@ -237,13 +265,14 @@ class SiteBuilder:
     # -- gaps shared by the pages that show studies ------------------------------------------
 
     def study_gaps(self, lang: str, studies: Iterable[dict[str, Any]]) -> dict[str, Any]:
-        """The gaps a list of studies needs: the Spanish title (the LLM does not translate
-        yet), the provisional name of the «journal» signal and the missing types."""
+        """The gaps a list of studies needs: the Spanish title (missing until one passes its
+        checks, step 23c), the provisional name of the «journal» signal and the missing
+        types."""
         t, studies = self.i18n[lang], list(studies)
         gaps: dict[str, tuple[str, str]] = {}
         if self.news_data is None:
             gaps["no_data"] = ("gap", t["gap_no_data"])
-        if lang == "es" and studies:
+        if lang == "es" and any(not s.get("title_es") for s in studies):
             gaps["title_es"] = ("gap", t["gap_title_es"])
         if any(s["review_status"] == "journal" for s in studies):
             gaps["journal_name"] = ("gap", t["gap_journal_name"])
@@ -352,8 +381,10 @@ class SiteBuilder:
                      self.path(lang, "region", r["page"])]
                     for r in self.atlas_data["pages"]]  # fmt: skip
         if self.news_data:
-            out += [[t["kind_study"], s["title"],
-                     " ".join(filter(None, [s["journal"], s["type"] and t["type_" + s["type"]]])),
+            # A translated title is found by its English original too.
+            out += [[t["kind_study"], news_mod.shown_title(s, lang)["text"],
+                     " ".join(filter(None, [s["journal"], s["type"] and t["type_" + s["type"]],
+                                            lang == "es" and s.get("title_es") and s["title"]])),
                      self.path(lang, "study", s["slug"])]
                     for s in self.news_data.by_id.values()]  # fmt: skip
             out += [[t["kind_news"], i["title"], i["outlet"], i["url"]]
@@ -502,6 +533,7 @@ class SiteBuilder:
     def build(self) -> dict[str, Any]:
         self._clean()
         self._static()
+        self._figures()
         for lang in LANGS:
             for kind in self.kinds:
                 getattr(self, kind)(lang)
@@ -516,7 +548,8 @@ class SiteBuilder:
             if "search" in self.kinds:
                 self.search_index(lang)
         self.root()
-        return {"pages": len(self.written), "kinds": list(self.kinds), "out": str(self.out)}
+        return {"pages": len(self.written), "kinds": list(self.kinds), "out": str(self.out),
+                "figures": self.figures}  # fmt: skip
 
 
 def build_site(out: Path, data_dir: Path | None = None) -> dict[str, Any]:
