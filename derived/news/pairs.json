@@ -46,6 +46,15 @@
  },
  {
   "key_a": "journal:10.1016/j.cell.2026.10.021",
+  "key_b": "news:0baf2c27ca6ab352",
+  "same": false,
+  "hash_a": "d5767b9e2102",
+  "hash_b": "362e40a381ea",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1016/j.cell.2026.10.021",
   "key_b": "news:1f204bc242300927",
   "same": false,
   "hash_a": "d5767b9e2102",
@@ -73,10 +82,28 @@
  },
  {
   "key_a": "journal:10.1016/j.cell.2026.10.021",
+  "key_b": "news:57baa392200504a5",
+  "same": false,
+  "hash_a": "d5767b9e2102",
+  "hash_b": "5e89343fbd0d",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1016/j.cell.2026.10.021",
   "key_b": "news:7b3fa9f63382cb15",
   "same": false,
   "hash_a": "d5767b9e2102",
   "hash_b": "328aae2b319f",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1016/j.cell.2026.10.021",
+  "key_b": "news:96fc8178571317aa",
+  "same": false,
+  "hash_a": "d5767b9e2102",
+  "hash_b": "ddd530af23da",
   "generator": "groq/qwen/qwen3.8-27b",
   "prompt_version": "same-story-v1"
  },
@@ -181,6 +208,15 @@
  },
  {
   "key_a": "journal:10.1016/j.cell.2026.10.025",
+  "key_b": "news:0baf2c27ca6ab352",
+  "same": false,
+  "hash_a": "c927d857f417",
+  "hash_b": "362e40a381ea",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1016/j.cell.2026.10.025",
   "key_b": "news:1f204bc242300927",
   "same": false,
   "hash_a": "c927d857f417",
@@ -208,10 +244,28 @@
  },
  {
   "key_a": "journal:10.1016/j.cell.2026.10.025",
+  "key_b": "news:57baa392200504a5",
+  "same": false,
+  "hash_a": "c927d857f417",
+  "hash_b": "5e89343fbd0d",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1016/j.cell.2026.10.025",
   "key_b": "news:7b3fa9f63382cb15",
   "same": false,
   "hash_a": "c927d857f417",
   "hash_b": "328aae2b319f",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1016/j.cell.2026.10.025",
+  "key_b": "news:96fc8178571317aa",
+  "same": false,
+  "hash_a": "c927d857f417",
+  "hash_b": "ddd530af23da",
   "generator": "groq/qwen/qwen3.8-27b",
   "prompt_version": "same-story-v1"
  },
@@ -307,6 +361,15 @@
  },
  {
   "key_a": "journal:10.1038/d41586-026-03565-3",
+  "key_b": "news:0baf2c27ca6ab352",
+  "same": false,
+  "hash_a": "ac6f37be90ed",
+  "hash_b": "362e40a381ea",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1038/d41586-026-03565-3",
   "key_b": "news:1f204bc242300927",
   "same": false,
   "hash_a": "ac6f37be90ed",
@@ -334,10 +397,28 @@
  },
  {
   "key_a": "journal:10.1038/d41586-026-03565-3",
+  "key_b": "news:57baa392200504a5",
+  "same": false,
+  "hash_a": "ac6f37be90ed",
+  "hash_b": "5e89343fbd0d",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1038/d41586-026-03565-3",
   "key_b": "news:7b3fa9f63382cb15",
   "same": false,
   "hash_a": "ac6f37be90ed",
   "hash_b": "328aae2b319f",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1038/d41586-026-03565-3",
+  "key_b": "news:96fc8178571317aa",
+  "same": false,
+  "hash_a": "ac6f37be90ed",
+  "hash_b": "ddd530af23da",
   "generator": "groq/qwen/qwen3.8-27b",
   "prompt_version": "same-story-v1"
  },
@@ -541,6 +622,15 @@
  },
  {
   "key_a": "journal:10.1126/science.aeo0640",
+  "key_b": "news:0baf2c27ca6ab352",
+  "same": false,
+  "hash_a": "d81d1626a27f",
+  "hash_b": "362e40a381ea",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1126/science.aeo0640",
   "key_b": "news:1f204bc242300927",
   "same": false,
   "hash_a": "d81d1626a27f",
@@ -559,10 +649,28 @@
  },
  {
   "key_a": "journal:10.1126/science.aeo0640",
+  "key_b": "news:57baa392200504a5",
+  "same": false,
+  "hash_a": "d81d1626a27f",
+  "hash_b": "5e89343fbd0d",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1126/science.aeo0640",
   "key_b": "news:7b3fa9f63382cb15",
   "same": false,
   "hash_a": "d81d1626a27f",
   "hash_b": "328aae2b319f",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1126/science.aeo0640",
+  "key_b": "news:96fc8178571317aa",
+  "same": false,
+  "hash_a": "d81d1626a27f",
+  "hash_b": "ddd530af23da",
   "generator": "groq/qwen/qwen3.8-27b",
   "prompt_version": "same-story-v1"
  },
@@ -631,6 +739,15 @@
  },
  {
   "key_a": "journal:10.1126/science.aeo0641",
+  "key_b": "news:0baf2c27ca6ab352",
+  "same": false,
+  "hash_a": "08101cd0d793",
+  "hash_b": "362e40a381ea",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1126/science.aeo0641",
   "key_b": "news:1f204bc242300927",
   "same": false,
   "hash_a": "08101cd0d793",
@@ -649,10 +766,28 @@
  },
  {
   "key_a": "journal:10.1126/science.aeo0641",
+  "key_b": "news:57baa392200504a5",
+  "same": false,
+  "hash_a": "08101cd0d793",
+  "hash_b": "5e89343fbd0d",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1126/science.aeo0641",
   "key_b": "news:7b3fa9f63382cb15",
   "same": false,
   "hash_a": "08101cd0d793",
   "hash_b": "328aae2b319f",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1126/science.aeo0641",
+  "key_b": "news:96fc8178571317aa",
+  "same": false,
+  "hash_a": "08101cd0d793",
+  "hash_b": "ddd530af23da",
   "generator": "groq/qwen/qwen3.8-27b",
   "prompt_version": "same-story-v1"
  },
@@ -1224,6 +1359,69 @@
   "prompt_version": "same-story-v1"
  },
  {
+  "key_a": "news:06948a58b6a57e7a",
+  "key_b": "news:1f204bc242300927",
+  "same": false,
+  "hash_a": "e1785720abae",
+  "hash_b": "62a5c1503871",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:06948a58b6a57e7a",
+  "key_b": "news:396a11f48629cec0",
+  "same": false,
+  "hash_a": "e1785720abae",
+  "hash_b": "44086205c9c2",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:06948a58b6a57e7a",
+  "key_b": "news:4475ce3a5c19bcca",
+  "same": false,
+  "hash_a": "e1785720abae",
+  "hash_b": "83fd530f620b",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:06948a58b6a57e7a",
+  "key_b": "news:b564617c33783697",
+  "same": false,
+  "hash_a": "e1785720abae",
+  "hash_b": "6b1dedbf82d7",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:06948a58b6a57e7a",
+  "key_b": "news:bd171fbe60e742b7",
+  "same": false,
+  "hash_a": "e1785720abae",
+  "hash_b": "afe7b2eb457c",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:06948a58b6a57e7a",
+  "key_b": "news:e109ed741d2606c0",
+  "same": false,
+  "hash_a": "e1785720abae",
+  "hash_b": "4bb4fbed15ea",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:06948a58b6a57e7a",
+  "key_b": "news:e41da7202b541ff8",
+  "same": false,
+  "hash_a": "e1785720abae",
+  "hash_b": "38afd3091131",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
   "key_a": "news:0bab44666b06b930",
   "key_b": "news:120b3dfdf57b3b03",
   "same": false,
@@ -1324,6 +1522,15 @@
  },
  {
   "key_a": "news:0bab44666b06b930",
+  "key_b": "news:b564617c33783697",
+  "same": false,
+  "hash_a": "ed275587eed7",
+  "hash_b": "6b1dedbf82d7",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:0bab44666b06b930",
   "key_b": "news:bd171fbe60e742b7",
   "same": false,
   "hash_a": "ed275587eed7",
@@ -1382,6 +1589,60 @@
   "same": false,
   "hash_a": "ed275587eed7",
   "hash_b": "c38d0713fe1d",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:0baf2c27ca6ab352",
+  "key_b": "news:57baa392200504a5",
+  "same": false,
+  "hash_a": "362e40a381ea",
+  "hash_b": "5e89343fbd0d",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:0baf2c27ca6ab352",
+  "key_b": "news:7b3fa9f63382cb15",
+  "same": false,
+  "hash_a": "362e40a381ea",
+  "hash_b": "328aae2b319f",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:0baf2c27ca6ab352",
+  "key_b": "news:96fc8178571317aa",
+  "same": false,
+  "hash_a": "362e40a381ea",
+  "hash_b": "ddd530af23da",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:0baf2c27ca6ab352",
+  "key_b": "news:b007a3fa3a1bb2ef",
+  "same": false,
+  "hash_a": "362e40a381ea",
+  "hash_b": "41aa3d27ab22",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:0baf2c27ca6ab352",
+  "key_b": "news:c483ec2db561705f",
+  "same": false,
+  "hash_a": "362e40a381ea",
+  "hash_b": "b2f3c0996fde",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:0baf2c27ca6ab352",
+  "key_b": "news:f9f6b92afbc12fdf",
+  "same": false,
+  "hash_a": "362e40a381ea",
+  "hash_b": "707db0743e32",
   "generator": "groq/qwen/qwen3.8-27b",
   "prompt_version": "same-story-v1"
  },
@@ -2035,6 +2296,24 @@
  },
  {
   "key_a": "news:1f204bc242300927",
+  "key_b": "news:b007a3fa3a1bb2ef",
+  "same": false,
+  "hash_a": "62a5c1503871",
+  "hash_b": "41aa3d27ab22",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:1f204bc242300927",
+  "key_b": "news:b564617c33783697",
+  "same": false,
+  "hash_a": "62a5c1503871",
+  "hash_b": "6b1dedbf82d7",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:1f204bc242300927",
   "key_b": "news:bd171fbe60e742b7",
   "same": false,
   "hash_a": "62a5c1503871",
@@ -2602,6 +2881,15 @@
  },
  {
   "key_a": "news:396a11f48629cec0",
+  "key_b": "news:48119d3f8526a463",
+  "same": false,
+  "hash_a": "44086205c9c2",
+  "hash_b": "a0ecd92a3182",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:396a11f48629cec0",
   "key_b": "news:794bc3250f5793ce",
   "same": false,
   "hash_a": "44086205c9c2",
@@ -2633,6 +2921,15 @@
   "same": false,
   "hash_a": "44086205c9c2",
   "hash_b": "8eb949e9c730",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:396a11f48629cec0",
+  "key_b": "news:b564617c33783697",
+  "same": false,
+  "hash_a": "44086205c9c2",
+  "hash_b": "6b1dedbf82d7",
   "generator": "groq/qwen/qwen3.8-27b",
   "prompt_version": "same-story-v1"
  },
@@ -2944,6 +3241,15 @@
  },
  {
   "key_a": "news:4475ce3a5c19bcca",
+  "key_b": "news:b564617c33783697",
+  "same": false,
+  "hash_a": "83fd530f620b",
+  "hash_b": "6b1dedbf82d7",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:4475ce3a5c19bcca",
   "key_b": "news:bd171fbe60e742b7",
   "same": false,
   "hash_a": "83fd530f620b",
@@ -2993,6 +3299,15 @@
   "same": false,
   "hash_a": "83fd530f620b",
   "hash_b": "d301a7908615",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:48119d3f8526a463",
+  "key_b": "news:bd171fbe60e742b7",
+  "same": false,
+  "hash_a": "a0ecd92a3182",
+  "hash_b": "afe7b2eb457c",
   "generator": "groq/qwen/qwen3.8-27b",
   "prompt_version": "same-story-v1"
  },
@@ -3110,6 +3425,51 @@
   "same": false,
   "hash_a": "82ab1f2cde43",
   "hash_b": "62436b272537",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:57baa392200504a5",
+  "key_b": "news:7b3fa9f63382cb15",
+  "same": false,
+  "hash_a": "5e89343fbd0d",
+  "hash_b": "328aae2b319f",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:57baa392200504a5",
+  "key_b": "news:96fc8178571317aa",
+  "same": false,
+  "hash_a": "5e89343fbd0d",
+  "hash_b": "ddd530af23da",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:57baa392200504a5",
+  "key_b": "news:b007a3fa3a1bb2ef",
+  "same": false,
+  "hash_a": "5e89343fbd0d",
+  "hash_b": "41aa3d27ab22",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:57baa392200504a5",
+  "key_b": "news:c483ec2db561705f",
+  "same": false,
+  "hash_a": "5e89343fbd0d",
+  "hash_b": "b2f3c0996fde",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:57baa392200504a5",
+  "key_b": "news:f9f6b92afbc12fdf",
+  "same": false,
+  "hash_a": "5e89343fbd0d",
+  "hash_b": "707db0743e32",
   "generator": "groq/qwen/qwen3.8-27b",
   "prompt_version": "same-story-v1"
  },
@@ -3673,6 +4033,15 @@
  },
  {
   "key_a": "news:794bc3250f5793ce",
+  "key_b": "news:b564617c33783697",
+  "same": false,
+  "hash_a": "01efed4db1b9",
+  "hash_b": "6b1dedbf82d7",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:794bc3250f5793ce",
   "key_b": "news:bd171fbe60e742b7",
   "same": false,
   "hash_a": "01efed4db1b9",
@@ -3731,6 +4100,42 @@
   "same": false,
   "hash_a": "01efed4db1b9",
   "hash_b": "c38d0713fe1d",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:7b3fa9f63382cb15",
+  "key_b": "news:96fc8178571317aa",
+  "same": false,
+  "hash_a": "328aae2b319f",
+  "hash_b": "ddd530af23da",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:7b3fa9f63382cb15",
+  "key_b": "news:b007a3fa3a1bb2ef",
+  "same": false,
+  "hash_a": "328aae2b319f",
+  "hash_b": "41aa3d27ab22",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:7b3fa9f63382cb15",
+  "key_b": "news:b564617c33783697",
+  "same": false,
+  "hash_a": "328aae2b319f",
+  "hash_b": "6b1dedbf82d7",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:7b3fa9f63382cb15",
+  "key_b": "news:c483ec2db561705f",
+  "same": false,
+  "hash_a": "328aae2b319f",
+  "hash_b": "b2f3c0996fde",
   "generator": "groq/qwen/qwen3.8-27b",
   "prompt_version": "same-story-v1"
  },
@@ -4095,6 +4500,33 @@
   "prompt_version": "same-story-v1"
  },
  {
+  "key_a": "news:96fc8178571317aa",
+  "key_b": "news:b007a3fa3a1bb2ef",
+  "same": false,
+  "hash_a": "ddd530af23da",
+  "hash_b": "41aa3d27ab22",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:96fc8178571317aa",
+  "key_b": "news:c483ec2db561705f",
+  "same": false,
+  "hash_a": "ddd530af23da",
+  "hash_b": "b2f3c0996fde",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:96fc8178571317aa",
+  "key_b": "news:f9f6b92afbc12fdf",
+  "same": false,
+  "hash_a": "ddd530af23da",
+  "hash_b": "707db0743e32",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
   "key_a": "news:97728a5298f9dffd",
   "key_b": "news:b4b35b52ae74c58d",
   "same": false,
@@ -4190,6 +4622,60 @@
   "same": false,
   "hash_a": "049d2491f903",
   "hash_b": "c38d0713fe1d",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:b007a3fa3a1bb2ef",
+  "key_b": "news:b564617c33783697",
+  "same": false,
+  "hash_a": "41aa3d27ab22",
+  "hash_b": "6b1dedbf82d7",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:b007a3fa3a1bb2ef",
+  "key_b": "news:bd171fbe60e742b7",
+  "same": false,
+  "hash_a": "41aa3d27ab22",
+  "hash_b": "afe7b2eb457c",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:b007a3fa3a1bb2ef",
+  "key_b": "news:c483ec2db561705f",
+  "same": false,
+  "hash_a": "41aa3d27ab22",
+  "hash_b": "b2f3c0996fde",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:b007a3fa3a1bb2ef",
+  "key_b": "news:e109ed741d2606c0",
+  "same": false,
+  "hash_a": "41aa3d27ab22",
+  "hash_b": "4bb4fbed15ea",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:b007a3fa3a1bb2ef",
+  "key_b": "news:e41da7202b541ff8",
+  "same": false,
+  "hash_a": "41aa3d27ab22",
+  "hash_b": "38afd3091131",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:b007a3fa3a1bb2ef",
+  "key_b": "news:f9f6b92afbc12fdf",
+  "same": false,
+  "hash_a": "41aa3d27ab22",
+  "hash_b": "707db0743e32",
   "generator": "groq/qwen/qwen3.8-27b",
   "prompt_version": "same-story-v1"
  },
@@ -4302,6 +4788,51 @@
   "prompt_version": "same-story-v1"
  },
  {
+  "key_a": "news:b564617c33783697",
+  "key_b": "news:bd171fbe60e742b7",
+  "same": false,
+  "hash_a": "6b1dedbf82d7",
+  "hash_b": "afe7b2eb457c",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:b564617c33783697",
+  "key_b": "news:d7875be231db7976",
+  "same": false,
+  "hash_a": "6b1dedbf82d7",
+  "hash_b": "58689b9ff524",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:b564617c33783697",
+  "key_b": "news:e109ed741d2606c0",
+  "same": false,
+  "hash_a": "6b1dedbf82d7",
+  "hash_b": "4bb4fbed15ea",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:b564617c33783697",
+  "key_b": "news:e41da7202b541ff8",
+  "same": false,
+  "hash_a": "6b1dedbf82d7",
+  "hash_b": "38afd3091131",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:b564617c33783697",
+  "key_b": "news:f9f6b92afbc12fdf",
+  "same": false,
+  "hash_a": "6b1dedbf82d7",
+  "hash_b": "707db0743e32",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
   "key_a": "news:bbc6809322e7216b",
   "key_b": "news:c2d562a91019309e",
   "same": false,
@@ -4406,6 +4937,15 @@
   "same": false,
   "hash_a": "2224c890894f",
   "hash_b": "c38d0713fe1d",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "news:c483ec2db561705f",
+  "key_b": "news:f9f6b92afbc12fdf",
+  "same": false,
+  "hash_a": "b2f3c0996fde",
+  "hash_b": "707db0743e32",
   "generator": "groq/qwen/qwen3.8-27b",
   "prompt_version": "same-story-v1"
  },

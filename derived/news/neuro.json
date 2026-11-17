@@ -173,6 +173,15 @@
   "basis": "openalex"
  },
  {
+  "key": "journals:10.1038/d41586-026-03279-6",
+  "is_neuro": false,
+  "basis": "llm",
+  "input_hash": "64b538643605",
+  "prompt_version": "neuro-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "decided_at": "2026-11-17T16:03:23+00:00"
+ },
+ {
   "key": "journals:10.1038/d41586-026-03409-0",
   "is_neuro": false,
   "basis": "openalex"
@@ -383,11 +392,7 @@
  {
   "key": "journals:10.1038/d41586-026-03668-x",
   "is_neuro": false,
-  "basis": "llm",
-  "input_hash": "92074f5489b3",
-  "prompt_version": "neuro-v1",
-  "generator": "groq/qwen/qwen3.8-27b",
-  "decided_at": "2026-11-14T16:35:26+00:00"
+  "basis": "openalex"
  },
  {
   "key": "journals:10.1038/d41586-026-03669-w",
@@ -398,6 +403,15 @@
   "key": "journals:10.1038/d41586-026-03671-2",
   "is_neuro": false,
   "basis": "openalex"
+ },
+ {
+  "key": "journals:10.1038/d41586-026-03672-1",
+  "is_neuro": false,
+  "basis": "llm",
+  "input_hash": "7650f5f252b8",
+  "prompt_version": "neuro-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "decided_at": "2026-11-17T16:03:23+00:00"
  },
  {
   "key": "journals:10.1038/d41586-026-03673-0",
@@ -417,11 +431,7 @@
  {
   "key": "journals:10.1038/d41586-026-03684-x",
   "is_neuro": false,
-  "basis": "llm",
-  "input_hash": "72dd670fc17d",
-  "prompt_version": "neuro-v1",
-  "generator": "groq/qwen/qwen3.8-27b",
-  "decided_at": "2026-11-16T15:46:13+00:00"
+  "basis": "openalex"
  },
  {
   "key": "journals:10.1038/d41586-026-03705-9",
@@ -429,31 +439,60 @@
   "basis": "openalex"
  },
  {
-  "key": "journals:10.1038/d41586-026-03712-w",
+  "key": "journals:10.1038/d41586-026-03706-8",
+  "is_neuro": false,
+  "basis": "openalex"
+ },
+ {
+  "key": "journals:10.1038/d41586-026-03707-7",
   "is_neuro": false,
   "basis": "llm",
-  "input_hash": "5eb5d6262aff",
+  "input_hash": "d44ef0f73bc3",
   "prompt_version": "neuro-v1",
   "generator": "groq/qwen/qwen3.8-27b",
-  "decided_at": "2026-11-16T15:46:13+00:00"
+  "decided_at": "2026-11-17T16:03:23+00:00"
+ },
+ {
+  "key": "journals:10.1038/d41586-026-03709-5",
+  "is_neuro": false,
+  "basis": "llm",
+  "input_hash": "bf68886ee651",
+  "prompt_version": "neuro-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "decided_at": "2026-11-17T16:03:23+00:00"
+ },
+ {
+  "key": "journals:10.1038/d41586-026-03711-x",
+  "is_neuro": true,
+  "basis": "llm",
+  "input_hash": "6fb5852ebc4c",
+  "prompt_version": "neuro-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "decided_at": "2026-11-17T16:03:23+00:00"
+ },
+ {
+  "key": "journals:10.1038/d41586-026-03712-w",
+  "is_neuro": false,
+  "basis": "openalex"
  },
  {
   "key": "journals:10.1038/d41586-026-03713-9",
   "is_neuro": false,
+  "basis": "openalex"
+ },
+ {
+  "key": "journals:10.1038/d41586-026-03714-8",
+  "is_neuro": false,
   "basis": "llm",
-  "input_hash": "749e069c1c96",
+  "input_hash": "20595fe55229",
   "prompt_version": "neuro-v1",
   "generator": "groq/qwen/qwen3.8-27b",
-  "decided_at": "2026-11-16T15:46:13+00:00"
+  "decided_at": "2026-11-17T16:03:23+00:00"
  },
  {
   "key": "journals:10.1038/d41586-026-03715-7",
   "is_neuro": false,
-  "basis": "llm",
-  "input_hash": "5550ea8b87c3",
-  "prompt_version": "neuro-v1",
-  "generator": "groq/qwen/qwen3.8-27b",
-  "decided_at": "2026-11-16T15:46:13+00:00"
+  "basis": "openalex"
  },
  {
   "key": "journals:10.1038/d41586-026-03716-6",
@@ -461,13 +500,96 @@
   "basis": "openalex"
  },
  {
-  "key": "journals:10.1038/d41586-026-03760-2",
+  "key": "journals:10.1038/d41586-026-03742-4",
   "is_neuro": false,
   "basis": "llm",
-  "input_hash": "52a164ea8f07",
+  "input_hash": "c16647efab8c",
   "prompt_version": "neuro-v1",
   "generator": "groq/qwen/qwen3.8-27b",
-  "decided_at": "2026-11-16T15:46:13+00:00"
+  "decided_at": "2026-11-17T16:03:23+00:00"
+ },
+ {
+  "key": "journals:10.1038/d41586-026-03743-3",
+  "is_neuro": false,
+  "basis": "llm",
+  "input_hash": "249af24dae94",
+  "prompt_version": "neuro-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "decided_at": "2026-11-17T16:03:23+00:00"
+ },
+ {
+  "key": "journals:10.1038/d41586-026-03744-2",
+  "is_neuro": false,
+  "basis": "llm",
+  "input_hash": "6055a1096dd8",
+  "prompt_version": "neuro-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "decided_at": "2026-11-17T16:03:23+00:00"
+ },
+ {
+  "key": "journals:10.1038/d41586-026-03752-2",
+  "is_neuro": false,
+  "basis": "openalex"
+ },
+ {
+  "key": "journals:10.1038/d41586-026-03757-x",
+  "is_neuro": true,
+  "basis": "llm",
+  "input_hash": "de3e5befc8a5",
+  "prompt_version": "neuro-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "decided_at": "2026-11-17T16:03:23+00:00"
+ },
+ {
+  "key": "journals:10.1038/d41586-026-03760-2",
+  "is_neuro": false,
+  "basis": "openalex"
+ },
+ {
+  "key": "journals:10.1038/d41586-026-03762-0",
+  "is_neuro": false,
+  "basis": "openalex"
+ },
+ {
+  "key": "journals:10.1038/d41586-026-03763-z",
+  "is_neuro": false,
+  "basis": "openalex"
+ },
+ {
+  "key": "journals:10.1038/d41586-026-03765-x",
+  "is_neuro": false,
+  "basis": "llm",
+  "input_hash": "a12663b231af",
+  "prompt_version": "neuro-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "decided_at": "2026-11-17T16:03:23+00:00"
+ },
+ {
+  "key": "journals:10.1038/d41586-026-03769-7",
+  "is_neuro": false,
+  "basis": "llm",
+  "input_hash": "c2b89a9561bc",
+  "prompt_version": "neuro-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "decided_at": "2026-11-17T16:03:23+00:00"
+ },
+ {
+  "key": "journals:10.1038/d41586-026-03770-0",
+  "is_neuro": true,
+  "basis": "llm",
+  "input_hash": "0f1443857298",
+  "prompt_version": "neuro-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "decided_at": "2026-11-17T16:03:23+00:00"
+ },
+ {
+  "key": "journals:10.1038/d41586-026-03772-y",
+  "is_neuro": false,
+  "basis": "llm",
+  "input_hash": "d71f5e10927f",
+  "prompt_version": "neuro-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "decided_at": "2026-11-17T16:03:23+00:00"
  },
  {
   "key": "journals:10.1038/s41586-026-11191-2",
@@ -591,6 +713,11 @@
  },
  {
   "key": "journals:10.1038/s41586-026-11391-w",
+  "is_neuro": false,
+  "basis": "openalex"
+ },
+ {
+  "key": "journals:10.1038/s41586-026-11399-2",
   "is_neuro": false,
   "basis": "openalex"
  },
@@ -1670,6 +1797,15 @@
   "decided_at": "2026-11-14T16:35:26+00:00"
  },
  {
+  "key": "news:422fcc2c81da90c6",
+  "is_neuro": false,
+  "basis": "llm",
+  "input_hash": "8429ff5258fe",
+  "prompt_version": "neuro-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "decided_at": "2026-11-17T16:03:23+00:00"
+ },
+ {
   "key": "news:4523768ebbce61a2",
   "is_neuro": false,
   "basis": "llm",
@@ -2138,6 +2274,15 @@
   "decided_at": "2026-11-14T16:35:26+00:00"
  },
  {
+  "key": "news:997bfafd64a7e470",
+  "is_neuro": false,
+  "basis": "llm",
+  "input_hash": "cf4349e9132a",
+  "prompt_version": "neuro-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "decided_at": "2026-11-17T16:03:23+00:00"
+ },
+ {
   "key": "news:9c9852d313a86ce9",
   "is_neuro": false,
   "basis": "llm",
@@ -2165,6 +2310,15 @@
   "decided_at": "2026-11-14T16:35:26+00:00"
  },
  {
+  "key": "news:a061e16914bbf35e",
+  "is_neuro": false,
+  "basis": "llm",
+  "input_hash": "e5d053cb5106",
+  "prompt_version": "neuro-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "decided_at": "2026-11-17T16:03:23+00:00"
+ },
+ {
   "key": "news:a0712ce8bd6bafac",
   "is_neuro": false,
   "basis": "llm",
@@ -2181,6 +2335,15 @@
   "prompt_version": "neuro-v1",
   "generator": "groq/qwen/qwen3.8-27b",
   "decided_at": "2026-11-14T16:35:26+00:00"
+ },
+ {
+  "key": "news:a16115ebaed44ac1",
+  "is_neuro": false,
+  "basis": "llm",
+  "input_hash": "67bdbdba02fa",
+  "prompt_version": "neuro-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "decided_at": "2026-11-17T16:03:23+00:00"
  },
  {
   "key": "news:a431c6d21b5c66b4",
