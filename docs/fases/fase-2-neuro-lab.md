@@ -49,3 +49,28 @@ Se buscaron por sus términos de entrada en el SPARQL de la NLM, en todo MeSH y 
 ## Encontrado de paso
 
 `atlas.studies.fetch` no devolvía el descriptor del propio árbol, solo los que cuelgan de él. Las etiquetas de los árboles en MeSH llevan idioma (`"…"@en`), así que `?tn = "A08.186.211"` nunca se cumplía. Arreglado con `STR(?tn)` (v201). En Neuro Atlas faltaba el descriptor *Brain*, que ninguna pareja usa. El vocabulario guardado no se ha regenerado: `syn atlas mesh` se lanza a mano, y el único cambio sería añadir *Brain*.
+
+## B2, paso 1: las fichas (v202)
+
+Aday eligió la opción A: MeSH y texto, con un hueco donde no hay estudios.
+
+- **Tabla.** `src/synaptica/lab/technique_terms.toml` es una propuesta para Sofía, como `region_terms.toml`.
+  - Para cada técnica guarda sus descriptores MeSH y sus palabras.
+  - Las palabras son literales, sin mayúsculas y con plural, para que Sofía las pueda leer.
+  - `exclude` quita lo que cuelga de un descriptor sin ser la técnica: los ritmos cerebrales bajo el EEG, los inmunoensayos bajo la inmunofluorescencia y la citometría bajo la confocal.
+- **Regla distinta a la de las regiones.** Una técnica se busca en el texto de todos los estudios, tengan MeSH o no. La B1 mostró que MeSH casi nunca indexa los métodos de los registros recientes.
+- **Por qué la web cuenta más que esta tabla.** El resumen cuenta cuando nombra la técnica dos veces, y solo se lee de la caché privada, que existe en Actions. La medida B (cuánto aportan los resúmenes) sale del log de `syn site` del run diario, comparada con la tabla de abajo.
+
+| Técnica | Estudios (local, sin resúmenes) | Por MeSH | Solo por texto |
+|---|---:|---:|---:|
+| EEG | 156 | 56 | 100 |
+| fMRI | 73 | 0 | 73 |
+| Electrofisiología | 28 | 0 | 28 |
+| Optogenética | 12 | 7 | 5 |
+| Quimiogenética | 9 | 3 | 6 |
+| Fiber photometry | 5 | 0 | 5 |
+| Microscopía confocal | 4 | 3 | 1 |
+| Western blot | 2 | 2 | 0 |
+| Perfusión | 0 | 0 | 0 |
+| Inmunofluorescencia | 0 | 0 | 0 |
+| Trazado viral | 0 | 0 | 0 |

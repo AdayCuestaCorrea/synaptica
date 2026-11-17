@@ -1,0 +1,145 @@
+"""Neuro Lab, B2 (src/synaptica/lab/, v202): the technique table, matching studies by MeSH
+and text, and the pages. No network: the committed vocabulary and tiny warehouses."""
+
+from __future__ import annotations
+
+import datetime as dt
+from pathlib import Path
+
+import duckdb
+
+from synaptica.lab import studies
+from synaptica.site.build import SiteBuilder
+from synaptica.site.check import check_site
+
+LICENSED = {"hero": {"files": [], "author": "Sofía", "licence": "CC BY-SA 4.0"}}
+
+
+def test_the_table_has_every_technique_of_scope_once_with_both_names() -> None:
+    rows = studies.techniques()
+    ids = [t["id"] for t in rows]
+    assert len(ids) == len(set(ids)) == 11
+    for t in rows:
+        assert t["name_es"] and t["name_en"]
+        assert t["mesh"] or t["text"], t["id"]  # something finds its studies
+
+
+def test_every_descriptor_of_the_table_is_in_the_fetched_vocabulary() -> None:
+    known = {r["ui"] for r in studies.vocabulary()}
+    for t in studies.techniques():
+        for ui in [*t["mesh"], *t.get("exclude", [])]:
+            assert ui in known, (t["id"], ui)
+    terms = {r["term"] for r in studies.vocabulary()}
+    for t in studies.techniques():
+        for w in t.get("exclude_terms", []):
+            assert w in terms, (t["id"], w)
+
+
+def test_excluded_branches_and_terms_find_nothing() -> None:
+    """EEG's tree holds the brain rhythms (a phenomenon), the antibody tree immunoassays;
+    «laser scanning microscopy» is two-photon too."""
+    m = studies.matcher()
+    assert m.mesh(["D013826"], []) == set()  # Theta Rhythm
+    assert m.mesh(["D015200"], []) == set()  # Fluoroimmunoassay
+    assert m.mesh(["D004569"], []) == {"eeg"}
+    assert m.mesh(["D019084"], []) == {"immunofluorescence"}  # indirect: kept
+    assert m.text("Theta rhythm in the rat hippocampus") == set()
+    assert m.text("Two-photon laser scanning microscopy in vivo") == set()
+    assert m.text("Confocal microscopy of dendritic spines") == {"confocal"}
+
+
+def test_literal_words_whole_without_case_and_with_plurals() -> None:
+    m = studies.matcher()
+    assert m.text("DREADDs in the amygdala") == {"chemogenetics"}
+    assert m.text("Fibre photometry of dopamine release") == {"fiber-photometry"}
+    assert m.text("Resting-state fMRI in adolescents") == {"fmri"}
+    assert m.text("Whole-cell recordings from CA1 neurons") == {"electrophysiology"}
+    assert m.text("Peg tests in older adults") == set()  # not «EEG» inside a word
+    # Twice in title and abstract together, not once.
+    assert m.text("Amygdala circuits", "We used optogenetics. Optogenetic silencing…") == {
+        "optogenetics"
+    }
+    assert m.text("Amygdala circuits", "Unlike optogenetics, lesions…") == set()
+
+
+def warehouse(path: Path) -> Path:
+    with duckdb.connect(str(path)) as con:
+        con.execute("""create table dim_study (study_id varchar, pmid varchar, doi varchar,
+            pmcid varchar, sources varchar[], title varchar, species varchar,
+            entered_on date, published_on date, is_neuro boolean, news_type varchar)""")
+        con.execute("create table int_pubmed__records (pmid varchar, mesh_uis varchar[], "
+                    "keywords varchar[])")  # fmt: skip
+        d = dt.date(2026, 11, 10)
+        con.executemany("insert into dim_study values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [
+            ("s1", "1", None, None, ["pubmed"], "Sleep spindles in older adults", "humans",
+             d, d, True, None),
+            ("s2", "2", None, None, ["pubmed"], "Optogenetic control of fear", "animals", d, d,
+             True, None),
+            ("s3", None, "10.1/x", None, ["biorxiv"], "Fiber photometry of VTA neurons",
+             "unknown", d, d, True, None),
+            ("s4", "4", None, None, ["pubmed"], "Optogenetics, noise", "animals", d, d, True,
+             "noise"),
+        ])  # fmt: skip
+        con.executemany("insert into int_pubmed__records values (?, ?, ?)", [
+            ("1", ["D004569"], []),  # MeSH: Electroencephalography
+            ("2", ["D009474"], []),  # MeSH without the technique: the title still counts
+        ])  # fmt: skip
+    return path
+
+
+def test_studies_by_mesh_or_by_text_even_with_mesh(tmp_path: Path) -> None:
+    """Unlike the regions (text only without MeSH), a technique is looked for in the text
+    of every study, so the abstract is read for all of them (from the cache only)."""
+    asked = []
+
+    def abstract(study, cache_root=None):
+        asked.append(study["pmid"] or study["doi"])
+        return None
+
+    found = studies.technique_studies(warehouse(tmp_path / "w.duckdb"),
+                                      ("study_id", "title", "species", "pmid", "doi",
+                                       "sources"), abstract=abstract)  # fmt: skip
+    assert {k: [(s["study_id"], s["basis"]) for s in v] for k, v in found.items()} == {
+        "eeg": [("s1", "mesh")],
+        "optogenetics": [("s2", "text")],
+        "fiber-photometry": [("s3", "text")],
+    }
+    assert sorted(asked) == ["1", "10.1/x", "2"]  # never the noise
+    c = studies.counts(found)
+    assert list(c) == [t["id"] for t in studies.techniques()]
+    assert c["eeg"] == {"studies": 1, "mesh": 1, "text": 0}
+    assert c["perfusion"] == {"studies": 0, "mesh": 0, "text": 0}
+
+
+def test_lab_pages_without_a_warehouse_are_gaps_and_linked(tmp_path: Path) -> None:
+    out = tmp_path / "site"
+    SiteBuilder(out, images=LICENSED).build()
+    assert check_site(out).passed  # also: every technique page is linked from another page
+    index = (out / "es" / "lab.html").read_text()
+    assert 'href="lab/western-blot.html"' in index and "gap-lab_texts" in index
+    page = (out / "en" / "lab" / "fiber-photometry.html").read_text()
+    for gap in ("gap-lab_texts", "gap-lab_studies", "gap-lab_regions"):
+        assert gap in page
+    home = (out / "es" / "index.html").read_text()
+    assert 'class="card card--lab" href="lab.html"' in home
+    assert 'href="lab.html"' in (out / "es" / "noticias.html").read_text()  # the header
+
+
+def test_lab_pages_list_the_studies_as_a_proposal(tmp_path: Path) -> None:
+    from test_site_news import STUDIES, study
+    from test_site_news import warehouse as site_warehouse
+
+    rows = [*STUDIES, study("doi:10.1/opto", title="Optogenetic silencing of the amygdala"),
+            study("doi:10.1/fmri", title="Resting-state fMRI in adolescents",
+                  species="humans")]  # fmt: skip
+    data = site_warehouse(tmp_path / "data", studies=rows)
+    out = tmp_path / "site"
+    built = SiteBuilder(out, images=LICENSED, data_dir=data).build()
+    assert check_site(out).passed
+    assert built["lab"]["optogenetics"]["studies"] == 1 and built["lab"]["fmri"]["text"] == 1
+    opto = (out / "es" / "lab" / "optogenetics.html").read_text()
+    assert 'data-study="doi:10.1/opto"' in opto and 'href="#gap-lab_match"' in opto
+    assert "gap-lab_studies" not in opto and "doi:10.1/fmri" not in opto
+    none = (out / "en" / "lab" / "perfusion.html").read_text()
+    assert "No recent study names this technique" in none
+    assert "1 estudio reciente<" in (out / "es" / "lab.html").read_text()

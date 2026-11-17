@@ -1,0 +1,117 @@
+# Neuro Lab: each technique of SCOPE §4 → the MeSH descriptors and the words that find the
+# studies its page lists (Aday, B2 option A, v202). Same idea as atlas/region_terms.toml.
+#
+# A PROPOSAL, not reviewed: the table is Sofía's to correct in her queue. It is not
+# published; only the studies it finds are, marked as an automatic match pending her review.
+#
+# `mesh`: descriptor UIs, each counting with everything under it in the MeSH tree
+# (mesh/techniques.json, `syn lab mesh`). Empty when MeSH has no descriptor of the technique
+# itself (B1, docs/fases/fase-2-neuro-lab.md): fMRI and viral tracing only have broader ones
+# (Functional Neuroimaging takes PET in; Tract-Tracing takes any tracer), perfusion and fiber
+# photometry none.
+#
+# `text`: literal words, matched whole and without case (an ending -s or -es also counts) in
+# the title or keywords, or twice in title and abstract together. Unlike the regions, a
+# technique is looked for in the text of every study, with or without MeSH: B1 measured that
+# MeSH alone misses most of them (the methods are rarely indexed in recent records).
+# Write the spellings with and without a hyphen when both are used.
+#
+# `exclude` (optional): descriptors under a root that are not the technique, left out with
+# everything under them (EEG's tree holds the brain rhythms, a phenomenon; the fluorescent
+# antibody tree holds immunoassays). `exclude_terms`: entry terms of a kept descriptor that
+# are broader than the technique, never looked for in the text.
+
+[[technique]]
+id = "perfusion"
+name_es = "Perfusión transcardiaca"
+name_en = "Transcardial perfusion"
+mesh = []
+text = ["transcardial perfusion", "transcardially perfused", "transcardiac perfusion",
+        "intracardial perfusion", "intracardially perfused", "perfusion fixation",
+        "perfusion-fixed", "perfusion fixed"]
+
+[[technique]]
+id = "western-blot"
+name_es = "Western blot"
+name_en = "Western blot"
+mesh = ["D015153"] # Blotting, Western
+exclude = ["D026481"] # Blotting, Far-Western: another technique
+text = ["western blot", "western blotting", "immunoblot", "immunoblotting"]
+
+[[technique]]
+id = "immunofluorescence"
+name_es = "Inmunofluorescencia"
+name_en = "Immunofluorescence"
+mesh = ["D005455"] # Fluorescent Antibody Technique
+# Immunoassays and clinical tests, not imaging:
+exclude = ["D000919", "D015200", "D016231"]
+exclude_terms = ["Fluorescent Protein Tracing"]
+text = ["immunofluorescence", "immunofluorescent staining", "immunofluorescent labeling",
+        "immunofluorescent labelling"]
+
+[[technique]]
+id = "confocal"
+name_es = "Microscopía confocal"
+name_en = "Confocal microscopy"
+mesh = ["D018613"] # Microscopy, Confocal
+exclude = ["D047569"] # Laser Scanning Cytometry
+exclude_terms = ["Laser Microscopy", "Laser Scanning Microscopy"] # two-photon too
+text = ["confocal microscopy", "confocal imaging", "confocal laser scanning microscopy"]
+
+[[technique]]
+id = "electrophysiology"
+name_es = "Electrofisiología"
+name_en = "Electrophysiology"
+mesh = ["D018408"] # Patch-Clamp Techniques (Electrophysiology itself is a discipline)
+text = ["electrophysiology", "electrophysiological recording", "in vivo electrophysiology",
+        "patch clamp", "patch-clamp", "whole-cell recording", "whole-cell patch clamp",
+        "single-unit recording", "single unit recording", "extracellular recording"]
+
+[[technique]]
+id = "eeg"
+name_es = "Electroencefalografía (EEG)"
+name_en = "Electroencephalography (EEG)"
+mesh = ["D004569", "D000069280"] # Electroencephalography, Electrocorticography
+# Brain rhythms and synchronization: phenomena, also recorded without EEG:
+exclude = ["D058256", "D003344"]
+text = ["EEG", "electroencephalography", "electroencephalogram", "electroencephalographic",
+        "ECoG", "electrocorticography"]
+
+[[technique]]
+id = "fmri"
+name_es = "Resonancia magnética funcional (fMRI)"
+name_en = "Functional MRI (fMRI)"
+mesh = []
+text = ["fMRI", "functional magnetic resonance imaging", "functional MRI"]
+
+[[technique]]
+id = "viral-tracing"
+name_es = "Trazado con vectores virales"
+name_en = "Viral vector tracing"
+mesh = []
+text = ["viral tracing", "viral tract tracing", "viral tract-tracing", "viral tracer",
+        "transsynaptic tracing", "trans-synaptic tracing", "monosynaptic tracing",
+        "rabies tracing", "rabies virus tracing", "rabies-mediated tracing"]
+
+[[technique]]
+id = "optogenetics"
+name_es = "Optogenética"
+name_en = "Optogenetics"
+mesh = ["D062308"] # Optogenetics
+text = ["optogenetics", "optogenetic", "optogenetically", "channelrhodopsin",
+        "channelrhodopsin-2", "ChR2", "halorhodopsin", "archaerhodopsin"]
+
+[[technique]]
+id = "chemogenetics"
+name_es = "DREADDs y quimiogenética"
+name_en = "DREADDs and chemogenetics"
+mesh = ["D000098972"] # Chemogenetics
+text = ["chemogenetics", "chemogenetic", "chemogenetically", "DREADD",
+        "clozapine-N-oxide", "designer receptors exclusively activated by designer drugs"]
+
+[[technique]]
+id = "fiber-photometry"
+name_es = "Fotometría de fibra"
+name_en = "Fiber photometry"
+mesh = []
+text = ["fiber photometry", "fibre photometry", "fiber-photometry", "fibre-photometry"]

@@ -50,6 +50,7 @@ PATHS = {
         "search": "es/buscar.html", "search_index": "es/buscar.json",
         "topic": "es/temas/{key}.html", "atlas": "es/atlas.html",
         "region": "es/atlas/regiones/{key}.html", "glossary_atlas": "es/glosario-atlas.json",
+        "lab": "es/lab.html", "technique": "es/lab/{key}.html",
     },
     "en": {
         "home": "en/index.html", "news": "en/news.html", "study": "en/study/{key}.html",
@@ -59,9 +60,11 @@ PATHS = {
         "search_index": "en/search.json", "topic": "en/topics/{key}.html",
         "atlas": "en/atlas.html", "region": "en/atlas/regions/{key}.html",
         "glossary_atlas": "en/glossary-atlas.json",
+        "lab": "en/lab.html", "technique": "en/lab/{key}.html",
     },
 }  # fmt: skip
-NAV = ("home", "news", "atlas", "method", "glossary", "about")  # header, in this order, when built
+# The header, in this order, when built.
+NAV = ("home", "news", "atlas", "lab", "method", "glossary", "about")
 FOOTER_LINKS = ("method", "sources", "status", "about")
 
 # Sofía's six sections, in her order; the phase each arrives in comes from SCOPE §4.
@@ -77,11 +80,12 @@ SECTIONS = [
 # atlas page is not built, and the atlas page links to it until the new viewer (step 3).
 ATLAS_URL = "https://adaycuestacorrea.github.io/synaptica/spikes/s3/c/"
 REGION_STUDIES = 10  # per species group on a region page (Aday, v188)
+TECHNIQUE_STUDIES = 10  # per species group on a Neuro Lab page (as the regions, v202)
 STYLESHEETS = ("noche.css", "base.css")  # joined, in this order, into static/synaptica.css
 SCRIPTS = ("site.js", "search.js", "atlas.js", "glossary.js")
 # Pages built so far (steps 21 to 23); one study page per study shown comes on top.
 KINDS = ("home", "news", "week", "method", "sources", "status", "about", "search", "atlas",
-         "glossary")  # fmt: skip
+         "lab", "glossary")  # fmt: skip
 RECENT_RUNS = 14  # rows of the run table on «Estado de los datos»
 
 
@@ -140,6 +144,7 @@ class SiteBuilder:
         )
         self.asset_v = ""
         self.written: list[Path] = []
+        self.lab_counts: dict[str, dict[str, int]] | None = None  # set with the studies
         # Neuro Glossary (Phase 2): only what Sofía approved. With nothing approved yet
         # there is no page and no link to it (v181), rather than an empty page.
         self.gl: dict[str, glossary_mod.Glossary] = {}
@@ -247,6 +252,7 @@ class SiteBuilder:
             other_url=posixpath.relpath(self.path(other(lang), kind, key), here),
             nav=nav, footer_links=footer_links, sections=SECTIONS, prototype_url=ATLAS_URL,
             atlas_url=url("atlas") if "atlas" in self.kinds else ATLAS_URL,
+            lab_url=url("lab") if "lab" in self.kinds else None,
             hero_licence=hero["licence"] or t["licence_pending"], hero_author=hero["author"],
             gaps=gaps, search=search, news=self.news_data,
             date=lambda v, long=False: news_mod.fmt_date(v, lang, long),
@@ -372,8 +378,16 @@ class SiteBuilder:
                for k in ("news", "week", "method", "sources", "status", "about")
                if k in self.kinds]  # fmt: skip
         out += [[t["kind_section"], sec["name"], t["sec_" + sec["key"]],
-                 self.atlas_link(lang) if sec["key"] == "atlas" else ""]
+                 self.atlas_link(lang) if sec["key"] == "atlas"
+                 else self.path(lang, "lab") if sec["key"] == "lab" and "lab" in self.kinds
+                 else ""]
                 for sec in SECTIONS]  # fmt: skip
+        if "lab" in self.kinds:
+            from synaptica.lab.studies import techniques
+
+            out += [[t["kind_technique"], tech[f"name_{lang}"], tech[f"name_{other(lang)}"],
+                     self.path(lang, "technique", tech["id"])]
+                    for tech in techniques()]  # fmt: skip
         if "atlas" in self.kinds:
             out += [[t["kind_region"], r["name"],
                      " ".join(filter(None, [r["acronym"], t["brain_" + r["brain"]],
@@ -501,6 +515,53 @@ class SiteBuilder:
                     credit=d["credit"][r["atlas"]], by_page=d["by_page"], groups=groups,
                     study_pages=pages, reviewed_at=reviewed_at)  # fmt: skip
 
+    @functools.cached_property
+    def technique_found(self) -> dict[str, list[dict[str, Any]]] | None:
+        """Technique id -> its studies (B2, v202); None without a warehouse (a gap)."""
+        if self.data_dir is None or not (self.data_dir / "warehouse.duckdb").exists():
+            return None
+        from synaptica.lab import studies
+
+        found = studies.technique_studies(self.data_dir / "warehouse.duckdb",
+                                          news_mod.STUDY_COLUMNS,
+                                          cache_root=self.data_dir / "cache")  # fmt: skip
+        self.lab_counts = studies.counts(found)
+        return {k: [news_mod.list_record(s) for s in v] for k, v in found.items()}
+
+    def lab(self, lang: str) -> None:
+        """Neuro Lab: the techniques of SCOPE §4 in its order, each with its page."""
+        from synaptica.lab.studies import techniques
+
+        t, found = self.i18n[lang], self.technique_found
+        gaps = {"lab_texts": ("gap", t["gap_lab_texts"])}
+        if found is None:
+            gaps["lab_studies"] = ("gap", t["gap_lab_studies"])
+        else:
+            gaps["lab_match"] = ("proposal", t["gap_lab_match"])
+        rows = [{"id": x["id"], "name": x[f"name_{lang}"],
+                 "count": None if found is None else len(found.get(x["id"], []))}
+                for x in techniques()]  # fmt: skip
+        self.render(lang, "lab", "lab.html.j2", gaps=gaps, techniques=rows)
+
+    def technique(self, lang: str, tech: dict[str, Any]) -> None:
+        from synaptica.atlas.studies import by_species
+
+        t, found = self.i18n[lang], self.technique_found
+        gaps = {k: ("gap", t[f"gap_{k}"]) for k in ("lab_texts", "lab_regions")}
+        groups = None
+        if found is not None:
+            groups = by_species(found.get(tech["id"], []), TECHNIQUE_STUDIES)
+            gaps["lab_match"] = ("proposal", t["gap_lab_match"])
+            shown = [s for g in groups for s in g["studies"]]
+            got = self.study_gaps(lang, shown)
+            gaps.update({k: got[k] for k in ("title_es", "journal_name") if k in got})
+        else:
+            gaps["lab_studies"] = ("gap", t["gap_lab_studies"])
+        pages = set(self.news_data.by_id) if self.news_data else set()
+        self.render(lang, "technique", "technique.html.j2", key=tech["id"], tech=tech,
+                    name=tech[f"name_{lang}"], gaps=gaps, groups=groups,
+                    study_pages=pages)  # fmt: skip
+
     def glossary(self, lang: str) -> None:
         gl, t = self.gl[lang], self.i18n[lang]
         entries = gl.page_entries()
@@ -545,11 +606,16 @@ class SiteBuilder:
             if "atlas" in self.kinds:
                 for r in self.atlas_data["pages"]:
                     self.region(lang, r)
+            if "lab" in self.kinds:
+                from synaptica.lab.studies import techniques
+
+                for tech in techniques():
+                    self.technique(lang, tech)
             if "search" in self.kinds:
                 self.search_index(lang)
         self.root()
         return {"pages": len(self.written), "kinds": list(self.kinds), "out": str(self.out),
-                "figures": self.figures}  # fmt: skip
+                "figures": self.figures, "lab": self.lab_counts}  # fmt: skip
 
 
 def build_site(out: Path, data_dir: Path | None = None) -> dict[str, Any]:

@@ -1,0 +1,18 @@
+{# Neuro Lab (SCOPE §4, Phase 2; B2 of v202): the techniques in SCOPE's order, each with its
+   page. The texts are Sofía's to review: until then a gap, never filled by guess. #}
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m with context %}
+{% block title %}{{ t.lab }}{% endblock %}
+{% block main %}
+<article class="prose lab">
+  <h1>{{ t.lab }}</h1>
+  <p class="lede">{{ t.lab_intro }} {{ m.gap("lab_texts") }}</p>
+  <ul class="lab-list">
+    {% for x in techniques %}
+    <li data-technique="{{ x.id }}"><a href="{{ url('technique', x.id) }}">{{ x.name }}</a>
+      {% if x.count is not none %}<span class="muted"> · {{ t.lab_count_one if x.count == 1 else t.lab_count.format(n=x.count) if x.count else t.lab_count_none }}</span>{% endif %}</li>
+    {% endfor %}
+  </ul>
+  {% if "lab_match" in gaps %}<p class="muted">{{ m.gap("lab_match") }} {{ t.lab_studies_intro }}</p>{% else %}<p class="muted">{{ m.gap("lab_studies") }}</p>{% endif %}
+</article>
+{% endblock %}

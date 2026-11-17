@@ -1,0 +1,44 @@
+{# A technique of Neuro Lab (SCOPE §4; B2 of v202, option A): what the warehouse already
+   holds (recent studies by MeSH or text, marked as a proposal); the texts are gaps until
+   Sofía reviews them. #}
+{% extends "base.html.j2" %}
+{% import "macros.html.j2" as m with context %}
+{% block title %}{{ name }} · {{ t.lab }}{% endblock %}
+{% block main %}
+<article class="prose technique">
+  <p class="crumbs"><a href="{{ url('lab') }}">{{ t.lab }}</a></p>
+  <h1>{{ name }}</h1>
+
+  <h2>{{ t.lab_what_h }}</h2>
+  <p class="muted">{{ m.gap("lab_texts") }}</p>
+  <h2>{{ t.lab_limits_h }}</h2>
+  <p class="muted">{{ m.gap("lab_texts") }}</p>
+
+  <h2>{{ t.lab_studies_h }}{% if groups is not none %} {{ m.gap_if("lab_match") }}{% endif %}</h2>
+  {% if groups is none %}
+  <p class="muted">{{ m.gap("lab_studies") }}</p>
+  {% elif not groups %}
+  <p class="muted">{{ t.lab_studies_none }}</p>
+  {% else %}
+  <p class="muted">{{ t.lab_studies_intro }}{% if lang == "es" %} {{ m.gap_if("title_es") }}{% endif %}</p>
+  {% for g in groups %}
+  <section class="region-studies" data-species="{{ g.species }}">
+    <h3>{{ t.region_sp_unknown if g.species == "unknown" else t["sp_" ~ g.species] }} <span class="count">({{ g.total }})</span></h3>
+    {% for s in g.studies %}
+    <article class="row" data-study="{{ s.study_id }}">
+      <div class="row-text">
+        {{ m.kicker(s) }}
+        <h4 class="row-title">{% if s.study_id in study_pages %}<a href="{{ url('study', s.slug) }}" lang="en">{{ s.title }}</a>{% elif s.url %}<a href="{{ s.url }}" rel="noopener" lang="en">{{ s.title }}</a>{% else %}<span lang="en">{{ s.title }}</span>{% endif %}</h4>
+        {{ m.chips(s) }}
+      </div>
+    </article>
+    {% endfor %}
+    {% if g.more %}<p class="muted">{{ t.region_more.format(n=g.more) }}</p>{% endif %}
+  </section>
+  {% endfor %}
+  {% endif %}
+
+  <h2>{{ t.lab_regions_h }}</h2>
+  <p class="muted">{{ m.gap("lab_regions") }}</p>
+</article>
+{% endblock %}

@@ -134,6 +134,7 @@ SYN_DATA_DIR=/tmp/syn-ci uv run python scripts/seed_fixture_data.py   # fixtures
 SYN_DATA_DIR=/tmp/syn-ci uv run syn build --as-of 2026-11-09          # dbt sobre esas fixtures (como la CI)
 uv run syn site && uv run syn site --check
 uv run syn atlas mesh                     # descriptores MeSH del cerebro → src/synaptica/atlas/mesh/ (a mano; nunca en el pipeline)
+uv run syn lab mesh                       # descriptores MeSH de las técnicas de Neuro Lab → src/synaptica/lab/mesh/ (a mano; nunca en el pipeline)
 uv sync --group atlas && uv run --group atlas syn atlas build [--offline] [--cache data/cache/atlas]   # datos de Neuro Atlas → site/static/atlas/ (a mano, cuando cambia un atlas; nunca en el pipeline)
 uv run syn glossary sources [--refresh]    # fuente de cada término de Neuro Glossary: entradilla de Wikipedia EN y ES → src/synaptica/glossary/sources.json (a mano; nunca en el pipeline)
 uv run syn glossary awaiting-en           # términos que Sofía corrigió solo en español y esperan su inglés (fila 34)

@@ -36,6 +36,8 @@ atlas_app = typer.Typer(help="Neuro Atlas: the viewer's data files, one folder p
 app.add_typer(atlas_app, name="atlas")
 glossary_app = typer.Typer(help="Neuro Glossary: terms, their Wikipedia sources and texts.")
 app.add_typer(glossary_app, name="glossary")
+lab_app = typer.Typer(help="Neuro Lab: one page per laboratory technique.")
+app.add_typer(lab_app, name="lab")
 
 
 def _llm(provider: str | None, model: str | None):
@@ -844,6 +846,22 @@ def atlas_mesh() -> None:
                + ("; changed" if changed else "; no change"))  # fmt: skip
 
 
+@lab_app.command("mesh")
+def lab_mesh() -> None:
+    """MeSH descriptors under the roots of technique_terms.toml and their entry terms
+    (NLM's SPARQL endpoint) -> src/synaptica/lab/mesh/, which matches studies to Neuro
+    Lab's techniques. By hand, never in the pipeline; the same MeSH writes the same file."""
+    from synaptica.http import make_client
+    from synaptica.lab import studies
+
+    with make_client() as client:
+        rows = studies.fetch(client)
+    changed = studies.write_vocabulary(rows)
+    descriptors = len({r["ui"] for r in rows})
+    typer.echo(f"MeSH (Neuro Lab): {descriptors} descriptors, {len(rows)} rows"
+               + ("; changed" if changed else "; no change"))  # fmt: skip
+
+
 @atlas_app.command("measure")
 def atlas_measure() -> None:
     """How the Neuro Atlas abstract rule (two mentions) behaves at 1, 2 or 3 mentions, with
@@ -936,6 +954,13 @@ def site(
         typer.echo(str(exc), err=True)
         raise typer.Exit(1) from exc
     typer.echo(f"Site: {built['pages']} pages ({', '.join(built['kinds'])}) → {out_dir}")
+    if built.get("lab"):  # B2's measure in the run log: counts only, never text
+        typer.echo(
+            "Neuro Lab studies (MeSH + text only): "
+            + ", ".join(
+                f"{k} {c['studies']} ({c['mesh']} + {c['text']})" for k, c in built["lab"].items()
+            )
+        )
 
 
 @app.command()

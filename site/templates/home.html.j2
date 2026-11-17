@@ -26,6 +26,13 @@
     <span class="card-text">{{ t["sec_" ~ sec.key] }}{% if external %} ↗{% endif %}</span>
     <span class="tag tag--live">{{ t.preview }}</span>
   </a>
+  {% elif sec.key == "lab" and lab_url %}
+  <a class="card card--lab" href="{{ lab_url }}">
+    <span class="card-title">{{ sec.name }}</span>
+    <span class="card-art">{{ m.art("lab") }}</span>
+    <span class="card-text">{{ t["sec_" ~ sec.key] }}</span>
+    <span class="tag tag--live">{{ t.preview }}</span>
+  </a>
   {% else %}
   <div class="card card--{{ sec.key }} card--soon">
     <span class="card-title">{{ sec.name }}</span>

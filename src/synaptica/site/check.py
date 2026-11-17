@@ -44,7 +44,8 @@ VOID = {
 }  # fmt: skip
 SIGNALS = ("review", "subject", "integrity")
 # Folders of pages that must be reachable from another page (not only from search).
-LINKED_FOLDERS = ("es/estudio", "en/study", "es/atlas/regiones", "en/atlas/regions")
+LINKED_FOLDERS = ("es/estudio", "en/study", "es/atlas/regiones", "en/atlas/regions", "es/lab",
+                  "en/lab")  # fmt: skip
 SEARCH_INDEXES = (("es/buscar.json", "es/estudio"), ("en/search.json", "en/study"))
 I18N_DIR = Path(__file__).parent / "i18n"
 # Elements that make the browser load something: none may come from another domain
