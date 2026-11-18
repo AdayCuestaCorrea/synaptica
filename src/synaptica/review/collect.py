@@ -64,6 +64,10 @@ LAB_TERMS_WEEKDAY, LAB_TERMS_WEEKEND = 4, 2
 # so they do not crowd her hour (8 terms, 4 pairs and 10 labels already).
 LAB_TEXTS_FROM = dt.date(2026, 11, 19)
 LAB_TEXTS_WEEKDAY, LAB_TEXTS_WEEKEND = 3, 1
+# Neuro Atlas region texts (v212): one per pair, the day after Neuro Lab's 13 run out (3 a
+# day from 2026-11-19 end on the 24th), as many a day, so her hour stays the same.
+ATLAS_TEXTS_FROM = dt.date(2026, 11, 25)
+ATLAS_TEXTS_WEEKDAY, ATLAS_TEXTS_WEEKEND = 3, 1
 # Step 14b: headlines to label (``news.labels``), after the pairs and before the optional
 # spot-check, from 2026-11-19 (her page of 2026-11-18 was announced without them).
 # Spanish titles (step 23c): a few a day at random, after the summaries' spot-check.
@@ -219,13 +223,15 @@ def collect(
     cache_root: Path | None = None,
     labels: list[ReviewItem] | None = None,
     lab_texts: list[ReviewItem] | None = None,
+    atlas_texts: list[ReviewItem] | None = None,
 ) -> Queue:
     """Today's queue: every source, minus what she decided, her held edits first, capped.
     ``extra`` (``run_spot_checks``) goes before the day's spot-check. ``glossary``: the
     Neuro Glossary terms (default: ``glossary.texts.review_items``), a few new ones a day;
     ``region_terms``, the Neuro Atlas pairs' search terms (default: from the warehouse);
     ``labels``, the headlines to label for step 14b (default: ``news.labels``);
-    ``lab_texts``, Neuro Lab's drafted texts (default: ``lab.texts.review_items``)."""
+    ``lab_texts``, Neuro Lab's drafted texts (default: ``lab.texts.review_items``);
+    ``atlas_texts``, Neuro Atlas's region texts (default: ``atlas.texts.review_items``)."""
     from synaptica.news.classics import proposal  # the Clásicos of the week (step 24a)
 
     classics = proposal(derived_root.parent / "raw", review_dir, today, warehouse)
@@ -241,6 +247,12 @@ def collect(
         lab_texts = lab_review_items()
     if today < LAB_TEXTS_FROM:
         lab_texts = []
+    if atlas_texts is None:
+        from synaptica.atlas.texts import review_items as atlas_review_items
+
+        atlas_texts = atlas_review_items()
+    if today < ATLAS_TEXTS_FROM:
+        atlas_texts = []
     if region_terms is None:
         region_terms = []
         if today >= REGION_TERMS_FROM and warehouse.exists():
@@ -274,7 +286,7 @@ def collect(
     # The topic switches go last: a quick yes or no that never takes a text's place; the
     # titles just before them, short and optional.
     items = [*(extra or []), *([classics] if classics else []), *glossary, *lab_texts,
-             *region_terms, *labels, *news_spot_checks(warehouse, derived_root),
+             *atlas_texts, *region_terms, *labels, *news_spot_checks(warehouse, derived_root),
              *title_spot_checks(warehouse, review_dir, today), *queue_items()]  # fmt: skip
     # Midnight UTC of the day: the same inputs give the same file (``syn`` is idempotent).
     queue = Queue(generated_at=dt.datetime.combine(today, dt.time(), dt.UTC), items=items)
@@ -286,6 +298,9 @@ def collect(
     later = {i.key for i in new_terms[GLOSSARY_WEEKEND if weekend else GLOSSARY_WEEKDAY :]}
     lab_texts = [i for i in rest if i.item_type is ItemType.LAB]
     later |= {i.key for i in lab_texts[LAB_TEXTS_WEEKEND if weekend else LAB_TEXTS_WEEKDAY :]}
+    region_texts = [i for i in rest if i.item_type is ItemType.ATLAS]
+    per_day = ATLAS_TEXTS_WEEKEND if weekend else ATLAS_TEXTS_WEEKDAY
+    later |= {i.key for i in region_texts[per_day:]}
     terms = [i for i in rest if i.item_type is ItemType.SEARCH_TERMS]
     pairs = [i for i in terms if not i.item_id.startswith("lab-")]
     later |= {i.key for i in pairs[REGION_TERMS_WEEKEND if weekend else REGION_TERMS_WEEKDAY :]}

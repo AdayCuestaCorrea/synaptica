@@ -501,6 +501,14 @@ class SiteBuilder:
         gaps = {k: ("gap", t[f"gap_{k}"])
                 for k in ("region_text", "region_diseases", "region_methods",
                           "pair_grade", "atlas_names")}  # fmt: skip
+        # Only what Sofía approved (v212); a page of a pair with several pages in its brain
+        # says the text is about the whole structure (CA1 shows the hippocampus's text).
+        shown = self.atlas_texts
+        texts = [{**shown[p["kind"]], "kind": p["kind"],
+                  "whole": sum(x["brain"] == r["brain"] for x in self.pair_pages[p["kind"]]) > 1}
+                 for p in r["pairs"] if p["kind"] in shown and shown[p["kind"]][lang]]  # fmt: skip
+        if texts:
+            del gaps["region_text"]
         groups, reviewed_at, methods = None, None, []
         if self.pair_studies is not None:
             # Per pair (Aday, v188): every page of a pair lists the same studies.
@@ -532,7 +540,8 @@ class SiteBuilder:
         pages = set(self.news_data.by_id) if self.news_data else set()
         self.render(lang, "region", "region.html.j2", key=r["page"], r=r, gaps=gaps,
                     credit=d["credit"][r["atlas"]], by_page=d["by_page"], groups=groups,
-                    study_pages=pages, reviewed_at=reviewed_at, methods=methods)  # fmt: skip
+                    study_pages=pages, reviewed_at=reviewed_at, methods=methods,
+                    texts=texts)  # fmt: skip
 
     @functools.cached_property
     def technique_found(self) -> dict[str, list[dict[str, Any]]] | None:
@@ -611,6 +620,13 @@ class SiteBuilder:
     def lab_texts(self) -> dict[str, dict[str, dict[str, Any]]]:
         """Technique -> section -> the text Sofía approved or corrected (``lab.texts``)."""
         from synaptica.lab.texts import published
+
+        return published(self.data_dir / "review" if self.data_dir is not None else None)
+
+    @functools.cached_property
+    def atlas_texts(self) -> dict[str, dict[str, Any]]:
+        """Pair kind -> the region text Sofía approved or corrected (``atlas.texts``)."""
+        from synaptica.atlas.texts import published
 
         return published(self.data_dir / "review" if self.data_dir is not None else None)
 

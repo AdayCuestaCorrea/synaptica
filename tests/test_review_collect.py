@@ -215,3 +215,30 @@ def test_neuro_lab_texts_join_from_the_19th_a_few_a_day(tmp_path: Path) -> None:
     assert len(lab_ids(dt.date(2026, 11, 21))) == 1  # a Saturday
     decide(data, labs[0], Action.APPROVE)
     assert lab_ids(dt.date(2026, 11, 19)) == [i.item_id for i in labs[1:4]]
+
+
+def test_neuro_atlas_texts_join_from_the_25th_a_few_a_day(tmp_path: Path) -> None:
+    from synaptica.narrative.wikidraft import section_item, wiki_source
+
+    data = data_dir(tmp_path)
+    entry = {
+        "title": "Hippocampus",
+        "revid": 7,
+        "url": "https://en.wikipedia.org/w/index.php?oldid=7",
+    }
+    sec = {"es": [{"text": "El hipocampo está en el lóbulo temporal."}],
+           "en": [{"text": "The hippocampus lies in the temporal lobe."}]}  # fmt: skip
+    regions = [section_item(ItemType.ATLAS, f"waxholm-{n}", f"Región {n} · Qué es y qué hace",
+                            sec, wiki_source(f"wikipedia-en-atlas-waxholm-{n}", entry))
+               for n in range(1, 6)]  # fmt: skip
+
+    def atlas_ids(today: dt.date) -> list[str]:
+        q = collect.collect(data / "warehouse.duckdb", data / "derived", data / "review",
+                            today, glossary=[], lab_texts=[], atlas_texts=regions)  # fmt: skip
+        return [i.item_id for i in q.items if i.item_type is ItemType.ATLAS]
+
+    assert atlas_ids(dt.date(2026, 11, 24)) == []
+    assert atlas_ids(dt.date(2026, 11, 25)) == [i.item_id for i in regions[:3]]  # a Wednesday
+    assert len(atlas_ids(dt.date(2026, 11, 28))) == 1  # a Saturday
+    decide(data, regions[0], Action.APPROVE)
+    assert atlas_ids(dt.date(2026, 11, 25)) == [i.item_id for i in regions[1:4]]

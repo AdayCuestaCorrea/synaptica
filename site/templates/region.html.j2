@@ -15,7 +15,14 @@
   <p><a class="btn-link" href="{{ url('atlas') }}#{{ r.key }}">{{ t.region_view }} →</a></p>
 
   <h2>{{ t.region_text_h }}</h2>
+  {% for x in texts %}
+  <p data-region-text="{{ x.kind }}">{{ x[lang] }}</p>
+  {% if x.whole %}<p class="muted">{{ t.region_text_whole }}</p>{% endif %}
+  <p class="muted lab-review">{{ t["lab_reviewed_" ~ x.mark].format(date=date(x.reviewed_at)) }} ·
+    {{ t.gl_source }} <a href="{{ x.source.url }}" rel="noopener" lang="en">Wikipedia ({{ t.lang_en }}): «{{ x.source.title }}»</a> · CC BY-SA 4.0</p>
+  {% else %}
   <p class="muted">{{ m.gap("region_text") }}</p>
+  {% endfor %}
 
   <h2>{{ t.region_pair_h.format(brain=t["brain_" ~ ("human" if r.brain == "rat" else "rat")] | lower) }}</h2>
   {% for p in r.pairs %}

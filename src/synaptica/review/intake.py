@@ -219,6 +219,9 @@ def source_texts(queue: Queue, cache_root: Path, efetch: list[Path]) -> dict[str
     from synaptica.lab.texts import source_texts as lab_source_texts
 
     out |= lab_source_texts(queue.items)
+    from synaptica.atlas.texts import source_texts as atlas_source_texts
+
+    out |= atlas_source_texts(queue.items)
     for path in efetch:
         for art in ET.parse(path).getroot().iter("PubmedArticle"):
             pmid = art.findtext(".//MedlineCitation/PMID") or ""
