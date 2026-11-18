@@ -2,7 +2,7 @@ source,kind,max_age_days,why
 pubmed,summary,2,"~700 new records a day; a gap of 2 days means the ingestion stopped"
 pubmed,medline,2,"written together with the summaries"
 crossref,notices,2,"~800 notices a day across all disciplines"
-europepmc,records,2,"~290 open-access records indexed a day"
+europepmc,records,5,"~290 open-access records indexed a day, but its open-access flag can lag days behind indexing (2026-11-15 to 18: 6 flagged of 16 952 indexed)"
 biorxiv,preprints,2,"~40 neuroscience preprints a day; the window looks back 7 days"
 medrxiv,preprints,4,"~10 neurology and psychiatry preprints a day; quieter at weekends"
 journals,items,3,"~20 new items a day across seven journals; weekly issues"

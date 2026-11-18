@@ -6,7 +6,7 @@
 
 | Requisito | Estado |
 |---|---|
-| Días seguidos sin intervención | **0 / 14**, desde la ejecución programada del 2026-11-15 (reloj reiniciado en la v144) |
+| Días seguidos sin intervención | **0 / 14**, desde la ejecución programada del 2026-11-19 si sale en verde (reloj reiniciado en la v219 por el rojo del 2026-11-18; antes, en la v144); cierre más temprano, 2026-12-02 |
 | Visto bueno de Sofía | pendiente |
 | 14b · ~100 titulares etiquetados por Sofía: macro F1 del clasificador frente al baseline y validación del juez | pendiente (Sofía) |
 | 24b · Primera elección de Clásicos | pendiente (Sofía) |
@@ -109,6 +109,7 @@ Caché privada en Actions, parada con el 429 de cupo diario, comprobación previ
 - **El clasificador dejaba sin tipo los artículos de Nature · Science · Cell** (v106): dos fallos de unión en dbt, corregidos con un test SQL.
 - **MeSH no servía como regla** para el filtro de neurociencia (v69).
 - **Fechas futuras de PubMed** (v102): 85 de 2571 candidatos tenían una fecha de número impreso posterior a hoy.
+- **Europe PMC dejó de marcar acceso abierto** (v219). Del 15 al 18-11 indexó 16 952 registros y solo 6 llevaban la marca, así que no había nada nuevo que guardar y el test de frescura (máximo 2 días) puso en rojo la ejecución programada del 18-11, que reinició el reloj. La ventana pasa a 5 días. *Lección:* el umbral de frescura debe salir del peor retraso de la fuente, no de su media diaria.
 - *Pendiente: lo que salga de las ejecuciones con Groq y de los 14 días.*
 
 ## Cómo defenderlo en una entrevista
