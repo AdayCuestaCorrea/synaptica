@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1038/s41593-026-02505-8",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "0859bfad3fac13e0",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T16:02:57+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used mice to investigate how the breakdown of motor memories is connected to the removal of specific myelin sheaths by microglia.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "When cells involved in motor memory become less active, the surrounding myelin-producing cells produce less of a protective signal called CD47, which allows microglia to eat the myelin.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Removing the CD47 signal from these myelin-producing cells sped up the loss of motor memory, while boosting the signal had the opposite effect.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The research found that microglia remove myelin sheaths and synapses through separate, independent processes.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Because different kinds of memory rely on myelination, the authors suggest this process might also help explain how other types of memories fade.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

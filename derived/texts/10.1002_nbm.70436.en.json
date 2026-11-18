@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1002/nbm.70436",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "c03e7b6d3e5feec8",
+ "generated_at": "2026-11-18T16:24:39+00:00",
+ "word_count": 98,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed a faster brain scanning technique that employs a specific mathematical approach to separate chemical signals, testing it on 15 people against a standard spectroscopy method.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "This new method completed scans approximately 10.58 times faster than the standard approach while incorporating signals from glutamine-glutamate and myo-inositol to enhance the precision of primary brain chemical measurements.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Validation on artificial samples indicated a measurement error of about 12.73% for the main chemicals, and human scans demonstrated moderate agreement between the new and standard techniques.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors suggest this method has potential for faster and more accurate brain chemical mapping.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-18T16:38:09+00:00"
+ }
+}

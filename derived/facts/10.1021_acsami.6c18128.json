@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1021/acsami.6c18128",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "9da57651824f6c2a",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T16:09:17+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a rat model of spinal cord injury to test the effects of the nanoparticles.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers created nanoparticles coated with macrophage membranes that carry the drug fasudil and manganese dioxide to target inflammation.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "The macrophage coating helped the particles avoid being eaten by immune cells and allowed them to accumulate more in the injury site in living animals.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "Treatment with the nanoparticles lowered inflammatory activity in microglia and reduced the buildup of reactive oxygen species.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The nanoparticles also improved the movement of blood vessel cells and their ability to form new vessels, and helped neural stem cells differentiate.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "In the injured rats, the treatment reduced the size of the lesion cavity and the amount of scar tissue (fibrosis).",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The study found that the nanoparticles promoted neurological recovery in the injured rats.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "Gene expression analysis and protein testing showed that the treatment was associated with changes in specific inflammatory signaling pathways.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

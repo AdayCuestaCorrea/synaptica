@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1002/nbm.70436",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "bdc280ed5f7e6ab9",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T16:06:03+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study tested the new method on 15 people and compared it with a standard spectroscopy technique.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers created a faster brain scanning method that uses a specific mathematical approach to separate chemical signals.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The new method finished the scan about 10.58 times faster than the standard approach.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The analysis included signals from glutamine-glutamate and myo-inositol to improve the accuracy of measuring the main brain chemicals.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "Tests on artificial samples showed the method had a measurement error of about 12.73% for the main chemicals.",
+   "subject": "other"
+  },
+  {
+   "id": "f6",
+   "statement": "In human scans, the results from the new method matched the standard method with moderate agreement.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors suggest the method has potential for faster and more accurate brain chemical mapping.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1002/gps3.70071",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "dac12818f6f70731",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T16:03:59+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study was a cross-sectional investigation of 48 adolescents, comprising 31 with social anxiety disorder and 17 healthy controls.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers measured gut bacteria using stool samples and brain structure and activity using magnetic resonance imaging.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Adolescents with social anxiety disorder had higher levels of specific gut bacteria, including Roseburia and Clostridium, while healthy controls had higher levels of Prevotella and Collinsella.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Brain scans revealed differences in the structure and function of several brain areas, such as the anterior cingulate and posterior cingulate, between the two groups.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "In the group with social anxiety disorder, the presence of certain gut bacteria was linked to specific brain imaging measures.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "In a preliminary test, the level of Clostridium bacteria and a specific brain activity measure in the right parahippocampal region were the best at distinguishing between the groups.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors suggest these results point to a connection between the gut and brain in social anxiety, but note that the findings need to be confirmed in larger, long-term studies.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

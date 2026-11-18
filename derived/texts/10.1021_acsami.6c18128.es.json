@@ -1,0 +1,58 @@
+{
+ "study_id": "10.1021/acsami.6c18128",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "0b1dbeca6be52238",
+ "generated_at": "2026-11-18T16:32:49+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "En un modelo de rata con lesión medular, los investigadores probaron nanopartículas recubiertas con membranas de macrófagos que transportan el fármaco fasudil y dióxido de manganeso para atacar la inflamación.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Este recubrimiento de macrófagos ayudó a las partículas a evitar ser fagocitadas por las células inmunitarias y les permitió acumularse en mayor medida en el sitio de la lesión en animales vivos.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "El tratamiento con estas nanopartículas redujo la actividad inflamatoria en la microglía, disminuyó la acumulación de especies reactivas de oxígeno y mejoró la movilidad de las células vasculares y su capacidad para formar nuevos vasos.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "En las ratas lesionadas, el tratamiento redujo el tamaño de la cavidad de la lesión y la cantidad de tejido de cicatriz, al tiempo que promovía la recuperación neurológica.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "El análisis de expresión génica y las pruebas de proteínas mostraron que el tratamiento se asociaba con cambios en vías específicas de señalización inflamatoria.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-18T16:39:10+00:00"
+ }
+}

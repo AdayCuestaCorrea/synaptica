@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1021/acschemneuro.6c00600",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "c031c309664fdb49",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T16:17:30+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study is a review that looks at how proteins without standard RNA-binding domains affect RNA processing in ALS.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "ALS is described as a fatal condition involving the gradual loss of motor neurons.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Mutations in genes that do not code for typical RNA-binding proteins are also linked to problems with RNA balance in ALS.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The authors categorize the non-canonical factors involved in ALS into three distinct functional groups.",
+   "subject": "other"
+  },
+  {
+   "id": "f5",
+   "statement": "One group consists of regulators of protein stability, whose failure leads to the buildup of clumpy proteins in the cell cytoplasm.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "A second group includes factors that cause RNA toxicity or mess up RNA-protein structures, such as specific repeat expansions in the C9ORF72 and ATXN1 genes.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "The third group involves factors that control the movement of RNA granules along the nerve extensions of motor neurons.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f8",
+   "statement": "All three groups of factors share a common effect of disrupting how mRNA is processed, stabilized, located, and translated in motor neurons.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f9",
+   "statement": "The review also discusses how changes in specific chemical marks on RNA, known as m6A and m1A modifications, might play a role in ALS.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

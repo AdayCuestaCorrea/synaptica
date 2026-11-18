@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1007/s12035-026-06336-3",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "bb702f251613ad2a",
+ "generated_at": "2026-11-18T16:30:46+00:00",
+ "word_count": 126,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed a new mouse line in which a human amyloid-beta gene was inserted into the amyloid precursor protein gene and a human ApoE4 gene replaced the mouse version.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Male and female mice of this type were raised until 12 months of age and assessed for Alzheimer's disease indicators, including memory issues, loss of nerve connections, brain cell damage, inflammation, and protein buildup.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "While these animals showed a slight decrease in the number of small connections on their brain cells, they did not lose brain cells in the hippocampus region.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "The authors suggest this model can be used to study how environmental factors and other health conditions affect Alzheimer's disease and serves as a starting point for creating better models of the common, late-onset form.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-18T16:38:59+00:00"
+ }
+}

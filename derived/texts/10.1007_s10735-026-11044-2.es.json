@@ -1,0 +1,60 @@
+{
+ "study_id": "10.1007/s10735-026-11044-2",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "972952ca11f52941",
+ "generated_at": "2026-11-18T16:27:43+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores probaron un extracto vegetal, tanto en forma libre como en nanopartículas lipídicas, en ratas Wistar adultas macho con un modelo de daño cerebral similar al de la enfermedad de Alzheimer inducido químicamente.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Las capacidades cognitivas se evaluaron mediante pruebas del laberinto de agua y de reconocimiento de objetos, mientras que las muestras de sangre y el tejido hipocampal se analizaron en busca de marcadores de estrés oxidativo y actividad génica.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Las ratas con daño inducido mostraron una memoria deficiente y lesiones neuronales, pero ambas formas del extracto mejoraron la memoria espacial y redujeron parte del daño cerebral.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "Los tratamientos redujeron un marcador específico de estrés en sangre y la degeneración hipocampal, siendo la versión en nanopartículas la que mostró diferencias estadísticamente significativas únicamente en el daño neuronal.",
+   "fact_ids": [
+    "f8",
+    "f9"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que se necesita más investigación para determinar el mecanismo y el potencial protector a largo plazo contra la enfermedad de Alzheimer.",
+   "fact_ids": [
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-18T16:38:59+00:00"
+ }
+}

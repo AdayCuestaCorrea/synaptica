@@ -1,0 +1,43 @@
+{
+ "study_id": "10.1002/nbm.70436",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "c03e7b6d3e5feec8",
+ "generated_at": "2026-11-18T16:24:39+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: words not in the Spanish dictionary ['espectroscopía']"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron una técnica de escaneo cerebral más rápida que emplea un enfoque matemático específico para separar las señales químicas, y la probaron en 15 personas frente a un método estándar de espectroscopía.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Este nuevo método completó los escaneos aproximadamente 10,58 veces más rápido que el enfoque estándar, al incorporar señales de glutamina-glutamato y mio-inositol para mejorar la precisión de las mediciones principales de las sustancias químicas cerebrales.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "La validación en muestras artificiales indicó un error de medición de aproximadamente el 12,73% para las sustancias químicas principales, y los escaneos en humanos demostraron un acuerdo moderado entre la nueva técnica y la estándar.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que este método tiene potencial para un mapeo químico cerebral más rápido y preciso.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-18T16:37:55+00:00"
+}

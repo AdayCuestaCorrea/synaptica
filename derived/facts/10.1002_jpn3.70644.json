@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1002/jpn3.70644",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "453b6e5824af1873",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T16:05:01+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study analyzed records from 38 children and teenagers, aged 3 to 18, who had been formally diagnosed with cyclic vomiting syndrome at a Wisconsin hospital.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Participants and their caregivers filled out questionnaires about symptoms during vomiting episodes and a specific tool used to measure how much the condition interferes with daily life.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Researchers used statistical methods to check how well seven different combined scores of episode details matched the measured level of disability.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "For both the general group and the migraine-associated subgroup, the combined scores were more closely linked to disability than any single symptom measure on its own.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "In the main group, the scores that combined episode frequency, duration, and nausea severity had the strongest link to the level of disability.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "In the subgroup with migraine-associated symptoms, the score combining frequency, duration, and headache pain was most strongly associated with disability.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors describe the results as a preliminary step toward validating a scale that measures the burden of the condition in children.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

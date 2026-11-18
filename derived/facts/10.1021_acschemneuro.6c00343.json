@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1021/acschemneuro.6c00343",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "0758468e2048c5c3",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T16:11:21+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study investigated the function of the dopamine D1 receptor in a specific type of brain cell.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Reducing the D1 receptor in these cells did not change their normal activity levels or the mice's everyday behavior.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The reduction in the receptor prevented the normal dopamine-based control of how these cells send signals.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Mice with reduced D1 receptors in these cells had trouble learning a new task that required remembering where to go for a reward.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

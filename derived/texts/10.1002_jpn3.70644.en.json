@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1002/jpn3.70644",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "b96081cd01c00333",
+ "generated_at": "2026-11-18T16:22:37+00:00",
+ "word_count": 136,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers analyzed records from 38 children and teenagers, aged 3 to 18, who had been formally diagnosed with cyclic vomiting syndrome at a Wisconsin hospital, using questionnaires completed by participants and their caregivers to assess symptoms and daily life interference.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Statistical methods were applied to determine how well seven different combined scores of episode details matched the measured level of disability.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "In both the general group and the migraine-associated subgroup, these combined scores were more closely linked to disability than any single symptom measure, with frequency, duration, and nausea severity showing the strongest link in the main group, while frequency, duration, and headache pain were most strongly associated with disability in the migraine-associated subgroup.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors describe these results as a preliminary step toward validating a scale that measures the burden of the condition in children.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-18T16:37:59+00:00"
+ }
+}

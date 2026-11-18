@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1007/s12035-026-06336-3",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "bb702f251613ad2a",
+ "generated_at": "2026-11-18T16:30:46+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron una nueva línea de ratones en la que se insertó un gen humano de amiloide-beta en el gen de la proteína precursora amiloide y un gen humano de ApoE4 sustituyó a la versión del ratón.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Los ratones macho y hembra de esta cepa fueron criados hasta los 12 meses de edad y evaluados en busca de indicadores de la enfermedad de Alzheimer, como problemas de memoria, pérdida de conexiones nerviosas, daño en las células cerebrales, inflamación y acumulación de proteínas.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Aunque estos animales mostraron una ligera disminución en el número de pequeñas conexiones en sus células cerebrales, no perdieron neuronas en la región del hipocampo.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que este modelo puede utilizarse para estudiar cómo los factores ambientales y otras condiciones de salud afectan a la enfermedad de Alzheimer, y que sirve como punto de partida para crear mejores modelos de la forma común de inicio tardío.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-18T16:38:59+00:00"
+ }
+}

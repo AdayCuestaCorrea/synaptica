@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1021/acschemneuro.6c00382",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "ec75188dcdb0cb96",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T16:13:24+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used two types of rats with genetic changes that cause either a constant shortage or a constant surplus of serotonin in the body.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers looked at how these serotonin levels affected the development of specific areas in the medial prefrontal cortex and the nerve connections there.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The study found that different parts of the developing brain are not equally affected by changes in serotonin levels.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "In rats with low serotonin, the prelimbic area of the cortex showed more nerve fibers from other brain regions and a higher number of a specific type of deep-layer neuron.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "In rats with low serotonin, the infralimbic area lost a specific group of cells that help build the structure of the cortex.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "In rats with high serotonin, the genes for two proteins that help clear serotonin from the outside of cells were more active.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "This suggests that the embryos with high serotonin tried to balance the levels by using pathways to remove the extra chemical.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "The results show that serotonin levels before birth are a key factor in how nerve connections form and how the basic structure of the cortex is built.",
+   "subject": "animals"
+  },
+  {
+   "id": "f9",
+   "statement": "The authors suggest that mistakes in brain development late in pregnancy could lead to problems with brain circuits later in life, affecting social and thinking abilities.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

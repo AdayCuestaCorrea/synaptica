@@ -1,0 +1,62 @@
+{
+ "study_id": "10.1021/acschemneuro.6c00557",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "f2c3a0dbe05ae5e8",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T16:16:28+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study examined adolescent male rats that were genetically modified to lack a specific enzyme required for making serotonin.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers compared the knockout rats against their wild-type littermates, which have normal serotonin levels.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The animals were observed in a social housing setup and tested individually in a behavioral profiling system during two two-hour sessions.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The analysis looked at how the rats used corridors, entered chambers, started touchscreen tasks, and moved around freely.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The study did not use touchscreen accuracy or cognitive learning results to draw its main conclusions.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The serotonin-deficient rats showed less early exploratory activity in the individual testing system.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "These rats took longer to start interacting voluntarily with the touchscreen.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "The knockout rats displayed more varied and inconsistent patterns of accessing the testing areas compared to the controls.",
+   "subject": "animals"
+  },
+  {
+   "id": "f9",
+   "statement": "The behavioral differences in the individual testing system were most noticeable during the first session and became less distinct in the second.",
+   "subject": "animals"
+  },
+  {
+   "id": "f10",
+   "statement": "The results suggest that a lifelong lack of brain serotonin changes how adolescent rats start and organize their spontaneous exploratory behavior.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

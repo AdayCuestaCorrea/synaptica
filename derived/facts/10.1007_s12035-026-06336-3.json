@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1007/s12035-026-06336-3",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "faaffa54e6bcd08e",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T16:08:13+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study introduces a new mouse line that has a human version of the amyloid-beta gene inserted into its own amyloid precursor protein gene and a human ApoE4 gene replacing the mouse version.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers raised male and female mice of this new type until they were 12 months old and checked them for signs of Alzheimer's disease such as memory issues, loss of nerve connections, brain cell damage, inflammation, and protein buildup.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The mice had a slight decrease in the number of small connections on their brain cells, but they did not lose brain cells in the hippocampus region.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The authors suggest this mouse model can be used to study how environmental factors and other health conditions affect Alzheimer's disease and serves as a starting point for creating better models of the common, late-onset form of the disease.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

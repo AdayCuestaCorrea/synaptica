@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1021/acschemneuro.6c00313",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "f0d7e765b644ece8",
+ "generated_at": "2026-11-18T16:35:52+00:00",
+ "word_count": 88,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "This review examines how neurodegenerative diseases might be treated by targeting the TrkB/BDNF signaling pathway.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "It summarizes small molecules that have been tested and shown to protect nerve cells by altering the function of this system.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Under normal conditions, neurotrophins support cell survival by promoting the growth of nerve extensions, the creation of new neurons, structural changes, and long-term strengthening of connections.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "The authors note that a lack of neurotrophic signaling is an area of neurodegenerative disease that has not been studied as much as other factors.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-18T16:39:11+00:00"
+ }
+}

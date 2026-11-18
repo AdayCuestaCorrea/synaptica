@@ -1,0 +1,48 @@
+{
+ "study_id": "10.1002/gps3.70071",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "3ac707018df4b715",
+ "generated_at": "2026-11-18T16:19:34+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 4: words not in the Spanish dictionary ['parahipocampal']"
+ ],
+ "sentences": [
+  {
+   "text": "Un estudio transversal realizado con 48 adolescentes, incluidos 31 con trastorno de ansiedad social y 17 controles sanos, midió las bacterias intestinales mediante muestras de heces y la estructura y actividad cerebral usando resonancia magnética.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Los participantes con trastorno de ansiedad social mostraron niveles más altos de Roseburia y Clostridium, mientras que los controles tenían más Prevotella y Collinsella, junto con diferencias en la estructura y función de áreas cerebrales como el cíngulo anterior y posterior.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Dentro del grupo de ansiedad social, la presencia de ciertas bacterias intestinales se asoció con medidas específicas de neuroimagen.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "En una prueba preliminar, los niveles de Clostridium y una medida específica de actividad cerebral en la región parahipocampal derecha fueron los que mejor distinguían entre los grupos.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que estos resultados apuntan a una conexión entre el intestino y el cerebro en la ansiedad social, pero señalan que los hallazgos deben confirmarse en estudios más grandes y a largo plazo.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-18T16:37:55+00:00"
+}

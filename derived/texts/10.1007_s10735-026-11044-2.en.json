@@ -1,0 +1,60 @@
+{
+ "study_id": "10.1007/s10735-026-11044-2",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "972952ca11f52941",
+ "generated_at": "2026-11-18T16:27:43+00:00",
+ "word_count": 113,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers tested a plant extract in free and lipid nanoparticle forms on adult male Wistar rats with a chemical-induced model of Alzheimer's-like brain damage.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Cognitive abilities were assessed via water maze and object recognition tests, while blood samples and hippocampal tissue were analyzed for oxidative stress markers and gene activity.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Rats with induced damage exhibited poor memory and neuronal injury, but both extract forms improved spatial memory and reduced some brain damage.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "Treatments lowered a specific blood stress marker and hippocampal degeneration, with the nanoparticle version showing statistically significant differences only in neuronal damage.",
+   "fact_ids": [
+    "f8",
+    "f9"
+   ]
+  },
+  {
+   "text": "The authors conclude that further research is needed to determine the mechanism and long-term protective potential against Alzheimer's disease.",
+   "fact_ids": [
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-18T16:38:59+00:00"
+ }
+}

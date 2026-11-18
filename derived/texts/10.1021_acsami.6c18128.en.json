@@ -1,0 +1,58 @@
+{
+ "study_id": "10.1021/acsami.6c18128",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "0b1dbeca6be52238",
+ "generated_at": "2026-11-18T16:32:49+00:00",
+ "word_count": 124,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "In a rat model of spinal cord injury, researchers tested nanoparticles coated with macrophage membranes that carry the drug fasudil and manganese dioxide to target inflammation.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "This macrophage coating helped the particles avoid being eaten by immune cells and allowed them to accumulate more in the injury site in living animals.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Treatment with these nanoparticles lowered inflammatory activity in microglia, reduced the buildup of reactive oxygen species, and improved the movement of blood vessel cells and their ability to form new vessels.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "In the injured rats, the treatment reduced the size of the lesion cavity and the amount of scar tissue, while promoting neurological recovery.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "Gene expression analysis and protein testing showed that the treatment was associated with changes in specific inflammatory signaling pathways.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-18T16:39:10+00:00"
+ }
+}

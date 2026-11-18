@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1021/acschemneuro.6c00313",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "f0d7e765b644ece8",
+ "generated_at": "2026-11-18T16:35:52+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Esta revisión examina cómo podrían tratarse las enfermedades neurodegenerativas mediante la modulación de la vía de señalización TrkB/BDNF.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Además, resume las pequeñas moléculas que se han ensayado y demostrado proteger las células nerviosas al alterar la función de este sistema.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "En condiciones normales, las neurotrofinas favorecen la supervivencia celular al promover el crecimiento de extensiones nerviosas, la generación de nuevas neuronas, los cambios estructurales y el fortalecimiento a largo plazo de las conexiones.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Los autores señalan que la deficiencia de la señalización neurotrófica es un aspecto de las enfermedades neurodegenerativas que ha sido menos estudiado que otros factores.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-18T16:39:11+00:00"
+ }
+}

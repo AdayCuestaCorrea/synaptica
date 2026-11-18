@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1002/jpn3.70644",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "b96081cd01c00333",
+ "generated_at": "2026-11-18T16:22:37+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron los registros de 38 niños y adolescentes, de entre 3 y 18 años, diagnosticados formalmente de síndrome de vómito cíclico en un hospital de Wisconsin, utilizando cuestionarios completados por los participantes y sus cuidadores para evaluar los síntomas y la interferencia en la vida diaria.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Se aplicaron métodos estadísticos para determinar en qué medida siete puntuaciones combinadas distintas de los detalles de los episodios coincidían con el nivel de discapacidad medido.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Tanto en el grupo general como en el subgrupo asociado a migraña, estas puntuaciones combinadas mostraron una relación más estrecha con la discapacidad que cualquier medida individual de síntomas; en el grupo principal, la frecuencia, la duración y la gravedad de las náuseas presentaron el vínculo más fuerte, mientras que en el subgrupo asociado a migraña, la frecuencia, la duración y el dolor de cabeza fueron los factores más fuertemente asociados a la discapacidad.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores describen estos resultados como un paso preliminar hacia la validación de una escala que mida la carga de la enfermedad en niños.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-18T16:37:59+00:00"
+ }
+}

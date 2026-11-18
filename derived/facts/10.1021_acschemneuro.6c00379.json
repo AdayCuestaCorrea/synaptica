@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1021/acschemneuro.6c00379",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "d562d27a47d98a89",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T16:12:22+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers created a hybrid nanocarrier by attaching a lipophilic cation called triphenylphosphonium to Coenzyme Q10 and placing it on mitochondria taken from healthy brain cells.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "The treatment was given as a single intravenous injection to mice that had been induced to develop Alzheimer's disease using streptozotocin.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Tests of mitochondrial function, amyloid levels, inflammation, cell death, and behavior showed that adding the CoQ10-TPP compound improved the effectiveness of the mitochondrial transplant in treating the disease.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The study suggests that combining the antioxidant CoQ10 with mitochondrial transplantation is a promising therapeutic strategy because it significantly improved the overall treatment results.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1021/acschemneuro.6c00313",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "89430b8bf07d6e34",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T16:10:19+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "This is a review paper that looks at how different neurodegenerative diseases might be treated by targeting the TrkB/BDNF signaling pathway.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "The paper summarizes small molecules that have been tested and shown to protect nerve cells by changing how the TrkB/BDNF system works.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "In normal conditions, neurotrophins help cells survive by supporting the growth of nerve extensions, the creation of new neurons, changes in cell structure, and long-term strengthening of connections.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The authors note that a lack of neurotrophic signaling is an area of neurodegenerative disease that has not been studied as much as other factors.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

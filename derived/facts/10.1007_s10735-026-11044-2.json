@@ -1,0 +1,62 @@
+{
+ "study_id": "10.1007/s10735-026-11044-2",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "2e26c8830f149830",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T16:07:10+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used adult male Wistar rats divided into five groups, including a control group, a group treated with the drug memantine, and groups treated with the plant extract in free or nanoparticle form.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers tested a plant extract in two forms, one free and one in lipid nanoparticles, on rats with a chemical-induced model of Alzheimer's-like brain damage.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Memory and learning abilities were measured using a water maze test and a test where rats had to recognize a new object.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Blood samples were analyzed to measure levels of specific markers that indicate oxidative stress in the body.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The physical condition of the hippocampus, a brain region important for memory, and the activity of three specific genes were examined.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Rats with the induced brain damage showed poor memory, higher levels of one stress marker, lower levels of two others, and physical damage to neurons in the hippocampus.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "Both forms of the plant extract improved the rats' cognitive performance, especially their spatial memory, and reduced some of the brain damage.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "The treatments lowered the level of a specific oxidative stress marker in the blood and reduced the degeneration of neurons in the hippocampus.",
+   "subject": "animals"
+  },
+  {
+   "id": "f9",
+   "statement": "While the nanoparticle version appeared to have stronger effects on several measures, the difference between the two forms was statistically significant only for the amount of neuronal damage.",
+   "subject": "animals"
+  },
+  {
+   "id": "f10",
+   "statement": "The authors state that more research is needed to understand how the treatment works and whether these results apply to long-term protection against Alzheimer's disease.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

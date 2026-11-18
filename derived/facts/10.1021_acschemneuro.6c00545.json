@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1021/acschemneuro.6c00545",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "18fc1b2e9876f61b",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T16:15:27+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Chloride ions help control how easily brain cells fire, how inhibitory signals work, and how cells manage their size and internal salt balance.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "Problems with controlling chloride levels inside cells are connected to several brain conditions, including epilepsy and schizophrenia.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Using fluorescent lights to watch chloride inside living cells provides a detailed view that works alongside traditional electrical measurements.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The paper is a review that summarizes why chloride movement matters in the nervous system and how light-based tools are used to study it.",
+   "subject": "other"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors look at how tools for detecting chloride have changed over time, moving from simple chemical dyes to proteins made by genes.",
+   "subject": "other"
+  },
+  {
+   "id": "f6",
+   "statement": "The review points out that future tools need to be better at picking out chloride specifically, less affected by acidity, and able to target specific parts of a cell.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}
