@@ -38,6 +38,7 @@ from synaptica.narrative.checks import (
     check_text,
 )
 from synaptica.narrative.write import ATTEMPTS, Summary, _public, adapt_es
+from synaptica.review.models import ItemType, ReviewItem, Sentence, Source, TextContent
 from synaptica.wiki import read_json, write_json
 
 TEXTS = Path(__file__).with_name("texts.json")
@@ -171,3 +172,87 @@ def write(
         "techniques": {t["id"]: texts[t["id"]] for t in techniques() if t["id"] in texts},
     })  # fmt: skip
     return status
+
+
+# ---- her review and what the site shows (B2-4, v210) ---------------------------------
+
+SECTION_ES = {"what": "Qué permite ver", "limit": "Límites"}
+PUBLISHED = ("approved", "edited")  # her approval, or her correction that passed (or kept)
+
+
+def _source(tid: str, entry: dict[str, Any]) -> Source:
+    label = f"Wikipedia en inglés: «{entry['title']}» (revisión {entry['revid']})"
+    return Source(id=f"wikipedia-en-lab-{tid}", url=entry["url"], label=label)
+
+
+def review_items(path: Path | None = None, sources_path: Path | None = None) -> list[ReviewItem]:
+    """Her review items: one per drafted section, in the order of the technique table.
+    A draft from an older revision of its lead than ``sources.json`` holds is left out
+    (its quotes would no longer be checkable) until ``syn lab write`` drafts it again."""
+    texts = read_json(path or TEXTS, "techniques")
+    sources = read_json(sources_path or SOURCES, "techniques")
+    out = []
+    for tech in techniques():
+        tid = tech["id"]
+        rec, entry = texts.get(tid), (sources.get(tid) or {}).get("en") or {}
+        if not rec or not entry.get("accepted") or entry.get("revid") != rec.get("revid"):
+            continue
+        src = _source(tid, entry)
+        for kind in SECTIONS:
+            sec = rec.get(kind) or {}
+            if sec.get("status") != "drafted":
+                continue
+            lines = {lang: [Sentence(text=s["text"], cites=[src.id]) for s in sec[lang]]
+                     for lang in ("es", "en")}  # fmt: skip
+            out.append(ReviewItem(item_type=ItemType.LAB, item_id=f"{tid}-{kind}",
+                                  title_es=f"{tech['name_es']} · {SECTION_ES[kind]}",
+                                  content=TextContent(es=lines["es"], en=lines["en"],
+                                                      sources=[src])))  # fmt: skip
+    return out
+
+
+def source_texts(items: list[ReviewItem], sources_path: Path | None = None) -> dict[str, str]:
+    """The lead each Neuro Lab item cites, only at the revision it cites (to check her
+    edits: numbers, names, 8 copied words)."""
+    sources = read_json(sources_path or SOURCES, "techniques")
+    out = {}
+    for item in items:
+        if item.item_type is not ItemType.LAB or not isinstance(item.content, TextContent):
+            continue
+        tid = item.item_id.rsplit("-", 1)[0]
+        entry = (sources.get(tid) or {}).get("en") or {}
+        for s in item.content.sources:
+            if entry.get("accepted") and entry.get("url") == s.url:
+                out[s.id] = entry["lead"]
+    return out
+
+
+def published(
+    review_dir: Path | None, path: Path | None = None, sources_path: Path | None = None
+) -> dict[str, dict[str, dict[str, Any]]]:
+    """Technique -> section -> what the site shows: only what she approved or corrected,
+    at the version on the table today (the hash). ``en`` is None while her Spanish-only
+    correction waits for its English."""
+    from synaptica.review.apply import read_log, state
+
+    if review_dir is None or not review_dir.exists():
+        return {}
+    events = read_log(review_dir)
+    out: dict[str, dict[str, dict[str, Any]]] = {}
+    for item in review_items(path, sources_path):
+        st = state(item, events)
+        if st.status not in PUBLISHED or st.reviewed_at is None:
+            continue
+        content = st.text or item.content
+        assert isinstance(content, TextContent)
+        tid, kind = item.item_id.rsplit("-", 1)
+        text = {lang: " ".join(s.text for s in getattr(content, lang)) for lang in ("es", "en")}
+        if st.awaiting_en:
+            text["en"] = None
+        out.setdefault(tid, {})[kind] = {
+            **text, "mark": "kept" if st.kept_reason else st.status,
+            "reviewed_at": st.reviewed_at.date().isoformat(),
+            "source": {"url": item.content.sources[0].url,
+                       "title": item.content.sources[0].label.split("«")[1].split("»")[0]},
+        }  # fmt: skip
+    return out

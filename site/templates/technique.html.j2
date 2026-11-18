@@ -9,10 +9,16 @@
   <p class="crumbs"><a href="{{ url('lab') }}">{{ t.lab }}</a></p>
   <h1>{{ name }}</h1>
 
-  <h2>{{ t.lab_what_h }}</h2>
+  {% for kind, head in (("what", t.lab_what_h), ("limit", t.lab_limits_h)) %}
+  <h2>{{ head }}</h2>
+  {% if kind in texts %}{% set x = texts[kind] %}
+  <p data-lab-text="{{ kind }}">{{ x[lang] }}</p>
+  <p class="muted lab-review">{{ t["lab_reviewed_" ~ x.mark].format(date=date(x.reviewed_at)) }} ·
+    {{ t.gl_source }} <a href="{{ x.source.url }}" rel="noopener" lang="en">Wikipedia ({{ t.lang_en }}): «{{ x.source.title }}»</a> · CC BY-SA 4.0</p>
+  {% else %}
   <p class="muted">{{ m.gap("lab_texts") }}</p>
-  <h2>{{ t.lab_limits_h }}</h2>
-  <p class="muted">{{ m.gap("lab_texts") }}</p>
+  {% endif %}
+  {% endfor %}
 
   <h2>{{ t.lab_studies_h }}{% if groups is not none %} {{ m.gap_if("lab_match") }}{% endif %}</h2>
   {% if groups is none %}

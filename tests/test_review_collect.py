@@ -197,3 +197,21 @@ def test_a_past_runs_texts_join_the_queue_as_items_of_their_own(tmp_path: Path) 
     ids = [i.item_id for i in q.items if not i.item_id.startswith("topic-")]
     assert ids == ["pmid_77-qwen9b", "pmid_77-qwen27b", "doi_10.1_today"]
     assert q.items[0].content.sources[0].id == "pubmed-77"
+
+
+def test_neuro_lab_texts_join_from_the_19th_a_few_a_day(tmp_path: Path) -> None:
+    from synaptica.lab.texts import review_items
+
+    data = data_dir(tmp_path)
+    labs = review_items()  # the drafts committed in lab/texts.json (v209)
+
+    def lab_ids(today: dt.date) -> list[str]:
+        q = collect.collect(data / "warehouse.duckdb", data / "derived", data / "review",
+                            today, glossary=[], lab_texts=labs)  # fmt: skip
+        return [i.item_id for i in q.items if i.item_type is ItemType.LAB]
+
+    assert lab_ids(dt.date(2026, 11, 18)) == []
+    assert lab_ids(dt.date(2026, 11, 19)) == [i.item_id for i in labs[:3]]  # a Thursday
+    assert len(lab_ids(dt.date(2026, 11, 21))) == 1  # a Saturday
+    decide(data, labs[0], Action.APPROVE)
+    assert lab_ids(dt.date(2026, 11, 19)) == [i.item_id for i in labs[1:4]]

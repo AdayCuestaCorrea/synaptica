@@ -121,3 +121,60 @@ def test_a_model_error_skips_the_technique_and_saves_nothing_for_it(tmp_path: Pa
     status = texts.write(BrokenLLM(), sources_path=sources(tmp_path), path=out)
     assert status == {"optogenetics": {"what": "model_error", "limit": "model_error"}}
     assert json.loads(out.read_text())["techniques"] == {}  # asked again on the next run
+
+
+# ---- her review and the site (v210) ---------------------------------------------------
+
+
+def drafted(tmp_path: Path) -> tuple[Path, Path]:
+    out, src = tmp_path / "texts.json", sources(tmp_path)
+    texts.write(FakeLLM(), sources_path=src, path=out)
+    return out, src
+
+
+def decide(review: Path, item, action: str, payload: dict | None = None) -> None:
+    review.mkdir(parents=True, exist_ok=True)
+    with (review / "decisions.jsonl").open("a") as f:
+        f.write(json.dumps({
+            "item_type": "lab", "item_id": item.item_id, "content_sha256": item.content_sha256,
+            "action": action, "payload": payload or {}, "note": None, "reviewed_by": "sofia",
+            "reviewed_at": "2026-11-19T10:00:00Z", "source": "issue#30"}) + "\n")  # fmt: skip
+
+
+def test_one_item_per_drafted_section_citing_its_lead(tmp_path: Path) -> None:
+    out, src = drafted(tmp_path)
+    items = texts.review_items(out, src)
+    assert [(i.item_type, i.item_id, i.title_es) for i in items] == [
+        ("lab", "optogenetics-what", "Optogenética · Qué permite ver"),
+        ("lab", "optogenetics-limit", "Optogenética · Límites"),
+    ]
+    what = items[0].content
+    assert what.es[0].text.startswith("La optogenética") and len(what.en) == 2
+    assert [s.id for s in what.sources] == ["wikipedia-en-lab-optogenetics"]
+    assert texts.source_texts(items, src) == {"wikipedia-en-lab-optogenetics": LEAD}
+
+
+def test_a_failed_section_or_a_newer_lead_is_not_queued(tmp_path: Path) -> None:
+    copied = EN | {"limit": [("The method requires genetic modification of the target cells, "
+                              "and light scatters in brain tissue.", ["f3"])]}  # fmt: skip
+    out, src = tmp_path / "texts.json", sources(tmp_path)
+    texts.write(FakeLLM(copied), sources_path=src, path=out)
+    assert [i.item_id for i in texts.review_items(out, src)] == ["optogenetics-what"]
+    body = json.loads(src.read_text())
+    body["techniques"]["optogenetics"]["en"]["revid"] = 8  # the lead was refreshed since
+    src.write_text(json.dumps(body))
+    assert texts.review_items(out, src) == []
+
+
+def test_only_what_she_approved_or_corrected_is_published(tmp_path: Path) -> None:
+    out, src = drafted(tmp_path)
+    what, limit = texts.review_items(out, src)
+    review = tmp_path / "review"
+    assert texts.published(review, out, src) == {}
+    decide(review, what, "approve")
+    decide(review, limit, "edit", {"es": "Primero hay que modificar genéticamente las células."})
+    shown = texts.published(review, out, src)["optogenetics"]
+    assert shown["what"]["mark"] == "approved" and shown["what"]["reviewed_at"] == "2026-11-19"
+    assert shown["what"]["en"].startswith("Optogenetics lets researchers")
+    assert shown["what"]["source"]["title"] == "Optogenetics"
+    assert shown["limit"]["es"].startswith("Primero hay que") and shown["limit"]["en"] is None

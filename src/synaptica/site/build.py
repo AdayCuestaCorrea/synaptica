@@ -567,6 +567,10 @@ class SiteBuilder:
 
         t, found = self.i18n[lang], self.technique_found
         gaps = {k: ("gap", t[f"gap_{k}"]) for k in ("lab_texts", "lab_regions")}
+        # Only what Sofía approved (B2-4, v210); a section without it keeps its gap.
+        texts = {k: v for k, v in self.lab_texts.get(tech["id"], {}).items() if v[lang]}
+        if all(k in texts for k in ("what", "limit")):
+            del gaps["lab_texts"]
         groups, reviewed_at, regions = None, None, []
         if found is not None:
             groups = by_species(found.get(tech["id"], []), TECHNIQUE_STUDIES)
@@ -591,7 +595,8 @@ class SiteBuilder:
         pages = set(self.news_data.by_id) if self.news_data else set()
         self.render(lang, "technique", "technique.html.j2", key=tech["id"], tech=tech,
                     name=tech[f"name_{lang}"], gaps=gaps, groups=groups,
-                    study_pages=pages, reviewed_at=reviewed_at, regions=regions)  # fmt: skip
+                    study_pages=pages, reviewed_at=reviewed_at, regions=regions,
+                    texts=texts)  # fmt: skip
 
     @functools.cached_property
     def pair_pages(self) -> dict[str, list[dict[str, Any]]]:
@@ -601,6 +606,13 @@ class SiteBuilder:
             for p in r["pairs"]:
                 out.setdefault(p["kind"], []).append(r)
         return out
+
+    @functools.cached_property
+    def lab_texts(self) -> dict[str, dict[str, dict[str, Any]]]:
+        """Technique -> section -> the text Sofía approved or corrected (``lab.texts``)."""
+        from synaptica.lab.texts import published
+
+        return published(self.data_dir / "review" if self.data_dir is not None else None)
 
     @functools.cached_property
     def reviewed_techniques(self) -> dict[str, str]:

@@ -4,6 +4,7 @@ and text, and the pages. No network: the committed vocabulary and tiny warehouse
 from __future__ import annotations
 
 import datetime as dt
+import json
 from pathlib import Path
 
 import duckdb
@@ -238,3 +239,28 @@ def test_region_and_technique_pages_link_each_other_as_a_proposal(tmp_path: Path
     assert 'href="#gap-lab_regions_match"' in opto
     fmri = (out / "en" / "lab" / "fmri.html").read_text()
     assert "gap-lab_regions_match" not in fmri and 'href="#gap-lab_regions"' in fmri
+
+
+def test_a_technique_shows_the_texts_she_approved_with_their_source(tmp_path: Path) -> None:
+    from synaptica.lab.texts import review_items
+
+    items = {i.item_id: i for i in review_items()}  # the committed drafts (v209)
+    data, review = tmp_path / "data", tmp_path / "data" / "review"
+    review.mkdir(parents=True)
+    lines = [json.dumps({"item_type": "lab", "item_id": k,
+                         "content_sha256": items[k].content_sha256, "action": "approve",
+                         "payload": {}, "note": None, "reviewed_by": "sofia",
+                         "reviewed_at": "2026-11-19T10:00:00Z", "source": f"issue#{n}"})
+             for n, k in enumerate(("eeg-what", "eeg-limit", "fmri-what"), 1)]  # fmt: skip
+    (review / "decisions.jsonl").write_text("\n".join(lines) + "\n")
+    out = tmp_path / "site"
+    SiteBuilder(out, images=LICENSED, data_dir=data).build()
+    assert check_site(out).passed
+    eeg = (out / "en" / "lab" / "eeg.html").read_text()
+    assert 'data-lab-text="what"' in eeg and 'data-lab-text="limit"' in eeg
+    assert "gap-lab_texts" not in eeg and "Wikipedia (English)" in eeg
+    assert items["eeg-what"].content.en[0].text in eeg
+    fmri = (out / "es" / "lab" / "fmri.html").read_text()
+    assert 'data-lab-text="what"' in fmri and "gap-lab_texts" in fmri  # limits: not yet
+    assert items["fmri-what"].content.es[0].text in fmri
+    assert "data-lab-text" not in (out / "es" / "lab" / "optogenetics.html").read_text()
