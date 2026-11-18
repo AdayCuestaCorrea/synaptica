@@ -22,6 +22,6 @@ Cada documento se escribe al cerrar su fase, con el visto bueno de Sofía. Va en
 |---|---|---|
 | 0 — Cimientos | [`fase-0.md`](fase-0.md) | Cerrada (2026-11-13) |
 | 1 — La base | [`fase-1.md`](fase-1.md) | Borrador (la fase sigue abierta) |
-| 2 — Prioridades de Sofía | `fase-2.md` · estudio previo: [`fase-2-atlas-ux.md`](fase-2-atlas-ux.md) | Pendiente (el estudio de UX de Neuro Atlas, en borrador) |
+| 2 — Prioridades de Sofía | [`fase-2.md`](fase-2.md) · estudio previo: [`fase-2-atlas-ux.md`](fase-2-atlas-ux.md) | Borrador (la fase sigue abierta) |
 | 3 — Aprender | `fase-3.md` | Pendiente |
 | 4 — Para explorar | `fase-4.md` | Pendiente |
