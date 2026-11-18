@@ -1,0 +1,185 @@
+{
+  "note": "Draft of Neuro Atlas's introduction (LLM, checked against the sections in atlas/intro_sources.json). Not published: it waits for Sofía's approval. Written by `syn atlas intro-write`; do not edit by hand.",
+  "intro": {
+    "revids": {
+      "gyrification": 1369639458,
+      "human-brain": 1386315509,
+      "brain-size": 1385820400
+    },
+    "generator": "groq/qwen/qwen3.8-27b",
+    "prompts": {
+      "intro_facts": "intro-facts-v1 (adapted from atlas-facts-v1 for Neuro Atlas's introduction, v221)",
+      "intro_write_en": "intro-write-en-v1 (adapted from atlas-write-en-v1 for Neuro Atlas's introduction, v221)",
+      "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
+    },
+    "generated_at": "2026-11-18T19:35:31+00:00",
+    "facts": [
+      {
+        "id": "a1",
+        "statement": "The gyrification index quantifies how much the surface of a mammal's brain is folded.",
+        "kind": "general",
+        "source": "gyrification"
+      },
+      {
+        "id": "a2",
+        "statement": "Among mammals, those with more folded brains tend to be physically larger than those with smoother brains.",
+        "kind": "general",
+        "source": "gyrification"
+      },
+      {
+        "id": "a3",
+        "statement": "The human brain has a folding index that is comparable to that of a horse, though slightly higher.",
+        "kind": "comparison",
+        "source": "gyrification"
+      },
+      {
+        "id": "a4",
+        "statement": "Rodents typically possess the least folded brains among mammals.",
+        "kind": "comparison",
+        "source": "gyrification"
+      },
+      {
+        "id": "a5",
+        "statement": "Despite the general trend, certain larger rodent species do exhibit folded brain surfaces.",
+        "kind": "comparison",
+        "source": "gyrification"
+      },
+      {
+        "id": "b1",
+        "statement": "The human brain contains a greater amount of association, sensory, and motor cortex compared to smaller mammals like rats and cats.",
+        "kind": "comparison",
+        "source": "human-brain"
+      },
+      {
+        "id": "b2",
+        "statement": "In humans, the cerebral cortex makes up a larger proportion of the brain than it does in many other mammal species.",
+        "kind": "comparison",
+        "source": "human-brain"
+      },
+      {
+        "id": "b3",
+        "statement": "All mammalian brains, including those of humans and rats, share a six-layered cerebral cortex along with structures like the hippocampus and amygdala.",
+        "kind": "general",
+        "source": "human-brain"
+      },
+      {
+        "id": "b4",
+        "statement": "Relative to body size, the human cerebral cortex is significantly larger than that of most other mammals, and humans possess a highly developed visual system.",
+        "kind": "comparison",
+        "source": "human-brain"
+      },
+      {
+        "id": "c1",
+        "statement": "The average human brain weighs between 1.3 and 1.5 kilograms.",
+        "kind": "comparison",
+        "source": "brain-size"
+      },
+      {
+        "id": "c2",
+        "statement": "In general, an animal's brain size correlates with its overall body size.",
+        "kind": "general",
+        "source": "brain-size"
+      },
+      {
+        "id": "c3",
+        "statement": "Across all mammal orders, brain weight scales with body size according to a power law with an exponent of roughly 0.75.",
+        "kind": "general",
+        "source": "brain-size"
+      },
+      {
+        "id": "c4",
+        "statement": "For their body size, primates possess brains that are five to ten times larger than the general mammalian average.",
+        "kind": "comparison",
+        "source": "brain-size"
+      },
+      {
+        "id": "c5",
+        "statement": "As brain size increases in a species, the proportion of the brain volume occupied by the cortex also increases.",
+        "kind": "general",
+        "source": "brain-size"
+      },
+      {
+        "id": "c6",
+        "statement": "In species with the largest brains, including humans, the majority of the brain's volume is composed of cortex.",
+        "kind": "comparison",
+        "source": "brain-size"
+      },
+      {
+        "id": "c7",
+        "statement": "The human encephalization quotient, a measure of brain size relative to body size, ranges from 7.4 to 7.8.",
+        "kind": "general",
+        "source": "brain-size"
+      },
+      {
+        "id": "c8",
+        "statement": "Some researchers argue that intelligence is more strongly linked to the number of cortical neurons and connection speed than to total brain size.",
+        "kind": "general",
+        "source": "brain-size"
+      }
+    ],
+    "rejected": [],
+    "intro": {
+      "status": "drafted",
+      "en": [
+        {
+          "text": "Both human and rat brains share a fundamental architecture, featuring a six-layered cerebral cortex (the outer neural sheet) alongside structures like the hippocampus and amygdala.",
+          "fact_ids": [
+            "b3"
+          ]
+        },
+        {
+          "text": "While rodents typically possess the least folded brains among mammals, the human brain exhibits a gyrification index (a measure of surface folding) comparable to that of a horse.",
+          "fact_ids": [
+            "a1",
+            "a4",
+            "a3"
+          ]
+        },
+        {
+          "text": "In contrast to the rat, the human cerebral cortex constitutes a larger proportion of the total brain volume and contains a greater amount of association, sensory, and motor cortex.",
+          "fact_ids": [
+            "b1",
+            "b2"
+          ]
+        },
+        {
+          "text": "As brain size increases in a species, the proportion of volume occupied by the cortex also increases, meaning that in humans the majority of the brain's volume is composed of cortex.",
+          "fact_ids": [
+            "c5",
+            "c6"
+          ]
+        }
+      ],
+      "es": [
+        {
+          "text": "Los cerebros humano y de rata comparten una arquitectura fundamental, caracterizada por una corteza cerebral de seis capas (la hoja neuronal externa) junto a estructuras como el hipocampo y la amígdala.",
+          "fact_ids": [
+            "b3"
+          ]
+        },
+        {
+          "text": "Si bien los roedores suelen tener los cerebros menos plegados entre los mamíferos, el cerebro humano presenta un índice de girificación (una medida del plegamiento de la superficie) comparable al de un caballo.",
+          "fact_ids": [
+            "a1",
+            "a4",
+            "a3"
+          ]
+        },
+        {
+          "text": "A diferencia de la rata, la corteza cerebral humana constituye una proporción mayor del volumen total del cerebro y contiene una mayor cantidad de corteza de asociación, sensorial y motora.",
+          "fact_ids": [
+            "b1",
+            "b2"
+          ]
+        },
+        {
+          "text": "A medida que aumenta el tamaño del cerebro en una especie, también lo hace la proporción de volumen ocupada por la corteza, lo que significa que en los humanos la mayor parte del volumen cerebral está compuesta por corteza.",
+          "fact_ids": [
+            "c5",
+            "c6"
+          ]
+        }
+      ]
+    }
+  }
+}

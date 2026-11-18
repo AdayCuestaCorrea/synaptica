@@ -422,7 +422,7 @@
         "atlas_write_en": "atlas-write-en-v1 (adapted from lab-write-en-v1 for Neuro Atlas's regions, v212)",
         "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
       },
-      "generated_at": "2026-11-18T15:49:03+00:00",
+      "generated_at": "2026-11-18T19:39:38+00:00",
       "facts": [
         {
           "id": "f1",
@@ -465,10 +465,7 @@
         "statement copies the source wording"
       ],
       "about": {
-        "status": "failed_es",
-        "problems": [
-          "sentence 3: words not in the Spanish dictionary ['espinotalámica']"
-        ],
+        "status": "drafted",
         "en": [
           {
             "text": "The brainstem is a small, stalk-like structure at the back of the brain that links the cerebrum to the spinal cord, accounting for about 2.6 percent of the brain's total weight.",
@@ -487,6 +484,29 @@
           },
           {
             "text": "Additionally, the brainstem carries major motor and sensory pathways, including the corticospinal tract, dorsal column-medial lemniscus pathway, and spinothalamic tract, between the rest of the brain and the body.",
+            "fact_ids": [
+              "f7"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "El tronco encefálico es una estructura pequeña y de forma de tallo, situada en la parte posterior del cerebro, que conecta el encéfalo con la médula espinal y representa aproximadamente el 2,6 % del peso total del cerebro.",
+            "fact_ids": [
+              "f1",
+              "f3"
+            ]
+          },
+          {
+            "text": "Regula funciones vitales como la frecuencia cardíaca y la respiración, y da origen a diez pares de nervios craneales que proporcionan conexiones motoras y sensoriales a la cara y el cuello.",
+            "fact_ids": [
+              "f4",
+              "f5",
+              "f6"
+            ]
+          },
+          {
+            "text": "Además, el tronco encefálico transporta las principales vías motoras y sensoriales, como el tracto piramidal, la vía espinotalámica y el lemnisco medial de la columna dorsal, entre el resto del cerebro y el cuerpo.",
             "fact_ids": [
               "f7"
             ]

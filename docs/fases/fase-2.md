@@ -7,8 +7,8 @@
 | Requisito | Estado |
 |---|---|
 | Neuro Atlas: visor, fichas de las 12 parejas, estudios por pareja, técnica ↔ región, orden provisional | hecho en `main` (v160–v207) |
-| Neuro Atlas: textos «qué es y qué hace» de cada pareja | código hecho (v212); borradores en Groq: 9 de 12 (v216, v220); revisión: *pendiente (Sofía)*, en su cola desde el 2026-11-25 |
-| Neuro Atlas: introducción humano–rata | código y fuentes hechos (v221; tres secciones de Wikipedia, porque ningún artículo compara los dos cerebros); borrador en Groq: *pendiente*; revisión: *pendiente (Sofía)*, la primera de los textos de Atlas desde el 2026-11-25; filas 11 y 15 de su hoja |
+| Neuro Atlas: textos «qué es y qué hace» de cada pareja | código hecho (v212); borradores en Groq: 10 de 12 (v216, v220, v222); revisión: *pendiente (Sofía)*, en su cola desde el 2026-11-25 |
+| Neuro Atlas: introducción humano–rata | código y fuentes hechos (v221; tres secciones de Wikipedia, porque ningún artículo compara los dos cerebros); borrador en Groq: hecho (v222); revisión: *pendiente (Sofía)*, la primera de los textos de Atlas desde el 2026-11-25; filas 11 y 15 de su hoja |
 | Neuro Atlas: tabla de búsquedas por región, grados de equivalencia y enfermedades | *pendiente (Sofía)*: filas 10, 13, 16 y 18 |
 | Neuro Lab: fichas con estudios y textos | hecho (v201–v210); 13 textos en su cola desde el 2026-11-19; 5 «Límites» sin fuente (ver abajo) |
 | Neuro Glossary | en la web con sus 7 términos (v183); *pendiente (Sofía)*: los 24 términos de su cola y `regions.csv` |
@@ -63,7 +63,8 @@ Su reloj de 14 días mide si el pipeline corre solo. Por eso los comandos nuevos
 | Neuro Lab: estudios con MeSH entre los de neurociencia | 2081 de 5059 | v201 |
 | Fuentes de Wikipedia | Lab: 10 en inglés y 8 en español; Atlas: las 12 parejas en los dos idiomas | v205 |
 | Borradores de Lab (Groq) | «qué permite ver» en 9 de 10; «límites» en 4, con 5 huecos por falta de hechos | v209 |
-| Borradores de las regiones (Groq) | 9 de 12 parejas; 3 huecos, que suspenden el español | v216, v220 |
+| Borradores de las regiones (Groq) | 10 de 12 parejas; 2 huecos (hipocampo y quiasma óptico), que suspenden el español | v216, v220, v222 |
+| Introducción humano–rata (Groq) | 17 hechos verificados de 3 secciones, ninguno clínico; 4 frases | v222 |
 | Medida B de Neuro Lab (run del 18-11, con resúmenes) | western blot 2 → 20, inmunofluorescencia 0 → 15; confocal, trazado viral y perfusión siguen casi vacías | v217, [`fase-2-neuro-lab.md`](fase-2-neuro-lab.md) |
 | Textos aprobados por Sofía (Lab, Atlas y glosario) | *pendiente (Sofía)* | `review/decisions.jsonl` |
 
@@ -98,4 +99,4 @@ Su reloj de 14 días mide si el pipeline corre solo. Por eso los comandos nuevos
 ## Lo que queda
 - *Pendiente (Sofía):* su revisión de los textos de Lab y de Atlas, del glosario, de las búsquedas por región y por técnica, de los grados de equivalencia y de las enfermedades.
 - Los «Límites» de optogenética desde su sección de Wikipedia; los de confocal, electrofisiología, western blot y quimiogenética, *pendiente (Sofía)*, fila 40.
-- La introducción humano–rata.
+- La revisión de la introducción humano–rata, *pendiente (Sofía)*.
