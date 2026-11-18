@@ -929,7 +929,8 @@ def lab_write(
     status = texts.write(llm, only=only.split(",") if only else None)
     for tid, by_section in status.items():
         typer.echo(f"{tid}: " + ", ".join(f"{k} {v}" for k, v in by_section.items()))
-    typer.echo(f"Neuro Lab texts: {len(status)} techniques drafted")
+    done = sum(v == "drafted" for by in status.values() for v in by.values())
+    typer.echo(f"Neuro Lab texts: {len(status)} techniques asked, {done} sections drafted")
 
 
 @atlas_app.command("write")
@@ -953,7 +954,8 @@ def atlas_write(
     status = texts.write(llm, only=only.split(",") if only else None)
     for kind, st in status.items():
         typer.echo(f"{kind}: {st}")
-    typer.echo(f"Neuro Atlas texts: {len(status)} pairs drafted")
+    done = sum(v == "drafted" for v in status.values())
+    typer.echo(f"Neuro Atlas texts: {len(status)} pairs asked, {done} drafted")
 
 
 @atlas_app.command("measure")
