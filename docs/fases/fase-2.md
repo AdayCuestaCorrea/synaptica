@@ -63,8 +63,8 @@ Su reloj de 14 días mide si el pipeline corre solo. Por eso los comandos nuevos
 | Neuro Lab: estudios con MeSH entre los de neurociencia | 2081 de 5059 | v201 |
 | Fuentes de Wikipedia | Lab: 10 en inglés y 8 en español; Atlas: las 12 parejas en los dos idiomas | v205 |
 | Borradores de Lab (Groq) | «qué permite ver» en 9 de 10; «límites» en 4, con 5 huecos por falta de hechos | v209 |
-| Borradores de las regiones (Groq) | *pendiente* | — |
-| Medida B de Neuro Lab en el run del 18-11 (técnicas de banco con la caché real) | *pendiente* | — |
+| Borradores de las regiones (Groq) | 8 de 12 parejas; 4 huecos (1 error del modelo, 3 suspenden el español) | v216 |
+| Medida B de Neuro Lab (run del 18-11, con resúmenes) | western blot 2 → 20, inmunofluorescencia 0 → 15; confocal, trazado viral y perfusión siguen casi vacías | v217, [`fase-2-neuro-lab.md`](fase-2-neuro-lab.md) |
 | Textos aprobados por Sofía (Lab, Atlas y glosario) | *pendiente (Sofía)* | `review/decisions.jsonl` |
 
 ## Conceptos, desde cero
@@ -81,6 +81,7 @@ Su reloj de 14 días mide si el pipeline corre solo. Por eso los comandos nuevos
 
 ## Qué salió mal (y qué se aprendió)
 - **Groq devolvió JSON mal formado** (v209) y el error paró toda la ejecución de Lab. Ahora un `LLMOutputError` deja esa técnica como `model_error` y se sigue con las demás, y el prompt escribe la forma del JSON. *Lección:* un lote no debe depender de que salga bien cada llamada.
+- **MeSH con etiqueta de idioma** (v201, [`fase-2-neuro-lab.md`](fase-2-neuro-lab.md)): los números de árbol de MeSH llevan idioma (`"…"@en`), así que `?tn = "A08.186.211"` nunca se cumplía y `atlas.studies.fetch` perdía el descriptor del propio árbol. Arreglado con `STR(?tn)`. *Lección:* probar la consulta con un descriptor conocido antes de fiarse de un «ninguno».
 - **`syn` no lee `.env`** (v209, igual que `syn judge` en la Fase 1). Se lanza con `uv run --env-file .env syn …`.
 - **El test de frescura en `ci_local`** fallaba con un almacén construido con la fecha de hoy sobre datos de ayer. Se reconstruye con `syn build --as-of <fecha de los datos>`.
 - **Un `Retry-After` de horas colgó la ingesta** (v186) y **`syn news group` llegó a su tiempo máximo** (v187). Los dos se arreglaron haciendo que el comando pare solo y deje lo pendiente para el día siguiente, en lugar de alargar el tiempo.

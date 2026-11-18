@@ -848,6 +848,46 @@
           "id": "f8",
           "statement": "The broader field also encompasses techniques that use genetically modified indicators to record how cells are active.",
           "kind": "what"
+        },
+        {
+          "id": "l1",
+          "statement": "The effect of light on individual cells can vary because the genes for light-sensitive proteins are not always expressed at uniform levels across the target cell population.",
+          "kind": "limit"
+        },
+        {
+          "id": "l2",
+          "statement": "Controlling stimulation in the brain is challenging because the strength of the light weakens as it travels away from the source.",
+          "kind": "limit"
+        },
+        {
+          "id": "l3",
+          "statement": "It is hard to restrict the light-sensitive proteins to specific parts of a neuron, such as dendrites or axon terminals.",
+          "kind": "limit"
+        },
+        {
+          "id": "l4",
+          "statement": "Stimulating inhibitory neurons can change the overall activity of the surrounding tissue, including cells that do not contain the light-sensitive genes.",
+          "kind": "limit"
+        },
+        {
+          "id": "l5",
+          "statement": "The first version of the light-sensitive protein closes more slowly than natural ion channels in brain cells, causing longer-lasting electrical changes.",
+          "kind": "limit"
+        },
+        {
+          "id": "l6",
+          "statement": "Using pulsed light causes all targeted neurons to fire at the same time, which prevents them from activating in a natural sequence.",
+          "kind": "limit"
+        },
+        {
+          "id": "l7",
+          "statement": "Current light-sensitive proteins do not use infrared light, which would otherwise allow light to penetrate deeper into tissue with less scattering and better resolution.",
+          "kind": "limit"
+        },
+        {
+          "id": "l8",
+          "statement": "Light scattering causes a focused beam to affect a much larger area of brain tissue than intended, potentially activating or inhibiting unintended neurons.",
+          "kind": "limit"
         }
       ],
       "rejected": [],
@@ -901,9 +941,58 @@
         ]
       },
       "limit": {
-        "status": "too_few_facts",
-        "facts": 0
-      }
+        "status": "drafted",
+        "en": [
+          {
+            "text": "Optogenetics faces limitations because light-sensitive genes often express unevenly, and researchers struggle to restrict these proteins to specific neuronal compartments like dendrites.",
+            "fact_ids": [
+              "l1",
+              "l3"
+            ]
+          },
+          {
+            "text": "Furthermore, light intensity weakens with distance, and scattering causes focused beams to affect a much larger area of brain tissue than intended.",
+            "fact_ids": [
+              "l2",
+              "l8"
+            ]
+          },
+          {
+            "text": "The first light-sensitive protein also closes more slowly than natural ion channels, while pulsed light forces all targeted neurons to fire simultaneously rather than in a natural sequence.",
+            "fact_ids": [
+              "l5",
+              "l6"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "La optogenética presenta limitaciones porque los genes sensibles a la luz suelen expresarse de forma desigual, y a los investigadores les resulta difícil restringir estas proteínas a compartimientos neuronales específicos, como las dendritas.",
+            "fact_ids": [
+              "l1",
+              "l3"
+            ]
+          },
+          {
+            "text": "Además, la intensidad de la luz se debilita con la distancia, y la dispersión hace que los haces focalizados afecten a un área mucho mayor del tejido cerebral de la prevista.",
+            "fact_ids": [
+              "l2",
+              "l8"
+            ]
+          },
+          {
+            "text": "La primera proteína sensible a la luz también se cierra más lentamente que los canales iónicos naturales, mientras que la luz pulsada obliga a todas las neuronas diana a dispararse simultáneamente en lugar de seguir una secuencia natural.",
+            "fact_ids": [
+              "l5",
+              "l6"
+            ]
+          }
+        ],
+        "section": "Technical challenges and limitations",
+        "generator": "groq/qwen/qwen3.8-27b",
+        "generated_at": "2026-11-18T16:38:30+00:00"
+      },
+      "rejected_limits": []
     },
     "chemogenetics": {
       "revid": 1386026431,

@@ -74,3 +74,23 @@ Aday eligió la opción A: MeSH y texto, con un hueco donde no hay estudios.
 | Perfusión | 0 | 0 | 0 |
 | Inmunofluorescencia | 0 | 0 | 0 |
 | Trazado viral | 0 | 0 | 0 |
+
+## Medida B: con los resúmenes de la caché (run del 2026-11-18, v217)
+
+Log de `syn site` en el run programado 44338005722, que lee la caché privada de resúmenes. Ojo: ese almacén tiene un día más de datos que la tabla local (2026-11-18 frente a 2026-11-17), así que una parte de la subida son estudios nuevos y no solo resúmenes. «Por MeSH» casi no cambia (EEG 56 → 59, confocal 3 → 4), lo que da una idea de cuánto pesa ese día de más.
+
+| Técnica | Local, sin resúmenes | Run, con resúmenes | Por MeSH | Solo por texto |
+|---|---:|---:|---:|---:|
+| EEG | 156 | 210 | 59 | 151 |
+| fMRI | 73 | 117 | 0 | 117 |
+| Electrofisiología | 28 | 45 | 0 | 45 |
+| Optogenética | 12 | 24 | 7 | 17 |
+| Quimiogenética | 9 | 23 | 3 | 20 |
+| Western blot | 2 | 20 | 2 | 18 |
+| Inmunofluorescencia | 0 | 15 | 0 | 15 |
+| Fiber photometry | 5 | 6 | 0 | 6 |
+| Microscopía confocal | 4 | 5 | 4 | 1 |
+| Trazado viral | 0 | 1 | 0 | 1 |
+| Perfusión | 0 | 0 | 0 | 0 |
+
+**Qué dice.** Sí, los resúmenes llenan buena parte de las técnicas de banco: western blot pasa de 2 a 20 e inmunofluorescencia de 0 a 15, casi todo por el texto del resumen. Confocal, trazado viral y perfusión siguen casi vacías: se nombran en los métodos, no en el resumen. Llenarlas pediría el texto completo en acceso abierto, y antes habría que medirlo.
