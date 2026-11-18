@@ -21,12 +21,21 @@ import datetime as dt
 import json
 import re
 from dataclasses import dataclass, field
+from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 
 import httpx
 
-from synaptica.glossary.sources import BATCH, LANGS, PERMALINK, _batches, _same, fetch_leads
+from synaptica.glossary.sources import (
+    API,
+    BATCH,
+    LANGS,
+    PERMALINK,
+    _batches,
+    _same,
+    fetch_leads,
+)
 from synaptica.http import HttpError, Throttle, get_json
 from synaptica.store import _atomic_write
 
@@ -40,6 +49,7 @@ class LeadsResult:
     accepted: dict[str, int] = field(default_factory=lambda: {"en": 0, "es": 0})
     changed: int = 0
     failed: list[str] = field(default_factory=list)
+    sections: int = 0  # article sections stored (Neuro Lab's «limits», v214)
 
 
 def _entry(page: dict[str, Any], ok: bool, lang: str, today: dt.date) -> dict[str, Any]:
@@ -92,6 +102,77 @@ def leads(
             result.changed += new != old.get(k)
             out[k] = new
     return out
+
+
+# ---- one section of an article, at a given revision (v214) ---------------------------
+
+_SKIP = {"style", "script", "table", "sup", "figure", "math", "img"}
+_SKIP_CLASS = ("mw-editsection", "reference", "hatnote", "mw-empty-elt", "thumb", "navbox")
+_BLOCKS = {"p", "li", "dd"}
+_VOID = {"br", "hr", "img", "wbr", "meta", "link", "input"}
+_URL = re.compile(r"\s*https?://\S*[^\s.,;:)]")  # a bare link, not its full stop
+
+
+class _Text(HTMLParser):
+    """The prose of a parsed section: paragraphs and list items, without headings,
+    references, tables, figures or bare links."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.paragraphs: list[str] = []
+        self._buf: list[str] = []
+        self._skip: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag in _VOID:
+            return
+        cls = dict(attrs).get("class") or ""
+        heading = tag.startswith("h") and tag[1:].isdigit()
+        if self._skip or tag in _SKIP or heading or any(c in cls for c in _SKIP_CLASS):
+            self._skip.append(tag)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag in _VOID:
+            return
+        if self._skip:
+            self._skip.pop()
+        elif tag in _BLOCKS:
+            text = _URL.sub("", re.sub(r"\s+", " ", "".join(self._buf))).strip()
+            self._buf = []
+            if text:
+                self.paragraphs.append(text)
+
+    def handle_data(self, data: str) -> None:
+        if not self._skip:
+            self._buf.append(data)
+
+
+def section_text(html: str) -> str:
+    parser = _Text()
+    parser.feed(html)
+    return "\n\n".join(parser.paragraphs)
+
+
+def fetch_section(
+    client: httpx.Client, lang: str, revid: int, heading: str, throttle: Throttle
+) -> str | None:
+    """The plain text of the section titled ``heading`` (with its subsections) at revision
+    ``revid``, or None when that revision has no such section or it has no prose."""
+    params = {"action": "parse", "format": "json", "formatversion": 2, "oldid": revid,
+              "maxlag": 5}  # fmt: skip
+    throttle.wait()
+    body = get_json(client, API.format(lang=lang), params=params | {"prop": "sections"})
+    if "error" in body:
+        raise HttpError(f"Wikipedia ({lang}): {body['error'].get('code')}")
+    index = next((s["index"] for s in body["parse"]["sections"] if s["line"] == heading), None)
+    if index is None:
+        return None
+    throttle.wait()
+    text = {"prop": "text", "section": index, "disableeditsection": 1, "disablelimitreport": 1}
+    body = get_json(client, API.format(lang=lang), params=params | text)
+    if "error" in body:
+        raise HttpError(f"Wikipedia ({lang}): {body['error'].get('code')}")
+    return section_text(body["parse"]["text"]) or None
 
 
 def wikidata(client: httpx.Client, query: str, throttle: Throttle) -> list[dict[str, str]]:

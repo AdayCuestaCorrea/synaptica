@@ -868,7 +868,8 @@ def lab_sources(
         bool, typer.Option("--refresh", help="Look up every technique again.")
     ] = False,
 ) -> None:
-    """The Wikipedia lead (EN and ES) each Neuro Lab technique's texts will be written from
+    """The Wikipedia lead (EN and ES) each Neuro Lab technique's texts will be written from,
+    and the «limits» section of those with one in the table, at the lead's revision
     -> src/synaptica/lab/sources.json. By hand, never in the pipeline; no LLM."""
     from synaptica.http import make_client
     from synaptica.lab import sources
@@ -876,7 +877,8 @@ def lab_sources(
     with make_client() as client:
         r = sources.update_sources(client, refresh=refresh)
     typer.echo(f"Neuro Lab sources: {r.asked} asked, accepted EN {r.accepted['en']} / "
-               f"ES {r.accepted['es']}, {r.changed} changed")  # fmt: skip
+               f"ES {r.accepted['es']}, {r.sections} «limits» sections stored, "
+               f"{r.changed} changed")  # fmt: skip
     for f in r.failed:
         typer.echo(f"  failed: {f}", err=True)
     if r.failed:

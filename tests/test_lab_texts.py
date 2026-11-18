@@ -178,3 +178,100 @@ def test_only_what_she_approved_or_corrected_is_published(tmp_path: Path) -> Non
     assert shown["what"]["en"].startswith("Optogenetics lets researchers")
     assert shown["what"]["source"]["title"] == "Optogenetics"
     assert shown["limit"]["es"].startswith("Primero hay que") and shown["limit"]["en"] is None
+
+
+# ---- «limits» from a section of the article (v214) ------------------------------------
+
+SECTION = ("Not every cell expresses the opsin at the same level, so the same light has "
+           "different effects on each cell. Light also fades as it goes deeper into brain "
+           "tissue.")  # fmt: skip
+LIMIT_FACTS = [
+    ("Cells take up the light-sensitive protein unevenly, so one flash affects them "
+     "differently.", "Not every cell expresses the opsin at the same level", "limit"),
+    ("Light weakens the deeper it travels into the brain.",
+     "Light also fades as it goes deeper into brain tissue", "limit"),
+]  # fmt: skip
+LIMIT_EN = [
+    (
+        "Cells take up the light-sensitive protein unevenly, so a single flash does not "
+        "affect them all alike, and light weakens deeper in the brain.",
+        ["l1", "l2"],
+    )
+]
+LIMIT_ES = ["Las células captan de forma desigual la proteína sensible a la luz, así que un "
+            "mismo destello no las afecta igual, y la luz se debilita en lo profundo del "
+            "cerebro."]  # fmt: skip
+
+
+class SectionLLM(FakeLLM):
+    """The lead gives no «limits» facts; the section gives two."""
+
+    def complete_json(self, system, user, output, max_tokens):
+        if output.__name__ == "LabFacts" and "SECTION «" in user:
+            self.calls.append("LabFacts:section")
+            assert SECTION in user and LEAD not in user
+            data = {"facts": [{"statement": s, "quote": q, "kind": k}
+                              for s, q, k in LIMIT_FACTS]}  # fmt: skip
+            return output.model_validate(data)
+        if output.__name__ == "LabFacts":
+            self.calls.append("LabFacts")
+            data = {"facts": [{"statement": s, "quote": q, "kind": k}
+                              for s, q, k in FACTS if k != "limit"]}  # fmt: skip
+            return output.model_validate(data)
+        if output.__name__ == "Summary" and "SECTION: limits" in user:
+            self.calls.append("Summary")
+            self.section = "limit"
+            return output.model_validate(
+                {"sentences": [{"text": t, "fact_ids": f} for t, f in LIMIT_EN]}
+            )
+        if output.__name__ != "Summary" and self.section == "limit":
+            self.calls.append(output.__name__)
+            return output.model_validate(
+                {"sentences": [{"index": i, "text": t} for i, t in enumerate(LIMIT_ES, 1)]}
+            )
+        return super().complete_json(system, user, output, max_tokens)
+
+
+def with_section(tmp_path: Path, heading: str = "Technical challenges and limitations") -> Path:
+    src = sources(tmp_path)
+    body = json.loads(src.read_text())
+    body["techniques"]["optogenetics"]["limits_en"] = {
+        "heading": heading, "revid": 7, "url": "https://en.wikipedia.org/w/index.php?oldid=7",
+        "retrieved": "2026-11-18", "text": SECTION}  # fmt: skip
+    src.write_text(json.dumps(body))
+    return src
+
+
+def test_limits_from_the_section_without_asking_the_lead_again(tmp_path: Path) -> None:
+    out, src = tmp_path / "texts.json", sources(tmp_path)
+    assert texts.write(SectionLLM(), sources_path=src, path=out)["optogenetics"] == {
+        "what": "drafted",
+        "limit": "too_few_facts",
+    }  # the lead alone: no limits
+    before = json.loads(out.read_text())["techniques"]["optogenetics"]
+    src = with_section(tmp_path)
+    llm = SectionLLM()
+    assert texts.write(llm, sources_path=src, path=out) == {"optogenetics": {"limit": "drafted"}}
+    assert llm.calls[0] == "LabFacts:section" and "LabFacts" not in llm.calls
+    rec = json.loads(out.read_text())["techniques"]["optogenetics"]
+    assert rec["what"] == before["what"]  # already in her queue: not touched
+    assert rec["limit"]["section"] == "Technical challenges and limitations"
+    assert [f["id"] for f in rec["facts"]] == ["f1", "f2", "l1", "l2"]
+    again = SectionLLM()
+    assert texts.write(again, sources_path=src, path=out) == {} and again.calls == []
+
+
+def test_her_limits_card_cites_the_section(tmp_path: Path) -> None:
+    out, src = tmp_path / "texts.json", with_section(tmp_path)
+    texts.write(SectionLLM(), sources_path=src, path=out)  # first draft: lead, then section
+    items = {i.item_id: i for i in texts.review_items(out, src)}
+    limit = items["optogenetics-limit"]
+    (s,) = limit.content.sources
+    assert s.id == "wikipedia-en-lab-optogenetics-limits"
+    assert "sección «Technical challenges and limitations»" in s.label
+    assert items["optogenetics-what"].content.sources[0].id == "wikipedia-en-lab-optogenetics"
+    got = texts.source_texts(list(items.values()), src)
+    assert got[s.id] == SECTION and got["wikipedia-en-lab-optogenetics"] == LEAD
+    # The section is no longer stored (renamed in the article): the card leaves her queue.
+    renamed = with_section(tmp_path, heading="Limitations")
+    assert "optogenetics-limit" not in {i.item_id for i in texts.review_items(out, renamed)}

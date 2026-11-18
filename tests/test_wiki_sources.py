@@ -17,17 +17,30 @@ NO_WAIT = Throttle(1000, sleep=lambda _: None)
 
 class FakeWiki:
     """Wikipedia (formatversion 2) from ``pages`` (title -> lead, or None for a
-    disambiguation page), with Spanish links from ``es``; Wikidata by the query's words."""
+    disambiguation page), with Spanish links from ``es`` and sections (heading -> HTML, the
+    same in every revision) from ``sections``; Wikidata by the query's words."""
 
     def __init__(self, pages: dict[str, str | None], es: dict[str, str],
                  items: list[dict] | None = None, located: list[dict] | None = None,
-                 sick: set[str] | None = None) -> None:  # fmt: skip
+                 sick: set[str] | None = None,
+                 sections: dict[str, str] | None = None) -> None:  # fmt: skip
         self.pages, self.es = pages, es
         self.items, self.located, self.sick = items or [], located or [], sick or set()
+        self.sections = sections or {}
         self.asked: list[tuple[str, str]] = []
+        self.parsed: list[tuple[str, str]] = []  # (oldid, prop)
 
     def __call__(self, request: httpx.Request) -> httpx.Response:
         host = request.url.host
+        params = request.url.params
+        if params.get("action") == "parse":
+            self.parsed.append((params["oldid"], params["prop"]))
+            heads = list(self.sections)
+            if params["prop"] == "sections":
+                rows = [{"index": str(i), "line": h} for i, h in enumerate(heads, 1)]
+                return httpx.Response(200, json={"parse": {"sections": rows}})
+            html = self.sections[heads[int(params["section"]) - 1]]
+            return httpx.Response(200, json={"parse": {"text": html}})
         if host == "query.wikidata.org":
             q = request.url.params["query"]
             if "P486" in q:
@@ -133,3 +146,50 @@ def test_atlas_sources_and_diseases_by_mesh_never_guessing(tmp_path: Path) -> No
     assert body["pairs"]["cerebellum"] == [{"qid": "Q564123", "en": "cerebellar disease",
                                             "es": None}]  # fmt: skip
     assert body["pairs"]["internal"] == []
+
+
+SECTION_HTML = (
+    '<div class="mw-heading mw-heading2"><h2 id="Limits">Technical challenges and limitations'
+    '</h2><span class="mw-editsection">[edit]</span></div>'
+    '<div role="note" class="hatnote">Main article: Something</div>'
+    "<p>Not every cell expresses the opsin at the same level.<sup class=\"reference\">"
+    "<a>[12]</a></sup> Light fades with depth in tissue.</p>"
+    "<table><tr><td>a table</td></tr></table>"
+    "<ul><li>It heats the tissue https://example.org/x.</li></ul>"
+)  # fmt: skip
+
+
+def test_section_text_keeps_only_the_prose() -> None:
+    from synaptica.wiki import section_text
+
+    assert section_text(SECTION_HTML) == (
+        "Not every cell expresses the opsin at the same level. Light fades with depth in "
+        "tissue.\n\nIt heats the tissue."
+    )
+
+
+def test_lab_sources_keep_the_limits_section_at_the_lead_revision(tmp_path: Path) -> None:
+    from synaptica.lab import sources
+    from synaptica.lab.studies import techniques
+
+    pages = {t["source_en"]: f"{t['name_en']} names it: {t['text'][0] if t['text'] else ''}."
+             for t in techniques() if t["id"] != "perfusion"}  # fmt: skip
+    fake = FakeWiki(pages, {}, sections={"Technical challenges and limitations": SECTION_HTML})
+    path = tmp_path / "s.json"
+    with make_client(httpx.MockTransport(fake)) as c:
+        r = sources.update_sources(c, path=path, throttle=NO_WAIT)
+        n = len(fake.parsed)
+        again = sources.update_sources(c, path=path, throttle=NO_WAIT)
+    got = json.loads(path.read_text())["techniques"]
+    opto = got["optogenetics"]
+    lim = opto["limits_en"]
+    assert lim["heading"] == "Technical challenges and limitations"
+    assert (lim["revid"], lim["url"]) == (opto["en"]["revid"], opto["en"]["url"])
+    assert lim["text"].startswith("Not every cell")
+    # Western blot and chemogenetics name sections this fake article lacks: no source, said.
+    assert "limits_en" not in got["western-blot"] and r.sections == 1
+    assert any("western-blot: no section «Problems»" in f for f in r.failed)
+    assert "limits_en" not in got["eeg"]  # no section in its row: never asked
+    # A rerun at the same revision keeps it without asking; only the two missing are asked.
+    assert again.sections == 0 and got == json.loads(path.read_text())["techniques"]
+    assert len(fake.parsed) - n == 2 and "limits_en" in got["optogenetics"]

@@ -135,7 +135,7 @@ SYN_DATA_DIR=/tmp/syn-ci uv run syn build --as-of 2026-11-09          # dbt sobr
 uv run syn site && uv run syn site --check
 uv run syn atlas mesh                     # descriptores MeSH del cerebro → src/synaptica/atlas/mesh/ (a mano; nunca en el pipeline)
 uv run syn lab mesh                       # descriptores MeSH de las técnicas de Neuro Lab → src/synaptica/lab/mesh/ (a mano; nunca en el pipeline)
-uv run syn lab sources [--refresh]        # entradilla de Wikipedia EN y ES de cada técnica → src/synaptica/lab/sources.json (a mano; nunca en el pipeline)
+uv run syn lab sources [--refresh]        # entradilla de Wikipedia EN y ES de cada técnica (+ su sección de límites si la tabla la nombra, en la misma revisión) → src/synaptica/lab/sources.json (a mano; nunca en el pipeline)
 uv run syn lab write --provider groq [--only ID,ID]   # borradores «qué permite ver» y «límites» de cada técnica desde su entradilla, con comprobaciones → src/synaptica/lab/texts.json (sin publicar; cada ejecución con OK de Aday)
 uv run syn atlas sources [--refresh]      # ítem de Wikidata (por MeSH), entradilla de Wikipedia de cada pareja y enfermedades (P927, sin publicar) → src/synaptica/atlas/ (a mano; nunca en el pipeline)
 uv run syn atlas write --provider groq [--only KIND,KIND]   # borrador «qué es y qué hace» de cada pareja desde su entradilla (sin hechos clínicos), con comprobaciones → src/synaptica/atlas/texts.json (sin publicar; cada ejecución con OK de Aday)

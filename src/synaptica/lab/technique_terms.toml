@@ -19,6 +19,8 @@
 # `source_en`: the English Wikipedia article its texts are written from (`syn lab sources`
 # keeps its lead only if the lead names the technique; the Spanish one is its interlanguage
 # link). Not something she approves: it does not change her card.
+# `limits_section_en` (optional, v214): a section of that article, at the lead's revision,
+# that its «limits» are written from when the lead has none (Aday, option A of 2026-11-18).
 #
 # `exclude` (optional): descriptors under a root that are not the technique, left out with
 # everything under them (EEG's tree holds the brain rhythms, a phenomenon; the fluorescent
@@ -38,6 +40,7 @@ text = ["transcardial perfusion", "transcardially perfused", "transcardiac perfu
 [[technique]]
 id = "western-blot"
 source_en = "Western blot" # Wikipedia article for its texts (syn lab sources)
+limits_section_en = "Problems" # its «limits» from this section (v214)
 name_es = "Western blot"
 name_en = "Western blot"
 mesh = ["D015153"] # Blotting, Western
@@ -108,6 +111,7 @@ text = ["viral tracing", "viral neuronal tracing", "viral tract tracing", "viral
 [[technique]]
 id = "optogenetics"
 source_en = "Optogenetics" # Wikipedia article for its texts (syn lab sources)
+limits_section_en = "Technical challenges and limitations" # its «limits» from this section (v214)
 name_es = "Optogenética"
 name_en = "Optogenetics"
 mesh = ["D062308"] # Optogenetics
@@ -117,6 +121,7 @@ text = ["optogenetics", "optogenetic", "optogenetically", "channelrhodopsin",
 [[technique]]
 id = "chemogenetics"
 source_en = "Chemogenetics" # Wikipedia article for its texts (syn lab sources)
+limits_section_en = "Limitation and future directions" # its «limits» from this section (v214)
 name_es = "DREADDs y quimiogenética"
 name_en = "DREADDs and chemogenetics"
 mesh = ["D000098972"] # Chemogenetics

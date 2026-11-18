@@ -8,6 +8,11 @@ section with too few verified facts, or whose text fails, is not written: the pa
 its gap. Nothing here is published: the drafts go to ``texts.json`` next to this module
 and from there to Sofía's queue; only her approval puts them on the site.
 
+Since v214, a technique whose lead gave no «limits» facts and whose sources hold a
+section on them (``limits_en``, :mod:`synaptica.lab.sources`) gets its «limits» written
+from that section alone: its facts get ids ``l1``…, her card cites the section, and its
+«what it lets us see» is not asked again (it is already in her queue).
+
 By hand (``syn lab write --provider groq``), never in the daily pipeline, and only with
 Aday's OK for each run (CLAUDE.md: no LLM without it).
 """
@@ -69,11 +74,24 @@ def write(
         en_src = (sources.get(tid) or {}).get("en") or {}
         if (only and tid not in only) or not en_src.get("accepted"):
             continue
-        old = texts.get(tid)
-        if old and old.get("revid") == en_src["revid"] and not only:
+        old, extra = texts.get(tid), _section(sources[tid])
+        same = bool(old) and old.get("revid") == en_src["revid"]
+        if same and extra and _wants_limits(old, extra):
+            try:
+                _draft_limits(llm, tech["name_en"], old, extra)
+            except LLMOutputError:
+                status[tid] = {"limit": "model_error"}
+                continue
+            old["limit"] |= {"generator": llm.label,
+                             "generated_at": now.isoformat(timespec="seconds")}  # fmt: skip
+            status[tid] = {"limit": old["limit"]["status"]}
+            continue
+        if same and not only:
             continue
         try:
             drafted = wikidraft.draft(llm, SPEC, tech["name_en"], en_src["lead"])
+            if extra and _wants_limits(drafted, extra):
+                _draft_limits(llm, tech["name_en"], drafted, extra)
         except LLMOutputError:  # nothing saved for it: asked again on the next run
             status[tid] = dict.fromkeys(SECTIONS, "model_error")
             continue
@@ -89,6 +107,31 @@ def write(
         "techniques": {t["id"]: texts[t["id"]] for t in techniques() if t["id"] in texts},
     })  # fmt: skip
     return status
+
+
+def _section(entry: dict[str, Any]) -> dict[str, Any] | None:
+    """The stored «limits» section, only at the revision of the English lead."""
+    extra, en = entry.get("limits_en"), entry.get("en") or {}
+    return extra if extra and extra.get("revid") == en.get("revid") else None
+
+
+def _wants_limits(rec: dict[str, Any], extra: dict[str, Any]) -> bool:
+    """The lead gave no «limits» and this section was not tried yet (a section that failed
+    is not asked again on every run: it would cost quota for the same answer)."""
+    limit = rec.get("limit") or {}
+    return limit.get("status") == "too_few_facts" and limit.get("section") != extra["heading"]
+
+
+def _draft_limits(llm: LLM, name: str, rec: dict[str, Any], extra: dict[str, Any]) -> None:
+    """«Limits» from the section alone (its facts ``l1``…), into ``rec``."""
+    header = f"SECTION «{extra['heading']}» OF THE ARTICLE"
+    verified, rejected = wikidraft.facts(llm, SPEC, name, extra["text"], prefix="l",
+                                         header=header)  # fmt: skip
+    sec = wikidraft.section(llm, SPEC, name, "limit", verified, extra["text"])
+    rec["facts"] = [f for f in rec["facts"] if not f["id"].startswith("l")] + [
+        {k: f[k] for k in ("id", "statement", "kind")} for f in verified]  # fmt: skip
+    rec["rejected_limits"] = rejected
+    rec["limit"] = sec | {"section": extra["heading"]}
 
 
 # ---- her review and what the site shows (B2-4, v210) ---------------------------------
@@ -108,19 +151,25 @@ def review_items(path: Path | None = None, sources_path: Path | None = None) -> 
         rec, entry = texts.get(tid), (sources.get(tid) or {}).get("en") or {}
         if not rec or not entry.get("accepted") or entry.get("revid") != rec.get("revid"):
             continue
-        src = wikidraft.wiki_source(f"wikipedia-en-lab-{tid}", entry)
         for kind in SECTIONS:
             sec = rec.get(kind) or {}
-            if sec.get("status") == "drafted":
-                out.append(wikidraft.section_item(
-                    ItemType.LAB, f"{tid}-{kind}", f"{tech['name_es']} · {SECTION_ES[kind]}",
-                    sec, src))  # fmt: skip
+            if sec.get("status") != "drafted":
+                continue
+            src = wikidraft.wiki_source(f"wikipedia-en-lab-{tid}", entry)
+            if heading := sec.get("section"):  # from a section: only while it is stored
+                extra = _section(sources[tid])
+                if not extra or extra["heading"] != heading:
+                    continue
+                src = wikidraft.wiki_source(f"wikipedia-en-lab-{tid}-limits", entry, heading)
+            out.append(wikidraft.section_item(
+                ItemType.LAB, f"{tid}-{kind}", f"{tech['name_es']} · {SECTION_ES[kind]}",
+                sec, src))  # fmt: skip
     return out
 
 
 def source_texts(items: list[ReviewItem], sources_path: Path | None = None) -> dict[str, str]:
-    """The lead each Neuro Lab item cites, only at the revision it cites (to check her
-    edits: numbers, names, 8 copied words)."""
+    """The lead (or section) each Neuro Lab item cites, only at the revision it cites (to
+    check her edits: numbers, names, 8 copied words)."""
     sources = read_json(sources_path or SOURCES, "techniques")
     out = {}
     for item in items:
@@ -128,8 +177,14 @@ def source_texts(items: list[ReviewItem], sources_path: Path | None = None) -> d
             continue
         tid = item.item_id.rsplit("-", 1)[0]
         entry = (sources.get(tid) or {}).get("en") or {}
+        extra = _section(sources.get(tid) or {})
         for s in item.content.sources:
-            if entry.get("accepted") and entry.get("url") == s.url:
+            if not entry.get("accepted") or entry.get("url") != s.url:
+                continue
+            if s.id.endswith("-limits"):
+                if extra:
+                    out[s.id] = extra["text"]
+            else:
                 out[s.id] = entry["lead"]
     return out
 

@@ -55,17 +55,21 @@ class Spec:
         return {n: prompt(n)[1] for n in (self.facts_prompt, self.write_prompt, "adapt_es")}
 
 
-def facts(llm: LLM, spec: Spec, name: str, lead: str) -> tuple[list[dict[str, str]], list[str]]:
-    """Verified facts ``[{id, statement, kind, quote}]`` and why the others were dropped."""
+def facts(
+    llm: LLM, spec: Spec, name: str, lead: str, *, prefix: str = "f", header: str = "LEAD"
+) -> tuple[list[dict[str, str]], list[str]]:
+    """Verified facts ``[{id, statement, kind, quote}]`` and why the others were dropped.
+    ``lead`` may be another stretch of the article (``header`` names it, ``prefix`` keeps
+    its fact ids apart from the lead's)."""
     system, _ = prompt(spec.facts_prompt)
-    out = llm.complete_json(system, f"{spec.subject}: {name}\n\nLEAD:\n{lead}",
+    out = llm.complete_json(system, f"{spec.subject}: {name}\n\n{header}:\n{lead}",
                             spec.facts_schema, max_tokens=1_000)  # fmt: skip
     kept, rejected = [], []
     for f in out.facts:  # type: ignore[attr-defined]
         if reason := check_fact(f.statement, f.quote, lead):
             rejected.append(reason.split(":")[0])  # never a copied run
             continue
-        kept.append({"id": f"f{len(kept) + 1}", "statement": f.statement.strip(),
+        kept.append({"id": f"{prefix}{len(kept) + 1}", "statement": f.statement.strip(),
                      "kind": f.kind, "quote": f.quote})  # fmt: skip
     return kept, rejected
 
@@ -135,9 +139,10 @@ def draft(llm: LLM, spec: Spec, name: str, lead: str) -> dict[str, Any]:
 # ---- her review and what the site shows ---------------------------------------------
 
 
-def wiki_source(source_id: str, entry: dict[str, Any]) -> Source:
-    """The English Wikipedia lead an item cites, at its revision."""
-    label = f"Wikipedia en inglés: «{entry['title']}» (revisión {entry['revid']})"
+def wiki_source(source_id: str, entry: dict[str, Any], section: str | None = None) -> Source:
+    """The English Wikipedia lead an item cites (or ``section`` of it), at its revision."""
+    part = f", sección «{section}»" if section else ""
+    label = f"Wikipedia en inglés: «{entry['title']}»{part} (revisión {entry['revid']})"
     return Source(id=source_id, url=entry["url"], label=label)
 
 
