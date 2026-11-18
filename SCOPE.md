@@ -2,7 +2,7 @@
 
 > **Fuente de verdad** de qué se hace, en qué orden y por qué. Si otro documento lo contradice, manda este. Los cambios se registran en §11.
 >
-> **Versión 217** · 2026-11-18 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
+> **Versión 218** · 2026-11-18 · creada a partir de la propuesta aprobada por Sofía (`docs/propuesta.md`).
 
 ## Índice
 
@@ -252,6 +252,15 @@ Cada fase se cierra con el **visto bueno de Sofía** y con `docs/fases/fase-N.md
 
 Ideas sin aprobar; entran en una fase solo con una línea en §11.
 
+**Aprobado para después del cierre de la Fase 1** (plan del 2026-11-18, v218). Cada punto, un commit pequeño con su línea en §11; los que tocan `pipeline.yml`, con la confirmación de Aday:
+
+- `syn figures` y `syn titles` como etapas de `pipeline.yml`, y el aviso del título pendiente con su texto nuevo (hoy dice «los títulos todavía no se traducen», que es lo verdadero sin la etapa; v200).
+- Medir `max_tokens` de `syn titles` y de `syn news group` con Groq (con OK de Aday): los títulos van en lotes de 10 con `max_tokens` 1000, justo el tope de 1000 tokens de salida por minuto.
+- `OPENALEX_API_KEY` como secreto del pipeline (el código ya la lee si existe, v198).
+- `syn atlas mesh` otra vez, con el arreglo `STR(?tn)` de la v201: el único cambio esperado es el descriptor *Brain*.
+- El run diario a su hora (punto de abajo, v195).
+
+
 - Comparador de cerebros entre especies, si no entra en la Fase 4.
 - Run diario a su hora: el cron de las 06:17 UTC empieza entre 9 y 11 h tarde. Dispararlo desde fuera (`workflow_dispatch`) o cambiar la hora toca `pipeline.yml`: después del cierre de la Fase 1 (v195).
 - Resumen semanal por correo.
@@ -481,3 +490,4 @@ Ideas sin aprobar; entran en una fase solo con una línea en §11.
 | 215 | 2026-11-18 | Fase 2, **Neuro Lab: solo optogenética escribe sus «Límites» desde su sección** (Aday: la recomendación, tras leer las tres secciones guardadas en la v214). La de optogenética trata de límites de la técnica. La de western blot («Problems») es una guía para resolver fallos de las bandas, y la de quimiogenética trata sobre todo de enfermedades neuropsiquiátricas y epilepsia en humanos: contenido clínico, y Neuro Lab no filtra hechos clínicos. Se quitan sus `limits_section_en` y `syn lab sources` las borra de `sources.json`; ahora también cuenta como cambio una sección que se quita. Las cuatro sin fuente (confocal, electrofisiología, western blot y quimiogenética) van a la pregunta de la fila 40 de su hoja. `fase-2.md` lo recoge |
 | 216 | 2026-11-18 | Fase 2, **Neuro Atlas: primera ejecución de los textos de las regiones** (Aday: OK con la estimación de unas 50 llamadas; Groq, `qwen3.8-27b`, 37 min 52 s por el tope de 1000 tokens de salida por minuto). Resultado en `atlas/texts.json` (sin publicar): **8 de 12 redactados** (amígdala, cerebelo, estriado, pálido, ventrículos, hipotálamo, epitálamo y sustancia blanca), que entran en su cola desde el 2026-11-25. Sin texto: superficie (`model_error`: JSON mal formado tres veces; se vuelve a pedir en la siguiente ejecución), hipocampo (el español suspende por añadir causalidad), tronco del encéfalo («espinotalámica» no está en el diccionario) y quiasma óptico (palabra inexistente «miñojos»); sus páginas conservan el hueco. 4 hechos clínicos descartados antes de redactar (3 del hipocampo, 1 del cerebelo). `syn atlas write` y `syn lab write` dicen ahora cuántos se redactaron, no cuántos se pidieron. El run de «Límites» de optogenética (v215) queda pendiente |
 | 217 | 2026-11-18 | Fase 2. (1) **Neuro Lab: «Límites» de optogenética desde su sección** (Aday: OK y permiso para lanzarlo; Groq, 4 llamadas con un reintento por JSON mal formado). Redactado y comprobado; su «qué permite ver» y los otros 12 elementos de su cola salen idénticos (mismo hash). Su cola de Lab pasa a 14 tarjetas y sigue acabando el 2026-11-24. (2) **Medida B de Neuro Lab** con los resúmenes de la caché, del log de `syn site` del run programado del 2026-11-18 (44338005722), en [`fase-2-neuro-lab.md`](docs/fases/fase-2-neuro-lab.md): western blot 2 → 20 e inmunofluorescencia 0 → 15, casi todo por el resumen; confocal, trazado viral y perfusión siguen casi vacías (el almacén del run tiene un día más de datos). (3) **Run del 2026-11-18: rojo en GitHub.** Solo falla `assert_sources_are_fresh`: Europe PMC no tiene tanda desde el 2026-11-15 (0 registros los días 16–18), porque Europe PMC solo ha marcado 6 registros como acceso abierto del 15 al 18, de cualquier tema, aunque indexó 16 952; es un retraso suyo, no de nuestra consulta. Todo lo demás corrió y la web se publicó: `stg_derived__figures` y `stg_derived__titles` se construyen, `titles` vacío en el informe, `news group` sigue en 0 grupos (59 piezas, 522 pares, 34 para el siguiente run) y su cola en Pages tiene 8 términos y 4 parejas. Decisión para Aday: qué hacer con la frescura de Europe PMC. `fase-2.md` recupera la lección de `STR(?tn)` (v201), que la v213 quitó por error |
+| 218 | 2026-11-18 | Fase 2, paso 7 del plan del 18-11: **lista de lo aprobado para después del cierre de la Fase 1** en §10 (etapas `syn figures` y `syn titles` con el aviso nuevo del título, medida de `max_tokens` de títulos y de `news group`, `OPENALEX_API_KEY` al pipeline, `syn atlas mesh` con *Brain*, el run a su hora). Solo documentación: `pipeline.yml` no cambia. |
