@@ -15,6 +15,17 @@
     <p class="atlas-hint">{{ t.atlas_hint }}</p>
   </header>
 
+  <section class="atlas-intro" aria-labelledby="atlas-intro-h">
+    <h2 id="atlas-intro-h">{{ t.atlas_intro_h }}</h2>
+    {% if intro %}
+    <p data-atlas-intro>{{ intro[lang] }}</p>
+    <p class="muted lab-review">{{ t["lab_reviewed_" ~ intro.mark].format(date=date(intro.reviewed_at)) }} ·
+      {{ t.gl_source }} {% for s in intro.sources %}<a href="{{ s.url }}" rel="noopener" lang="en">Wikipedia ({{ t.lang_en }}): «{{ s.title }}», «{{ s.heading }}»</a>{% if not loop.last %}; {% endif %}{% endfor %} · CC BY-SA 4.0</p>
+    {% else %}
+    <p class="muted">{{ m.gap("atlas_intro") }}</p>
+    {% endif %}
+  </section>
+
   <form class="atlas-find" role="search" data-atlas-find data-none="{{ t.atlas_search_none }}" onsubmit="return false">
     <label for="atlas-q">{{ t.atlas_search }}</label>
     <span class="atlas-q">

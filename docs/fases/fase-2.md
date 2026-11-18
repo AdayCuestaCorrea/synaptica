@@ -8,7 +8,7 @@
 |---|---|
 | Neuro Atlas: visor, fichas de las 12 parejas, estudios por pareja, técnica ↔ región, orden provisional | hecho en `main` (v160–v207) |
 | Neuro Atlas: textos «qué es y qué hace» de cada pareja | código hecho (v212); borradores en Groq: 9 de 12 (v216, v220); revisión: *pendiente (Sofía)*, en su cola desde el 2026-11-25 |
-| Neuro Atlas: introducción humano–rata | *pendiente*: el LLM redacta el borrador y Sofía lo corrige (decisión de Aday, 2026-11-18); filas 11 y 15 de su hoja |
+| Neuro Atlas: introducción humano–rata | código y fuentes hechos (v221; tres secciones de Wikipedia, porque ningún artículo compara los dos cerebros); borrador en Groq: *pendiente*; revisión: *pendiente (Sofía)*, la primera de los textos de Atlas desde el 2026-11-25; filas 11 y 15 de su hoja |
 | Neuro Atlas: tabla de búsquedas por región, grados de equivalencia y enfermedades | *pendiente (Sofía)*: filas 10, 13, 16 y 18 |
 | Neuro Lab: fichas con estudios y textos | hecho (v201–v210); 13 textos en su cola desde el 2026-11-19; 5 «Límites» sin fuente (ver abajo) |
 | Neuro Glossary | en la web con sus 7 términos (v183); *pendiente (Sofía)*: los 24 términos de su cola y `regions.csv` |
@@ -29,7 +29,7 @@ Empezó en paralelo a la Fase 1 (v154). Desde la v159, cada parte se fusiona en 
 | Fichas de región | v166, v188–v194, v207 | 43 fichas por idioma (12 de la rata y 31 humanas) con los estudios de su pareja en animales y en humanos, por MeSH y por texto |
 | Neuro Glossary | v177–v184, v199, v203 | Página A–Z, fuentes de Wikipedia, cola de Sofía, ventanita de siglas en el visor, el inglés tras sus correcciones solo en español y los términos marcados en los resúmenes |
 | Neuro Lab | v201–v206, v208–v210 | Medida de MeSH por técnica, fichas con estudios, tarjetas de búsquedas en su cola, técnica ↔ región y textos desde Wikipedia |
-| Cadena común de textos fijos | v211–v212 | `narrative/wikidraft.py`, que comparten Neuro Lab, las regiones y, más adelante, la introducción |
+| Cadena común de textos fijos | v211–v212, v221 | `narrative/wikidraft.py`, que comparten Neuro Lab, las regiones y la introducción (esta, con tres fuentes: cada hecho guarda la suya y cada frase cita las de sus hechos) |
 
 ## Lo que se decidió y por qué
 

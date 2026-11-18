@@ -248,9 +248,11 @@ def collect(
     if today < LAB_TEXTS_FROM:
         lab_texts = []
     if atlas_texts is None:
+        from synaptica.atlas import intro
         from synaptica.atlas.texts import review_items as atlas_review_items
 
-        atlas_texts = atlas_review_items()
+        # The introduction first: it frames the pairs (and her sheet rows 11 and 15).
+        atlas_texts = [*intro.review_items(), *atlas_review_items()]
     if today < ATLAS_TEXTS_FROM:
         atlas_texts = []
     if region_terms is None:

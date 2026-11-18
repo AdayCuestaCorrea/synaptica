@@ -958,6 +958,42 @@ def atlas_write(
     typer.echo(f"Neuro Atlas texts: {len(status)} pairs asked, {done} drafted")
 
 
+@atlas_app.command("intro-sources")
+def atlas_intro_sources() -> None:
+    """The three Wikipedia sections Neuro Atlas's introduction is drafted from, each at its
+    pinned revision -> src/synaptica/atlas/intro_sources.json. By hand, never in the
+    pipeline; no LLM."""
+    from synaptica.atlas import intro
+    from synaptica.http import make_client
+
+    with make_client() as client:
+        fetched, failed = intro.update(client)
+    typer.echo(f"Neuro Atlas introduction: {len(intro.PINNED)} sections, {fetched} fetched")
+    for f in failed:
+        typer.echo(f"  failed: {f}", err=True)
+    if failed:
+        raise typer.Exit(1)
+
+
+@atlas_app.command("intro-write")
+def atlas_intro_write(
+    provider: ProviderOption = None,
+    model: ModelOption = None,
+    redraft: Annotated[bool, typer.Option("--redraft", help="Ask again anyway.")] = False,
+) -> None:
+    """Draft Neuro Atlas's introduction, «human and rat: how to read the pairs», from its
+    three sections (facts per section -> EN -> ES, with the summaries' checks; clinical
+    facts never written) -> src/synaptica/atlas/intro.json. Not published: the draft waits
+    for Sofía. By hand, only with Aday's OK; never in the pipeline."""
+    from synaptica.atlas import intro
+
+    llm = _llm(provider, model)
+    if llm is None:
+        typer.echo("No --provider given: nothing written.")
+        raise typer.Exit(0)
+    typer.echo(f"Neuro Atlas introduction: {intro.write(llm, redraft=redraft)}")
+
+
 @atlas_app.command("measure")
 def atlas_measure() -> None:
     """How the Neuro Atlas abstract rule (two mentions) behaves at 1, 2 or 3 mentions, with

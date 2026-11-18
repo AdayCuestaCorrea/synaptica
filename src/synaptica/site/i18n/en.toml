@@ -229,6 +229,7 @@ kind_news = "News"
 # Neuro Atlas (Phase 2, SCOPE v161)
 atlas = "Neuro Atlas"
 atlas_intro = "Two brains, the rat's and the human's, to explore region by region. Each comes from its own scientific atlas, with its licence, and their data are never mixed."
+atlas_intro_h = "Human and rat: how to read the pairs"
 brain_rat = "Rat"
 brain_human = "Human"
 atlas_rat_alt = "Rat brain from the Waxholm atlas seen in 3D, with its regions in soft colours by family."
@@ -301,6 +302,7 @@ fam_ventricles = "Ventricles"
 fam_other = "Other"
 gap_atlas_order = "Sofía decides the order of the regions. Until then they go from the surface inwards, by family, and in each family the regions with a counterpart in the other brain come first."
 gap_atlas_names = "Sofía reviews the Spanish names of the regions."
+gap_atlas_intro = "The introduction comparing the human and the rat brain is written from cited sources and reviewed by Sofía; it does not exist yet."
 
 # Neuro Glossary (Phase 2, v181)
 gl_intro = "Neuroscience terms and acronyms, each explained in one sentence. There are {n} so far: our scientific reviewer checked every one before it appeared here."

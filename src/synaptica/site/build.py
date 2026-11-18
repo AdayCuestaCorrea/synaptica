@@ -472,9 +472,13 @@ class SiteBuilder:
             (self.out / rel).parent.mkdir(parents=True, exist_ok=True)
             (self.out / rel).write_text(json.dumps(index, ensure_ascii=False), "utf-8")
             glossary_index = posixpath.relpath(rel, here)
+        # Her approved introduction (v221), or its gap.
+        intro = self.atlas_intro if self.atlas_intro and self.atlas_intro[lang] else None
+        if intro is None:
+            gaps["atlas_intro"] = ("gap", t["gap_atlas_intro"])
         self.render(lang, "atlas", "atlas.html.j2", gaps=gaps, brains=d["brains"],
                     pair_pages=pair_pages, region_urls=region_urls,
-                    glossary_index=glossary_index)  # fmt: skip
+                    glossary_index=glossary_index, intro=intro)  # fmt: skip
 
     @functools.cached_property
     def pair_studies(self) -> dict[str, list[dict[str, Any]]] | None:
@@ -627,6 +631,13 @@ class SiteBuilder:
     def atlas_texts(self) -> dict[str, dict[str, Any]]:
         """Pair kind -> the region text Sofía approved or corrected (``atlas.texts``)."""
         from synaptica.atlas.texts import published
+
+        return published(self.data_dir / "review" if self.data_dir is not None else None)
+
+    @functools.cached_property
+    def atlas_intro(self) -> dict[str, Any] | None:
+        """Neuro Atlas's introduction as Sofía approved or corrected it (``atlas.intro``)."""
+        from synaptica.atlas.intro import published
 
         return published(self.data_dir / "review" if self.data_dir is not None else None)
 
