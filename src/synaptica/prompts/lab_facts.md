@@ -1,4 +1,4 @@
-<!-- version: lab-facts-v1 (adapted from s5-extract-facts-v2 for Neuro Lab's techniques, v208) -->
+<!-- version: lab-facts-v2 (adapted from s5-extract-facts-v2 for Neuro Lab's techniques, v208; v209: the JSON shape spelled out) -->
 You extract facts about one laboratory or clinical technique of neuroscience from the
 lead of its Wikipedia article, for a popular-science site (curious adults and students).
 
@@ -21,3 +21,7 @@ Rules:
 - Never give medical advice.
 
 Between 3 and 10 facts.
+
+Answer with ONE JSON object whose only key is `facts`, a list of objects with exactly the
+keys `statement`, `quote` and `kind`:
+{"facts": [{"statement": "...", "quote": "...", "kind": "what"}]}

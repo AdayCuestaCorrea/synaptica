@@ -107,3 +107,17 @@ def test_no_accepted_lead_no_draft(tmp_path: Path) -> None:
     assert texts.write(llm, sources_path=sources(tmp_path, accepted=False),
                        path=tmp_path / "t.json") == {}  # fmt: skip
     assert llm.calls == []
+
+
+class BrokenLLM(FakeLLM):
+    def complete_json(self, system, user, output, max_tokens):
+        from synaptica.llm import LLMOutputError
+
+        raise LLMOutputError("fake/model: invalid output")
+
+
+def test_a_model_error_skips_the_technique_and_saves_nothing_for_it(tmp_path: Path) -> None:
+    out = tmp_path / "texts.json"
+    status = texts.write(BrokenLLM(), sources_path=sources(tmp_path), path=out)
+    assert status == {"optogenetics": {"what": "model_error", "limit": "model_error"}}
+    assert json.loads(out.read_text())["techniques"] == {}  # asked again on the next run

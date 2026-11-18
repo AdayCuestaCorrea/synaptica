@@ -1,0 +1,1094 @@
+{
+  "note": "Drafts of Neuro Lab's texts (LLM, checked against each technique's Wikipedia lead in lab/sources.json). Not published: each waits for Sofía's approval. Written by `syn lab write`; do not edit by hand.",
+  "techniques": {
+    "western-blot": {
+      "revid": 1384468270,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1384468270",
+      "source_es": "https://es.wikipedia.org/w/index.php?oldid=171315780",
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "lab_facts": "lab-facts-v2 (adapted from s5-extract-facts-v2 for Neuro Lab's techniques, v208; v209: the JSON shape spelled out)",
+        "lab_write_en": "lab-write-en-v1 (adapted from s5-write-en-v2 for Neuro Lab's techniques, v208)",
+        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
+      },
+      "generated_at": "2026-11-18T11:30:16+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "The method identifies particular proteins within a mixture of ground-up tissue or cell extracts.",
+          "kind": "what"
+        },
+        {
+          "id": "f2",
+          "statement": "It allows scientists to see, tell apart, and measure the amounts of various proteins in a complex mix.",
+          "kind": "what"
+        },
+        {
+          "id": "f3",
+          "statement": "The process involves sorting proteins by their size, moving them onto a solid membrane, and tagging the target with antibodies for visualization.",
+          "kind": "what"
+        },
+        {
+          "id": "f4",
+          "statement": "A specially made antibody, either synthetic or from an animal, is used to latch onto the specific protein being studied.",
+          "kind": "what"
+        },
+        {
+          "id": "f5",
+          "statement": "A second antibody attached to the first is made visible using techniques like staining, fluorescence, or radioactivity to reveal the target protein.",
+          "kind": "what"
+        },
+        {
+          "id": "f6",
+          "statement": "The name is a pun on the Southern blot, a DNA detection method named after its creator Edwin Southern.",
+          "kind": "other"
+        },
+        {
+          "id": "f7",
+          "statement": "W. Neal Burnette coined the term Western blot in 1981.",
+          "kind": "other"
+        },
+        {
+          "id": "f8",
+          "statement": "The actual method was independently developed in 1979 by two separate groups of researchers, including those at the Friedrich Miescher Institute in Basel.",
+          "kind": "other"
+        },
+        {
+          "id": "f9",
+          "statement": "From 1979 to 2019, the technique appeared in over 400,000 scientific publications listed in PubMed.",
+          "kind": "other"
+        }
+      ],
+      "rejected": [],
+      "what": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "Western blot identifies particular proteins within a mixture of ground-up tissue or cell extracts, allowing scientists to see, tell apart, and measure the amounts of various proteins in a complex mix.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "The process involves sorting proteins by their size, moving them onto a solid membrane, and tagging the target with antibodies for visualization.",
+            "fact_ids": [
+              "f3"
+            ]
+          },
+          {
+            "text": "A specially made antibody, either synthetic or from an animal, latches onto the specific protein being studied, while a second antibody attached to the first is made visible using techniques like staining, fluorescence, or radioactivity to reveal the target protein.",
+            "fact_ids": [
+              "f4",
+              "f5"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "El western blot identifica proteínas específicas dentro de una mezcla de tejido triturado o extractos celulares, lo que permite a los científicos visualizar, distinguir y cuantificar las distintas proteínas presentes en una mezcla compleja.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "El proceso consiste en separar las proteínas según su tamaño, transferirlas a una membrana sólida y marcar la proteína diana con anticuerpos para su visualización.",
+            "fact_ids": [
+              "f3"
+            ]
+          },
+          {
+            "text": "Un anticuerpo específico, ya sea sintético o de origen animal, se une a la proteína estudiada, mientras que un segundo anticuerpo acoplado al primero se hace visible mediante técnicas como tinción, fluorescencia o radiactividad para revelar la proteína diana.",
+            "fact_ids": [
+              "f4",
+              "f5"
+            ]
+          }
+        ]
+      },
+      "limit": {
+        "status": "too_few_facts",
+        "facts": 0
+      }
+    },
+    "immunofluorescence": {
+      "revid": 1369640092,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1369640092",
+      "source_es": "https://es.wikipedia.org/w/index.php?oldid=174564362",
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "lab_facts": "lab-facts-v2 (adapted from s5-extract-facts-v2 for Neuro Lab's techniques, v208; v209: the JSON shape spelled out)",
+        "lab_write_en": "lab-write-en-v1 (adapted from s5-write-en-v2 for Neuro Lab's techniques, v208)",
+        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
+      },
+      "generated_at": "2026-11-18T11:30:16+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "This method enables researchers to identify and pinpoint the location of many different biological molecules inside cells or tissues with some degree of measurement.",
+          "kind": "what"
+        },
+        {
+          "id": "f2",
+          "statement": "The process relies on the precise chemical interaction between antibodies and their specific target antigens.",
+          "kind": "what"
+        },
+        {
+          "id": "f3",
+          "statement": "Researchers attach a light-emitting dye to the antibody and use a fluorescence microscope to detect the specific light emitted when the dye is excited, thereby revealing where the target molecule is located.",
+          "kind": "what"
+        },
+        {
+          "id": "f4",
+          "statement": "A key requirement is that attaching the fluorescent dye must not disrupt the antibody's ability to bind specifically to its target antigen.",
+          "kind": "limit"
+        },
+        {
+          "id": "f5",
+          "statement": "The technique is applied to study the arrangement of proteins, sugar chains, small molecules, and cellular structures like intermediate filaments.",
+          "kind": "what"
+        },
+        {
+          "id": "f6",
+          "statement": "It serves as a semi-quantitative tool for understanding the amount and spatial pattern of DNA methylation.",
+          "kind": "what"
+        },
+        {
+          "id": "f7",
+          "statement": "The method can be combined with other fluorescent staining techniques, such as using DAPI to mark DNA.",
+          "kind": "what"
+        },
+        {
+          "id": "f8",
+          "statement": "Samples prepared with this technique can be viewed using several types of microscopes, including epifluorescence, confocal, and widefield models.",
+          "kind": "what"
+        }
+      ],
+      "rejected": [],
+      "what": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "By attaching a light-emitting dye to an antibody, the method exploits the precise chemical interaction between antibodies and their specific target antigens to reveal where the target molecule is located.",
+            "fact_ids": [
+              "f2",
+              "f3"
+            ]
+          },
+          {
+            "text": "This approach enables researchers to identify and pinpoint the location of many different biological molecules, including proteins, sugar chains, and cellular structures like intermediate filaments, inside cells or tissues.",
+            "fact_ids": [
+              "f1",
+              "f5"
+            ]
+          },
+          {
+            "text": "Furthermore, it serves as a semi-quantitative tool for understanding the amount and spatial pattern of DNA methylation, and the method can be combined with other fluorescent staining techniques, such as using DAPI to mark DNA.",
+            "fact_ids": [
+              "f6",
+              "f7"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "Al unir un tinte emisor de luz a un anticuerpo, el método aprovecha la interacción química precisa entre los anticuerpos y sus antígenos diana específicos para revelar la ubicación de la molécula objetivo.",
+            "fact_ids": [
+              "f2",
+              "f3"
+            ]
+          },
+          {
+            "text": "Este enfoque permite a los investigadores identificar y localizar numerosas moléculas biológicas distintas, como proteínas, cadenas de azúcares y estructuras celulares como los filamentos intermedios, tanto dentro de células como en tejidos.",
+            "fact_ids": [
+              "f1",
+              "f5"
+            ]
+          },
+          {
+            "text": "Además, funciona como una herramienta semicuantitativa para comprender la cantidad y el patrón espacial de la metilación del ADN, y el método puede combinarse con otras técnicas de tinción fluorescente, como el uso de DAPI para marcar el ADN.",
+            "fact_ids": [
+              "f6",
+              "f7"
+            ]
+          }
+        ]
+      },
+      "limit": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "A key requirement is that attaching the fluorescent dye must not disrupt the antibody's ability to bind specifically to its target antigen.",
+            "fact_ids": [
+              "f4"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "Un requisito clave es que la unión del tinte fluorescente no altere la capacidad del anticuerpo para unirse específicamente a su antígeno diana.",
+            "fact_ids": [
+              "f4"
+            ]
+          }
+        ]
+      }
+    },
+    "confocal": {
+      "revid": 1384621399,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1384621399",
+      "source_es": "https://es.wikipedia.org/w/index.php?oldid=171387244",
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "lab_facts": "lab-facts-v2 (adapted from s5-extract-facts-v2 for Neuro Lab's techniques, v208; v209: the JSON shape spelled out)",
+        "lab_write_en": "lab-write-en-v1 (adapted from s5-write-en-v2 for Neuro Lab's techniques, v208)",
+        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
+      },
+      "generated_at": "2026-11-18T11:30:16+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "This optical imaging method sharpens pictures by using a small opening to filter out blurry light that comes from areas not in focus.",
+          "kind": "what"
+        },
+        {
+          "id": "f2",
+          "statement": "By taking many flat pictures at different depths, scientists can build a three-dimensional model of the object being studied.",
+          "kind": "what"
+        },
+        {
+          "id": "f3",
+          "statement": "The method is widely applied in fields such as biology, chip inspection, and the study of materials.",
+          "kind": "other"
+        },
+        {
+          "id": "f4",
+          "statement": "Unlike standard microscopes where light penetrates the whole sample, this technique directs a tight beam at just one thin layer at a time.",
+          "kind": "what"
+        },
+        {
+          "id": "f5",
+          "statement": "The system creates a very shallow depth of field, ensuring that only the targeted slice is in sharp focus.",
+          "kind": "what"
+        }
+      ],
+      "rejected": [],
+      "what": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "Confocal microscopy directs a tight beam at just one thin layer at a time, creating a very shallow depth of field that ensures only the targeted slice is in sharp focus.",
+            "fact_ids": [
+              "f4",
+              "f5"
+            ]
+          },
+          {
+            "text": "This optical imaging method sharpens pictures by using a small opening to filter out blurry light that comes from areas not in focus.",
+            "fact_ids": [
+              "f1"
+            ]
+          },
+          {
+            "text": "By taking many flat pictures at different depths, scientists can build a three-dimensional model of the object being studied.",
+            "fact_ids": [
+              "f2"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "La microscopía confocal dirige un haz estrecho sobre una sola capa fina a la vez, lo que genera una profundidad de campo muy reducida y garantiza que únicamente la sección objetivo quede en foco nítido.",
+            "fact_ids": [
+              "f4",
+              "f5"
+            ]
+          },
+          {
+            "text": "Este método de imagen óptica afina las imágenes mediante una pequeña abertura que filtra la luz difusa procedente de las zonas que no están en foco.",
+            "fact_ids": [
+              "f1"
+            ]
+          },
+          {
+            "text": "Al capturar numerosas imágenes planas a distintas profundidades, los científicos pueden reconstruir un modelo tridimensional del objeto estudiado.",
+            "fact_ids": [
+              "f2"
+            ]
+          }
+        ]
+      },
+      "limit": {
+        "status": "too_few_facts",
+        "facts": 0
+      }
+    },
+    "electrophysiology": {
+      "revid": 1378467169,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1378467169",
+      "source_es": "https://es.wikipedia.org/w/index.php?oldid=176094882",
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "lab_facts": "lab-facts-v2 (adapted from s5-extract-facts-v2 for Neuro Lab's techniques, v208; v209: the JSON shape spelled out)",
+        "lab_write_en": "lab-write-en-v1 (adapted from s5-write-en-v2 for Neuro Lab's techniques, v208)",
+        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
+      },
+      "generated_at": "2026-11-18T11:30:16+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "This field of physiology focuses on investigating how electricity behaves within living cells and tissues.",
+          "kind": "what"
+        },
+        {
+          "id": "f2",
+          "statement": "Researchers can measure voltage shifts or currents, or manipulate them, across a broad range of biological structures, from individual ion channels to entire organs such as the heart.",
+          "kind": "what"
+        },
+        {
+          "id": "f3",
+          "statement": "Within neuroscience, the technique is used to record the electrical signals generated by neurons, with a specific focus on action potentials.",
+          "kind": "what"
+        },
+        {
+          "id": "f4",
+          "statement": "Broad electrical signals captured from the nervous system, including those obtained via electroencephalography, are categorized as electrophysiological recordings.",
+          "kind": "what"
+        },
+        {
+          "id": "f5",
+          "statement": "These recordings serve practical purposes in medical diagnosis and ongoing patient monitoring.",
+          "kind": "other"
+        }
+      ],
+      "rejected": [],
+      "what": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "Electrophysiology investigates how electricity behaves within living cells and tissues, allowing researchers to measure or manipulate voltage shifts and currents across structures ranging from individual ion channels to entire organs like the heart.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "In neuroscience, this technique records electrical signals generated by neurons, specifically focusing on action potentials, while broad signals captured from the nervous system, such as those from electroencephalography, are categorized as electrophysiological recordings.",
+            "fact_ids": [
+              "f3",
+              "f4"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "La electrofisiología estudia el comportamiento de la electricidad en células y tejidos vivos, lo que permite a los investigadores medir o manipular los cambios de voltaje y las corrientes en estructuras que van desde canales iónicos individuales hasta órganos completos, como el corazón.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "En neurociencia, esta técnica registra las señales eléctricas generadas por las neuronas, con especial atención a los potenciales de acción, mientras que las señales amplias captadas del sistema nervioso, como las obtenidas mediante electroencefalografía, se clasifican como registros electrofisiológicos.",
+            "fact_ids": [
+              "f3",
+              "f4"
+            ]
+          }
+        ]
+      },
+      "limit": {
+        "status": "too_few_facts",
+        "facts": 0
+      }
+    },
+    "eeg": {
+      "revid": 1383932396,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1383932396",
+      "source_es": "https://es.wikipedia.org/w/index.php?oldid=175617681",
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "lab_facts": "lab-facts-v2 (adapted from s5-extract-facts-v2 for Neuro Lab's techniques, v208; v209: the JSON shape spelled out)",
+        "lab_write_en": "lab-write-en-v1 (adapted from s5-write-en-v2 for Neuro Lab's techniques, v208)",
+        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
+      },
+      "generated_at": "2026-11-18T11:30:16+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "EEG is a technique used to capture the brain's spontaneous electrical signals.",
+          "kind": "what"
+        },
+        {
+          "id": "f2",
+          "statement": "The signals measured by EEG correspond to the postsynaptic potentials of pyramidal neurons located in the neocortex and allocortex.",
+          "kind": "what"
+        },
+        {
+          "id": "f3",
+          "statement": "The procedure is usually non-invasive, with sensors attached to the scalp following the International 10–20 system.",
+          "kind": "what"
+        },
+        {
+          "id": "f4",
+          "statement": "A variant known as intracranial EEG requires surgical insertion of electrodes, unlike the standard scalp method.",
+          "kind": "limit"
+        },
+        {
+          "id": "f5",
+          "statement": "The manual reading of EEG tracings is prone to inconsistencies between different experts and even within the same expert's assessments.",
+          "kind": "limit"
+        },
+        {
+          "id": "f6",
+          "statement": "EEG signals are dominated by activity from cortical neurons close to the scalp, meaning not all brain cells contribute equally to the recording.",
+          "kind": "limit"
+        },
+        {
+          "id": "f7",
+          "statement": "Deep brain regions such as the hippocampus, thalamus, and brain stem do not directly contribute to the EEG signal.",
+          "kind": "limit"
+        },
+        {
+          "id": "f8",
+          "statement": "Typical EEG recordings show frequency ranges from 1 to 30 Hz and amplitude variations between 20 and 100 microvolts.",
+          "kind": "what"
+        },
+        {
+          "id": "f9",
+          "statement": "The technique can identify abnormal electrical patterns like spikes and sharp waves, which helps in diagnosing conditions such as epilepsy.",
+          "kind": "what"
+        },
+        {
+          "id": "f10",
+          "statement": "EEG has limited spatial resolution, meaning it cannot pinpoint the exact location of brain activity with high precision.",
+          "kind": "limit"
+        },
+        {
+          "id": "f11",
+          "statement": "EEG provides millisecond-level temporal resolution and is portable, advantages not shared by imaging methods like CT, PET, or MRI.",
+          "kind": "what"
+        }
+      ],
+      "rejected": [],
+      "what": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "Electroencephalography records spontaneous electrical activity generated by postsynaptic potentials in pyramidal neurons within the neocortex and allocortex.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "These recordings reveal frequency ranges from 1 to 30 Hz and amplitude variations between 20 and 100 microvolts with millisecond-level temporal resolution.",
+            "fact_ids": [
+              "f8",
+              "f11"
+            ]
+          },
+          {
+            "text": "The method also identifies abnormal electrical patterns like spikes and sharp waves, which helps in diagnosing conditions such as epilepsy.",
+            "fact_ids": [
+              "f9"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "La electroencefalografía registra la actividad eléctrica espontánea generada por los potenciales postsinápticos en las neuronas piramidales del neocórtex y el alócorrex.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "Estas grabaciones revelan rangos de frecuencia de 1 a 30 Hz y variaciones de amplitud entre 20 y 100 microvoltios, con una resolución temporal a nivel de milisegundos.",
+            "fact_ids": [
+              "f8",
+              "f11"
+            ]
+          },
+          {
+            "text": "Además, el método identifica patrones eléctricos anómalos, como picos y ondas agudas, lo que facilita el diagnóstico de afecciones como la epilepsia.",
+            "fact_ids": [
+              "f9"
+            ]
+          }
+        ]
+      },
+      "limit": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "EEG signals are dominated by activity from cortical neurons close to the scalp, meaning not all brain cells contribute equally to the recording.",
+            "fact_ids": [
+              "f6",
+              "f7"
+            ]
+          },
+          {
+            "text": "Consequently, deep brain regions such as the hippocampus, thalamus, and brain stem do not directly contribute to the EEG signal.",
+            "fact_ids": [
+              "f7"
+            ]
+          },
+          {
+            "text": "This setup gives EEG limited spatial resolution, meaning it cannot pinpoint the exact location of brain activity with high precision.",
+            "fact_ids": [
+              "f10"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "Las señales del EEG están dominadas por la actividad de las neuronas corticales cercanas al cuero cabelludo, lo que significa que no todas las células cerebrales contribuyen por igual a la grabación.",
+            "fact_ids": [
+              "f6",
+              "f7"
+            ]
+          },
+          {
+            "text": "En consecuencia, regiones profundas del cerebro, como el hipocampo, el tálamo y el tronco encefálico, no contribuyen directamente a la señal del EEG.",
+            "fact_ids": [
+              "f7"
+            ]
+          },
+          {
+            "text": "Esta configuración otorga al EEG una resolución espacial limitada, es decir, no puede localizar con alta precisión el lugar exacto de la actividad cerebral.",
+            "fact_ids": [
+              "f10"
+            ]
+          }
+        ]
+      }
+    },
+    "fmri": {
+      "revid": 1371654883,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1371654883",
+      "source_es": "https://es.wikipedia.org/w/index.php?oldid=174082414",
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "lab_facts": "lab-facts-v2 (adapted from s5-extract-facts-v2 for Neuro Lab's techniques, v208; v209: the JSON shape spelled out)",
+        "lab_write_en": "lab-write-en-v1 (adapted from s5-write-en-v2 for Neuro Lab's techniques, v208)",
+        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
+      },
+      "generated_at": "2026-11-18T11:30:16+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "The method tracks neural activity by monitoring shifts in blood circulation within the brain.",
+          "kind": "what"
+        },
+        {
+          "id": "f2",
+          "statement": "Neuronal activation triggers a corresponding rise in blood flow to the active brain region.",
+          "kind": "what"
+        },
+        {
+          "id": "f3",
+          "statement": "Researchers apply this imaging technique to visualize neural activity in both human and animal brains and spinal cords.",
+          "kind": "what"
+        },
+        {
+          "id": "f4",
+          "statement": "The procedure is noninvasive and generally does not require surgical intervention, injections, or radioactive tracers.",
+          "kind": "limit"
+        },
+        {
+          "id": "f5",
+          "statement": "The raw data collected is often contaminated by noise from multiple sources, necessitating statistical analysis to isolate the true signal.",
+          "kind": "limit"
+        },
+        {
+          "id": "f6",
+          "statement": "While spatial precision reaches the millimeter scale, temporal resolution is limited to a window of several seconds with standard methods.",
+          "kind": "limit"
+        },
+        {
+          "id": "f7",
+          "statement": "The technique can also assess baseline brain activity during rest or negative-task states by measuring variance in the blood-oxygen-level dependent signal.",
+          "kind": "what"
+        },
+        {
+          "id": "f8",
+          "statement": "Research conducted since approximately 1998 has utilized this method to identify the default mode network, a set of brain regions active during rest.",
+          "kind": "other"
+        },
+        {
+          "id": "f9",
+          "statement": "Although commercial lie detectors based on this technology exist, the underlying research is not considered mature enough for broad commercial application.",
+          "kind": "other"
+        }
+      ],
+      "rejected": [],
+      "what": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "Functional magnetic resonance imaging tracks neural activity by monitoring shifts in blood circulation, as neuronal activation triggers a corresponding rise in blood flow to the active brain region.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "Researchers apply this imaging technique to visualize such activity in both human and animal brains and spinal cords.",
+            "fact_ids": [
+              "f3"
+            ]
+          },
+          {
+            "text": "The method also assesses baseline brain activity during rest or negative-task states by measuring variance in the blood-oxygen-level dependent signal.",
+            "fact_ids": [
+              "f7"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "La resonancia magnética funcional rastrea la actividad neural al monitorizar los cambios en la circulación sanguínea, ya que la activación neuronal provoca un aumento correspondiente del flujo de sangre hacia la región cerebral activa.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "Los investigadores aplican esta técnica de imagen para visualizar dicha actividad tanto en el cerebro y la médula espinal de humanos como de animales.",
+            "fact_ids": [
+              "f3"
+            ]
+          },
+          {
+            "text": "Además, el método evalúa la actividad cerebral basal durante el reposo o en estados de tarea negativa midiendo la varianza de la señal dependiente del nivel de oxígeno en la sangre.",
+            "fact_ids": [
+              "f7"
+            ]
+          }
+        ]
+      },
+      "limit": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "Although spatial precision reaches the millimeter scale, temporal resolution is limited to a window of several seconds with standard methods.",
+            "fact_ids": [
+              "f6"
+            ]
+          },
+          {
+            "text": "Consequently, the raw data collected is often contaminated by noise from multiple sources, necessitating statistical analysis to isolate the true signal.",
+            "fact_ids": [
+              "f5"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "Aunque la precisión espacial alcanza la escala del milímetro, la resolución temporal se limita a una ventana de varios segundos con los métodos estándar.",
+            "fact_ids": [
+              "f6"
+            ]
+          },
+          {
+            "text": "En consecuencia, los datos brutos recogidos suelen estar contaminados por ruido de múltiples fuentes, lo que exige un análisis estadístico para aislar la señal verdadera.",
+            "fact_ids": [
+              "f5"
+            ]
+          }
+        ]
+      }
+    },
+    "viral-tracing": {
+      "revid": 1382374595,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1382374595",
+      "source_es": null,
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "lab_facts": "lab-facts-v2 (adapted from s5-extract-facts-v2 for Neuro Lab's techniques, v208; v209: the JSON shape spelled out)",
+        "lab_write_en": "lab-write-en-v1 (adapted from s5-write-en-v2 for Neuro Lab's techniques, v208)",
+        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
+      },
+      "generated_at": "2026-11-18T11:30:16+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "This method employs a virus as a self-replicating tool to map out connections within the nervous system.",
+          "kind": "what"
+        },
+        {
+          "id": "f2",
+          "statement": "Unlike standard molecular markers, viral tracers can copy themselves, which is a distinct benefit for tracking.",
+          "kind": "what"
+        },
+        {
+          "id": "f3",
+          "statement": "A major drawback is that the virus may move too fast and damage the brain tissue it is meant to study.",
+          "kind": "limit"
+        },
+        {
+          "id": "f4",
+          "statement": "Neurotropic viruses move between nearby neurons by crossing synaptic junctions.",
+          "kind": "what"
+        },
+        {
+          "id": "f5",
+          "statement": "This synaptic spread makes the technique suitable for investigating networks of neurons that work together.",
+          "kind": "what"
+        },
+        {
+          "id": "f6",
+          "statement": "The practice of using viruses to mark connected neurons originated from research and assays created by Albert Sabin.",
+          "kind": "other"
+        },
+        {
+          "id": "f7",
+          "statement": "Later developments integrated immunohistochemical methods to enable systematic labeling of neural links.",
+          "kind": "other"
+        },
+        {
+          "id": "f8",
+          "statement": "Researchers have applied this viral approach to examine various circuits throughout the nervous system.",
+          "kind": "other"
+        }
+      ],
+      "rejected": [],
+      "what": {
+        "status": "failed_es",
+        "problems": [
+          "sentence 1: words not in the Spanish dictionary ['autorreplicativa']"
+        ],
+        "en": [
+          {
+            "text": "Viral vector tracing uses a virus as a self-replicating tool to map connections within the nervous system, offering a distinct benefit over standard molecular markers because these tracers can copy themselves.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "Neurotropic viruses move between nearby neurons by crossing synaptic junctions, a process that makes the technique suitable for investigating networks of neurons that work together.",
+            "fact_ids": [
+              "f4",
+              "f5"
+            ]
+          }
+        ]
+      },
+      "limit": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "A major drawback of viral vector tracing is that the virus may move too fast and damage the brain tissue it is meant to study.",
+            "fact_ids": [
+              "f3"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "Un inconveniente importante de la trazabilidad con vectores virales es que el virus podría propagarse demasiado rápido y dañar el tejido cerebral que se pretende estudiar.",
+            "fact_ids": [
+              "f3"
+            ]
+          }
+        ]
+      }
+    },
+    "optogenetics": {
+      "revid": 1385691656,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1385691656",
+      "source_es": "https://es.wikipedia.org/w/index.php?oldid=175671547",
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "lab_facts": "lab-facts-v2 (adapted from s5-extract-facts-v2 for Neuro Lab's techniques, v208; v209: the JSON shape spelled out)",
+        "lab_write_en": "lab-write-en-v1 (adapted from s5-write-en-v2 for Neuro Lab's techniques, v208)",
+        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
+      },
+      "generated_at": "2026-11-18T11:30:16+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "This biological method allows scientists to observe and control how neurons and other cells behave by using light.",
+          "kind": "what"
+        },
+        {
+          "id": "f2",
+          "statement": "The technique works by introducing light-reactive proteins such as ion channels or pumps into specific brain cells.",
+          "kind": "what"
+        },
+        {
+          "id": "f3",
+          "statement": "At the single-cell level, the method enables exact regulation of internal chemical signaling processes using light-activated molecules.",
+          "kind": "what"
+        },
+        {
+          "id": "f4",
+          "statement": "Researchers use this tool to study how specific groups of neurons influence behaviors like learning, fear, and movement.",
+          "kind": "what"
+        },
+        {
+          "id": "f5",
+          "statement": "A clinical trial demonstrated that this technology could partially restore sight in a person suffering from retinitis pigmentosa.",
+          "kind": "other"
+        },
+        {
+          "id": "f6",
+          "statement": "The method is also applied to create maps of how different parts of the brain functionally connect with one another.",
+          "kind": "what"
+        },
+        {
+          "id": "f7",
+          "statement": "By changing the activity of some neurons while measuring others, scientists can determine the statistical relationships between different brain areas.",
+          "kind": "what"
+        },
+        {
+          "id": "f8",
+          "statement": "The broader field also encompasses techniques that use genetically modified indicators to record how cells are active.",
+          "kind": "what"
+        }
+      ],
+      "rejected": [],
+      "what": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "Optogenetics, a biological method that uses light to observe and control cellular behavior, works by introducing light-reactive proteins like ion channels into specific brain cells.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "At the single-cell level, this approach enables exact regulation of internal chemical signaling, allowing researchers to study how specific neuron groups influence behaviors such as learning and fear.",
+            "fact_ids": [
+              "f3",
+              "f4"
+            ]
+          },
+          {
+            "text": "Furthermore, the technique helps create maps of functional brain connections by determining statistical relationships between areas while changing the activity of some neurons and measuring others.",
+            "fact_ids": [
+              "f6",
+              "f7"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "La optogenética, un método biológico que emplea la luz para observar y controlar el comportamiento celular, funciona al introducir proteínas sensibles a la luz, como canales iónicos, en células cerebrales específicas.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "A nivel de célula individual, este enfoque permite regular con precisión la señalización química interna, lo que posibilita a los investigadores estudiar cómo grupos específicos de neuronas influyen en conductas como el aprendizaje y el miedo.",
+            "fact_ids": [
+              "f3",
+              "f4"
+            ]
+          },
+          {
+            "text": "Además, la técnica ayuda a crear mapas de las conexiones funcionales del cerebro al determinar las relaciones estadísticas entre áreas mientras se modifica la actividad de algunas neuronas y se mide la de otras.",
+            "fact_ids": [
+              "f6",
+              "f7"
+            ]
+          }
+        ]
+      },
+      "limit": {
+        "status": "too_few_facts",
+        "facts": 0
+      }
+    },
+    "chemogenetics": {
+      "revid": 1386026431,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1386026431",
+      "source_es": null,
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "lab_facts": "lab-facts-v2 (adapted from s5-extract-facts-v2 for Neuro Lab's techniques, v208; v209: the JSON shape spelled out)",
+        "lab_write_en": "lab-write-en-v1 (adapted from s5-write-en-v2 for Neuro Lab's techniques, v208)",
+        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
+      },
+      "generated_at": "2026-11-18T11:30:16+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "This technique involves modifying large biological molecules so they can bind to and respond to specific small chemical compounds that they did not originally recognize.",
+          "kind": "what"
+        },
+        {
+          "id": "f2",
+          "statement": "The name for this field was first created to explain how genetic changes in a flower species affected the activity of a specific enzyme and its interaction with substrates.",
+          "kind": "other"
+        },
+        {
+          "id": "f3",
+          "statement": "Unlike optogenetics, which relies on light and light-sensitive proteins, this method operates using designed chemical agents and their corresponding binding partners.",
+          "kind": "what"
+        },
+        {
+          "id": "f4",
+          "statement": "Scientists frequently apply this approach to investigate how neural activity in the brain connects to observable actions and behaviors.",
+          "kind": "what"
+        },
+        {
+          "id": "f5",
+          "statement": "Before the development of this chemical-based technique, investigators relied on electrical or magnetic stimulation methods to explore the link between neurons and behavior.",
+          "kind": "other"
+        }
+      ],
+      "rejected": [],
+      "what": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "By modifying large biological molecules to bind specific small chemical compounds, this method operates using designed agents rather than light-sensitive proteins.",
+            "fact_ids": [
+              "f1",
+              "f3"
+            ]
+          },
+          {
+            "text": "Consequently, scientists frequently apply this approach to investigate how neural activity in the brain connects to observable actions and behaviors.",
+            "fact_ids": [
+              "f4"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "Al modificar grandes moléculas biológicas para que se unan a compuestos químicos pequeños específicos, este método funciona mediante agentes diseñados, en lugar de proteínas fotosensibles.",
+            "fact_ids": [
+              "f1",
+              "f3"
+            ]
+          },
+          {
+            "text": "Por eso, los científicos aplican con frecuencia este enfoque para investigar cómo la actividad neuronal del cerebro se relaciona con las acciones y comportamientos observables.",
+            "fact_ids": [
+              "f4"
+            ]
+          }
+        ]
+      },
+      "limit": {
+        "status": "too_few_facts",
+        "facts": 0
+      }
+    },
+    "fiber-photometry": {
+      "revid": 1375722789,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1375722789",
+      "source_es": "https://es.wikipedia.org/w/index.php?oldid=171533605",
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "lab_facts": "lab-facts-v2 (adapted from s5-extract-facts-v2 for Neuro Lab's techniques, v208; v209: the JSON shape spelled out)",
+        "lab_write_en": "lab-write-en-v1 (adapted from s5-write-en-v2 for Neuro Lab's techniques, v208)",
+        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
+      },
+      "generated_at": "2026-11-18T11:30:16+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "The method records the combined calcium signals from groups of specific neurons in a particular brain area or network.",
+          "kind": "what"
+        },
+        {
+          "id": "f2",
+          "statement": "Researchers can link these population-level signals to actions like spatial learning, memory recall, and goal-directed behaviors.",
+          "kind": "what"
+        },
+        {
+          "id": "f3",
+          "statement": "The procedure requires surgically placing optical fibers into the brains of live animals.",
+          "kind": "what"
+        },
+        {
+          "id": "f4",
+          "statement": "Optical fibers are easier to implant, less invasive, and cheaper than other calcium imaging methods.",
+          "kind": "what"
+        },
+        {
+          "id": "f5",
+          "statement": "Using fiber optics places less weight and stress on the animal compared to miniscopes.",
+          "kind": "what"
+        },
+        {
+          "id": "f6",
+          "statement": "The technique enables imaging of several interacting brain regions at the same time.",
+          "kind": "what"
+        },
+        {
+          "id": "f7",
+          "statement": "Fiber photometry has low resolution at the cellular and spatial levels.",
+          "kind": "limit"
+        },
+        {
+          "id": "f8",
+          "statement": "Animals must be securely attached to a rigid fiber bundle, which can affect the natural behavior of small mammals like mice.",
+          "kind": "limit"
+        }
+      ],
+      "rejected": [],
+      "what": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "Fiber photometry captures the combined calcium signals from specific neuron groups, allowing researchers to link these population-level activities to actions such as spatial learning and memory recall.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "Furthermore, this technique enables the simultaneous imaging of several interacting brain regions, providing a broader view of neural networks.",
+            "fact_ids": [
+              "f6"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "La fotometría de fibra capta las señales de calcio combinadas de grupos específicos de neuronas, lo que permite a los investigadores vincular estas actividades a nivel poblacional con acciones como el aprendizaje espacial y la recuperación de la memoria.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "Además, esta técnica posibilita la imagen simultánea de varias regiones cerebrales interactivas, ofreciendo una visión más amplia de las redes neuronales.",
+            "fact_ids": [
+              "f6"
+            ]
+          }
+        ]
+      },
+      "limit": {
+        "status": "failed_es",
+        "problems": [
+          "sentence 2: the English sentence is cautious and this is not"
+        ],
+        "en": [
+          {
+            "text": "Fiber photometry exhibits low resolution at both the cellular and spatial levels, limiting the precision of the data it captures.",
+            "fact_ids": [
+              "f7"
+            ]
+          },
+          {
+            "text": "Furthermore, the requirement that animals be securely attached to a rigid fiber bundle may affect the natural behavior of small mammals like mice.",
+            "fact_ids": [
+              "f8"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

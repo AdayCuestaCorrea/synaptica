@@ -29,7 +29,7 @@ from pydantic import BaseModel, Field
 
 from synaptica.lab.sources import SOURCES
 from synaptica.lab.studies import techniques
-from synaptica.llm import LLM, prompt
+from synaptica.llm import LLM, LLMOutputError, prompt
 from synaptica.narrative.checks import (
     check_alignment,
     check_claims_es,
@@ -144,7 +144,11 @@ def write(
         old = texts.get(tid)
         if old and old.get("revid") == en_src["revid"] and not only:
             continue
-        verified, rejected = facts(llm, tech, en_src["lead"])
+        try:
+            verified, rejected = facts(llm, tech, en_src["lead"])
+        except LLMOutputError:  # nothing saved for it: asked again on the next run
+            status[tid] = dict.fromkeys(SECTIONS, "model_error")
+            continue
         record = {"revid": en_src["revid"], "source": en_src["url"],
                   "source_es": ((sources[tid].get("es") or {}).get("url")),
                   "generator": llm.label,
@@ -152,8 +156,12 @@ def write(
                   "generated_at": now.isoformat(timespec="seconds"),
                   "facts": [{k: f[k] for k in ("id", "statement", "kind")} for f in verified],
                   "rejected": rejected}  # fmt: skip
-        for kind in SECTIONS:
-            record[kind] = section(llm, tech, kind, verified, en_src["lead"])
+        try:
+            for kind in SECTIONS:
+                record[kind] = section(llm, tech, kind, verified, en_src["lead"])
+        except LLMOutputError:
+            status[tid] = dict.fromkeys(SECTIONS, "model_error")
+            continue
         texts[tid] = record
         status[tid] = {k: record[k]["status"] for k in SECTIONS}
     write_json(path, {
