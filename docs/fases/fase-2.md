@@ -7,7 +7,7 @@
 | Requisito | Estado |
 |---|---|
 | Neuro Atlas: visor, fichas de las 12 parejas, estudios por pareja, técnica ↔ región, orden provisional | hecho en `main` (v160–v207) |
-| Neuro Atlas: textos «qué es y qué hace» de cada pareja | código hecho (v212); borradores en Groq: *pendiente*; revisión: *pendiente (Sofía)*, en su cola desde el 2026-11-25 |
+| Neuro Atlas: textos «qué es y qué hace» de cada pareja | código hecho (v212); borradores en Groq: 9 de 12 (v216, v220); revisión: *pendiente (Sofía)*, en su cola desde el 2026-11-25 |
 | Neuro Atlas: introducción humano–rata | *pendiente*: el LLM redacta el borrador y Sofía lo corrige (decisión de Aday, 2026-11-18); filas 11 y 15 de su hoja |
 | Neuro Atlas: tabla de búsquedas por región, grados de equivalencia y enfermedades | *pendiente (Sofía)*: filas 10, 13, 16 y 18 |
 | Neuro Lab: fichas con estudios y textos | hecho (v201–v210); 13 textos en su cola desde el 2026-11-19; 5 «Límites» sin fuente (ver abajo) |
@@ -63,7 +63,7 @@ Su reloj de 14 días mide si el pipeline corre solo. Por eso los comandos nuevos
 | Neuro Lab: estudios con MeSH entre los de neurociencia | 2081 de 5059 | v201 |
 | Fuentes de Wikipedia | Lab: 10 en inglés y 8 en español; Atlas: las 12 parejas en los dos idiomas | v205 |
 | Borradores de Lab (Groq) | «qué permite ver» en 9 de 10; «límites» en 4, con 5 huecos por falta de hechos | v209 |
-| Borradores de las regiones (Groq) | 8 de 12 parejas; 4 huecos (1 error del modelo, 3 suspenden el español) | v216 |
+| Borradores de las regiones (Groq) | 9 de 12 parejas; 3 huecos, que suspenden el español | v216, v220 |
 | Medida B de Neuro Lab (run del 18-11, con resúmenes) | western blot 2 → 20, inmunofluorescencia 0 → 15; confocal, trazado viral y perfusión siguen casi vacías | v217, [`fase-2-neuro-lab.md`](fase-2-neuro-lab.md) |
 | Textos aprobados por Sofía (Lab, Atlas y glosario) | *pendiente (Sofía)* | `review/decisions.jsonl` |
 
@@ -86,6 +86,7 @@ Su reloj de 14 días mide si el pipeline corre solo. Por eso los comandos nuevos
 - **El test de frescura en `ci_local`** fallaba con un almacén construido con la fecha de hoy sobre datos de ayer. Se reconstruye con `syn build --as-of <fecha de los datos>`.
 - **Un `Retry-After` de horas colgó la ingesta** (v186) y **`syn news group` llegó a su tiempo máximo** (v187). Los dos se arreglaron haciendo que el comando pare solo y deje lo pendiente para el día siguiente, en lugar de alargar el tiempo.
 - **Las entradillas no hablan de límites.** De las 10 técnicas, 5 no tenían ningún hecho de «límites» (v209). Tres tienen una sección de limitaciones en Wikipedia, pero al leerlas solo la de optogenética trata de límites: la de western blot es una guía para resolver fallos y la de quimiogenética habla sobre todo de enfermedades en humanos. Solo optogenética usa su sección (v215); de las otras cuatro se le pregunta a Sofía (fila 40). *Lección:* medir una fuente es leerla, no solo contar si existe.
+- **Un guion no separable rompió el JSON de Groq** (v220). La entradilla de la corteza motora (la pareja de la superficie) era la única con «‑» (U+2011), y era la única en la que el modelo no daba JSON válido, dos veces y al instante. Ahora la cadena convierte ese carácter en «-» antes de dárselo al modelo y a las comprobaciones, y al tercer intento salió el borrador. *Lección:* cuando una sola entrada falla siempre, busca qué tiene distinto antes de reintentar.
 - *Pendiente: lo que salga de su revisión.*
 
 ## Cómo defenderlo en una entrevista

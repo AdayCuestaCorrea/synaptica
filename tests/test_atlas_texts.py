@@ -156,3 +156,20 @@ def test_the_region_pages_show_her_approved_text(
     assert EN[0][0] in en
     other = (regions / "waxholm-cerebellum.html").read_text()
     assert "data-region-text" not in other and "gap-region_text" in other
+
+
+def test_a_non_breaking_hyphen_reaches_the_model_as_a_plain_one(tmp_path: Path) -> None:
+    """v220: with a non-breaking hyphen (U+2011) in its lead, Groq gave no valid JSON."""
+    src = sources(tmp_path)
+    data = json.loads(src.read_text())
+    lead = data["pairs"]["internal"]["leads"]["en"]
+    lead["lead"] = LEAD.replace("limbic system", "limbic\u2011system")
+    src.write_text(json.dumps(data))
+    facts = [(s, q.replace("limbic system", "limbic-system"), k) for s, q, k in FACTS]
+    llm = FakeLLM(facts)
+    out = tmp_path / "texts.json"
+    assert texts.write(llm, sources_path=src, path=out) == {"internal": "drafted"}
+    assert "\u2011" not in llm.users[0] and "limbic-system" in llm.users[0]
+    assert len(json.loads(out.read_text())["pairs"]["internal"]["facts"]) == 3
+    (item,) = texts.review_items(out, src)
+    assert "\u2011" not in texts.source_texts([item], src)[item.content.sources[0].id]

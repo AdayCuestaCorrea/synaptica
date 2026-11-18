@@ -37,6 +37,13 @@ from synaptica.review.models import ItemType, ReviewItem, Sentence, Source, Text
 PUBLISHED = ("approved", "edited")  # her approval, or her correction that passed (or kept)
 
 
+def plain(text: str) -> str:
+    """The lead as the model and the checks see it: a non-breaking hyphen (U+2011, in
+    the motor cortex lead) becomes «-». With it, Groq gave no valid JSON for that lead,
+    twice and at once (v220), and a quote copied with «-» would never match."""
+    return text.replace("\u2011", "-")
+
+
 @dataclass(frozen=True)
 class Spec:
     """What changes from one kind of page to another; the chain does not."""
@@ -61,6 +68,7 @@ def facts(
     """Verified facts ``[{id, statement, kind, quote}]`` and why the others were dropped.
     ``lead`` may be another stretch of the article (``header`` names it, ``prefix`` keeps
     its fact ids apart from the lead's)."""
+    lead = plain(lead)
     system, _ = prompt(spec.facts_prompt)
     out = llm.complete_json(system, f"{spec.subject}: {name}\n\n{header}:\n{lead}",
                             spec.facts_schema, max_tokens=1_000)  # fmt: skip
@@ -126,6 +134,7 @@ def section(llm: LLM, spec: Spec, name: str, kind: str, verified: list[dict[str,
 def draft(llm: LLM, spec: Spec, name: str, lead: str) -> dict[str, Any]:
     """Facts and every section of one subject. Raises :class:`LLMOutputError` when the
     model fails: the caller saves nothing for it, and it is asked again on the next run."""
+    lead = plain(lead)
     verified, rejected = facts(llm, spec, name, lead)
     record: dict[str, Any] = {
         "facts": [{k: f[k] for k in ("id", "statement", "kind")} for f in verified],

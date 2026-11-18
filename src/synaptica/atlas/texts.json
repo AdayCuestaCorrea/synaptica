@@ -1,6 +1,110 @@
 {
   "note": "Drafts of Neuro Atlas's region texts (LLM, checked against each pair's Wikipedia lead in atlas/sources.json). Not published: each waits for Sofía's approval. Written by `syn atlas write`; do not edit by hand.",
   "pairs": {
+    "surface": {
+      "revid": 1380062568,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1380062568",
+      "source_es": "https://es.wikipedia.org/w/index.php?oldid=173000009",
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "atlas_facts": "atlas-facts-v1 (adapted from lab-facts-v2 for Neuro Atlas's regions, v212)",
+        "atlas_write_en": "atlas-write-en-v1 (adapted from lab-write-en-v1 for Neuro Atlas's regions, v212)",
+        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
+      },
+      "generated_at": "2026-11-18T17:55:35+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "This brain area is located in the back part of the frontal lobe and consists of several linked zones.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f2",
+          "statement": "The main components are Brodmann area 4, known as the primary motor cortex, and area 6, which includes premotor and supplementary regions.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f3",
+          "statement": "The primary role of this cortex is to organize, choose, and carry out movements that are under conscious control.",
+          "kind": "function"
+        },
+        {
+          "id": "f4",
+          "statement": "It converts intended actions into specific neural signals that travel down to the brainstem and spinal cord to control muscles.",
+          "kind": "function"
+        },
+        {
+          "id": "f5",
+          "statement": "This processing allows for precise and skilled movements of the eyes, facial muscles, and limbs.",
+          "kind": "function"
+        },
+        {
+          "id": "f6",
+          "statement": "Direct neural connections from this cortex to motor neurons are essential for the detailed control of finger movements.",
+          "kind": "function"
+        },
+        {
+          "id": "f7",
+          "statement": "The structure of this area influences the specific movement problems that occur following a stroke or degenerative conditions.",
+          "kind": "clinical"
+        },
+        {
+          "id": "f8",
+          "statement": "Understanding this region's layout is critical for planning brain surgeries and developing neural technologies.",
+          "kind": "clinical"
+        }
+      ],
+      "rejected": [],
+      "about": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "Situated in the posterior frontal lobe, the motor cortex comprises linked zones, primarily Brodmann area 4 (the primary motor cortex) and area 6, which contains premotor and supplementary regions.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "This structure organizes, selects, and executes consciously controlled movements by converting intended actions into specific neural signals that descend to the brainstem and spinal cord.",
+            "fact_ids": [
+              "f3",
+              "f4"
+            ]
+          },
+          {
+            "text": "Such processing enables precise, skilled movements of the eyes, face, and limbs, while direct connections to motor neurons are essential for detailed finger control.",
+            "fact_ids": [
+              "f5",
+              "f6"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "Situada en el lóbulo frontal posterior, la corteza motora está compuesta por zonas interconectadas, principalmente el área 4 de Brodmann (la corteza motora primaria) y el área 6, que alberga las regiones premotoras y suplementarias.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "Esta estructura organiza, selecciona y ejecuta los movimientos controlados de forma consciente, transformando las acciones intencionadas en señales neuronales específicas que descienden hacia el tronco encefálico y la médula espinal.",
+            "fact_ids": [
+              "f3",
+              "f4"
+            ]
+          },
+          {
+            "text": "Este procesamiento permite movimientos precisos y hábiles de los ojos, la cara y las extremidades, mientras que las conexiones directas con las neuronas motoras son esenciales para el control detallado de los dedos.",
+            "fact_ids": [
+              "f5",
+              "f6"
+            ]
+          }
+        ]
+      }
+    },
     "internal": {
       "revid": 1385842704,
       "source": "https://en.wikipedia.org/w/index.php?oldid=1385842704",

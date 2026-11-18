@@ -127,7 +127,7 @@ def _draft_limits(llm: LLM, name: str, rec: dict[str, Any], extra: dict[str, Any
     header = f"SECTION «{extra['heading']}» OF THE ARTICLE"
     verified, rejected = wikidraft.facts(llm, SPEC, name, extra["text"], prefix="l",
                                          header=header)  # fmt: skip
-    sec = wikidraft.section(llm, SPEC, name, "limit", verified, extra["text"])
+    sec = wikidraft.section(llm, SPEC, name, "limit", verified, wikidraft.plain(extra["text"]))
     rec["facts"] = [f for f in rec["facts"] if not f["id"].startswith("l")] + [
         {k: f[k] for k in ("id", "statement", "kind")} for f in verified]  # fmt: skip
     rec["rejected_limits"] = rejected
@@ -183,9 +183,9 @@ def source_texts(items: list[ReviewItem], sources_path: Path | None = None) -> d
                 continue
             if s.id.endswith("-limits"):
                 if extra:
-                    out[s.id] = extra["text"]
+                    out[s.id] = wikidraft.plain(extra["text"])
             else:
-                out[s.id] = entry["lead"]
+                out[s.id] = wikidraft.plain(entry["lead"])
     return out
 
 

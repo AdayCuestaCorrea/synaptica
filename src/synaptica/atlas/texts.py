@@ -150,7 +150,7 @@ def source_texts(items: list[ReviewItem], sources_path: Path | None = None) -> d
         entry = ((sources.get(kind) or {}).get("leads") or {}).get("en") or {}
         for s in item.content.sources:
             if entry.get("accepted") and entry.get("url") == s.url:
-                out[s.id] = entry["lead"]
+                out[s.id] = wikidraft.plain(entry["lead"])
     return out
 
 
