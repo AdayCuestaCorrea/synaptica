@@ -1,6 +1,122 @@
 {
   "note": "Drafts of Neuro Lab's texts (LLM, checked against each technique's Wikipedia lead in lab/sources.json). Not published: each waits for Sofía's approval. Written by `syn lab write`; do not edit by hand.",
   "techniques": {
+    "perfusion": {
+      "revid": 1376291354,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1376291354",
+      "source_es": null,
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "lab_facts": "lab-facts-v2 (adapted from s5-extract-facts-v2 for Neuro Lab's techniques, v208; v209: the JSON shape spelled out)",
+        "lab_write_en": "lab-write-en-v1 (adapted from s5-write-en-v2 for Neuro Lab's techniques, v208)",
+        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
+      },
+      "generated_at": "2026-11-18T23:04:24+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "The fixative is typically introduced into the circulatory system by inserting a needle into the left ventricle.",
+          "kind": "what"
+        },
+        {
+          "id": "f2",
+          "statement": "Researchers can guide the needle using ultrasound or by opening the subject's chest cavity.",
+          "kind": "what"
+        },
+        {
+          "id": "f3",
+          "statement": "The amount of fixative injected is matched to the typical cardiac output of the subject.",
+          "kind": "what"
+        },
+        {
+          "id": "f4",
+          "statement": "The body's own circulatory system spreads the fixative to all tissues, keeping them from dying until they are fixed.",
+          "kind": "what"
+        },
+        {
+          "id": "f5",
+          "statement": "A drainage port, usually in the right atrium, is required to handle the added volume of fixative and buffer.",
+          "kind": "limit"
+        },
+        {
+          "id": "f6",
+          "statement": "The fixative continues to be pumped until it has completely replaced the blood in the circulatory system.",
+          "kind": "what"
+        },
+        {
+          "id": "f7",
+          "statement": "A major drawback of this method is that the subject dies during the procedure.",
+          "kind": "limit"
+        },
+        {
+          "id": "f8",
+          "statement": "Larger organisms require a high volume of fixative, which can increase the cost of the procedure.",
+          "kind": "limit"
+        },
+        {
+          "id": "f9",
+          "statement": "The required fluid volume can be reduced by pinching off arteries that supply tissues not relevant to the research.",
+          "kind": "limit"
+        }
+      ],
+      "rejected": [
+        "statement copies the source wording"
+      ],
+      "what": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "Researchers typically insert a needle into the left ventricle, often guided by ultrasound or by opening the chest cavity, to introduce the fixative.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "The injected volume matches the subject's typical cardiac output, allowing the body's own circulatory system to spread the solution to all tissues and prevent them from dying.",
+            "fact_ids": [
+              "f3",
+              "f4"
+            ]
+          },
+          {
+            "text": "This pumping process continues until the fixative has completely replaced the blood within the circulatory system.",
+            "fact_ids": [
+              "f6"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "Por lo general, los investigadores introducen una aguja en el ventrículo izquierdo, a menudo guiados por ecografía o mediante la apertura de la cavidad torácica, para inyectar el fijador.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "El volumen inyectado coincide con el gasto cardíaco habitual del sujeto, lo que permite que el propio sistema circulatorio del organismo distribuya la solución por todos los tejidos y evite su muerte.",
+            "fact_ids": [
+              "f3",
+              "f4"
+            ]
+          },
+          {
+            "text": "Este proceso de bombeo continúa hasta que el fijador ha sustituido por completo la sangre dentro del sistema circulatorio.",
+            "fact_ids": [
+              "f6"
+            ]
+          }
+        ]
+      },
+      "limit": {
+        "status": "failed_en",
+        "problems": [
+          "sentence 2: drops the caution of its facts (may, suggests, possibly…)",
+          "sentence 3: drops the caution of its facts (may, suggests, possibly…)"
+        ]
+      }
+    },
     "western-blot": {
       "revid": 1384468270,
       "source": "https://en.wikipedia.org/w/index.php?oldid=1384468270",

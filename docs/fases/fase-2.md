@@ -62,7 +62,7 @@ Su reloj de 14 días mide si el pipeline corre solo. Por eso los comandos nuevos
 | Regla del resumen por pareja (2 menciones) frente a MeSH | precisión 0,66 y recall 0,55 | v194–v195 |
 | Neuro Lab: estudios con MeSH entre los de neurociencia | 2081 de 5059 | v201 |
 | Fuentes de Wikipedia | Lab: 10 en inglés y 8 en español; Atlas: las 12 parejas en los dos idiomas | v205 |
-| Borradores de Lab (Groq) | «qué permite ver» en 9 de 10; «límites» en 4, con 5 huecos por falta de hechos | v209 |
+| Borradores de Lab (Groq) | «qué permite ver» en 11 de 11 (trazado viral, v226, y perfusión desde una sección, v228); «límites» en 5 de 11 (con optogenética, v217); 16 tarjetas en su cola | v209, v217, v226, v228 |
 | Borradores de las regiones (Groq) | 10 de 12 parejas; 2 huecos (hipocampo y quiasma óptico), que suspenden el español | v216, v220, v222 |
 | Introducción humano–rata (Groq) | 17 hechos verificados de 3 secciones, ninguno clínico; 4 frases | v222 |
 | Medida B de Neuro Lab (run del 18-11, con resúmenes) | western blot 2 → 20, inmunofluorescencia 0 → 15; confocal, trazado viral y perfusión siguen casi vacías | v217, [`fase-2-neuro-lab.md`](fase-2-neuro-lab.md) |
