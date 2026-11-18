@@ -84,7 +84,7 @@ Su reloj de 14 días mide si el pipeline corre solo. Por eso los comandos nuevos
 - **`syn` no lee `.env`** (v209, igual que `syn judge` en la Fase 1). Se lanza con `uv run --env-file .env syn …`.
 - **El test de frescura en `ci_local`** fallaba con un almacén construido con la fecha de hoy sobre datos de ayer. Se reconstruye con `syn build --as-of <fecha de los datos>`.
 - **Un `Retry-After` de horas colgó la ingesta** (v186) y **`syn news group` llegó a su tiempo máximo** (v187). Los dos se arreglaron haciendo que el comando pare solo y deje lo pendiente para el día siguiente, en lugar de alargar el tiempo.
-- **Las entradillas no hablan de límites.** De las 10 técnicas, 5 no tenían ningún hecho de «límites» (v209). Para las 3 que tienen una sección de limitaciones en Wikipedia, se usará esa sección; para confocal y electrofisiología se le pregunta a Sofía (fila 40).
+- **Las entradillas no hablan de límites.** De las 10 técnicas, 5 no tenían ningún hecho de «límites» (v209). Tres tienen una sección de limitaciones en Wikipedia, pero al leerlas solo la de optogenética trata de límites: la de western blot es una guía para resolver fallos y la de quimiogenética habla sobre todo de enfermedades en humanos. Solo optogenética usa su sección (v215); de las otras cuatro se le pregunta a Sofía (fila 40). *Lección:* medir una fuente es leerla, no solo contar si existe.
 - *Pendiente: lo que salga de su revisión.*
 
 ## Cómo defenderlo en una entrevista
@@ -95,5 +95,5 @@ Su reloj de 14 días mide si el pipeline corre solo. Por eso los comandos nuevos
 
 ## Lo que queda
 - *Pendiente (Sofía):* su revisión de los textos de Lab y de Atlas, del glosario, de las búsquedas por región y por técnica, de los grados de equivalencia y de las enfermedades.
-- Los «Límites» de western blot, optogenética y quimiogenética desde su sección de Wikipedia (con OK de Aday para el LLM).
+- Los «Límites» de optogenética desde su sección de Wikipedia; los de confocal, electrofisiología, western blot y quimiogenética, *pendiente (Sofía)*, fila 40.
 - La introducción humano–rata.

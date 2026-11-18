@@ -9,6 +9,7 @@ import re
 from pathlib import Path
 
 import httpx
+import pytest
 
 from synaptica.http import Throttle, make_client
 
@@ -168,9 +169,15 @@ def test_section_text_keeps_only_the_prose() -> None:
     )
 
 
-def test_lab_sources_keep_the_limits_section_at_the_lead_revision(tmp_path: Path) -> None:
+def test_lab_sources_keep_the_limits_section_at_the_lead_revision(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     from synaptica.lab import sources
     from synaptica.lab.studies import techniques
+
+    rows = [t | {"limits_section_en": "Problems"} if t["id"] == "western-blot" else t
+            for t in techniques()]  # fmt: skip
+    monkeypatch.setattr(sources, "techniques", lambda: rows)
 
     pages = {t["source_en"]: f"{t['name_en']} names it: {t['text'][0] if t['text'] else ''}."
              for t in techniques() if t["id"] != "perfusion"}  # fmt: skip
@@ -186,10 +193,17 @@ def test_lab_sources_keep_the_limits_section_at_the_lead_revision(tmp_path: Path
     assert lim["heading"] == "Technical challenges and limitations"
     assert (lim["revid"], lim["url"]) == (opto["en"]["revid"], opto["en"]["url"])
     assert lim["text"].startswith("Not every cell")
-    # Western blot and chemogenetics name sections this fake article lacks: no source, said.
+    # Western blot names a section this fake article lacks: no source, and it says so.
     assert "limits_en" not in got["western-blot"] and r.sections == 1
     assert any("western-blot: no section «Problems»" in f for f in r.failed)
     assert "limits_en" not in got["eeg"]  # no section in its row: never asked
-    # A rerun at the same revision keeps it without asking; only the two missing are asked.
+    # A rerun at the same revision keeps it without asking; only the missing one is asked.
     assert again.sections == 0 and got == json.loads(path.read_text())["techniques"]
-    assert len(fake.parsed) - n == 2 and "limits_en" in got["optogenetics"]
+    assert len(fake.parsed) - n == 1 and "limits_en" in got["optogenetics"]
+    # Taken out of the table: dropped from the sources, and counted as a change.
+    plain = [{k: v for k, v in t.items() if k != "limits_section_en"} for t in techniques()]
+    monkeypatch.setattr(sources, "techniques", lambda: plain)
+    with make_client(httpx.MockTransport(fake)) as c:
+        dropped = sources.update_sources(c, path=path, throttle=NO_WAIT)
+    left = json.loads(path.read_text())["techniques"]
+    assert dropped.changed == 1 and not any("limits_en" in v for v in left.values())

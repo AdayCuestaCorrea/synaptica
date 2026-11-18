@@ -70,6 +70,7 @@ def _limits(
     heading, en = tech.get("limits_section_en"), entry.get("en") or {}
     entry.pop("limits_en", None)
     if not heading or not en.get("accepted"):
+        result.changed += old is not None  # no longer wanted: dropped
         return
     if old and old.get("revid") == en["revid"] and old.get("heading") == heading:
         entry["limits_en"] = old  # the same revision: not asked again
