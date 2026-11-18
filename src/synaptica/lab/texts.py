@@ -199,7 +199,7 @@ def review_items(path: Path | None = None, sources_path: Path | None = None) -> 
             sec = rec.get(kind) or {}
             if sec.get("status") != "drafted":
                 continue
-            src = wikidraft.wiki_source(f"wikipedia-en-lab-{tid}", entry)
+            src = wikidraft.wiki_source(f"wikipedia-en-lab-{tid}", entry, entry.get("section"))
             if heading := sec.get("section"):  # from a section: only while it is stored
                 extra = _section(sources[tid])
                 if not extra or extra["heading"] != heading:

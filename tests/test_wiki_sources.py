@@ -112,7 +112,7 @@ def test_lab_sources_one_per_technique_and_a_rerun_asks_nothing(tmp_path: Path) 
         again = sources.update_sources(c, path=path, throttle=NO_WAIT)
     got = json.loads(path.read_text())["techniques"]
     assert list(got) == [t["id"] for t in techniques()]
-    assert not got["perfusion"]["en"]["accepted"]  # no article: a gap
+    assert not got["perfusion"]["en"]["accepted"]  # no section naming it: a gap
     assert got["optogenetics"]["es"]["title"] == "Optogenética"
     assert r.accepted["en"] == 10 and again.asked == 0
 
@@ -207,3 +207,37 @@ def test_lab_sources_keep_the_limits_section_at_the_lead_revision(
         dropped = sources.update_sources(c, path=path, throttle=NO_WAIT)
     left = json.loads(path.read_text())["techniques"]
     assert dropped.changed == 1 and not any("limits_en" in v for v in left.values())
+
+
+PERFUSION_HTML = (
+    "<p>In tissue fixation via perfusion, the fixative is pumped into the circulatory "
+    "system. Perfusion fixation is commonly used to image brain tissue in rodents.</p>"
+)
+
+
+def test_perfusion_takes_a_section_of_another_article_as_its_lead(tmp_path: Path) -> None:
+    """v227: no article's lead names it, so its source is a section, kept as its lead."""
+    from synaptica.lab import sources, texts
+
+    pages = {"Fixation (histology)": "Fixation preserves tissue for histology."}
+    fake = FakeWiki(pages, {"Fixation (histology)": "Fijación"},
+                    sections={"Perfusion": PERFUSION_HTML})  # fmt: skip
+    path = tmp_path / "s.json"
+    with make_client(httpx.MockTransport(fake)) as c:
+        r = sources.update_sources(c, path=path, throttle=NO_WAIT)
+        n = len(fake.parsed)
+        again = sources.update_sources(c, path=path, throttle=NO_WAIT)
+    en = json.loads(path.read_text())["techniques"]["perfusion"]["en"]
+    assert en["accepted"] and en["section"] == "Perfusion"
+    assert en["lead"].startswith("In tissue fixation via perfusion")
+    assert en["url"].endswith(f"oldid={en['revid']}")
+    assert not any(f.startswith("perfusion") for f in r.failed)
+    assert len(fake.parsed) == n and not any(f.startswith("perfusion") for f in again.failed)
+    # Her card says it is a section, not the lead.
+    out = tmp_path / "t.json"
+    rec = {"revid": en["revid"], "source": en["url"], "what": {
+        "status": "drafted", "en": [{"text": "It fixes the brain.", "fact_ids": ["f1"]}],
+        "es": [{"text": "Fija el cerebro.", "fact_ids": ["f1"]}]}}  # fmt: skip
+    out.write_text(json.dumps({"techniques": {"perfusion": rec}}))
+    (item,) = texts.review_items(out, path)
+    assert "sección «Perfusion»" in item.content.sources[0].label

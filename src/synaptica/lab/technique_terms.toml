@@ -19,6 +19,8 @@
 # `source_en`: the English Wikipedia article its texts are written from (`syn lab sources`
 # keeps its lead only if the lead names the technique; the Spanish one is its interlanguage
 # link). Not something she approves: it does not change her card.
+# `source_section_en` (optional, v227): when no article's lead names the technique, one
+# section of `source_en` (at the article's current revision) is its source instead.
 # `limits_section_en` (optional, v214): a section of that article, at the lead's revision,
 # that its «limits» are written from when the lead has none (Aday, option A of 2026-11-18).
 #
@@ -29,7 +31,8 @@
 
 [[technique]]
 id = "perfusion"
-source_en = "Transcardial perfusion" # Wikipedia article for its texts (syn lab sources)
+source_en = "Fixation (histology)" # no article of its own (v227)
+source_section_en = "Perfusion" # its texts come from this section, not the lead
 name_es = "Perfusión transcardiaca"
 name_en = "Transcardial perfusion"
 mesh = []
