@@ -94,3 +94,27 @@ Log de `syn site` en el run programado 44338005722, que lee la caché privada de
 | Perfusión | 0 | 0 | 0 | 0 |
 
 **Qué dice.** Sí, los resúmenes llenan buena parte de las técnicas de banco: western blot pasa de 2 a 20 e inmunofluorescencia de 0 a 15, casi todo por el texto del resumen. Confocal, trazado viral y perfusión siguen casi vacías: se nombran en los métodos, no en el resumen. Llenarlas pediría el texto completo en acceso abierto, y antes habría que medirlo.
+
+## Medida C: los Métodos del texto completo (2026-11-18, v225)
+
+**Pregunta:** confocal, trazado viral y perfusión casi no tienen estudios porque se nombran en los Métodos y no en el resumen. ¿Los llenaría el texto completo de acceso abierto de Europe PMC?
+
+**Cómo:** de los 5535 estudios de neurociencia del almacén (rama `data` del 18-11), 2273 tienen PMCID. Se tomó una muestra al azar de 200 (semilla 1) y se pidió su texto completo (`fetch_fulltext`, solo a una caché temporal, nunca al repositorio). Cada técnica se buscó con las mismas palabras de `technique_terms.toml` en las secciones de métodos (por `sec-type` o por el título de la sección). Cuenta solo lo que la regla de hoy, con MeSH, título y resumen, no encontraba.
+
+**Se cortó a los 38 textos.** Europe PMC tardó unos 95 s por artículo (62 min para 38), así que la muestra se quedó en 38 textos completos, 30 de ellos con sección de métodos. Con tan pocos, las cifras dicen qué pasa, no cuánto.
+
+| Técnica | Hoy (en los 38) | Nuevos por los Métodos (≥1 mención) | Con ≥2 menciones |
+|---|---:|---:|---:|
+| Confocal | 0 | 2 | 1 |
+| Inmunofluorescencia | 0 | 2 | 1 |
+| Western blot | 0 | 2 | 2 |
+| EEG | 2 | 1 | 1 |
+| Electrofisiología | 1 | 1 | 0 |
+| fMRI | 0 | 1 | 1 |
+| Trazado viral, perfusión, optogenética, quimiogenética, fotometría | 0 | 0 | 0 |
+
+**Qué dice:**
+- **Sí rellena las técnicas de banco.** En 2 de 30 artículos con métodos aparecen confocal, inmunofluorescencia y western blot que la regla de hoy no veía. Los 6 casos se han comprobado a mano: el término está en la sección de métodos («Confocal microscopy», «Immunofluorescence», «Western blot»). Llevado a los 2273 estudios con PMCID, saldrían del orden de un centenar por técnica, con mucha incertidumbre.
+- **El trazado viral y la perfusión siguen sin aparecer** en 30 métodos. Son técnicas más raras, y esta muestra no basta para saber cuánto ganarían.
+- **El coste es el tiempo de Europe PMC**, no el código. Unos 95 s por texto hacen imposible pasar los 2273 en un run. Solo cabría hacerlo poco a poco, con los estudios nuevos de cada día, y eso es una etapa del pipeline: va después del cierre de la Fase 1.
+- **Licencias:** el texto completo se lee para clasificar y no se publica ni se guarda en `raw/`, igual que ya hace `syn write` (CLAUDE.md, Red y fuentes).
