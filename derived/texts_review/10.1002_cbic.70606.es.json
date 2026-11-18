@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1002/cbic.70606",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "f07b95adb0b15cdd",
+ "generated_at": "2026-11-18T19:32:34+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: numbers differ (['3'] vs [])"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores crearon un modelo celular tridimensional mezclando células de glioblastoma con una línea celular sustituta que representa a las células neuronales mediante una técnica basada en gel, y luego rastrearon el crecimiento, la forma, los niveles de oxígeno y la reacción al fármaco temozolomida durante dos semanas.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Aunque el modelo mixto formó una estructura compacta que normalmente indica resistencia a la quimioterapia, mostró sensibilidad al fármaco en todas las dosis probadas, incluida una dosis baja que no tuvo efecto en los modelos de células individuales.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "La presencia de las células neuronales sustitutas modificó la forma en que las células tumorales respondían al medicamento de quimioterapia.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que probar fármacos únicamente en células tumorales podría no reflejar con precisión cómo se comporta el tumor en el cerebro, donde están presentes las células neuronales.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-18T19:48:54+00:00"
+}

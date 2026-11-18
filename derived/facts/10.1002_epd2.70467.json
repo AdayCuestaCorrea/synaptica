@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1002/epd2.70467",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "46a38fd0ec997364",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T19:16:58+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study reports on a 22-year-old male patient who experienced a progression of neuropsychiatric symptoms, including hallucinations, confusion, abnormal speech, and movement disorders, leading to generalized seizures.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The diagnosis of anti-NMDA receptor encephalitis was confirmed by the presence of specific antibodies in the patient's cerebrospinal fluid.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Initial continuous EEG monitoring revealed diffuse slowing that did not match the timing of the patient's grimacing, jaw thrusting, and limb posturing movements.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "After the seizure burden decreased, the EEG showed a definite extreme delta brush pattern that was synchronized with specific right-sided jaw and arm movements.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "In this specific patient, the extreme delta brush pattern was identified as an ictal phenomenon rather than a non-epileptic one.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "This case suggests that extreme delta brush patterns may represent ictal phenomena in some instances, contrasting with the classic view of them as non-ictal biomarkers.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors state that continuous EEG monitoring is necessary to differentiate between seizures and dyskinesias and to understand the potential ictal nature of extreme delta brush patterns.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1002/hbm.70692",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "11bbb72af2aa2e39",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T19:19:06+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used magnetoencephalography to estimate the electrical power used by the brain's outer layer during rest.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "In 30 people, the average electrical power calculated for the brain's synchronized activity was 6.6 × 10-9 watts.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The authors state this number reflects only the synchronized activity detectable by the scanner, not the brain's total energy use.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Changes in the calculation method could alter the result by one to two orders of magnitude, but it would still be far below the brain's total metabolic energy.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "In four example cases, the power lost to secondary currents was about 30% of the main power.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The patterns of electrical power found in the scans were linked to oxygen use and gene activity related to ketone metabolism, with varying effects across different brain networks.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

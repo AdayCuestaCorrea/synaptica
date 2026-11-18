@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1002/anie.2824884",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "0f35c60cb2638220",
+ "generated_at": "2026-11-18T19:29:32+00:00",
+ "word_count": 121,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers examined how antipsychotic medications and related compounds affect the system that moves thyroid hormones across cell membranes, finding that these drugs caused a significant rise in MCT8 protein, the main carrier for these hormones, in multiple cell lines.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The presence of halogen atoms attached to the drug molecules was essential for boosting MCT8 production, with the strength of the effect varying by halogen type and iodine-containing compounds causing the largest increase.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "This rise in transporter protein was linked to a greater amount of fluorescent markers entering the cells, confirming that the transporters were actually working.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors state that this is the first known instance of a halogen atom controlling the expression of a protein in mammalian cells.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-18T19:48:56+00:00"
+ }
+}

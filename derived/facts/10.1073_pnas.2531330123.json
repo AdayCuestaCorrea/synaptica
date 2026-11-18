@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1073/pnas.2531330123",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "3398b7f9b03259a8",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T19:25:25+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Mutations in both copies of the SCN1B gene are associated with a severe brain disorder called developmental and epileptic encephalopathy type 52.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The SCN1B gene produces two different protein versions: one that spans cell membranes and another that includes a retained section of non-coding RNA.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The study shows that the retained intron version of the SCN1B message is targeted for destruction by a cellular quality control mechanism in specific cell types.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "Researchers examined a specific genetic change in a patient that leads to the production of only the retained intron RNA version, while preventing the formation of the functional membrane protein.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Mice engineered to produce only the retained intron RNA version, without the functional protein, exhibited seizures and died early, similar to mice with no SCN1B function at all.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The retained intron RNA cannot replace the missing functional protein, confirming it does not provide a backup for the lost activity.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors suggest that this specific RNA molecule could potentially be used as a target for future treatments, similar to other molecules that are degraded by the same cellular mechanism.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

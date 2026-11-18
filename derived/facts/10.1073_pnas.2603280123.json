@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1073/pnas.2603280123",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "1ff4a101037acba5",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T19:26:28+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "In a mouse model of Alzheimer's disease, removing the gene for myeloperoxidase led to better memory and less amyloid buildup.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers created a drug called LERAMI that is wrapped in liposomes and only activates when it encounters high levels of reactive oxygen species.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "The drug uses a chemical link that breaks only in areas with high oxidative stress, which helps avoid side effects in the rest of the body.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "Treating the mice with LERAMI improved their cognitive abilities and reduced brain inflammation, DNA damage, and amyloid levels.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Gene expression analysis showed that the treatment increased activity in brain regions related to learning and memory while decreasing inflammatory signals.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

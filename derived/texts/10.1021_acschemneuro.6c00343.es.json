@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1021/acschemneuro.6c00343",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "20d1fa38ef45cb3f",
+ "generated_at": "2026-11-18T19:46:52+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores examinaron el papel del receptor D1 de la dopamina, una proteína que se une al neurotransmisor dopamina, en un tipo específico de célula cerebral en ratones.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Reducir la expresión de este receptor no alteró los niveles de actividad basal de las células ni el comportamiento cotidiano de los animales.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Sin embargo, esta reducción impidió la modulación normal, basada en la dopamina, de la forma en que estas células transmiten señales.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "En consecuencia, los ratones con receptores D1 reducidos en estas células mostraron dificultades para aprender una nueva tarea que requería recordar dónde ir para obtener una recompensa.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-18T19:49:58+00:00"
+ }
+}

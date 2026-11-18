@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1002/jms.70126",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "5d1d92af5ef0099a",
+ "generated_at": "2026-11-18T19:43:47+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: words not in the Spanish dictionary ['espectrometría', 'deleciones']"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores aplicaron espectrometría de masas de arriba hacia abajo para analizar las proteínas de tubulina extraídas de los cerebros de ratones de tipo silvestre y de ratones con deleciones génicas específicas.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Este enfoque identificó 47 formas distintas de tubulina, algunas con hasta cinco residuos de glutamato, que se confirmaron mediante una técnica específica de fragmentación.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Los datos indicaron que la enzima TTLL1 añade cadenas de glutamato exclusivamente a la alfa-tubulina, mientras que la TTLL7 actúa sobre la beta-tubulina.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "La eliminación de cualquiera de estas enzimas provocó una reducción específica de las modificaciones en su tipo de tubulina diana, sin compensación por parte de otras enzimas similares.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "El método permitió identificar rápidamente estas variantes proteicas en muestras complejas, a pesar de la alta similitud de secuencia y la acidez de las colas de la proteína.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-18T19:48:54+00:00"
+}

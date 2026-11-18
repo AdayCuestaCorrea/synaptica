@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1073/pnas.2614977123",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "8a2688d25bb0d80e",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T19:28:31+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study measured the lifespan of proteins in brain blood vessels in young and old mice using a method that tags proteins with stable isotopes and analyzes them with mass spectrometry.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers determined the half-lives for 1,358 different proteins, which included parts of the blood-brain barrier, transporters, and structural proteins of blood vessels.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Proteins with similar functions tended to have similar lifespans, with barrier junction proteins lasting about 3 days, transporters lasting 2 to 6 days, and most structural membrane components lasting more than 30 days.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The team found specific patterns in the protein sequences that were common to proteins with either very short or very long lifespans, and noted that different cell types had different patterns of protein turnover.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The study did not find a general change in how quickly all vascular proteins turn over as mice aged, but it did find that the lifespans of certain specific proteins increased or decreased with age.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

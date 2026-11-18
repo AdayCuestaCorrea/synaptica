@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1002/jms.70126",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "6b6fe6882c25da38",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T19:20:07+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used top-down mass spectrometry to examine tubulin proteins taken from the brains of wild-type mice and mice with specific gene deletions.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The results show that the enzyme TTLL1 only adds glutamate chains to alpha-tubulin, whereas TTLL7 acts on beta-tubulin.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "Removing either enzyme caused a specific drop in modifications on its target tubulin type, and other similar enzymes did not make up for the loss.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The researchers identified 47 different forms of tubulin, some of which had as many as five glutamate residues attached, and confirmed these findings with a specific fragmentation technique.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The method allowed for quick identification of protein variants in complex samples, even though the protein tails being studied are very similar in sequence and highly acidic.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

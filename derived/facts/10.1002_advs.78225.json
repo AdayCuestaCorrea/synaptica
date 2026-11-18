@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1002/advs.78225",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "b4a1796f6ef49aaf",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T19:13:53+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study developed a nasal spray treatment using lipid nanoparticles to carry genetic instructions for a brain-supporting protein.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The treatment was tested on older mice and mice with a genetic form of Alzheimer's disease.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Mice that received the nasal spray showed better memory performance than those that did not.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Getting medicine into the brain is difficult because the body's natural barrier usually blocks these types of drugs.",
+   "subject": "other"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors suggest this method could be a useful way to treat brain disorders linked to aging.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

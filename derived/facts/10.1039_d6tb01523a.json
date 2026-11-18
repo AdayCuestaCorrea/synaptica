@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1039/d6tb01523a",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "cfc75e136bb9c335",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T19:24:23+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study tested how the new drug delivery system was taken up by and affected inflammation in BV2 cells grown in a lab.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers used a mouse model of ischemic stroke to check if the treatment reached the brain and reduced inflammation and nerve damage.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The developed liposomes had a stable particle size of about 150.6 nanometers and a surface charge of -12 millivolts.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "Lab tests confirmed that the liposomes kept the membrane proteins from M2-like microglia attached to their surface.",
+   "subject": "other"
+  },
+  {
+   "id": "f5",
+   "statement": "The liposomes successfully trapped 80.19% of the essential oil, with a drug loading rate of 2.22%.",
+   "subject": "other"
+  },
+  {
+   "id": "f6",
+   "statement": "BV2 cells absorbed the microglia-membrane-coated liposomes more effectively than the uncoated version.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "In lab tests, the treatment lowered the levels of three inflammatory markers and shifted the microglia toward a less inflammatory state.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f8",
+   "statement": "In stroke-prone mice, the treatment improved nerve function, reduced brain swelling and tissue damage, and lowered signs of inflammation and oxidative stress.",
+   "subject": "animals"
+  },
+  {
+   "id": "f9",
+   "statement": "The microglia membrane coating was designed to help the drug be recognized and absorbed by brain cells, and nose administration might help it cross the blood-brain barrier.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

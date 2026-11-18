@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1002/hbm.70692",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "ad9871fcf298de46",
+ "generated_at": "2026-11-18T19:40:45+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: words not in the Spanish dictionary ['⁹']"
+ ],
+ "sentences": [
+  {
+   "text": "Mediante la magnetoencefalografía, una técnica que mide los campos magnéticos generados por la actividad neuronal, los investigadores estimaron la potencia eléctrica de la actividad cerebral sincronizada en 30 personas, obteniendo una media de 6,6 × 10⁻⁹ vatios.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Los autores aclaran que esta cifra refleja únicamente la actividad sincronizada detectable por el escáner, y no el consumo energético total del cerebro, señalando que los cambios en el método de cálculo podrían alterar el resultado en uno o dos órdenes de magnitud, aunque seguiría siendo muy inferior a la energía metabólica total.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "En cuatro casos de ejemplo, la potencia perdida por corrientes secundarias fue aproximadamente el 30 % de la potencia principal.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Los patrones de potencia eléctrica hallados en las escaneos se vincularon con el uso de oxígeno y la actividad génica relacionada con el metabolismo de las cetonas, con efectos variables en distintas redes cerebrales.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-18T19:48:54+00:00"
+}

@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1021/acschemneuro.6c00641",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "dafdca7ee0d296eb",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T19:22:15+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study tested the cyanobacteria-derived compound barbamide and related molecules to see how they affect sensory nerve cells.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "The first tests used a multi-electrode setup to measure electrical activity in pain-sensing cells grown from human stem cells.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "All three tested compounds lowered the rate at which these cells fired electrical signals, with stronger effects at higher doses, suggesting they could act as pain relievers.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "To understand how the compound works, researchers used a technique called whole-cell patch clamp on human sensory nerve cells.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Barbamide reduced both spontaneous and triggered electrical signals in the human nerve cells without causing obvious cell damage.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The team also checked whether barbamide affects the growth of nerve extensions in PC12 cells and mouse nerve tissue.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "Barbamide and a modified version of it increased the growth of nerve extensions in the tested cells.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

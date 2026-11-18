@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1073/pnas.2613715123",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "e378a12f3c8f1e3f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T19:27:30+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study examined how the natural shift from perimenopause to postmenopause affects a brain pathway connecting the ventral hippocampus and the dopamine system.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Previous mouse experiments that removed hormones suddenly did not match the slow, natural changes seen in real menopause.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "During the perimenopause phase, the ventral hippocampus became temporarily overactive, which caused problems in the dopamine system.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "This specific control over the dopamine system was missing once the animals reached the postmenopausal stage.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The instability in brain circuits linked to psychosis was triggered by the change in hormones, not by the long-term low levels of estrogen that come after.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "These results go against the common idea that low hormone levels are the main cause of psychiatric symptoms.",
+   "subject": "other"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors conclude that perimenopause is a specific time period where the connection between the hippocampus and dopamine system fails in a unique way.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

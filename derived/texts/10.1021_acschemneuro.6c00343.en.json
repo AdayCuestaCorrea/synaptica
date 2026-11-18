@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1021/acschemneuro.6c00343",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "20d1fa38ef45cb3f",
+ "generated_at": "2026-11-18T19:46:52+00:00",
+ "word_count": 84,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers examined the role of the dopamine D1 receptor, a protein that binds the neurotransmitter dopamine, in a specific type of brain cell within mice.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Reducing the expression of this receptor did not alter the cells' baseline activity levels or the animals' everyday behavior.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "However, the reduction prevented the normal dopamine-based modulation of how these cells transmit signals.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Consequently, mice with reduced D1 receptors in these cells showed difficulty learning a new task that required remembering where to go for a reward.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-18T19:49:58+00:00"
+ }
+}

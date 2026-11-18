@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1002/epd2.70467",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "94e970c52f2f34f7",
+ "generated_at": "2026-11-18T19:35:36+00:00",
+ "word_count": 126,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A case report describes a 22-year-old male with anti-NMDA receptor encephalitis, confirmed by specific antibodies in his cerebrospinal fluid, who developed neuropsychiatric symptoms and generalized seizures.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Initial continuous EEG monitoring showed diffuse slowing that did not align with his movement disorders, but after the seizure burden decreased, a definite extreme delta brush pattern emerged synchronized with right-sided jaw and arm movements.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "In this patient, the extreme delta brush pattern was identified as an ictal phenomenon rather than a non-epileptic one, suggesting it may represent ictal activity in some instances contrary to the classic view of it as a non-ictal biomarker.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors conclude that continuous EEG monitoring is necessary to differentiate between seizures and dyskinesias and to understand the potential ictal nature of these patterns.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-18T19:48:58+00:00"
+ }
+}

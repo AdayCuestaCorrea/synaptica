@@ -1,0 +1,48 @@
+{
+ "study_id": "10.1002/glia.70277",
+ "lang": "en",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "300d5009c904b696",
+ "generated_at": "2026-11-18T19:38:43+00:00",
+ "word_count": 163,
+ "problems": [
+  "sentence 1: numbers not in the cited facts: ['3']"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers investigated the role of the TRIB3 gene in a moderate spinal cord injury model created by impacting the T10 vertebra in C57BL/6 mice.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "In the injured spinal cords, TRIB3 protein levels increased specifically within microglial cells, a pattern mirrored in lab-grown cells where TRIB3 was higher in inflammatory M1 microglia and lower in protective M2 microglia.",
+   "fact_ids": [
+    "f3",
+    "f5"
+   ]
+  },
+  {
+   "text": "Experiments showed that TRIB3 physically binds to the CEBPB protein to prevent its breakdown, thereby stabilizing CEBPB so it can attach to the PTPRO gene and increase its production.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  },
+  {
+   "text": "Reducing TRIB3 levels in the mice improved movement and reduced tissue damage, while in cells, lowering TRIB3 reduced markers of the inflammatory M1 state and increasing it reduced markers of the protective M2 state.",
+   "fact_ids": [
+    "f4",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors conclude that TRIB3 drives the inflammatory response and worsens spinal cord injury through the CEBPB/PTPRO pathway, suggesting this pathway could be a target for treatment.",
+   "fact_ids": [
+    "f9"
+   ]
+  }
+ ]
+}

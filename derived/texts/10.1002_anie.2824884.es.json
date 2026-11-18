@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1002/anie.2824884",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "0f35c60cb2638220",
+ "generated_at": "2026-11-18T19:29:32+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores examinaron cómo los medicamentos antipsicóticos y los compuestos relacionados afectan al sistema que transporta las hormonas tiroideas a través de las membranas celulares, y observaron que estas drogas provocaban un aumento significativo de la proteína MCT8, el principal transportador de estas hormonas, en múltiples líneas celulares.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "La presencia de átomos de halógeno unidos a las moléculas de los fármacos era esencial para impulsar la producción de MCT8, y la intensidad del efecto variaba según el tipo de halógeno, siendo los compuestos que contienen yodo los que causaban el mayor incremento.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Este aumento de la proteína transportadora se asoció con una mayor cantidad de marcadores fluorescentes que entraban en las células, lo que confirmaba que los transportadores estaban funcionando realmente.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores señalan que este es el primer caso conocido en el que un átomo de halógeno controla la expresión de una proteína en células de mamífero.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-18T19:48:56+00:00"
+ }
+}

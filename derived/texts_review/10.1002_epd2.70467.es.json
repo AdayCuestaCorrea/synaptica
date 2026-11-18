@@ -1,0 +1,43 @@
+{
+ "study_id": "10.1002/epd2.70467",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "94e970c52f2f34f7",
+ "generated_at": "2026-11-18T19:35:36+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 2: words not in the Spanish dictionary ['enlentecimiento']"
+ ],
+ "sentences": [
+  {
+   "text": "Un informe de caso describe a un hombre de 22 años con encefalitis por anticuerpos contra el receptor NMDA, confirmada por la presencia de anticuerpos específicos en su líquido cefalorraquídeo, que desarrolló síntomas neuropsiquiátricos y crisis epilépticas generalizadas.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El monitoreo inicial de EEG continuo mostró un enlentecimiento difuso que no coincidía con sus trastornos del movimiento, pero, tras la disminución de la carga de crisis, surgió un patrón definido de cepillo delta extremo sincronizado con los movimientos de la mandíbula y el brazo derechos.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "En este paciente, el patrón de cepillo delta extremo se identificó como un fenómeno ictal en lugar de uno no epiléptico, lo que sugiere que podría representar actividad ictal en algunos casos, en contra de la visión clásica de que es un biomarcador no ictal.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que el monitoreo continuo de EEG es necesario para diferenciar entre crisis epilépticas y discinesias y para comprender la naturaleza ictal potencial de estos patrones.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-18T19:48:54+00:00"
+}

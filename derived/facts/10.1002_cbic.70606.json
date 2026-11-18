@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1002/cbic.70606",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "668b6089fc6af75a",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T19:15:56+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study created a 3D cell model by mixing glioblastoma cells with a surrogate cell line representing neural cells using a gel-based technique.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers tracked cell growth, shape, oxygen levels, and reaction to the drug temozolomide for two weeks, comparing the mixed model to groups containing only glioblastoma cells or only neural surrogate cells.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The mixed cell model formed a tight structure that typically indicates resistance to chemotherapy.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "Despite its resistant structure, the mixed model showed sensitivity to the drug at all tested doses, including a low dose that had no effect on the single-cell models.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The presence of the neural surrogate cells changed how the tumor cells responded to the chemotherapy drug.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest that testing drugs on tumor cells alone might not accurately show how the tumor behaves in the brain, where neural cells are present.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1002/anie.2824884",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "1510e57bd40d7b2e",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-18T19:14:55+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study examined how certain antipsychotic medications and related chemical compounds affect the system that moves thyroid hormones across cell membranes.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "In multiple types of cell lines, these drugs caused a significant rise in the amount of MCT8 protein, which is the main carrier for thyroid hormones across the cell membrane.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The presence of halogen atoms attached to the drug molecules was found to be essential for boosting the production of the MCT8 transporter.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The strength of the effect varied based on which halogen was present, with compounds containing iodine causing the largest increase in MCT8 levels.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The rise in transporter protein was linked to a greater amount of fluorescent markers entering the cells, which confirmed that the transporters were actually working.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors state that this is the first known instance of a halogen atom controlling the expression of a protein in mammalian cells.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}
