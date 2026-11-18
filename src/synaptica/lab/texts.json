@@ -756,10 +756,9 @@
       ],
       "rejected": [],
       "what": {
-        "status": "failed_es",
-        "problems": [
-          "sentence 1: words not in the Spanish dictionary ['autorreplicativa']"
-        ],
+        "es_generator": "groq/qwen/qwen3.8-27b",
+        "es_generated_at": "2026-11-18T22:37:37+00:00",
+        "status": "drafted",
         "en": [
           {
             "text": "Viral vector tracing uses a virus as a self-replicating tool to map connections within the nervous system, offering a distinct benefit over standard molecular markers because these tracers can copy themselves.",
@@ -770,6 +769,22 @@
           },
           {
             "text": "Neurotropic viruses move between nearby neurons by crossing synaptic junctions, a process that makes the technique suitable for investigating networks of neurons that work together.",
+            "fact_ids": [
+              "f4",
+              "f5"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "El trazado con vectores virales utiliza un virus como herramienta autorreplicativa para mapear las conexiones dentro del sistema nervioso, lo que ofrece una ventaja clara frente a los marcadores moleculares estándar, ya que estos trazadores pueden copiarse a sí mismos.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "Los virus neurotrópicos se desplazan entre neuronas vecinas al cruzar las uniones sinápticas, un proceso que hace que la técnica sea adecuada para investigar redes de neuronas que funcionan de manera coordinada.",
             "fact_ids": [
               "f4",
               "f5"
@@ -1159,6 +1174,8 @@
         ]
       },
       "limit": {
+        "es_generator": "groq/qwen/qwen3.8-27b",
+        "es_generated_at": "2026-11-18T22:37:37+00:00",
         "status": "failed_es",
         "problems": [
           "sentence 2: the English sentence is cautious and this is not"
@@ -1172,6 +1189,20 @@
           },
           {
             "text": "Furthermore, the requirement that animals be securely attached to a rigid fiber bundle may affect the natural behavior of small mammals like mice.",
+            "fact_ids": [
+              "f8"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "La fotometría de fibras presenta una resolución baja tanto a nivel celular como espacial, lo que limita la precisión de los datos que captura.",
+            "fact_ids": [
+              "f7"
+            ]
+          },
+          {
+            "text": "Además, la necesidad de que los animales estén firmemente sujetos a un haz de fibras rígido puede afectar al comportamiento natural de pequeños mamíferos como los ratones.",
             "fact_ids": [
               "f8"
             ]

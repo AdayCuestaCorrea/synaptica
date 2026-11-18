@@ -196,8 +196,33 @@
               "f9"
             ]
           }
+        ],
+        "es": [
+          {
+            "text": "El hipocampo es una estructura clave presente en el cerebro de los seres humanos y de numerosas otras especies de vertebrados, situada en el archicorteza dentro de ambos hemisferios cerebrales.",
+            "fact_ids": [
+              "f1",
+              "f4"
+            ]
+          },
+          {
+            "text": "En los humanos, esta región trabaja junto con el giro dentado y el subículo para formar la formación hipocampal dentro del sistema límbico, contribuyendo a la transferencia de los recuerdos a corto plazo al almacenamiento a largo plazo y apoyando la memoria espacial necesaria para navegar por el entorno.",
+            "fact_ids": [
+              "f2",
+              "f3"
+            ]
+          },
+          {
+            "text": "Esta región envía señales neuronales directas a la neocorteza y recibe señales indirectas de vuelta de ella, un sitio donde se identificó por primera vez la potenciación a largo plazo, un tipo de plasticidad neuronal.",
+            "fact_ids": [
+              "f5",
+              "f9"
+            ]
+          }
         ]
-      }
+      },
+      "es_generator": "groq/qwen/qwen3.8-27b",
+      "es_generated_at": "2026-11-18T22:37:37+00:00"
     },
     "third": {
       "revid": 1385888802,
@@ -859,8 +884,26 @@
               "f5"
             ]
           }
+        ],
+        "es": [
+          {
+            "text": "El quiasma óptico, la zona concreta donde se cruzan los nervios ópticos, se sitúa en la base del cerebro, justo debajo del hipotálamo.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "Todas las especies de vertebrados poseen esta estructura, aunque en las lampreas y los miñojos se encuentra en el interior del cerebro y no en su base.",
+            "fact_ids": [
+              "f4",
+              "f5"
+            ]
+          }
         ]
-      }
+      },
+      "es_generator": "groq/qwen/qwen3.8-27b",
+      "es_generated_at": "2026-11-18T22:37:37+00:00"
     },
     "hypothalamus": {
       "revid": 1385824732,
