@@ -275,3 +275,27 @@ def test_her_limits_card_cites_the_section(tmp_path: Path) -> None:
     # The section is no longer stored (renamed in the article): the card leaves her queue.
     renamed = with_section(tmp_path, heading="Limitations")
     assert "optogenetics-limit" not in {i.item_id for i in texts.review_items(out, renamed)}
+
+
+class BadLimitSpanish(FakeLLM):
+    def complete_json(self, system, user, output, max_tokens):
+        if output.__name__ == "AdaptedText" and self.section == "limit":
+            self.calls.append(output.__name__)
+            bad = ES["limit"][0].replace("respondan", "miñojen")
+            return output.model_validate({"sentences": [{"index": 1, "text": bad}]})
+        return super().complete_json(system, user, output, max_tokens)
+
+
+def test_a_failed_spanish_limit_is_asked_again_alone(tmp_path: Path) -> None:
+    """v223: only the section whose Spanish failed, and only its Spanish."""
+    out, src = tmp_path / "texts.json", sources(tmp_path)
+    status = texts.write(BadLimitSpanish(), sources_path=src, path=out)
+    assert status == {"optogenetics": {"what": "drafted", "limit": "failed_es"}}
+    what = json.loads(out.read_text())["techniques"]["optogenetics"]["what"]
+    llm = FakeLLM()
+    llm.section = "limit"
+    again = texts.spanish_again(llm, sources_path=src, path=out)
+    assert again == {"optogenetics": {"limit": "drafted"}} and llm.calls == ["AdaptedText"]
+    rec = json.loads(out.read_text())["techniques"]["optogenetics"]
+    assert rec["what"] == what and rec["limit"]["es"][0]["text"] == ES["limit"][0]
+    assert "problems" not in rec["limit"] and rec["limit"]["es_generator"] == "fake/model"

@@ -173,3 +173,43 @@ def test_a_non_breaking_hyphen_reaches_the_model_as_a_plain_one(tmp_path: Path) 
     assert len(json.loads(out.read_text())["pairs"]["internal"]["facts"]) == 3
     (item,) = texts.review_items(out, src)
     assert "\u2011" not in texts.source_texts([item], src)[item.content.sources[0].id]
+
+
+class BadSpanish(FakeLLM):
+    """Its Spanish has a word no dictionary knows (as «miñojos» on 2026-11-18)."""
+
+    def complete_json(self, system, user, output, max_tokens):
+        if output.__name__ in ("AtlasFacts", "Summary"):
+            return super().complete_json(system, user, output, max_tokens)
+        self.calls.append(output.__name__)
+        bad = [ES[0], ES[1].replace("orientarse", "miñojarse")]
+        return output.model_validate({"sentences": [{"index": i, "text": t}
+                                                    for i, t in enumerate(bad, 1)]})  # fmt: skip
+
+
+def test_a_failed_spanish_is_kept_and_asked_again_alone(tmp_path: Path) -> None:
+    """v223: the English passed, so only the Spanish is asked again; and the Spanish that
+    failed is kept, so a fix in the checks passes it with no model."""
+    out, src = tmp_path / "texts.json", sources(tmp_path)
+    assert texts.write(BadSpanish(), sources_path=src, path=out) == {"internal": "failed_es"}
+    sec = json.loads(out.read_text())["pairs"]["internal"]["about"]
+    assert "miñojarse" in sec["es"][1]["text"] and sec["es"][1]["fact_ids"] == ["f2"]
+    assert texts.spanish_again(None, sources_path=src, path=out) == {"internal": "failed_es"}
+    llm = FakeLLM()
+    assert texts.spanish_again(llm, sources_path=src, path=out) == {"internal": "drafted"}
+    assert llm.calls == ["AdaptedText"]  # one call, not the whole chain
+    (item,) = texts.review_items(out, src)
+    assert item.content.es[1].text == ES[1]
+
+
+def test_a_dictionary_fix_passes_the_kept_spanish_without_the_model(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from synaptica.narrative import wikidraft
+
+    out, src = tmp_path / "texts.json", sources(tmp_path)
+    texts.write(BadSpanish(), sources_path=src, path=out)
+    monkeypatch.setattr(wikidraft, "check_spelling_es", lambda en, es: [])  # the word added
+    assert texts.spanish_again(None, sources_path=src, path=out) == {"internal": "drafted"}
+    (item,) = texts.review_items(out, src)
+    assert "miñojarse" in item.content.es[1].text

@@ -112,23 +112,55 @@ def section(llm: LLM, spec: Spec, name: str, kind: str, verified: list[dict[str,
             break
     if feedback:
         return {"status": "failed_en", "problems": _public(feedback)}
-    en_texts = [t for t, _ in en]
+    return spanish(llm, [{"text": t, "fact_ids": f} for t, f in en])
+
+
+def _es_checks(en: list[str], es: list[str]) -> list[str]:
+    return [*check_alignment(en, es), *check_claims_es(en, es), *check_spelling_es(en, es)]
+
+
+def _with_es(en: list[dict[str, Any]], es: list[str], feedback: list[str]) -> dict[str, Any]:
+    # The Spanish cites what its English sentence cites. A Spanish that failed is kept too
+    # (v223), so that a fix in the checks (a word added to the dictionary) can pass it
+    # again without asking the model (:func:`recheck_es`).
+    lines = [{"text": t, "fact_ids": s["fact_ids"]} for t, s in zip(es, en, strict=False)]
+    if feedback:
+        return {"status": "failed_es", "problems": _public(feedback), "en": en, "es": lines}
+    return {"status": "drafted", "en": en, "es": lines}
+
+
+def spanish(llm: LLM, en: list[dict[str, Any]]) -> dict[str, Any]:
+    """The Spanish of an English text that passed its checks, one retry with the failures
+    as feedback. Also how a ``failed_es`` section is asked again: its English is kept, so
+    only the Spanish costs calls."""
+    en_texts = [s["text"] for s in en]
     es: list[str] = []
+    feedback: list[str] = []
     for _ in range(ATTEMPTS):
         es = adapt_es(llm, en_texts, feedback)
-        feedback = [*check_alignment(en_texts, es), *check_claims_es(en_texts, es),
-                    *check_spelling_es(en_texts, es)]  # fmt: skip
+        feedback = _es_checks(en_texts, es)
         if not feedback:
             break
-    if feedback:
-        return {"status": "failed_es", "problems": _public(feedback),
-                "en": [{"text": t, "fact_ids": f} for t, f in en]}  # fmt: skip
-    ids = [f for _, f in en]  # the Spanish cites what its English sentence cites
-    return {
-        "status": "drafted",
-        "en": [{"text": t, "fact_ids": f} for t, f in en],
-        "es": [{"text": t, "fact_ids": f} for t, f in zip(es, ids, strict=True)],
-    }
+    return _with_es(en, es, feedback)
+
+
+def retry_es(llm: LLM | None, sec: dict[str, Any]) -> dict[str, Any]:
+    """A ``failed_es`` section: today's checks on its kept Spanish first (no model); if it
+    still fails and ``llm`` is given, its Spanish asked again from its English. Raises
+    :class:`LLMOutputError` when the model fails."""
+    sec = recheck_es(sec)
+    if llm is None or sec.get("status") != "failed_es":
+        return sec
+    return spanish(llm, sec["en"])
+
+
+def recheck_es(sec: dict[str, Any]) -> dict[str, Any]:
+    """A ``failed_es`` section with its Spanish kept, checked again with today's checks
+    (no model); anything else as it is."""
+    if sec.get("status") != "failed_es" or not sec.get("es"):
+        return sec
+    en, es = sec["en"], [s["text"] for s in sec["es"]]
+    return _with_es(en, es, _es_checks([s["text"] for s in en], es))
 
 
 def draft(llm: LLM, spec: Spec, name: str, lead: str) -> dict[str, Any]:

@@ -96,12 +96,54 @@ def write(
                        "generator": llm.label, "prompts": SPEC.prompts(),
                        "generated_at": now.isoformat(timespec="seconds"), **drafted}  # fmt: skip
         status[kind] = drafted[SECTION]["status"]
+    _save(path, texts)
+    return status
+
+
+def _save(path: Path, texts: dict[str, Any]) -> None:
     write_json(path, {
         "note": "Drafts of Neuro Atlas's region texts (LLM, checked against each pair's "
         "Wikipedia lead in atlas/sources.json). Not published: each waits for Sofía's "
         "approval. Written by `syn atlas write`; do not edit by hand.",
         "pairs": {p["kind"]: texts[p["kind"]] for p in pairs() if p["kind"] in texts},
     })  # fmt: skip
+
+
+def spanish_again(
+    llm: LLM | None,
+    *,
+    only: list[str] | None = None,
+    sources_path: Path | None = None,
+    path: Path | None = None,
+    now: dt.datetime | None = None,
+) -> dict[str, str]:
+    """The pairs whose English passed and whose Spanish failed (v223): checked again with
+    today's checks, and with ``llm`` their Spanish asked again (1 or 2 calls each, not the
+    whole chain). Returns pair kind -> status."""
+    path = path or TEXTS
+    now = now or dt.datetime.now(dt.UTC)
+    sources = read_json(sources_path or SOURCES, "pairs")
+    texts = read_json(path, "pairs")
+    status: dict[str, str] = {}
+    for pair in pairs():
+        kind, rec = pair["kind"], texts.get(pair["kind"])
+        en_src = ((sources.get(kind) or {}).get("leads") or {}).get("en") or {}
+        if (only and kind not in only) or not rec or rec.get("revid") != en_src.get("revid"):
+            continue
+        sec = rec.get(SECTION) or {}
+        if sec.get("status") != "failed_es":
+            continue
+        try:
+            new = wikidraft.retry_es(llm, sec)
+        except LLMOutputError:
+            status[kind] = "model_error"
+            continue
+        if new.get("es") != sec.get("es") and llm is not None:
+            rec["es_generator"] = llm.label
+            rec["es_generated_at"] = now.isoformat(timespec="seconds")
+        rec[SECTION] = new
+        status[kind] = new["status"]
+    _save(path, texts)
     return status
 
 

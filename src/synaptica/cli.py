@@ -915,6 +915,14 @@ def lab_write(
     only: Annotated[
         str | None, typer.Option(help="Comma-separated technique ids (redrafts them).")
     ] = None,
+    spanish_only: Annotated[
+        bool,
+        typer.Option(
+            "--spanish-only",
+            help="Only texts whose Spanish failed: today's checks "
+            "first, then (with --provider) their Spanish asked again.",
+        ),
+    ] = False,
 ) -> None:
     """Draft «what it lets us see» and «limits» of each technique from its Wikipedia lead
     (facts -> EN -> ES, with the summaries' checks) -> src/synaptica/lab/texts.json. Not
@@ -923,6 +931,15 @@ def lab_write(
     from synaptica.lab import texts
 
     llm = _llm(provider, model)
+    if spanish_only:  # v223: with no --provider, no model at all
+        again = texts.spanish_again(llm, only=only.split(",") if only else None)
+        for key, st in again.items():
+            typer.echo(f"{key}: {st}")
+        typer.echo(
+            f"Spanish again: {len(again)} techniques with a failed Spanish"
+            + ("" if llm else " (checks only, no model)")
+        )
+        return
     if llm is None:
         typer.echo("No --provider given: nothing written.")
         raise typer.Exit(0)
@@ -940,6 +957,14 @@ def atlas_write(
     only: Annotated[
         str | None, typer.Option(help="Comma-separated pair kinds (redrafts them).")
     ] = None,
+    spanish_only: Annotated[
+        bool,
+        typer.Option(
+            "--spanish-only",
+            help="Only texts whose Spanish failed: today's checks "
+            "first, then (with --provider) their Spanish asked again.",
+        ),
+    ] = False,
 ) -> None:
     """Draft «what it is and what it does» of each rat <-> human pair from its Wikipedia
     lead (facts -> EN -> ES, with the summaries' checks; clinical facts never written) ->
@@ -948,6 +973,15 @@ def atlas_write(
     from synaptica.atlas import texts
 
     llm = _llm(provider, model)
+    if spanish_only:  # v223: with no --provider, no model at all
+        again = texts.spanish_again(llm, only=only.split(",") if only else None)
+        for key, st in again.items():
+            typer.echo(f"{key}: {st}")
+        typer.echo(
+            f"Spanish again: {len(again)} pairs with a failed Spanish"
+            + ("" if llm else " (checks only, no model)")
+        )
+        return
     if llm is None:
         typer.echo("No --provider given: nothing written.")
         raise typer.Exit(0)

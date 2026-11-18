@@ -100,12 +100,56 @@ def write(
                       "generator": llm.label, "prompts": SPEC.prompts(),
                       "generated_at": now.isoformat(timespec="seconds"), **drafted}  # fmt: skip
         status[tid] = {k: drafted[k]["status"] for k in SECTIONS}
+    _save(path, texts)
+    return status
+
+
+def _save(path: Path, texts: dict[str, Any]) -> None:
     write_json(path, {
         "note": "Drafts of Neuro Lab's texts (LLM, checked against each technique's Wikipedia "
         "lead in lab/sources.json). Not published: each waits for Sofía's approval. Written "
         "by `syn lab write`; do not edit by hand.",
         "techniques": {t["id"]: texts[t["id"]] for t in techniques() if t["id"] in texts},
     })  # fmt: skip
+
+
+def spanish_again(
+    llm: LLM | None,
+    *,
+    only: list[str] | None = None,
+    sources_path: Path | None = None,
+    path: Path | None = None,
+    now: dt.datetime | None = None,
+) -> dict[str, dict[str, str]]:
+    """The sections whose English passed and whose Spanish failed (v223): checked again
+    with today's checks, and with ``llm`` their Spanish asked again (1 or 2 calls each).
+    Returns technique -> section -> status."""
+    path = path or TEXTS
+    now = now or dt.datetime.now(dt.UTC)
+    sources = read_json(sources_path or SOURCES, "techniques")
+    texts = read_json(path, "techniques")
+    status: dict[str, dict[str, str]] = {}
+    for tech in techniques():
+        tid, rec = tech["id"], texts.get(tech["id"])
+        en_src = (sources.get(tid) or {}).get("en") or {}
+        if (only and tid not in only) or not rec or rec.get("revid") != en_src.get("revid"):
+            continue
+        for key in SECTIONS:
+            sec = rec.get(key) or {}
+            if sec.get("status") != "failed_es":
+                continue
+            try:
+                new = wikidraft.retry_es(llm, sec)
+            except LLMOutputError:
+                status.setdefault(tid, {})[key] = "model_error"
+                continue
+            if new.get("es") != sec.get("es") and llm is not None:
+                new |= {"es_generator": llm.label,
+                        "es_generated_at": now.isoformat(timespec="seconds")}  # fmt: skip
+            rec[key] = {k: v for k, v in sec.items() if k not in new and k not in
+                        ("problems", "es")} | new  # fmt: skip
+            status.setdefault(tid, {})[key] = new["status"]
+    _save(path, texts)
     return status
 
 
