@@ -130,6 +130,7 @@ const P = {
     grades: { clear: "clara", partial: "parcial", disputed: "discutida" },
     gradePending: "pendiente de Sofía",
     goPair: "Ir a la pareja",
+    compare: "Ver lado a lado",
     page: "Ficha completa de la región",
     marked: "Pareja marcada; este cerebro no se ha movido.",
     pairOf: "Pareja de",
@@ -156,6 +157,7 @@ const P = {
     grades: { clear: "clear", partial: "partial", disputed: "disputed" },
     gradePending: "pending Sofía's review",
     goPair: "Go to the counterpart",
+    compare: "See side by side",
     page: "Full page of the region",
     marked: "Counterpart marked; this brain has not moved.",
     pairOf: "Counterpart of",
@@ -230,7 +232,7 @@ function facts(region) {
 }
 
 // The panel of the viewer that was clicked.
-function panelPicked(box, region, pair, empty = P.none) {
+function panelPicked(box, region, pair, empty = P.none, onCompare = null) {
   box.replaceChildren();
   if (!region) return box.append(h("p", { class: "muted" }, empty));
   box.append(title(region), facts(region));
@@ -243,6 +245,12 @@ function panelPicked(box, region, pair, empty = P.none) {
     const p = h("p", { class: "pair" }, `${P.inOther}: ${other}. `);
     p.append(h("span", { class: "grade" }, `${P.grade}: ${gradeOf(pair)}`));
     box.append(p);
+    // R3 (v224): on a phone, the two brains one above the other, each at its region.
+    if (onCompare && narrow.matches) {
+      const both = h("button", { type: "button", class: "btn go-pair compare" }, P.compare);
+      both.addEventListener("click", () => onCompare());
+      box.append(both);
+    }
     // Step 5: the regions of the pairs have their own page (the rat's, by the pair's node).
     const page = REGION_PAGES[region.atlas === "waxholm" ? `w${pair.waxholm.id}` : `j${region.areaId}`];
     if (page) box.append(h("p", {}, h("a", { href: page }, `${P.page} →`)));
@@ -1731,12 +1739,14 @@ async function main() {
   const loading = {};
 
   // UX-1 C: on a phone, one brain at a time; the human first until Sofía says otherwise.
+  // R3 (v224): or "both", the two one above the other (the comparison view).
   let active = "julich";
   const switchBox = root.querySelector(".brain-switch");
   const showActive = () => {
-    brains.dataset.active = BRAIN_OF[active];
+    brains.dataset.active = active === "both" ? "both" : BRAIN_OF[active];
     for (const b of switchBox.querySelectorAll("button")) {
-      b.setAttribute("aria-pressed", String(ATLAS_OF[b.dataset.brain] === active));
+      const on = b.dataset.brain === "both" ? active === "both" : ATLAS_OF[b.dataset.brain] === active;
+      b.setAttribute("aria-pressed", String(on));
     }
   };
 
@@ -1750,7 +1760,7 @@ async function main() {
       const otherAtlas = atlas === "waxholm" ? "julich" : "waxholm";
       const other = viewers[otherAtlas];
       const pair = region ? pairOf(region, data.pairs) : null;
-      panelPicked(v.panel, region, pair, atPoint ? P.nonePoint : P.none);
+      panelPicked(v.panel, region, pair, atPoint ? P.nonePoint : P.none, () => compare());
       if (region) announce(UI.picked(names(region).full, SEARCH[BRAIN_OF[atlas]]));
       if (!partner) return; // M2: the other brain follows when the slider is let go
       // Aday (v168): only a region with a counterpart moves the other brain; without one, the
@@ -1785,8 +1795,18 @@ async function main() {
     console.error(e);
   }));
 
+  // R3 (v224): both brains on a phone, the second loaded only now (UX-5 B), each taken to
+  // the region it has marked.
+  async function compare() {
+    active = "both";
+    showActive();
+    await Promise.all(["julich", "waxholm"].map(load));
+    each((v) => v.focus.size && v.goTo(v.focus));
+    switchBox.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }
+
   async function goToPair(atlas) {
-    if (narrow.matches && active !== atlas) {
+    if (narrow.matches && active !== atlas && active !== "both") {
       active = atlas;
       showActive();
     }
@@ -1797,7 +1817,7 @@ async function main() {
 
   // A region chosen in the search or the list: in its brain, as a click would, both sides.
   async function choose(atlas, item) {
-    if (narrow.matches && active !== atlas) {
+    if (narrow.matches && active !== atlas && active !== "both") {
       active = atlas;
       showActive();
     }
@@ -1862,6 +1882,7 @@ async function main() {
   switchBox.addEventListener("click", (e) => {
     const b = e.target.closest("button[data-brain]");
     if (!b) return;
+    if (b.dataset.brain === "both") return compare();
     active = ATLAS_OF[b.dataset.brain];
     showActive();
     load(active);

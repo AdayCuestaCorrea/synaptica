@@ -102,6 +102,15 @@ def test_the_home_card_opens_the_atlas_page(tmp_path: Path) -> None:
     assert 'class="card card--atlas" href="atlas.html"' in home
 
 
+def test_the_phone_switch_offers_the_side_by_side_view(tmp_path: Path) -> None:
+    """R3 (v224): on a phone, «Lado a lado» shows the two brains one above the other."""
+    out = tmp_path / "site"
+    SiteBuilder(out, images=LICENSED).build()
+    for lang, label in (("es", "Lado a lado"), ("en", "Side by side")):
+        page = (out / lang / "atlas.html").read_text("utf-8")
+        assert f'data-brain="both" aria-pressed="false">{label}</button>' in page
+
+
 # ---------------------------------------------------------------- region pages (step 5)
 
 ATLAS = Path(__file__).parents[1] / "site" / "static" / "atlas"

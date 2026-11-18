@@ -455,6 +455,12 @@ button.rname:hover { color: var(--accent-ink); }
   .brain-switch button { flex: 1; border: 0; border-radius: 0; }
   .brain-switch button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); font-weight: 700; }
   .brains[data-active="rat"] #human, .brains[data-active="human"] #rat { display: none; }
+  /* R3 (v224): the comparison view, the two brains one above the other, each with its credit
+     line (UX-6); the region lists wait for one brain at a time. */
+  .brains[data-active="both"] :is(.panel, .licence-extra, .brain-count, .depth-group) { display: none; }
+  .brains[data-active="both"] .stage { aspect-ratio: auto; height: 34svh; }
+  .brains[data-active="both"] .brain h2 { margin: 2px 0; font-size: 1rem; }
+  .brains[data-active="both"] figcaption { margin: 2px 0 6px; font-size: 0.75rem; }
   .planes label { grid-template-columns: 6.5em 1fr 4.8em 2em; }
 }
 /* Region pages and the pairs (step 5, SCOPE v166). */
