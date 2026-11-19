@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1126/sciadv.aeh1717",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "46ae9435c1bda9b3",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-19T16:11:10+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a genetic technique called MADM to track individual cell lineages and single-cell methods to examine how the Pten gene affects the development of radial glial cells in the cortex.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "When the Pten gene was removed, the number of projection neurons produced by radial glial cells doubled, and the production of astrocytes in the cortex increased significantly.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Experiments showed that without Pten, the process of making astrocytes becomes disconnected from normal growth factor signals and instead relies on the MAPK signaling pathway.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The findings suggest that the Pten gene controls the development of radial glial cells in a step-by-step manner to ensure the cortex grows to the correct size.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

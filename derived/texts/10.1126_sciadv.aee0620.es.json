@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1126/sciadv.aee0620",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "f212f515f83f61de",
+ "generated_at": "2026-11-19T16:24:03+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "En un estudio a nivel celular, los investigadores observaron que la estimulación de las neuronas provocaba que las dendritas ramificadas inmovilizaran las vesículas en los puntos de traducción activos, mientras que los axones aceleraban el movimiento de estas estructuras.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Un tipo específico de estimulación aumentó la proporción de vesículas que transportaban ribosomas, ampliando así el suministro local de estas partículas asociadas a ribosomas.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "La imagen de moléculas individuales de ARNm reveló que los sitios de traducción vinculados a estas vesículas generaban aproximadamente un 30 % más de señal de nueva proteína que los sitios que carecían de ellas.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Los hallazgos sugieren que estas vesículas podrían actuar como plataformas especializadas que conectan las señales de actividad neuronal con la producción local de proteínas para regular el momento y la ubicación de la traducción.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-19T16:42:25+00:00"
+ }
+}

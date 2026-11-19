@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1126/sciadv.aej8897",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "52452a00b97bc955",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-19T16:15:19+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study presents a new computational method called optimized multiple temporal interference stimulation (omTIS) designed to control brain activity in multiple areas at once.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The method uses multiple electrodes and computer simulations to create focused electrical fields that can be aimed at different brain regions without interfering with each other.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The new technique was tested in computer models, gel-like materials that mimic brain tissue, and live mice.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "In these tests, the new method was better than the standard version of temporal interference stimulation at targeting specific spots and moving the target around.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors conclude that this approach offers a way to precisely control widely spread brain circuits without surgery.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

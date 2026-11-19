@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1126/sciadv.aeg1944",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "168006b4d0289f7c",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-19T16:10:09+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study investigated how hunger influences the avoidance of painful stimuli in fruit flies to allow them to seek food.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "In a test where flies had to cross an electric shock barrier to get food, starving the flies made them more tolerant of the shock only if food smells were present.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "A specific neural pathway was identified where hunger-sensing cells send signals to other neurons that combine this state with food smells to inhibit shock-reactive neurons.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The activity of shock-reactive neurons was reduced in starved flies when they were exposed to food cues.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The results reveal a brain circuit that uses motivational state to control how aversive signals are processed, steering behavior toward goals.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

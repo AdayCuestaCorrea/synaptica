@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1126/sciadv.aeh1717",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "18575ed79e946ff5",
+ "generated_at": "2026-11-19T16:32:11+00:00",
+ "word_count": 108,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers employed the MADM genetic technique to track individual cell lineages and single-cell methods to examine how the Pten gene influences the development of radial glial cells in the cortex.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "When the Pten gene was removed, the number of projection neurons produced by these cells doubled, while the production of astrocytes in the cortex increased significantly.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Experiments indicated that without Pten, the process of making astrocytes becomes disconnected from normal growth factor signals and instead relies on the MAPK signaling pathway.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "The findings suggest that the Pten gene controls the development of radial glial cells in a step-by-step manner to ensure the cortex grows to the correct size.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-19T16:43:25+00:00"
+ }
+}

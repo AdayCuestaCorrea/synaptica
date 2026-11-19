@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1002/phar.70221",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "7aa0111016779824",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-19T16:21:37+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study was a retrospective cohort study of newborns with brain injury from oxygen deprivation who were treated with cooling in a specialized neonatal intensive care unit.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The analysis included 106 newborns, split into two groups of 50 and 56 based on which sedation guideline was in use.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The older dosing guideline started at 0.05 micrograms per kilogram per hour and allowed increases of 0.05 micrograms per kilogram per hour every 6 hours.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The newer guideline started at a higher dose of 0.2 micrograms per kilogram per hour and allowed smaller, more frequent adjustments of 0.1 micrograms per kilogram per hour every 30 to 60 minutes.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Doctors followed the new dosing recommendations 69.6% of the time for starting doses, 62.5% for increases, and only 44.6% for decreases.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Newborns in the group using the newer dosing guideline had a higher chance of also receiving opioid painkillers and a higher rate of slow heart rate (21.4% compared to 4%).",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "There were no significant differences between the two groups in how well the sedation worked or in the occurrence of low blood pressure.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The newer dosing method was not linked to better sedation results but was linked to more opioid use and more instances of slow heart rate.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

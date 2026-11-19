@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1126/sciadv.aeh5393",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "9d6b0fffb10b59c1",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-19T16:12:13+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a genetic screening method in mice where specific genes were removed to see how they affect natural killer cell growth.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers tested the mice by checking their immune cell profiles and then infecting them with a mouse-specific virus.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The screen found genes that control how natural killer cells develop, including those that manage cell movement and gene activity.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Infection tests revealed a new protein, synaptotagmin-like protein 3, that helps natural killer cells release their contents to fight viruses.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "In large databases of human DNA, these genes showed signs that losing their function is harmful to people.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The genes were also linked to lower counts of natural killer cells in a group of patients with weak immune systems.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

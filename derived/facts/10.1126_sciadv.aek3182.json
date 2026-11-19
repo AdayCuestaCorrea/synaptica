@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1126/sciadv.aek3182",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "5892d35f65dcb1d7",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-19T16:16:23+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study presents a molecular neural network made of DNA that can change its structure in response to the environment.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "The DNA components in the network use switches that react to changes in acidity levels.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The network changes how its parts are connected without adding or removing any molecules.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The researchers tested the system using a network that handles 64-bit data inputs.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "When the environment becomes more acidic, the network switches from a simple two-category sorter to a complex system that distinguishes four different patterns.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The findings show that DNA circuits can adjust their processing structure based on signals from their surroundings.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1126/sciadv.aeh5393",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "10459abad445026d",
+ "generated_at": "2026-11-19T16:34:13+00:00",
+ "word_count": 104,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers used a genetic screening method in mice to remove specific genes and assess their impact on natural killer cell growth, subsequently testing immune profiles and infecting the animals with a mouse-specific virus.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "This screen identified genes controlling natural killer cell development, including those managing cell movement and gene activity, while infection tests revealed that synaptotagmin-like protein 3 helps these cells release their contents to fight viruses.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "In large databases of human DNA, these genes showed signs that losing their function is harmful, and they were also linked to lower counts of natural killer cells in a group of patients with weak immune systems.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-19T16:43:26+00:00"
+ }
+}

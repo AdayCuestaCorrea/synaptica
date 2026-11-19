@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1038/s41593-026-02503-w",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "dea4b5eba08312fc",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-19T16:19:30+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a mouse model to compare the effects of expanding immature adult-born dentate granule cells at 4 weeks of age against mature cells at 8 weeks of age.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Expanding the immature cells was associated with the recruitment of fast-spiking inhibitory interneurons that express parvalbumin in the CA3 and CA2 regions of the hippocampus.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "This cellular expansion was linked to increased feed-forward inhibition, reduced interference in social memory, and improved consolidation of social memories.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Recordings of electrical activity in the dorsal CA1 and CA2 areas showed that sharp-wave ripples had higher baseline power, amplitude, and duration.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The rate of these sharp-wave ripples was more strongly modulated by social experiences in the study subjects.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Chemogenetic manipulations indicated that inhibitory neurons in dorsal CA3 and CA2 are necessary for social memory consolidation when the immature cells are expanded, and sufficient for it when they are not.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors suggest that the prolonged immaturity of these cells supports cognition by boosting feed-forward inhibition and promoting network oscillations related to memory consolidation.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

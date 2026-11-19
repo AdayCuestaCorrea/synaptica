@@ -1,0 +1,40 @@
+{
+ "study_id": "10.1126/sciadv.aej1043",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "6ce9b1fbd08db98a",
+ "generated_at": "2026-11-19T16:36:14+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: words not in the Spanish dictionary ['facioescapulohumeral']"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores estudiaron los mecanismos celulares de la distrofia muscular facioescapulohumeral, una afección neuromuscular causada por la activación inadecuada del gen DUX4 en el tejido muscular.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "El estudio observó que la proteína DUX4 desencadena una respuesta inmunitaria que imita una infección viral, pero que actúa de forma independiente de la vía estándar del interferón de tipo I.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Este estado inmunitario anómalo está impulsado principalmente por la señalización del interferón-gamma, lo que explica por qué la inflamación en la enfermedad no se resuelve por sí sola.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "En modelos experimentales de la enfermedad, el bloqueo del interferón-gamma redujo la inflamación muscular y detuvo la progresión de la afección.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-19T16:42:22+00:00"
+}

@@ -1,0 +1,55 @@
+{
+ "study_id": "10.1126/sciadv.aej5555",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "b6ec7b3de454428c",
+ "generated_at": "2026-11-19T16:39:18+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores aplicaron modelos de codificación de fMRI utilizando características de modelos de lenguaje de gran escala para examinar cómo la actividad cerebral se generaliza entre tareas de lenguaje y matemáticas en 32 personas.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Los análisis de control sugirieron que esta actividad compartida podría no explicarse plenamente por el procesamiento visual básico ni por las demandas generales de la tarea.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Además, el análisis de los pesos del modelo reveló patrones distintos de ponderación neuronal para las predicciones compartidas frente a las específicas de cada dominio.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Las regiones cerebrales compartidas entre las tareas mostraban conectividad funcional, una medida de hasta qué punto la actividad de dos regiones varía de forma conjunta, con las redes de lenguaje y matemáticas, dependiendo de la tarea que se estuviera realizando.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Estos resultados sugieren que el lenguaje y las matemáticas utilizan representaciones cerebrales que son tanto parcialmente compartidas como distintas.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-19T16:43:29+00:00"
+ }
+}

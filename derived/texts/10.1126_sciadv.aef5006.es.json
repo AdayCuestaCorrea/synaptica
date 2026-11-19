@@ -1,0 +1,56 @@
+{
+ "study_id": "10.1126/sciadv.aef5006",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "16479de653b882d9",
+ "generated_at": "2026-11-19T16:27:05+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un modelo de rata en el que los animales se entrenaban para categorizar estímulos mientras se registraban las señales eléctricas de sus cerebros.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "El análisis conductual indicó que las decisiones de los animales estaban influenciadas por experiencias previas, y no solo por el momento actual.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "El área sensorial primaria procesaba el estímulo actual de forma independiente a las entradas pasadas y no explicaba por qué las elecciones dependían del historial.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "En cambio, la región frontal combinaba la entrada sensorial actual con un registro de la información previa mediante un código neuronal compartido, un proceso que coincidía con el sesgo de elección observado y dependía en gran medida de neuronas de disparo rápido.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que las áreas sensoriales y frontales cumplen funciones distintas en la predicción, siendo la área frontal un posible lugar donde la experiencia pasada se fusiona con nuevas evidencias para moldear las decisiones.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-19T16:42:26+00:00"
+ }
+}

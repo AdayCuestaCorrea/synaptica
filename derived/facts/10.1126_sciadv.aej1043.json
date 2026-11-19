@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1126/sciadv.aej1043",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "814737c4512aa6dd",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-19T16:13:16+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Facioscapulohumeral muscular dystrophy is a neuromuscular condition driven by the inappropriate activation of a gene called DUX4 in muscle tissue.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "The study found that the DUX4 protein triggers an immune response that mimics a viral infection but operates independently of the standard type I interferon pathway.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "This abnormal immune state is primarily driven by interferon-gamma signaling, which explains why inflammation in the disease does not resolve on its own.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "In experimental models of the disease, blocking interferon-gamma reduced muscle inflammation and stopped the progression of the condition.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

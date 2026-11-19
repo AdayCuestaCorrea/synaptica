@@ -1,0 +1,34 @@
+{
+ "study_id": "10.1126/sciadv.aee0620",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "fd12c90bda55243f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-19T16:08:06+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "When neurons were stimulated, the branching dendrites held vesicles still at active translation spots, while the axons sped up the movement of these vesicles.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "A specific type of stimulation increased the share of vesicles carrying ribosomes, thereby growing the local supply of these ribosome-associated vesicles.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "Imaging of individual mRNA molecules showed that translation sites linked to these vesicles produced about 30% more new protein signal than sites without them.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The results suggest these vesicles act as specialized platforms that connect neural activity signals with local protein production to control translation timing and location.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

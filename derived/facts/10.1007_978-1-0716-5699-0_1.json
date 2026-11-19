@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1007/978-1-0716-5699-0_1",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "3d9d44582b25caa8",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-19T16:22:41+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The RT-QuIC test, which was first created to find prion proteins, has been modified to identify alpha-synuclein seeds.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "Adding the fluorescent dye thioflavin-T to the test allows researchers to watch the clumping process in real time and find very small amounts of misfolded protein.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "In diagnostic settings, the alpha-synuclein RT-QuIC test has a high rate of correctly identifying negative cases, ranging from 82% to 100%, and a variable rate of correctly identifying positive cases, ranging from 70% to 100%.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "Newer versions of the test can be run on blood samples, which allows for a less invasive way to diagnose the condition.",
+   "subject": "other"
+  },
+  {
+   "id": "f5",
+   "statement": "Specific scores and kinetic measurements from the test can be used to evaluate how the disease is progressing and how well a treatment is working.",
+   "subject": "other"
+  },
+  {
+   "id": "f6",
+   "statement": "A skin biopsy version of the test provides an alternative diagnostic option that is as accurate as methods using cerebrospinal fluid.",
+   "subject": "other"
+  },
+  {
+   "id": "f7",
+   "statement": "The study provides detailed step-by-step instructions for performing the alpha-synuclein seed amplification assay.",
+   "subject": "other"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

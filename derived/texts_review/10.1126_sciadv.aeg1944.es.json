@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1126/sciadv.aeg1944",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "e27428f1218ed329",
+ "generated_at": "2026-11-19T16:29:06+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 5: words not in the Spanish dictionary ['motivacional']"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores estudiaron cómo el hambre influye en la evitación de estímulos dolorosos en las moscas de la fruta para permitirles buscar comida.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "En una prueba en la que las moscas tenían que cruzar una barrera de descargas eléctricas para obtener alimento, el ayuno las hacía más tolerantes al choque solo si estaban presentes olores de comida.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Se identificó una vía neuronal específica en la que las células que detectan el hambre envían señales a otras neuronas que combinan este estado con los olores de comida para inhibir las neuronas reactivas al choque.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "La actividad de las neuronas reactivas al choque se redujo en las moscas hambrientas cuando se exponían a señales de comida.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Los resultados revelan un circuito cerebral que utiliza el estado motivacional para controlar cómo se procesan las señales aversivas, dirigiendo el comportamiento hacia objetivos.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-19T16:42:22+00:00"
+}

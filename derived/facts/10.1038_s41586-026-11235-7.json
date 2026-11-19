@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1038/s41586-026-11235-7",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "0372326c44395a6f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-19T16:17:25+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers created a new method called TransA-MERFISH that combines a fluorescent tracer with spatial transcriptomics to map neural circuits.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "The study mapped the specific cell types in the superior colliculus that receive connections from four subclasses of retinal ganglion cells.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "On-off direction-selective ganglion cells connect to some direction-selective cells in the superior colliculus but not to a specific cell type previously thought to be strongly direction-selective.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Experiments removing the retinal direction-selective circuits showed that dependent and independent direction-selective cell types are mixed together in the superior colliculus.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

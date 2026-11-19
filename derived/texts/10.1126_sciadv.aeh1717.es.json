@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1126/sciadv.aeh1717",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "18575ed79e946ff5",
+ "generated_at": "2026-11-19T16:32:11+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon la técnica genética MADM para rastrear linajes celulares individuales y métodos de célula única para examinar cómo el gen Pten influye en el desarrollo de las células gliales radiales en la corteza.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Al eliminar el gen Pten, el número de neuronas de proyección producidas por estas células se duplicó, mientras que la producción de astrocitos en la corteza aumentó significativamente.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Los experimentos indicaron que, en ausencia de Pten, el proceso de generación de astrocitos se desvincula de las señales normales de factores de crecimiento y depende en su lugar de la vía de señalización MAPK.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Los hallazgos sugieren que el gen Pten controla el desarrollo de las células gliales radiales de manera secuencial para garantizar que la corteza crezca hasta el tamaño adecuado.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-19T16:43:25+00:00"
+ }
+}

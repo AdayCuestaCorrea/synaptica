@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1002/glia.70253",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "9a7cac4f498748f5",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-19T16:20:33+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used mice with a human version of the amyloid precursor protein gene to model Alzheimer's disease.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers used a chemical switch to turn on a specific signaling pathway in either astrocytes or microglia, avoiding the use of viruses to deliver the gene.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Turning on the pathway in astrocytes led to more of these cells gathering around amyloid plaques and a lower total amount of plaques in the brain's cortex and hippocampus.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Activation in astrocytes was linked to increased activity in both astrocytes and microglia, as well as more microglia moving to the plaque sites and higher levels of markers for cell digestion.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Activating the same pathway only in microglia did not result in a measurable change in the amount of amyloid plaques.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The results show that the astrocyte pathway alone is enough to change how glial cells interact with plaques in a way that favors their removal.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

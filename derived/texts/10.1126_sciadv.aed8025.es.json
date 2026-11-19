@@ -1,0 +1,55 @@
+{
+ "study_id": "10.1126/sciadv.aed8025",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "d7562ae5a766e91b",
+ "generated_at": "2026-11-19T16:22:41+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron grabaciones cerebrales de participantes que emitían juicios en tiempo real sobre una banda sonora que contenía habla y música, con el fin de determinar si las características acústicas básicas son suficientes para la categorización.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Las regiones corticales auditivas seguían la temporalidad y las variaciones de tono del audio, empleando oscilaciones neuronales distintas para procesar por separado estas dimensiones temporales y espectrales.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Los patrones de actividad neuronal resultantes se asociaban con la capacidad de predecir cómo un grupo independiente de oyentes categorizaba los sonidos como habla o música.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Concretamente, el hemisferio izquierdo mostraba un seguimiento superior de las características relacionadas con el habla, mientras que el hemisferio derecho era más eficaz a la hora de seguir las características relacionadas con la música.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Estos hallazgos sugieren que el codificado fundamental del cerebro de las características del sonido es suficiente para distinguir el habla de la música sin necesidad de un procesamiento abstracto más complejo.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-19T16:42:24+00:00"
+ }
+}

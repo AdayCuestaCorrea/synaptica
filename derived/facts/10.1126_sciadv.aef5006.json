@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1126/sciadv.aef5006",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "309352151c8bccb5",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-19T16:09:08+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used an animal model involving rats that were trained to categorize stimuli while researchers measured electrical signals from their brains.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Analysis of the animals' behavior indicated that their decisions were influenced by previous experiences rather than just the current moment.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The primary sensory area of the brain processed the current stimulus separately from past inputs and did not explain why the animals' choices depended on history.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The frontal region of the brain combined the current sensory input with a record of previous sensory information in a shared neural code.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The way the frontal cortex integrated information matched the bias seen in the animals' choices and relied heavily on a specific type of fast-firing neuron.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The results suggest that sensory and frontal brain areas play different roles in prediction, with the frontal area potentially serving as the place where past experience is merged with new evidence to shape decisions.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

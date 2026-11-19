@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1126/sciadv.aee0620",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "f212f515f83f61de",
+ "generated_at": "2026-11-19T16:24:03+00:00",
+ "word_count": 96,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "In a cellular study, researchers observed that stimulating neurons caused branching dendrites to immobilize vesicles at active translation spots, whereas axons accelerated the movement of these structures.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "A specific type of stimulation increased the proportion of vesicles carrying ribosomes, thereby expanding the local supply of these ribosome-associated particles.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Imaging of individual mRNA molecules revealed that translation sites linked to these vesicles generated approximately 30% more new protein signal than sites lacking them.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "The findings suggest these vesicles may act as specialized platforms connecting neural activity signals with local protein production to regulate translation timing and location.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-19T16:42:25+00:00"
+ }
+}

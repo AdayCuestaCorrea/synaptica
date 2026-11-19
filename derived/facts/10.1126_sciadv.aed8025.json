@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1126/sciadv.aed8025",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "43445aa91f43c7e3",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-19T16:07:05+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used brain recordings from people and their real-time judgments of a soundtrack containing speech and music to test if basic sound features are enough to tell the two apart.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The brain's sound-processing areas followed the timing and pitch changes of the audio, using different types of brain waves to handle the timing versus the pitch.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The brain activity patterns for these sound features were able to predict how a separate group of people categorized the sounds as speech or music.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The left side of the brain was better at tracking the features of speech, while the right side was better at tracking the features of music.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The results suggest that the brain's basic coding of sound features is enough to distinguish speech from music, without needing more complex abstract processing.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

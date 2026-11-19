@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1126/sciadv.aeh5393",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "10459abad445026d",
+ "generated_at": "2026-11-19T16:34:13+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un método de cribado genético en ratones para eliminar genes específicos y evaluar su impacto en el crecimiento de las células asesinas naturales, probando posteriormente los perfiles inmunitarios e infectando a los animales con un virus específico de ratón.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Este cribado identificó genes que controlan el desarrollo de las células asesinas naturales, incluidos aquellos que gestionan el movimiento celular y la actividad génica, mientras que las pruebas de infección revelaron que la proteína similar a sinaptotagmina 3 ayuda a estas células a liberar su contenido para combatir los virus.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "En grandes bases de datos de ADN humano, estos genes mostraron signos de que la pérdida de su función es perjudicial, y también se asociaron con recuentos más bajos de células asesinas naturales en un grupo de pacientes con sistemas inmunitarios débiles.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-19T16:43:26+00:00"
+ }
+}
