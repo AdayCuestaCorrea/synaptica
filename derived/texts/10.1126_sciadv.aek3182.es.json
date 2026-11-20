@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1126/sciadv.aek3182",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "9ccb4fefc39f4aa7",
+ "generated_at": "2026-11-20T16:11:29+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron una red neuronal molecular compuesta por ADN que altera su estructura en respuesta a la acidez del entorno.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Este sistema modifica las conexiones entre sus componentes sin añadir ni eliminar moléculas.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "En una red que procesa entradas de datos de 64 bits, el aumento de la acidez desplazó el sistema de un clasificador simple de dos categorías a uno que distingue cuatro patrones.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los resultados indican que los circuitos de ADN pueden ajustar su estructura de procesamiento en función de las señales procedentes de su entorno.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-20T16:27:47+00:00"
+ }
+}

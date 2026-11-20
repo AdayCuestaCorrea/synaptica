@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1212/wnl.0000000000218770",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "cfd50108808750b1",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-20T16:05:00+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study examined whether the severity of anemia affects the risk of developing idiopathic intracranial hypertension in young adults.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "This retrospective cohort study analyzed data from 111 healthcare organizations, comparing adults aged 18 to 50 with persistent anemia against matched controls with normal hemoglobin levels.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The risk of developing idiopathic intracranial hypertension was higher in all anemia severity groups compared to controls at every measured time point.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Six months after diagnosis, the hazard ratio for developing the condition was 1.45 for mild anemia, 1.61 for moderate anemia, and 2.53 for severe anemia.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "At three years, the hazard ratios were 1.17, 1.15, and 1.40 for mild, moderate, and severe anemia respectively, though the confidence intervals overlapped between severity levels.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Among 340,660 participants in each group, iron supplementation was associated with a reduced hazard of developing the condition, with a hazard ratio of 0.75.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors note that the study's observational design, reliance on administrative data for case identification, and low absolute incidence limit the findings, though anemia is a potentially modifiable factor to evaluate in patients with papilledema.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

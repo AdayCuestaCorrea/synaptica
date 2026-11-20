@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1016/j.tine.2026.100299",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "d75c4e00cc586deb",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-20T15:56:46+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Brain activity was measured using functional near-infrared spectroscopy while participants took part in a 30-minute English class.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Anxiety levels were tracked through heart rate variability, and existing language skills were assessed using verbal fluency scores.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Learners with low anxiety displayed stronger connections within the brain's language network and learned more new words.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Learners with high anxiety showed a different pattern, suggesting that the specific brain areas for language were not engaged as effectively.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "For learners with high anxiety, stronger connections between the general demand network and the language network were linked to better learning, implying a compensatory role.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Learners with higher prior proficiency showed more distinct changes in the relationship between brain connectivity and performance depending on their anxiety level.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "Learners with lower prior proficiency exhibited weaker and less flexible patterns in how their brain connectivity related to learning outcomes.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

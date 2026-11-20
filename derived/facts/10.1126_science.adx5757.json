@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1126/science.adx5757",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "782458ced1e3b68c",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-20T15:51:35+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "In female mice, a combination of social isolation and nerve injury increased the strength of connections between the paraventricular thalamus and the central amygdala, an effect not seen in male mice.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "This specific change in neural circuit activity in females was associated with increased sensitivity to touch and avoidance behaviors later in life.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Using a chemical method to block this specific brain pathway reversed the pain sensitivity and avoidance behaviors only when both stress and injury were present.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Activating the pathway continuously caused increased sensitivity to touch, while brief bursts of activation caused avoidance behaviors.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The study identified a hidden state of increased synaptic strength in the thalamo-amygdala circuit that becomes apparent only after a later injury.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

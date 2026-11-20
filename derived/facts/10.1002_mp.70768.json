@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1002/mp.70768",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "97ea3ddbc47af98c",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-20T15:53:37+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study focuses on a technique called compressed sensing MRI, which tries to create clear images from incomplete data.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers developed a new computer program called DDFU-Net that combines information from two different data representations to improve image quality.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "One part of the new program breaks down complex data into separate real and imaginary parts to better capture image details.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "Another part of the program allows the two different data branches to share information, which helps restore fine details in the images.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The system includes a check to ensure the final image matches the original raw data collected by the scanner.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "Tests on two standard brain image datasets showed that the new program produced images that were as good as or better than existing methods.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "Additional tests confirmed that each main part of the new program contributed to the overall improvement in image quality.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,50 @@
+{
+ "study_id": "10.1038/s41586-026-11305-w",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "688954f673651fbe",
+ "generated_at": "2026-11-20T16:16:33+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un nuevo atlas vinculó los cambios en el tamaño del cerebro y la actividad celular con las variaciones en los hábitos diarios y la conducta observadas durante el envejecimiento y la enfermedad de Alzheimer.",
+   "fact_ids": [
+    "f1",
+    "f4"
+   ]
+  },
+  {
+   "text": "Concretamente, las zonas cerebrales que controlan el metabolismo, el estrés y los ciclos de sueño se encogieron y alteraron su actividad génica a medida que las personas envejecían o desarrollaban la patología.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Dentro de estas regiones, las células inmunitarias del cerebro se volvieron más inflamatorias, mientras que las neuronas que ayudan a regular el sueño y los ritmos diarios mostraron los mayores cambios en su actividad génica.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Los modelos informáticos identificaron además signos de inflamación y genes que controlan el reloj biológico diario como indicadores fuertes de la enfermedad de Alzheimer.",
+   "fact_ids": [
+    "f2"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-20T16:28:47+00:00"
+ }
+}

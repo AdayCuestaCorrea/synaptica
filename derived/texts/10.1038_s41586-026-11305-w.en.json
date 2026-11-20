@@ -1,0 +1,50 @@
+{
+ "study_id": "10.1038/s41586-026-11305-w",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "688954f673651fbe",
+ "generated_at": "2026-11-20T16:16:33+00:00",
+ "word_count": 98,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A new atlas linked changes in brain size and cell activity to shifts in daily habits and behavior observed in aging and Alzheimer's disease.",
+   "fact_ids": [
+    "f1",
+    "f4"
+   ]
+  },
+  {
+   "text": "Specifically, parts of the brain that control metabolism, stress, and sleep cycles shrank and altered their gene activity as people aged or developed the condition.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Within these regions, immune cells in the brain became more inflammatory, while neurons that help regulate sleep and daily rhythms showed the biggest changes in their gene activity.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Computer models further identified signs of inflammation and genes that control the body's daily clock as strong indicators of Alzheimer's disease.",
+   "fact_ids": [
+    "f2"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-20T16:28:47+00:00"
+ }
+}

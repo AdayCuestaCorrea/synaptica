@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1038/s41586-026-11235-7",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "d6525dd9821c586e",
+ "generated_at": "2026-11-20T16:14:31+00:00",
+ "word_count": 93,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed TransA-MERFISH, a technique that integrates a fluorescent tracer with spatial transcriptomics to map neural circuits.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Using this method, the study identified the specific cell types in the superior colliculus that receive connections from four subclasses of retinal ganglion cells.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "The mapping revealed that on-off direction-selective ganglion cells connect to some direction-selective cells in the superior colliculus but not to a specific cell type previously thought to be strongly direction-selective.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Experiments that removed the retinal direction-selective circuits showed that dependent and independent direction-selective cell types are mixed together in the superior colliculus.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-20T16:28:46+00:00"
+ }
+}

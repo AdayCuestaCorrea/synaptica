@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1007/s00520-026-11493-1",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "b665e86644ce35c6",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-20T15:55:42+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study was a prospective single-center cohort involving 33 adults scheduled for CAR T-cell therapy, using a digital platform with 25 cognitive, visual, and graphomotor tasks plus a symptom questionnaire at baseline.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "For follow-up assessments after infusion and before discharge, researchers chose about eight tasks for each participant rather than repeating the full set.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "All 33 enrolled patients finished the baseline assessment, and 30 of them completed both follow-up assessments.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Two patients died before follow-up could occur, and one patient stopped the planned treatment due to clinical instability and did not undergo follow-up.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Only 4 to 11 patients had paired baseline and pre-discharge data for each specific task, and the changes in task scores and reported symptoms varied widely.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "In the three patients with documented grade 1 immune effector cell-associated neurotoxicity syndrome, one reported higher fatigue and neuropathic pain, while another reported more dizziness and difficulty concentrating.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "Patients who did not have immune effector cell-associated neurotoxicity syndrome also showed nonspecific worsening of symptoms.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors state that nonrandom task selection, limited paired data, unvalidated task indices, and nonspecific symptom changes prevent conclusions about detecting neurotoxicity or the clinical utility of the tool.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1038/s41398-026-04586-2",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "b8c2bc1c3fdeb6ee",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-20T15:59:50+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a multi-omics method that combined brain data on DNA methylation, gene expression, and protein levels to look for genetic links between mitochondrial traits and schizophrenia, bipolar disorder, and major depressive disorder.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers applied statistical tools including Mendelian randomization and colocalization analysis, then used a three-step ranking system to identify genes that might cause the conditions.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The analysis ranked ACADVL and SLC25A24 as the top-tier genes for schizophrenia, COX11 as a second-tier gene, and DLST, ENDOG, and PDF as third-tier genes.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The genes ENDOG and PDF were also identified as relevant to a combined phenotype of bipolar disorder and schizophrenia.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "Additional statistical tests supported the idea that the ENDOG gene is linked to changes in DNA methylation.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "While the links between gene expression and protein levels for COX11 and SLC25A24 showed some statistical support, they did not pass a specific consistency test.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "Single-cell data suggested that the ENDOG gene has different effects depending on the type of immune cell involved.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f8",
+   "statement": "The results suggest that mitochondria-related genes play a role in psychiatric disorders and point to specific candidate genes that need to be tested in experiments.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1038/s41586-026-11235-7",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "d6525dd9821c586e",
+ "generated_at": "2026-11-20T16:14:31+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron TransA-MERFISH, una técnica que integra un trazador fluorescente con la transcriptómica espacial para mapear circuitos neuronales.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Mediante este método, el estudio identificó los tipos celulares específicos del colículo superior que reciben conexiones de cuatro subclases de células ganglionares de la retina.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "El mapeo reveló que las células ganglionares direccionales on-off se conectan con algunas células direccionales del colículo superior, pero no con un tipo celular concreto que antes se consideraba fuertemente direccional.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Los experimentos que eliminaron los circuitos direccionales de la retina mostraron que los tipos celulares direccionales dependientes e independientes se encuentran mezclados en el colículo superior.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-20T16:28:46+00:00"
+ }
+}

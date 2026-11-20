@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1073/pnas.2513188123",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "dee8ab7a851bdff1",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-20T16:00:52+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study shows that fruit fly circadian systems use a protein quality control mechanism to maintain daily activity cycles.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Blocking specific quality control proteins in the brain cells that control the body clock disrupted the flies' natural movement patterns.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Removing the protein Caliban, which helps remove defective proteins, caused the adult flies to have weaker and longer daily activity cycles.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The changes in movement were linked to a slower build-up of a key clock protein called PERIOD.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Having one copy of the per gene made the lengthening of the daily cycle worse, while adding more of the TIMELESS protein reduced this effect.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "In lab-grown fly cells lacking Caliban, more incomplete versions of the PERIOD protein were produced.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "The results suggest that the PERIOD protein is a target of this quality control system, linking protein production checks to the timing of the body clock.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

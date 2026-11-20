@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1016/j.tine.2026.100303",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "978377cdfb46187f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-20T15:58:49+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study investigated whether personal differences in achievement goals change brain activity in the ventral striatum when people receive negative feedback.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Participants performed a word association task and got feedback on their performance while their brains were scanned using fMRI.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Brain reactions to negative feedback were linked to how strongly participants focused on approaching goals.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "People with stronger approach goals showed a smaller drop in ventral striatum activity in response to negative feedback compared to the usual pattern.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The findings suggest that personal achievement goals can work with the situation to shape how negative feedback is perceived.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

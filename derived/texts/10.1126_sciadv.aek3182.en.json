@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1126/sciadv.aek3182",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "9ccb4fefc39f4aa7",
+ "generated_at": "2026-11-20T16:11:29+00:00",
+ "word_count": 72,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed a molecular neural network composed of DNA that alters its structure in response to environmental acidity.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "This system modifies the connections between its components without adding or removing any molecules.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "In a network handling 64-bit data inputs, increased acidity shifted the system from a simple two-category sorter to one distinguishing four patterns.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The findings indicate that DNA circuits can adjust their processing structure based on signals from their surroundings.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-20T16:27:47+00:00"
+ }
+}

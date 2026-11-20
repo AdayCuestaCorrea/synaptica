@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1080/19490976.2026.2765085",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "885684f3b050d945",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-20T16:02:55+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used female C57BL/6 mice that had been treated with antibiotics and given progesterone by mouth.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Introducing the bacterium Holdemania filiformis into the gut raised the levels of a specific brain-active steroid in the gut and the brain.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The levels of two related steroids in the liver did not change after the bacteria were added.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The increase in brain steroid levels happened only in the mice that received both the bacteria and the progesterone.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Tracing experiments showed that the steroid found in the brain came from the progesterone given by mouth, not from the body's own supply.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "In lab cultures, the bacteria turned progesterone mostly into the specific steroid called isoallopregnanolone.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "The results suggest that this gut bacterium is a source of the steroid that works together with the body's own production in the gut, liver, and brain.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

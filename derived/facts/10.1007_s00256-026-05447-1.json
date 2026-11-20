@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1007/s00256-026-05447-1",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "6fe64f93da5e915a",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-20T15:54:40+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study was a retrospective analysis using CT images from four different hospitals, with 259 patients used to train the system and 91 patients used for initial testing.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The system was tested on 200 additional patients from other hospitals who had been scanned using equipment from two different manufacturers.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "A type of artificial intelligence called a convolutional neural network was used to identify the fracture area, classify the fracture type, detect pelvic fractures, and measure the angle of the fracture line.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The system correctly classified the fractures 95.7% of the time in the initial test group and 91.5% of the time in the external test group.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The average error in measuring the fracture angle was 4.54 degrees internally and 6.26 degrees externally, which is close to the errors made by orthopedic specialists (3.64 and 5.18 degrees).",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "A small exploratory study with six medical readers was done to see how the computer-aided diagnosis tool affected their performance.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "In the reader study, residents were better at detecting non-displaced femoral neck fractures when using the computer tool, with a sensitivity of 0.78 compared to 0.47 without it.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors suggest this method could help with diagnosing and preparing for surgery for upper thigh bone fractures.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

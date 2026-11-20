@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1177/02698811261504443",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "b6c58a3e9846dfd4",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-20T16:03:56+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study tested two mood-stabilizing drugs, lithium and valproic acid, on a lab-grown line of human nerve cells over three weeks.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers tracked the activity of 18 genes, the amount of a key telomerase protein, the enzyme's overall activity, and the length of the protective caps on the chromosomes.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "Lithium did not change the activity of the cellular machinery that maintains chromosome ends.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "Valproic acid altered the expression of multiple genes that protect and repair chromosome ends after 21 days of exposure.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The drug lowered the amount of a specific telomerase protein and its activity, but the actual length of the chromosome caps stayed the same.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The findings may not fully apply to normal human nerve cells because the experiment used a type of cell that can divide indefinitely in a lab.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

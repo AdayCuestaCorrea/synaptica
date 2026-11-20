@@ -1,0 +1,32 @@
+{
+ "study_id": "10.1073/pnas.2518099123",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "7abb0f1423237cd2",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-20T16:01:54+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study introduces a method called Causal Dynamic Resonance that adds white noise to data to reduce false positives in causality detection without changing the underlying system.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The new method builds on two previously developed nonlinear techniques for analyzing causal influence and dynamical similarity in time series.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The method was first tested on coupled Rössler systems, which are mathematical models with known interaction patterns.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The method was also applied to brain recordings from patients with drug-resistant epilepsy who were being monitored before surgery.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

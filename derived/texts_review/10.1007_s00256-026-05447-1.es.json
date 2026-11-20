@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1007/s00256-026-05447-1",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "d4e535eacb18c1f7",
+ "generated_at": "2026-11-20T16:24:40+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 2: words not in the Spanish dictionary ['convolucional']"
+ ],
+ "sentences": [
+  {
+   "text": "Un análisis retrospectivo de imágenes de TC procedentes de cuatro hospitales evaluó un sistema de diagnóstico entrenado con 259 pacientes y probado en 91 pacientes internos y 200 externos de dos fabricantes de equipos.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El sistema empleó una red neuronal convolucional, un tipo de inteligencia artificial, para identificar zonas de fractura, clasificar tipos, detectar fracturas pélvicas y medir los ángulos de las líneas de fractura.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Clasificó correctamente las fracturas en el 95,7 % de los casos internos y en el 91,5 % de los externos, con errores medios de medición del ángulo de 4,54 y 6,26 grados, respectivamente, valores cercanos a los errores de los especialistas, que fueron de 3,64 y 5,18 grados.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "En un estudio exploratorio con seis lectores médicos, los residentes mostraron una sensibilidad mejorada para detectar fracturas de cuello femoral no desplazadas al utilizar la herramienta, pasando de 0,47 a 0,78.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que este método podría ayudar en el diagnóstico y la preparación quirúrgica de las fracturas del hueso del muslo superior.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-20T16:27:44+00:00"
+}

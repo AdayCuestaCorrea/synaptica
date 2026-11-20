@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1002/mp.70768",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "4e509b3041286a8f",
+ "generated_at": "2026-11-20T16:22:39+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron un nuevo programa informático llamado DDFU-Net para mejorar la resonancia magnética por muestreo comprimido, una técnica que genera imágenes nítidas a partir de datos incompletos.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El sistema combina dos representaciones de datos, dividiendo la información compleja en partes real e imaginaria, y permite que estas ramas compartan información para restaurar los detalles finos.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Un paso de verificación garantiza que la imagen final coincida con los datos brutos originales recogidos por el escáner.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Las pruebas realizadas en dos conjuntos de datos estándar de imágenes cerebrales mostraron que el programa producía imágenes igual de buenas o mejores que los métodos existentes, y pruebas adicionales confirmaron que cada componente principal contribuyó a la mejora global.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-20T16:29:46+00:00"
+ }
+}

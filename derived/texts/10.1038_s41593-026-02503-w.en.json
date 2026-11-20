@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1038/s41593-026-02503-w",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "615abf9872e7a75a",
+ "generated_at": "2026-11-20T16:19:35+00:00",
+ "word_count": 157,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers used a mouse model to compare the effects of expanding immature adult-born dentate granule cells at four weeks of age against mature cells at eight weeks of age.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Expanding these immature cells was associated with the recruitment of fast-spiking inhibitory interneurons that express parvalbumin in the CA3 and CA2 regions, a change linked to increased feed-forward inhibition and improved consolidation of social memories.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Electrical recordings in the dorsal CA1 and CA2 areas showed that sharp-wave ripples, high-frequency oscillations, had higher baseline power, amplitude, and duration, and their rate was more strongly modulated by social experiences.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Chemogenetic manipulations indicated that inhibitory neurons in dorsal CA3 and CA2 are necessary for social memory consolidation when the immature cells are expanded, and sufficient for it when they are not.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors suggest that the prolonged immaturity of these cells supports cognition by boosting feed-forward inhibition and promoting network oscillations related to memory consolidation.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-20T16:28:48+00:00"
+ }
+}

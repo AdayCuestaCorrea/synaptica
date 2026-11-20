@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1038/s41593-026-02503-w",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "615abf9872e7a75a",
+ "generated_at": "2026-11-20T16:19:35+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores utilizaron un modelo de ratón para comparar los efectos de la expansión de células granulares del giro dentado inmaduras, nacidas en la edad adulta a las cuatro semanas, frente a las células maduras a las ocho semanas.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "La expansión de estas células inmaduras se asoció con el reclutamiento de interneuronas inhibitorias de disparo rápido que expresan parvalbumina en las regiones CA3 y CA2, un cambio vinculado a un aumento de la inhibición de avance y a una mejor consolidación de los recuerdos sociales.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Las grabaciones eléctricas en las áreas dorsales CA1 y CA2 mostraron que las ondulaciones de onda aguda, oscilaciones de alta frecuencia, tenían una potencia, amplitud y duración basales más elevadas, y que su frecuencia se modulaba con mayor intensidad por las experiencias sociales.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Las manipulaciones quimio-genéticas indicaron que las neuronas inhibitorias en las regiones dorsales CA3 y CA2 son necesarias para la consolidación de la memoria social cuando se expanden las células inmaduras, y suficientes para ello cuando no se expanden.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que la inmadurez prolongada de estas células apoya la cognición al potenciar la inhibición de avance y promover las oscilaciones de red relacionadas con la consolidación de la memoria.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-20T16:28:48+00:00"
+ }
+}

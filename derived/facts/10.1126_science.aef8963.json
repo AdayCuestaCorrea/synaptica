@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1126/science.aef8963",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "affdf1123365b2db",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-20T15:52:36+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used direct brain recordings, electrical stimulation, and analysis of brain damage to investigate the function of Wernicke's area in humans.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "A specific part of Wernicke's area called the left posterior superior temporal gyrus activates before a person speaks and is required for producing speech.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The activity in this brain region reflects the meaning of entire words that are about to be spoken, rather than the sounds or mouth movements involved in speech.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The signals from this brain area are different from those processing the sound of one's own voice and can be used to identify what paralyzed people intend to say.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The findings suggest that Wernicke's area contains a specialized section specifically for generating speech, in addition to its role in hearing.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

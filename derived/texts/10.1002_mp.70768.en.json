@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1002/mp.70768",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "4e509b3041286a8f",
+ "generated_at": "2026-11-20T16:22:39+00:00",
+ "word_count": 95,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed a new computer program called DDFU-Net to improve compressed sensing MRI, a technique that creates clear images from incomplete data.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The system combines two data representations, breaking complex data into real and imaginary parts while allowing these branches to share information to restore fine details.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "A verification step ensures the final image matches the original raw data collected by the scanner.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Tests on two standard brain image datasets showed the program produced images as good as or better than existing methods, with additional tests confirming each main part contributed to the overall improvement.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-20T16:29:46+00:00"
+ }
+}

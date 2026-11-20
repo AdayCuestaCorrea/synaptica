@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1126/science.adx5757",
+ "lang": "es",
+ "status": "rejected_by_judge",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "579ec6db498354f4",
+ "generated_at": "2026-11-20T16:06:05+00:00",
+ "word_count": null,
+ "problems": [
+  "judge: Summary incorrectly states rats instead of mice, misrepresenting the studied species."
+ ],
+ "sentences": [
+  {
+   "text": "En ratones hembra, la combinación de aislamiento social y lesión nerviosa aumentó la fuerza de las conexiones entre el tálamo paraventricular y la amígdala central, un efecto que no se observó en los machos.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Este cambio específico en la actividad del circuito neuronal se asoció con una mayor sensibilidad al tacto y comportamientos de evitación en etapas posteriores de la vida, revelando un estado oculto de mayor fuerza sináptica que solo se manifiesta tras una lesión posterior.",
+   "fact_ids": [
+    "f2",
+    "f5"
+   ]
+  },
+  {
+   "text": "El bloqueo de esta vía cerebral específica mediante un método químico revirtió la sensibilidad al dolor y los comportamientos de evitación únicamente cuando estaban presentes tanto el estrés como la lesión, mientras que la activación continua de la vía provocó una mayor sensibilidad al tacto y las ráfagas breves de activación causaron comportamientos de evitación.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": false,
+  "passed": false,
+  "reason": "Summary incorrectly states rats instead of mice, misrepresenting the studied species.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-20T16:27:45+00:00"
+ }
+}

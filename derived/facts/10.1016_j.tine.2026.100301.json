@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1016/j.tine.2026.100301",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "06e1f42af98b8b3f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-20T15:57:48+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study compared 30 men trained in Vedic Sanskrit with 30 men without this training, all aged between 21 and 28.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers measured memory performance and several indicators of brain activity and connectivity, while statistically accounting for age and general intelligence.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The Vedic scholars scored significantly higher than the non-Vedic men on a test of immediate memory recall, but the two groups performed similarly on other memory tasks.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Brain scans showed that the scholars had stronger spontaneous activity in parts of the cerebellum and different patterns of local brain coordination in the parietal, occipital, and temporal regions compared to the non-Vedic men.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Analysis of how different brain areas communicate revealed that the scholars had a network with generally weaker connections between specific regions.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Among the Vedic scholars, the amount of training was linked to brain activity and connectivity in the thalamus, medial temporal lobe, frontal lobe, and sensorimotor areas.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The study did not find a statistically reliable link between the specific brain measures and memory performance or training history after adjusting for multiple comparisons.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors conclude that long-term Vedic education is associated with better immediate recall and unique brain organization, but they note that future studies following people over time are needed.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

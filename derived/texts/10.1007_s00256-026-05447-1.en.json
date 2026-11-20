@@ -1,0 +1,58 @@
+{
+ "study_id": "10.1007/s00256-026-05447-1",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "d4e535eacb18c1f7",
+ "generated_at": "2026-11-20T16:24:40+00:00",
+ "word_count": 135,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A retrospective analysis of CT images from four hospitals evaluated a diagnostic system trained on 259 patients and tested on 91 internal and 200 external patients from two equipment manufacturers.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The system employed a convolutional neural network, a type of artificial intelligence, to identify fracture areas, classify types, detect pelvic fractures, and measure fracture line angles.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "It correctly classified fractures 95.7% of the time internally and 91.5% externally, with average angle measurement errors of 4.54 and 6.26 degrees, respectively, which were close to specialist errors of 3.64 and 5.18 degrees.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "In an exploratory study with six medical readers, residents showed improved sensitivity for detecting non-displaced femoral neck fractures when using the tool, rising from 0.47 to 0.78.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "The authors suggest this method could help with diagnosing and preparing for surgery for upper thigh bone fractures.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-20T16:29:47+00:00"
+ }
+}

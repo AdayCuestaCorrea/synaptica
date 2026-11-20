@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1126/science.adx5757",
+ "lang": "en",
+ "status": "rejected_by_judge",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "579ec6db498354f4",
+ "generated_at": "2026-11-20T16:06:05+00:00",
+ "word_count": 110,
+ "problems": [
+  "judge: Summary incorrectly states rats instead of mice, misrepresenting the studied species."
+ ],
+ "sentences": [
+  {
+   "text": "In female mice, a combination of social isolation and nerve injury increased the strength of connections between the paraventricular thalamus and the central amygdala, an effect not seen in male mice.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "This specific change in neural circuit activity was associated with increased sensitivity to touch and avoidance behaviors later in life, revealing a hidden state of increased synaptic strength that becomes apparent only after a later injury.",
+   "fact_ids": [
+    "f2",
+    "f5"
+   ]
+  },
+  {
+   "text": "Using a chemical method to block this specific brain pathway reversed the pain sensitivity and avoidance behaviors only when both stress and injury were present, while activating the pathway continuously caused increased sensitivity to touch and brief bursts of activation caused avoidance behaviors.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": false,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": false,
+  "passed": false,
+  "reason": "Summary incorrectly states rats instead of mice, misrepresenting the studied species.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-20T16:27:45+00:00"
+ }
+}
