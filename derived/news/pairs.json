@@ -370,6 +370,24 @@
  },
  {
   "key_a": "journal:10.1038/d41586-026-03377-5",
+  "key_b": "journal:10.1038/d41586-026-03757-x",
+  "same": false,
+  "hash_a": "00f4d20a1251",
+  "hash_b": "de3e5befc8a5",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1038/d41586-026-03377-5",
+  "key_b": "journal:10.1038/d41586-026-03770-0",
+  "same": false,
+  "hash_a": "00f4d20a1251",
+  "hash_b": "0f1443857298",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1038/d41586-026-03377-5",
   "key_b": "journal:10.1038/d41586-026-03774-w",
   "same": false,
   "hash_a": "00f4d20a1251",
@@ -383,6 +401,24 @@
   "same": false,
   "hash_a": "00f4d20a1251",
   "hash_b": "6ec11f371a27",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1038/d41586-026-03377-5",
+  "key_b": "news:0baf2c27ca6ab352",
+  "same": false,
+  "hash_a": "00f4d20a1251",
+  "hash_b": "362e40a381ea",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1038/d41586-026-03377-5",
+  "key_b": "news:2c70f4b13501fd6e",
+  "same": false,
+  "hash_a": "00f4d20a1251",
+  "hash_b": "0e9355fd47f0",
   "generator": "groq/qwen/qwen3.8-27b",
   "prompt_version": "same-story-v1"
  },
@@ -406,10 +442,109 @@
  },
  {
   "key_a": "journal:10.1038/d41586-026-03377-5",
+  "key_b": "news:4946bda7fe48c56e",
+  "same": false,
+  "hash_a": "00f4d20a1251",
+  "hash_b": "7b1c66bb0cd7",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1038/d41586-026-03377-5",
+  "key_b": "news:57baa392200504a5",
+  "same": false,
+  "hash_a": "00f4d20a1251",
+  "hash_b": "5e89343fbd0d",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1038/d41586-026-03377-5",
+  "key_b": "news:599756f8f68a4821",
+  "same": false,
+  "hash_a": "00f4d20a1251",
+  "hash_b": "14dd3a369cc2",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1038/d41586-026-03377-5",
+  "key_b": "news:7b3fa9f63382cb15",
+  "same": false,
+  "hash_a": "00f4d20a1251",
+  "hash_b": "328aae2b319f",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1038/d41586-026-03377-5",
+  "key_b": "news:7d12500bb83c8f77",
+  "same": false,
+  "hash_a": "00f4d20a1251",
+  "hash_b": "f7a1057a650b",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1038/d41586-026-03377-5",
+  "key_b": "news:96fc8178571317aa",
+  "same": false,
+  "hash_a": "00f4d20a1251",
+  "hash_b": "ddd530af23da",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1038/d41586-026-03377-5",
+  "key_b": "news:b5128f6cb027a9c6",
+  "same": false,
+  "hash_a": "00f4d20a1251",
+  "hash_b": "9cb680c9bb0f",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1038/d41586-026-03377-5",
   "key_b": "news:b7e52b65eb9b576e",
   "same": false,
   "hash_a": "00f4d20a1251",
   "hash_b": "b92b4f30a71b",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1038/d41586-026-03377-5",
+  "key_b": "news:c483ec2db561705f",
+  "same": false,
+  "hash_a": "00f4d20a1251",
+  "hash_b": "b2f3c0996fde",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1038/d41586-026-03377-5",
+  "key_b": "news:e23ee2ffb4c56fed",
+  "same": false,
+  "hash_a": "00f4d20a1251",
+  "hash_b": "3a839c2632a3",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1038/d41586-026-03377-5",
+  "key_b": "news:f23b070fa6c8c79d",
+  "same": false,
+  "hash_a": "00f4d20a1251",
+  "hash_b": "89852028bc79",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "prompt_version": "same-story-v1"
+ },
+ {
+  "key_a": "journal:10.1038/d41586-026-03377-5",
+  "key_b": "news:f9401287c2ce0042",
+  "same": false,
+  "hash_a": "00f4d20a1251",
+  "hash_b": "e6869b4458a9",
   "generator": "groq/qwen/qwen3.8-27b",
   "prompt_version": "same-story-v1"
  },

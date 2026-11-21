@@ -112,6 +112,22 @@
   "classified_at": "2026-11-20T15:31:00+00:00"
  },
  {
+  "key": "journal:10.1126/science.aek1724",
+  "type": "healthy_brain",
+  "input_hash": "ccf9926c76c5",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
+  "key": "journal:10.1126/science.aem7976",
+  "type": "healthy_brain",
+  "input_hash": "9e8436ecaaeb",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "journal:10.1126/science.aeo0622",
   "type": "noise",
   "input_hash": "2c2c05fe44c7",
@@ -462,6 +478,14 @@
   "prompt_version": "types-v1",
   "generator": "ollama/paleo-qwen3.5-9b",
   "classified_at": "2026-11-13T12:13:03+00:00"
+ },
+ {
+  "key": "news:2e7aef1f8de2083e",
+  "type": "disease",
+  "input_hash": "d5cd1a014aee",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "news:2fbe1cf4470a69f8",
@@ -990,6 +1014,14 @@
   "prompt_version": "types-v1",
   "generator": "ollama/paleo-qwen3.5-9b",
   "classified_at": "2026-11-13T12:13:03+00:00"
+ },
+ {
+  "key": "news:9a7d62160314c0b9",
+  "type": "healthy_brain",
+  "input_hash": "4ef1b64cf0c2",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "news:9b67134925d7978e",
@@ -1528,6 +1560,14 @@
   "classified_at": "2026-11-17T16:03:24+00:00"
  },
  {
+  "key": "study:10.1002/2211-5463.70363",
+  "type": "noise",
+  "input_hash": "dc63aff7d6a0",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1002/acm2.70902",
   "type": "technique",
   "input_hash": "fba5d596034a",
@@ -1638,6 +1678,14 @@
   "prompt_version": "types-v1",
   "generator": "groq/qwen/qwen3.8-27b",
   "classified_at": "2026-11-18T15:40:57+00:00"
+ },
+ {
+  "key": "study:10.1002/adma.75817",
+  "type": "noise",
+  "input_hash": "feec2f45b147",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1002/advs.78225",
@@ -2104,6 +2152,14 @@
   "classified_at": "2026-11-13T12:13:03+00:00"
  },
  {
+  "key": "study:10.1002/art.70396",
+  "type": "disease",
+  "input_hash": "39b7aafab26f",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1002/atn2.70371",
   "type": "noise",
   "input_hash": "a723a4f66a7a",
@@ -2312,12 +2368,28 @@
   "classified_at": "2026-11-19T15:47:23+00:00"
  },
  {
+  "key": "study:10.1002/brb3.71950",
+  "type": "clinical_trial",
+  "input_hash": "95b33c2e91fc",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1002/cam4.72328",
   "type": "noise",
   "input_hash": "250f439e9494",
   "prompt_version": "types-v1",
   "generator": "ollama/paleo-qwen3.5-9b",
   "classified_at": "2026-11-13T12:13:03+00:00"
+ },
+ {
+  "key": "study:10.1002/cam4.72530",
+  "type": "disease",
+  "input_hash": "b8659327edbc",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1002/cbdv.71924",
@@ -2768,6 +2840,14 @@
   "classified_at": "2026-11-18T19:05:35+00:00"
  },
  {
+  "key": "study:10.1002/epd2.70481",
+  "type": "disease",
+  "input_hash": "22572d49c1e1",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1002/epi.70535",
   "type": "disease",
   "input_hash": "48b51f024191",
@@ -2790,6 +2870,14 @@
   "prompt_version": "types-v1",
   "generator": "ollama/paleo-qwen3.5-9b",
   "classified_at": "2026-11-13T12:13:03+00:00"
+ },
+ {
+  "key": "study:10.1002/epi.70575",
+  "type": "disease",
+  "input_hash": "afaa16bdcdee",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1002/epi.70578",
@@ -2888,6 +2976,14 @@
   "classified_at": "2026-11-18T19:05:35+00:00"
  },
  {
+  "key": "study:10.1002/glia.70279",
+  "type": "healthy_brain",
+  "input_hash": "1735846d25a6",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1002/gps.70264",
   "type": "noise",
   "input_hash": "efcecbde8b47",
@@ -2984,6 +3080,14 @@
   "classified_at": "2026-11-18T19:05:35+00:00"
  },
  {
+  "key": "study:10.1002/hbm.70695",
+  "type": "technique",
+  "input_hash": "5690c8c2fda3",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1002/hipo.70146",
   "type": "healthy_brain",
   "input_hash": "2d9ae78f34cf",
@@ -3022,6 +3126,14 @@
   "prompt_version": "types-v1",
   "generator": "ollama/paleo-qwen3.5-9b",
   "classified_at": "2026-11-13T12:13:03+00:00"
+ },
+ {
+  "key": "study:10.1002/jat.70506",
+  "type": "disease",
+  "input_hash": "4a1a9e42cc2d",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1002/jbio.70390",
@@ -3070,6 +3182,14 @@
   "prompt_version": "types-v1",
   "generator": "groq/qwen/qwen3.8-27b",
   "classified_at": "2026-11-16T15:46:14+00:00"
+ },
+ {
+  "key": "study:10.1002/jbt.71195",
+  "type": "disease",
+  "input_hash": "7ffaa88d563a",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1002/jcc.70583",
@@ -3712,6 +3832,14 @@
   "classified_at": "2026-11-13T12:13:03+00:00"
  },
  {
+  "key": "study:10.1002/trc2.70348",
+  "type": "disease",
+  "input_hash": "181d323e0de6",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1002/uog.70354",
   "type": "noise",
   "input_hash": "22b790bae2d7",
@@ -3726,6 +3854,14 @@
   "prompt_version": "types-v1",
   "generator": "groq/qwen/qwen3.8-27b",
   "classified_at": "2026-11-18T15:40:57+00:00"
+ },
+ {
+  "key": "study:10.1002/uog.70379",
+  "type": "disease",
+  "input_hash": "bb8c625054d1",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1002/vms3.71328",
@@ -4088,6 +4224,46 @@
   "classified_at": "2026-11-13T12:13:03+00:00"
  },
  {
+  "key": "study:10.1007/s00210-026-06075-1",
+  "type": "disease",
+  "input_hash": "09a88a8a18ca",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
+  "key": "study:10.1007/s00210-026-06078-y",
+  "type": "disease",
+  "input_hash": "9e4600b06542",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
+  "key": "study:10.1007/s00210-026-06099-7",
+  "type": "disease",
+  "input_hash": "f7643e00bbcb",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
+  "key": "study:10.1007/s00210-026-06120-z",
+  "type": "disease",
+  "input_hash": "75406f583a74",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
+  "key": "study:10.1007/s00210-026-06122-x",
+  "type": "disease",
+  "input_hash": "7f75918f572f",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1007/s00213-026-07204-7",
   "type": "healthy_brain",
   "input_hash": "119dd176de41",
@@ -4126,6 +4302,14 @@
   "prompt_version": "types-v1",
   "generator": "ollama/paleo-qwen3.5-9b",
   "classified_at": "2026-11-13T12:13:03+00:00"
+ },
+ {
+  "key": "study:10.1007/s00221-026-07419-2",
+  "type": "healthy_brain",
+  "input_hash": "fd2ea381e084",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1007/s00221-026-07429-0",
@@ -4232,6 +4416,22 @@
   "classified_at": "2026-11-13T12:13:03+00:00"
  },
  {
+  "key": "study:10.1007/s00234-026-04272-6",
+  "type": "technique",
+  "input_hash": "4616be09e980",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
+  "key": "study:10.1007/s00234-026-04275-3",
+  "type": "disease",
+  "input_hash": "82d8dabdf23c",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1007/s00247-026-06829-2",
   "type": "noise",
   "input_hash": "6b5c90830ef3",
@@ -4272,6 +4472,30 @@
   "classified_at": "2026-11-13T12:13:03+00:00"
  },
  {
+  "key": "study:10.1007/s00276-026-04057-9",
+  "type": "noise",
+  "input_hash": "de0b0d90578f",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
+  "key": "study:10.1007/s00276-026-04060-0",
+  "type": "noise",
+  "input_hash": "3197a15cbc4b",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
+  "key": "study:10.1007/s00276-026-04063-x",
+  "type": "noise",
+  "input_hash": "b6b09e8c3a21",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1007/s00285-026-02492-1",
   "type": "technique",
   "input_hash": "0b2360722308",
@@ -4286,6 +4510,14 @@
   "prompt_version": "types-v1",
   "generator": "groq/qwen/qwen3.8-27b",
   "classified_at": "2026-11-19T15:47:23+00:00"
+ },
+ {
+  "key": "study:10.1007/s00330-026-13094-2",
+  "type": "disease",
+  "input_hash": "a897d101a96c",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1007/s00345-026-06920-1",
@@ -4374,6 +4606,14 @@
   "prompt_version": "types-v1",
   "generator": "ollama/paleo-qwen3.5-9b",
   "classified_at": "2026-11-13T12:13:03+00:00"
+ },
+ {
+  "key": "study:10.1007/s00415-026-14205-1",
+  "type": "disease",
+  "input_hash": "8c2dcf873d24",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1007/s00415-026-14234-w",
@@ -4518,6 +4758,14 @@
   "prompt_version": "types-v1",
   "generator": "ollama/paleo-qwen3.5-9b",
   "classified_at": "2026-11-13T12:13:03+00:00"
+ },
+ {
+  "key": "study:10.1007/s00422-026-01073-1",
+  "type": "healthy_brain",
+  "input_hash": "0003b703be48",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1007/s00422-026-01074-0",
@@ -4728,12 +4976,28 @@
   "classified_at": "2026-11-19T15:47:23+00:00"
  },
  {
+  "key": "study:10.1007/s00431-026-07661-4",
+  "type": "disease",
+  "input_hash": "e772c72e595f",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1007/s00439-026-02868-9",
   "type": "noise",
   "input_hash": "f5a58da7103a",
   "prompt_version": "types-v1",
   "generator": "groq/qwen/qwen3.8-27b",
   "classified_at": "2026-11-20T15:31:00+00:00"
+ },
+ {
+  "key": "study:10.1007/s00439-026-02889-4",
+  "type": "disease",
+  "input_hash": "a78ed9bc273d",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1007/s00439-026-02893-8",
@@ -4782,6 +5046,14 @@
   "prompt_version": "types-v1",
   "generator": "groq/qwen/qwen3.8-27b",
   "classified_at": "2026-11-20T15:31:00+00:00"
+ },
+ {
+  "key": "study:10.1007/s00520-026-11509-w",
+  "type": "disease",
+  "input_hash": "6600b50f5e30",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1007/s00590-026-05024-1",
@@ -4886,6 +5158,14 @@
   "prompt_version": "types-v1",
   "generator": "ollama/paleo-qwen3.5-9b",
   "classified_at": "2026-11-13T12:13:03+00:00"
+ },
+ {
+  "key": "study:10.1007/s10048-026-00960-w",
+  "type": "disease",
+  "input_hash": "5b1fab83d23c",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1007/s10072-026-09438-x",
@@ -5072,6 +5352,14 @@
   "classified_at": "2026-11-13T12:13:03+00:00"
  },
  {
+  "key": "study:10.1007/s10143-026-04563-9",
+  "type": "disease",
+  "input_hash": "a37d5a9bfd7b",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1007/s10143-026-04564-8",
   "type": "noise",
   "input_hash": "30745d3351ca",
@@ -5150,6 +5438,14 @@
   "prompt_version": "types-v1",
   "generator": "groq/qwen/qwen3.8-27b",
   "classified_at": "2026-11-18T15:40:57+00:00"
+ },
+ {
+  "key": "study:10.1007/s10143-026-04600-7",
+  "type": "disease",
+  "input_hash": "61281f7acda2",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1007/s10143-026-04604-3",
@@ -5432,6 +5728,14 @@
   "classified_at": "2026-11-13T12:13:03+00:00"
  },
  {
+  "key": "study:10.1007/s10616-026-01114-4",
+  "type": "disease",
+  "input_hash": "d5da945fdba3",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1007/s10653-026-03549-2",
   "type": "disease",
   "input_hash": "f8bf7a25a1bc",
@@ -5446,6 +5750,14 @@
   "prompt_version": "types-v1",
   "generator": "ollama/paleo-qwen3.5-9b",
   "classified_at": "2026-11-13T12:13:03+00:00"
+ },
+ {
+  "key": "study:10.1007/s10661-026-16186-0",
+  "type": "noise",
+  "input_hash": "171bf569e041",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1007/s10695-026-01805-x",
@@ -5502,6 +5814,22 @@
   "prompt_version": "types-v1",
   "generator": "groq/qwen/qwen3.8-27b",
   "classified_at": "2026-11-20T15:31:00+00:00"
+ },
+ {
+  "key": "study:10.1007/s10822-026-00979-z",
+  "type": "noise",
+  "input_hash": "88f41e96a648",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
+  "key": "study:10.1007/s10822-026-00983-3",
+  "type": "noise",
+  "input_hash": "45f0f157d0c3",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1007/s10863-026-10144-8",
@@ -5680,6 +6008,14 @@
   "classified_at": "2026-11-13T12:13:03+00:00"
  },
  {
+  "key": "study:10.1007/s11060-026-05846-3",
+  "type": "technique",
+  "input_hash": "2fe5bd1e86dd",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1007/s11060-026-05850-7",
   "type": "technique",
   "input_hash": "c59a7eddedb5",
@@ -5824,6 +6160,14 @@
   "classified_at": "2026-11-16T15:46:14+00:00"
  },
  {
+  "key": "study:10.1007/s11060-026-05886-9",
+  "type": "technique",
+  "input_hash": "b13f1277feff",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1007/s11064-026-04910-8",
   "type": "disease",
   "input_hash": "362dc9113a8d",
@@ -5856,6 +6200,14 @@
   "classified_at": "2026-11-13T12:13:03+00:00"
  },
  {
+  "key": "study:10.1007/s11064-026-04955-9",
+  "type": "disease",
+  "input_hash": "1266673324e8",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1007/s11064-026-04958-6",
   "type": "disease",
   "input_hash": "b1d23abf5eae",
@@ -5870,6 +6222,14 @@
   "prompt_version": "types-v1",
   "generator": "groq/qwen/qwen3.8-27b",
   "classified_at": "2026-11-20T15:31:00+00:00"
+ },
+ {
+  "key": "study:10.1007/s11064-026-04960-y",
+  "type": "disease",
+  "input_hash": "e71d12c1634b",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1007/s11102-026-01761-y",
@@ -6112,6 +6472,22 @@
   "classified_at": "2026-11-18T15:40:57+00:00"
  },
  {
+  "key": "study:10.1007/s11357-026-02661-6",
+  "type": "healthy_brain",
+  "input_hash": "4060779fb615",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
+  "key": "study:10.1007/s11427-025-3374-5",
+  "type": "healthy_brain",
+  "input_hash": "262b7edc730f",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1007/s11427-026-3419-6",
   "type": "disease",
   "input_hash": "122fc719c99a",
@@ -6128,12 +6504,28 @@
   "classified_at": "2026-11-17T16:03:24+00:00"
  },
  {
+  "key": "study:10.1007/s11481-026-10330-w",
+  "type": "disease",
+  "input_hash": "8e1f8dfe7170",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1007/s11538-026-01792-3",
   "type": "disease",
   "input_hash": "3cc8fe3c0aa0",
   "prompt_version": "types-v1",
   "generator": "ollama/paleo-qwen3.5-9b",
   "classified_at": "2026-11-13T12:13:03+00:00"
+ },
+ {
+  "key": "study:10.1007/s11547-026-02308-8",
+  "type": "clinical_trial",
+  "input_hash": "a513a3371d20",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1007/s11571-026-10577-2",
@@ -6552,6 +6944,14 @@
   "classified_at": "2026-11-19T15:47:23+00:00"
  },
  {
+  "key": "study:10.1007/s12035-026-06335-4",
+  "type": "disease",
+  "input_hash": "1bd5946ebe07",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1007/s12035-026-06336-3",
   "type": "disease",
   "input_hash": "cf88f91b728d",
@@ -6574,6 +6974,30 @@
   "prompt_version": "types-v1",
   "generator": "ollama/paleo-qwen3.5-9b",
   "classified_at": "2026-11-13T12:13:03+00:00"
+ },
+ {
+  "key": "study:10.1007/s12035-026-06349-y",
+  "type": "disease",
+  "input_hash": "31b25343c8f8",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
+  "key": "study:10.1007/s12035-026-06350-5",
+  "type": "disease",
+  "input_hash": "78a349d9b978",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
+  "key": "study:10.1007/s12035-026-06365-y",
+  "type": "disease",
+  "input_hash": "b912919d62f4",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1007/s12094-026-04573-5",
@@ -6662,6 +7086,14 @@
   "prompt_version": "types-v1",
   "generator": "groq/qwen/qwen3.8-27b",
   "classified_at": "2026-11-14T16:43:35+00:00"
+ },
+ {
+  "key": "study:10.1007/s12311-026-02118-8",
+  "type": "disease",
+  "input_hash": "36425acae6b5",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1007/s12325-026-03859-y",
@@ -6952,6 +7384,14 @@
   "classified_at": "2026-11-20T15:31:00+00:00"
  },
  {
+  "key": "study:10.1016/j.acra.2026.11.015",
+  "type": "disease",
+  "input_hash": "93e96564efd7",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1016/j.actatropica.2026.108402",
   "type": "noise",
   "input_hash": "afd1c821e453",
@@ -6998,6 +7438,14 @@
   "prompt_version": "types-v1",
   "generator": "groq/qwen/qwen3.8-27b",
   "classified_at": "2026-11-14T16:43:35+00:00"
+ },
+ {
+  "key": "study:10.1016/j.actpsy.2026.108161",
+  "type": "healthy_brain",
+  "input_hash": "8277d07b4583",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1016/j.actpsy.2026.108173",
@@ -7102,6 +7550,14 @@
   "prompt_version": "types-v1",
   "generator": "groq/qwen/qwen3.8-27b",
   "classified_at": "2026-11-15T13:56:45+00:00"
+ },
+ {
+  "key": "study:10.1016/j.bandc.2026.106499",
+  "type": "disease",
+  "input_hash": "997117f8226f",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1016/j.bandl.2026.105867",
@@ -7272,6 +7728,14 @@
   "classified_at": "2026-11-14T16:43:35+00:00"
  },
  {
+  "key": "study:10.1016/j.bbrc.2026.154919",
+  "type": "healthy_brain",
+  "input_hash": "436d7a3c02a1",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1016/j.bbrep.2026.102829",
   "type": "technique",
   "input_hash": "f8c82995c73b",
@@ -7302,6 +7766,14 @@
   "prompt_version": "types-v1",
   "generator": "groq/qwen/qwen3.8-27b",
   "classified_at": "2026-11-16T15:46:14+00:00"
+ },
+ {
+  "key": "study:10.1016/j.bbrep.2026.102885",
+  "type": "disease",
+  "input_hash": "09f5bc31dcaa",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1016/j.bbrep.2026.102890",
@@ -7640,6 +8112,14 @@
   "classified_at": "2026-11-15T13:56:45+00:00"
  },
  {
+  "key": "study:10.1016/j.bja.2026.09.025",
+  "type": "disease",
+  "input_hash": "c3151d04ba90",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1016/j.bmc.2026.118841",
   "type": "disease",
   "input_hash": "b19ad0abe87e",
@@ -7656,6 +8136,14 @@
   "classified_at": "2026-11-13T12:13:03+00:00"
  },
  {
+  "key": "study:10.1016/j.bpsc.2026.10.017",
+  "type": "disease",
+  "input_hash": "e843edd82633",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1016/j.bpsc.2026.11.003",
   "type": "disease",
   "input_hash": "942dbac400b4",
@@ -7670,6 +8158,22 @@
   "prompt_version": "types-v1",
   "generator": "groq/qwen/qwen3.8-27b",
   "classified_at": "2026-11-18T15:40:57+00:00"
+ },
+ {
+  "key": "study:10.1016/j.bpsc.2026.11.005",
+  "type": "disease",
+  "input_hash": "c72ae57398b8",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
+  "key": "study:10.1016/j.bpsc.2026.11.006",
+  "type": "healthy_brain",
+  "input_hash": "4f5096815bc2",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1016/j.braindev.2026.104618",
@@ -8232,6 +8736,14 @@
   "classified_at": "2026-11-13T12:13:03+00:00"
  },
  {
+  "key": "study:10.1016/j.celrep.2026.118270",
+  "type": "disease",
+  "input_hash": "575704c20f78",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1016/j.celrep.2026.118272",
   "type": "healthy_brain",
   "input_hash": "81d78bc5e84c",
@@ -8312,6 +8824,14 @@
   "classified_at": "2026-11-14T16:43:35+00:00"
  },
  {
+  "key": "study:10.1016/j.celrep.2026.118356",
+  "type": "healthy_brain",
+  "input_hash": "e3f04fcd7e02",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1016/j.celrep.2026.118362",
   "type": "healthy_brain",
   "input_hash": "3be1e1d7d334",
@@ -8350,6 +8870,22 @@
   "prompt_version": "types-v1",
   "generator": "groq/qwen/qwen3.8-27b",
   "classified_at": "2026-11-15T13:56:45+00:00"
+ },
+ {
+  "key": "study:10.1016/j.clineuro.2026.109694",
+  "type": "disease",
+  "input_hash": "e49a970babff",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
+  "key": "study:10.1016/j.clineuro.2026.109698",
+  "type": "disease",
+  "input_hash": "d9a9c0b3d581",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1016/j.clinph.2026.2112437",
@@ -15536,6 +16072,14 @@
   "classified_at": "2026-11-13T12:13:03+00:00"
  },
  {
+  "key": "study:10.1038/s41586-026-11297-7",
+  "type": "healthy_brain",
+  "input_hash": "300a7a52ceb3",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1038/s41586-026-11305-w",
   "type": "disease",
   "input_hash": "806427c81ab0",
@@ -19488,6 +20032,14 @@
   "classified_at": "2026-11-17T16:03:24+00:00"
  },
  {
+  "key": "study:10.1101/2024.08.22.609278",
+  "type": "technique",
+  "input_hash": "a2fc2724f06f",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
   "key": "study:10.1101/2024.08.30.610159",
   "type": "technique",
   "input_hash": "f8fc4ab3446a",
@@ -21750,6 +22302,14 @@
   "prompt_version": "types-v1",
   "generator": "ollama/paleo-qwen3.5-9b",
   "classified_at": "2026-11-13T12:13:03+00:00"
+ },
+ {
+  "key": "study:10.1126/sciadv.aei4634",
+  "type": "healthy_brain",
+  "input_hash": "c57be1ddf765",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.1126/sciadv.aei6265",
@@ -41730,10 +42290,10 @@
  {
   "key": "study:10.64898/2026.11.12.766207",
   "type": "healthy_brain",
-  "input_hash": "a88e23598850",
+  "input_hash": "cd5b43149654",
   "prompt_version": "types-v1",
   "generator": "groq/qwen/qwen3.8-27b",
-  "classified_at": "2026-11-15T13:56:45+00:00"
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.64898/2026.11.12.766217",
@@ -41994,10 +42554,10 @@
  {
   "key": "study:10.64898/2026.11.13.766444",
   "type": "disease",
-  "input_hash": "8b25e5afc9f8",
+  "input_hash": "e4c5785052a7",
   "prompt_version": "types-v1",
   "generator": "groq/qwen/qwen3.8-27b",
-  "classified_at": "2026-11-16T15:46:14+00:00"
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:10.64898/2026.11.13.766445",
@@ -44526,6 +45086,30 @@
   "prompt_version": "types-v1",
   "generator": "groq/qwen/qwen3.8-27b",
   "classified_at": "2026-11-21T14:39:47+00:00"
+ },
+ {
+  "key": "study:epmc:PMC:PMC13787459",
+  "type": "technique",
+  "input_hash": "d2cb525b5a2e",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
+  "key": "study:epmc:PMC:PMC13787470",
+  "type": "healthy_brain",
+  "input_hash": "59157643d8b9",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
+ },
+ {
+  "key": "study:epmc:PMC:PMC13787506",
+  "type": "healthy_brain",
+  "input_hash": "62dd0b02bf6b",
+  "prompt_version": "types-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "classified_at": "2026-11-21T17:47:54+00:00"
  },
  {
   "key": "study:pmid:42990415",
