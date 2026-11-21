@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1126/sciadv.aed3338",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "c167a95b561f30f5",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T15:05:09+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study focuses on CDKL5, a type of enzyme that plays a key role in how the brain develops and works.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "Genetic changes in the CDKL5 gene lead to a severe childhood condition involving seizures and problems with how nerve cells connect.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The main form of CDKL5 found in nerve cells has a specific region that allows it to attach directly to other proteins, pulling it to the receiving end of the synapse.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "When the attachment region was broken in the experiments, the CDKL5 protein ended up in the wrong place, and the small branches on the nerve cells became fewer and less developed.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The part of CDKL5 that acts as an enzyme was shown to physically connect with a specific section of the talin protein, which helps sense mechanical forces.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "Changing the spot where CDKL5 grabs talin, or lowering the cell's internal tension, shifted where CDKL5 was located near the cell's attachment points.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "The results suggest that the way talin changes shape might help position the CDKL5 enzyme, and that the tail of the protein is important for understanding certain disease-causing mutations.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

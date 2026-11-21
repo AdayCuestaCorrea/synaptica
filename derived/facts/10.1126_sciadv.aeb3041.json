@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1126/sciadv.aeb3041",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "f05de1597b53c2c2",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T15:04:06+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used mice trained on a task that separates decisions based on bias from those based on sensory input.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Giving mice psilocybin or ketamine made them take longer to decide but made their choices more accurate.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Mathematical models of the behavior showed that the drugs raised the standard for making a decision and pushed the animals to rely more on sensory information.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "Mapping brain activity markers across the whole brain showed that the drugs affected various networks involved in the task, including the orbitofrontal cortex.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Imaging of calcium signals in the orbitofrontal cortex revealed that the timing and connections between groups of neurons changed, even though the neurons still responded to the task.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The results suggest that these drugs change how decisions are made by increasing the use of sensory evidence and altering the activity patterns of brain cell groups.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

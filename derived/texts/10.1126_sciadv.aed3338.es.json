@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1126/sciadv.aed3338",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "69fd48bf53f50322",
+ "generated_at": "2026-11-21T15:23:45+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron CDKL5, una enzima esencial para el desarrollo cerebral, en el contexto de una grave afección infantil causada por cambios genéticos en el gen CDKL5.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "En las células nerviosas, la forma principal de CDKL5 se une a otras proteínas mediante una región específica que la atrae hacia el extremo receptor de la sinapsis, un proceso que se vio alterado cuando esta región se rompió en los experimentos.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "La parte enzimática de CDKL5 se conecta físicamente con una sección de la proteína talina, y modificar esta conexión o reducir la tensión interna desplazó la ubicación de CDKL5 cerca de los puntos de anclaje celular.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que los cambios de forma de la talina podrían ayudar a posicionar la enzima CDKL5, lo que indica que la cola de la proteína es importante para comprender ciertas mutaciones causantes de enfermedades.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T15:39:10+00:00"
+ }
+}

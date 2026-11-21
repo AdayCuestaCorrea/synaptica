@@ -1,0 +1,26 @@
+{
+ "study_id": "pmid:43063387",
+ "status": "too_few",
+ "abstract_from": "pubmed",
+ "abstract_hash": "9610e825d1beee0e",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T15:17:37+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study aimed to test if a neural network could use mainly breathing-related data to calculate a single chance of successful breathing tube removal for a specific patient.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The authors state that the analysis requires a larger sample size before it can be used with confidence, though the framework is ready for further development to help intensive care doctors.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote",
+  "numbers not in the quote",
+  "numbers not in the quote"
+ ]
+}

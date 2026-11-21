@@ -1,0 +1,32 @@
+{
+ "study_id": "10.70401/fos.2026.0048",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "fcd2e58943c8d958",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T15:16:36+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The authors propose a conceptual model where the sensitivity of glioblastoma cells to ferroptosis is controlled by the supply of oxidizable lipids, the cell's ability to buffer redox stress, and how it manages iron.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "Specific genetic changes frequently found in glioblastoma, including the loss of CDKN2A, changes in EGFR, and the loss of PTEN, can alter the cell's susceptibility to this form of death.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The likelihood of a tumor cell undergoing ferroptosis is also influenced by its current physiological state and the surrounding tissue environment.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The study concludes that ferroptosis is not a death mechanism that can be triggered in all glioblastoma cells, but rather a specific weakness that exists only in tumors close to the threshold for this type of cell death.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1186/s13567-026-01856-1",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "53093b6a1fed3695",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T15:13:27+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study examined how exosomes released from the brain during infection with pseudorabies virus (PRV) affect the spread of the virus and damage to the blood-brain barrier.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Exosomes were collected from the brains of mice infected with PRV and compared with those from mice that received a placebo treatment.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The researchers used microscopy and protein analysis to verify that the collected samples contained exosomes and not whole virus particles.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "Exosomes from infected mice carried viral genetic material and proteins, and they successfully passed the virus to pig kidney cells in the lab.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "In a laboratory model of the blood-brain barrier made of specific brain cell types, the exosomes caused the barrier to lose its protective function.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "When exosomes from infected mice were injected into the brains of living animals, the animals showed signs of nerve damage and their blood-brain barriers became more leaky.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The results suggest that exosomes from the brain are a previously overlooked way the virus spreads and causes injury to blood vessels in the nervous system.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

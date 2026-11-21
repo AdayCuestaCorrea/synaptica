@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1126/sciadv.aeg4194",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "25650e0c87adba54",
+ "generated_at": "2026-11-21T15:30:51+00:00",
+ "word_count": 86,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "In a mouse model simulating brain hemorrhage, researchers tracked the spread and removal of red blood cells following the bleed.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "These cells traveled along cranial nerves into the lymphatic system, while many became trapped in collagen-lined spaces adjacent to large veins in the brain's lining.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "By the second day after the injury, immune cells known as macrophages removed some of these trapped red blood cells.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors suggest that these specific structures and cells could be targeted to help the brain recover faster from a stroke.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T15:40:09+00:00"
+ }
+}

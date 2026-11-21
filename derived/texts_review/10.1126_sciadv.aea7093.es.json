@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1126/sciadv.aea7093",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "9b8389546544e5c0",
+ "generated_at": "2026-11-21T15:18:39+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: words not in the Spanish dictionary ['rombencéfalo']",
+  "sentence 2: words not in the Spanish dictionary ['rombencéfalo']",
+  "sentence 3: words not in the Spanish dictionary ['rombencéfalo']"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores estudiaron cuándo las proteínas Meis, que ayudan a organizar el desarrollo del rombencéfalo y la cresta neural en embriones de rana, adquirieron la capacidad de desencadenar la formación de estructuras neuronales durante la evolución animal.",
+   "fact_ids": [
+    "f3",
+    "f1"
+   ]
+  },
+  {
+   "text": "Los experimentos en ranas revelaron que, si bien partes específicas de la proteína Meis inician el desarrollo de la médula espinal, una región distinta en el extremo de la proteína es la responsable de desencadenar el desarrollo del rombencéfalo.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Aunque las versiones de la proteína procedentes de algas y del animal sencillo Trichoplax carecen de esta región específica, aún fueron capaces de desencadenar el desarrollo del rombencéfalo y la cresta neural en las ranas.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "Estos hallazgos sugieren que las primeras versiones de estas proteínas poseían la capacidad intrínseca de crear estructuras cerebrales complejas de los vertebrados antes de que dichas estructuras evolucionaran realmente.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-21T15:39:07+00:00"
+}

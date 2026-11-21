@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1126/sciadv.aed3338",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "69fd48bf53f50322",
+ "generated_at": "2026-11-21T15:23:45+00:00",
+ "word_count": 121,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers examined CDKL5, an enzyme essential for brain development, in the context of a severe childhood condition caused by genetic changes in the CDKL5 gene.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "In nerve cells, the primary CDKL5 form attaches to other proteins via a specific region that pulls it to the synapse's receiving end, a process that was disrupted when this region was broken in experiments.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The enzyme part of CDKL5 physically connects with a section of the talin protein, and altering this connection or lowering internal tension shifted CDKL5's location near cell attachment points.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors suggest that talin's shape changes might help position the CDKL5 enzyme, indicating that the protein's tail is important for understanding certain disease-causing mutations.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T15:39:10+00:00"
+ }
+}

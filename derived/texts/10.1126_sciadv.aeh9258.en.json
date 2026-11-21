@@ -1,0 +1,56 @@
+{
+ "study_id": "10.1126/sciadv.aeh9258",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "d248f85378cf2446",
+ "generated_at": "2026-11-21T15:32:54+00:00",
+ "word_count": 123,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Previous experiments indicated that long-term fear memory can form even when short-term memory is not measurable, challenging the assumption that long-term memory depends on short-term memory.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "To investigate this, researchers used light-based tools to activate and deactivate the enzyme CaMKII while stimulating neurons to induce a specific type of synaptic strengthening.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Although activating CaMKII in CA1 neurons triggered early synaptic strengthening and physical structural changes, this initial process did not result in the formation of long-term synaptic strengthening.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Conversely, blocking CaMKII prevented early synaptic strengthening, yet long-term strengthening and a marker of gene activity still occurred, driven by other enzymes known as CaMKK and PKMζ.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "These findings suggest that long-term memory and long-term synaptic strengthening can form without the activation of CaMKII.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T15:40:10+00:00"
+ }
+}

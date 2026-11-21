@@ -1,0 +1,40 @@
+{
+ "study_id": "10.1126/sciadv.aeg1429",
+ "lang": "en",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "4ad23de514cef3ad",
+ "generated_at": "2026-11-21T15:28:50+00:00",
+ "word_count": 79,
+ "problems": [
+  "sentence 4: drops the caution of its facts (may, suggests, possibly…)"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers constructed a spin-wave-based artificial neuron that fires and resets after receiving a signal, utilizing a garnet magnetic material and a micro-antenna to generate its response.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "To monitor the fading of the device's memory, the team employed a light-based measurement technique.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "The system demonstrated the capacity to accumulate signals from up to 50 distinct pulses over a period of time.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Additionally, the study indicated that three such units could be connected in a sequence where one initiates the next.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1097/wnr.0000000000002321",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "9809a732b12f6ca9",
+ "generated_at": "2026-11-21T15:37:02+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "En un análisis retrospectivo de 36 pacientes con enfermedad de Moyamoya sintomática, los investigadores compararon la angiografía por tomografía computarizada (TC) estándar de fase única, las imágenes derivadas de la perfusión y una nueva 4D-CTA generada por inteligencia artificial.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "La calidad de las imágenes se evaluó mediante métricas técnicas, como la relación señal-ruido y la relación contraste-ruido, junto con puntuaciones subjetivas.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "La 4D-CTA asistida por IA mostró un excelente acuerdo con el método DSA, considerado el estándar de oro, para la clasificación del estadio de la enfermedad, y un buen acuerdo al evaluar el desarrollo de vasos sanguíneos colaterales.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Esta técnica permite visualizar los vasos sanguíneos en detalle en distintas fases, sin necesidad de una exposición adicional a radiación.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que este método ofrece una forma rápida y no invasiva de evaluar la circulación colateral con una precisión similar a la del DSA, lo que sugiere su potencial uso rutinario.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T15:40:11+00:00"
+ }
+}

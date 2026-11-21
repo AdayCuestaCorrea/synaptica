@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1126/sciadv.aea7093",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "d895071795539733",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T15:03:05+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "In frog embryos, Meis proteins help organize the development of the hindbrain and neural crest.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Proteins related to Meis are found in simple animals such as jellyfish and flatworms, as well as in single-celled organisms.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The study aimed to find out when Meis proteins gained the ability to trigger the formation of neural structures during the history of animal life.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "Experiments in frogs showed that specific parts of the Meis protein are enough to start spinal cord development but are not enough to start hindbrain development.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "A specific region at the end of Meis proteins is responsible for triggering hindbrain development.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "Versions of the Meis protein found in the simple animal Trichoplax and in algae have a core structural part but are missing a region found in more complex animals.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "Surprisingly, the ancient versions of the protein from algae and Trichoplax were able to trigger hindbrain and neural crest development in frogs, even though they lack the part that modern animal versions need.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "The findings suggest that early versions of these proteins had the built-in ability to create complex vertebrate brain structures before those structures actually evolved.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,56 @@
+{
+ "study_id": "10.1126/sciadv.aeh9258",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "d248f85378cf2446",
+ "generated_at": "2026-11-21T15:32:54+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Experimentos anteriores indicaban que la memoria del miedo a largo plazo puede formarse incluso cuando la memoria a corto plazo no es medible, lo que cuestiona la suposición de que la memoria a largo plazo depende de la memoria a corto plazo.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Para investigar esto, los investigadores utilizaron herramientas basadas en luz para activar y desactivar la enzima CaMKII mientras estimulaban las neuronas para inducir un tipo específico de fortalecimiento sináptico.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Aunque la activación de CaMKII en las neuronas CA1 desencadenó un fortalecimiento sináptico temprano y cambios estructurales físicos, este proceso inicial no dio lugar a la formación de un fortalecimiento sináptico a largo plazo.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Por el contrario, bloquear CaMKII impidió el fortalecimiento sináptico temprano, pero el fortalecimiento a largo plazo y un marcador de actividad génica aún ocurrieron, impulsados por otras enzimas conocidas como CaMKK y PKMζ.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Estos hallazgos sugieren que la memoria a largo plazo y el fortalecimiento sináptico a largo plazo pueden formarse sin la activación de CaMKII.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T15:40:10+00:00"
+ }
+}

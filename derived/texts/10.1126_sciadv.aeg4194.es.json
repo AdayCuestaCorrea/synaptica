@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1126/sciadv.aeg4194",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "25650e0c87adba54",
+ "generated_at": "2026-11-21T15:30:51+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "En un modelo de ratón que simula una hemorragia cerebral, los investigadores siguieron la propagación y la eliminación de los glóbulos rojos tras el sangrado.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Estas células viajaron a lo largo de los nervios craneales hasta el sistema linfático, mientras que muchas quedaron atrapadas en espacios revestidos de colágeno adyacentes a las grandes venas de la membrana cerebral.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Para el segundo día tras la lesión, células inmunitarias conocidas como macrófagos eliminaron parte de estos glóbulos rojos atrapados.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que estas estructuras y células específicas podrían ser objetivo de intervenciones para ayudar al cerebro a recuperarse más rápido de un ictus.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T15:40:09+00:00"
+ }
+}

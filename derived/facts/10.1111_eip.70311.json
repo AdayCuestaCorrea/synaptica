@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1111/eip.70311",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "213391ed238f4beb",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T15:12:26+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study was a retrospective cross-sectional analysis of 74 patients who had not yet received treatment and 91 healthy controls.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers compared blood test results for inflammation and blood cell counts between people experiencing their first episode of psychosis or mania and healthy individuals.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The patient group showed higher levels of white blood cells, neutrophils, and platelets, along with several calculated inflammation scores, while having lower values for platelet size distribution and volume ratios.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "There were no significant differences in the measured inflammatory markers between the group with first-episode psychosis and the group with a first manic episode.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "After adjusting for age, sex, and body mass index, white blood cell count, neutrophil count, and three specific inflammation indices were statistically associated with being in the patient group.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The three complex inflammation indices did not add any significant explanatory power beyond what was already provided by the neutrophil count alone.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The findings suggest that signs of immune system activation in the blood may be present in the early stages of these psychiatric conditions before treatment begins.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "Because the two patient groups showed similar inflammatory profiles, these blood markers are limited in their ability to distinguish between psychosis and mania for diagnostic purposes.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

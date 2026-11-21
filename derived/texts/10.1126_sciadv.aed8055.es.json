@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1126/sciadv.aed8055",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "926fdc10f42c4f7f",
+ "generated_at": "2026-11-21T15:26:48+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron una herramienta de aprendizaje automático denominada THERM-D para medir de forma continua y rápida los ritmos de temperatura corporal en moscas de la fruta.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "El estudio reveló que estos ritmos de temperatura se alinean con los patrones de actividad matutina y vespertina, lo que destaca un grupo específico de células cerebrales que carecen de la proteína CRYPTOCHROME.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Al manipular estas células deficientes en CRYPTOCHROME, el equipo demostró que son responsables del aumento de la temperatura corporal por la mañana.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Los hallazgos indican que grupos distintos de células cerebrales gestionan los cambios de temperatura matutinos frente a los vespertinos, lo que proporciona un método para estudiar cómo el organismo mantiene su ritmo térmico.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T15:39:10+00:00"
+ }
+}

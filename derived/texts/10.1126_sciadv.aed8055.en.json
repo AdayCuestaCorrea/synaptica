@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1126/sciadv.aed8055",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "926fdc10f42c4f7f",
+ "generated_at": "2026-11-21T15:26:48+00:00",
+ "word_count": 90,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed a machine-learning tool named THERM-D to continuously and rapidly measure body temperature rhythms in fruit flies.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "The study revealed that these temperature rhythms align with morning and evening activity patterns, highlighting a specific group of brain cells that lack the protein CRYPTOCHROME.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "By manipulating these CRYPTOCHROME-deficient cells, the team demonstrated that they are responsible for the morning increase in body temperature.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "The findings indicate that distinct groups of brain cells manage morning versus evening temperature changes, providing a method to study how the body maintains its temperature rhythm.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T15:39:10+00:00"
+ }
+}

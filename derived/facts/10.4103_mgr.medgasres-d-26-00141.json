@@ -1,0 +1,62 @@
+{
+ "study_id": "10.4103/mgr.medgasres-d-26-00141",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "b15b893e6f6737e9",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T15:15:35+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study tested whether a saline solution containing hydrogen could treat depression-like symptoms caused by inflammation in mice.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Mice were injected with 0.83 mg/kg of lipopolysaccharide to trigger an inflammatory response.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Thirty minutes after the inflammation trigger, the mice were injected with 5 mL/kg of hydrogen-rich saline.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The treatment reduced signs of anxiety and depression in the mice that had been given the inflammatory agent.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Behavioral changes were measured using open field, elevated plus maze, forced swim, and tail suspension tests.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Blood levels of the inflammatory markers interleukin-1β and tumor necrosis factor-α were lowered by the treatment.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The number of activated microglia cells in the brain was reduced.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "The treatment inhibited the TLR4/MyD88/NF-κB signaling pathway in the brain.",
+   "subject": "animals"
+  },
+  {
+   "id": "f9",
+   "statement": "Synaptic damage in the hippocampus was repaired following the treatment.",
+   "subject": "animals"
+  },
+  {
+   "id": "f10",
+   "statement": "The results suggest that giving the hydrogen-rich saline early may reduce inflammation-related depression-like behaviors.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

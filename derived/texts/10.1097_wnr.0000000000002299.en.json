@@ -1,0 +1,50 @@
+{
+ "study_id": "10.1097/wnr.0000000000002299",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "af7e4f08a9fc9071",
+ "generated_at": "2026-11-21T15:34:58+00:00",
+ "word_count": 114,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers used a mouse model of brain bleeding created by injecting an enzyme into the brain, while also growing human brain vessel cells in a lab dish and exposing them to a substance that mimics the post-bleed environment along with the protein Gal-3.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "In these cells, the protein Gal-3 attached to a receptor called TLR4 and stopped its normal breakdown, causing the receptor to build up.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "This accumulation triggered a chain of chemical signals that increased the production of an enzyme which breaks down the proteins that seal the blood-brain barrier.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "The researchers concluded that this process leads to the breakdown of the barrier that protects the brain from the bloodstream.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T15:40:11+00:00"
+ }
+}

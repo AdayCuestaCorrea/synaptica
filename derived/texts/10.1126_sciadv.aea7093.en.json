@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1126/sciadv.aea7093",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "9b8389546544e5c0",
+ "generated_at": "2026-11-21T15:18:39+00:00",
+ "word_count": 111,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers investigated when Meis proteins, which help organize hindbrain and neural crest development in frog embryos, gained the ability to trigger neural structure formation during animal evolution.",
+   "fact_ids": [
+    "f3",
+    "f1"
+   ]
+  },
+  {
+   "text": "Experiments in frogs revealed that while specific parts of the Meis protein initiate spinal cord development, a distinct region at the end of the protein is responsible for triggering hindbrain development.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Although versions of the protein from algae and the simple animal Trichoplax lack this specific region, they were still able to trigger hindbrain and neural crest development in frogs.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "These findings suggest that early versions of these proteins possessed the built-in ability to create complex vertebrate brain structures before those structures actually evolved.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T15:39:08+00:00"
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "study_id": "10.1126/sciadv.aeg1429",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "59c5114bec4a34d3",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T15:07:15+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers built a device that acts like a neuron using only spin waves, which fires and then resets itself after receiving a signal.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "The device uses a special magnetic material called garnet and a micro-antenna to create the neuron's response.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "The team used a light-based measurement technique to observe how the device's memory fades over time.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "The device was able to add up signals from as many as 50 separate pulses over time.",
+   "subject": "other"
+  },
+  {
+   "id": "f5",
+   "statement": "The study showed that three of these devices could be linked together so that one triggers the next.",
+   "subject": "other"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

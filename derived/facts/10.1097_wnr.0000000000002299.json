@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1097/wnr.0000000000002299",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "85d362be4151f490",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T15:10:19+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a mouse model of brain bleeding created by injecting an enzyme into the brain.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Human brain vessel cells were grown in a lab dish and exposed to a substance that mimics the environment after a brain bleed, along with the protein Gal-3.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "In the brain cells, the protein Gal-3 attached to a receptor called TLR4 and stopped its normal breakdown, causing the receptor to build up.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The buildup of the receptor triggered a chain of chemical signals that increased the production of an enzyme which breaks down the proteins that seal the blood-brain barrier.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The researchers concluded that this process leads to the breakdown of the barrier that protects the brain from the bloodstream.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

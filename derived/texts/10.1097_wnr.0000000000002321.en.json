@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1097/wnr.0000000000002321",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "9809a732b12f6ca9",
+ "generated_at": "2026-11-21T15:37:02+00:00",
+ "word_count": 108,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "In a retrospective analysis of 36 patients with symptomatic Moyamoya disease, researchers compared standard single-phase CT angiography, perfusion-derived images, and a new AI-generated 4D-CTA.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Image quality was assessed using technical metrics such as signal-to-noise ratio and contrast-to-noise ratio, alongside subjective scores.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "The AI-assisted 4D-CTA demonstrated excellent agreement with the gold-standard DSA method for grading disease stage and good agreement when assessing collateral blood vessel development.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "This technique enables detailed visualization of blood vessels at different phases without requiring extra radiation exposure.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors conclude that this method offers a rapid, noninvasive way to evaluate collateral circulation with accuracy similar to DSA, suggesting potential for routine use.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T15:40:11+00:00"
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1016/j.ebiom.2026.106564",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "2b84705456bc8e59",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T15:18:39+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study followed 228 older adults who had no signs of cognitive impairment at the start, with an average age of 73.5 years and 64% being women.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Participants received brain scans using MRI and a specific PET technique to detect amyloid, along with yearly tests of their thinking skills.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Researchers tracked the participants' memory and general thinking abilities for a period of up to 11 years.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Among people with amyloid in their brains, those with smaller mammillary bodies performed worse on initial memory and thinking tests.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Over time, having smaller mammillary bodies at the start was linked to a faster drop in memory and overall cognition, especially in those with amyloid.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The size of the posterior hypothalamus, a nearby brain area, did not show the same link to cognitive changes based on amyloid status.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "While hippocampal size did not affect initial test scores differently by amyloid status, it was still linked to future cognitive decline, with a stronger effect in those with amyloid.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The results suggest that the size of the mammillary bodies could be a useful marker for predicting cognitive decline in people with early, preclinical Alzheimer's disease.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

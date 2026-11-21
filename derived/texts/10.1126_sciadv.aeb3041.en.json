@@ -1,0 +1,56 @@
+{
+ "study_id": "10.1126/sciadv.aeb3041",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "f9b8fac8a25f35f0",
+ "generated_at": "2026-11-21T15:20:42+00:00",
+ "word_count": 122,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers examined mice trained on a task that separates decisions based on bias from those based on sensory input.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "When the animals received psilocybin or ketamine, they took longer to decide but made more accurate choices.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Mathematical models of the behavior indicated that the drugs raised the standard for making a decision and pushed the animals to rely more on sensory information.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Mapping brain activity markers across the whole brain showed that the drugs affected various networks involved in the task, including the orbitofrontal cortex, where the timing and connections between groups of neurons changed.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors suggest that these drugs change how decisions are made by increasing the use of sensory evidence and altering the activity patterns of brain cell groups.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T15:39:09+00:00"
+ }
+}
