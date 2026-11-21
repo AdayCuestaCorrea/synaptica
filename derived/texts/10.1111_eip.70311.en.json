@@ -1,0 +1,58 @@
+{
+ "study_id": "10.1111/eip.70311",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "4a2f7e602fc5aa4a",
+ "generated_at": "2026-11-21T18:14:52+00:00",
+ "word_count": 179,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "In a retrospective cross-sectional analysis of 74 untreated patients and 91 healthy controls, researchers compared blood test results for inflammation and blood cell counts between individuals experiencing their first episode of psychosis or mania and healthy individuals.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The patient group showed higher levels of white blood cells, neutrophils, and platelets, along with several calculated inflammation scores, while having lower values for platelet size distribution and volume ratios.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "There were no significant differences in the measured inflammatory markers between the group with first-episode psychosis and the group with a first manic episode.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "After adjusting for age, sex, and body mass index, white blood cell count, neutrophil count, and three specific inflammation indices were statistically associated with being in the patient group, although the complex indices did not add significant explanatory power beyond the neutrophil count alone.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "These findings suggest that signs of immune system activation in the blood may be present in the early stages of these psychiatric conditions before treatment begins, but the similar inflammatory profiles limit the markers' ability to distinguish between psychosis and mania for diagnostic purposes.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T18:26:04+00:00"
+ }
+}

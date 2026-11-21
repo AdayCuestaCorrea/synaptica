@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s00210-026-06075-1",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "7e357761311c876c",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T18:01:24+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study examined how the TRPV1 protein affects the brain-protective effects of remote ischemic preconditioning in mice with a specific type of vascular brain injury.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The protective treatment involved three rounds of five minutes of blocked blood flow followed by five minutes of restored flow before the main brain injury occurred.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Researchers used four different chemicals to either activate or block specific ion channels in the brain.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Mice with the induced brain injury showed worse movement, coordination, and memory, along with more brain tissue damage, inflammation, and cell death.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Both the preconditioning treatment and the chemical capsaicin led to better behavior, smaller areas of dead brain tissue, and lower levels of inflammation and cell damage.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The protective benefits of the preconditioning were reduced when specific ion channels were blocked, suggesting these channels are involved in the protection.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The results offer early evidence that TRPV1 signaling helps protect the brain, possibly by controlling inflammatory responses.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

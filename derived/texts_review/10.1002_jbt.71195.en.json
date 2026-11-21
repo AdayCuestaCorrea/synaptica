@@ -1,0 +1,48 @@
+{
+ "study_id": "10.1002/jbt.71195",
+ "lang": "en",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "0226f58ea6fb639c",
+ "generated_at": "2026-11-21T18:09:48+00:00",
+ "word_count": 107,
+ "problems": [
+  "sentence 5: says 'causal' but no cited fact does"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers investigated the role of the deubiquitinase STUB1 in postoperative cognitive dysfunction using a mouse model.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "When STUB1 was removed specifically in microglia, the resulting cognitive deficits in these mice were reduced.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "At the cellular level, STUB1 removes ubiquitin from NQO1 at the K61 site, triggering p62-mediated autophagic degradation that promotes ferroptosis.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Although STUB1 was not directly linked to standard markers like GPX4, it was associated with the non-canonical signal NQO1, whose levels correlated with cognitive impairment.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Experiments confirmed that this NQO1-dependent process drives microglial ferroptosis, suggesting the pathway could serve as a therapeutic target.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ]
+}

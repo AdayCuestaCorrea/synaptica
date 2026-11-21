@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1007/s00221-026-07419-2",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "dcfaf177d67f4a24",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T18:06:35+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Twenty-four healthy adults performed rhythmic left wrist movements while watching a virtual hand under three different conditions: Control, Mirror, and Asymmetric.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Brain activity in the right wrist muscles was measured using a magnetic pulse technique to assess corticospinal excitability.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The study found that the type of virtual hand movement affected brain activity in the wrist flexor muscle, but not in the wrist extensor muscle.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Brain signals were stronger in the flexor muscle when the virtual hand matched the real movement during bending, and when it did not match during straightening.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The results suggest that watching different virtual hand movements is linked to specific changes in brain excitability depending on the muscle and movement phase.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

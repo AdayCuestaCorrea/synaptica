@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1002/hbm.70695",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "ba19f2f0e08840bd",
+ "generated_at": "2026-11-21T18:07:47+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron un nuevo atlas cerebral etiquetando manualmente una plantilla de redes funcionales derivada de más de 100 000 conjuntos de datos de fMRI en estado de reposo.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Estas redes funcionales, que describen cómo las regiones cerebrales coordinan su actividad durante el reposo, se caracterizan por ser altamente replicables entre distintos sujetos y conjuntos de datos, al tiempo que capturan información en múltiples escalas espaciales.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Los autores señalan que este recurso busca mejorar la comparabilidad de los resultados y la interpretación de nuevos hallazgos, resultando útil tanto para análisis basados en plantillas como para otros métodos de neuroimagen basados en datos, incluidos aquellos que emplean análisis de componentes independientes ciegos.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T18:26:03+00:00"
+ }
+}

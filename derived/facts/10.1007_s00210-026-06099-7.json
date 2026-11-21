@@ -1,0 +1,62 @@
+{
+ "study_id": "10.1007/s00210-026-06099-7",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "585d26061a5590f6",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T18:03:28+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study examined how Alisol B pretreatment affects SH-SY5Y cells exposed to rotenone, focusing on AKT and p38 MAPK signaling.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "Computational methods, including network pharmacology and molecular dynamics simulations, were used to identify potential targets and interactions.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The analysis identified 397 candidate targets, with AKT1 having the highest connectivity in the network.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "While simulations suggested Alisol B could bind to AKT1, they did not prove a direct interaction.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "SH-SY5Y cells were treated with Alisol B before being exposed to rotenone.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The researchers measured cell metabolic activity, oxidative stress, apoptosis, and protein phosphorylation levels.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "Alisol B treatment partially improved cell health, reduced oxidative stress markers, and lowered apoptosis rates after rotenone exposure.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f8",
+   "statement": "The inhibitor MK-2206 was used to test the role of AKT signaling in the observed effects.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f9",
+   "statement": "Blocking AKT signaling with MK-2206 reduced the protective effects of Alisol B on cell activity and oxidative stress.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f10",
+   "statement": "Alisol B treatment was associated with higher levels of phosphorylated AKT and lower levels of phosphorylated p38 MAPK.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

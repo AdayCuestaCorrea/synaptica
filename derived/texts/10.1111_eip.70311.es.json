@@ -1,0 +1,58 @@
+{
+ "study_id": "10.1111/eip.70311",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "4a2f7e602fc5aa4a",
+ "generated_at": "2026-11-21T18:14:52+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "En un análisis transversal retrospectivo de 74 pacientes sin tratar y 91 controles sanos, los investigadores compararon los resultados de análisis de sangre para inflamación y recuentos de células sanguíneas entre personas que experimentaban su primer episodio de psicosis o manía y personas sanas.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El grupo de pacientes mostró niveles más altos de leucocitos, neutrófilos y plaquetas, junto con varias puntuaciones calculadas de inflamación, mientras que presentaba valores más bajos para la distribución del tamaño de las plaquetas y las relaciones de volumen.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "No se observaron diferencias significativas en los marcadores inflamatorios medidos entre el grupo con psicosis de primer episodio y el grupo con un primer episodio maníaco.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Tras ajustar por edad, sexo e índice de masa corporal, el recuento de leucocitos, el recuento de neutrófilos y tres índices de inflamación específicos se asociaron estadísticamente con la pertenencia al grupo de pacientes, aunque los índices complejos no aportaron un poder explicativo significativo más allá del recuento de neutrófilos por sí solo.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Estos hallazgos sugieren que las señales de activación del sistema inmunitario en la sangre podrían estar presentes en las etapas iniciales de estas afecciones psiquiátricas antes de que comience el tratamiento, pero los perfiles inflamatorios similares limitan la capacidad de los marcadores para distinguir entre psicosis y manía con fines diagnósticos.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T18:26:04+00:00"
+ }
+}

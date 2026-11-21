@@ -1,0 +1,50 @@
+{
+ "study_id": "10.1007/s00520-026-11509-w",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "0df796f7e66a375c",
+ "generated_at": "2026-11-21T18:11:50+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Para abordar la relación poco clara entre las variables de los procesos de memoria y el funcionamiento ejecutivo, los investigadores examinaron a 127 adultos con tumores cerebrales, un grupo con una edad media de 56,7 años y un 63,8 % de participantes mujeres.",
+   "fact_ids": [
+    "f1",
+    "f5"
+   ]
+  },
+  {
+   "text": "Durante las fases de aprendizaje y recuerdo diferido de la prueba de memoria, estos participantes mostraron niveles más bajos de agrupación semántica, una estrategia que consiste en agrupar palabras relacionadas, en comparación con los controles sanos.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Las puntuaciones de funcionamiento ejecutivo se asociaron positivamente con el uso de la agrupación semántica, pero no se encontró dicha asociación con el número de intrusiones o repeticiones.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Las variables de los procesos de memoria medidas no variaron en función de la ubicación del tumor dentro del cerebro.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T18:26:04+00:00"
+ }
+}

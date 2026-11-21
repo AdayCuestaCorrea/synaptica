@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1002/art.70396",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "1b6c0b090d847207",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T17:56:14+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used single-cell RNA sequencing to examine salivary gland tissue from 17 people with Sjögren's Disease and 19 control participants.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Salivary glands from patients with Sjögren's Disease had a larger number of fibroblasts that showed high activity of genes responding to interferons.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The analysis identified six different groups of fibroblasts within the salivary glands.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "One group of fibroblasts, identified by the marker FMO2, had the strongest interferon-related gene activity and interacted with immune cells in the diseased tissue.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Another group of fibroblasts, identified by the marker KILON, expressed genes typically associated with nerves and axons.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "In experiments with mice, treating sensory neurons with the KILON protein made them more sensitive to pain signals.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The researchers confirmed their findings using microscopy of human tissue, cell cultures, and live mouse models.",
+   "subject": "other"
+  },
+  {
+   "id": "f8",
+   "statement": "The study suggests that FMO2-positive fibroblasts may communicate with myeloid immune cells.",
+   "subject": "humans"
+  },
+  {
+   "id": "f9",
+   "statement": "The KILON-positive fibroblasts are a new type of nerve-associated cell that may be able to influence pain.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

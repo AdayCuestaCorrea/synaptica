@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s00210-026-06078-y",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "8921bcee007bc0b6",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T18:02:26+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a mix of computer-based modeling and live animal testing to look at how the drug sinomenine works.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "Computer analysis pointed to five specific proteins, including AKT1 and mTOR, as the main targets the drug might affect.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "Computer simulations showed that the drug molecule fits securely into four of the identified protein targets.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "Giving the drug to rats with brain bleeds improved their nerve function and reduced swelling in their brains.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The drug appears to change the activity of two specific signaling pathways inside the cells.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "These changes were linked to lower levels of inflammation markers and higher levels of a protein that supports nerve growth.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The results suggest the drug's protective effect comes from balancing both inflammation and nerve-support signals.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

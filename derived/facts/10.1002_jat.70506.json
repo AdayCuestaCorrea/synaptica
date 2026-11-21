@@ -1,0 +1,39 @@
+{
+ "study_id": "10.1002/jat.70506",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "41a6c3f233887d8b",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T17:59:19+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used human SH-SY5Y neuronal cells to test whether diclofenac and ibuprofen protect against oxidative damage caused by arachidonic acid.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "Treating the cells with diclofenac, ibuprofen, or other blockers reduced the flow of calcium and electrical currents triggered by arachidonic acid and other TRPM2 activators.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The treatments lowered signs of cell stress, such as lipid damage, cell death, and mitochondrial dysfunction, while boosting the cells' ability to survive and manage oxidative stress.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The authors conclude that diclofenac and ibuprofen alter the harmful effects of arachidonic acid by blocking the TRPM2 channel and activating protective antioxidant systems.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The findings suggest that these common painkillers might protect nerve cells from damage caused by arachidonic acid, a process associated with increased cell death.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

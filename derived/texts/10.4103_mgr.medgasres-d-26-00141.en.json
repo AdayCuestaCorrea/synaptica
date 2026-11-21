@@ -1,0 +1,60 @@
+{
+ "study_id": "10.4103/mgr.medgasres-d-26-00141",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "1b04e4a624175552",
+ "generated_at": "2026-11-21T18:21:57+00:00",
+ "word_count": 136,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "In a mouse model of inflammation-induced depression, researchers administered 0.83 mg/kg of lipopolysaccharide to trigger an inflammatory response, followed thirty minutes later by an injection of 5 mL/kg of hydrogen-rich saline.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "This treatment reduced signs of anxiety and depression, as measured by behavioral assessments including the open field, elevated plus maze, forced swim, and tail suspension tests.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Biological analyses showed that the intervention lowered blood levels of the inflammatory markers interleukin-1β and tumor necrosis factor-α, reduced the number of activated microglia cells, and inhibited the TLR4/MyD88/NF-κB signaling pathway in the brain.",
+   "fact_ids": [
+    "f6",
+    "f7",
+    "f8"
+   ]
+  },
+  {
+   "text": "Additionally, the study observed that synaptic damage in the hippocampus was repaired following the administration of the saline solution.",
+   "fact_ids": [
+    "f9"
+   ]
+  },
+  {
+   "text": "The authors conclude that early administration of hydrogen-rich saline may reduce inflammation-related depression-like behaviors in this animal model.",
+   "fact_ids": [
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T18:27:05+00:00"
+ }
+}

@@ -1,0 +1,62 @@
+{
+ "study_id": "10.1007/s00210-026-06122-x",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "87fbe4eb7d9c6cf6",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T18:05:34+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers created eleven new chemical compounds based on imidazolium to test if they could treat Alzheimer's disease.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "The team tested how well these new compounds blocked two specific enzymes in lab experiments and computer simulations.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The majority of the new compounds stopped the enzymes more effectively than the standard drug used for comparison.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The concentration needed to block half of the acetylcholinesterase enzyme activity ranged from 21.93 to 50.58 nanomolar.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The concentration needed to block half of the butyrylcholinesterase enzyme activity ranged from 78.75 to 133.27 nanomolar.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "Computer modeling showed that one specific compound, labeled 1e, fit best into the butyrylcholinesterase enzyme.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "Computer modeling showed that another compound, labeled 1a, fit best into the acetylcholinesterase enzyme.",
+   "subject": "computational"
+  },
+  {
+   "id": "f8",
+   "statement": "The safety and body-processing profiles of two new compounds were compared in silico to the existing drug tacrine.",
+   "subject": "computational"
+  },
+  {
+   "id": "f9",
+   "statement": "The computer analysis suggests the new compounds may be more toxic to the liver and kidneys than the reference drug.",
+   "subject": "computational"
+  },
+  {
+   "id": "f10",
+   "statement": "The authors state that more testing in living organisms is needed to confirm if these compounds are actually useful for treatment.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

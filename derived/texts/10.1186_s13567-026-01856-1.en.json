@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1186/s13567-026-01856-1",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "8db7b7b4dc44ca9a",
+ "generated_at": "2026-11-21T18:16:54+00:00",
+ "word_count": 101,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers investigated how exosomes, small vesicles released by cells, influence pseudorabies virus spread and blood-brain barrier damage in mice.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "After verifying via microscopy that samples contained exosomes rather than whole virus particles, the team found these vesicles carried viral genetic material and infected pig kidney cells.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "In a laboratory model of the blood-brain barrier, these exosomes caused the structure to lose its protective function.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "When injected into the brains of living animals, the exosomes were associated with nerve damage and increased barrier permeability.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors suggest that brain-derived exosomes may represent a previously overlooked mechanism for viral spread and vascular injury.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T18:27:04+00:00"
+ }
+}

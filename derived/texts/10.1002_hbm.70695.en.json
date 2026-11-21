@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1002/hbm.70695",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "ba19f2f0e08840bd",
+ "generated_at": "2026-11-21T18:07:47+00:00",
+ "word_count": 86,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed a new brain atlas by manually labeling a template of functional networks derived from over 100,000 resting-state fMRI datasets.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "These functional networks, which describe how brain regions coordinate activity during rest, are described as highly replicable across different subjects and datasets while capturing information at multiple spatial scales.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "The authors state that this resource aims to improve the comparability of results and interpret new findings, making it useful for both template-based analyses and other data-driven neuroimaging methods, including those using blind independent component analysis.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T18:26:03+00:00"
+ }
+}

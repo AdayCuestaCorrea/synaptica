@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1007/s00520-026-11509-w",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "821f6f29c27ab7c7",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T17:54:10+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study involved 127 adults with brain tumors, averaging 56.7 years of age, with 63.8% being female.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Participants with brain tumors showed lower levels of semantic clustering than healthy controls during both the learning and delayed recall phases of the memory test.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Executive functioning scores were positively associated with the use of semantic clustering, but not with the number of intrusions or repetitions.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The memory process variables measured in the study did not vary based on the location of the tumor.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The study was conducted because the relationship between memory process variables and established measures of executive functioning had not been clearly established.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1002/glia.70279",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "fb4232928d83d86b",
+ "generated_at": "2026-11-21T18:06:36+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Este estudio analizó cómo cambian de forma las células oligodendrocitarias, que maduran desde precursores simples hasta convertirse en células productoras de mielina, y reveló que el canal iónico TRPML1 controla este proceso morfológico.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "La activación de TRPML1 provoca un aumento de los filamentos de actina, un proceso regulado por la proteína Rac1, mientras que estos cambios físicos se asocian con breves liberaciones de calcio desde los compartimentos de almacenamiento internos de las extensiones celulares.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "En ratones jóvenes que carecen del gen TRPML1, los niveles de una forma activa de la proteína PAK1 eran más bajos en el área motora del cerebro y en la principal conexión entre los dos hemisferios.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T18:26:03+00:00"
+ }
+}

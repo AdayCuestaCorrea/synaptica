@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1186/s13567-026-01856-1",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "8db7b7b4dc44ca9a",
+ "generated_at": "2026-11-21T18:16:54+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores estudiaron cómo los exosomas, pequeñas vesículas liberadas por las células, influyen en la propagación del virus de la pseudorabia y en el daño a la barrera hematoencefálica en ratones.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Tras verificar mediante microscopía que las muestras contenían exosomas y no partículas virales completas, el equipo observó que estas vesículas transportaban material genético viral e infectaban células renales de cerdo.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "En un modelo de laboratorio de la barrera hematoencefálica, estos exosomas provocaron que la estructura perdiera su función protectora.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Cuando se inyectaron en el cerebro de animales vivos, los exosomas se asociaron con daño nervioso y un aumento de la permeabilidad de la barrera.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que los exosomas derivados del cerebro podrían representar un mecanismo previamente ignorado para la propagación viral y la lesión vascular.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T18:27:04+00:00"
+ }
+}

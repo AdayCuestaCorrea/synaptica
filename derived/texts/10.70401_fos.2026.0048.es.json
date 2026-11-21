@@ -1,0 +1,49 @@
+{
+ "study_id": "10.70401/fos.2026.0048",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "805021042317ad30",
+ "generated_at": "2026-11-21T18:24:00+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores propusieron un modelo conceptual que sugiere que la sensibilidad de las células de glioblastoma a la ferroptosis, una forma de muerte celular dependiente del hierro, está controlada por el suministro de lípidos oxidables, la capacidad de la célula para amortiguar el estrés redox y la forma en que gestiona el hierro.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Cambios genéticos específicos frecuentes en el glioblastoma, como la pérdida de CDKN2A, las alteraciones en EGFR y la pérdida de PTEN, pueden modificar la susceptibilidad de la célula a este mecanismo.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "La probabilidad de que una célula tumoral sufra ferroptosis también se ve influida por su estado fisiológico actual y por el entorno tisular circundante.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que la ferroptosis no es un mecanismo de muerte que pueda activarse en todas las células de glioblastoma, sino una vulnerabilidad específica que solo existe en tumores cercanos al umbral de este tipo de muerte celular.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T18:27:05+00:00"
+ }
+}

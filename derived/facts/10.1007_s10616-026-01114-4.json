@@ -1,0 +1,19 @@
+{
+ "study_id": "10.1007/s10616-026-01114-4",
+ "status": "too_few",
+ "abstract_from": "pubmed",
+ "abstract_hash": "16bf8ce25a4e2c49",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T17:55:12+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used PC12 cells treated with Erastin to create a lab model of ferroptosis and rats with impact-induced spinal cord injuries for testing in living animals.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source"
+ ]
+}

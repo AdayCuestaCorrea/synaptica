@@ -1,0 +1,60 @@
+{
+ "study_id": "10.4103/mgr.medgasres-d-26-00141",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "1b04e4a624175552",
+ "generated_at": "2026-11-21T18:21:57+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "En un modelo murino de depresión inducida por inflamación, los investigadores administraron 0,83 mg/kg de lipopolisacárido para provocar una respuesta inflamatoria, seguida treinta minutos después de una inyección de 5 mL/kg de suero rico en hidrógeno.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Este tratamiento redujo las señales de ansiedad y depresión, según lo midieron las evaluaciones conductuales, que incluyeron las pruebas de campo abierto, laberinto en cruz elevado, nado forzado y suspensión de la cola.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los análisis biológicos mostraron que la intervención disminuyó los niveles sanguíneos de las marcas inflamatorias interleucina-1β y factor de necrosis tumoral-α, redujo el número de células microgliales activadas e inhibió la vía de señalización TLR4/MyD88/NF-κB en el cerebro.",
+   "fact_ids": [
+    "f6",
+    "f7",
+    "f8"
+   ]
+  },
+  {
+   "text": "Además, el estudio observó que el daño sináptico en el hipocampo se reparó tras la administración de la solución salina.",
+   "fact_ids": [
+    "f9"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que la administración temprana de suero rico en hidrógeno podría reducir los comportamientos similares a la depresión relacionados con la inflamación en este modelo animal.",
+   "fact_ids": [
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T18:27:05+00:00"
+ }
+}

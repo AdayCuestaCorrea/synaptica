@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1002/glia.70279",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "3a8d716229bf3382",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T17:51:06+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Oligodendrocyte cells change shape as they mature from simple precursors into cells that produce myelin, the fatty coating around nerve fibers.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "The study shows that a specific ion channel called TRPML1 controls the shape of these cells while they are developing and starting to make myelin.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "When the TRPML1 channel is activated, it leads to an increase in actin filaments, a process controlled by a protein known as Rac1.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The physical changes in the cells are linked to brief releases of calcium from internal storage compartments within the cell's extensions.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "In young mice lacking the TRPML1 gene, levels of an active form of the PAK1 protein were lower in the brain's motor area and the main connection between the two hemispheres.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

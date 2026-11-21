@@ -1,0 +1,50 @@
+{
+ "study_id": "10.4103/mgr.medgasres-d-26-00039",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "a531e0671850a944",
+ "generated_at": "2026-11-21T18:19:56+00:00",
+ "word_count": 109,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers used a rat model of traumatic brain injury created by controlled cortical impact, where animals received two one-hour inhalations of 4% hydrogen gas.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "In these injured rats, breathing hydrogen gas was associated with less swelling in the brain and fewer signs of neurological damage.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "The treatment led to a higher count of M2-type microglia and a lower count of M1-type microglia, while also lowering the activity of the genes Jak2, Stat1, Stat3, and Hmgb1.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors suggest that the protective effect of hydrogen may work by blocking the JAK/STAT signaling pathway, which in turn changes how microglia cells behave.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-21T18:27:04+00:00"
+ }
+}

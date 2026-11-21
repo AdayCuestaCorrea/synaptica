@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1007/s00210-026-06120-z",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "f98687ea487b41e8",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T18:04:29+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used Swiss albino mice that were given a two-week course of four antibiotics, followed by two weeks of treatment with bergenin or the reference drug fluoxetine.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers measured signs of anxiety and depression using four specific behavioral tests: the elevated plus maze, open field, forced swim, and tail suspension tests.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The antibiotic treatment caused the mice to lose weight and showed signs of anxiety and depression in all four behavioral tests.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Bergenin reduced the behavioral deficits in a dose-dependent manner, with the higher dose restoring 70 to 92 percent of normal function, and it did not change the behavior or weight of mice that had not received antibiotics.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Computer simulations were used to predict how bergenin binds to the TLR4-MD-2 complex and the serotonin transporter, and to estimate its absorption, distribution, metabolism, excretion, and toxicity.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The simulations suggested bergenin binds to the serotonin transporter with a stability similar to fluoxetine, but its interaction with the TLR4-MD-2 complex was weaker and had fewer hydrogen bonds compared to the drug Eritoran.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors note that the antibiotic doses used were lower than those in other studies, and that they did not perform tests to verify changes in the gut microbiome, biochemical markers, or the specific molecular mechanism.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "The results apply specifically to mice treated with antibiotics, and the computer-based findings are intended to generate hypotheses rather than prove a mechanism.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

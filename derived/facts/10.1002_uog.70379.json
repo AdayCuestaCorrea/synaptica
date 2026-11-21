@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1002/uog.70379",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "e6c850641b82c031",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-21T18:00:21+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The research was a retrospective cohort study performed at four maternity hospitals in Italy.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study looked at single pregnancies with late-onset fetal growth restriction and a low cerebroplacental ratio, which indicates blood is being redirected to the brain.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "A total of 352 pregnancies were included in the analysis.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Participants were divided into four groups based on whether the blood flow measurements in the umbilical artery and the middle cerebral artery were normal or abnormal.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "In the initial analysis, babies in the group with abnormal blood flow in both arteries had higher rates of preterm birth, low birth weight, low blood sugar, and needing intensive care compared to the group with normal blood flow.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "After adjusting for other factors, only the group with abnormal blood flow in both arteries remained associated with low birth weight and low blood sugar in the newborn.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "Abnormalities in just one of the two blood flow measurements were not enough to identify fetuses at higher risk of complications.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "Having abnormal blood flow in both the umbilical artery and the middle cerebral artery was independently linked to perinatal complications.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}
