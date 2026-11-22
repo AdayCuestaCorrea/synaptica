@@ -758,6 +758,15 @@
   "basis": "openalex"
  },
  {
+  "key": "journals:10.1038/d41586-026-03803-8",
+  "is_neuro": false,
+  "basis": "llm",
+  "input_hash": "9d1b0b3791ca",
+  "prompt_version": "neuro-v1",
+  "generator": "groq/qwen/qwen3.8-27b",
+  "decided_at": "2026-11-22T14:35:16+00:00"
+ },
+ {
   "key": "journals:10.1038/d41586-026-03805-6",
   "is_neuro": false,
   "basis": "openalex"
