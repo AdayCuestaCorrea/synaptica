@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s00330-026-13101-6",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "beeef6face975ee3",
+ "generated_at": "2026-11-22T15:13:14+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: words not in the Spanish dictionary ['convolucionales']"
+ ],
+ "sentences": [
+  {
+   "text": "Una revisión sistemática de doce estudios, la mayoría de los cuales empleó arquitecturas de redes neuronales convolucionales, evaluó si la inteligencia artificial puede generar imágenes sintéticas de resonancia magnética cerebral post-contraste a partir de entradas de baja dosis para reducir el uso de agentes de contraste de gadolinio.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "En estas investigaciones, que involucraron a 3846 pacientes, las imágenes generadas por IA arrojaron una relación pico señal-ruido combinada de 32,91 dB y un índice de similitud estructural del 91,81 %.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Sin embargo, la variación significativa entre los estudios incluidos hizo que estos resultados estadísticos combinados se interpretaran únicamente como cifras descriptivas, y no como promedios definitivos.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Las evaluaciones cualitativas indicaron que las imágenes sintéticas se consideraban generalmente aceptables para el diagnóstico o similares a las de dosis completa, aunque se observaron diferencias sutiles en la apariencia de las lesiones y los artefactos.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que la alta variación entre estudios, la validación externa limitada y la ausencia de resultados diagnósticos centrados en la clínica restringen la generalizabilidad de la evidencia actual.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-22T15:19:20+00:00"
+}

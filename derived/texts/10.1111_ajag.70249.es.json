@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1111/ajag.70249",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "adcf0d212b08e32d",
+ "generated_at": "2026-11-22T15:02:05+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron datos de una encuesta transversal recopilada entre residentes de 38 aldeas de jubilados en Australia.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Aproximadamente el 24% de los adultos mayores de esta muestra informaron sobre problemas de memoria subjetivos.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Los participantes de entre 85 y 89 años y los mayores de 90 tenían más probabilidades de reportar estas dificultades que las personas menores de 75 años.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "La declaración de problemas de memoria se asoció con ser hombre, sentirse solo, presentar pérdida de audición no asistida, visión deteriorada, sufrir caídas y tomar cinco o más medicamentos.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-22T15:19:22+00:00"
+ }
+}

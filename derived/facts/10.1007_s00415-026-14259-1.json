@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s00415-026-14259-1",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "7abeee1774e4060a",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-22T14:52:46+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study compared 42 people with spinocerebellar ataxia type 3 to 17 healthy controls.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Participants were split into groups based on ataxia severity and cognitive status, with 12 having mild ataxia and 30 having moderate-to-severe ataxia.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "People with the condition showed difficulties with executive function, visual working memory, and spatial planning compared to the control group.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Those with more severe ataxia had worse visual working memory and task accuracy than those with mild ataxia.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Patients with intact cognition took longer to process information, while only those with cognitive impairment had issues with delayed responses.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Specific cerebellar regions were linked to different cognitive abilities, such as spatial planning and visual working memory.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The study concludes that the cognitive problems in this condition are linked to changes in specific parts of the cerebellum.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

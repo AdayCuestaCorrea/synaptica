@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s11626-026-01252-1",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "37c36ed995d0215f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-22T14:59:00+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a computational method to guess which biological targets ghrelin might affect in Alzheimer's disease.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "Mouse brain cells were grown in a lab dish and damaged using a specific protein fragment to mimic Alzheimer's injury.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The computer analysis found 168 shared targets between the hormone and the disease, highlighting a specific signaling route involving SIRT1 and FOXO proteins.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "In the lab-grown cells, the hormone increased the levels of several specific proteins, lowered harmful oxidative stress, and was linked to better cell cleanup processes.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Mice were given the protein fragment in their brain to create a disease model, then treated with the hormone by injection and a virus to block a specific gene by nose spray.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The researchers tested the mice's memory using a water maze and checked their brain tissue for damage using special stains.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "In the live mice, the hormone improved memory and reduced brain damage, but blocking the SIRT1 gene undid these benefits.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

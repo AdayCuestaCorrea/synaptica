@@ -1,0 +1,40 @@
+{
+ "study_id": "10.1002/pd.70312",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "f1cd173a7c2a10c0",
+ "generated_at": "2026-11-22T15:04:06+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: numbers differ (['2', '2014', '2026', '209', '35'] vs ['2014', '2026', '209', '35'])",
+  "sentence 3: numbers differ (['2', '35'] vs ['35'])",
+  "sentence 1: words not in the Spanish dictionary ['fetooscópica']",
+  "sentence 2: words not in the Spanish dictionary ['gestacionales']"
+ ],
+ "sentences": [
+  {
+   "text": "Un estudio de cohorte retrospectivo examinó a 209 pacientes que se sometieron a reparación fetooscópica de mielomeningocele entre 2014 y 2026, dividiéndolos en grupos según si su índice de masa corporal preoperatorio era de 35 kilogramos por metro cuadrado o superior.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "La proporción de bebés nacidos antes de las 37 semanas de gestación fue similar en el grupo con índice de masa corporal elevado (52%) y en el grupo con índice de masa corporal más bajo (49%), con edades gestacionales medias de 35,9 y 37,0 semanas, respectivamente.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Tras ajustar por otros factores, un índice de masa corporal preoperatorio de 35 kilogramos por metro cuadrado o superior no se asoció con el parto prematuro.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-22T15:19:19+00:00"
+}

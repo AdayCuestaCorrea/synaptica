@@ -1,0 +1,43 @@
+{
+ "study_id": "10.1007/s00415-026-14259-1",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "e6c89462e6f40616",
+ "generated_at": "2026-11-22T15:16:17+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: words not in the Spanish dictionary ['espinocerebelosa']"
+ ],
+ "sentences": [
+  {
+   "text": "Este estudio comparó a 42 personas con ataxia espinocerebelosa de tipo 3 con 17 controles sanos, dividiendo a los participantes en grupos según la gravedad de la ataxia y su estado cognitivo.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Las personas con esta patología mostraron dificultades en la función ejecutiva, la memoria de trabajo visual y la planificación espacial, siendo las que presentaban una ataxia de moderada a grave las que exhibían un peor rendimiento en la memoria de trabajo visual y la precisión en las tareas que las que tenían una ataxia leve.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Si bien los pacientes con cognición intacta tardaban más en procesar la información, solo aquellos con deterioro cognitivo tenían problemas con las respuestas retardadas, y regiones cerebelosas específicas se asociaban con diferentes capacidades cognitivas.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que los problemas cognitivos en esta enfermedad están vinculados a cambios en partes específicas del cerebelo.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-22T15:19:20+00:00"
+}

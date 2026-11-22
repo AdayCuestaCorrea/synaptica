@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1002/pd.70312",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "2b055338aea6de69",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-22T14:47:39+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The research was a retrospective cohort study covering patients who had fetoscopic myelomeningocele repair between 2014 and 2026.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study included 209 patients, of whom 21 had a preoperative body mass index of 35 kg/m2 or higher.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Participants were divided into two groups based on whether their preoperative body mass index was 35 kg/m2 or higher, or lower than that threshold.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The proportion of babies born before 37 weeks of gestation was similar in the high body mass index group (52%) and the lower body mass index group (49%).",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The average gestational age at delivery was 35.9 weeks for the high body mass index group and 37.0 weeks for the lower body mass index group.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "After adjusting for other factors, a preoperative body mass index of 35 kg/m2 or higher was not associated with preterm birth.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording",
+  "statement copies the source wording"
+ ]
+}

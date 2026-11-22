@@ -1,0 +1,54 @@
+{
+ "study_id": "10.1007/s00210-026-06098-8",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "f6747e52ad5a9b36",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-22T14:48:40+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a rat model where reserpine was given to induce depressive-like behavior to test the effects of resveratrol and silymarin.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Fifty male Wistar rats were split into five groups of ten, including a control group and groups receiving reserpine alone or with resveratrol, silymarin, or both.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Blood samples were analyzed for serotonin, dopamine, and markers of antioxidant and oxidant status to check peripheral levels and systemic oxidative balance.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Rats given reserpine showed more immobility, less movement and exploration, higher anxiety-like behavior, and worse memory retention.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Compared with the reserpine-only group, resveratrol raised blood dopamine and antioxidant levels, while silymarin and the combination raised blood serotonin.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The combination treatment had higher antioxidant status, and all treatment groups had lower oxidant status than the reserpine-only group.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "Because only blood was tested, the results do not prove that neurotransmission or oxidative processes in the brain changed.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "The fact that the combination worked better in some measures does not prove that resveratrol and silymarin interact synergistically.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

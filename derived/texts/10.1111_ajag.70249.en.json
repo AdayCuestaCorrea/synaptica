@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1111/ajag.70249",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "adcf0d212b08e32d",
+ "generated_at": "2026-11-22T15:02:05+00:00",
+ "word_count": 73,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers analyzed cross-sectional survey data collected from residents of 38 Australian retirement villages.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Approximately 24% of the older adults in this sample reported subjective memory problems.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Participants aged 85 to 89 and those 90 and older were more likely to report these issues than individuals under 75.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "The reporting of memory problems was associated with being male, feeling lonely, having unaided hearing impairment, impaired vision, experiencing falls, and taking five or more medications.",
+   "fact_ids": [
+    "f4"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-22T15:19:22+00:00"
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "study_id": "10.1007/s00234-026-04279-z",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "693400c22accb50a",
+ "generated_at": "2026-11-22T15:11:12+00:00",
+ "word_count": 99,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "This case report describes two siblings with ataxia, cognitive decline, and progressive demyelination who inherited a specific ACOX1 gene variant from their asymptomatic mother while maintaining normal levels of very long chain fatty acids.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Brain magnetic resonance imaging revealed that these individuals experienced progressive loss of myelin and underdevelopment of the corpus callosum.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Furthermore, a specialized MRI technique called NODDI indicated that the siblings had a lower intraneurite fraction and a smaller orientation dispersion index compared to their parents.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors suggest that diffusion MRI microstructure modeling could be a useful tool for diagnosing and monitoring hypomyelinating conditions.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-22T15:20:23+00:00"
+ }
+}

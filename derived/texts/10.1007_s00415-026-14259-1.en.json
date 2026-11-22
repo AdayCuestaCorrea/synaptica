@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1007/s00415-026-14259-1",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "e6c89462e6f40616",
+ "generated_at": "2026-11-22T15:16:17+00:00",
+ "word_count": 108,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "This study compared 42 people with spinocerebellar ataxia type 3 to 17 healthy controls, splitting participants into groups based on ataxia severity and cognitive status.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Individuals with the condition exhibited difficulties with executive function, visual working memory, and spatial planning, with those having moderate-to-severe ataxia showing worse visual working memory and task accuracy than those with mild ataxia.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "While patients with intact cognition took longer to process information, only those with cognitive impairment had issues with delayed responses, and specific cerebellar regions were linked to different cognitive abilities.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors conclude that the cognitive problems in this condition are linked to changes in specific parts of the cerebellum.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-22T15:21:23+00:00"
+ }
+}

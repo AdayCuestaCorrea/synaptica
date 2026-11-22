@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1038/s41467-026-79544-z",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "bf205ebb2d79ce4c",
+ "generated_at": "2026-11-22T15:00:03+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores registraron la actividad de 1415 neuronas en pacientes neuroquirúrgicos que acababan de aprender una historia que contenía conceptos específicos.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Las neuronas asociadas a los conceptos aprendidos volvieron a activarse durante el sueño de ondas lentas, disparándose de forma conjunta, especialmente durante las ondulaciones de onda aguda, un breve estallido de actividad de alta frecuencia, con intervalos temporales que podrían favorecer cambios en las conexiones sinápticas.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "El orden en el que estas neuronas se reactivaron no coincidió con la secuencia de conceptos presentados en la historia, un patrón que contrasta con las células de lugar de los roedores, las cuales ajustan sus ubicaciones de disparo en función de secuencias preexistentes.",
+   "fact_ids": [
+    "f4",
+    "f6"
+   ]
+  },
+  {
+   "text": "A diferencia de las células de lugar de los roedores, las neuronas de concepto humanas ya están afinadas para significados específicos antes de que ocurra cualquier aprendizaje nuevo.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-22T15:19:22+00:00"
+ }
+}

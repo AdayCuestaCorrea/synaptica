@@ -1,0 +1,56 @@
+{
+ "study_id": "10.1007/s11571-026-10606-0",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "71a986ca4e5b2907",
+ "generated_at": "2026-11-22T14:59:01+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un modelo computacional de una red neuronal que incluye el núcleo subtalámico y dos tipos de neuronas del globo pálido para estudiar la generación de ritmos cerebrales específicos.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "La simulación indicó que un bucle que conecta el núcleo subtalámico y las neuronas prototípicas del globo pálido actúa como el mecanismo principal para crear y mantener la actividad cerebral anómala.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Si bien las neuronas arquipalidales reforzaban esta actividad al inhibir las células prototípicas, la activación exclusiva de las neuronas prototípicas detuvo el acoplamiento anómalo, mientras que la activación de las neuronas arquipalidales no tuvo efecto.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los cambios consistentes en las medidas de sincronización y potencia cerebral sugieren que este acoplamiento puede servir como una señal fiable para monitorizar el estado cerebral.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Estos hallazgos identifican al grupo de neuronas prototípicas como un objetivo potencial para tratamientos de estimulación cerebral precisa basados en luz.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-22T15:19:21+00:00"
+ }
+}

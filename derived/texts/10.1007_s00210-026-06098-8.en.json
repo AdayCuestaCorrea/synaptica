@@ -1,0 +1,53 @@
+{
+ "study_id": "10.1007/s00210-026-06098-8",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "70f89d0a28caec4d",
+ "generated_at": "2026-11-22T15:07:08+00:00",
+ "word_count": 128,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "In a rat model of reserpine-induced depressive-like behavior, fifty male Wistar rats were divided into five groups of ten to evaluate the effects of resveratrol, silymarin, or their combination.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Blood samples were analyzed for serotonin, dopamine, and markers of antioxidant and oxidant status, while behavioral tests revealed that reserpine-treated rats exhibited increased immobility, reduced exploration, heightened anxiety-like behavior, and impaired memory retention.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Compared with the reserpine-only group, resveratrol elevated blood dopamine and antioxidant levels, whereas silymarin and the combination increased blood serotonin, with the combination showing higher antioxidant status and all treatment groups displaying lower oxidant status.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Because only peripheral blood was tested, these findings do not prove changes in brain neurotransmission or oxidative processes, nor do they establish that the combination of resveratrol and silymarin acts synergistically.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-22T15:20:21+00:00"
+ }
+}

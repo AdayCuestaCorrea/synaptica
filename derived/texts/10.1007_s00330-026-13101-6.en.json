@@ -1,0 +1,56 @@
+{
+ "study_id": "10.1007/s00330-026-13101-6",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "beeef6face975ee3",
+ "generated_at": "2026-11-22T15:13:14+00:00",
+ "word_count": 134,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A systematic review of twelve studies, most employing convolutional neural network architectures, evaluated whether artificial intelligence can generate synthetic post-contrast brain MRI images from low-dose inputs to reduce gadolinium contrast agent usage.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Across these investigations involving 3846 patients, the AI-generated images yielded a pooled peak signal-to-noise ratio of 32.91 dB and a structural similarity index of 91.81%.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "However, significant variation between the included studies meant that these combined statistical results were interpreted only as descriptive figures rather than definitive averages.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Qualitative assessments indicated that the synthetic images were generally considered diagnostically acceptable or similar to full-dose images, although subtle differences in how lesions and artifacts appeared were noted.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors conclude that high variation between studies, limited external validation, and a lack of clinically focused diagnostic outcomes restrict the generalizability of the current evidence.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-22T15:21:22+00:00"
+ }
+}

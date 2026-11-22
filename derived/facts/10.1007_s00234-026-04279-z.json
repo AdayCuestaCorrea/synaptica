@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1007/s00234-026-04279-z",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "642f614e29c54fbc",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-22T14:50:44+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study describes two siblings who have ataxia, cognitive decline, and progressive demyelination but normal levels of very long chain fatty acids, and who inherited a specific ACOX1 gene variant from their asymptomatic mother.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Brain magnetic resonance imaging revealed progressive loss of myelin and underdevelopment of the corpus callosum in the siblings.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "A specialized MRI technique called NODDI indicated that the siblings had a lower intraneurite fraction compared to their parents.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The siblings also showed a smaller orientation dispersion index in the NODDI analysis.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors suggest that diffusion MRI microstructure modeling could be a useful tool for diagnosing and monitoring hypomyelinating conditions.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

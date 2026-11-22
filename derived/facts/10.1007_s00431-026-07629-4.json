@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1007/s00431-026-07629-4",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "8c7ec234a9d86a1f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-22T14:54:51+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study was a two-center cross-sectional design involving 41 children between the ages of 8 and 18, split into a group of 21 with neurofibromatosis type 1 and a control group of 20 typically developing children matched by age and sex.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The children were evaluated using behavioral tests that included parent reports on autism-like traits, assessments of daily executive functioning, and direct measurements of theory of mind.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Brain structure was examined using magnetic resonance imaging data analyzed with automated tools to measure volume and cortical thickness in specific brain areas.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The neurofibromatosis type 1 group had larger overall brain volume due to white matter expansion, thinner and less proportional gray matter in several brain regions, and larger subcortical structures such as the amygdala, hippocampus, and thalamus.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Few selective correlations were found between brain structure and behavior within the groups, none remained significant after statistical correction, and no correlations were found for autism-like traits.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors note that it remains to be tested whether these structural differences account for the social-cognitive difficulties, requiring larger samples to directly examine brain-behavior associations.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

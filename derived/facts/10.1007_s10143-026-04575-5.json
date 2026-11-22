@@ -1,0 +1,55 @@
+{
+ "study_id": "10.1007/s10143-026-04575-5",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "0a6231bf1c9112ab",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-22T14:56:54+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study evaluated how well a specific MRI technique called DANTE could show the anatomy of the inferior and superior petrosal sinuses in people with a type of abnormal blood vessel connection in the brain.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Every patient received an MRI scan using a contrast dye and the DANTE sequence before undergoing a procedure to treat the fistula.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The openness of the inferior petrosal sinus was checked on the MRI images and then compared with results from a different imaging test called digital subtraction angiography.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Two patients showed narrowing of the inferior petrosal sinus.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The inferior petrosal sinus could be seen in every patient, and doctors were able to use it to deliver treatment material in all cases where treatment was given.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "For the superior petrosal sinus, a clear connection to the cavernous sinus was confirmed in 5 of the patients.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "About 78.5% of the patients had the fistula closed right after the procedure, while the rest were closed during later check-ups.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The DANTE MRI technique provides clear images of these sinuses by hiding the signal from moving blood while keeping the signal from stationary tissue, which helps doctors understand the anatomy before surgery.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote",
+  "numbers not in the quote"
+ ]
+}

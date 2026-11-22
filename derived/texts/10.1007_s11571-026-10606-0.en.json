@@ -1,0 +1,56 @@
+{
+ "study_id": "10.1007/s11571-026-10606-0",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "71a986ca4e5b2907",
+ "generated_at": "2026-11-22T14:59:01+00:00",
+ "word_count": 122,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers employed a computational model of a neural network containing the subthalamic nucleus and two types of globus pallidus neurons to investigate the generation of specific brain rhythms.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "The simulation indicated that a loop connecting the subthalamic nucleus and prototypic globus pallidus neurons serves as the primary mechanism for creating and maintaining abnormal brain activity.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "While arkypallidal neurons strengthened this activity by inhibiting prototypic cells, activating only the prototypic neurons stopped the abnormal coupling, whereas activating the arkypallidal neurons had no effect.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Consistent changes in measures of brain synchronization and power suggest that this coupling can serve as a reliable signal for monitoring brain state.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "These findings identify the prototypic neuron group as a potential target for precise light-based brain stimulation treatments.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-22T15:19:21+00:00"
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1007/s00330-026-13101-6",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "5bd8748c335864d7",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-22T14:51:45+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study aimed to assess how well artificial intelligence can create synthetic post-contrast brain MRI images from low-dose inputs to reduce the amount of gadolinium contrast agent used.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The review included twelve studies, the majority of which relied on convolutional neural network architectures.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "Across the twelve studies, which involved 3846 patients, the AI-generated images showed a pooled peak signal-to-noise ratio of 32.91 dB and a structural similarity index of 91.81%.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Because there was significant variation between the included studies, the combined statistical results were interpreted only as descriptive figures rather than definitive averages.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "Qualitative reviews indicated that the synthetic images were generally considered diagnostically acceptable or similar to full-dose images, though subtle differences in how lesions and artifacts appeared were noted.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors note that high variation between studies, limited external validation, and a lack of clinically focused diagnostic outcomes restrict the generalizability of the current evidence.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

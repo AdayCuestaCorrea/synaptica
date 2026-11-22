@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1007/s00415-026-14262-6",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "b04e3f16384f5689",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-22T14:53:48+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study was a randomized, double-blind trial in which 52 people with Parkinson's disease and freezing of gait were assigned to either real or fake brain stimulation.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Data from 50 participants, 26 who got real stimulation and 24 who got fake stimulation, were analyzed.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The main measure was how much a questionnaire score about freezing of gait changed after the treatment.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Researchers also tracked movement scores, walking measurements, and brain activity using functional MRI.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "People who received real stimulation had a larger drop in their freezing of gait score than those who received fake stimulation, and this difference was still present four weeks later.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Real stimulation led to early improvements in movement, balance, and walking speed and step length, which were still seen at the four-week follow-up.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "Brain scans showed stronger connections between two brain regions during a mental walking task, and this was linked to better clinical and walking results.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "Symptoms other than movement, such as mood or thinking, also improved and stayed better at the four-week check.",
+   "subject": "humans"
+  },
+  {
+   "id": "f9",
+   "statement": "The authors suggest this treatment has short-term potential for freezing of gait and related mental symptoms when patients are off their medication.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

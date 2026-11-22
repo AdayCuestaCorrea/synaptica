@@ -1,0 +1,53 @@
+{
+ "study_id": "10.1007/s00210-026-06098-8",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "70f89d0a28caec4d",
+ "generated_at": "2026-11-22T15:07:08+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "En un modelo de rata con comportamiento depresivo inducido por reserpina, cincuenta ratas macho Wistar se dividieron en cinco grupos de diez para evaluar los efectos del resveratrol, la silimarina o su combinación.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Los análisis de sangre midieron la serotonina, la dopamina y los marcadores del estado antioxidante y oxidante, mientras que las pruebas conductuales revelaron que las ratas tratadas con reserpina mostraban mayor inmovilidad, menor exploración, un aumento del comportamiento ansiogénico y una retención de la memoria deteriorada.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "En comparación con el grupo que solo recibió reserpina, el resveratrol elevó los niveles de dopamina y antioxidantes en sangre, mientras que la silimarina y la combinación aumentaron la serotonina sanguínea; la combinación presentó un mayor estado antioxidante y todos los grupos tratados mostraron un menor estado oxidante.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Dado que solo se analizó sangre periférica, estos hallazgos no demuestran cambios en la neurotransmisión cerebral ni en los procesos oxidativos, ni establecen que la combinación de resveratrol y silimarina actúe de forma sinérgica.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-22T15:20:21+00:00"
+ }
+}

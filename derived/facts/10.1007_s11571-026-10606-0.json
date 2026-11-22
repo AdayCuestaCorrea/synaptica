@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1007/s11571-026-10606-0",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "0dddd8c21df41bf5",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-22T14:44:34+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a computational model of a neural network that includes the subthalamic nucleus and two distinct types of globus pallidus neurons to study how specific brain rhythms are created.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The model found that a specific loop connecting the subthalamic nucleus and prototypic globus pallidus neurons is the main mechanism for creating and maintaining the abnormal brain activity.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "Arkypallidal neurons do not start the abnormal activity themselves but strengthen it by inhibiting the prototypic neurons, a process triggered by input from the subthalamic nucleus.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "Activating only the prototypic neurons stopped the abnormal coupling, while activating the arkypallidal neurons had no effect on it.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The consistent changes in specific measures of brain synchronization and power suggest that this coupling can serve as a reliable signal for monitoring brain state.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The findings identify the prototypic neuron group as a potential target for precise light-based brain stimulation treatments.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

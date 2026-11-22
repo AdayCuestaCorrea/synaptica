@@ -1,0 +1,58 @@
+{
+ "study_id": "10.1007/s00221-026-07434-3",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "5f444239a627b668",
+ "generated_at": "2026-11-22T15:09:09+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "En un ensayo clínico aleatorizado, doble ciego y controlado con placebo que incluyó a 120 pacientes con dolor crónico, los participantes recibieron estimulación eléctrica transcraneal en casa, ya sea de corriente continua dirigida a la corteza motora o de corriente alterna dirigida a la corteza prefrontal.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los investigadores midieron la sensibilidad al dolor mediante pruebas sensoriales cuantitativas de umbrales de presión y calor, modulación del dolor y suma temporal, evaluando los efectos inmediatamente después del tratamiento y nuevamente tras seis meses.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "El análisis estadístico no mostró cambios significativos en las puntuaciones de las pruebas de dolor tras la estimulación en ningún punto temporal.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "En consecuencia, los resultados no respaldan la idea de que el alivio del dolor producido por esta estimulación se deba a cambios en la forma en que el cerebro modula el dolor.",
+   "fact_ids": [
+    "f7"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que estudios futuros deberían comprobar si estas pruebas específicas de dolor son lo suficientemente sensibles para detectar los cambios causados por la estimulación.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-22T15:20:23+00:00"
+ }
+}

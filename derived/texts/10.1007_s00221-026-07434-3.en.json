@@ -1,0 +1,58 @@
+{
+ "study_id": "10.1007/s00221-026-07434-3",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "5f444239a627b668",
+ "generated_at": "2026-11-22T15:09:09+00:00",
+ "word_count": 130,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "In a double-blind, placebo-controlled randomized controlled trial involving 120 patients with chronic pain, participants received at-home transcranial electrical stimulation, either direct current aimed at the motor cortex or alternating current aimed at the prefrontal cortex.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Researchers measured pain sensitivity using quantitative sensory tests for pressure and heat thresholds, pain modulation, and temporal summation, checking the effects immediately after treatment and again after six months.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Statistical analysis showed no significant changes in the pain test scores after the stimulation at any time point.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "Consequently, the results do not support the idea that the pain relief from this stimulation comes from changes in how the brain modulates pain.",
+   "fact_ids": [
+    "f7"
+   ]
+  },
+  {
+   "text": "The authors suggest that future studies should check if these specific pain tests are sensitive enough to detect any changes caused by the stimulation.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-22T15:20:23+00:00"
+ }
+}

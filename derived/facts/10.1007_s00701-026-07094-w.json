@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s00701-026-07094-w",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "563664095fcb72f1",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-22T14:55:53+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The research was a single-center cohort study that followed 23 people who had surgery to remove a low-grade brain tumor at a hospital in Germany.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Participants were tested before their operation, just before leaving the hospital, and again three months later using a set of standard tests.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The tests measured overall clinical status, mental abilities, physical movement, and the patients' own reports of their quality of life.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Walking speed and the ability to perform daily roles dropped at first but improved by the three-month check, while social interactions and bowel regularity got better.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "There were no significant changes over time in the scores for mental tests or general clinical health measures.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The size of the tumor, the swelling around it, or where it was located did not clearly predict how well patients' thinking skills would recover.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors note that bigger studies are required to confirm these results and to help doctors advise patients.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

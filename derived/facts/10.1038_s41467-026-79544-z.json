@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1038/s41467-026-79544-z",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "88eb58cc6ec21c7c",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-22T14:45:36+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers recorded activity from 1,415 neurons in neurosurgical patients who had just learned a story containing specific concepts.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study observed that neurons associated with the learned concepts became active again during slow-wave sleep following the learning task.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "These concept neurons fired together, especially during sharp-wave ripples, with timing gaps that could support changes in synaptic connections.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The order in which the neurons reactivated did not match the order of the concepts presented in the story.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Unlike rodent place cells that adjust their firing locations based on pre-existing sequences, human concept neurons are already tuned to specific meanings before any new learning occurs.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "In contrast to rodent place cells, the reactivation of human concept cells does not mirror the sequence of events in human experiences.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}
