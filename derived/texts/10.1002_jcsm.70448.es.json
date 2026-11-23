@@ -1,0 +1,53 @@
+{
+ "study_id": "10.1002/jcsm.70448",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "349a2e297df68ded",
+ "generated_at": "2026-11-23T18:38:18+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron a 482 adultos que viven en la comunidad, entre ellos 235 hombres y 247 mujeres con una edad media de 67,2 años, midiendo los niveles de miostatina en sangre, la masa muscular, la fuerza de prensión y realizándoles escaneos cerebrales de alta resolución para evaluar el volumen de materia gris.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Aunque los hombres presentaban niveles de miostatina un 17,8 % más altos y una edad media superior, una mayor concentración de esta proteína se asociaba con una mayor masa muscular en ambos sexos, pero no con la fuerza de prensión.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "En los hombres, los niveles elevados de miostatina se asociaban con un mayor volumen de materia gris en el giro postcentral izquierdo y con un volumen menor en el cerebelo derecho, mientras que en las mujeres solo se relacionaban con un menor volumen de materia gris en tres regiones cerebrales específicas.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Dado que estas regiones cerebrales no mostraban solapamiento entre los sexos, el estudio aporta la primera evidencia obtenida mediante escaneos cerebrales humanos de que la relación entre la musculatura y la estructura cerebral difiere según el sexo.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-23T18:54:51+00:00"
+ }
+}

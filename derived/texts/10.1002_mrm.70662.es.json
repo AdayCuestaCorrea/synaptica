@@ -1,0 +1,59 @@
+{
+ "study_id": "10.1002/mrm.70662",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "4728c07b44968ecf",
+ "generated_at": "2026-11-23T18:40:21+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores han desarrollado LAMDI, una nueva técnica automatizada para calcular mapas de susceptibilidad magnética que preserva los detalles finos del cerebro sin necesidad de ajustes manuales de parámetros.",
+   "fact_ids": [
+    "f1",
+    "f3"
+   ]
+  },
+  {
+   "text": "Este enfoque sustituye una simple suposición matemática por un modelo más complejo para estimar automáticamente los parámetros de corrección que los métodos anteriores no lograban describir por completo.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "El método se evaluó en escaneos cerebrales reales e imágenes generadas por ordenador de depósitos de calcio, comparando su rendimiento con tres técnicas existentes utilizando tanto configuraciones predeterminadas como ajustes de referencia.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Si bien dos de los otros métodos destacaron en medidas específicas al disponer de datos de referencia, la nueva técnica alcanzó una precisión global similar a la de un método existente, reduciendo significativamente los errores en los detalles finos.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que esta alternativa automática equilibra una buena calidad de imagen general con una mejor preservación de las estructuras anatómicas.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-23T18:55:50+00:00"
+ }
+}

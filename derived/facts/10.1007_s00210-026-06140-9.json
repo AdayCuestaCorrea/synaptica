@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s00210-026-06140-9",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "8ab32b76e54224a9",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-23T18:25:39+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a rat model with seven animals per group, comparing a control group, a berberine-only group, a cobalt chloride-only group, and two groups receiving cobalt chloride plus different doses of berberine.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Cobalt chloride treatment led to worse performance in behavioral tests, while berberine treatment showed only small, statistically non-significant improvements in these behaviors.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Cobalt chloride caused imbalances in the brain's antioxidant systems and changed the gene expression levels of markers related to cellular stress, inflammation, and cell death in the hippocampus.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Berberine increased the activity of antioxidant enzymes and reduced the harmful changes caused by cobalt chloride, with the higher dose showing a stronger effect.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Berberine restored the expression of the Nrf2 gene at both doses, but only the higher dose reversed the reductions in several other specific genes involved in cell survival and signaling.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Tissue analysis showed that berberine lowered the levels of proteins associated with glial cell activation and nerve damage, while maintaining levels of a protein that supports neuron health.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors note that because they only measured gene expression at the RNA level, the results show associations and need further testing at the protein level to be confirmed.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

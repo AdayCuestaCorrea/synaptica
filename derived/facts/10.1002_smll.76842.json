@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1002/smll.76842",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "4be9495ac51dee66",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-23T18:24:36+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers created a gold-copper cluster designed to imitate the function of the enzyme pyruvate dehydrogenase.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The cluster oxidizes pyruvate and regenerates NAD+ to boost energy production and stabilize mitochondria in high-sugar conditions.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "In diabetic mice, the cluster passed through the blood-brain barrier to restore brain energy metabolism.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The treatment triggered a pathway for new mitochondria, reduced brain inflammation, and improved neurological function.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The study suggests this approach could be a promising treatment for cognitive issues caused by diabetes.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

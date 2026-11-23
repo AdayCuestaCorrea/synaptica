@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1002/mrm.70665",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "1c49454e950a6a51",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-23T18:23:33+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study aimed to determine which of two MRI techniques gives a more reliable measurement of water moving across the blood-brain barrier.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers used a specific type of MRI scan on living subjects, testing the methods at three different time delays after labeling the blood.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Computer simulations were also run to see how the signal changes as it fades and as the labeled blood arrives during the scan.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "At the two longer time delays, both MRI methods produced similar estimates of the tissue's signal decay rate.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "At the shortest time delay, the multi-echo method gave a lower estimate of the signal decay rate than the other method.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The multi-echo method produced clearer images with less noise, while the T2-prep method showed more blurring and visual errors in the raw data.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "The multi-echo technique has better signal quality but might incorrectly report a lower signal decay rate when the scan delay is very short.",
+   "subject": "computational"
+  },
+  {
+   "id": "f8",
+   "statement": "Early computer models suggest this underestimation might happen because the scan's magnetic fields distort the signal from moving blood.",
+   "subject": "computational"
+  },
+  {
+   "id": "f9",
+   "statement": "The T2-prep technique is more likely to produce blurry or distorted images because it takes longer to collect the data.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

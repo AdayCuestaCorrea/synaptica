@@ -1,0 +1,50 @@
+{
+ "study_id": "10.1002/mrm.70665",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "5aee0ff8af8862e6",
+ "generated_at": "2026-11-23T18:42:25+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 5: words not in the Spanish dictionary ['infravaloración']"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores compararon dos técnicas de resonancia magnética para medir el movimiento del agua a través de la barrera hematoencefálica en sujetos vivos, probándolas en tres retrasos temporales distintos tras marcar la sangre.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "También se realizaron simulaciones por ordenador para examinar cómo cambia la señal a medida que se desvanece y llega la sangre marcada durante la exploración.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Aunque ambos métodos produjeron estimaciones similares de la tasa de decaimiento de la señal del tejido en los dos retrasos más largos, el método de multi-eco dio una estimación más baja que el otro en el retraso más corto.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "La técnica de multi-eco produjo imágenes más nítidas con menos ruido, mientras que el método de preparación T2 mostró más desenfoque y errores visuales en los datos brutos.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "Los primeros modelos informáticos sugieren que la infravaloración en el método de multi-eco podría deberse a que los campos magnéticos distorsionan la señal de la sangre en movimiento, mientras que la técnica de preparación T2 es más propensa a producir imágenes borrosas porque tarda más en recopilar los datos.",
+   "fact_ids": [
+    "f8",
+    "f9"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-23T18:54:48+00:00"
+}

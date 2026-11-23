@@ -1,0 +1,62 @@
+{
+ "study_id": "10.1007/s00213-026-07207-4",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "c93d6ae279345282",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-23T18:26:40+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study examined brain connectivity in rats that had been exposed to alcohol intermittently for two months, grouped by whether they started drinking as adolescents or adults and by their level of consumption.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Rats were scanned using fMRI three to six days after their last alcohol exposure while they were presented with smells of ethanol, sweet water, and plain water.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The researchers measured how different brain regions communicated with each other in response to the smells by analyzing the correlation of brain activity across individual trials.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Rats that began drinking during adolescence showed stronger communication between the medial prefrontal cortex and the retrosplenial cortex when reacting to alcohol smells compared to rats that started as adults.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The difference in brain connectivity between adolescent and adult onset groups was no longer statistically significant once the researchers accounted for the amount of time the rats had been without alcohol.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The level of alcohol consumption alone did not produce a statistically significant change in brain connectivity after statistical corrections were applied.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "Rats that started drinking heavily as adolescents showed weaker connections between the prelimbic and anterior cingulate cortex areas in response to alcohol smells compared to those who drank lightly.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "Heavy adolescent drinkers also had reduced connectivity between the amygdala and insula when reacting to alcohol smells compared to light drinkers and heavy adult drinkers.",
+   "subject": "animals"
+  },
+  {
+   "id": "f9",
+   "statement": "The differences in brain connectivity linked to the combination of age and drinking severity remained statistically significant even after adjusting for the time spent without alcohol.",
+   "subject": "animals"
+  },
+  {
+   "id": "f10",
+   "statement": "The authors note that the observed brain changes could be due to developmental differences, the effect of alcohol, or a mix of both, suggesting adolescence is a critical time for how the brain processes alcohol cues.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

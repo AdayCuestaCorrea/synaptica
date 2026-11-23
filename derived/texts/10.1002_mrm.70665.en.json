@@ -1,0 +1,59 @@
+{
+ "study_id": "10.1002/mrm.70665",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "5aee0ff8af8862e6",
+ "generated_at": "2026-11-23T18:42:25+00:00",
+ "word_count": 150,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers compared two MRI techniques for measuring water movement across the blood-brain barrier in living subjects, testing them at three different time delays after labeling the blood.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Computer simulations were also conducted to examine how the signal changes as it fades and as the labeled blood arrives during the scan.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "While both methods produced similar estimates of the tissue's signal decay rate at the two longer time delays, the multi-echo method gave a lower estimate than the other method at the shortest delay.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The multi-echo technique produced clearer images with less noise, whereas the T2-prep method showed more blurring and visual errors in the raw data.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "Early computer models suggest the underestimation in the multi-echo method might occur because magnetic fields distort the signal from moving blood, while the T2-prep technique is more likely to produce blurry images because it takes longer to collect the data.",
+   "fact_ids": [
+    "f8",
+    "f9"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-23T18:55:51+00:00"
+ }
+}

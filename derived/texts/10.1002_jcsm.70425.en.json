@@ -1,0 +1,56 @@
+{
+ "study_id": "10.1002/jcsm.70425",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "86d5239c499d6eb4",
+ "generated_at": "2026-11-23T18:35:14+00:00",
+ "word_count": 109,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers compared mice engineered to produce a specific protein in their muscles against standard mice at young and old ages.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "They measured changes in gene activity, muscle fiber structure, blood vessel supply, nerve connections, and energy-producing organelles in the leg muscles.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Activating the target protein turned on 574 genes related to energy production and blood flow while turning off genes that cause muscle wasting.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "The modified mice had more energy-producing organelles and a higher proportion of endurance-type muscle fibers, while the protein activation helped maintain nerve connections and reduced fiber shrinkage.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Older mice with the activated protein showed much less loss of muscle strength compared to older standard mice.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-23T18:54:50+00:00"
+ }
+}

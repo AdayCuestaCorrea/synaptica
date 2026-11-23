@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1002/jcsm.70425",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "86d5239c499d6eb4",
+ "generated_at": "2026-11-23T18:35:14+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 2: words not in the Spanish dictionary ['Medieron']"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores compararon ratones modificados genéticamente para producir una proteína específica en sus músculos con ratones estándar en edades jóvenes y avanzadas.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Medieron los cambios en la actividad génica, la estructura de las fibras musculares, el suministro de vasos sanguíneos, las conexiones nerviosas y las organelas productoras de energía en los músculos de las patas traseras.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "La activación de la proteína diana activó 574 genes relacionados con la producción de energía y el flujo sanguíneo, mientras que desactivaba los genes que provocan el desgaste muscular.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Los ratones modificados presentaban más organelas productoras de energía y una mayor proporción de fibras musculares de resistencia, y la activación de la proteína ayudó a mantener las conexiones nerviosas y redujo la atrofia de las fibras.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los ratones mayores con la proteína activada mostraron una pérdida de fuerza muscular mucho menor en comparación con los ratones estándar de la misma edad.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-23T18:54:48+00:00"
+}

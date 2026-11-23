@@ -1,0 +1,53 @@
+{
+ "study_id": "10.1002/jcsm.70448",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "349a2e297df68ded",
+ "generated_at": "2026-11-23T18:38:18+00:00",
+ "word_count": 133,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers examined 482 community-dwelling adults, including 235 men and 247 women with an average age of 67.2 years, measuring blood myostatin levels, muscle mass, grip strength, and high-resolution brain scans to assess grey matter volume.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "While men had 17.8% higher myostatin levels and were older on average, higher myostatin was associated with greater muscle mass in both sexes but not with grip strength.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "In men, elevated myostatin was associated with larger grey matter volume in the left postcentral gyrus and smaller volume in the right cerebellum, whereas in women it was associated only with smaller grey matter volume in three specific brain regions.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Because these brain regions showed no overlap between sexes, the study provides the first evidence from human brain scans that the relationship between muscle and brain structure differs by sex.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-23T18:54:51+00:00"
+ }
+}

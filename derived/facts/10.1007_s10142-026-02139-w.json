@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1007/s10142-026-02139-w",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "95392da578dbd9ea",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-23T18:29:54+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study analyzed a gene expression pattern linked to the EBF1 protein in brain tumors by combining genetic risk data with measurements of gene activity and DNA accessibility.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers identified five groups of genes related to blood vessels by reviewing 2,781 possible links between cell types and regulatory proteins, singling out the EBF1 group after comparing it with other known gene sets.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "In the initial analysis of cells supporting blood vessels, 428 out of 500 tumor cell nuclei came from a single patient sample labeled GBM25.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "A combined screening method identified 17,008 out of 34,012 cell nuclei as potential duplicates, which was more than the 5,566 found by a method using only gene expression data.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "Even after removing duplicate cells, the GBM25 sample still provided the majority of nuclei in both the vessel-supporting cell group (213 of 250) and the vessel-lining cell group (116 of 144).",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The strength of the EBF1 gene pattern was higher in tumors classified as having a Mesenchymal type in two large datasets containing 518 and 159 tumors, respectively.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "In tissue samples from 18 patients, the link between the amount of EBF1 RNA and the overall gene pattern varied depending on which statistical model was used.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The identified gene pattern is a result of computer analysis based largely on data from one specific patient sample.",
+   "subject": "computational"
+  },
+  {
+   "id": "f9",
+   "statement": "It is not yet known if the regulatory connections found in this pattern appear in samples from other patients.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

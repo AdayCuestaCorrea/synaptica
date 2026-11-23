@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1007/s00210-026-06140-9",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "fa74d9ebe3850a5b",
+ "generated_at": "2026-11-23T18:48:35+00:00",
+ "word_count": 163,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "In a rat model with seven animals per group, researchers compared a control group, a berberine-only group, a cobalt chloride-only group, and two groups receiving cobalt chloride plus different doses of berberine.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Cobalt chloride treatment led to worse performance in behavioral tests and caused imbalances in the brain's antioxidant systems, while also changing the gene expression levels of markers related to cellular stress, inflammation, and cell death in the hippocampus.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Berberine increased the activity of antioxidant enzymes and reduced the harmful changes caused by cobalt chloride, with the higher dose showing a stronger effect and restoring the expression of the Nrf2 gene at both doses.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Tissue analysis showed that berberine lowered the levels of proteins associated with glial cell activation and nerve damage, while maintaining levels of a protein that supports neuron health.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors note that because they only measured gene expression at the RNA level, the results show associations and need further testing at the protein level to be confirmed.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-23T18:55:52+00:00"
+ }
+}

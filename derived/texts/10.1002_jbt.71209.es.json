@@ -1,0 +1,58 @@
+{
+ "study_id": "10.1002/jbt.71209",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "9288052b1c8c37a1",
+ "generated_at": "2026-11-23T18:34:09+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon una línea celular de células de Schwann de rata para determinar si la piroptosis, una forma específica de muerte celular programada, contribuye al daño en las células nerviosas inducido por el fármaco bortezomib.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "La exposición al fármaco redujo la supervivencia celular y aumentó los marcadores de daño de manera dependiente de la dosis, un proceso asociado con la acumulación de especies reactivas de oxígeno y la activación de las vías de piroptosis.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "El análisis de proteínas reveló una fuerte activación de las vías de señalización de caspasa-1 y caspasa-3, junto con un aumento de las proteínas inflamatorias, mientras que el bloqueo simultáneo de ambas vías ofreció una mayor protección que la inhibición de cualquiera de ellas por separado.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "El tratamiento con los antioxidantes N-acetil-L-cisteína y vitamina C redujo los niveles de especies reactivas de oxígeno, suprimió las vías de piroptosis y atenuó el daño celular observado.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que el bortezomib provoca daño piroptótico en las células de Schwann mediante la activación coordinada de vías dependientes de las especies reactivas de oxígeno, lo que sugiere la piroptosis como un objetivo potencial para el desarrollo terapéutico futuro.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-23T18:54:50+00:00"
+ }
+}

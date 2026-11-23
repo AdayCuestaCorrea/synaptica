@@ -1,0 +1,60 @@
+{
+ "study_id": "10.1007/s00213-026-07207-4",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "ee8f84cb69f6070f",
+ "generated_at": "2026-11-23T18:50:39+00:00",
+ "word_count": 123,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers scanned rats using fMRI three to six days after intermittent alcohol exposure, grouping subjects by whether they began drinking as adolescents or adults.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "By analyzing activity correlations across trials, they found that adolescent-onset rats displayed stronger communication between the medial prefrontal and retrosplenial cortices when reacting to ethanol smells.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "However, this specific connectivity difference was no longer statistically significant after accounting for abstinence duration, and consumption level alone did not yield significant changes.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Conversely, heavy adolescent drinkers exhibited weaker connections between the prelimbic and anterior cingulate cortex, as well as reduced amygdala-insula connectivity, which remained significant after adjustments.",
+   "fact_ids": [
+    "f7",
+    "f8",
+    "f9"
+   ]
+  },
+  {
+   "text": "The authors conclude that these changes may reflect developmental differences, alcohol effects, or both, indicating adolescence is a critical period for processing alcohol cues.",
+   "fact_ids": [
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-23T18:56:51+00:00"
+ }
+}

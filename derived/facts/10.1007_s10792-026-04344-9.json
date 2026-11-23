@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s10792-026-04344-9",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "728c04b3249f1cf8",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-23T18:30:56+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study was a cross-sectional design that enrolled 105 people, split evenly into three groups of 35: non-diabetic controls, diabetic patients without retinopathy, and diabetic patients with mild-to-moderate retinopathy.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Every participant had their pupil function measured with an automated device and their retinal blood vessels imaged using optical coherence tomography angiography.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Measures of how quickly and how much the pupils reacted to light were significantly lower in the diabetic groups compared to the non-diabetic controls.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The density of blood flow in the deep layer of the retina was lower in people with retinopathy than in those without, but no retinal imaging differences were found between diabetic patients without retinopathy and the control group.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "A higher density of blood flow in the deep retinal layer was associated with faster pupil dilation and a larger early re-dilation response.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The link between retinal blood flow and pupil movement was not seen in the non-diabetic control group.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The study found that pupil function changes occurred in diabetes even before retinopathy developed, while retinal imaging changes were only present in the group with retinopathy.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

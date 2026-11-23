@@ -1,0 +1,58 @@
+{
+ "study_id": "10.1002/jbt.71209",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "9288052b1c8c37a1",
+ "generated_at": "2026-11-23T18:34:09+00:00",
+ "word_count": 142,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers used a rat Schwann cell line to investigate whether pyroptosis, a specific form of programmed cell death, contributes to nerve cell damage induced by the drug bortezomib.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Exposure to the drug lowered cell survival and increased damage markers in a dose-dependent manner, a process associated with the accumulation of reactive oxygen species and the activation of pyroptosis pathways.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Protein analysis revealed strong activation of caspase-1 and caspase-3 signaling pathways alongside increased inflammatory proteins, while blocking both pathways simultaneously provided greater protection than inhibiting either one alone.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Treatment with the antioxidants N-acetyl-l-cysteine and vitamin C reduced reactive oxygen species levels, suppressed the pyroptosis pathways, and lessened the observed cell injury.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors conclude that bortezomib triggers pyroptotic damage in Schwann cells through coordinated pathway activation dependent on reactive oxygen species, suggesting pyroptosis as a potential target for future therapeutic development.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-23T18:54:50+00:00"
+ }
+}

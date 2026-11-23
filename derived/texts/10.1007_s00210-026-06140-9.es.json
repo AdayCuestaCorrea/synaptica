@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1007/s00210-026-06140-9",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "fa74d9ebe3850a5b",
+ "generated_at": "2026-11-23T18:48:35+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "En un modelo con ratas que incluía siete animales por grupo, los investigadores compararon un grupo de control, un grupo tratado solo con berberina, un grupo tratado solo con cloruro de cobalto y dos grupos que recibieron cloruro de cobalto junto con distintas dosis de berberina.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "El tratamiento con cloruro de cobalto provocó un peor rendimiento en las pruebas conductuales y desequilibró los sistemas antioxidantes del cerebro, además de alterar los niveles de expresión génica de marcadores relacionados con el estrés celular, la inflamación y la muerte celular en el hipocampo.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "La berberina aumentó la actividad de las enzimas antioxidantes y redujo los cambios perjudiciales causados por el cloruro de cobalto, siendo la dosis más alta la que mostró un efecto más potente y restauró la expresión del gen Nrf2 en ambos casos.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "El análisis de tejidos reveló que la berberina disminuyó los niveles de proteínas asociadas con la activación de células gliales y el daño nervioso, al tiempo que mantenía los niveles de una proteína que favorece la salud neuronal.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores señalan que, dado que solo midieron la expresión génica a nivel de ARN, los resultados muestran asociaciones y requieren más pruebas a nivel proteico para su confirmación.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-23T18:55:52+00:00"
+ }
+}

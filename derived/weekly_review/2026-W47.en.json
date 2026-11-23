@@ -1,0 +1,110 @@
+{
+ "week": "2026-W47",
+ "studies": [
+  "10.1038/s41467-026-79544-z",
+  "10.1007/s00210-026-06098-8",
+  "10.1002/pd.70312",
+  "10.1007/s00330-026-13101-6",
+  "10.1111/ajag.70249",
+  "10.1007/s00234-026-04279-z",
+  "10.1007/s00221-026-07434-3",
+  "10.1002/hbm.70695"
+ ],
+ "input_hash": "f5dbf2b1616f6c6e",
+ "prompt_version": "weekly-en-v1 (from s5-write-en-v2, for the weekly summary of plan step 25)+s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)+s5-judge-v2 (v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-23T18:56:51+00:00",
+ "lang": "en",
+ "status": "failed",
+ "problems": [
+  "too long: 331 words (max 250)",
+  "sentence 1: names not in the facts: ['Nature']",
+  "sentence 3 (\"A peer-reviewed study in Naunyn-Schmiedeberg's archives of p\"): names not in the facts: ['Naunyn', 'Schmiedeberg']",
+  "sentence 5: names not in the facts: ['Prenatal']",
+  "sentence 6: names not in the facts: ['European']",
+  "sentence 8: names not in the facts: ['Australasian']",
+  "sentence 9: names not in the facts: ['Neuroradiology']",
+  "sentence 10: numbers not in the cited facts: ['120']",
+  "sentence 10: names not in the facts: ['Experimental']",
+  "sentence 11: names not in the facts: ['Human']"
+ ],
+ "sentences": [
+  {
+   "text": "In a peer-reviewed study in Nature communications, researchers recorded activity from 1,415 neurons in neurosurgical patients who had just learned a story containing specific concepts.",
+   "fact_ids": [
+    "s1-f1",
+    "s1-f2"
+   ]
+  },
+  {
+   "text": "These concept neurons fired together during sharp-wave ripples, with timing gaps that could support changes in synaptic connections, though the reactivation order did not match the story sequence.",
+   "fact_ids": [
+    "s1-f3",
+    "s1-f4"
+   ]
+  },
+  {
+   "text": "A peer-reviewed study in Naunyn-Schmiedeberg's archives of pharmacology used a rat model where reserpine was given to induce depressive-like behavior to test the effects of resveratrol and silymarin.",
+   "fact_ids": [
+    "s2-f1",
+    "s2-f2"
+   ]
+  },
+  {
+   "text": "While resveratrol raised blood dopamine and antioxidant levels, the results do not prove that neurotransmission or oxidative processes in the brain changed because only blood was tested.",
+   "fact_ids": [
+    "s2-f5",
+    "s2-f7"
+   ]
+  },
+  {
+   "text": "A retrospective cohort study in Prenatal diagnosis covering patients who had fetoscopic myelomeningocele repair found that a preoperative body mass index of 35 kg/m2 or higher was not associated with preterm birth.",
+   "fact_ids": [
+    "s3-f1",
+    "s3-f6"
+   ]
+  },
+  {
+   "text": "A peer-reviewed review in European radiology assessed how well artificial intelligence can create synthetic post-contrast brain MRI images from low-dose inputs to reduce the amount of gadolinium contrast agent used.",
+   "fact_ids": [
+    "s4-f1",
+    "s4-f3"
+   ]
+  },
+  {
+   "text": "Because there was significant variation between the included studies, the combined statistical results were interpreted only as descriptive figures rather than definitive averages, restricting the generalizability of the current evidence.",
+   "fact_ids": [
+    "s4-f4",
+    "s4-f6"
+   ]
+  },
+  {
+   "text": "Cross-sectional data from a survey in Australasian journal on ageing showed that about 24% of older adults reported subjective memory problems, which was associated with being male, feeling lonely, and taking five or more medications.",
+   "fact_ids": [
+    "s5-f2",
+    "s5-f4"
+   ]
+  },
+  {
+   "text": "A peer-reviewed report in Neuroradiology describes two siblings with ataxia and progressive demyelination who inherited a specific ACOX1 gene variant, with NODDI indicating a lower intraneurite fraction compared to their parents.",
+   "fact_ids": [
+    "s6-f1",
+    "s6-f3"
+   ]
+  },
+  {
+   "text": "A double-blind, placebo-controlled randomized controlled trial in Experimental brain research included 120 patients with chronic pain who received at-home transcranial electrical stimulation, but statistical analysis showed no significant changes in the pain test scores.",
+   "fact_ids": [
+    "s7-f1",
+    "s7-f6"
+   ]
+  },
+  {
+   "text": "A peer-reviewed study in Human brain mapping created a new brain atlas by manually labeling a template of functional brain networks built from over 100,000 resting-state fMRI datasets.",
+   "fact_ids": [
+    "s8-f1",
+    "s8-f2"
+   ]
+  }
+ ]
+}

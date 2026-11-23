@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1002/mrm.70662",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "848c882b5cd803a0",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-23T18:22:31+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study aimed to create a new automated technique for calculating magnetic susceptibility maps that keeps small brain details sharp without needing users to adjust settings by hand.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "Previous methods used a simple mathematical assumption that failed to fully describe the specific pattern of changes in brain magnetic susceptibility images.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The researchers introduced a new method called LAMDI that uses a more complex mathematical model to automatically estimate the necessary correction parameters.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The new method was tested on a publicly available set of real brain scans and a set of computer-generated images showing calcium deposits.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The performance of the new method was compared against three existing techniques, both with their default settings and when adjusted using reference data.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "In the real brain scans, the new method produced results similar in overall accuracy to one of the existing methods but significantly reduced errors in the fine details.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "While two other methods performed best on some measures when given reference data, the new method stayed competitive without needing that extra information or manual adjustments.",
+   "subject": "computational"
+  },
+  {
+   "id": "f8",
+   "statement": "The study concludes that the new method is a useful automatic alternative that balances good overall image quality with better preservation of anatomical structures.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

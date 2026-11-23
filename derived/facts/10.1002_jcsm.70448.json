@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1002/jcsm.70448",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "b9f9288bba18dc16",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-23T18:21:30+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study examined 482 adults living in the community, including 235 men and 247 women, with an average age of 67.2 years.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers measured blood levels of myostatin, muscle mass, and grip strength, and used high-resolution brain scans to look for links between myostatin and the volume of grey matter in different brain areas.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Men in the study had 17.8% higher levels of myostatin in their blood than women and were on average older.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Higher myostatin levels were associated with greater muscle mass in both men and women, but were not linked to grip strength.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "In men, higher myostatin levels were associated with larger grey matter volume in the left postcentral gyrus and smaller volume in the right cerebellum.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "In women, higher myostatin levels were associated only with smaller grey matter volume in three specific brain regions.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The brain regions where myostatin was linked to grey matter volume were completely different between men and women, with no overlap.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "This study provides the first evidence from human brain scans that the relationship between muscle and brain structure differs by sex.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

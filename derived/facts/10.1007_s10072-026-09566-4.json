@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s10072-026-09566-4",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "ac9a6a258644f115",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-23T18:28:48+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study explored whether baseline parathyroid hormone levels could serve as a prognostic marker that adds information beyond what muscle mass measurements provide.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The research followed 67 patients with spinal and bulbar muscular atrophy over time to measure how quickly their functional abilities declined.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Lower starting levels of both creatinine and parathyroid hormone were linked to faster disease progression in the patients.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "After adjusting for factors like age, body weight, and disease duration, parathyroid hormone levels stayed linked to future functional decline, while the link for creatinine weakened.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Patients who progressed rapidly had lower starting parathyroid hormone levels, but their creatinine levels were not significantly different from others.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "In a smaller group of 31 patients, parathyroid hormone and creatinine had similar ability to distinguish between slow and fast progressors, with a complex model offering only a slight improvement.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors suggest that parathyroid hormone is a promising candidate marker for predicting decline, but note that these findings need confirmation in larger, multi-center studies.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

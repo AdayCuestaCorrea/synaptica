@@ -1,0 +1,60 @@
+{
+ "study_id": "10.1007/s00213-026-07207-4",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "ee8f84cb69f6070f",
+ "generated_at": "2026-11-23T18:50:39+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores realizaron escaneos con resonancia magnética funcional (fMRI) a ratas tres a seis días después de una exposición intermitente al alcohol, agrupando a los sujetos según si comenzaron a beber en la adolescencia o en la edad adulta.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Al analizar las correlaciones de actividad entre ensayos, observaron que las ratas con inicio en la adolescencia mostraban una comunicación más intensa entre las cortezas prefrontal medial y retrosplenial al reaccionar a los olores del etanol.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Sin embargo, esta diferencia específica de conectividad ya no fue estadísticamente significativa tras tener en cuenta la duración de la abstinencia, y el nivel de consumo por sí solo no produjo cambios significativos.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Por el contrario, los bebedores adolescentes pesados exhibieron conexiones más débiles entre la corteza prelimbica y la corteza cingulada anterior, así como una conectividad reducida entre la amígdala y la ínsula, que permaneció significativa tras los ajustes.",
+   "fact_ids": [
+    "f7",
+    "f8",
+    "f9"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que estos cambios podrían reflejar diferencias de desarrollo, efectos del alcohol o ambos, lo que indica que la adolescencia es un período crítico para el procesamiento de las señales de alcohol.",
+   "fact_ids": [
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-23T18:56:51+00:00"
+ }
+}

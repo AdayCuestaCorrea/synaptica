@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1002/smll.76842",
+ "lang": "en",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "af2a33b39e9c28b2",
+ "generated_at": "2026-11-23T18:46:33+00:00",
+ "word_count": 98,
+ "problems": [
+  "sentence 2: drops the caution of its facts (may, suggests, possibly…)"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers developed a gold-copper cluster intended to mimic the activity of the enzyme pyruvate dehydrogenase.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "In cellular settings, this material was observed to oxidize pyruvate and regenerate NAD+, a process associated with enhanced energy production and mitochondrial stability under high-sugar conditions.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "When administered to diabetic mice, the cluster crossed the blood-brain barrier, a selective membrane, to influence brain energy metabolism.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "The intervention activated a pathway for new mitochondria, decreased brain inflammation, and was linked to improved neurological function in these animals.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "The authors suggest this approach may offer a promising direction for addressing cognitive issues arising from diabetes.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ]
+}
