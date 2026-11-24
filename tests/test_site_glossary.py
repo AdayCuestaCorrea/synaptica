@@ -279,3 +279,28 @@ def test_a_text_without_its_opening_is_not_split_by_guess(tmp_path, monkeypatch)
     assert texts.with_english_draft(w, "Dopamine", "Neurotransmitter of movement.",
                                     "claude-opus-5-5", dt.date(2026, 11, 18))  # fmt: skip
     assert copy.read_text() == before
+
+
+def test_shown_without_a_bracket_inside_a_bracket_and_always_with_a_full_stop(tmp_path):
+    """Her sheet (row 30, 2026-11-24): «5-HT (5-hidroxitriptamina o serotonina)» and a full
+    stop at the end of every definition; only on the site, her stored words are kept."""
+    from synaptica.site.glossary import Glossary, shown_meaning, with_full_stop
+
+    assert shown_meaning("5-hidroxitriptamina (serotonina)", "es") == (
+        "5-hidroxitriptamina o serotonina"
+    )
+    assert shown_meaning("5-hydroxytryptamine (serotonin)", "en") == (
+        "5-hydroxytryptamine or serotonin"
+    )
+    assert shown_meaning("N-metil-D-aspartato", "es") == "N-metil-D-aspartato"
+    assert with_full_stop("Neurotransmisor del sueño") == "Neurotransmisor del sueño."
+    assert with_full_stop("Neurotransmisor del sueño.") == "Neurotransmisor del sueño."
+    data = tmp_path / "data"
+    proposals(data)
+    entries = published(data / "review")
+    gl = Glossary(entries, "es")
+    assert gl.meaning("5-ht") == "5-hidroxitriptamina o serotonina"
+    assert next(e for e in entries if e.term.term_id == "5-ht").meaning["es"] == (
+        "5-hidroxitriptamina (serotonina)"
+    )  # her words, unchanged
+    assert all(gl.definition_html(k).endswith(".") for k in gl.entries if not gl.pending(k))

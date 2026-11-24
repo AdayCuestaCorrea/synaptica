@@ -17,6 +17,11 @@ on the summary of a study page and the excerpt of the featured study, with
 :meth:`Glossary.mark_text`: only terms with a definition in that language, the first time
 each per page, and the text itself never changes (stripped of the links it is the stored
 text, escaped: checked on every call).
+
+How it is shown (Sofía's sheet, row 30, 2026-11-24): a meaning never nests a parenthesis
+inside the «TERM (meaning)» one («5-hidroxitriptamina o serotonina», not «… (serotonina)»),
+and every definition ends with a full stop. Only the display: ``texts.csv`` keeps her exact
+words, which is what lets her proposals stay on the site.
 """
 
 from __future__ import annotations
@@ -28,6 +33,23 @@ from typing import Any
 
 from synaptica.glossary import form_pattern
 from synaptica.glossary.texts import Entry
+
+_OR = {"es": "o", "en": "or"}
+_INNER = re.compile(r"^(.+?) \(([^()]+)\)$")
+
+
+def shown_meaning(meaning: str | None, lang: str) -> str | None:
+    """«A (B)» → «A o B» (or «A or B»): it is shown inside «TERM (…)», and a parenthesis
+    inside another is hard to read."""
+    if meaning is None:
+        return None
+    m = _INNER.match(meaning.strip())
+    return f"{m[1]} {_OR[lang]} {m[2]}" if m else meaning
+
+
+def with_full_stop(text: str) -> str:
+    text = text.rstrip()
+    return text if not text or text[-1] in ".!?…" else text + "."
 
 
 def sort_key(text: str) -> str:
@@ -109,7 +131,7 @@ class Glossary:
         return self.entries[term_id].definition[self.lang] is None
 
     def meaning(self, term_id: str) -> str | None:
-        return self.entries[term_id].meaning[self.lang]
+        return shown_meaning(self.entries[term_id].meaning[self.lang], self.lang)
 
     def definition_html(self, term_id: str, page_url: str = "") -> str:
         """The definition, escaped, with the other terms it uses marked; empty when it
@@ -117,7 +139,7 @@ class Glossary:
         if self.pending(term_id):
             return ""
         text = html.escape(self.entries[term_id].definition[self.lang] or "", quote=False)
-        return self.mark(text, set(), skip=term_id, page_url=page_url)
+        return with_full_stop(self.mark(text, set(), skip=term_id, page_url=page_url))
 
     def page_data(self) -> dict[str, dict[str, Any]]:
         """What the popovers of the glossary page show (every published term)."""

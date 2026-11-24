@@ -21,7 +21,7 @@ import csv
 from pathlib import Path
 from typing import Any
 
-from synaptica.site.glossary import Glossary
+from synaptica.site.glossary import Glossary, with_full_stop
 
 REGIONS = Path(__file__).with_name("regions.csv")
 RELATIONS = ("same", "part")
@@ -44,6 +44,7 @@ def atlas_index(gl: Glossary, page_url: str) -> dict[str, Any]:
                for r in load_region_terms() if r["term_id"] in gl.entries}  # fmt: skip
     used = {v["term"] for v in regions.values()}
     terms = {key: {"term": gl.entries[key].term.term, "meaning": gl.meaning(key),
-                   "definition": gl.entries[key].definition[gl.lang]}
+                   "definition": (None if (d := gl.entries[key].definition[gl.lang]) is None
+                                  else with_full_stop(d))}
              for key in sorted(used)}  # fmt: skip
     return {"page": page_url, "regions": dict(sorted(regions.items())), "terms": terms}
