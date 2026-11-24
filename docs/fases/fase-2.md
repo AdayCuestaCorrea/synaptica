@@ -10,7 +10,7 @@
 | Neuro Atlas: textos «qué es y qué hace» de cada pareja | código hecho (v212); borradores en Groq: 10 de 12 (v216, v220, v222); revisión: *pendiente (Sofía)*, en su cola desde el 2026-11-25 |
 | Neuro Atlas: introducción humano–rata | código y fuentes hechos (v221; tres secciones de Wikipedia, porque ningún artículo compara los dos cerebros); borrador en Groq: hecho (v222); revisión: *pendiente (Sofía)*, la primera de los textos de Atlas desde el 2026-11-25; filas 11 y 15 de su hoja |
 | Neuro Atlas: tabla de búsquedas por región, grados de equivalencia y enfermedades | *pendiente (Sofía)*: filas 10, 13, 16 y 18 |
-| Neuro Lab: fichas con estudios y textos | hecho (v201–v210); 13 textos en su cola desde el 2026-11-19; 5 «Límites» sin fuente (ver abajo) |
+| Neuro Lab: fichas con estudios y textos | hecho (v201–v228); 16 tarjetas en su cola desde el 2026-11-19; 4 «Límites» sin fuente (fila 40) y 2 que suspendieron (fiber photometry y perfusión, v232) |
 | Neuro Glossary | en la web con sus 7 términos (v183); *pendiente (Sofía)*: los 24 términos de su cola y `regions.csv` |
 | Visto bueno de Sofía | *pendiente (Sofía)* |
 
@@ -50,6 +50,9 @@ Neuro Lab, las regiones y la introducción usan la misma cadena (hechos con cita
 
 ### El trabajo no espera a GitHub Actions (v195)
 El run programado empieza entre 9 y 11 horas tarde. Antes de cada push se corre `scripts/ci_local.sh`, que hace lo mismo que la CI y además `syn site --check` sobre una copia reconstruida de la rama `data`.
+
+### El español de los textos fijos tiene su propio prompt (v232)
+Al reintentar, los mismos textos volvían a suspender por lo mismo: causalidad añadida, «may» como «puede» y un nombre de animal inventado. El prompt de español de los resúmenes diarios (`adapt_es`) no se podía cambiar, porque su versión forma parte de la clave de caché de cada resumen y cambiarla los reescribiría todos con la Fase 1 abierta. Por eso los textos fijos usan `wiki_adapt_es`, con esas reglas. `syn lab write --failed-only` vuelve a pedir solo la sección que suspendió, sin tocar la que ya está en su cola, y la prueba de que no se tocó es el hash de sus 27 tarjetas.
 
 ### `pipeline.yml` no se toca con la Fase 1 abierta
 Su reloj de 14 días mide si el pipeline corre solo. Por eso los comandos nuevos de esta fase (`syn lab write`, `syn atlas write`) se lanzan a mano y nunca en el pipeline, y `syn figures` y `syn titles` esperan al cierre de la Fase 1 (SCOPE §10).
@@ -98,5 +101,6 @@ Su reloj de 14 días mide si el pipeline corre solo. Por eso los comandos nuevos
 
 ## Lo que queda
 - *Pendiente (Sofía):* su revisión de los textos de Lab y de Atlas, del glosario, de las búsquedas por región y por técnica, de los grados de equivalencia y de las enfermedades.
-- Los «Límites» de optogenética desde su sección de Wikipedia; los de confocal, electrofisiología, western blot y quimiogenética, *pendiente (Sofía)*, fila 40.
+- Los «Límites» de confocal, electrofisiología, western blot y quimiogenética, *pendiente (Sofía)*, fila 40 (los de optogenética salieron de su sección, v217).
+- El reintento de los 4 textos que suspendieron (hipocampo, quiasma óptico, «Límites» de fiber photometry y de perfusión) con los prompts de la v232: necesita el OK de Aday.
 - La revisión de la introducción humano–rata, *pendiente (Sofía)*.

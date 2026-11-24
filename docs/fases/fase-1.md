@@ -6,15 +6,15 @@
 
 | Requisito | Estado |
 |---|---|
-| Días seguidos sin intervención | **0 / 14**, desde la ejecución programada del 2026-11-19 si sale en verde (reloj reiniciado en la v219 por el rojo del 2026-11-18; antes, en la v144); cierre más temprano, 2026-12-02 |
+| Días seguidos sin intervención | **5 / 14** a 2026-11-24 (19 al 23-11, en verde en GitHub; v231), desde la ejecución programada del 2026-11-19 (reloj reiniciado en la v219 por el rojo del 2026-11-18; antes, en la v144); cierre más temprano, 2026-12-02 |
 | Visto bueno de Sofía | pendiente |
-| 14b · ~100 titulares etiquetados por Sofía: macro F1 del clasificador frente al baseline y validación del juez | pendiente (Sofía) |
+| 14b · ~100 titulares etiquetados por Sofía: macro F1 del clasificador frente al baseline y validación del juez | pendiente (Sofía): 0 de 100 a 2026-11-24. Hasta la v231 el tope de su cola recortaba las etiquetas (8 en vez de 10, y ninguna el fin de semana) |
 | 24b · Primera elección de Clásicos | pendiente (Sofía) |
 | 15 · Precisión y recall de la agrupación con un LLM real | hecho (v230): hoja ciega de 245 pares; un solo duplicado real, que el LLM acierta |
 | 20 · Juicio de los 101 estudios de la carga que quedaron pendientes | hecho el 2026-11-14 (run 43614465935): 88 aprobados y 13 rechazados en total; ninguno pendiente (v146) |
 | Retractaciones que solo conoce Retraction Watch (casilla de ingesta) | hecho: en `main` y en la rama `data` desde el 2026-11-13 (v140–v141) |
-| 23b · Figuras de PMC | hecho en la rama `fase-1-figuras-titulos` (v125–v128): metadatos en la rama `data` y WebP en la caché de Actions; cobertura medida, 25 de 200 estudios de Última hora. Se fusiona después del 2026-11-17 |
-| 23c · Títulos en español | hecho en la misma rama (v129–v136), con la prueba real de 40 títulos en Groq; se fusiona después del 2026-11-17 |
+| 23b · Figuras de PMC | hecho (v125–v128): metadatos en la rama `data` y WebP en la caché de Actions; cobertura medida, 25 de 200 estudios de Última hora. Código en `main` desde la v200; su etapa de `pipeline.yml`, después del cierre (SCOPE §10) |
+| 23c · Títulos en español | hecho (v129–v136), con la prueba real de 40 títulos en Groq. Código en `main` desde la v200; su etapa de `pipeline.yml` y la medida de `max_tokens`, después del cierre (SCOPE §10) |
 
 **Qué cuenta como intervención** (Aday, 2026-11-13): una ejecución programada en rojo, o un commit de Aday que arregle el pipeline para que vuelva a correr. Agotar el cupo de Groq no cuenta, porque es lo normal cada día (D10). Los cambios de contenido o de diseño y las decisiones de Sofía tampoco: son trabajo, no rescates.
 
@@ -82,8 +82,8 @@ Caché privada en Actions, parada con el 429 de cupo diario, comprobación previ
 | Primera programada con Groq (2026-11-14) | arranca 7 h 13 min tarde; ingesta y dbt bien; **0 clasificados, 0 resúmenes, 0 juicios**: 429 «Request too large» por un tope nuevo de 1000 tokens de salida por minuto en Qwen, invisible en el informe | v143 |
 | Macro F1 del clasificador frente al baseline | *pendiente (14b)* | — |
 | Precisión y recall de la agrupación | 245 pares de la hoja ciega, 1 duplicado real. LLM: 1 «sí», acertado, y ninguno perdido. TF-IDF: para no perderlo, su umbral (0,116) junta 39 pares distintos | v230 |
-| Primera ejecución con Groq: clasificados, resúmenes, juzgados y cupo | *pendiente (2026-11-14)* | — |
-| Días autónomos | *pendiente* | `runs/` en la rama `data` |
+| Primera ejecución completa con Groq (2026-11-14, a mano, etapas de la v145) | el juez terminó los 101 pendientes de la carga (88 aprobados y 13 rechazados en total); 0 resúmenes nuevos, porque el cupo de Qwen del día lo gastó la ejecución cortada | v146 |
+| Días autónomos | 5 a 2026-11-24 (19 al 23-11) | `runs/` en la rama `data`, v231 |
 
 ## Conceptos, desde cero
 - **Rebanada vertical:** construir una sola fuente de punta a punta (de la API a la página publicada) antes de ampliar. Los problemas de integración salen el primer día, no el último.
@@ -111,7 +111,9 @@ Caché privada en Actions, parada con el 429 de cupo diario, comprobación previ
 - **Fechas futuras de PubMed** (v102): 85 de 2571 candidatos tenían una fecha de número impreso posterior a hoy.
 - **Europe PMC dejó de marcar acceso abierto** (v219). Del 15 al 18-11 indexó 16 952 registros y solo 6 llevaban la marca, así que no había nada nuevo que guardar y el test de frescura (máximo 2 días) puso en rojo la ejecución programada del 18-11, que reinició el reloj. La ventana pasa a 5 días. *Lección:* el umbral de frescura debe salir del peor retraso de la fuente, no de su media diaria.
 - **La agrupación casi no tiene qué agrupar** (v230). En la hoja ciega de 245 pares, elegidos donde un «sí» era más probable, solo hay un duplicado real. El LLM había juzgado 914 pares y solo dijo «sí» a ese. Es una noticia de Nature del 12-11 y su «Daily briefing» del día siguiente, los dos sobre el atlas de los ganglios basales que publicó *Cell* ese día. Las fuentes en español (SINC) y los medios en inglés cubren estudios distintos de los de Nature · Science · Cell. Con un solo caso, la precisión y el recall de 1,00 no dicen casi nada: dicen que el LLM no junta noticias distintas. Además, el informe enseñaba 0,00 en todo cuando el gold no tenía duplicados, como si el método fallara siempre; ahora cuenta aciertos y errores y pone «—» donde no hay nada que medir. *Lección:* antes de afinar un agrupador, medir cuántos duplicados hay de verdad.
-- *Pendiente: lo que salga de las ejecuciones con Groq y de los 14 días.*
+- **El tope de su cola recortaba las etiquetas del 14b** (v231). Los textos de la tanda guardada del paso 18 iban delante sin cupo, y los 10 que no había decidido ocupaban 10 de los 40 puestos al día y los 10 del fin de semana. Por eso recibió 8 etiquetas en vez de 10, y ninguna el fin de semana. Ahora entran 2 al día. *Lección:* cada tipo de tarjeta necesita su cupo, también los que entraron «solo para unos días».
+- **`news classify` llegaba al `timeout` de 20 min** (18 y 21-11; v233), el mismo patrón que `news group` (v187). Ahora para solo a los 17 min y guarda lo que lleva. *Lección:* un comando con tope externo tiene que saber cuánto le queda.
+- *Pendiente: lo que salga de los 14 días.*
 
 ## Cómo defenderlo en una entrevista
 - «La web la escribe un LLM, pero nada se publica sin pasar comprobaciones mecánicas y un juez de otra familia. Si falla, sale un texto construido solo con datos. Medí las dos barreras por separado: cazan errores distintos.»
@@ -123,5 +125,5 @@ Caché privada en Actions, parada con el 429 de cupo diario, comprobación previ
 
 ## Lo que pasa a la Fase 2
 *Pendiente al cierre.* Por ahora:
-- 23b (figuras de PMC) y 23c (títulos en español), si no entran antes del cierre;
-- el estudio de UX de Neuro Atlas y el visor en `site/static/` (ADR D3, v98).
+- 23b (figuras de PMC) y 23c (títulos en español): su código entró en `main` en la v200; sus etapas de `pipeline.yml` esperan al cierre (SCOPE §10);
+- el estudio de UX de Neuro Atlas y el visor en `site/static/` (ADR D3, v98): hechos en la Fase 2 (v155–v176).
