@@ -143,7 +143,7 @@ def test_pairs_refuse_a_name_missing_from_its_layer(layers_out):
 
 def test_seed_pairs_file_is_well_formed():
     proposed = build.load_pairs()
-    assert len(proposed) == 12
+    assert len(proposed) == 13  # the 12 of S3 and the zona incerta (v237)
     assert {p["atlas"] for p in proposed} <= {"julich", "cerebra", "cit168", "icbm_wm"}
 
 

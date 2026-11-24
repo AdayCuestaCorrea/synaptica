@@ -63,3 +63,7 @@ mesh = ["D019261"] # Epithalamus
 [[region]]
 kind = "white matter"
 mesh = ["D066127"] # White Matter
+
+[[region]]
+kind = "zona incerta" # v237, one of Sofía's regions (sheet row 10)
+mesh = ["D065820"] # Zona Incerta

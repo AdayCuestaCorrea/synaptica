@@ -61,14 +61,6 @@
   {% endif %}
   <h2>{{ t.region_diseases_h }}</h2>
   <p class="muted">{{ m.gap("region_diseases") }}</p>
-  <h2>{{ t.region_methods_h }}{% if methods %} {{ m.gap("region_methods_match") }}{% endif %}</h2>
-  {% if methods %}
-  <ul class="pair-list" data-methods>
-    {% for x in methods %}<li><a href="{{ url('technique', x.id) }}">{{ x.name }}</a> <span class="muted">· {{ t.shared_one if x.n == 1 else t.shared_n.format(n=x.n) }}</span></li>{% endfor %}
-  </ul>
-  {% else %}
-  <p class="muted">{{ m.gap("region_methods") }}</p>
-  {% endif %}
 
   <p class="region-credit">{{ t.atlas_credit }}: <a href="{{ credit.source_url }}" rel="noopener">{{ credit.short }}</a> · <a href="{{ credit.licence_url }}" rel="noopener license">{{ credit.licence }}</a></p>
 </article>

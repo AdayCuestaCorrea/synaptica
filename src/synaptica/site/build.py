@@ -448,7 +448,7 @@ class SiteBuilder:
 
     def atlas(self, lang: str) -> None:
         t, d = self.i18n[lang], self.atlas_data
-        gaps = {k: ("gap", t[f"gap_{k}"]) for k in ("atlas_order", "atlas_names", "pair_grade")}
+        gaps = {k: ("gap", t[f"gap_{k}"]) for k in ("atlas_names", "pair_grade")}
         # Pair n: the rat page and the human pages (step 5), for the «Parejas» section.
         pair_pages = [
             {"rat": next(r for r in d["pages"] if r["brain"] == "rat"
@@ -503,8 +503,9 @@ class SiteBuilder:
 
         t, d = self.i18n[lang], self.atlas_data
         gaps = {k: ("gap", t[f"gap_{k}"])
-                for k in ("region_text", "region_diseases", "region_methods",
-                          "pair_grade", "atlas_names")}  # fmt: skip
+                for k in ("region_text", "region_diseases", "pair_grade", "atlas_names")}
+        # No techniques on a region page, nor regions on a technique page: Sofía does not want
+        # a region tied to a method (sheet row 15, 2026-11-24; v237, Aday's OK).
         # Only what Sofía approved (v212); a page of a pair with several pages in its brain
         # says the text is about the whole structure (CA1 shows the hippocampus's text).
         shown = self.atlas_texts
@@ -513,7 +514,7 @@ class SiteBuilder:
                  for p in r["pairs"] if p["kind"] in shown and shown[p["kind"]][lang]]  # fmt: skip
         if texts:
             del gaps["region_text"]
-        groups, reviewed_at, methods = None, None, []
+        groups, reviewed_at = None, None
         if self.pair_studies is not None:
             # Per pair (Aday, v188): every page of a pair lists the same studies.
             seen: dict[str, dict[str, Any]] = {}
@@ -530,21 +531,12 @@ class SiteBuilder:
             shown = [s for g in groups for s in g["studies"]]
             found = self.study_gaps(lang, shown)
             gaps.update({k: found[k] for k in ("title_es", "journal_name") if k in found})
-            if self.technique_found is not None:
-                from synaptica.lab.studies import shared, techniques
-
-                names = {x["id"]: x[f"name_{lang}"] for x in techniques()}
-                methods = [{"id": k, "name": names[k], "n": n}
-                           for k, n in shared(set(seen), self.technique_found)]  # fmt: skip
-                if methods:
-                    del gaps["region_methods"]
-                    gaps["region_methods_match"] = ("proposal", t["gap_region_methods_match"])
         else:
             gaps["region_studies"] = ("gap", t["gap_region_studies"])
         pages = set(self.news_data.by_id) if self.news_data else set()
         self.render(lang, "region", "region.html.j2", key=r["page"], r=r, gaps=gaps,
                     credit=d["credit"][r["atlas"]], by_page=d["by_page"], groups=groups,
-                    study_pages=pages, reviewed_at=reviewed_at, methods=methods,
+                    study_pages=pages, reviewed_at=reviewed_at,
                     texts=texts)  # fmt: skip
 
     @functools.cached_property
@@ -579,12 +571,12 @@ class SiteBuilder:
         from synaptica.atlas.studies import by_species
 
         t, found = self.i18n[lang], self.technique_found
-        gaps = {k: ("gap", t[f"gap_{k}"]) for k in ("lab_texts", "lab_regions")}
+        gaps = {k: ("gap", t[f"gap_{k}"]) for k in ("lab_texts",)}
         # Only what Sofía approved (B2-4, v210); a section without it keeps its gap.
         texts = {k: v for k, v in self.lab_texts.get(tech["id"], {}).items() if v[lang]}
         if all(k in texts for k in ("what", "limit")):
             del gaps["lab_texts"]
-        groups, reviewed_at, regions = None, None, []
+        groups, reviewed_at = None, None
         if found is not None:
             groups = by_species(found.get(tech["id"], []), TECHNIQUE_STUDIES)
             # «Propuesta» until she approves its search terms as the table is today (B2-3).
@@ -594,21 +586,12 @@ class SiteBuilder:
             shown = [s for g in groups for s in g["studies"]]
             got = self.study_gaps(lang, shown)
             gaps.update({k: got[k] for k in ("title_es", "journal_name") if k in got})
-            if "atlas" in self.kinds and self.pair_studies is not None:
-                from synaptica.lab.studies import shared
-
-                ids = {s["study_id"] for s in found.get(tech["id"], [])}
-                for kind, n in shared(ids, self.pair_studies):
-                    regions.append({"n": n, "pages": self.pair_pages[kind]})
-                if regions:
-                    del gaps["lab_regions"]
-                    gaps["lab_regions_match"] = ("proposal", t["gap_lab_regions_match"])
         else:
             gaps["lab_studies"] = ("gap", t["gap_lab_studies"])
         pages = set(self.news_data.by_id) if self.news_data else set()
         self.render(lang, "technique", "technique.html.j2", key=tech["id"], tech=tech,
                     name=tech[f"name_{lang}"], gaps=gaps, groups=groups,
-                    study_pages=pages, reviewed_at=reviewed_at, regions=regions,
+                    study_pages=pages, reviewed_at=reviewed_at,
                     texts=texts)  # fmt: skip
 
     @functools.cached_property

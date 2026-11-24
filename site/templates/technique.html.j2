@@ -45,13 +45,5 @@
   {% endfor %}
   {% endif %}
 
-  <h2>{{ t.lab_regions_h }}{% if regions %} {{ m.gap("lab_regions_match") }}{% endif %}</h2>
-  {% if regions %}
-  <ul class="pair-list" data-regions>
-    {% for x in regions %}<li>{% for r in x.pages %}<a href="{{ url('region', r.page) }}" lang="en">{{ r.name }}</a> <span class="muted">({{ t["brain_" ~ r.brain] | lower }})</span>{% if not loop.last %} ↔ {% endif %}{% endfor %} <span class="muted">· {{ t.shared_n.format(n=x.n) }}</span></li>{% endfor %}
-  </ul>
-  {% else %}
-  <p class="muted">{{ m.gap("lab_regions") }}</p>
-  {% endif %}
 </article>
 {% endblock %}

@@ -37,9 +37,9 @@ def test_build_passes_the_check(tmp_path: Path) -> None:
         assert (out / rel).exists(), rel
     report = check_site(out)
     assert report.passed, report.problems
-    # root + 10 kinds in 2 languages + 43 region pages and 11 technique pages in 2 languages;
-    # no study without data
-    assert report.pages == 129
+    # root + 10 kinds in 2 languages + 45 region pages (the zona incerta's two, v237) and 11
+    # technique pages in 2 languages; no study without data
+    assert report.pages == 133
 
 
 def test_build_is_idempotent(tmp_path: Path) -> None:

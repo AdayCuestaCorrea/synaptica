@@ -5,10 +5,12 @@ and nothing else: no warehouse, no network. Each atlas keeps its own rows and it
 the human list shows the four layers side by side, each region tagged with the layer it comes
 from, and no geometry is joined (CLAUDE.md, "Licencias").
 
-The order of the regions is Sofía's to set (SCOPE §7, «Orden de las regiones»). Until she does,
-the families of the calm palette go from the surface inwards, as she proposed, the regions of
-the rat ↔ human pairs first in each family (v207), and the names
-stay as in the atlases (English): their Spanish names are hers to review (study question 4).
+The order of the regions is Sofía's to set (SCOPE §7, «Orden de las regiones»). Her answer
+(sheet row 10, 2026-11-24; v237): start with the basal ganglia, the zona incerta, the
+substantia nigra, the hippocampus and the cerebellum. Their families come first, in her
+order, under «To start with», with her regions at the top of each; the other families go
+from the surface inwards, the regions of the rat ↔ human pairs first in each family (v207).
+The names stay as in the atlases (English); for Spanish she chose Wikipedia (row 13).
 """
 
 from __future__ import annotations
@@ -24,6 +26,26 @@ SURFACE = ("cortex", "cortex_gap", "olfactory")
 INTERIOR = ("hippocampus", "amygdala", "basal_ganglia", "thalamus", "hypothalamus",
             "midbrain", "hindbrain", "white_matter", "ventricles", "other")  # fmt: skip
 FAMILIES = (*SURFACE, *INTERIOR)
+# Her regions to start with, in her order: the Waxholm ids whose subtree is the region (rat)
+# and the names of its areas in the human layers (as in each labels.json).
+HERS = (
+    ({197, 1028}, {"Caudate", "Putamen", "Pallidum"}),  # basal ganglia
+    ({1082}, {"ZI (Thalamus, zona incerta)"}),
+    ({1098}, {"SNC (Midbrain, Substantia Nigra pars compacta)",
+              "SNR (Midbrain, Substantia Nigra pars reticulata)"}),  # fmt: skip
+    ({1021}, {"CA1 (Hippocampus)", "CA2 (Hippocampus)", "CA3 (Hippocampus)",
+              "DG (Hippocampus)", "Subc (Hippocampus, Subicular complex)"}),  # fmt: skip
+    ({1047}, {"Cerebellum Gray Matter", "Cerebellum White Matter", "Vermal lobules I-V",
+              "Vermal lobules VI-VII", "Vermal lobules VIII-X"}),  # fmt: skip
+)
+
+
+def her_rank(row: dict[str, Any], atlas: str) -> int | None:
+    """Place of the region in her list (0 = the basal ganglia), None if not one of hers."""
+    for n, (rat, human) in enumerate(HERS):
+        if (set(row.get("path") or ()) & rat) if atlas == "waxholm" else row["name"] in human:
+            return n
+    return None
 
 
 def _load(path: Path) -> dict[str, Any]:
@@ -31,15 +53,14 @@ def _load(path: Path) -> dict[str, Any]:
 
 
 def regions(atlas_dir: Path, brain: str, first: set[str] = frozenset()) -> list[dict[str, Any]]:
-    """The families of one brain, from the surface inwards, each with its regions.
-
-    Provisional order (plan of 2026-11-17, option A, until Sofía answers row 10): inside a
-    family, the regions with a counterpart in the other brain (viewer keys in ``first``)
-    come first, then the rest, each part by name.
+    """The families of one brain: first those of her regions (``depth: "start"``), in her
+    order; then the rest from the surface inwards. Inside a family, her regions first (in her
+    order), then those with a counterpart in the other brain (viewer keys in ``first``,
+    v207), then the rest, each part by name.
 
     One entry per region name (both sides together), sorted inside its family:
-    ``{"family", "depth" ("surface" | "interior"), "regions": [{"name", "acronym", "atlas",
-    "colour"}]}``. Families with no region are left out.
+    ``{"family", "depth" ("start" | "surface" | "interior"), "regions": [{"name", "acronym",
+    "atlas", "colour", "key", "hers"}]}``. Families with no region are left out.
     """
     by_family: dict[str, dict[tuple[str, str], dict[str, Any]]] = {f: {} for f in FAMILIES}
     for atlas in BRAINS[brain]:
@@ -51,14 +72,25 @@ def regions(atlas_dir: Path, brain: str, first: set[str] = frozenset()) -> list[
             key = f"w{row['id']}" if atlas == "waxholm" else f"j{row['area_id']}"
             by_family[fam].setdefault((row["name"], atlas), {
                 "name": row["name"], "acronym": row.get("acronym"), "atlas": atlas,
-                "colour": row["color_calm"], "key": key,
+                "colour": row["color_calm"], "key": key, "hers": her_rank(row, atlas),
             })  # fmt: skip
-    return [
-        {"family": fam, "depth": "surface" if fam in SURFACE else "interior",
-         "regions": sorted(found.values(),
-                           key=lambda r: (r["key"] not in first, r["name"].lower(), r["atlas"]))}
-        for fam, found in by_family.items() if found
-    ]  # fmt: skip
+    last = len(HERS)
+
+    def order(r: dict[str, Any]) -> tuple:
+        rank = last if r["hers"] is None else r["hers"]
+        return (rank, r["key"] not in first, r["name"].lower(), r["atlas"])
+
+    out = []
+    for fam, found in by_family.items():
+        if not found:
+            continue
+        regs = sorted(found.values(), key=order)
+        start = regs[0]["hers"] is not None
+        depth = "start" if start else "surface" if fam in SURFACE else "interior"
+        out.append({"family": fam, "depth": depth, "regions": regs})
+    starts = sorted((f for f in out if f["depth"] == "start"),
+                    key=lambda f: f["regions"][0]["hers"])  # fmt: skip
+    return starts + [f for f in out if f["depth"] != "start"]
 
 
 def credits(atlas_dir: Path, brain: str) -> list[dict[str, str]]:

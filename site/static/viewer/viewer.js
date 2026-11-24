@@ -4,7 +4,8 @@
 // language, and the controls of the UX study (docs/fases/fase-2-atlas-ux.md): both brains on a
 // wide screen and one with a switch on a phone (UX-1 C); only the search, «Recortar» and «Más
 // opciones» in view, the last choice remembered (UX-3 B); the other brain marks the counterpart
-// without moving, and «Ir a la pareja» takes it there (UX-4 B); the page first and the viewer
+// and turns to it (UX-4 A, Sofía's answer of 2026-11-24, v237; «Ir a la pareja» stays, to go
+// back after turning away); the page first and the viewer
 // after it, over the still image (UX-5 B). The Niivue 0.69 patches of the prototype are kept,
 // each with its comment: upgrading Niivue means repeating the touch tests of S3 (ADR D3).
 //
@@ -1544,8 +1545,9 @@ class VolumeViewer {
         : [],
     );
     if (this.tag) this.tag.hidden = true;
-    if (!this.vol) return; // still loading: applied when it is ready
-    this.apply(); // UX-4 B: marked, not moved; «Ir a la pareja» calls goTo
+    if (!this.vol) return; // still loading: applied (and gone to) when it is ready
+    this.apply();
+    if (this.focus.size) this.goTo(this.focus); // UX-4 A (v237): she asked to go straight there
   }
 }
 
@@ -1788,7 +1790,7 @@ async function main() {
     v.section.classList.add("is-live");
     status(atlas, "");
     v.apply();
-    if (v.focus.size) v.apply();
+    if (v.focus.size) { v.apply(); v.goTo(v.focus); }
     performance.mark(`atlas-${atlas}-ready`);
   })().catch((e) => {
     status(atlas, UI.failed);

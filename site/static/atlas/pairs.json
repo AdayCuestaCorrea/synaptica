@@ -7,24 +7,62 @@
   ],
   "pairs": [
     {
-      "kind": "surface",
+      "kind": "striatum",
       "waxholm": {
-        "id": 408,
-        "acronym": "M1",
-        "name": "Primary motor area"
+        "id": 197,
+        "acronym": "CPu",
+        "name": "Caudate putamen"
+      },
+      "human": [
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_CAUDATE",
+          "label": 49,
+          "name": "Caudate"
+        },
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_PUTAMEN",
+          "label": 21,
+          "name": "Putamen"
+        }
+      ],
+      "same_side": true,
+      "grade": null,
+      "note": null
+    },
+    {
+      "kind": "pallidum",
+      "waxholm": {
+        "id": 1028,
+        "acronym": "PAL",
+        "name": "Pallidum"
+      },
+      "human": [
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_PALLIDUM",
+          "label": 27,
+          "name": "Pallidum"
+        }
+      ],
+      "same_side": true,
+      "grade": null,
+      "note": null
+    },
+    {
+      "kind": "zona incerta",
+      "waxholm": {
+        "id": 1082,
+        "acronym": "ZI",
+        "name": "Zona incerta"
       },
       "human": [
         {
           "atlas": "julich",
-          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_AREA_4A_PRECG",
-          "label": 76,
-          "name": "Area 4a (PreCG)"
-        },
-        {
-          "atlas": "julich",
-          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_AREA_4P_PRECG",
-          "label": 142,
-          "name": "Area 4p (PreCG)"
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_ZI_THALAMUS_ZONA_INCERTA",
+          "label": 15,
+          "name": "ZI (Thalamus, zona incerta)"
         }
       ],
       "same_side": true,
@@ -68,6 +106,74 @@
           "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_SUBC_HIPPOCAMPUS_SUBICULAR_COMPLEX",
           "label": 172,
           "name": "Subc (Hippocampus, Subicular complex)"
+        }
+      ],
+      "same_side": true,
+      "grade": null,
+      "note": null
+    },
+    {
+      "kind": "cerebellum",
+      "waxholm": {
+        "id": 1047,
+        "acronym": "Cb",
+        "name": "Cerebellum"
+      },
+      "human": [
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_CEREBELLUM_GRAY_MATTER",
+          "label": 46,
+          "name": "Cerebellum Gray Matter"
+        },
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_CEREBELLUM_WHITE_MATTER",
+          "label": 39,
+          "name": "Cerebellum White Matter"
+        },
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_VERMAL_LOBULES_I_V",
+          "label": 50,
+          "name": "Vermal lobules I-V"
+        },
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_VERMAL_LOBULES_VI_VII",
+          "label": 2,
+          "name": "Vermal lobules VI-VII"
+        },
+        {
+          "atlas": "cerebra",
+          "area_id": "CEREBRA_VERMAL_LOBULES_VIII_X",
+          "label": 20,
+          "name": "Vermal lobules VIII-X"
+        }
+      ],
+      "same_side": true,
+      "grade": null,
+      "note": null
+    },
+    {
+      "kind": "surface",
+      "waxholm": {
+        "id": 408,
+        "acronym": "M1",
+        "name": "Primary motor area"
+      },
+      "human": [
+        {
+          "atlas": "julich",
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_AREA_4A_PRECG",
+          "label": 76,
+          "name": "Area 4a (PreCG)"
+        },
+        {
+          "atlas": "julich",
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_AREA_4P_PRECG",
+          "label": 142,
+          "name": "Area 4p (PreCG)"
         }
       ],
       "same_side": true,
@@ -130,49 +236,6 @@
       "note": null
     },
     {
-      "kind": "cerebellum",
-      "waxholm": {
-        "id": 1047,
-        "acronym": "Cb",
-        "name": "Cerebellum"
-      },
-      "human": [
-        {
-          "atlas": "cerebra",
-          "area_id": "CEREBRA_CEREBELLUM_GRAY_MATTER",
-          "label": 46,
-          "name": "Cerebellum Gray Matter"
-        },
-        {
-          "atlas": "cerebra",
-          "area_id": "CEREBRA_CEREBELLUM_WHITE_MATTER",
-          "label": 39,
-          "name": "Cerebellum White Matter"
-        },
-        {
-          "atlas": "cerebra",
-          "area_id": "CEREBRA_VERMAL_LOBULES_I_V",
-          "label": 50,
-          "name": "Vermal lobules I-V"
-        },
-        {
-          "atlas": "cerebra",
-          "area_id": "CEREBRA_VERMAL_LOBULES_VI_VII",
-          "label": 2,
-          "name": "Vermal lobules VI-VII"
-        },
-        {
-          "atlas": "cerebra",
-          "area_id": "CEREBRA_VERMAL_LOBULES_VIII_X",
-          "label": 20,
-          "name": "Vermal lobules VIII-X"
-        }
-      ],
-      "same_side": true,
-      "grade": null,
-      "note": null
-    },
-    {
       "kind": "brainstem",
       "waxholm": {
         "id": 47,
@@ -185,50 +248,6 @@
           "area_id": "CEREBRA_BRAINSTEM",
           "label": 11,
           "name": "Brainstem"
-        }
-      ],
-      "same_side": true,
-      "grade": null,
-      "note": null
-    },
-    {
-      "kind": "striatum",
-      "waxholm": {
-        "id": 197,
-        "acronym": "CPu",
-        "name": "Caudate putamen"
-      },
-      "human": [
-        {
-          "atlas": "cerebra",
-          "area_id": "CEREBRA_CAUDATE",
-          "label": 49,
-          "name": "Caudate"
-        },
-        {
-          "atlas": "cerebra",
-          "area_id": "CEREBRA_PUTAMEN",
-          "label": 21,
-          "name": "Putamen"
-        }
-      ],
-      "same_side": true,
-      "grade": null,
-      "note": null
-    },
-    {
-      "kind": "pallidum",
-      "waxholm": {
-        "id": 1028,
-        "acronym": "PAL",
-        "name": "Pallidum"
-      },
-      "human": [
-        {
-          "atlas": "cerebra",
-          "area_id": "CEREBRA_PALLIDUM",
-          "label": 27,
-          "name": "Pallidum"
         }
       ],
       "same_side": true,

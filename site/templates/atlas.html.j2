@@ -34,7 +34,7 @@
     </span>
     <p class="atlas-none" role="status" aria-live="polite" hidden></p>
   </form>
-  <p class="atlas-note">{{ t.atlas_names_note }} {{ m.gap("atlas_names") }} {{ m.gap("atlas_order") }}</p>
+  <p class="atlas-note">{{ t.atlas_names_note }} {{ m.gap("atlas_names") }}</p>
 
   <div class="atlas-tools" hidden>
     <button type="button" class="btn" data-clip aria-pressed="false">{{ t.atlas_clip }}</button>
@@ -78,7 +78,8 @@
       <div class="panel" aria-live="polite"></div>
       <div class="licence-extra" hidden></div>
       <h3 class="brain-count">{{ t.atlas_regions }} <span>{{ t.atlas_regions_count.format(n=n) }}</span></h3>
-      {% for depth in ("surface", "interior") %}
+      {% if b.key == "human" %}<p class="small atlas-missing">{{ t.atlas_human_missing }}</p>{% endif %}
+      {% for depth in ("start", "surface", "interior") %}
       {% set fams = b.families | selectattr("depth", "equalto", depth) | list %}
       {% if fams %}
       <div class="depth-group">

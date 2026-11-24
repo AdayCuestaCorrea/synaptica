@@ -27,7 +27,7 @@ def pairs(q: Queue) -> list[str]:
 
 
 def test_one_item_per_pair_with_its_mesh_terms_and_three_examples():
-    assert len(ITEMS) == 12 and len({i.item_id for i in ITEMS}) == 12
+    assert len(ITEMS) == 13 and len({i.item_id for i in ITEMS}) == 13
     hippo = next(i for i in ITEMS if i.item_id == "waxholm-1021")
     assert hippo.content.terms[0] == "Hippocampus" and "Cornu Ammonis" in hippo.content.terms
     assert hippo.content.examples == ["Hippocampus study 0", "Hippocampus study 1",
@@ -59,8 +59,9 @@ def test_none_before_the_18th_then_from_the_warehouse(tmp_path: Path) -> None:
 def test_four_a_weekday_two_at_the_weekend_and_decided_ones_leave(tmp_path: Path) -> None:
     data = data_dir(tmp_path, a=4)
     first = pairs(queue(data))
-    assert first == ["waxholm-408", "waxholm-1021", "waxholm-501", "waxholm-1047"]
+    # Sofía's order (v237): basal ganglia, zona incerta, hippocampus, cerebellum, the rest
+    assert first == ["waxholm-197", "waxholm-1028", "waxholm-1082", "waxholm-1021"]
     assert len(pairs(queue(data, SATURDAY))) == collect.REGION_TERMS_WEEKEND
     item = next(i for i in ITEMS if i.item_id == first[0])
     decide(data, item, Action.APPROVE)
-    assert pairs(queue(data)) == [*first[1:], "waxholm-47"]
+    assert pairs(queue(data)) == [*first[1:], "waxholm-1047"]

@@ -119,7 +119,7 @@ def test_lab_pages_without_a_warehouse_are_gaps_and_linked(tmp_path: Path) -> No
     index = (out / "es" / "lab.html").read_text()
     assert 'href="lab/western-blot.html"' in index and "gap-lab_texts" in index
     page = (out / "en" / "lab" / "fiber-photometry.html").read_text()
-    for gap in ("gap-lab_texts", "gap-lab_studies", "gap-lab_regions"):
+    for gap in ("gap-lab_texts", "gap-lab_studies"):  # no regions since v237
         assert gap in page
     home = (out / "es" / "index.html").read_text()
     assert 'class="card card--lab" href="lab.html"' in home
@@ -217,28 +217,24 @@ def test_shared_needs_two_studies_and_sorts_by_count() -> None:
     assert studies.shared({"1", "2", "3"}, found) == [("c", 3), ("a", 2)]
 
 
-def test_region_and_technique_pages_link_each_other_as_a_proposal(tmp_path: Path) -> None:
+def test_region_and_technique_pages_do_not_tie_a_region_to_a_method(tmp_path: Path) -> None:
+    """Sofía (sheet row 15, 2026-11-24; v237): no region ↔ technique list, even with studies
+    in common (it was a proposal since v206)."""
     from test_site_news import STUDIES, study
     from test_site_news import warehouse as site_warehouse
 
     rows = [*STUDIES,
             study("doi:10.1/o1", title="Optogenetic silencing of the hippocampus"),
-            study("doi:10.1/o2", title="Hippocampus replay under optogenetic control"),
-            study("doi:10.1/f1", title="Hippocampus activity in fMRI")]  # fmt: skip
+            study("doi:10.1/o2", title="Hippocampus replay under optogenetic control")]  # fmt: skip
     data = site_warehouse(tmp_path / "data", studies=rows)
     out = tmp_path / "site"
     SiteBuilder(out, images=LICENSED, data_dir=data).build()
     assert check_site(out).passed
     hippo = (out / "es" / "atlas" / "regiones" / "waxholm-hippocampal-formation.html").read_text()
-    assert 'href="../../lab/optogenetics.html"' in hippo and "2 estudios en común" in hippo
-    assert "lab/fmri.html" not in hippo  # only one shared study
-    assert 'href="#gap-region_methods_match"' in hippo and 'gap-region_methods"' not in hippo
+    assert "lab/optogenetics.html" not in hippo and "gap-region_methods" not in hippo
     opto = (out / "en" / "lab" / "optogenetics.html").read_text()
-    assert 'href="../atlas/regions/waxholm-hippocampal-formation.html"' in opto
-    assert opto.index("waxholm-hippocampal") < opto.index("julich-ca1")  # rat first
-    assert 'href="#gap-lab_regions_match"' in opto
-    fmri = (out / "en" / "lab" / "fmri.html").read_text()
-    assert "gap-lab_regions_match" not in fmri and 'href="#gap-lab_regions"' in fmri
+    assert "atlas/regions/waxholm-hippocampal-formation.html" not in opto
+    assert "gap-lab_regions" not in opto
 
 
 def test_a_technique_shows_the_texts_she_approved_with_their_source(tmp_path: Path) -> None:

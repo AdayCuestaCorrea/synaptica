@@ -54,8 +54,20 @@ def test_regions_join_both_sides_and_go_from_the_surface_inwards(atlas_dir: Path
             "atlas": "waxholm",
             "colour": "#aabbcc",
             "key": "w15",
+            "hers": None,  # no path in this fixture
         }
     ]
+
+
+def test_her_regions_go_first_under_to_start_with(atlas_dir: Path) -> None:
+    """Sofía's answer (sheet row 10, v237): her regions' families first, in her order."""
+    fams = atlas.regions(atlas_dir, "human")
+    assert [(f["family"], f["depth"]) for f in fams][0] == ("hippocampus", "start")
+    assert fams[0]["regions"][0]["hers"] == 3  # the hippocampus, 4th of her five
+    rat = {"path": [10000, 1000, 1082, 235], "name": "Zona incerta, dorsal part"}
+    assert atlas.her_rank(rat, "waxholm") == 1
+    assert atlas.her_rank({"name": "Pallidum"}, "cerebra") == 0
+    assert atlas.her_rank({"name": "Brainstem"}, "cerebra") is None
 
 
 def test_human_regions_keep_the_layer_they_come_from(atlas_dir: Path) -> None:
