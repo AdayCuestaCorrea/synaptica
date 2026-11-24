@@ -47,6 +47,11 @@ from synaptica.review.apply import Event, next_queue, publishable, read_log, sta
 from synaptica.review.models import ItemType, Queue, ReviewItem, Sentence, Source, TextContent
 
 CAP_WEEKDAY, CAP_WEEKEND = 40, 10
+# Texts of a past run (``extra``: the 20 v2 texts of step 18, v109), a few a day (v231):
+# they went first with no cap, and the 10 she had not decided took 10 of the 40 places a
+# day and all 10 at the weekend, so the headlines to label (14b) were cut by the cap.
+# Her held edits of them still come first, with no cap: they are hers (ADR D5).
+EXTRA_WEEKDAY, EXTRA_WEEKEND = 2, 1
 # New glossary terms a day (Phase 2, v180): her held edits of terms do not count. Before
 # the optional spot-check, as in her page's ORDER; 3 at the weekend leave room in the 10.
 GLOSSARY_WEEKDAY, GLOSSARY_WEEKEND = 8, 3
@@ -298,6 +303,9 @@ def collect(
     weekend = today.weekday() >= 5
     new_terms = [i for i in rest if i.item_type is ItemType.GLOSSARY]
     later = {i.key for i in new_terms[GLOSSARY_WEEKEND if weekend else GLOSSARY_WEEKDAY :]}
+    from_runs = {i.key for i in extra or []}
+    past = [i for i in rest if i.key in from_runs]
+    later |= {i.key for i in past[EXTRA_WEEKEND if weekend else EXTRA_WEEKDAY :]}
     lab_texts = [i for i in rest if i.item_type is ItemType.LAB]
     later |= {i.key for i in lab_texts[LAB_TEXTS_WEEKEND if weekend else LAB_TEXTS_WEEKDAY :]}
     region_texts = [i for i in rest if i.item_type is ItemType.ATLAS]

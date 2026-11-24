@@ -199,6 +199,37 @@ def test_a_past_runs_texts_join_the_queue_as_items_of_their_own(tmp_path: Path) 
     assert q.items[0].content.sources[0].id == "pubmed-77"
 
 
+def test_a_past_runs_texts_come_a_few_a_day_after_her_held_edits(tmp_path: Path) -> None:
+    data = data_dir(tmp_path, today=4)
+    run = tmp_path / "runs" / "qwen27b"
+    pmids = [str(n) for n in range(70, 75)]
+    for pmid in pmids:
+        summarize(run, f"pmid:{pmid}")
+    (run / "summary.json").write_text(json.dumps({"articles": [
+        {"pmid": p, "title": f"Study {p}"} for p in pmids]}))  # fmt: skip
+    extra = collect.run_spot_checks(run)
+
+    def past(today: dt.date) -> list[tuple[str, bool]]:
+        q = collect.collect(data / "warehouse.duckdb", data / "derived", data / "review",
+                            today, extra, glossary=[])  # fmt: skip
+        return [(i.item_id, bool(i.warnings)) for i in q.items if "-qwen" in i.item_id]
+
+    assert past(MONDAY) == [("pmid_70-qwen27b", False), ("pmid_71-qwen27b", False)]
+    assert past(SATURDAY) == [("pmid_70-qwen27b", False)]
+    first = extra[3]
+    held = Decision(item_type=first.item_type, item_id=first.item_id,
+                    content_sha256=first.content_sha256, action=Action.EDIT,
+                    payload={"es": "Los ratones durmieron 9 horas más."}, reviewed_by="sofia",
+                    reviewed_at=dt.datetime(2026, 11, 10, tzinfo=dt.UTC),
+                    source="issue#2")  # fmt: skip
+    (data / "review").mkdir(exist_ok=True)
+    with (data / "review" / "held.jsonl").open("a") as f:
+        f.write(json.dumps({"decision": held.model_dump(mode="json"), "warnings": ["9"]}) + "\n")
+    # Her held edit first and outside the cap; then the day's two.
+    assert past(MONDAY) == [("pmid_73-qwen27b", True), ("pmid_70-qwen27b", False),
+                            ("pmid_71-qwen27b", False)]  # fmt: skip
+
+
 def test_neuro_lab_texts_join_from_the_19th_a_few_a_day(tmp_path: Path) -> None:
     from synaptica.lab.texts import review_items
 
