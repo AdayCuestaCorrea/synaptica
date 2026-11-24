@@ -22,6 +22,8 @@ from __future__ import annotations
 import datetime as dt
 import hashlib
 import json
+import time
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Literal
@@ -34,6 +36,11 @@ from synaptica.llm import LLM, prompt
 from synaptica.store import _atomic_write, utc_today
 
 BATCH = 20  # 40 (v145) left 128 of 641 items unanswered (run 43614465935): back to 20
+# Checked before each batch (v233), as in ``news.group`` (v187). The pipeline kills the
+# command at 20 minutes, which it reached on 2026-11-18 and 2026-11-21 (the report said
+# `failed`); a batch admitted at the end may wait ~60 s for the per-minute output budget
+# plus a 429 retry, so 17 minutes leave that call and the start-up their margin.
+BUDGET_SECONDS = 17 * 60.0
 WINDOW_DAYS = 7
 TYPES = ("healthy_brain", "disease", "clinical_trial", "technique", "noise")
 
@@ -55,6 +62,7 @@ class ClassifyResult:
     up_to_date: int = 0
     classified: int = 0
     missing: int = 0  # items the model left out (asked again next run)
+    left: int = 0  # pending items not asked because the time budget ran out (next run)
 
 
 def types_path(derived_root: Path | None = None) -> Path:
@@ -132,8 +140,11 @@ def classify(
     derived_root: Path | None = None,
     limit: int | None = None,
     now: dt.datetime | None = None,
+    deadline: float | None = None,
+    clock: Callable[[], float] = time.monotonic,
 ) -> ClassifyResult:
-    """Classify the items that are new, changed or typed with an older prompt."""
+    """Classify the items that are new, changed or typed with an older prompt, newest
+    first; no batch is started once ``clock()`` reaches ``deadline`` (the rest waits)."""
     system, version = prompt("classify_news")
     path = types_path(derived_root)
     rows = load_types(path)
@@ -151,6 +162,9 @@ def classify(
     pending = pending[:limit] if limit is not None else pending
     stamp = (now or dt.datetime.now(dt.UTC)).isoformat(timespec="seconds")
     for start in range(0, len(pending), BATCH):
+        if deadline is not None and clock() >= deadline:
+            result.left = len(pending) - start
+            break
         batch = pending[start : start + BATCH]
         answers = classify_batch(llm, system, batch)
         result.missing += len(batch) - len(answers)
@@ -171,8 +185,10 @@ def run(
     warehouse: Path | None = None,
     derived_root: Path | None = None,
     limit: int | None = None,
+    budget: float | None = BUDGET_SECONDS,
+    clock: Callable[[], float] = time.monotonic,
 ) -> ClassifyResult:
-    return classify(
-        llm, items_to_classify(today or utc_today(), warehouse),
-        derived_root=derived_root, limit=limit,
-    )  # fmt: skip
+    items = items_to_classify(today or utc_today(), warehouse)
+    deadline = None if budget is None else clock() + budget  # after reading the warehouse
+    return classify(llm, items, derived_root=derived_root, limit=limit,
+                    deadline=deadline, clock=clock)  # fmt: skip

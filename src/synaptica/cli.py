@@ -422,9 +422,13 @@ def news_classify(
     provider: ProviderOption = None,
     model: ModelOption = None,
     limit: Annotated[int | None, typer.Option(help="Classify N items at most.")] = None,
+    budget: Annotated[
+        float, typer.Option(help="Seconds of LLM calls; then it stops (each batch is saved).")
+    ] = 1020.0,
 ) -> None:
     """Type of the Neuro News items (studies that pass the prefilter and neuro news) with
-    the LLM -> derived/news/types.json. Reads the warehouse: run `syn build` first."""
+    the LLM -> derived/news/types.json. Reads the warehouse: run `syn build` first. Stops
+    itself after --budget seconds (the pipeline kills it at 20 minutes); the rest waits."""
     from synaptica.llm import QuotaExhausted
     from synaptica.news import classify
 
@@ -436,13 +440,14 @@ def news_classify(
         typer.echo("No warehouse yet: run `syn build` first.", err=True)
         raise typer.Exit(1)
     try:
-        result = classify.run(llm, limit=limit)
+        result = classify.run(llm, limit=limit, budget=budget)
     except QuotaExhausted as exc:
         typer.echo(f"LLM quota used up: {exc}; the rest waits for the next run", err=True)
         raise typer.Exit(0) from exc
     typer.echo(
         f"Classified {result.classified} of {result.total} items "
         f"({result.up_to_date} up to date, {result.missing} left out by the model)"
+        + (f"; time budget reached, {result.left} wait for the next run" if result.left else "")
     )
 
 

@@ -103,6 +103,21 @@ def test_batches_cache_and_prompt_version(tmp_path, monkeypatch):
     assert bumped.up_to_date == 0
 
 
+def test_it_stops_at_its_time_budget_and_the_rest_waits(tmp_path, monkeypatch):
+    """v233: no batch starts after the deadline; what was classified is saved."""
+    items = classify.items_to_classify(TODAY, make_warehouse(tmp_path / "w.duckdb"))
+    monkeypatch.setattr(classify, "BATCH", 1)
+    ticks = iter([0.0, 100.0, 200.0])  # the clock before each batch
+    llm = FakeLLM()
+    result = classify.classify(llm, items, derived_root=tmp_path, now=NOW,
+                               deadline=150.0, clock=lambda: next(ticks))  # fmt: skip
+    assert (result.classified, result.left, len(llm.calls)) == (2, 1, 2)
+    assert "Alzheimer" in llm.calls[0]  # newest first
+    assert len(classify.load_types(classify.types_path(tmp_path))) == 2
+    again = classify.classify(FakeLLM(), items, derived_root=tmp_path, now=NOW)
+    assert (again.up_to_date, again.classified, again.left) == (2, 0, 0)
+
+
 def test_limit_takes_the_newest(tmp_path):
     items = classify.items_to_classify(TODAY, make_warehouse(tmp_path / "w.duckdb"))
     llm = FakeLLM()
