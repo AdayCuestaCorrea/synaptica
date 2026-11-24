@@ -214,9 +214,19 @@ def judged_scores(
     tp = sum(s and p["same"] for s, p in zip(said, pairs, strict=True))
     fp = sum(s and not p["same"] for s, p in zip(said, pairs, strict=True))
     fn = sum(not s and p["same"] for s, p in zip(said, pairs, strict=True))
-    precision, recall, f1 = _prf(tp, fp, fn)
-    return {"pairs": len(pairs), "same": tp + fn, "precision": precision, "recall": recall,
-            "f1": f1, "threshold": None}  # fmt: skip
+    return _report(tp, fp, fn, len(pairs), None)
+
+
+def _report(tp: int, fp: int, fn: int, pairs: int, threshold: float | None) -> dict[str, Any]:
+    """Counts and scores of one method; a score with nothing to divide by is ``None`` (no
+    pair said "same": no precision; no duplicate in the gold: no recall), not 0, so a
+    report on a gold without duplicates does not read as a method that always fails."""
+    precision = tp / (tp + fp) if tp + fp else None
+    recall = tp / (tp + fn) if tp + fn else None
+    f1 = _prf(tp, fp, fn)[2] if precision is not None and recall is not None else None
+    return {"pairs": pairs, "same": tp + fn, "tp": tp, "fp": fp, "fn": fn,
+            "tn": pairs - tp - fp - fn, "precision": precision, "recall": recall, "f1": f1,
+            "threshold": threshold}  # fmt: skip
 
 
 def grouping_scores(sims: Sequence[float], same: Sequence[bool]) -> dict[str, Any]:
@@ -239,10 +249,8 @@ def grouping_scores(sims: Sequence[float], same: Sequence[bool]) -> dict[str, An
     pred = np.zeros(len(s), dtype=bool)
     for fold in np.array_split(order, min(FOLDS, len(s))):
         pred[fold] = s[fold] >= best(np.setdiff1d(order, fold))
-    precision, recall, f1 = _prf(int((pred & y).sum()), int((pred & ~y).sum()),
-                                 int((~pred & y).sum()))  # fmt: skip
-    return {"pairs": len(s), "same": int(y.sum()), "precision": precision, "recall": recall,
-            "f1": f1, "threshold": best(order)}  # fmt: skip
+    return _report(int((pred & y).sum()), int((pred & ~y).sum()), int((~pred & y).sum()),
+                   len(s), best(order))  # fmt: skip
 
 
 def evaluate_pairs(
@@ -266,14 +274,22 @@ def evaluate_pairs(
 
 def pairs_markdown(result: dict[str, Any]) -> str:
     lines = ["## Same story (grouping)", "",
-             "| Method | Pairs (same) | Precision | Recall | F1 | Threshold |",
-             "|---|---:|---:|---:|---:|---:|"]  # fmt: skip
-    for name, g in result.items():
-        if name == "missing":
-            continue
-        cut = "—" if g["threshold"] is None else f"{g['threshold']:.3f}"
-        lines.append(f"| {name} | {g['pairs']} ({g['same']}) | {g['precision']:.2f} | "
-                     f"{g['recall']:.2f} | {g['f1']:.2f} | {cut} |")  # fmt: skip
+             "| Method | Pairs (same) | Said same: right / wrong | Missed | Precision | Recall "
+             "| F1 | Threshold |",
+             "|---|---:|---:|---:|---:|---:|---:|---:|"]  # fmt: skip
+
+    def num(x: float | None, fmt: str = ".2f") -> str:
+        return "—" if x is None else format(x, fmt)
+
+    methods = {k: g for k, g in result.items() if k != "missing"}
+    for name, g in methods.items():
+        lines.append(f"| {name} | {g['pairs']} ({g['same']}) | {g['tp']} / {g['fp']} | "
+                     f"{g['fn']} | {num(g['precision'])} | {num(g['recall'])} | "
+                     f"{num(g['f1'])} | {num(g['threshold'], '.3f')} |")  # fmt: skip
+    if any(g["same"] == 0 for g in methods.values()):
+        lines += ["", "No labelled pair is the same story, so recall (and F1) cannot be "
+                  "measured: what these pairs show is how many times a method merged two "
+                  "different stories (\"wrong\")."]  # fmt: skip
     if result.get("missing"):
         shown = ", ".join(result["missing"][:5]) + ("…" if len(result["missing"]) > 5 else "")
         lines += ["", f"Not in the warehouse (left out of TF-IDF): "

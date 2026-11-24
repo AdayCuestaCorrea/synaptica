@@ -10,7 +10,7 @@
 | Visto bueno de Sofía | pendiente |
 | 14b · ~100 titulares etiquetados por Sofía: macro F1 del clasificador frente al baseline y validación del juez | pendiente (Sofía) |
 | 24b · Primera elección de Clásicos | pendiente (Sofía) |
-| 15 · Precisión y recall de la agrupación con un LLM real | pendiente: primera ejecución con Groq |
+| 15 · Precisión y recall de la agrupación con un LLM real | hecho (v230): hoja ciega de 245 pares; un solo duplicado real, que el LLM acierta |
 | 20 · Juicio de los 101 estudios de la carga que quedaron pendientes | hecho el 2026-11-14 (run 43614465935): 88 aprobados y 13 rechazados en total; ninguno pendiente (v146) |
 | Retractaciones que solo conoce Retraction Watch (casilla de ingesta) | hecho: en `main` y en la rama `data` desde el 2026-11-13 (v140–v141) |
 | 23b · Figuras de PMC | hecho en la rama `fase-1-figuras-titulos` (v125–v128): metadatos en la rama `data` y WebP en la caché de Actions; cobertura medida, 25 de 200 estudios de Última hora. Se fusiona después del 2026-11-17 |
@@ -81,7 +81,7 @@ Caché privada en Actions, parada con el 429 de cupo diario, comprobación previ
 | Primer espejo real | 4313 estudios (1,7 MB en BigQuery) y 373 noticias; dataset creado en EU | v142 |
 | Primera programada con Groq (2026-11-14) | arranca 7 h 13 min tarde; ingesta y dbt bien; **0 clasificados, 0 resúmenes, 0 juicios**: 429 «Request too large» por un tope nuevo de 1000 tokens de salida por minuto en Qwen, invisible en el informe | v143 |
 | Macro F1 del clasificador frente al baseline | *pendiente (14b)* | — |
-| Precisión y recall de la agrupación | *pendiente (15)* | — |
+| Precisión y recall de la agrupación | 245 pares de la hoja ciega, 1 duplicado real. LLM: 1 «sí», acertado, y ninguno perdido. TF-IDF: para no perderlo, su umbral (0,116) junta 39 pares distintos | v230 |
 | Primera ejecución con Groq: clasificados, resúmenes, juzgados y cupo | *pendiente (2026-11-14)* | — |
 | Días autónomos | *pendiente* | `runs/` en la rama `data` |
 
@@ -110,6 +110,7 @@ Caché privada en Actions, parada con el 429 de cupo diario, comprobación previ
 - **MeSH no servía como regla** para el filtro de neurociencia (v69).
 - **Fechas futuras de PubMed** (v102): 85 de 2571 candidatos tenían una fecha de número impreso posterior a hoy.
 - **Europe PMC dejó de marcar acceso abierto** (v219). Del 15 al 18-11 indexó 16 952 registros y solo 6 llevaban la marca, así que no había nada nuevo que guardar y el test de frescura (máximo 2 días) puso en rojo la ejecución programada del 18-11, que reinició el reloj. La ventana pasa a 5 días. *Lección:* el umbral de frescura debe salir del peor retraso de la fuente, no de su media diaria.
+- **La agrupación casi no tiene qué agrupar** (v230). En la hoja ciega de 245 pares, elegidos donde un «sí» era más probable, solo hay un duplicado real. El LLM había juzgado 914 pares y solo dijo «sí» a ese. Es una noticia de Nature del 12-11 y su «Daily briefing» del día siguiente, los dos sobre el atlas de los ganglios basales que publicó *Cell* ese día. Las fuentes en español (SINC) y los medios en inglés cubren estudios distintos de los de Nature · Science · Cell. Con un solo caso, la precisión y el recall de 1,00 no dicen casi nada: dicen que el LLM no junta noticias distintas. Además, el informe enseñaba 0,00 en todo cuando el gold no tenía duplicados, como si el método fallara siempre; ahora cuenta aciertos y errores y pone «—» donde no hay nada que medir. *Lección:* antes de afinar un agrupador, medir cuántos duplicados hay de verdad.
 - *Pendiente: lo que salga de las ejecuciones con Groq y de los 14 días.*
 
 ## Cómo defenderlo en una entrevista
@@ -117,6 +118,7 @@ Caché privada en Actions, parada con el 429 de cupo diario, comprobación previ
 - «El cupo gratuito es un presupuesto, no un error. El pipeline gasta por prioridad y para en cuanto el proveedor dice que se acabó el día, en lugar de reintentar durante horas.»
 - «Una ejecución en rojo significa que hay algo que mirar. Por eso la clave se comprueba antes, sin gastar tokens, y el cupo agotado no la pone en rojo. Así puedo medir “14 días sin intervención”.»
 - «Los abstracts no se publican: viven en una caché privada de Actions, y la CI se recupera sola si GitHub la borra.»
+- «Antes de fiarme del agrupador lo medí con una hoja ciega: de 245 pares, solo uno era la misma noticia. El LLM lo acertó sin juntar ninguna otra, y el TF-IDF, para no perderlo, juntaba 39 distintas. Con un solo caso no lo vendo como un 100 %: lo que sé es que no junta de más.»
 - «Construí en rebanadas verticales: una fuente de punta a punta antes de añadir más. El fallo de la caché vacía salió el primer día en la nube, no en la última semana.»
 
 ## Lo que pasa a la Fase 2

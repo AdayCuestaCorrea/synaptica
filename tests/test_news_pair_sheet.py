@@ -138,7 +138,7 @@ def test_commands_end_to_end(tmp_path, monkeypatch):
     )
     result = run(app, ["eval", "news", "--gold", str(tmp_path / "none.csv"), "--pairs", str(gold)])
     assert result.exit_code == 0, result.output
-    assert "| llm | 8 (2) | 1.00 | 0.50 | 0.67 | — |" in result.output
+    assert "| llm | 8 (2) | 1 / 0 | 1 | 1.00 | 0.50 | 0.67 | — |" in result.output
     in_repo = pair_sheet.REPO / "eval" / "sheet.csv"
     assert run(app, ["eval", "pairs-sheet", "--out", str(in_repo)]).exit_code == 1
     assert not in_repo.exists()

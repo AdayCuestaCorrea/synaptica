@@ -143,6 +143,23 @@ def test_pair_metrics_for_answers_and_tfidf(tmp_path):
     assert "| llm | 4 (2) |" in report and "not a uniform sample" in report
 
 
+def test_a_gold_without_duplicates_reports_counts_not_zero_scores():
+    """Aday's sheet of 2026-11-24: 245 pairs, none the same story. Recall has nothing to
+    divide by, so it is «—», not 0.00; the one wrong «same» of the LLM is what shows."""
+    pairs = [{"key_a": "a", "key_b": "d", "same": False},
+             {"key_a": "c", "key_b": "d", "same": False}]  # fmt: skip
+    result = evaluate.evaluate_pairs(pairs, {("a", "d"): True}, TEXTS)
+    llm = result["llm"]
+    assert (llm["tp"], llm["fp"], llm["fn"], llm["tn"]) == (0, 1, 0, 1)
+    assert llm["precision"] == 0.0 and llm["recall"] is None and llm["f1"] is None
+    assert "tfidf" not in result  # one class only: no threshold to learn
+    report = evaluate.pairs_markdown(result)
+    assert "| llm | 2 (0) | 0 / 1 | 0 | 0.00 | — | — | — |" in report
+    assert "recall (and F1) cannot be measured" in report
+    none_said = evaluate.evaluate_pairs(pairs, {}, TEXTS)["llm"]
+    assert none_said["precision"] is None and none_said["tn"] == 2
+
+
 def test_items_missing_from_the_warehouse_are_left_out_of_tfidf_only():
     pairs = [{"key_a": "a", "key_b": "b", "same": True},
              {"key_a": "c", "key_b": "x", "same": False},
