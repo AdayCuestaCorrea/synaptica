@@ -1,0 +1,56 @@
+{
+ "study_id": "10.1002/mp.70771",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "054425505ed30307",
+ "generated_at": "2026-11-24T18:25:56+00:00",
+ "word_count": 120,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers employed a retrospective design to analyze dynamic contrast-enhanced MRI brain scans from 59 subjects collected on a 3.0 T scanner.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "The image data was divided into 4,956 pairs for training, 1,180 for validation, and 59 for testing.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "The new method was compared against four other registration techniques, including ANTs, a CNN-based model, GWMS, and C2FViT, and it required the least time to train while maintaining a competitive speed for processing each case.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "This approach generated the smoothest time-intensity curves in the artery, venous, and white matter regions, exhibiting the lowest error values among the tested methods.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors conclude that the new method offers accuracy similar to the best existing methods while being significantly more computationally efficient.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-24T18:41:22+00:00"
+ }
+}

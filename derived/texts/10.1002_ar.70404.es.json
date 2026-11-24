@@ -1,0 +1,50 @@
+{
+ "study_id": "10.1002/ar.70404",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "10559d81a2d54087",
+ "generated_at": "2026-11-24T18:21:50+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores examinaron grandes muestras de tejido de la zona nasal de 13 cuerpos humanos conservados, empleando tinciones químicas y técnicas basadas en anticuerpos para analizar tipos celulares específicos y las conexiones entre las distintas capas del revestimiento nasal.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Para cuantificar estas estructuras, se creó un programa informático especial que mide el grosor del tejido e identifica los distintos tipos de epitelio presentes en las muestras.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "El análisis reveló que los tres tipos de revestimiento nasal poseen composiciones celulares y estructuras diferentes, con una capa olfativa que varía en grosor en comparación con la capa respiratoria y presenta transiciones más complejas que las observadas en pequeñas biopsias.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "En consecuencia, estos resultados establecen un mapa detallado del revestimiento nasal humano que sirve como línea de base para futuras investigaciones sobre el envejecimiento, las enfermedades y la pérdida del olfato.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-24T18:40:23+00:00"
+ }
+}

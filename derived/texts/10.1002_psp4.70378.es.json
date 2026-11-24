@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1002/psp4.70378",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "2b2abe55a7666240",
+ "generated_at": "2026-11-24T18:33:09+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Para facilitar el diseño de ensayos clínicos de la distrofia muscular de Duchenne, los investigadores desarrollaron seis modelos matemáticos utilizando datos del estudio ImagingNMD y los validaron con conjuntos de datos de otros ensayos.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Curvas matemáticas específicas describieron mejor los cambios temporales en la grasa muscular y las puntuaciones de pruebas físicas, prediciendo que estas métricas alcanzan la mitad de su cambio máximo entre los 10,6 y los 12,8 años.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "El uso de esteroides se asoció con una edad más tardía para alcanzar la mitad del cambio máximo en la capacidad de ponerse de pie, subir escaleras y la grasa del músculo sóleo.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Si bien las puntuaciones iniciales de las pruebas y los niveles de grasa muscular permitieron predecir con fiabilidad los cambios futuros en la velocidad para ponerse de pie y la grasa del vasto lateral en pacientes mayores, no ocurrió lo mismo con otras medidas.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que estos modelos pueden ayudar a seleccionar biomarcadores y establecer criterios de entrada para los ensayos de la distrofia muscular de Duchenne.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-24T18:42:23+00:00"
+ }
+}

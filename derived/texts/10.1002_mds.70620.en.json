@@ -1,0 +1,53 @@
+{
+ "study_id": "10.1002/mds.70620",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "5d8c55863586121e",
+ "generated_at": "2026-11-24T18:23:52+00:00",
+ "word_count": 126,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers analyzed 3,020 finger-tapping videos from 656 participants, including 379 with Parkinson's disease and 79 controls, using a computer vision system to extract movement features and create the Digital Bradykinesia Composite Score.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "This score increased as clinical severity rose and improved when patients took levodopa or received deep brain stimulation, demonstrating responsiveness similar to standard clinical ratings.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Among those with deep brain stimulation, levodopa was linked to additional score improvements, while 24 weeks of unsupervised home recordings showed the score increased in patients but decreased slightly in the control group.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Higher scores were associated with lower dopamine transporter binding in the striatum and higher free water in the substantia nigra, leading the authors to conclude the measure supports further evaluation for remote monitoring and clinical trials.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-24T18:40:23+00:00"
+ }
+}

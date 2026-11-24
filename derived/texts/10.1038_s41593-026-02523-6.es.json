@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1038/s41593-026-02523-6",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "b87d2f88ef439088",
+ "generated_at": "2026-11-24T18:20:44+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron cómo el cerebro representa el lenguaje en personas que hablan 21 idiomas distintos, utilizando datos de neuroimagen de 12 lenguas ya disponibles y recopilando información nueva para otras 9.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El estudio buscaba determinar si los modelos informáticos multilingües podían predecir cómo reaccionan las áreas del lenguaje del cerebro ante las palabras, y estos modelos predijeron con precisión la actividad cerebral para cada idioma individual evaluado.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Además, los modelos entrenados con algunos idiomas fueron capaces de predecir la actividad cerebral de otras lenguas que nunca habían visto, una capacidad que se mantuvo a través de distintos grupos lingüísticos, tipos de palabras y métodos de presentación.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Estos resultados sugieren que el cerebro utiliza un sistema común para procesar el significado en todos los idiomas humanos.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-24T18:40:22+00:00"
+ }
+}

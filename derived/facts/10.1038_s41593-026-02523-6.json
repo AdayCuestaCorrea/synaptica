@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1038/s41593-026-02523-6",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "9b51b034d2fe5522",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-24T18:05:53+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study examined how the brain represents language in people who speak 21 different languages.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers used brain scan data from 12 languages that were already available and collected new brain scan data for 9 more languages.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The goal was to see if computer models that understand multiple languages could predict how the brain's language areas react to words.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The computer models were able to accurately predict brain activity for each individual language tested.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "Models trained on some languages could predict brain activity for other languages they had never seen before.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "This ability to predict brain activity for new languages worked across different language groups, types of words, and ways the words were presented.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "The results suggest that the brain uses a common system to process meaning across all human languages.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

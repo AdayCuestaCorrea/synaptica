@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1002/nbm.70441",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "eac424bb74e37e9c",
+ "generated_at": "2026-11-24T18:31:06+00:00",
+ "word_count": 105,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "This study investigated how removing lipid signals and varying the frequency range affect chemical measurements in rat brains scanned at 14.1 Tesla.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Researchers applied orthogonal projection, a mathematical method for signal removal, to data sets with low or high lipid interference, analyzing chemical signals across both wide and narrow frequency ranges.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "While lipid removal caused only small changes in data with little interference, it significantly altered chemical maps and concentration estimates in data with heavy lipid interference.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Chemicals present in very small amounts were most impacted by this process, and similar patterns of change appeared in data sets using a faster, compressed sensing scanning technique.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-24T18:41:25+00:00"
+ }
+}

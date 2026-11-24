@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1002/nbm.70441",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "eac424bb74e37e9c",
+ "generated_at": "2026-11-24T18:31:06+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Este estudio investigó cómo la eliminación de las señales lipídicas y la variación del rango de frecuencia afectan las mediciones químicas en cerebros de rata escaneados a 14,1 tesla.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Los investigadores aplicaron la proyección ortogonal, un método matemático para eliminar señales, a conjuntos de datos con interferencia lipídica baja o alta, analizando las señales químicas en rangos de frecuencia tanto amplios como estrechos.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Si bien la eliminación de lípidos provocó solo cambios mínimos en los datos con poca interferencia, alteró significativamente los mapas químicos y las estimaciones de concentración en los datos con una fuerte interferencia lipídica.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Las sustancias químicas presentes en cantidades muy pequeñas fueron las más afectadas por este proceso, y patrones de cambio similares aparecieron en los conjuntos de datos que utilizaron una técnica de escaneo más rápida basada en compresión.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-24T18:41:25+00:00"
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1038/s41593-026-02523-6",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "b87d2f88ef439088",
+ "generated_at": "2026-11-24T18:20:44+00:00",
+ "word_count": 111,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers examined how the brain represents language in people who speak 21 different languages, using brain scan data from 12 previously available languages and collecting new data for 9 more.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The study aimed to determine if multilingual computer models could predict how the brain's language areas react to words, and these models accurately predicted brain activity for each individual language tested.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Furthermore, models trained on some languages were able to predict brain activity for other languages they had never seen before, a capability that held across different language groups, word types, and presentation methods.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "These results suggest that the brain uses a common system to process meaning across all human languages.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-24T18:40:22+00:00"
+ }
+}

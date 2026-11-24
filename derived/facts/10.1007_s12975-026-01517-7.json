@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s12975-026-01517-7",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "73644874e62e8745",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-24T18:20:44+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study analyzed data from the Third China National Stroke Registry, measuring six specific inflammatory markers in the participants.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The analysis included 10,349 patients, and older age was most strongly linked to higher levels of IL-6, hsCRP, and YKL-40.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The researchers used mediation analysis to test if these inflammatory markers explain the link between aging and disability or recurrent stroke at 90 days.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The results showed that IL-6, hsCRP, and YKL-40 partially explain the relationship between aging and functional disability, but they do not explain the link to stroke recurrence.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Additional sensitivity analyses were run to check if the mediation results were robust.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The sensitivity analyses confirmed that the initial findings remained consistent.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors suggest that targeting these inflammatory pathways could be a way to improve outcomes for older stroke patients.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

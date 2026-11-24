@@ -1,0 +1,53 @@
+{
+ "study_id": "10.1002/mds.70620",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "5d8c55863586121e",
+ "generated_at": "2026-11-24T18:23:52+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron 3020 vídeos de pulsaciones con los dedos de 656 participantes, entre ellos 379 con enfermedad de Parkinson y 79 controles, mediante un sistema de visión por ordenador para extraer características del movimiento y crear el Índice Compuesto Digital de Bradicinesia.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Este índice aumentó a medida que crecía la gravedad clínica y mejoró cuando los pacientes tomaron levodopa o recibieron estimulación cerebral profunda, lo que demuestra una sensibilidad similar a la de las valoraciones clínicas estándar.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Entre los pacientes con estimulación cerebral profunda, la levodopa se asoció con mejoras adicionales en el índice, mientras que 24 semanas de grabaciones domésticas sin supervisión mostraron que el índice aumentó en los pacientes pero disminuyó ligeramente en el grupo de control.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los índices más altos se asociaron con una menor unión del transportador de dopamina en el estriado y con un mayor contenido de agua libre en la sustancia negra, lo que llevó a los autores a concluir que esta medida respalda su evaluación adicional para el monitoreo remoto y los ensayos clínicos.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-24T18:40:23+00:00"
+ }
+}

@@ -1,0 +1,60 @@
+{
+ "study_id": "10.1002/nbm.70438",
+ "lang": "es",
+ "status": "rejected_by_judge",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "512e36527c9acd0e",
+ "generated_at": "2026-11-24T18:29:00+00:00",
+ "word_count": null,
+ "problems": [
+  "judge: Overclaims that the method can replace biopsy, which the abstract does not claim."
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron un sistema computacional que integra dos métodos distintos de inteligencia artificial para distinguir entre dos tipos de tumores cerebrales mediante resonancias magnéticas ponderadas en T2 y T1 con contraste.",
+   "fact_ids": [
+    "f1",
+    "f3"
+   ]
+  },
+  {
+   "text": "El modelo se evaluó en 344 pacientes con diagnósticos confirmados por biopsia y, a continuación, se validó en una cohorte externa de distintos hospitales, donde una herramienta automática delimitó las regiones tumorales que fueron corregidas manualmente por expertos.",
+   "fact_ids": [
+    "f2",
+    "f4"
+   ]
+  },
+  {
+   "text": "Este enfoque combinado identificó correctamente el tipo de tumor en el 95,4% del grupo principal y en el 90,9% del grupo de validación externa, superando a las técnicas de IA individuales, con las mayores ganancias observadas en la nueva población de pacientes.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "El análisis indicó que confiar exclusivamente en estas dos secuencias específicas de resonancia magnética ofrecía un rendimiento óptimo, ya que la incorporación de otros tipos de imágenes no mejoraba la precisión del sistema.",
+   "fact_ids": [
+    "f7"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que la fusión de diferentes técnicas de IA podría ayudar a los clínicos a clasificar tumores cerebrales mediante resonancia magnética sin necesidad de biopsia, lo que respalda la toma de decisiones médicas.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": false,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Overclaims that the method can replace biopsy, which the abstract does not claim.",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-24T18:41:24+00:00"
+ }
+}

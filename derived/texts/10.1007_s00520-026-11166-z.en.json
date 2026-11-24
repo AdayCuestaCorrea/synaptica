@@ -1,0 +1,58 @@
+{
+ "study_id": "10.1007/s00520-026-11166-z",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "7488b45f0be66dbd",
+ "generated_at": "2026-11-24T18:38:18+00:00",
+ "word_count": 111,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A single-site feasibility trial in a French outpatient chemotherapy clinic examined virtual reality use among adult women with breast cancer who lacked brain metastases or contraindications.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Nurses offered virtual reality sessions during four consecutive chemotherapy appointments, making 217 sessions available to 60 women with a median age of 51.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Approximately 63% of participants used the headset for at least three visits, reporting low simulator sickness, high satisfaction, and a 91% willingness to repeat the experience.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Conversely, nurses expressed less desire to adopt the technology regularly due to the increased workload it imposed.",
+   "fact_ids": [
+    "f7"
+   ]
+  },
+  {
+   "text": "The authors conclude that further clinical trials are necessary to determine how virtual reality affects patient well-being during treatment.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-24T18:42:26+00:00"
+ }
+}

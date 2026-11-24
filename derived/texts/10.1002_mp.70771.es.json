@@ -1,0 +1,56 @@
+{
+ "study_id": "10.1002/mp.70771",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "054425505ed30307",
+ "generated_at": "2026-11-24T18:25:56+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores emplearon un diseño retrospectivo para analizar resonancias magnéticas cerebrales con realce dinámico de contraste de 59 sujetos, adquiridas en un escáner de 3,0 T.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Los datos de imagen se dividieron en 4956 pares para el entrenamiento, 1180 para la validación y 59 para la prueba.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "El nuevo método se comparó con otras cuatro técnicas de registro, entre ellas ANTs, un modelo basado en CNN, GWMS y C2FViT, y requirió el menor tiempo de entrenamiento, manteniendo al mismo tiempo una velocidad competitiva para el procesamiento de cada caso.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Este enfoque generó las curvas de intensidad-temporal más suaves en las regiones de la arteria, la vena y la sustancia blanca, mostrando los valores de error más bajos entre los métodos evaluados.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que el nuevo método ofrece una precisión similar a la de los mejores métodos existentes, siendo al mismo tiempo significativamente más eficiente en términos computacionales.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-24T18:41:22+00:00"
+ }
+}

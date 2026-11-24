@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1002/psp4.70378",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "2b2abe55a7666240",
+ "generated_at": "2026-11-24T18:33:09+00:00",
+ "word_count": 132,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "To aid in designing clinical trials for Duchenne muscular dystrophy, researchers developed six mathematical models using data from the ImagingNMD study and validated them against other trial datasets.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Specific mathematical curves best described the temporal changes in muscle fat and physical test scores, predicting that these metrics reach half of their maximum change between ages 10.6 and 12.8 years.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Steroid use was associated with a later age for reaching half of the maximum change in standing up, climbing stairs, and soleus muscle fat.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "While starting test scores and muscle fat levels reliably predicted future changes for standing up speed and vastus lateralis fat in older patients, they did not do so for other measures.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors suggest these models can help select biomarkers and establish entry rules for Duchenne muscular dystrophy trials.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-24T18:42:23+00:00"
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1002/psp4.70378",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "4e1386742a638b98",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-24T18:13:14+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study sought to help design Duchenne muscular dystrophy clinical trials by measuring how timed physical tests and muscle fat levels change over time.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers built six mathematical models using data from the ImagingNMD study and checked them against data from other clinical trials.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "Specific mathematical curves were found to best describe how muscle fat and physical test scores change over time.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The models predicted that physical test scores and muscle fat levels reach half of their maximum change between ages 10.6 and 12.8 years.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "Using steroids was associated with a later age for reaching half of the maximum change in standing up, climbing stairs, and soleus muscle fat.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "Starting test scores and muscle fat levels could reliably predict future changes for standing up speed and vastus lateralis fat in older patients, but not for other measures.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors suggest these models can help choose biomarkers and set entry rules for Duchenne muscular dystrophy trials.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

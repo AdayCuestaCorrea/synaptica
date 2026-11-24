@@ -1,0 +1,58 @@
+{
+ "study_id": "10.1007/s00520-026-11166-z",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "7488b45f0be66dbd",
+ "generated_at": "2026-11-24T18:38:18+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un ensayo de viabilidad en un solo centro, realizado en una clínica francesa de quimioterapia ambulatoria, evaluó el uso de la realidad virtual en mujeres adultas con cáncer de mama que no presentaban metástasis cerebrales ni contraindicaciones.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Las enfermeras ofrecieron sesiones de realidad virtual durante cuatro citas consecutivas de quimioterapia, poniendo a disposición de 60 mujeres, con una edad mediana de 51 años, un total de 217 sesiones.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Aproximadamente el 63% de las participantes usó el visor en al menos tres visitas, reportando bajos niveles de malestar por simulador, alta satisfacción y un 91% de disposición a repetir la experiencia.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "En cambio, las enfermeras manifestaron menor deseo de adoptar la tecnología de forma regular debido a la mayor carga de trabajo que esta implicaba.",
+   "fact_ids": [
+    "f7"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que son necesarios más ensayos clínicos para determinar cómo afecta la realidad virtual al bienestar de las pacientes durante el tratamiento.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-24T18:42:26+00:00"
+ }
+}

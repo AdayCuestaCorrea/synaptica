@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1007/s11064-026-04956-8",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "e58582f6565b61c6",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-24T18:17:31+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "A study of rat brain tissue found that the gene TRIB3 was expressed at levels about 68 times higher in animals that suffered cardiac arrest than in control animals.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers reduced TRIB3 activity in rats using a virus injected into the brain four weeks before the injury, and in lab-grown cells using a virus before exposing them to oxygen and sugar deprivation.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "In the animal model, lowering TRIB3 levels led to better neurological function and less damage to specific brain cells.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "In cell experiments, lowering TRIB3 changed the activity of the AKT and FOXO3a proteins, which resulted in less of the FOXO3a protein moving into the cell nucleus and lower production of the BNIP3 protein.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Protein interaction tests showed that when TRIB3 was present, it bound more to AKT and less to FOXO3a after the cells were stressed.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "Giving the drug TIC10 to the animals partially reversed the benefits seen in mitochondrial health and neurological function after TRIB3 was reduced.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors suggest that TRIB3 might be a new factor controlling mitophagy after cardiac arrest and could be a potential target for protecting the brain, though further evaluation is needed.",
+   "subject": "other"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

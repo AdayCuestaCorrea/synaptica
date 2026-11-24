@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1007/s00210-026-06112-z",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "ce1a57e9a2dd3a46",
+ "generated_at": "2026-11-24T18:35:13+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 2: 'causal' is not in the English sentence"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores estudiaron los marcadores moleculares de la muerte celular en la enfermedad de Alzheimer analizando tejido cerebral humano, secuenciando muestras de sangre para evaluar la expresión de genes inmunitarios y probando el compuesto alicina en modelos de rata y células nerviosas.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "El análisis identificó cinco genes como actores clave en el proceso de muerte celular, cuyos niveles en los datos cerebrales sugieren una defensa más débil contra el estrés oxidativo y una mayor vulnerabilidad al daño provocado por el hierro y los lípidos.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Si bien los modelos informáticos indicaron que la alicina podría encajar en las proteínas diana, las pruebas de laboratorio mostraron que el compuesto reducía el daño tisular, alteraba la actividad de los cinco genes de forma protectora y mejoraba la producción de energía celular.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  },
+  {
+   "text": "Los autores advierten de que estos resultados son solo sugerentes, ya que los datos humanos involucraban participantes superpuestos, las muestras de sangre no procedían del cerebro y no se realizaron los experimentos clave para demostrar la acción directa.",
+   "fact_ids": [
+    "f9"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-24T18:40:21+00:00"
+}

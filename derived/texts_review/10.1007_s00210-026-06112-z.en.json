@@ -1,0 +1,56 @@
+{
+ "study_id": "10.1007/s00210-026-06112-z",
+ "lang": "en",
+ "status": "rejected_by_judge",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "ce1a57e9a2dd3a46",
+ "generated_at": "2026-11-24T18:35:13+00:00",
+ "word_count": 135,
+ "problems": [
+  "judge: overstates results by claiming improved cellular energy production not reported in abstract"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers investigated molecular markers of cell death in Alzheimer's disease by analyzing human brain tissue, sequencing blood samples to assess immune gene expression, and testing the compound allicin in rat models and nerve cells.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "The analysis identified five genes as key players in the cell death process, with their levels in brain data suggesting a weaker defense against oxidative stress and higher vulnerability to damage from iron and lipids.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "While computer models suggested allicin could fit into target proteins, lab tests showed the compound reduced tissue damage, altered the activity of the five genes protectively, and improved cellular energy production.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  },
+  {
+   "text": "The authors caution that these results are only suggestive because the human data involved overlapping participants, the blood samples did not originate from the brain, and key experiments to prove direct action were not performed.",
+   "fact_ids": [
+    "f9"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": false,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "overstates results by claiming improved cellular energy production not reported in abstract",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-24T18:42:25+00:00"
+ }
+}

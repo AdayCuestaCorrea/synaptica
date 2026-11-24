@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1007/s12035-026-06344-3",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "a6090fcd5a28ba94",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-24T18:19:40+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used mouse models of spinal cord injury and combined single-cell RNA sequencing with spatial transcriptomics and computational analysis to examine inflammation.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The analysis showed that neutrophils and monocytes arrive at the injury site first, followed by macrophages, with microglia activating later.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Researchers identified seven distinct types of macrophage states in the injured tissue, including one specifically associated with the SPP1 marker.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The SPP1-associated macrophage group grew significantly and reached its highest number seven days after the injury while maintaining strong inflammatory activity.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "These specific macrophages were found concentrated in the center of the spinal cord lesion, within a larger area rich in cells expressing the Cd44 protein.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "In a cell culture experiment, reducing Spp1 activity in donor cells lowered the expression of inflammatory markers and the release of inflammatory chemicals in recipient cells.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "The results suggest that SPP1-associated macrophages are a key feature linked to persistent inflammation in the subacute phase of spinal cord injury.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

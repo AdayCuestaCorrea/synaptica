@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1002/nbm.70441",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "046997c3e6172daa",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-24T18:12:10+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study examined how removing lipid signals and the range of frequencies analyzed affect the quality and accuracy of chemical measurements in rat brains scanned at 14.1 Tesla.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "A mathematical method called orthogonal projection was used to remove lipid signals from two types of data sets, each containing samples with either low or high levels of lipid interference.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The researchers analyzed the chemical signals using both a wide frequency range (4.1 to 0.2 ppm) and a narrower range (4.1 to 1.8 ppm).",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "In data with little lipid interference, removing the lipid signals made only small changes to the results, and the measured amounts of chemicals stayed consistent.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "In data with heavy lipid interference, removing the lipid signals caused significant changes that altered the maps of where chemicals are located and their estimated concentrations.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "Chemicals that were present in very small amounts were the most impacted by the lipid removal process.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "The same patterns of change were seen in the data sets that used a faster, compressed sensing scanning technique.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

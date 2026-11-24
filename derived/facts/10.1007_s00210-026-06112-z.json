@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1007/s00210-026-06112-z",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "fb9ef63610ba8476",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-24T18:14:21+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The research sought to find molecular markers linked to cell death in Alzheimer's disease and to test if the compound allicin could reduce this type of injury in lab models.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "The study analyzed human brain tissue data from two sources, using one as the main reference and the other only to check consistency because the participants overlapped.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Blood samples were sequenced to see how immune cells expressed specific genes, with the authors noting this does not show what happens inside the brain.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Computer simulations were followed by experiments on rats treated with chemicals that mimic aging and on nerve cells exposed to a drug that triggers cell death.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Five specific genes were identified as key players in the cell death process based on the data analysis.",
+   "subject": "other"
+  },
+  {
+   "id": "f6",
+   "statement": "The levels of these genes in the brain data suggested a weaker defense against oxidative stress and higher vulnerability to damage from iron and lipids.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "Computer models suggested allicin could fit into the target proteins, but this does not prove the compound actually binds to them in a real biological setting.",
+   "subject": "computational"
+  },
+  {
+   "id": "f8",
+   "statement": "In the lab tests, allicin reduced tissue damage and stress markers, changed the activity of the five genes in a protective way, and improved energy production in cells, similar to a known protective drug.",
+   "subject": "animals"
+  },
+  {
+   "id": "f9",
+   "statement": "The authors caution that the results are only suggestive because the human data had overlapping participants, the blood data did not come from the brain, and several key experiments to prove direct action were not done.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

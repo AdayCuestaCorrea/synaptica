@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1007/s00520-026-11166-z",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "0b3a324c46387392",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-24T18:15:25+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The research was a single-site feasibility trial carried out in a French outpatient chemotherapy clinic.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study included adult women diagnosed with breast cancer who did not have brain metastases or medical reasons to avoid virtual reality.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Nurses provided virtual reality sessions during four back-to-back chemotherapy appointments, and the women chose whether to participate.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "A total of 217 virtual reality sessions were made available to 60 women, whose median age was 51.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "About 63% of the participants agreed to use the virtual reality headset for at least three out of the four chemotherapy visits.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The women reported low levels of simulator sickness, high satisfaction with the experience, and 91% said they would do it again.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "Nurses expressed less desire to use the technology regularly because it increased their workload.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors state that further clinical trials are required to determine how virtual reality affects patient well-being during treatment.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

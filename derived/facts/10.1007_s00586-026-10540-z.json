@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1007/s00586-026-10540-z",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "20092c50cc25c464",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-24T18:16:29+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study describes a 54-year-old woman who experienced head and neck pain for eight days and worsening weakness in her left arm for four days.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "A neurological exam indicated that the left C5-C6 nerve roots or the upper part of the brachial plexus were affected.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Standard scans of the neck and shoulder showed age-related and muscle-bone issues, but these did not fully account for the quick loss of strength in the upper arm.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "An MRI of the brachial plexus showed that the left C5 nerve root was larger and had a brighter signal than the nerve on the other side.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "A focused ultrasound scan found a localized widening of the left vertebral artery with signs of a tear and pressure on nearby nerves.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "A specialized X-ray test using contrast dye confirmed the presence of a dissecting aneurysm in the left vertebral artery.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The patient received a procedure to place a stent inside the artery to repair it.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "After the procedure, her neck and shoulder pain significantly decreased and the strength in her left arm slowly returned.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

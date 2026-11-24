@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1002/mds.70620",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "a458de16e322c0fc",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-24T18:09:01+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study analyzed 3,020 finger-tapping videos from 656 people, including 379 with Parkinson's disease, 155 with atypical parkinsonism, 33 with REM sleep behavior disorder, 79 controls, and 10 with other diagnoses, collected at over 20 sites.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "A computer vision system extracted movement features from the videos and grouped them into four areas: vigor (speed and size of taps), timing, irregularity, and sequence effect, to create a new score called the Digital Bradykinesia Composite Score.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The new score went up as the clinical severity of the condition increased.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The score improved when patients took the medication levodopa or received deep brain stimulation, showing a similar level of responsiveness to standard clinical ratings.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Among patients who had deep brain stimulation, taking levodopa was linked to an additional improvement in the new score, but not in the standard clinical rating.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "During 24 weeks of unsupervised home recordings, the score increased in patients and decreased slightly in the control group.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "Higher scores on the new measure were associated with lower dopamine transporter binding in the striatum and higher free water in the substantia nigra.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors conclude that the video-based score is associated with disease severity, treatment response, changes over six months, and signs of nerve degeneration, supporting its further evaluation for remote monitoring and clinical trials.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

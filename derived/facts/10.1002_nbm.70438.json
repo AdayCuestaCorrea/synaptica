@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1002/nbm.70438",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "b0b450383ca68c86",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-24T18:11:09+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers built a computer program that combines two types of artificial intelligence to tell the difference between two kinds of brain tumors on MRI scans.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The system was tested on 344 patients whose tumors were confirmed by biopsy, and then checked again on a separate group of patients from different hospitals and scanners.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The computer program analyzed two specific types of MRI images: T2-weighted and contrast-enhanced T1-weighted scans.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "A separate AI tool automatically outlined the tumor areas in the images, and human experts checked and fixed these outlines by hand when needed.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The combined model correctly identified the tumor type in 95.4% of the main test group and 90.9% of the external validation group.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The combined model worked better than either type of AI used alone, and the improvement was biggest when tested on the new group of patients from other hospitals.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "Testing showed that using just the two main MRI types gave the best results, and adding other MRI types did not make the system more accurate.",
+   "subject": "computational"
+  },
+  {
+   "id": "f8",
+   "statement": "The results suggest that mixing different AI techniques can help doctors classify brain tumors using MRI without needing a biopsy, which could support medical decisions.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}
