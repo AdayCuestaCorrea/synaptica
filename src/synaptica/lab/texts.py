@@ -153,6 +153,54 @@ def spanish_again(
     return status
 
 
+def english_again(
+    llm: LLM,
+    *,
+    only: list[str] | None = None,
+    sources_path: Path | None = None,
+    path: Path | None = None,
+    now: dt.datetime | None = None,
+) -> dict[str, dict[str, str]]:
+    """The sections whose English failed (v232), asked again alone with today's prompts:
+    the other section of the technique is not touched (it may be in her queue, and its
+    hash must not change). Its facts are taken again from the same source, with ids of
+    their own (``r1``…), because the stored facts keep no quote, and without the quote the
+    checks could not see a caution («potentially») that the statement left out. Returns
+    technique -> section -> status."""
+    path = path or TEXTS
+    now = now or dt.datetime.now(dt.UTC)
+    sources = read_json(sources_path or SOURCES, "techniques")
+    texts = read_json(path, "techniques")
+    status: dict[str, dict[str, str]] = {}
+    for tech in techniques():
+        tid, rec = tech["id"], texts.get(tech["id"])
+        en_src = (sources.get(tid) or {}).get("en") or {}
+        if (only and tid not in only) or not rec or rec.get("revid") != en_src.get("revid"):
+            continue
+        failed = [k for k in SECTIONS if (rec.get(k) or {}).get("status") == "failed_en"]
+        for key in failed:
+            extra = _section(sources[tid]) if rec[key].get("section") else None
+            source = extra["text"] if extra else en_src["lead"]
+            header = f"SECTION «{extra['heading']}» OF THE ARTICLE" if extra else "LEAD"
+            try:
+                verified, rejected = wikidraft.facts(llm, SPEC, tech["name_en"], source,
+                                                     prefix="r", header=header)  # fmt: skip
+                sec = wikidraft.section(llm, SPEC, tech["name_en"], key, verified,
+                                        wikidraft.plain(source))  # fmt: skip
+            except LLMOutputError:
+                status.setdefault(tid, {})[key] = "model_error"
+                continue
+            rec["facts"] = [f for f in rec["facts"] if not f["id"].startswith("r")] + [
+                {k: f[k] for k in ("id", "statement", "kind")} for f in verified]  # fmt: skip
+            rec["rejected_again"] = rejected
+            rec[key] = sec | ({"section": extra["heading"]} if extra else {}) | {
+                "prompts": SPEC.prompts(), "generator": llm.label,
+                "generated_at": now.isoformat(timespec="seconds")}  # fmt: skip
+            status.setdefault(tid, {})[key] = sec["status"]
+    _save(path, texts)
+    return status
+
+
 def _section(entry: dict[str, Any]) -> dict[str, Any] | None:
     """The stored «limits» section, only at the revision of the English lead."""
     extra, en = entry.get("limits_en"), entry.get("en") or {}

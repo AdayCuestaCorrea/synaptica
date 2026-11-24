@@ -299,3 +299,31 @@ def test_a_failed_spanish_limit_is_asked_again_alone(tmp_path: Path) -> None:
     rec = json.loads(out.read_text())["techniques"]["optogenetics"]
     assert rec["what"] == what and rec["limit"]["es"][0]["text"] == ES["limit"][0]
     assert "problems" not in rec["limit"] and rec["limit"]["es_generator"] == "fake/model"
+
+
+class AgainLLM(FakeLLM):
+    """Answers like ``FakeLLM``, citing the facts asked again (``r1``…)."""
+
+    def __init__(self, english=None):
+        super().__init__({k: [(text, [i.replace("f", "r") for i in ids]) for text, ids in v]
+                          for k, v in (english or EN).items()})  # fmt: skip
+
+
+def test_a_failed_english_section_is_asked_again_alone(tmp_path: Path) -> None:
+    """v232: only the section whose English failed; the other one keeps its facts and text."""
+    copied = EN | {"limit": [("The method requires genetic modification of the target cells, "
+                              "and light scatters in brain tissue.", ["f3"])]}  # fmt: skip
+    out, src = tmp_path / "texts.json", sources(tmp_path)
+    texts.write(FakeLLM(copied), sources_path=src, path=out)
+    before = json.loads(out.read_text())["techniques"]["optogenetics"]
+    assert before["limit"]["status"] == "failed_en"
+    llm = AgainLLM()
+    again = texts.english_again(llm, sources_path=src, path=out)
+    assert again == {"optogenetics": {"limit": "drafted"}}
+    assert llm.calls == ["LabFacts", "Summary", "AdaptedText"]
+    rec = json.loads(out.read_text())["techniques"]["optogenetics"]
+    assert rec["what"] == before["what"]
+    assert [f["id"] for f in rec["facts"]] == ["f1", "f2", "f3", "r1", "r2", "r3"]
+    assert rec["limit"]["en"][0]["fact_ids"] == ["r3"]
+    assert rec["limit"]["prompts"]["lab_write_en"].startswith("lab-write-en-v2")
+    assert texts.english_again(AgainLLM(), sources_path=src, path=out) == {}  # nothing left

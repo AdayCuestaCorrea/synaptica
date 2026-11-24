@@ -8,7 +8,7 @@ and Neuro Atlas's regions share one chain; Aday's option of 2026-11-18).
    prompt) that passes :func:`checks.check_text` (every sentence cites facts; numbers and
    names from them; no 8 words copied from the lead; no overclaims), one retry with the
    failures as feedback;
-3. its Spanish (``adapt_es``), aligned, without new claims, and spelled right.
+3. its Spanish (``wiki_adapt_es``), aligned, without new claims, and spelled right.
 
 A section with too few verified facts, or whose text fails, is not written: the page keeps
 its gap. Nothing here is published: each caller saves its drafts unpublished, sends them
@@ -33,6 +33,11 @@ from synaptica.narrative.checks import (
 )
 from synaptica.narrative.write import ATTEMPTS, Summary, _public, adapt_es
 from synaptica.review.models import ItemType, ReviewItem, Sentence, Source, TextContent
+
+# The Spanish of the fixed texts (v232): their own prompt, with the rules their failures
+# asked for (no causality the English lacks, animal names, «la archicorteza», «may» →
+# «podría»). The daily summaries keep ``adapt_es``.
+ADAPT_PROMPT = "wiki_adapt_es"
 
 PUBLISHED = ("approved", "edited")  # her approval, or her correction that passed (or kept)
 
@@ -59,7 +64,7 @@ class Spec:
     max_words: int = 100
 
     def prompts(self) -> dict[str, str]:
-        return {n: prompt(n)[1] for n in (self.facts_prompt, self.write_prompt, "adapt_es")}
+        return {n: prompt(n)[1] for n in (self.facts_prompt, self.write_prompt, ADAPT_PROMPT)}
 
 
 def facts(
@@ -137,7 +142,7 @@ def spanish(llm: LLM, en: list[dict[str, Any]]) -> dict[str, Any]:
     es: list[str] = []
     feedback: list[str] = []
     for _ in range(ATTEMPTS):
-        es = adapt_es(llm, en_texts, feedback)
+        es = adapt_es(llm, en_texts, feedback, prompt_name=ADAPT_PROMPT)
         feedback = _es_checks(en_texts, es)
         if not feedback:
             break

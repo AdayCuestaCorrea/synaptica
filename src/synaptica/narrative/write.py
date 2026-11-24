@@ -116,8 +116,12 @@ def write_en(
     return [(s.text.strip(), s.fact_ids) for s in out.sentences]
 
 
-def adapt_es(llm: LLM, en: list[str], feedback: list[str], max_tokens: int = 800) -> list[str]:
-    system = prompt("adapt_es")[0]
+def adapt_es(llm: LLM, en: list[str], feedback: list[str], max_tokens: int = 800,
+             prompt_name: str = "adapt_es") -> list[str]:  # fmt: skip
+    """The Spanish of ``en``, one sentence per sentence. ``prompt_name``: the fixed texts
+    from Wikipedia use their own (``wiki_adapt_es``, v232), so that changing it never
+    changes the daily summaries' prompt, whose version is in every summary's cache key."""
+    system = prompt(prompt_name)[0]
     lines = ["FRASES EN INGLÉS:", *(f"{i}. {t}" for i, t in enumerate(en, start=1))]
     if feedback:
         lines += ["", "Tu respuesta anterior no pasó estas comprobaciones. Corrígelas todas:",

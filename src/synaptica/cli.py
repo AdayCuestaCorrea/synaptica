@@ -923,6 +923,14 @@ def lab_write(
             "first, then (with --provider) their Spanish asked again.",
         ),
     ] = False,
+    failed_only: Annotated[
+        bool,
+        typer.Option(
+            "--failed-only",
+            help="Only sections whose English failed, asked again alone (their facts "
+            "taken again from the same source); the other section is not touched.",
+        ),
+    ] = False,
 ) -> None:
     """Draft «what it lets us see» and «limits» of each technique from its Wikipedia lead
     (facts -> EN -> ES, with the summaries' checks) -> src/synaptica/lab/texts.json. Not
@@ -943,6 +951,13 @@ def lab_write(
     if llm is None:
         typer.echo("No --provider given: nothing written.")
         raise typer.Exit(0)
+    if failed_only:  # v232
+        again = texts.english_again(llm, only=only.split(",") if only else None)
+        for tid, by_section in again.items():
+            typer.echo(f"{tid}: " + ", ".join(f"{k} {v}" for k, v in by_section.items()))
+        done = sum(v == "drafted" for by in again.values() for v in by.values())
+        typer.echo(f"English again: {len(again)} techniques, {done} sections drafted")
+        return
     status = texts.write(llm, only=only.split(",") if only else None)
     for tid, by_section in status.items():
         typer.echo(f"{tid}: " + ", ".join(f"{k} {v}" for k, v in by_section.items()))

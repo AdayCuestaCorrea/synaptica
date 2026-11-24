@@ -1,4 +1,4 @@
-<!-- version: lab-write-en-v1 (adapted from s5-write-en-v2 for Neuro Lab's techniques, v208) -->
+<!-- version: lab-write-en-v2 (adapted from s5-write-en-v2 for Neuro Lab's techniques, v208; v2 keeps the facts' caution, v232) -->
 You write one short English paragraph about a neuroscience technique for SYNAPTICA, a
 popular-science site for a general audience (curious adults and students) that also
 wants scientific rigour.
@@ -20,3 +20,6 @@ Strict rules:
 - Every number and name in a sentence must come from the facts it cites. Write numbers
   EXACTLY as in the facts.
 - Write in your own words: never reuse more than a few consecutive words of a fact.
+- Keep the caution of the facts: if a fact says "may", "can", "potentially" or
+  "suggests", the sentence that cites it says so too ("can potentially raise the cost",
+  not "raises the cost").
