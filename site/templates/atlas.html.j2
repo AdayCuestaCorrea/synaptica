@@ -37,13 +37,15 @@
   <p class="atlas-note">{{ t.atlas_names_note }} {{ m.gap("atlas_names") }}</p>
 
   <div class="atlas-tools" hidden>
-    <button type="button" class="btn" data-clip aria-pressed="false">{{ t.atlas_clip }}</button>
+    {#- Sofía (sheet row 12, v247): the 2D slice, the black-and-white atlas and the stains
+        in view, not inside «Más opciones». #}
+    <div class="tools-row" role="group" aria-label="{{ t.atlas_view }}"><span class="more-label">{{ t.atlas_view }}</span>
+      <span class="seg"><button type="button" data-view="3d" aria-pressed="true">{{ t.atlas_view_3d }}</button><button type="button" data-view="slice" aria-pressed="false">{{ t.atlas_view_slice }}</button></span>
+      <button type="button" class="btn" data-clip aria-pressed="false">{{ t.atlas_clip }}</button></div>
+    <div class="tools-row" role="group" aria-label="{{ t.atlas_look }}"><span class="more-label">{{ t.atlas_look }}</span>
+      <span class="seg"><button type="button" data-look="color" aria-pressed="true">{{ t.atlas_look_color }}</button><button type="button" data-look="atlas" aria-pressed="false">{{ t.atlas_look_atlas }}</button><button type="button" data-look="drawn" aria-pressed="false">{{ t.atlas_look_drawn }}</button><button type="button" data-look="real" aria-pressed="false">{{ t.atlas_look_real }}</button></span></div>
     <button type="button" class="btn" data-more aria-expanded="false" aria-controls="atlas-more">{{ t.atlas_more }}</button>
     <div class="atlas-more" id="atlas-more" hidden>
-      <p class="more-row"><span class="more-label">{{ t.atlas_view }}</span>
-        <span class="seg"><button type="button" data-view="3d" aria-pressed="true">{{ t.atlas_view_3d }}</button><button type="button" data-view="slice" aria-pressed="false">{{ t.atlas_view_slice }}</button></span></p>
-      <p class="more-row"><span class="more-label">{{ t.atlas_look }}</span>
-        <span class="seg"><button type="button" data-look="color" aria-pressed="true">{{ t.atlas_look_color }}</button><button type="button" data-look="atlas" aria-pressed="false">{{ t.atlas_look_atlas }}</button><button type="button" data-look="drawn" aria-pressed="false">{{ t.atlas_look_drawn }}</button><button type="button" data-look="real" aria-pressed="false">{{ t.atlas_look_real }}</button></span></p>
       <p class="more-row"><span class="seg"><button type="button" data-isolate aria-pressed="false">{{ t.atlas_isolate }}</button></span></p>
       <p class="more-note">{{ t.atlas_more_note }}</p>
     </div>

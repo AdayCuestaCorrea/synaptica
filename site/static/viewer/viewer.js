@@ -1833,7 +1833,8 @@ async function main() {
     live.textContent = text;
   };
 
-  // Toolbar (UX-3 B): «Recortar» and «Más opciones» in view; the rest inside.
+  // Toolbar (UX-3 B; v247, Sofía: «mejor a la vista»): the view (3D or 3D + 2D slice), «Recortar»
+  // and the look (colour, black-and-white atlas, stains) in view; «Aislar» inside «Más opciones».
   const toolbar = root.querySelector(".atlas-tools");
   const each = (f) => Object.values(viewers).forEach((v) => v.vol && f(v));
   const press = (sel, on) => toolbar.querySelectorAll(sel).forEach((b) => b.setAttribute("aria-pressed", String(on(b))));

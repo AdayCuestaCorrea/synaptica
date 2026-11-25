@@ -416,6 +416,7 @@ a.gl:hover, a.gl:focus-visible { color: var(--link); background: var(--accent-so
 .atlas-tools .btn, .seg button, .brain-switch button, .go-pair { min-height: 44px; padding: 8px 14px; font: inherit; font-size: 0.92rem; color: var(--ink); background: var(--surface); border: var(--card-border); border-radius: var(--radius-s); cursor: pointer; }
 .atlas-tools [aria-pressed="true"], .seg button[aria-pressed="true"], .atlas-tools [aria-expanded="true"] { border-color: var(--accent); color: var(--accent-ink); box-shadow: inset 0 0 0 1px var(--accent); }
 .atlas-tools button:focus-visible, .brain-switch button:focus-visible, .go-pair:focus-visible, .rname:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tools-row { flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
 .atlas-more { flex-basis: 100%; display: grid; gap: 8px; padding: 12px; background: var(--surface); border: var(--card-border); border-radius: var(--radius); }
 .more-row { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; margin: 0; }
 .more-label { min-width: 5rem; font-weight: 700; font-size: 0.9rem; }
