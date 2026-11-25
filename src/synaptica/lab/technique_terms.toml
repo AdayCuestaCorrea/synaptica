@@ -132,6 +132,8 @@ text = ["optogenetics", "optogenetic", "optogenetically", "channelrhodopsin",
 [[technique]]
 id = "chemogenetics"
 source_en = "Chemogenetics" # Wikipedia article for its texts (syn lab sources)
+limits_pmc = "PMC4868840" # Whissell et al., Front Genet 2016 (CC BY): Sofía's own (BJP 2018)
+limits_pmc_section = "Practical Considerations" # forbids the XML; she adds clozapine (v246)
 name_es = "DREADDs y quimiogenética"
 name_en = "DREADDs and chemogenetics"
 mesh = ["D000098972"] # Chemogenetics

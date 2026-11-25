@@ -209,6 +209,31 @@
           "id": "f9",
           "statement": "From 1979 to 2019, the technique appeared in over 400,000 scientific publications listed in PubMed.",
           "kind": "other"
+        },
+        {
+          "id": "l1",
+          "statement": "The method is impossible to perform unless a specific primary antibody for the target protein exists.",
+          "kind": "limit"
+        },
+        {
+          "id": "l2",
+          "statement": "Identifying chemical changes like phosphorylation requires antibodies that bind specifically to those modified residues.",
+          "kind": "limit"
+        },
+        {
+          "id": "l3",
+          "statement": "A significant drawback is that antibodies often bind to unintended proteins, causing off-target signals.",
+          "kind": "limit"
+        },
+        {
+          "id": "l4",
+          "statement": "In one study using erythropoietin, differences between operators were responsible for almost 80% of the total measurement variance.",
+          "kind": "limit"
+        },
+        {
+          "id": "l5",
+          "statement": "Proteins smaller than 10 kDa may fail to stick to the membrane, while those larger than 140 kDa may not transfer onto it at all.",
+          "kind": "limit"
         }
       ],
       "rejected": [],
@@ -260,9 +285,68 @@
         ]
       },
       "limit": {
-        "status": "too_few_facts",
-        "facts": 0
-      }
+        "section": "Limitations of western blotting",
+        "generator": "groq/qwen/qwen3.8-27b",
+        "generated_at": "2026-11-25T21:30:56+00:00",
+        "status": "drafted",
+        "en": [
+          {
+            "text": "The technique depends entirely on the availability of specific primary antibodies, including those that recognize modified residues like phosphorylation.",
+            "fact_ids": [
+              "l1",
+              "l2"
+            ]
+          },
+          {
+            "text": "A significant limitation is that these antibodies can potentially bind to unintended proteins, which generates off-target signals.",
+            "fact_ids": [
+              "l3"
+            ]
+          },
+          {
+            "text": "Operator variability also affects results, as one study found that differences between operators accounted for almost 80% of the total measurement variance.",
+            "fact_ids": [
+              "l4"
+            ]
+          },
+          {
+            "text": "Furthermore, proteins smaller than 10 kDa may fail to stick to the membrane, while those larger than 140 kDa may not transfer onto it at all.",
+            "fact_ids": [
+              "l5"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "La técnica depende totalmente de la disponibilidad de anticuerpos primarios específicos, incluidos aquellos que reconocen residuos modificados como la fosforilación.",
+            "fact_ids": [
+              "l1",
+              "l2"
+            ]
+          },
+          {
+            "text": "Una limitación importante es que estos anticuerpos podrían unirse a proteínas no deseadas, lo que genera señales fuera del objetivo.",
+            "fact_ids": [
+              "l3"
+            ]
+          },
+          {
+            "text": "La variabilidad entre operadores también influye en los resultados, ya que un estudio mostró que las diferencias entre operadores explicaban casi el 80 % de la varianza total de la medida.",
+            "fact_ids": [
+              "l4"
+            ]
+          },
+          {
+            "text": "Además, las proteínas menores de 10 kDa podrían no adherirse a la membrana, mientras que las mayores de 140 kDa podrían no transferirse a ella.",
+            "fact_ids": [
+              "l5"
+            ]
+          }
+        ],
+        "es_generator": "groq/openai/gpt-oss-120b",
+        "es_generated_at": "2026-11-25T21:47:00+00:00"
+      },
+      "rejected_limits": []
     },
     "immunofluorescence": {
       "revid": 1369640092,
@@ -423,6 +507,46 @@
           "id": "f5",
           "statement": "The system creates a very shallow depth of field, ensuring that only the targeted slice is in sharp focus.",
           "kind": "what"
+        },
+        {
+          "id": "l1",
+          "statement": "To prevent image distortions caused by light dispersion and uneven thickness, the microscope objectives are typically built to work with cover glass measuring 0.17 mm.",
+          "kind": "limit"
+        },
+        {
+          "id": "l2",
+          "statement": "Capturing clear, distortion-free images of tissue located deep away from the glass slide remains a significant technical challenge for this method.",
+          "kind": "limit"
+        },
+        {
+          "id": "l3",
+          "statement": "Using pulsed near-infrared light allows researchers to image deeper into biological tissues than is possible with standard visible light sources.",
+          "kind": "what"
+        },
+        {
+          "id": "l4",
+          "statement": "Scanning large samples point-by-point takes considerably longer and can introduce visual errors when the separate image sections are digitally stitched together.",
+          "kind": "limit"
+        },
+        {
+          "id": "l5",
+          "statement": "Faster imaging variants of the microscope, such as those using spinning disks, accelerate data collection but cause the fluorescent markers to fade more quickly.",
+          "kind": "limit"
+        },
+        {
+          "id": "l6",
+          "statement": "For a specific large sample, enabling bidirectional scanning reduces the capture time to about two hours, whereas turning it off nearly doubles that duration.",
+          "kind": "limit"
+        },
+        {
+          "id": "l7",
+          "statement": "Standard laser scanning confocal microscopes without special fast-scanning mirrors require six to eight hours to capture a full image of that same large sample.",
+          "kind": "limit"
+        },
+        {
+          "id": "l8",
+          "statement": "This technique is effective for pinpointing where specific proteins and structures are located within entire cells and tissues, as well as for tracking rapid changes in living specimens.",
+          "kind": "what"
         }
       ],
       "rejected": [],
@@ -472,9 +596,70 @@
         ]
       },
       "limit": {
-        "status": "too_few_facts",
-        "facts": 0
-      }
+        "section": "Practical Considerations",
+        "generator": "groq/qwen/qwen3.8-27b",
+        "generated_at": "2026-11-25T21:30:56+00:00",
+        "status": "drafted",
+        "en": [
+          {
+            "text": "Objectives designed for 0.17 mm cover glass limit clear imaging of deep tissue, where light dispersion causes distortion.",
+            "fact_ids": [
+              "l1",
+              "l2"
+            ]
+          },
+          {
+            "text": "Point-by-point scanning of large samples takes considerable time and can introduce visual errors during digital stitching.",
+            "fact_ids": [
+              "l4"
+            ]
+          },
+          {
+            "text": "Faster variants like spinning disks accelerate data collection but cause fluorescent markers to fade more quickly.",
+            "fact_ids": [
+              "l5"
+            ]
+          },
+          {
+            "text": "Bidirectional scanning reduces capture time to about two hours, whereas standard microscopes require six to eight hours.",
+            "fact_ids": [
+              "l6",
+              "l7"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "Los objetivos diseñados para cubiertas de 0,17 mm limitan la obtención de imágenes nítidas en tejido profundo, donde la dispersión de la luz produce distorsión.",
+            "fact_ids": [
+              "l1",
+              "l2"
+            ]
+          },
+          {
+            "text": "El escaneo punto a punto de muestras grandes requiere mucho tiempo y puede generar errores visuales al ensamblar digitalmente las imágenes.",
+            "fact_ids": [
+              "l4"
+            ]
+          },
+          {
+            "text": "Las variantes más rápidas, como los discos giratorios, aceleran la recopilación de datos pero hacen que los marcadores fluorescentes se desvanezcan más rápido.",
+            "fact_ids": [
+              "l5"
+            ]
+          },
+          {
+            "text": "El escaneo bidireccional reduce el tiempo de captura a aproximadamente dos horas, mientras que los microscopios estándar requieren de seis a ocho horas.",
+            "fact_ids": [
+              "l6",
+              "l7"
+            ]
+          }
+        ],
+        "es_generator": "groq/openai/gpt-oss-120b",
+        "es_generated_at": "2026-11-25T21:47:00+00:00"
+      },
+      "rejected_limits": []
     },
     "electrophysiology": {
       "revid": 1378467169,
@@ -512,6 +697,56 @@
           "id": "f5",
           "statement": "These recordings serve practical purposes in medical diagnosis and ongoing patient monitoring.",
           "kind": "other"
+        },
+        {
+          "id": "l1",
+          "statement": "Whole-cell patch-clamp allows researchers to manipulate specific electrical properties of a cell while keeping its overall internal balance largely intact.",
+          "kind": "what"
+        },
+        {
+          "id": "l2",
+          "statement": "The process of filling the cell with the pipette's internal solution can change how second messengers, molecular interactions, and ion channels function.",
+          "kind": "limit"
+        },
+        {
+          "id": "l3",
+          "statement": "Preparing brain slices for ex vivo experiments can physically tear apart long-distance neural connections that normally serve a specific area.",
+          "kind": "limit"
+        },
+        {
+          "id": "l4",
+          "statement": "When stimulating diverse synapses in a slice, the analysis may be biased toward inputs whose nerve endings survived the preparation process better than others.",
+          "kind": "limit"
+        },
+        {
+          "id": "l5",
+          "statement": "The natural oscillating behavior of medium spiny neurons between up and down states disappears in slice preparations because the slicing removes top-down network inputs.",
+          "kind": "limit"
+        },
+        {
+          "id": "l6",
+          "statement": "Recording from a single cell can miss the complex multi-synaptic networks that actually drive neuromodulation and plasticity at a specific synapse.",
+          "kind": "limit"
+        },
+        {
+          "id": "l7",
+          "statement": "Multielectrode arrays allow simultaneous recording from many neurons to reveal the cell types and response characteristics of populations in a targeted brain area.",
+          "kind": "what"
+        },
+        {
+          "id": "l8",
+          "statement": "Multielectrode array recordings are restricted to a single brain region at a time, which limits the ability to study circuit-level changes or observe activity in living animals.",
+          "kind": "limit"
+        },
+        {
+          "id": "l9",
+          "statement": "Some serotonin neurons in the ventromedial dorsal raphe nucleus do not show the required 50% suppression in firing rate when exposed to 8-OH-DPAT, making them difficult to identify using this pharmacological method.",
+          "kind": "limit"
+        },
+        {
+          "id": "l10",
+          "statement": "These multielectrode recordings are stable enough to track the activity of individual neurons continuously for days or even weeks.",
+          "kind": "what"
         }
       ],
       "rejected": [],
@@ -551,9 +786,56 @@
         ]
       },
       "limit": {
-        "status": "too_few_facts",
-        "facts": 0
-      }
+        "section": "Limitations",
+        "generator": "groq/qwen/qwen3.8-27b",
+        "generated_at": "2026-11-25T21:30:56+00:00",
+        "status": "drafted",
+        "en": [
+          {
+            "text": "Preparing brain slices for ex vivo experiments can physically tear apart long-distance neural connections, which removes top-down network inputs and causes the natural oscillating behavior of medium spiny neurons to disappear.",
+            "fact_ids": [
+              "l3",
+              "l5"
+            ]
+          },
+          {
+            "text": "Because the analysis may be biased toward inputs whose nerve endings survived the preparation process better than others, recording from a single cell can miss the complex multi-synaptic networks that actually drive neuromodulation and plasticity.",
+            "fact_ids": [
+              "l4",
+              "l6"
+            ]
+          },
+          {
+            "text": "Furthermore, multielectrode array recordings are restricted to a single brain region at a time, which limits the ability to study circuit-level changes or observe activity in living animals.",
+            "fact_ids": [
+              "l8"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "La preparación de secciones cerebrales para experimentos ex vivo puede desgarrar físicamente las conexiones neuronales de larga distancia, lo que elimina las entradas de red descendentes y hace desaparecer el comportamiento oscilante natural de las neuronas espinosas medianas.",
+            "fact_ids": [
+              "l3",
+              "l5"
+            ]
+          },
+          {
+            "text": "Dado que el análisis podría estar sesgado hacia las entradas cuyos terminales nerviosos sobrevivieron mejor al proceso de preparación que otras, la grabación de una sola célula puede pasar por alto las complejas redes multisinápticas que realmente impulsan la neuromodulación y la plasticidad.",
+            "fact_ids": [
+              "l4",
+              "l6"
+            ]
+          },
+          {
+            "text": "Además, las grabaciones con matrices de microelectrodos se limitan a una sola región cerebral a la vez, lo que restringe la capacidad de estudiar cambios a nivel de circuito o de observar la actividad en animales vivos.",
+            "fact_ids": [
+              "l8"
+            ]
+          }
+        ]
+      },
+      "rejected_limits": []
     },
     "eeg": {
       "revid": 1383932396,
@@ -1197,6 +1479,71 @@
           "id": "f5",
           "statement": "Before the development of this chemical-based technique, investigators relied on electrical or magnetic stimulation methods to explore the link between neurons and behavior.",
           "kind": "other"
+        },
+        {
+          "id": "l1",
+          "statement": "This method enables researchers to accurately analyze particular groups of cells while they remain in their natural biological environment.",
+          "kind": "what"
+        },
+        {
+          "id": "l2",
+          "statement": "Viral vectors are used to insert these engineered receptors into cells, allowing for the chemical and selective adjustment of how those cells function.",
+          "kind": "what"
+        },
+        {
+          "id": "l3",
+          "statement": "Activating a specific inhibitory version of the receptor with the drug CNO stops the electrical activity of neurons.",
+          "kind": "what"
+        },
+        {
+          "id": "l4",
+          "statement": "In contrast, activating an excitatory version of the receptor with CNO causes neurons to fire in bursts.",
+          "kind": "what"
+        },
+        {
+          "id": "l5",
+          "statement": "This technique is best suited for experiments that require controlling neural activity over extended periods ranging from hours to days.",
+          "kind": "limit"
+        },
+        {
+          "id": "l6",
+          "statement": "For experiments needing precise control of neural activity on very short timescales of seconds or milliseconds, other methods like optogenetics are more suitable.",
+          "kind": "limit"
+        },
+        {
+          "id": "l7",
+          "statement": "Administering the drug through food or water is less precise because it is hard to know exactly how much of the substance the animal consumes.",
+          "kind": "limit"
+        },
+        {
+          "id": "l8",
+          "statement": "The fact that the drug CNO can be converted into clozapine in some species restricts how broadly this specific DREADD approach can be applied or translated.",
+          "kind": "limit"
+        },
+        {
+          "id": "r1",
+          "statement": "Chemogenetic experiments require that engineered designer receptors be selectively expressed in the target cell population before they can be studied.",
+          "kind": "what"
+        },
+        {
+          "id": "r2",
+          "statement": "DREADDs are engineered versions of muscarinic G‑protein coupled receptors that are usually delivered to cells with viral vectors.",
+          "kind": "what"
+        },
+        {
+          "id": "r3",
+          "statement": "Most DREADDs are activated by the orally available synthetic compound clozapine N‑oxide (CNO).",
+          "kind": "what"
+        },
+        {
+          "id": "r4",
+          "statement": "Delivering CNO through food or water is less invasive but provides poor control over the exact dose each animal receives.",
+          "kind": "limit"
+        },
+        {
+          "id": "r5",
+          "statement": "In humans, non‑human primates and guinea pigs a small fraction of CNO is converted back to clozapine, limiting its translational usefulness.",
+          "kind": "limit"
         }
       ],
       "rejected": [],
@@ -1234,9 +1581,50 @@
         ]
       },
       "limit": {
-        "status": "too_few_facts",
-        "facts": 0
-      }
+        "status": "drafted",
+        "en": [
+          {
+            "text": "Administering the designer drug clozapine‑N‑oxide (CNO) via food or water reduces invasiveness yet it cannot tightly regulate the exact amount each subject ingests, which hampers precise experimental control.",
+            "fact_ids": [
+              "r4"
+            ]
+          },
+          {
+            "text": "Moreover, in humans, non‑human primates and guinea pigs a minor portion of CNO is metabolically reconverted to clozapine, a fact that curtails the method's applicability for translational studies.",
+            "fact_ids": [
+              "r5"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "Administrar el fármaco diseñador clozapina‑N‑óxido (CNO) en la comida o el agua reduce la invasividad, pero no permite regular con precisión la cantidad que ingiere cada individuo, lo que dificulta un control experimental exacto.",
+            "fact_ids": [
+              "r4"
+            ]
+          },
+          {
+            "text": "Además, en humanos, primates no humanos y cobayas una pequeña fracción del CNO se reconvierte metabólicamente en clozapina, lo que limita la aplicabilidad del método para estudios de traslación.",
+            "fact_ids": [
+              "r5"
+            ]
+          }
+        ],
+        "section": "Practical Considerations",
+        "prompts": {
+          "lab_facts": "lab-facts-v2 (adapted from s5-extract-facts-v2 for Neuro Lab's techniques, v208; v209: the JSON shape spelled out)",
+          "lab_write_en": "lab-write-en-v2 (adapted from s5-write-en-v2 for Neuro Lab's techniques, v208; v2 keeps the facts' caution, v232)",
+          "wiki_adapt_es": "wiki-adapt-es-v2 (from s5-adapt-es-v2 for the fixed texts drafted from Wikipedia, v232); v2: «helping» is «ayudando a», v239"
+        },
+        "generator": "groq/openai/gpt-oss-120b",
+        "generated_at": "2026-11-25T21:47:04+00:00"
+      },
+      "rejected_limits": [],
+      "rejected_again": [
+        "statement copies the source wording",
+        "quote not found verbatim in the source",
+        "quote not found verbatim in the source"
+      ]
     },
     "fiber-photometry": {
       "revid": 1375722789,
