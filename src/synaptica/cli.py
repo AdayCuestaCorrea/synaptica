@@ -457,7 +457,9 @@ def news_classics(
     start_week: Annotated[str, typer.Option(help="ISO week of the first five, e.g. 2026-W48.")],
     chosen_at: Annotated[str, typer.Option(help="Date of her answer (YYYY-MM-DD).")],
     source: Annotated[str, typer.Option(help="Where her answer is recorded.")],
-    doi: Annotated[list[str] | None, typer.Option(help="N=DOI (or N=W… OpenAlex id) checked by hand.")] = None,
+    doi: Annotated[
+        list[str] | None, typer.Option(help="N=DOI (or N=W… OpenAlex id) checked by hand.")
+    ] = None,
     lang: Annotated[list[str] | None, typer.Option(help="N=es|de: a title not in English.")] = None,
 ) -> None:
     """Sofía's own Clásicos (v238): her titles with OpenAlex's metadata (CC0) →
@@ -481,8 +483,10 @@ def news_classics(
     for n, w in enumerate(data["works"], 1):
         if w["match"] not in ("exact", "doi"):
             typer.echo(f"  {n} {w['match']}: {w['title_hers']} -> {w.get('title')}", err=True)
-    typer.echo(f"Clásicos de Sofía: {len(names)} titles, "
-               f"{sum(1 for w in data['works'] if w.get('doi') or w.get('openalex'))} found")
+    typer.echo(
+        f"Clásicos de Sofía: {len(names)} titles, "
+        f"{sum(1 for w in data['works'] if w.get('doi') or w.get('openalex'))} found"
+    )
 
 
 @news_app.command("group")

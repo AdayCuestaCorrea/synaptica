@@ -199,8 +199,14 @@ def her_list(path: Path, n: int = 7) -> dict:
               "subfield_id": "2804", "match": "exact"} for i in range(1, n + 1)]  # fmt: skip
     works[2] |= {"match": "closest"}  # a guess of the search: never shown
     works[3] |= {"doi": None, "openalex": "W4", "match": "doi", "lang": "de"}  # no DOI
-    data = {"chosen_by": "sofia", "chosen_at": "2026-11-24", "source": "sheet",
-            "start_week": "2026-W48", "per_week": 5, "works": works}
+    data = {
+        "chosen_by": "sofia",
+        "chosen_at": "2026-11-24",
+        "source": "sheet",
+        "start_week": "2026-W48",
+        "per_week": 5,
+        "works": works,
+    }
     path.write_text(json.dumps(data))
     return data
 
@@ -212,11 +218,22 @@ def test_her_list_goes_five_a_week_in_her_order_and_round_again(tmp_path: Path) 
     title = lambda ws: [w["title_hers"] for w in ws]  # noqa: E731
     assert sc.of_week(data, dt.date(2026, 11, 22)) == []  # before her start week
     assert title(sc.of_week(data, dt.date(2026, 11, 23))) == [
-        "Classic 1", "Classic 2", "Classic 4", "Classic 5", "Classic 6"]  # 3: a guess
+        "Classic 1",
+        "Classic 2",
+        "Classic 4",
+        "Classic 5",
+        "Classic 6",
+    ]  # 3: a guess
     assert title(sc.of_week(data, dt.date(2026, 11, 30))) == [
-        "Classic 7", "Classic 1", "Classic 2", "Classic 4", "Classic 5"]
+        "Classic 7",
+        "Classic 1",
+        "Classic 2",
+        "Classic 4",
+        "Classic 5",
+    ]
     assert sc.normal("Quantal components of the end\u2010plate potential") == (
-        sc.normal("Quantal components of the end-plate potential"))
+        sc.normal("Quantal components of the end-plate potential")
+    )
     assert sc.normal("astrocyte\u2013neuron") == sc.normal("astrocyte-neuron")
     assert sc.normal("Über eine eigenartige") == sc.normal("Uber eine eigenartige")
 

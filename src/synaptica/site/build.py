@@ -502,8 +502,10 @@ class SiteBuilder:
         from synaptica.atlas.studies import by_species
 
         t, d = self.i18n[lang], self.atlas_data
-        gaps = {k: ("gap", t[f"gap_{k}"])
-                for k in ("region_text", "region_diseases", "pair_grade", "atlas_names")}
+        gaps = {
+            k: ("gap", t[f"gap_{k}"])
+            for k in ("region_text", "region_diseases", "pair_grade", "atlas_names")
+        }
         # No techniques on a region page, nor regions on a technique page: Sofía does not want
         # a region tied to a method (sheet row 15, 2026-11-24; v237, Aday's OK).
         # Only what Sofía approved (v212); a page of a pair with several pages in its brain

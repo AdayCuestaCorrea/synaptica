@@ -35,10 +35,11 @@ SELECT = "id,doi,display_name,publication_year,cited_by_count,primary_topic"
 
 
 def normal(title: str) -> str:
-    """Lower case, no accents, any dash or quote mark a space (OpenAlex writes «end‐plate»
-    with U+2010 and «astrocyte–neuron» with an en dash)."""
-    text = "".join(c for c in unicodedata.normalize("NFKD", title)
-                   if not unicodedata.combining(c))  # «Über» → «Uber», not «U ber»
+    """Lower case, no accents, any dash or quote mark a space (OpenAlex writes «end-plate»
+    with U+2010 and «astrocyte-neuron» with an en dash)."""
+    text = "".join(
+        c for c in unicodedata.normalize("NFKD", title) if not unicodedata.combining(c)
+    )  # «Über» → «Uber», not «U ber»
     text = re.sub(r"[\W_]+", " ", text)
     return re.sub(r"\s+", " ", text.encode("ascii", "ignore").decode().casefold()).strip()
 

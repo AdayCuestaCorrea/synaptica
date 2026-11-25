@@ -32,12 +32,12 @@ HERS = (
     ({197, 1028}, {"Caudate", "Putamen", "Pallidum"}),  # basal ganglia
     ({1082}, {"ZI (Thalamus, zona incerta)"}),
     ({1098}, {"SNC (Midbrain, Substantia Nigra pars compacta)",
-              "SNR (Midbrain, Substantia Nigra pars reticulata)"}),  # fmt: skip
+              "SNR (Midbrain, Substantia Nigra pars reticulata)"}),
     ({1021}, {"CA1 (Hippocampus)", "CA2 (Hippocampus)", "CA3 (Hippocampus)",
-              "DG (Hippocampus)", "Subc (Hippocampus, Subicular complex)"}),  # fmt: skip
+              "DG (Hippocampus)", "Subc (Hippocampus, Subicular complex)"}),
     ({1047}, {"Cerebellum Gray Matter", "Cerebellum White Matter", "Vermal lobules I-V",
-              "Vermal lobules VI-VII", "Vermal lobules VIII-X"}),  # fmt: skip
-)
+              "Vermal lobules VI-VII", "Vermal lobules VIII-X"}),
+)  # fmt: skip
 
 
 def her_rank(row: dict[str, Any], atlas: str) -> int | None:
