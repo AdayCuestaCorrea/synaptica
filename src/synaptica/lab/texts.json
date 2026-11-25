@@ -60,47 +60,27 @@
         },
         {
           "id": "r1",
-          "statement": "The fixative is typically introduced into the circulatory system by inserting a needle into the left ventricle.",
+          "statement": "Transcardial perfusion delivers fixative through the circulatory system to preserve tissue morphology for imaging.",
           "kind": "what"
         },
         {
           "id": "r2",
-          "statement": "Researchers can guide the needle using ultrasound or by opening the subject's chest cavity.",
-          "kind": "what"
+          "statement": "The subject must be euthanized because the perfusion process replaces blood with fixative.",
+          "kind": "limit"
         },
         {
           "id": "r3",
-          "statement": "The amount of fixative injected is matched to the typical cardiac output of the subject.",
-          "kind": "what"
+          "statement": "Large organisms require a high volume of fixative, which can increase experimental costs.",
+          "kind": "limit"
         },
         {
           "id": "r4",
-          "statement": "The body's own circulatory system spreads the fixative to all tissues, keeping them from dying until they are fixed.",
-          "kind": "what"
+          "statement": "The injection volume is matched to the animal's typical cardiac output to ensure complete replacement of blood.",
+          "kind": "other"
         },
         {
           "id": "r5",
-          "statement": "A drainage port, usually in the right atrium, is required to handle the added volume of fixative and buffer.",
-          "kind": "limit"
-        },
-        {
-          "id": "r6",
-          "statement": "The fixative continues to be pumped until it has completely replaced the blood in the circulatory system.",
-          "kind": "what"
-        },
-        {
-          "id": "r7",
-          "statement": "A major drawback of this method is that the subject dies during the procedure.",
-          "kind": "limit"
-        },
-        {
-          "id": "r8",
-          "statement": "Larger organisms require a high volume of fixative, which can increase the cost of the procedure.",
-          "kind": "limit"
-        },
-        {
-          "id": "r9",
-          "statement": "The required fluid volume can be reduced by pinching off arteries that supply tissues not relevant to the research.",
+          "statement": "Arteries supplying non‑target tissues can be pinched off to reduce the amount of fixative required.",
           "kind": "limit"
         }
       ],
@@ -157,7 +137,7 @@
       "limit": {
         "status": "failed_en",
         "problems": [
-          "sentence 1: drops the caution of its facts (may, suggests, possibly…)",
+          "sentence 2: drops the caution of its facts (may, suggests, possibly…)",
           "sentence 3: drops the caution of its facts (may, suggests, possibly…)"
         ],
         "prompts": {
@@ -165,11 +145,12 @@
           "lab_write_en": "lab-write-en-v2 (adapted from s5-write-en-v2 for Neuro Lab's techniques, v208; v2 keeps the facts' caution, v232)",
           "wiki_adapt_es": "wiki-adapt-es-v2 (from s5-adapt-es-v2 for the fixed texts drafted from Wikipedia, v232); v2: «helping» is «ayudando a», v241"
         },
-        "generator": "groq/qwen/qwen3.8-27b",
-        "generated_at": "2026-11-25T00:09:15+00:00"
+        "generator": "groq/openai/gpt-oss-120b",
+        "generated_at": "2026-11-25T00:42:18+00:00"
       },
       "rejected_again": [
-        "statement copies the source wording"
+        "statement copies the source wording",
+        "quote not found verbatim in the source"
       ]
     },
     "western-blot": {
@@ -1345,10 +1326,7 @@
         ]
       },
       "limit": {
-        "status": "failed_es",
-        "problems": [
-          "sentence 2: the English sentence is cautious and this is not"
-        ],
+        "status": "drafted",
         "en": [
           {
             "text": "Fiber photometry exhibits low resolution at both the cellular and spatial levels, limiting the precision of the data it captures.",
@@ -1365,20 +1343,20 @@
         ],
         "es": [
           {
-            "text": "La fotometría de fibra presenta una resolución baja tanto a nivel celular como espacial, lo que limita la precisión de los datos que captura.",
+            "text": "La fotometría de fibra presenta baja resolución tanto a nivel celular como espacial, lo que limita la precisión de los datos que captura.",
             "fact_ids": [
               "f7"
             ]
           },
           {
-            "text": "Además, la necesidad de que los animales estén firmemente sujetos a un haz de fibras rígido puede afectar al comportamiento natural de mamíferos pequeños, como los ratones.",
+            "text": "Además, el hecho de que los animales deban estar firmemente sujetos a un haz rígido de fibra podría afectar el comportamiento natural de pequeños mamíferos como los ratones.",
             "fact_ids": [
               "f8"
             ]
           }
         ],
-        "es_generator": "groq/qwen/qwen3.8-27b",
-        "es_generated_at": "2026-11-25T00:08:13+00:00"
+        "es_generator": "groq/openai/gpt-oss-120b",
+        "es_generated_at": "2026-11-25T00:42:15+00:00"
       }
     }
   }

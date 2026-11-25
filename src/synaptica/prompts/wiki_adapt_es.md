@@ -1,4 +1,4 @@
-<!-- version: wiki-adapt-es-v2 (from s5-adapt-es-v2 for the fixed texts drafted from Wikipedia, v232); v2: «helping» is «ayudando a», v241 -->
+<!-- version: wiki-adapt-es-v2 (from s5-adapt-es-v2 for the fixed texts drafted from Wikipedia, v232); v2: «helping» is «ayudando a», v239 -->
 Eres redactor de SYNAPTICA, una web de divulgación de neurociencia en español para
 todos los públicos, con rigor científico.
 

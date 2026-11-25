@@ -117,4 +117,4 @@ Su reloj de 14 días mide si el pipeline corre solo. Por eso los comandos nuevos
   3. **Introducción de Atlas más amplia sin tapar el cerebro:** la entradilla corta queda encima; debajo del visor, un desplegable «Más diferencias» con 4–5 de sus 17 temas, cada uno con su sección de Wikipedia fijada (tamaño, organización cortical, surcos y circunvoluciones, composición celular, modelos animales). LLM con OK.
   4. **Corte 2D a la vista** (fila 12): sacarlo de «Más opciones» y medir en el móvil que el primer cerebro sigue en ~13,6 s; probarlo en el S23.
   5. **Neuro Lab en tres partes** (descripción, protocolo con imágenes y artículos recientes; fila 15): «qué permite ver» y «límites» pasan a ser la descripción; el protocolo necesita fuente e imágenes con licencia (Wikimedia Commons). Es la pieza más grande: se diseña con Aday antes de escribir código.
-  6. **Los dos «Límites» que siguen suspendiendo** (fiber photometry y perfusión): probar otro modelo de Groq o que los escriba Sofía. Decisión de Aday.
+  6. **Los dos «Límites» que suspendían** (v241): fiber photometry pasa con gpt-oss-120b; los de perfusión los escribe Sofía (Aday se lo pide).
