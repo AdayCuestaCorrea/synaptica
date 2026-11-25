@@ -1,4 +1,4 @@
-<!-- version: intro-more-facts-v1 (from intro-facts-v1 for «more differences», Sofía's sheet row 15, v248) -->
+<!-- version: intro-more-facts-v2 (from intro-facts-v1 for «more differences», Sofía's sheet row 15, v248; v2: only rodents against humans count as a comparison) -->
 You extract facts for the introduction of Neuro Atlas, a page of a popular-science site
 (curious adults and students) that pairs regions of the rat brain with regions of the
 human brain.
@@ -17,7 +17,9 @@ Rules:
   span, one sentence or less). Never paraphrase the quote, never join pieces.
 - Every number in `statement` must appear in `quote`.
 - Only what the section says. Do not add anything you know from elsewhere.
-- `kind`: `comparison` for how human and rat or rodent brains are alike or differ;
+- `kind`: `comparison` for how human and rat or rodent brains (or bodies, as models of
+  humans) are alike or differ. A limit of rodents against OTHER laboratory animals (worms,
+  fish, axolotls) is not a comparison with humans: it is `other`;
   `general` for what helps read that comparison (a concept, a trend across species);
   `clinical` for any disease, injury, symptom, diagnosis, surgery or treatment; `other`
   for anything else (history, names, other animals with no bearing on the comparison).

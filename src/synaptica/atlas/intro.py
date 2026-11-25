@@ -93,7 +93,9 @@ SPEC = wikidraft.Spec(
 SPEC_MORE = wikidraft.Spec(
     subject="TOPIC", facts_prompt="intro_more_facts", write_prompt="intro_more_write_en",
     facts_schema=IntroFacts, sections={"more": "more differences between the two brains"},
-    kinds={"more": ("comparison", "general")}, min_facts={"more": 4}, max_words=160,
+    # Comparisons only (v248, after the first draft): «general» facts (oxidative stress of
+    # new neurons, why the neocortex grew) made sentences that compare nothing.
+    kinds={"more": ("comparison",)}, min_facts={"more": 4}, max_words=160,
 )  # fmt: skip
 
 

@@ -181,5 +181,196 @@
         }
       ]
     }
+  },
+  "more": {
+    "revids": {
+      "neurogenesis": 1384312363,
+      "animal-model": 1385166639,
+      "neocortex": 1381668011,
+      "whiskers": 1385846757
+    },
+    "generator": "groq/openai/gpt-oss-120b",
+    "prompts": {
+      "intro_more_facts": "intro-more-facts-v2 (from intro-facts-v1 for «more differences», Sofía's sheet row 15, v248; v2: only rodents against humans count as a comparison)",
+      "intro_more_write_en": "intro-more-write-en-v1 (from intro-write-en-v1 for «more differences», Sofía's sheet row 15, v248)",
+      "wiki_adapt_es": "wiki-adapt-es-v2 (from s5-adapt-es-v2 for the fixed texts drafted from Wikipedia, v232); v2: «helping» is «ayudando a», v239"
+    },
+    "generated_at": "2026-11-25T22:52:32+00:00",
+    "facts": [
+      {
+        "id": "d1",
+        "statement": "Rodents have brain architecture and a complex nervous system that are very similar to humans, but both have very little regenerative capacity.",
+        "kind": "comparison",
+        "source": "neurogenesis"
+      },
+      {
+        "id": "d2",
+        "statement": "Rodents are extensively employed in pre‑clinical testing as models for human biology.",
+        "kind": "comparison",
+        "source": "neurogenesis"
+      },
+      {
+        "id": "d3",
+        "statement": "The wide variety of neural circuits that underlie complex behaviours in rodents makes them useful for studying dendritic pruning and axonal shearing.",
+        "kind": "comparison",
+        "source": "neurogenesis"
+      },
+      {
+        "id": "d4",
+        "statement": "Using rodents as models is limited by higher maintenance costs, lower breeding yields, and their limited neuro‑generative abilities.",
+        "kind": "comparison",
+        "source": "neurogenesis"
+      },
+      {
+        "id": "d5",
+        "statement": "Disrupting Notch signalling in astrocytes can trigger adult neurogenesis in rodents, creating new neurons that integrate into the striatal circuit.",
+        "kind": "general",
+        "source": "neurogenesis"
+      },
+      {
+        "id": "d6",
+        "statement": "Neurogenesis in the rodent subventricular zone and dentate gyrus produces oxidative stress and reactive oxygen species that damage DNA and lipids.",
+        "kind": "general",
+        "source": "neurogenesis"
+      },
+      {
+        "id": "e1",
+        "statement": "Rats and mice often exhibit sedentary behavior, obesity, and glucose intolerance, which can interfere with using them to model human metabolic processes.",
+        "kind": "comparison",
+        "source": "animal-model"
+      },
+      {
+        "id": "e2",
+        "statement": "Behavioral assessments in animal models are frequently subjective, risking bias in interpreting results.",
+        "kind": "other",
+        "source": "animal-model"
+      },
+      {
+        "id": "e3",
+        "statement": "Because human psychiatric diagnoses are vague, symptoms like weight change or sleep disturbances in rats cannot reliably indicate the same disorder in humans.",
+        "kind": "comparison",
+        "source": "animal-model"
+      },
+      {
+        "id": "e4",
+        "statement": "Rodents lack language, so they cannot model language-related aspects of autism that are central in humans.",
+        "kind": "comparison",
+        "source": "animal-model"
+      },
+      {
+        "id": "f1",
+        "statement": "In humans, the neocortex accounts for 90% of the cerebral cortex.",
+        "kind": "comparison",
+        "source": "neocortex"
+      },
+      {
+        "id": "f2",
+        "statement": "In humans, the neocortex makes up 76% of the whole brain.",
+        "kind": "comparison",
+        "source": "neocortex"
+      },
+      {
+        "id": "f3",
+        "statement": "All mammals, including rats, possess a six‑layered neocortex, a structure absent in non‑mammalian animals.",
+        "kind": "comparison",
+        "source": "neocortex"
+      },
+      {
+        "id": "f4",
+        "statement": "A species must increase overall brain size to support a larger neocortex.",
+        "kind": "general",
+        "source": "neocortex"
+      },
+      {
+        "id": "g1",
+        "statement": "Rats devote a large portion of their brain to processing signals from their whiskers, a specialization that humans do not share.",
+        "kind": "comparison",
+        "source": "whiskers"
+      },
+      {
+        "id": "g2",
+        "statement": "Researchers often use the rat whisker system as a model for sensory studies because rats rely on whiskers rather than vision.",
+        "kind": "general",
+        "source": "whiskers"
+      }
+    ],
+    "rejected": [],
+    "more": {
+      "status": "failed_es",
+      "problems": [
+        "sentence 1: words not in the Spanish dictionary ['mamíferas']",
+        "sentence 4: words not in the Spanish dictionary ['preclínicos']"
+      ],
+      "en": [
+        {
+          "text": "Both humans and rodents possess a six‑layered neocortex, a mammalian cortical structure that is absent in non‑mammalian species, yet each species shows very little capacity for neural regeneration.",
+          "fact_ids": [
+            "d1",
+            "f3"
+          ]
+        },
+        {
+          "text": "In humans the neocortex occupies about 90% of the cerebral cortex and roughly 76% of the entire brain, whereas rodents allocate a comparatively smaller proportion of their brain to this region.",
+          "fact_ids": [
+            "f1",
+            "f2"
+          ]
+        },
+        {
+          "text": "Rats devote a large portion of their brain to processing tactile information from their whiskers, a specialization that humans do not share, highlighting a sensory‑processing difference between the species.",
+          "fact_ids": [
+            "g1"
+          ]
+        },
+        {
+          "text": "Rodents are widely used as pre‑clinical models for human biology because their neural circuits support complex behaviours, yet their lack of language prevents them from modeling language‑related aspects of autism that are central in humans.",
+          "fact_ids": [
+            "d2",
+            "e4"
+          ]
+        },
+        {
+          "text": "The use of rodents as models is constrained by higher maintenance costs, lower breeding yields, and limited neuro‑generative abilities, which together reduce their practicality compared with other model organisms.",
+          "fact_ids": [
+            "d4"
+          ]
+        }
+      ],
+      "es": [
+        {
+          "text": "Tanto los humanos como los roedores poseen una neocorteza de seis capas, una estructura cortical propia de los mamíferos que no se encuentra en especies no mamíferas, aunque cada especie muestra muy poca capacidad de regeneración neuronal.",
+          "fact_ids": [
+            "d1",
+            "f3"
+          ]
+        },
+        {
+          "text": "En los humanos la neocorteza ocupa alrededor del 90 % de la corteza cerebral y aproximadamente el 76 % del cerebro total, mientras que los roedores destinan una proporción comparativamente menor de su cerebro a esta región.",
+          "fact_ids": [
+            "f1",
+            "f2"
+          ]
+        },
+        {
+          "text": "Los ratones dedican una gran parte de su cerebro al procesamiento táctil de los bigotes, una especialización que los humanos no comparten, lo que subraya una diferencia sensorial entre ambas especies.",
+          "fact_ids": [
+            "g1"
+          ]
+        },
+        {
+          "text": "Los roedores se emplean ampliamente como modelos preclínicos de la biología humana porque sus circuitos neuronales sustentan conductas complejas, aunque su ausencia de lenguaje impide modelar los aspectos relacionados con el lenguaje del autismo, que son centrales en los humanos.",
+          "fact_ids": [
+            "d2",
+            "e4"
+          ]
+        },
+        {
+          "text": "El uso de roedores como modelos está limitado por los mayores costes de mantenimiento, la menor productividad reproductiva y sus escasas capacidades neurogenerativas, lo que reduce su practicidad frente a otros organismos modelo.",
+          "fact_ids": [
+            "d4"
+          ]
+        }
+      ]
+    }
   }
 }
