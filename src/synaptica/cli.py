@@ -1069,15 +1069,19 @@ def atlas_write(
 
 @atlas_app.command("intro-sources")
 def atlas_intro_sources() -> None:
-    """The three Wikipedia sections Neuro Atlas's introduction is drafted from, each at its
-    pinned revision -> src/synaptica/atlas/intro_sources.json. By hand, never in the
-    pipeline; no LLM."""
+    """The Wikipedia sections Neuro Atlas's introduction (3) and its «more differences» (4,
+    v248) are drafted from, each at its pinned revision ->
+    src/synaptica/atlas/intro_sources.json. By hand, never in the pipeline; no LLM."""
     from synaptica.atlas import intro
     from synaptica.http import make_client
 
+    fetched, failed = 0, []
     with make_client() as client:
-        fetched, failed = intro.update(client)
-    typer.echo(f"Neuro Atlas introduction: {len(intro.PINNED)} sections, {fetched} fetched")
+        for part in intro.PARTS:
+            n, bad = intro.update(client, part=part)
+            fetched, failed = fetched + n, failed + bad
+    total = sum(len(p.pinned) for p in intro.PARTS)
+    typer.echo(f"Neuro Atlas introduction: {total} sections, {fetched} fetched")
     for f in failed:
         typer.echo(f"  failed: {f}", err=True)
     if failed:
@@ -1089,18 +1093,24 @@ def atlas_intro_write(
     provider: ProviderOption = None,
     model: ModelOption = None,
     redraft: Annotated[bool, typer.Option("--redraft", help="Ask again anyway.")] = False,
+    more: Annotated[
+        bool, typer.Option("--more", help="Draft «more differences» (v248) instead.")
+    ] = False,
 ) -> None:
     """Draft Neuro Atlas's introduction, «human and rat: how to read the pairs», from its
-    three sections (facts per section -> EN -> ES, with the summaries' checks; clinical
-    facts never written) -> src/synaptica/atlas/intro.json. Not published: the draft waits
-    for Sofía. By hand, only with Aday's OK; never in the pipeline."""
+    three sections (or, with --more, «more differences» from its four), facts per section
+    -> EN -> ES with the summaries' checks, clinical facts never written ->
+    src/synaptica/atlas/intro.json. Not published: the draft waits for Sofía. By hand, only
+    with Aday's OK; never in the pipeline."""
     from synaptica.atlas import intro
 
     llm = _llm(provider, model)
     if llm is None:
         typer.echo("No --provider given: nothing written.")
         raise typer.Exit(0)
-    typer.echo(f"Neuro Atlas introduction: {intro.write(llm, redraft=redraft)}")
+    part = intro.MORE if more else intro.INTRO
+    status = intro.write(llm, redraft=redraft, part=part)
+    typer.echo(f"Neuro Atlas introduction ({part.key}): {status}")
 
 
 @atlas_app.command("measure")

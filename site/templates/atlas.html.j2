@@ -103,6 +103,15 @@
     {% endfor %}
   </div>
 
+  {% if more %}
+  <details class="atlas-diff">
+    <summary>{{ t.atlas_more_diff_h }}</summary>
+    <p data-atlas-more>{{ more[lang] }}</p>
+    <p class="muted lab-review">{{ t["lab_reviewed_" ~ more.mark].format(date=date(more.reviewed_at)) }} ·
+      {{ t.gl_source }} {% for s in more.sources %}<a href="{{ s.url }}" rel="noopener" lang="en">Wikipedia ({{ t.lang_en }}): «{{ s.title }}», «{{ s.heading }}»</a>{% if not loop.last %}; {% endif %}{% endfor %} · CC BY-SA 4.0</p>
+  </details>
+  {% endif %}
+
   <section class="pairs" aria-labelledby="pairs-h">
     <h2 id="pairs-h">{{ t.pairs_h }}</h2>
     <p>{{ t.pairs_intro }} {{ m.gap("pair_grade") }}</p>

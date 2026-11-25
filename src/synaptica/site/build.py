@@ -476,9 +476,11 @@ class SiteBuilder:
         intro = self.atlas_intro if self.atlas_intro and self.atlas_intro[lang] else None
         if intro is None:
             gaps["atlas_intro"] = ("gap", t["gap_atlas_intro"])
+        # «More differences» (v248): a fold below the brains, only once she approved it.
+        more = self.atlas_more if self.atlas_more and self.atlas_more[lang] else None
         self.render(lang, "atlas", "atlas.html.j2", gaps=gaps, brains=d["brains"],
                     pair_pages=pair_pages, region_urls=region_urls,
-                    glossary_index=glossary_index, intro=intro)  # fmt: skip
+                    glossary_index=glossary_index, intro=intro, more=more)  # fmt: skip
 
     @functools.cached_property
     def pair_studies(self) -> dict[str, list[dict[str, Any]]] | None:
@@ -625,6 +627,14 @@ class SiteBuilder:
         from synaptica.atlas.intro import published
 
         return published(self.data_dir / "review" if self.data_dir is not None else None)
+
+    @functools.cached_property
+    def atlas_more(self) -> dict[str, Any] | None:
+        """«More differences» between the two brains as Sofía approved it (v248)."""
+        from synaptica.atlas.intro import MORE, published
+
+        review = self.data_dir / "review" if self.data_dir is not None else None
+        return published(review, part=MORE)
 
     @functools.cached_property
     def reviewed_techniques(self) -> dict[str, str]:
