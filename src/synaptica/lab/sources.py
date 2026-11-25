@@ -6,7 +6,9 @@ checked against them in Actions, where a local cache would not exist).
 Since v214 (Aday's option A of 2026-11-18 for the «limits» their leads leave empty), a
 technique with ``limits_section_en`` in its table row also keeps that section of the same
 article, at the same revision as its lead (``limits_en``): its «limits» are then written
-from it.
+from it. Since v245, ``limits_pmc`` and ``limits_pmc_section`` instead take that section
+from a PMC article (:mod:`synaptica.lab.pmc`): its text is kept here only under an open
+licence, else in the cache, with its hash here.
 
 By hand (``syn lab sources``), never in the daily pipeline. No LLM: this only stores the
 sources a text will be written from.
@@ -35,6 +37,7 @@ def update_sources(
     path: Path | None = None,
     refresh: bool = False,
     throttle: Throttle | None = None,
+    cache_root: Path | None = None,
 ) -> LeadsResult:
     """Look up the techniques without a source (all with ``refresh``); a lead counts only
     if it names the technique (its MeSH entry terms or its words). Idempotent."""
@@ -58,7 +61,12 @@ def update_sources(
                 sources[k] = got
     for k, t in rows.items():
         if k in sources:
-            _limits(client, t, sources[k], (old.get(k) or {}).get("limits_en"), throttle, result)
+            prev = (old.get(k) or {}).get("limits_en")
+            if t.get("limits_pmc"):
+                _pmc_limits(client, t, sources[k], None if refresh else prev, throttle,
+                            result, cache_root)  # fmt: skip
+            else:
+                _limits(client, t, sources[k], prev, throttle, result)
     write_json(path, {
         "note": "Source of each Neuro Lab technique: the lead of its Wikipedia article at the "
         "revision given (oldid). Written by `syn lab sources`; do not edit by hand.",
@@ -132,5 +140,46 @@ def _limits(
         return
     entry["limits_en"] = {"heading": heading, "revid": en["revid"], "url": en["url"],
                           "retrieved": utc_today().isoformat(), "text": text}  # fmt: skip
+    result.sections += 1
+    result.changed += 1
+
+
+def _pmc_limits(
+    client: httpx.Client,
+    tech: dict[str, Any],
+    entry: dict[str, Any],
+    old: dict[str, Any] | None,
+    throttle: Throttle,
+    result: LeadsResult,
+    cache_root: Path | None,
+) -> None:
+    """``limits_en`` from a section of a PMC article (v245): asked once (``refresh`` asks
+    again); its text here only under an open licence, else to the cache."""
+    from synaptica.lab import pmc
+
+    pmcid, heading = tech["limits_pmc"], tech["limits_pmc_section"]
+    entry.pop("limits_en", None)
+    if old and old.get("pmcid") == pmcid and old.get("heading") == heading:
+        entry["limits_en"] = old
+        return
+    try:
+        text = pmc.section_text(pmc.fetch_xml(client, pmcid, throttle), heading)
+        cite = pmc.citation(client, pmcid, throttle)
+    except HttpError as exc:
+        result.failed.append(f"{tech['id']} {pmcid}: {exc}")
+        return
+    if text is None:  # no such section, or the publisher does not allow its full text
+        result.failed.append(f"{tech['id']}: no section «{heading}» in {pmcid}")
+        return
+    licence = cite.pop("licence")
+    new = {"source": "pmc", "pmcid": pmcid, "heading": heading,
+           "url": pmc.ARTICLE.format(pmcid=pmcid), "citation": cite, "licence": licence,
+           "retrieved": utc_today().isoformat(), "sha256": pmc.sha256(text),
+           "words": len(text.split())}  # fmt: skip
+    if pmc.is_open(licence):
+        new["text"] = text
+    elif cache_root is not None:
+        pmc.store(cache_root, new, text)
+    entry["limits_en"] = new
     result.sections += 1
     result.changed += 1

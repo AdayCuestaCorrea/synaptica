@@ -218,7 +218,7 @@ def source_texts(queue: Queue, cache_root: Path, efetch: list[Path]) -> dict[str
     out |= glossary_source_texts(queue)
     from synaptica.lab.texts import source_texts as lab_source_texts
 
-    out |= lab_source_texts(queue.items)
+    out |= lab_source_texts(queue.items, cache_root=cache_root)
     from synaptica.atlas.texts import source_texts as atlas_source_texts
 
     out |= atlas_source_texts(queue.items)
@@ -267,7 +267,7 @@ def missing_sources(event: dict, queue: Queue, texts: dict[str, str]) -> list[st
         item = items.get((raw.get("item_type"), raw.get("item_id")))
         if raw.get("action") == "edit" and item and isinstance(item.content, TextContent):
             out |= {s.id for s in item.content.sources
-                    if (study_source(s.id) or s.id.startswith("wikipedia-"))
+                    if (study_source(s.id) or s.id.startswith(("wikipedia-", "pmc-")))
                     and s.id not in texts}  # fmt: skip
     return sorted(out)
 
@@ -455,8 +455,17 @@ def run(
     """Process one Issue event (``syn review intake``): what the workflow runs."""
     event = json.loads(event_path.read_text("utf-8"))
     queue = Queue.model_validate_json(queue_path.read_text("utf-8"))
-    texts = source_texts(queue, cache_root or get_paths().cache, efetch or [])
+    cache_root = cache_root or get_paths().cache
+    texts = source_texts(queue, cache_root, efetch or [])
     missing = missing_sources(event, queue, texts)
+    if any(m.startswith("pmc-") for m in missing):
+        # v245: a PMC section kept out of the repository is fetched only now, when an
+        # edit of hers needs it; accepted only with its stored hash.
+        from synaptica.lab import pmc
+
+        pmc.warm(cache_root)
+        texts = source_texts(queue, cache_root, efetch or [])
+        missing = missing_sources(event, queue, texts)
     if missing:
         return {"status": "error", "sources_without_text": missing}
     out = process(event, queue, reviewer, done=_done_sources(data_dir),

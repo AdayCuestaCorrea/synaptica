@@ -33,6 +33,23 @@
         "url": "https://es.wikipedia.org/w/index.php?oldid=171315780",
         "retrieved": "2026-11-17",
         "lead": "El western blot, inmunoblot o  electrotransferencia, es una técnica analítica usada en biología celular y molecular para identificar proteínas específicas en una mezcla compleja de proteínas, tal como la que se presenta en extractos celulares o de tejidos. La técnica utiliza tres etapas para lograr esto: separación por tamaño, transferencia a un soporte sólido y, finalmente, visualización mediante la marcación de proteínas con el uso de anticuerpos primarios o secundarios apropiados.​\nEsta técnica es hoy en día imprescindible en varios campos de la biología, como la biología molecular, la bioquímica, la biotecnología o la inmunología.\nMediante una electroforesis en gel se separan las proteínas atendiendo al criterio que se desee: peso molecular, estructura, hidrofobicidad, etc. Hay casi tantas posibilidades como tipos de electroforesis existen. Luego son transferidas a una membrana adsorbente (típicamente de nitrocelulosa o de PVDF) para poder buscar la proteína de interés con anticuerpos específicos contra ella. Finalmente, se detecta la unión antígeno-anticuerpo por actividad enzimática o fluorescencia, entre otros métodos. De esta misma forma se puede estudiar la presencia de la proteína en el extracto y analizar su cantidad relativa respecto a las otras proteínas.​​\nLa técnica «Western blot» fue desarrollada en la Universidad de Stanford. El nombre (Western, occidental en inglés) le fue dado por W. Neal Burnette, y consiste en un juego de palabras con una técnica análoga pero que usa ADN, el Southern (sureño en inglés) blot, que en este caso debe su nombre a su descubridor, Edwin Southern. Otras técnicas que fueron nombradas siguiendo este criterio son el Northern (norteño en inglés) (en el que se separa e identifica ARN), el Eastern (oriental en inglés) blot y el Southwestern (del suroeste en inglés) blot.​​"
+      },
+      "limits_en": {
+        "source": "pmc",
+        "pmcid": "PMC4791038",
+        "heading": "Limitations of western blotting",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4791038/",
+        "citation": {
+          "title": "The necessity of and strategies for improving confidence in the accuracy of western blots.",
+          "authors": "Ghosh R, Ghosh R, Gilda JE, Gomes AV.",
+          "journal": "Expert Rev Proteomics",
+          "year": "2014",
+          "doi": "10.1586/14789450.2014.939635"
+        },
+        "licence": null,
+        "retrieved": "2026-11-25",
+        "sha256": "bb9f79f164b6177effe1751689c7010f2477649bf8d039f046ab82df122d34e0",
+        "words": 334
       }
     },
     "immunofluorescence": {
@@ -69,6 +86,23 @@
         "url": "https://es.wikipedia.org/w/index.php?oldid=171387244",
         "retrieved": "2026-11-17",
         "lead": "El microscopio confocal es un microscopio que emplea una técnica óptica de imagen para incrementar el contraste y/o reconstruir imágenes tridimensionales utilizando un \"pinhole\" espacial (colimador de orificio delimitante) para eliminar la luz desenfocada o destellos de la lente en especímenes que son más gruesos que el plano focal.​ El pinhole es una apertura localizada delante del fotomultiplicador que evita el pasaje de fluorescencia de las regiones de la muestra que no están en foco, la luz que proviene de regiones localizadas por encima o por debajo del plano focal no converge en el pinhole y no es detectada por el fotomultiplicador. Esta técnica ha ido adquiriendo cada vez mayor popularidad entre las comunidades científica e industrial. Se aplica típicamente en las ciencias biológicas y en la inspección."
+      },
+      "limits_en": {
+        "source": "pmc",
+        "pmcid": "PMC6961134",
+        "heading": "Practical Considerations",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6961134/",
+        "citation": {
+          "title": "Confocal Microscopy: Principles and Modern Practices.",
+          "authors": "Elliott AD.",
+          "journal": "Curr Protoc Cytom",
+          "year": "2020",
+          "doi": "10.1002/cpcy.68"
+        },
+        "licence": null,
+        "retrieved": "2026-11-25",
+        "sha256": "f25c405c6d49268b9c96cbb6e095b88d0ab5ca260362489f9d24ea421611d320",
+        "words": 974
       }
     },
     "electrophysiology": {
@@ -87,6 +121,24 @@
         "url": "https://es.wikipedia.org/w/index.php?oldid=176094882",
         "retrieved": "2026-11-17",
         "lead": "La electrofisiología (del griego ἥλεκτρον, ēlektron, \"ámbar\"; φύσις, physis, \"naturaleza, origen\"; y -λογία, -logía) es el estudio de las propiedades eléctricas de células y tejidos biológicos. Incluye medidas de cambio de voltaje o corriente eléctrica en una variedad amplia de escalas, desde el simple canal iónico de proteínas hasta órganos completos como el corazón. En neurociencias, se incluyen las medidas de la actividad eléctrica de neuronas, y particularmente actividad de potencial de acción. Registros a gran escala de señales eléctricas del sistema nervioso como Electroencefalografía, también se pueden clasificar como registros electrofisiológicos."
+      },
+      "limits_en": {
+        "source": "pmc",
+        "pmcid": "PMC8056272",
+        "heading": "Limitations",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8056272/",
+        "citation": {
+          "title": "Patch-clamp and multi-electrode array electrophysiological analysis in acute mouse brain slices.",
+          "authors": "Manz KM, Siemann JK, McMahon DG, Grueter BA.",
+          "journal": "STAR Protoc",
+          "year": "2021",
+          "doi": "10.1016/j.xpro.2021.100442"
+        },
+        "licence": "cc by-nc-nd",
+        "retrieved": "2026-11-25",
+        "sha256": "6a46bc45d0be1a5ea6394b3ec8e52686c250b091a5a0c045baa81c347c3b7071",
+        "words": 607,
+        "text": "The greatest strength of whole-cell patch-clamp electrophysiology is the ability to control specific electrical parameters of a cell without grossly disturbing cellular homeostasis. However, key functional features of the cell, such as second messenger systems, molecular interactions, and ion channel activity, may be altered when the internal solution of the patch pipette dialyzes the cell. This can become problematic when examining mechanisms of plasticity that rely on highly regulated postsynaptic signaling cascades. The highly compartmentalized ultrastructure of neuronal dendrites, including those lacking spinous subcompartments (e.g., NAc FSIs), can retain substantial biological function following intracellular dialysis. In addition, the ex vivo slice preparation can sheer and dissociate long-range projections innervating a region. As a result, examining heterogenous synapses using electrical stimulation may differentially skew analysis towards inputs with more intact terminals. In some cases, this limitation can be overcome by shifting the slicing orientation to a different anatomical plane (e.g., sagittal to horizontal).\nIn line with limitations imposed by the ex vivo preparation, biophysical features of neurons may change in the absence of an intact neural network. For example, MSNs in the NAc and striatum oscillate between up- (−60 mV) and down (−80 mV) membrane states in vivo mediated by afferent glutamatergic input and voltage-sensitive cation channels. However, this dynamic property of MSNs is absent ex vivo due to the functional decortication of top-down network activity during the slicing process. Finally, whole-cell analysis of neuromodulation and plasticity at a specific synapse may proceed through a complex polysynaptic network that goes undetected when recording from an individual cell. Although precise temporal resolution of these processes is difficult to assess using this technique alone, experiments can be conducted to address this concern, such as multi-cell recordings, pharmacological manipulations, and cell type-specific genetic, optogenetic, and chemogenetic techniques. Despite these limitations, patch-clamp techniques remain the gold standard approach to assessing cellular and synaptic function ex vivo.\nOne key advantage of multielectrode arrays is the ability to record from multiple neurons at once, which can inform the researcher on the cell types and response properties of neuronal populations within a specific brain region of interest. However, as with any ex vivo preparation, one main disadvantage is that these recordings can only occur in one specific brain region at a time, limiting questions surrounding circuit-level changes along with observing neural activity within an animal model in an in vivo context. 5-HT1A inhibition via 8-OH-DPAT allows us to identify 5-HT neurons pharmacologically. However, there are still a relatively small subset of DRN neurons in the ventromedial portion that can demonstrate characteristic waveforms of 5-HT cells (i.e., broad spike waveform, regular and low frequency firing rate), but do not reach our statistical threshold for identifying and counting a cell as serotonergic as the spike rate is not suppressed by 50% during the application of 8-OH-DPAT. This further indicates that while the majority of 5-HT neurons in this region demonstrate 5-HT1A inhibition  not all 5-HT neurons will respond accordingly. In addition, the DRN can contain relatively heterogenous cell populations especially towards the lateral “wings” of the DRN, making it critical to record from a portion that is likely to contain large numbers of 5-HT cells such as the ventromedial portion. Lastly, while we discuss multielectrode array recordings broadly and specifically in the context of the ventromedial portion of the DRN, it is important to note that the parameters needed to apply these methods to alternative brain regions, such as the suprachiasmatic nucleus, will have a variety of important methodological differences. A key feature of these recordings is that they are stable over long periods enabling tracking of individual neuronal activity over a period of days to weeks."
       }
     },
     "eeg": {

@@ -14,7 +14,8 @@
   {% if kind in texts %}{% set x = texts[kind] %}
   <p data-lab-text="{{ kind }}">{{ x[lang] }}</p>
   <p class="muted lab-review">{{ t["lab_reviewed_" ~ x.mark].format(date=date(x.reviewed_at)) }} ·
-    {{ t.gl_source }} <a href="{{ x.source.url }}" rel="noopener" lang="en">Wikipedia ({{ t.lang_en }}): «{{ x.source.title }}»</a> · CC BY-SA 4.0</p>
+    {% if x.source.get("kind") == "pmc" %}{% set c = x.source.citation %}{{ t.gl_source }} <span lang="en">{{ c.authors }}</span> ({{ c.year }}). <a href="{{ x.source.url }}" rel="noopener" lang="en">«{{ c.title }}»</a>, <i lang="en">{{ c.journal }}</i>, {{ t.lab_pmc_section.format(heading=x.source.heading) }} · {{ x.source.licence | upper if x.source.licence else t.lab_pmc_no_licence }}</p>
+    {%- else %}{{ t.gl_source }} <a href="{{ x.source.url }}" rel="noopener" lang="en">Wikipedia ({{ t.lang_en }}): «{{ x.source.title }}»</a> · CC BY-SA 4.0</p>{% endif %}
   {% else %}
   <p class="muted">{{ m.gap("lab_texts") }}</p>
   {% endif %}

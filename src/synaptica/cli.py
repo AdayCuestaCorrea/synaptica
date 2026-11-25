@@ -912,13 +912,14 @@ def lab_sources(
     ] = False,
 ) -> None:
     """The Wikipedia lead (EN and ES) each Neuro Lab technique's texts will be written from,
-    and the «limits» section of those with one in the table, at the lead's revision
+    and the «limits» section of those with one in the table, at the lead's revision (or of
+    a PMC article, v245: its text committed only under an open licence, else to the cache)
     -> src/synaptica/lab/sources.json. By hand, never in the pipeline; no LLM."""
     from synaptica.http import make_client
     from synaptica.lab import sources
 
     with make_client() as client:
-        r = sources.update_sources(client, refresh=refresh)
+        r = sources.update_sources(client, refresh=refresh, cache_root=config.get_paths().cache)
     typer.echo(f"Neuro Lab sources: {r.asked} asked, accepted EN {r.accepted['en']} / "
                f"ES {r.accepted['es']}, {r.sections} «limits» sections stored, "
                f"{r.changed} changed")  # fmt: skip
@@ -995,13 +996,29 @@ def lab_write(
         typer.echo("No --provider given: nothing written.")
         raise typer.Exit(0)
     if failed_only:  # v232
-        again = texts.english_again(llm, only=only.split(",") if only else None)
+        from synaptica.http import make_client
+
+        with make_client() as client:  # v245: a PMC section is read from the cache or fetched
+            again = texts.english_again(
+                llm,
+                only=only.split(",") if only else None,
+                cache_root=config.get_paths().cache,
+                client=client,
+            )
         for tid, by_section in again.items():
             typer.echo(f"{tid}: " + ", ".join(f"{k} {v}" for k, v in by_section.items()))
         done = sum(v == "drafted" for by in again.values() for v in by.values())
         typer.echo(f"English again: {len(again)} techniques, {done} sections drafted")
         return
-    status = texts.write(llm, only=only.split(",") if only else None)
+    from synaptica.http import make_client
+
+    with make_client() as client:  # v245: a PMC section is read from the cache or fetched
+        status = texts.write(
+            llm,
+            only=only.split(",") if only else None,
+            cache_root=config.get_paths().cache,
+            client=client,
+        )
     for tid, by_section in status.items():
         typer.echo(f"{tid}: " + ", ".join(f"{k} {v}" for k, v in by_section.items()))
     done = sum(v == "drafted" for by in status.values() for v in by.values())

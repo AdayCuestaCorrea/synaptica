@@ -324,6 +324,8 @@ lang_en = "English"
 gap_glossary_en = "The English definition of this term awaits our scientific reviewer's approval: it is not shown until it is approved."
 # Neuro Lab (Phase 2, B2, v202)
 lab = "Neuro Lab"
+lab_pmc_section = "section «{heading}»"
+lab_pmc_no_licence = "no open licence: we take its facts and tell them in our own words"
 lab_intro = "The techniques used to study the brain in the lab and in the clinic: what each one lets us see, its limits and recent studies that use it."
 kind_technique = "Technique"
 lab_count = "{n} recent studies"

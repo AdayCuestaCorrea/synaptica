@@ -23,6 +23,9 @@
 # section of `source_en` (at the article's current revision) is its source instead.
 # `limits_section_en` (optional, v214): a section of that article, at the lead's revision,
 # that its «limits» are written from when the lead has none (Aday, option A of 2026-11-18).
+# `limits_pmc` + `limits_pmc_section` (optional, v245): instead, that section of a PMC
+# article, one of the reviews Sofía named (sheet row 40); its text is committed only under an
+# open licence (synaptica.lab.pmc).
 #
 # `exclude` (optional): descriptors under a root that are not the technique, left out with
 # everything under them (EEG's tree holds the brain rhythms, a phenomenon; the fluorescent
@@ -43,6 +46,8 @@ text = ["transcardial perfusion", "transcardially perfused", "transcardiac perfu
 [[technique]]
 id = "western-blot"
 source_en = "Western blot" # Wikipedia article for its texts (syn lab sources)
+limits_pmc = "PMC4791038" # Sofía's review, Expert Rev Proteomics 2014 (no open licence)
+limits_pmc_section = "Limitations of western blotting"
 name_es = "Western blot"
 name_en = "Western blot"
 mesh = ["D015153"] # Blotting, Western
@@ -64,6 +69,8 @@ text = ["immunofluorescence", "immunofluorescent staining", "immunofluorescent l
 [[technique]]
 id = "confocal"
 source_en = "Confocal microscopy" # Wikipedia article for its texts (syn lab sources)
+limits_pmc = "PMC6961134" # Sofía's review, Curr Protoc Cytom 2020 (no open licence)
+limits_pmc_section = "Practical Considerations"
 name_es = "Microscopía confocal"
 name_en = "Confocal microscopy"
 mesh = ["D018613"] # Microscopy, Confocal
@@ -74,6 +81,8 @@ text = ["confocal microscopy", "confocal imaging", "confocal laser scanning micr
 [[technique]]
 id = "electrophysiology"
 source_en = "Electrophysiology" # Wikipedia article for its texts (syn lab sources)
+limits_pmc = "PMC8056272" # Sofía's protocol, STAR Protoc 2021 (CC BY-NC-ND)
+limits_pmc_section = "Limitations"
 name_es = "Electrofisiología"
 name_en = "Electrophysiology"
 mesh = ["D018408"] # Patch-Clamp Techniques (Electrophysiology itself is a discipline)

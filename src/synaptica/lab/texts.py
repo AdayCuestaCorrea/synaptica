@@ -23,13 +23,15 @@ import datetime as dt
 from pathlib import Path
 from typing import Any, Literal
 
+import httpx
 from pydantic import BaseModel, Field
 
+from synaptica.lab import pmc
 from synaptica.lab.sources import SOURCES
 from synaptica.lab.studies import techniques
 from synaptica.llm import LLM, LLMOutputError
 from synaptica.narrative import wikidraft
-from synaptica.review.models import ItemType, ReviewItem, TextContent
+from synaptica.review.models import ItemType, ReviewItem, Source, TextContent
 from synaptica.wiki import read_json, write_json
 
 TEXTS = Path(__file__).with_name("texts.json")
@@ -60,6 +62,8 @@ def write(
     sources_path: Path | None = None,
     path: Path | None = None,
     now: dt.datetime | None = None,
+    cache_root: Path | None = None,
+    client: httpx.Client | None = None,
 ) -> dict[str, dict[str, str]]:
     """Draft the techniques with an accepted English lead (``only``: these ids), keep the
     rest of ``texts.json`` and return technique -> section -> status. A technique already
@@ -74,7 +78,7 @@ def write(
         en_src = (sources.get(tid) or {}).get("en") or {}
         if (only and tid not in only) or not en_src.get("accepted"):
             continue
-        old, extra = texts.get(tid), _section(sources[tid])
+        old, extra = texts.get(tid), _resolved(_section(sources[tid]), cache_root, client)
         same = bool(old) and old.get("revid") == en_src["revid"]
         if same and extra and _wants_limits(old, extra):
             try:
@@ -160,6 +164,8 @@ def english_again(
     sources_path: Path | None = None,
     path: Path | None = None,
     now: dt.datetime | None = None,
+    cache_root: Path | None = None,
+    client: httpx.Client | None = None,
 ) -> dict[str, dict[str, str]]:
     """The sections whose English failed (v232), asked again alone with today's prompts:
     the other section of the technique is not touched (it may be in her queue, and its
@@ -179,7 +185,11 @@ def english_again(
             continue
         failed = [k for k in SECTIONS if (rec.get(k) or {}).get("status") == "failed_en"]
         for key in failed:
-            extra = _section(sources[tid]) if rec[key].get("section") else None
+            extra = (_resolved(_section(sources[tid]), cache_root, client)
+                     if rec[key].get("section") else None)  # fmt: skip
+            if rec[key].get("section") and extra is None:
+                status.setdefault(tid, {})[key] = "no_source"  # its PMC text cannot be had
+                continue
             source = extra["text"] if extra else en_src["lead"]
             header = f"SECTION «{extra['heading']}» OF THE ARTICLE" if extra else "LEAD"
             try:
@@ -202,9 +212,30 @@ def english_again(
 
 
 def _section(entry: dict[str, Any]) -> dict[str, Any] | None:
-    """The stored «limits» section, only at the revision of the English lead."""
+    """The stored «limits» section, only at the revision of the English lead; a section of
+    a PMC article (v245) does not depend on that revision."""
     extra, en = entry.get("limits_en"), entry.get("en") or {}
+    if extra and extra.get("source") == "pmc":
+        return extra
     return extra if extra and extra.get("revid") == en.get("revid") else None
+
+
+def _resolved(extra: dict[str, Any] | None, cache_root: Path | None,
+              client: httpx.Client | None) -> dict[str, Any] | None:  # fmt: skip
+    """The section with its text: a PMC one without an open licence reads it from the
+    cache (or fetches it with ``client``); None when it cannot be had."""
+    if extra is None or extra.get("text") is not None:
+        return extra
+    text = pmc.text_of(extra, cache_root, client)
+    return None if text is None else extra | {"text": text}
+
+
+def _source(tid: str, entry: dict[str, Any], extra: dict[str, Any]) -> Source:
+    """What a «limits» card cites: the Wikipedia section, or the PMC article's (v245)."""
+    if extra.get("source") == "pmc":
+        return Source(id=f"pmc-{extra['pmcid'].lower()}-lab-{tid}-limits", url=extra["url"],
+                      label=pmc.label(extra))  # fmt: skip
+    return wikidraft.wiki_source(f"wikipedia-en-lab-{tid}-limits", entry, extra["heading"])
 
 
 def _wants_limits(rec: dict[str, Any], extra: dict[str, Any]) -> bool:
@@ -252,16 +283,18 @@ def review_items(path: Path | None = None, sources_path: Path | None = None) -> 
                 extra = _section(sources[tid])
                 if not extra or extra["heading"] != heading:
                     continue
-                src = wikidraft.wiki_source(f"wikipedia-en-lab-{tid}-limits", entry, heading)
+                src = _source(tid, entry, extra)
             out.append(wikidraft.section_item(
                 ItemType.LAB, f"{tid}-{kind}", f"{tech['name_es']} · {SECTION_ES[kind]}",
                 sec, src))  # fmt: skip
     return out
 
 
-def source_texts(items: list[ReviewItem], sources_path: Path | None = None) -> dict[str, str]:
+def source_texts(items: list[ReviewItem], sources_path: Path | None = None,
+                 cache_root: Path | None = None) -> dict[str, str]:  # fmt: skip
     """The lead (or section) each Neuro Lab item cites, only at the revision it cites (to
-    check her edits: numbers, names, 8 copied words)."""
+    check her edits: numbers, names, 8 copied words). A PMC section without an open
+    licence comes from the cache, only with its stored hash (``pmc.warm`` fills it)."""
     sources = read_json(sources_path or SOURCES, "techniques")
     out = {}
     for item in items:
@@ -271,6 +304,10 @@ def source_texts(items: list[ReviewItem], sources_path: Path | None = None) -> d
         entry = (sources.get(tid) or {}).get("en") or {}
         extra = _section(sources.get(tid) or {})
         for s in item.content.sources:
+            if s.id.startswith("pmc-") and extra and extra.get("url") == s.url:
+                if (text := pmc.text_of(extra, cache_root)) is not None:
+                    out[s.id] = text
+                continue
             if not entry.get("accepted") or entry.get("url") != s.url:
                 continue
             if s.id.endswith("-limits"):
@@ -287,7 +324,14 @@ def published(
     """Technique -> section -> what the site shows (:func:`wikidraft.published`)."""
     out: dict[str, dict[str, dict[str, Any]]] = {}
     shown = wikidraft.published(review_items(path, sources_path), review_dir)
+    sources = read_json(sources_path or SOURCES, "techniques")
     for item_id, text in shown.items():
         tid, kind = item_id.rsplit("-", 1)
+        extra = _section(sources.get(tid) or {})
+        if kind == "limit" and extra and extra.get("source") == "pmc" and (
+                text["source"]["url"] == extra["url"]):  # fmt: skip
+            text["source"] |= {"kind": "pmc", "citation": extra["citation"],
+                               "heading": extra["heading"], "licence": extra["licence"],
+                               "pmcid": extra["pmcid"]}  # fmt: skip
         out.setdefault(tid, {})[kind] = text
     return out

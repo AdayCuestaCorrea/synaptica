@@ -42,6 +42,10 @@ class FakeWiki:
                 return httpx.Response(200, json={"parse": {"sections": rows}})
             html = self.sections[heads[int(params["section"]) - 1]]
             return httpx.Response(200, json={"parse": {"text": html}})
+        if host == "eutils.ncbi.nlm.nih.gov":  # a PMC article (v245): none here, no body
+            return httpx.Response(200, text="<pmc-articleset><article/></pmc-articleset>")
+        if host == "www.ebi.ac.uk":
+            return httpx.Response(200, json={"resultList": {"result": []}})
         if host == "query.wikidata.org":
             q = request.url.params["query"]
             if "P486" in q:
@@ -175,8 +179,9 @@ def test_lab_sources_keep_the_limits_section_at_the_lead_revision(
     from synaptica.lab import sources
     from synaptica.lab.studies import techniques
 
-    rows = [t | {"limits_section_en": "Problems"} if t["id"] == "western-blot" else t
-            for t in techniques()]  # fmt: skip
+    pmc = ("limits_pmc", "limits_pmc_section")  # its PMC source (v245): test_lab_pmc
+    rows = [{k: v for k, v in t.items() if k not in pmc} | {"limits_section_en": "Problems"}
+            if t["id"] == "western-blot" else t for t in techniques()]  # fmt: skip
     monkeypatch.setattr(sources, "techniques", lambda: rows)
 
     pages = {t["source_en"]: f"{t['name_en']} names it: {t['text'][0] if t['text'] else ''}."
