@@ -1,11 +1,12 @@
 # Rat ↔ human pairs of Neuro Atlas: which Waxholm region goes with which human regions.
 #
-# The 12 test pairs of spike S3 (Phase 0) and the zona incerta (v237), proposals only: none
-# has a grade yet. In Sofía's order (sheet row 10, 2026-11-24): her regions first (basal
-# ganglia, zona incerta, hippocampus, cerebellum), then the rest as before; this is also the
-# order of her queue. The grade (clear, partial or disputed) and the short note are Sofía's
-# (SCOPE §7, «Rata ↔ humano»); her table replaces this seed. Only IDs and names: no geometry of either atlas, so the pairs are
-# SYNAPTICA's own data and never a derived work of the two atlases (CLAUDE.md, "Licencias").
+# The 12 test pairs of spike S3 (Phase 0), the zona incerta (v237) and the substantia nigra
+# (v240), proposals only: none has a grade yet. In Sofía's order (sheet row 10, 2026-11-24):
+# her regions first (basal ganglia, zona incerta, substantia nigra, hippocampus, cerebellum),
+# then the rest as before; this is also the order of her queue. The grade (clear, partial or
+# disputed) and the short note are Sofía's (SCOPE §7, «Rata ↔ humano»); her table replaces
+# this seed. Only IDs and names: no geometry of either atlas, so the pairs are SYNAPTICA's own
+# data and never a derived work of the two atlases (CLAUDE.md, "Licencias").
 #
 # waxholm: Waxholm/BrainGlobe id. atlas: the human layer (julich, cerebra, cit168, icbm_wm).
 # human: region names exactly as in that layer's labels.json.
@@ -27,6 +28,15 @@ kind = "zona incerta"
 waxholm = 1082  # ZI (its rostral, dorsal, ventral and caudal parts, A11 and A13)
 atlas = "julich"
 human = ["ZI (Thalamus, zona incerta)"]
+
+[[pair]]
+kind = "substantia nigra"
+waxholm = 1098  # SN (its reticular, compact and lateral parts)
+atlas = "julich"
+human = [
+    "SNC (Midbrain, Substantia Nigra pars compacta)",
+    "SNR (Midbrain, Substantia Nigra pars reticulata)",
+]
 
 [[pair]]
 kind = "internal"

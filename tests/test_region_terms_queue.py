@@ -27,7 +27,7 @@ def pairs(q: Queue) -> list[str]:
 
 
 def test_one_item_per_pair_with_its_mesh_terms_and_three_examples():
-    assert len(ITEMS) == 13 and len({i.item_id for i in ITEMS}) == 13
+    assert len(ITEMS) == 14 and len({i.item_id for i in ITEMS}) == 14
     hippo = next(i for i in ITEMS if i.item_id == "waxholm-1021")
     assert hippo.content.terms[0] == "Hippocampus" and "Cornu Ammonis" in hippo.content.terms
     assert hippo.content.examples == ["Hippocampus study 0", "Hippocampus study 1",
@@ -42,7 +42,7 @@ def test_the_examples_never_change_what_she_approves():
 
 
 def test_none_before_the_18th_then_from_the_warehouse(tmp_path: Path) -> None:
-    rows = [study("doi:10.1/h", title="Place cells of the hippocampus in rats")]
+    rows = [study("doi:10.1/h", title="Dopamine cells of the substantia nigra in rats")]
     data = warehouse(tmp_path / "data", rows)
 
     def default(day: dt.date) -> Queue:
@@ -52,16 +52,16 @@ def test_none_before_the_18th_then_from_the_warehouse(tmp_path: Path) -> None:
     assert pairs(default(dt.date(2026, 11, 17))) == []
     q = default(dt.date(2026, 11, 18))
     assert len(pairs(q)) == collect.REGION_TERMS_WEEKDAY
-    hippo = next(i for i in q.items if i.item_id == "waxholm-1021")
-    assert hippo.content.examples == ["Place cells of the hippocampus in rats"]
+    sn = next(i for i in q.items if i.item_id == "waxholm-1098")  # 4th in her order (v240)
+    assert sn.content.examples == ["Dopamine cells of the substantia nigra in rats"]
 
 
 def test_four_a_weekday_two_at_the_weekend_and_decided_ones_leave(tmp_path: Path) -> None:
     data = data_dir(tmp_path, a=4)
     first = pairs(queue(data))
-    # Sofía's order (v237): basal ganglia, zona incerta, hippocampus, cerebellum, the rest
-    assert first == ["waxholm-197", "waxholm-1028", "waxholm-1082", "waxholm-1021"]
+    # Sofía's order (v237): basal ganglia, zona incerta, substantia nigra, hippocampus, …
+    assert first == ["waxholm-197", "waxholm-1028", "waxholm-1082", "waxholm-1098"]
     assert len(pairs(queue(data, SATURDAY))) == collect.REGION_TERMS_WEEKEND
     item = next(i for i in ITEMS if i.item_id == first[0])
     decide(data, item, Action.APPROVE)
-    assert pairs(queue(data)) == [*first[1:], "waxholm-1047"]
+    assert pairs(queue(data)) == [*first[1:], "waxholm-1021"]

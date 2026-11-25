@@ -70,6 +70,31 @@
       "note": null
     },
     {
+      "kind": "substantia nigra",
+      "waxholm": {
+        "id": 1098,
+        "acronym": "SN",
+        "name": "Substantia nigra"
+      },
+      "human": [
+        {
+          "atlas": "julich",
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_SNC_MIDBRAIN_SUBSTANTIA_NIGRA_PARS_COMPACTA",
+          "label": 93,
+          "name": "SNC (Midbrain, Substantia Nigra pars compacta)"
+        },
+        {
+          "atlas": "julich",
+          "area_id": "JULICH_BRAIN_CYTOARCHITECTONIC_ATLAS_V3_1_SNR_MIDBRAIN_SUBSTANTIA_NIGRA_PARS_RETICULATA",
+          "label": 181,
+          "name": "SNR (Midbrain, Substantia Nigra pars reticulata)"
+        }
+      ],
+      "same_side": true,
+      "grade": null,
+      "note": null
+    },
+    {
       "kind": "internal",
       "waxholm": {
         "id": 1021,

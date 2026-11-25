@@ -67,3 +67,7 @@ mesh = ["D066127"] # White Matter
 [[region]]
 kind = "zona incerta" # v237, one of Sofía's regions (sheet row 10)
 mesh = ["D065820"] # Zona Incerta
+
+[[region]]
+kind = "substantia nigra" # v240, one of Sofía's regions (sheet row 10)
+mesh = ["D013378"] # Substantia Nigra
