@@ -57,6 +57,51 @@
           "id": "f9",
           "statement": "The required fluid volume can be reduced by pinching off arteries that supply tissues not relevant to the research.",
           "kind": "limit"
+        },
+        {
+          "id": "r1",
+          "statement": "The fixative is typically introduced into the circulatory system by inserting a needle into the left ventricle.",
+          "kind": "what"
+        },
+        {
+          "id": "r2",
+          "statement": "Researchers can guide the needle using ultrasound or by opening the subject's chest cavity.",
+          "kind": "what"
+        },
+        {
+          "id": "r3",
+          "statement": "The amount of fixative injected is matched to the typical cardiac output of the subject.",
+          "kind": "what"
+        },
+        {
+          "id": "r4",
+          "statement": "The body's own circulatory system spreads the fixative to all tissues, keeping them from dying until they are fixed.",
+          "kind": "what"
+        },
+        {
+          "id": "r5",
+          "statement": "A drainage port, usually in the right atrium, is required to handle the added volume of fixative and buffer.",
+          "kind": "limit"
+        },
+        {
+          "id": "r6",
+          "statement": "The fixative continues to be pumped until it has completely replaced the blood in the circulatory system.",
+          "kind": "what"
+        },
+        {
+          "id": "r7",
+          "statement": "A major drawback of this method is that the subject dies during the procedure.",
+          "kind": "limit"
+        },
+        {
+          "id": "r8",
+          "statement": "Larger organisms require a high volume of fixative, which can increase the cost of the procedure.",
+          "kind": "limit"
+        },
+        {
+          "id": "r9",
+          "statement": "The required fluid volume can be reduced by pinching off arteries that supply tissues not relevant to the research.",
+          "kind": "limit"
         }
       ],
       "rejected": [
@@ -112,10 +157,20 @@
       "limit": {
         "status": "failed_en",
         "problems": [
-          "sentence 2: drops the caution of its facts (may, suggests, possibly…)",
+          "sentence 1: drops the caution of its facts (may, suggests, possibly…)",
           "sentence 3: drops the caution of its facts (may, suggests, possibly…)"
-        ]
-      }
+        ],
+        "prompts": {
+          "lab_facts": "lab-facts-v2 (adapted from s5-extract-facts-v2 for Neuro Lab's techniques, v208; v209: the JSON shape spelled out)",
+          "lab_write_en": "lab-write-en-v2 (adapted from s5-write-en-v2 for Neuro Lab's techniques, v208; v2 keeps the facts' caution, v232)",
+          "wiki_adapt_es": "wiki-adapt-es-v2 (from s5-adapt-es-v2 for the fixed texts drafted from Wikipedia, v232); v2: «helping» is «ayudando a», v241"
+        },
+        "generator": "groq/qwen/qwen3.8-27b",
+        "generated_at": "2026-11-25T00:09:15+00:00"
+      },
+      "rejected_again": [
+        "statement copies the source wording"
+      ]
     },
     "western-blot": {
       "revid": 1384468270,
@@ -1290,8 +1345,6 @@
         ]
       },
       "limit": {
-        "es_generator": "groq/qwen/qwen3.8-27b",
-        "es_generated_at": "2026-11-18T22:37:37+00:00",
         "status": "failed_es",
         "problems": [
           "sentence 2: the English sentence is cautious and this is not"
@@ -1312,18 +1365,20 @@
         ],
         "es": [
           {
-            "text": "La fotometría de fibras presenta una resolución baja tanto a nivel celular como espacial, lo que limita la precisión de los datos que captura.",
+            "text": "La fotometría de fibra presenta una resolución baja tanto a nivel celular como espacial, lo que limita la precisión de los datos que captura.",
             "fact_ids": [
               "f7"
             ]
           },
           {
-            "text": "Además, la necesidad de que los animales estén firmemente sujetos a un haz de fibras rígido puede afectar al comportamiento natural de pequeños mamíferos como los ratones.",
+            "text": "Además, la necesidad de que los animales estén firmemente sujetos a un haz de fibras rígido puede afectar al comportamiento natural de mamíferos pequeños, como los ratones.",
             "fact_ids": [
               "f8"
             ]
           }
-        ]
+        ],
+        "es_generator": "groq/qwen/qwen3.8-27b",
+        "es_generated_at": "2026-11-25T00:08:13+00:00"
       }
     }
   }

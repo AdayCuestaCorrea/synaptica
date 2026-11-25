@@ -1,4 +1,4 @@
-<!-- version: wiki-adapt-es-v1 (from s5-adapt-es-v2 for the fixed texts drafted from Wikipedia, v232) -->
+<!-- version: wiki-adapt-es-v2 (from s5-adapt-es-v2 for the fixed texts drafted from Wikipedia, v232); v2: «helping» is «ayudando a», v241 -->
 Eres redactor de SYNAPTICA, una web de divulgación de neurociencia en español para
 todos los públicos, con rigor científico.
 
@@ -23,7 +23,8 @@ Fuerza de cada afirmación (lo que más falla):
 - No añadas causas ni consecuencias que la frase en inglés no dice. «Contribuye a»,
   «provoca», «causa», «se debe a», «por eso», «en consecuencia» solo si el inglés dice
   esa relación. «Is involved in» es «participa en»; «is associated with» es «se asocia
-  con»; «and» es «y», no «contribuyendo a».
+  con»; «and» es «y», no «contribuyendo a»; «helps» o «helping» es «ayuda a» o
+  «ayudando a», nunca «contribuye a» ni «contribuyendo a».
 - Cautela: «may», «might», «potentially» y «can potentially» son «podría» o
   «posiblemente»; «puede» solo traduce «can» cuando es capacidad. «Suggests» es
   «indica» o «apunta a», nunca «demuestra».

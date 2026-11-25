@@ -1,544 +1,6 @@
 {
   "note": "Drafts of Neuro Atlas's region texts (LLM, checked against each pair's Wikipedia lead in atlas/sources.json). Not published: each waits for Sofía's approval. Written by `syn atlas write`; do not edit by hand.",
   "pairs": {
-    "surface": {
-      "revid": 1380062568,
-      "source": "https://en.wikipedia.org/w/index.php?oldid=1380062568",
-      "source_es": "https://es.wikipedia.org/w/index.php?oldid=173000009",
-      "generator": "groq/qwen/qwen3.8-27b",
-      "prompts": {
-        "atlas_facts": "atlas-facts-v1 (adapted from lab-facts-v2 for Neuro Atlas's regions, v212)",
-        "atlas_write_en": "atlas-write-en-v1 (adapted from lab-write-en-v1 for Neuro Atlas's regions, v212)",
-        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
-      },
-      "generated_at": "2026-11-18T17:55:35+00:00",
-      "facts": [
-        {
-          "id": "f1",
-          "statement": "This brain area is located in the back part of the frontal lobe and consists of several linked zones.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f2",
-          "statement": "The main components are Brodmann area 4, known as the primary motor cortex, and area 6, which includes premotor and supplementary regions.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f3",
-          "statement": "The primary role of this cortex is to organize, choose, and carry out movements that are under conscious control.",
-          "kind": "function"
-        },
-        {
-          "id": "f4",
-          "statement": "It converts intended actions into specific neural signals that travel down to the brainstem and spinal cord to control muscles.",
-          "kind": "function"
-        },
-        {
-          "id": "f5",
-          "statement": "This processing allows for precise and skilled movements of the eyes, facial muscles, and limbs.",
-          "kind": "function"
-        },
-        {
-          "id": "f6",
-          "statement": "Direct neural connections from this cortex to motor neurons are essential for the detailed control of finger movements.",
-          "kind": "function"
-        },
-        {
-          "id": "f7",
-          "statement": "The structure of this area influences the specific movement problems that occur following a stroke or degenerative conditions.",
-          "kind": "clinical"
-        },
-        {
-          "id": "f8",
-          "statement": "Understanding this region's layout is critical for planning brain surgeries and developing neural technologies.",
-          "kind": "clinical"
-        }
-      ],
-      "rejected": [],
-      "about": {
-        "status": "drafted",
-        "en": [
-          {
-            "text": "Situated in the posterior frontal lobe, the motor cortex comprises linked zones, primarily Brodmann area 4 (the primary motor cortex) and area 6, which contains premotor and supplementary regions.",
-            "fact_ids": [
-              "f1",
-              "f2"
-            ]
-          },
-          {
-            "text": "This structure organizes, selects, and executes consciously controlled movements by converting intended actions into specific neural signals that descend to the brainstem and spinal cord.",
-            "fact_ids": [
-              "f3",
-              "f4"
-            ]
-          },
-          {
-            "text": "Such processing enables precise, skilled movements of the eyes, face, and limbs, while direct connections to motor neurons are essential for detailed finger control.",
-            "fact_ids": [
-              "f5",
-              "f6"
-            ]
-          }
-        ],
-        "es": [
-          {
-            "text": "Situada en el lóbulo frontal posterior, la corteza motora está compuesta por zonas interconectadas, principalmente el área 4 de Brodmann (la corteza motora primaria) y el área 6, que alberga las regiones premotoras y suplementarias.",
-            "fact_ids": [
-              "f1",
-              "f2"
-            ]
-          },
-          {
-            "text": "Esta estructura organiza, selecciona y ejecuta los movimientos controlados de forma consciente, transformando las acciones intencionadas en señales neuronales específicas que descienden hacia el tronco encefálico y la médula espinal.",
-            "fact_ids": [
-              "f3",
-              "f4"
-            ]
-          },
-          {
-            "text": "Este procesamiento permite movimientos precisos y hábiles de los ojos, la cara y las extremidades, mientras que las conexiones directas con las neuronas motoras son esenciales para el control detallado de los dedos.",
-            "fact_ids": [
-              "f5",
-              "f6"
-            ]
-          }
-        ]
-      }
-    },
-    "internal": {
-      "revid": 1385842704,
-      "source": "https://en.wikipedia.org/w/index.php?oldid=1385842704",
-      "source_es": "https://es.wikipedia.org/w/index.php?oldid=173547931",
-      "generator": "groq/qwen/qwen3.8-27b",
-      "prompts": {
-        "atlas_facts": "atlas-facts-v1 (adapted from lab-facts-v2 for Neuro Atlas's regions, v212)",
-        "atlas_write_en": "atlas-write-en-v1 (adapted from lab-write-en-v1 for Neuro Atlas's regions, v212)",
-        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
-      },
-      "generated_at": "2026-11-18T15:49:03+00:00",
-      "facts": [
-        {
-          "id": "f1",
-          "statement": "The hippocampus is a key structure found in the brains of people and numerous other vertebrate species.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f2",
-          "statement": "In humans, this region works alongside the dentate gyrus and subiculum to form the hippocampal formation within the limbic system.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f3",
-          "statement": "It helps transfer short-term memories into long-term storage and supports spatial memory needed for navigating the environment.",
-          "kind": "function"
-        },
-        {
-          "id": "f4",
-          "statement": "In primates, the structure sits in the archicortex, which is one of three allocortex areas, and exists in both brain hemispheres.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f5",
-          "statement": "The region sends direct neural signals to the neocortex and receives indirect signals back from it.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f6",
-          "statement": "In Alzheimer's and other dementias, this area is often among the first parts of the brain to suffer damage.",
-          "kind": "clinical"
-        },
-        {
-          "id": "f7",
-          "statement": "Early signs of such damage typically include losing short-term memories and feeling disoriented.",
-          "kind": "clinical"
-        },
-        {
-          "id": "f8",
-          "statement": "Severe injury to both sides of the structure can cause anterograde amnesia, which prevents the creation of new memories.",
-          "kind": "clinical"
-        },
-        {
-          "id": "f9",
-          "statement": "Long-term potentiation, a type of neural plasticity, was first identified in this brain region.",
-          "kind": "function"
-        },
-        {
-          "id": "f10",
-          "statement": "In rodents, specific neurons called place cells activate when the animal moves through a particular location in its surroundings.",
-          "kind": "function"
-        }
-      ],
-      "rejected": [],
-      "about": {
-        "status": "failed_es",
-        "problems": [
-          "sentence 2: 'causal' is not in the English sentence"
-        ],
-        "en": [
-          {
-            "text": "The hippocampus is a key structure found in the brains of people and numerous other vertebrate species, sitting in the archicortex within both brain hemispheres.",
-            "fact_ids": [
-              "f1",
-              "f4"
-            ]
-          },
-          {
-            "text": "In humans, this region works alongside the dentate gyrus and subiculum to form the hippocampal formation within the limbic system, helping transfer short-term memories into long-term storage and supporting spatial memory needed for navigating the environment.",
-            "fact_ids": [
-              "f2",
-              "f3"
-            ]
-          },
-          {
-            "text": "The region sends direct neural signals to the neocortex and receives indirect signals back from it, a site where long-term potentiation, a type of neural plasticity, was first identified.",
-            "fact_ids": [
-              "f5",
-              "f9"
-            ]
-          }
-        ],
-        "es": [
-          {
-            "text": "El hipocampo es una estructura clave presente en el cerebro de los seres humanos y de numerosas otras especies de vertebrados, situada en el archicorteza dentro de ambos hemisferios cerebrales.",
-            "fact_ids": [
-              "f1",
-              "f4"
-            ]
-          },
-          {
-            "text": "En los humanos, esta región trabaja junto con el giro dentado y el subículo para formar la formación hipocampal dentro del sistema límbico, contribuyendo a la transferencia de los recuerdos a corto plazo al almacenamiento a largo plazo y apoyando la memoria espacial necesaria para navegar por el entorno.",
-            "fact_ids": [
-              "f2",
-              "f3"
-            ]
-          },
-          {
-            "text": "Esta región envía señales neuronales directas a la neocorteza y recibe señales indirectas de vuelta de ella, un sitio donde se identificó por primera vez la potenciación a largo plazo, un tipo de plasticidad neuronal.",
-            "fact_ids": [
-              "f5",
-              "f9"
-            ]
-          }
-        ]
-      },
-      "es_generator": "groq/qwen/qwen3.8-27b",
-      "es_generated_at": "2026-11-18T22:37:37+00:00"
-    },
-    "third": {
-      "revid": 1385888802,
-      "source": "https://en.wikipedia.org/w/index.php?oldid=1385888802",
-      "source_es": "https://es.wikipedia.org/w/index.php?oldid=175780021",
-      "generator": "groq/qwen/qwen3.8-27b",
-      "prompts": {
-        "atlas_facts": "atlas-facts-v1 (adapted from lab-facts-v2 for Neuro Atlas's regions, v212)",
-        "atlas_write_en": "atlas-write-en-v1 (adapted from lab-write-en-v1 for Neuro Atlas's regions, v212)",
-        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
-      },
-      "generated_at": "2026-11-18T15:49:03+00:00",
-      "facts": [
-        {
-          "id": "f1",
-          "statement": "This structure exists as a pair of nuclear complexes found in the cerebral hemispheres of all vertebrates.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f2",
-          "statement": "The amygdala is classified as a component of the limbic system.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f3",
-          "statement": "In primate brains, this region sits on the inner side of the temporal lobes.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f4",
-          "statement": "The structure is composed of numerous nuclei, which are themselves divided into smaller subnuclei.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f5",
-          "statement": "The most frequent division of the amygdala includes basolateral, central, cortical, and medial nuclei along with intercalated cell clusters.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f6",
-          "statement": "This brain area is primarily responsible for handling memory, making decisions, and generating emotional reactions such as fear, anxiety, and aggression.",
-          "kind": "function"
-        },
-        {
-          "id": "f7",
-          "statement": "Karl Friedrich Burdach was the first person to identify and give a name to this structure in the year 1822.",
-          "kind": "other"
-        }
-      ],
-      "rejected": [],
-      "about": {
-        "status": "drafted",
-        "en": [
-          {
-            "text": "The amygdala exists as a pair of nuclear complexes within the limbic system, located on the inner side of the temporal lobes in primate brains.",
-            "fact_ids": [
-              "f1",
-              "f2",
-              "f3"
-            ]
-          },
-          {
-            "text": "This structure consists of numerous nuclei divided into smaller subnuclei, with the most frequent division including basolateral, central, cortical, and medial nuclei along with intercalated cell clusters.",
-            "fact_ids": [
-              "f4",
-              "f5"
-            ]
-          },
-          {
-            "text": "It is primarily responsible for handling memory, making decisions, and generating emotional reactions such as fear, anxiety, and aggression.",
-            "fact_ids": [
-              "f6"
-            ]
-          }
-        ],
-        "es": [
-          {
-            "text": "La amígdala existe como un par de complejos nucleares dentro del sistema límbico, situada en la cara medial de los lóbulos temporales en el cerebro de los primates.",
-            "fact_ids": [
-              "f1",
-              "f2",
-              "f3"
-            ]
-          },
-          {
-            "text": "Esta estructura está compuesta por numerosos núcleos divididos en subnúcleos más pequeños, siendo la división más frecuente la que incluye los núcleos basolateral, central, cortical y medial, junto con cúmulos de células intercaladas.",
-            "fact_ids": [
-              "f4",
-              "f5"
-            ]
-          },
-          {
-            "text": "Su función principal consiste en procesar la memoria, tomar decisiones y generar reacciones emocionales como el miedo, la ansiedad y la agresión.",
-            "fact_ids": [
-              "f6"
-            ]
-          }
-        ]
-      }
-    },
-    "cerebellum": {
-      "revid": 1385745067,
-      "source": "https://en.wikipedia.org/w/index.php?oldid=1385745067",
-      "source_es": "https://es.wikipedia.org/w/index.php?oldid=175238194",
-      "generator": "groq/qwen/qwen3.8-27b",
-      "prompts": {
-        "atlas_facts": "atlas-facts-v1 (adapted from lab-facts-v2 for Neuro Atlas's regions, v212)",
-        "atlas_write_en": "atlas-write-en-v1 (adapted from lab-write-en-v1 for Neuro Atlas's regions, v212)",
-        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
-      },
-      "generated_at": "2026-11-18T15:49:03+00:00",
-      "facts": [
-        {
-          "id": "f1",
-          "statement": "Known by its Latin name meaning 'little brain', this structure is a key component of the hindbrain found in every vertebrate species.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f2",
-          "statement": "In humans, the organ is positioned at the base of the brain, situated directly beneath the cerebral hemispheres.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f3",
-          "statement": "The surface features distinct parallel grooves that hide a thin, continuous sheet of tissue folded densely like an accordion.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f4",
-          "statement": "The tissue contains a highly organized arrangement of neurons, with Purkinje cells and granule cells being the most significant types.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f5",
-          "statement": "Signals generated in the outer cortex are transmitted through small deep nuclei located within the white matter core of the structure.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f6",
-          "statement": "The region contributes to motor control, cognitive tasks like attention and language, and the regulation of emotional responses including fear and pleasure.",
-          "kind": "function"
-        },
-        {
-          "id": "f7",
-          "statement": "While it does not start voluntary movements, the structure is essential for coordinating motion, ensuring precision, and maintaining accurate timing.",
-          "kind": "function"
-        },
-        {
-          "id": "f8",
-          "statement": "The organ processes signals from spinal cord sensory systems and other brain areas to adjust and refine motor actions.",
-          "kind": "function"
-        },
-        {
-          "id": "f9",
-          "statement": "Injury to this area results in problems with fine motor skills, balance, posture, and the ability to learn new movements.",
-          "kind": "clinical"
-        },
-        {
-          "id": "f10",
-          "statement": "Beyond immediate movement control, the structure is required for various forms of motor learning, particularly those involving sensorimotor connections.",
-          "kind": "function"
-        }
-      ],
-      "rejected": [],
-      "about": {
-        "status": "drafted",
-        "en": [
-          {
-            "text": "Known as the 'little brain,' the cerebellum is a hindbrain component located at the base of the human brain, directly beneath the cerebral hemispheres.",
-            "fact_ids": [
-              "f1",
-              "f2"
-            ]
-          },
-          {
-            "text": "Its surface displays parallel grooves that conceal a densely folded sheet of tissue containing organized neurons, including Purkinje and granule cells.",
-            "fact_ids": [
-              "f3",
-              "f4"
-            ]
-          },
-          {
-            "text": "While it does not initiate voluntary movements, this region coordinates motion, ensures precision, and regulates cognitive tasks and emotional responses.",
-            "fact_ids": [
-              "f6",
-              "f7"
-            ]
-          }
-        ],
-        "es": [
-          {
-            "text": "Conocido como el «cerebrito», el cerebelo es una estructura del encéfalo posterior situada en la base del cerebro humano, justo debajo de los hemisferios cerebrales.",
-            "fact_ids": [
-              "f1",
-              "f2"
-            ]
-          },
-          {
-            "text": "Su superficie presenta surcos paralelos que ocultan una lámina de tejido densamente plegada, repleta de neuronas organizadas, entre ellas las células de Purkinje y las células granulosas.",
-            "fact_ids": [
-              "f3",
-              "f4"
-            ]
-          },
-          {
-            "text": "Aunque no inicia los movimientos voluntarios, esta región coordina el movimiento, garantiza la precisión y regula las tareas cognitivas y las respuestas emocionales.",
-            "fact_ids": [
-              "f6",
-              "f7"
-            ]
-          }
-        ]
-      }
-    },
-    "brainstem": {
-      "revid": 1363586724,
-      "source": "https://en.wikipedia.org/w/index.php?oldid=1363586724",
-      "source_es": "https://es.wikipedia.org/w/index.php?oldid=175621867",
-      "generator": "groq/qwen/qwen3.8-27b",
-      "prompts": {
-        "atlas_facts": "atlas-facts-v1 (adapted from lab-facts-v2 for Neuro Atlas's regions, v212)",
-        "atlas_write_en": "atlas-write-en-v1 (adapted from lab-write-en-v1 for Neuro Atlas's regions, v212)",
-        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
-      },
-      "generated_at": "2026-11-18T19:39:38+00:00",
-      "facts": [
-        {
-          "id": "f1",
-          "statement": "The brainstem is the stalk-like structure at the back of the brain that links the cerebrum to the spinal cord.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f2",
-          "statement": "The midbrain connects to the thalamus through the tentorial notch, and the diencephalon is sometimes considered part of the brainstem.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f3",
-          "statement": "The brainstem is very small, accounting for only about 2.6 percent of the brain's total weight.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f4",
-          "statement": "It plays a critical role in regulating heart and respiratory functions, including heart rate and breathing rate.",
-          "kind": "function"
-        },
-        {
-          "id": "f5",
-          "statement": "The brainstem supplies the main motor and sensory nerves to the face and neck through the cranial nerves.",
-          "kind": "function"
-        },
-        {
-          "id": "f6",
-          "statement": "Ten pairs of cranial nerves originate from the brainstem.",
-          "kind": "anatomy"
-        },
-        {
-          "id": "f7",
-          "statement": "The brainstem carries motor and sensory pathways between the rest of the brain and the body, including the corticospinal tract, dorsal column-medial lemniscus pathway, and spinothalamic tract.",
-          "kind": "function"
-        }
-      ],
-      "rejected": [
-        "statement copies the source wording",
-        "statement copies the source wording"
-      ],
-      "about": {
-        "status": "drafted",
-        "en": [
-          {
-            "text": "The brainstem is a small, stalk-like structure at the back of the brain that links the cerebrum to the spinal cord, accounting for about 2.6 percent of the brain's total weight.",
-            "fact_ids": [
-              "f1",
-              "f3"
-            ]
-          },
-          {
-            "text": "It regulates vital functions such as heart rate and breathing, while supplying ten pairs of cranial nerves that provide motor and sensory connections to the face and neck.",
-            "fact_ids": [
-              "f4",
-              "f5",
-              "f6"
-            ]
-          },
-          {
-            "text": "Additionally, the brainstem carries major motor and sensory pathways, including the corticospinal tract, dorsal column-medial lemniscus pathway, and spinothalamic tract, between the rest of the brain and the body.",
-            "fact_ids": [
-              "f7"
-            ]
-          }
-        ],
-        "es": [
-          {
-            "text": "El tronco encefálico es una estructura pequeña y de forma de tallo, situada en la parte posterior del cerebro, que conecta el encéfalo con la médula espinal y representa aproximadamente el 2,6 % del peso total del cerebro.",
-            "fact_ids": [
-              "f1",
-              "f3"
-            ]
-          },
-          {
-            "text": "Regula funciones vitales como la frecuencia cardíaca y la respiración, y da origen a diez pares de nervios craneales que proporcionan conexiones motoras y sensoriales a la cara y el cuello.",
-            "fact_ids": [
-              "f4",
-              "f5",
-              "f6"
-            ]
-          },
-          {
-            "text": "Además, el tronco encefálico transporta las principales vías motoras y sensoriales, como el tracto piramidal, la vía espinotalámica y el lemnisco medial de la columna dorsal, entre el resto del cerebro y el cuerpo.",
-            "fact_ids": [
-              "f7"
-            ]
-          }
-        ]
-      }
-    },
     "striatum": {
       "revid": 1382457282,
       "source": "https://en.wikipedia.org/w/index.php?oldid=1382457282",
@@ -733,6 +195,541 @@
         ]
       }
     },
+    "internal": {
+      "revid": 1385842704,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1385842704",
+      "source_es": "https://es.wikipedia.org/w/index.php?oldid=173547931",
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "atlas_facts": "atlas-facts-v1 (adapted from lab-facts-v2 for Neuro Atlas's regions, v212)",
+        "atlas_write_en": "atlas-write-en-v1 (adapted from lab-write-en-v1 for Neuro Atlas's regions, v212)",
+        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
+      },
+      "generated_at": "2026-11-18T15:49:03+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "The hippocampus is a key structure found in the brains of people and numerous other vertebrate species.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f2",
+          "statement": "In humans, this region works alongside the dentate gyrus and subiculum to form the hippocampal formation within the limbic system.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f3",
+          "statement": "It helps transfer short-term memories into long-term storage and supports spatial memory needed for navigating the environment.",
+          "kind": "function"
+        },
+        {
+          "id": "f4",
+          "statement": "In primates, the structure sits in the archicortex, which is one of three allocortex areas, and exists in both brain hemispheres.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f5",
+          "statement": "The region sends direct neural signals to the neocortex and receives indirect signals back from it.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f6",
+          "statement": "In Alzheimer's and other dementias, this area is often among the first parts of the brain to suffer damage.",
+          "kind": "clinical"
+        },
+        {
+          "id": "f7",
+          "statement": "Early signs of such damage typically include losing short-term memories and feeling disoriented.",
+          "kind": "clinical"
+        },
+        {
+          "id": "f8",
+          "statement": "Severe injury to both sides of the structure can cause anterograde amnesia, which prevents the creation of new memories.",
+          "kind": "clinical"
+        },
+        {
+          "id": "f9",
+          "statement": "Long-term potentiation, a type of neural plasticity, was first identified in this brain region.",
+          "kind": "function"
+        },
+        {
+          "id": "f10",
+          "statement": "In rodents, specific neurons called place cells activate when the animal moves through a particular location in its surroundings.",
+          "kind": "function"
+        }
+      ],
+      "rejected": [],
+      "about": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "The hippocampus is a key structure found in the brains of people and numerous other vertebrate species, sitting in the archicortex within both brain hemispheres.",
+            "fact_ids": [
+              "f1",
+              "f4"
+            ]
+          },
+          {
+            "text": "In humans, this region works alongside the dentate gyrus and subiculum to form the hippocampal formation within the limbic system, helping transfer short-term memories into long-term storage and supporting spatial memory needed for navigating the environment.",
+            "fact_ids": [
+              "f2",
+              "f3"
+            ]
+          },
+          {
+            "text": "The region sends direct neural signals to the neocortex and receives indirect signals back from it, a site where long-term potentiation, a type of neural plasticity, was first identified.",
+            "fact_ids": [
+              "f5",
+              "f9"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "El hipocampo es una estructura clave presente en el cerebro de los seres humanos y de numerosas otras especies de vertebrados, situada en la archicorteza de ambos hemisferios cerebrales.",
+            "fact_ids": [
+              "f1",
+              "f4"
+            ]
+          },
+          {
+            "text": "En los humanos, esta región trabaja junto al giro dentado y el subículo para formar la formación hipocampal dentro del sistema límbico, ayudando a transferir los recuerdos a corto plazo al almacenamiento a largo plazo y apoyando la memoria espacial necesaria para navegar por el entorno.",
+            "fact_ids": [
+              "f2",
+              "f3"
+            ]
+          },
+          {
+            "text": "La región envía señales neuronales directas a la neocorteza y recibe señales indirectas de ella, un sitio donde se identificó por primera vez la potenciación a largo plazo, un tipo de plasticidad neuronal.",
+            "fact_ids": [
+              "f5",
+              "f9"
+            ]
+          }
+        ]
+      },
+      "es_generator": "groq/qwen/qwen3.8-27b",
+      "es_generated_at": "2026-11-25T00:08:06+00:00"
+    },
+    "cerebellum": {
+      "revid": 1385745067,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1385745067",
+      "source_es": "https://es.wikipedia.org/w/index.php?oldid=175238194",
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "atlas_facts": "atlas-facts-v1 (adapted from lab-facts-v2 for Neuro Atlas's regions, v212)",
+        "atlas_write_en": "atlas-write-en-v1 (adapted from lab-write-en-v1 for Neuro Atlas's regions, v212)",
+        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
+      },
+      "generated_at": "2026-11-18T15:49:03+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "Known by its Latin name meaning 'little brain', this structure is a key component of the hindbrain found in every vertebrate species.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f2",
+          "statement": "In humans, the organ is positioned at the base of the brain, situated directly beneath the cerebral hemispheres.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f3",
+          "statement": "The surface features distinct parallel grooves that hide a thin, continuous sheet of tissue folded densely like an accordion.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f4",
+          "statement": "The tissue contains a highly organized arrangement of neurons, with Purkinje cells and granule cells being the most significant types.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f5",
+          "statement": "Signals generated in the outer cortex are transmitted through small deep nuclei located within the white matter core of the structure.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f6",
+          "statement": "The region contributes to motor control, cognitive tasks like attention and language, and the regulation of emotional responses including fear and pleasure.",
+          "kind": "function"
+        },
+        {
+          "id": "f7",
+          "statement": "While it does not start voluntary movements, the structure is essential for coordinating motion, ensuring precision, and maintaining accurate timing.",
+          "kind": "function"
+        },
+        {
+          "id": "f8",
+          "statement": "The organ processes signals from spinal cord sensory systems and other brain areas to adjust and refine motor actions.",
+          "kind": "function"
+        },
+        {
+          "id": "f9",
+          "statement": "Injury to this area results in problems with fine motor skills, balance, posture, and the ability to learn new movements.",
+          "kind": "clinical"
+        },
+        {
+          "id": "f10",
+          "statement": "Beyond immediate movement control, the structure is required for various forms of motor learning, particularly those involving sensorimotor connections.",
+          "kind": "function"
+        }
+      ],
+      "rejected": [],
+      "about": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "Known as the 'little brain,' the cerebellum is a hindbrain component located at the base of the human brain, directly beneath the cerebral hemispheres.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "Its surface displays parallel grooves that conceal a densely folded sheet of tissue containing organized neurons, including Purkinje and granule cells.",
+            "fact_ids": [
+              "f3",
+              "f4"
+            ]
+          },
+          {
+            "text": "While it does not initiate voluntary movements, this region coordinates motion, ensures precision, and regulates cognitive tasks and emotional responses.",
+            "fact_ids": [
+              "f6",
+              "f7"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "Conocido como el «cerebrito», el cerebelo es una estructura del encéfalo posterior situada en la base del cerebro humano, justo debajo de los hemisferios cerebrales.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "Su superficie presenta surcos paralelos que ocultan una lámina de tejido densamente plegada, repleta de neuronas organizadas, entre ellas las células de Purkinje y las células granulosas.",
+            "fact_ids": [
+              "f3",
+              "f4"
+            ]
+          },
+          {
+            "text": "Aunque no inicia los movimientos voluntarios, esta región coordina el movimiento, garantiza la precisión y regula las tareas cognitivas y las respuestas emocionales.",
+            "fact_ids": [
+              "f6",
+              "f7"
+            ]
+          }
+        ]
+      }
+    },
+    "surface": {
+      "revid": 1380062568,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1380062568",
+      "source_es": "https://es.wikipedia.org/w/index.php?oldid=173000009",
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "atlas_facts": "atlas-facts-v1 (adapted from lab-facts-v2 for Neuro Atlas's regions, v212)",
+        "atlas_write_en": "atlas-write-en-v1 (adapted from lab-write-en-v1 for Neuro Atlas's regions, v212)",
+        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
+      },
+      "generated_at": "2026-11-18T17:55:35+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "This brain area is located in the back part of the frontal lobe and consists of several linked zones.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f2",
+          "statement": "The main components are Brodmann area 4, known as the primary motor cortex, and area 6, which includes premotor and supplementary regions.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f3",
+          "statement": "The primary role of this cortex is to organize, choose, and carry out movements that are under conscious control.",
+          "kind": "function"
+        },
+        {
+          "id": "f4",
+          "statement": "It converts intended actions into specific neural signals that travel down to the brainstem and spinal cord to control muscles.",
+          "kind": "function"
+        },
+        {
+          "id": "f5",
+          "statement": "This processing allows for precise and skilled movements of the eyes, facial muscles, and limbs.",
+          "kind": "function"
+        },
+        {
+          "id": "f6",
+          "statement": "Direct neural connections from this cortex to motor neurons are essential for the detailed control of finger movements.",
+          "kind": "function"
+        },
+        {
+          "id": "f7",
+          "statement": "The structure of this area influences the specific movement problems that occur following a stroke or degenerative conditions.",
+          "kind": "clinical"
+        },
+        {
+          "id": "f8",
+          "statement": "Understanding this region's layout is critical for planning brain surgeries and developing neural technologies.",
+          "kind": "clinical"
+        }
+      ],
+      "rejected": [],
+      "about": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "Situated in the posterior frontal lobe, the motor cortex comprises linked zones, primarily Brodmann area 4 (the primary motor cortex) and area 6, which contains premotor and supplementary regions.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "This structure organizes, selects, and executes consciously controlled movements by converting intended actions into specific neural signals that descend to the brainstem and spinal cord.",
+            "fact_ids": [
+              "f3",
+              "f4"
+            ]
+          },
+          {
+            "text": "Such processing enables precise, skilled movements of the eyes, face, and limbs, while direct connections to motor neurons are essential for detailed finger control.",
+            "fact_ids": [
+              "f5",
+              "f6"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "Situada en el lóbulo frontal posterior, la corteza motora está compuesta por zonas interconectadas, principalmente el área 4 de Brodmann (la corteza motora primaria) y el área 6, que alberga las regiones premotoras y suplementarias.",
+            "fact_ids": [
+              "f1",
+              "f2"
+            ]
+          },
+          {
+            "text": "Esta estructura organiza, selecciona y ejecuta los movimientos controlados de forma consciente, transformando las acciones intencionadas en señales neuronales específicas que descienden hacia el tronco encefálico y la médula espinal.",
+            "fact_ids": [
+              "f3",
+              "f4"
+            ]
+          },
+          {
+            "text": "Este procesamiento permite movimientos precisos y hábiles de los ojos, la cara y las extremidades, mientras que las conexiones directas con las neuronas motoras son esenciales para el control detallado de los dedos.",
+            "fact_ids": [
+              "f5",
+              "f6"
+            ]
+          }
+        ]
+      }
+    },
+    "third": {
+      "revid": 1385888802,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1385888802",
+      "source_es": "https://es.wikipedia.org/w/index.php?oldid=175780021",
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "atlas_facts": "atlas-facts-v1 (adapted from lab-facts-v2 for Neuro Atlas's regions, v212)",
+        "atlas_write_en": "atlas-write-en-v1 (adapted from lab-write-en-v1 for Neuro Atlas's regions, v212)",
+        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
+      },
+      "generated_at": "2026-11-18T15:49:03+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "This structure exists as a pair of nuclear complexes found in the cerebral hemispheres of all vertebrates.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f2",
+          "statement": "The amygdala is classified as a component of the limbic system.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f3",
+          "statement": "In primate brains, this region sits on the inner side of the temporal lobes.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f4",
+          "statement": "The structure is composed of numerous nuclei, which are themselves divided into smaller subnuclei.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f5",
+          "statement": "The most frequent division of the amygdala includes basolateral, central, cortical, and medial nuclei along with intercalated cell clusters.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f6",
+          "statement": "This brain area is primarily responsible for handling memory, making decisions, and generating emotional reactions such as fear, anxiety, and aggression.",
+          "kind": "function"
+        },
+        {
+          "id": "f7",
+          "statement": "Karl Friedrich Burdach was the first person to identify and give a name to this structure in the year 1822.",
+          "kind": "other"
+        }
+      ],
+      "rejected": [],
+      "about": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "The amygdala exists as a pair of nuclear complexes within the limbic system, located on the inner side of the temporal lobes in primate brains.",
+            "fact_ids": [
+              "f1",
+              "f2",
+              "f3"
+            ]
+          },
+          {
+            "text": "This structure consists of numerous nuclei divided into smaller subnuclei, with the most frequent division including basolateral, central, cortical, and medial nuclei along with intercalated cell clusters.",
+            "fact_ids": [
+              "f4",
+              "f5"
+            ]
+          },
+          {
+            "text": "It is primarily responsible for handling memory, making decisions, and generating emotional reactions such as fear, anxiety, and aggression.",
+            "fact_ids": [
+              "f6"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "La amígdala existe como un par de complejos nucleares dentro del sistema límbico, situada en la cara medial de los lóbulos temporales en el cerebro de los primates.",
+            "fact_ids": [
+              "f1",
+              "f2",
+              "f3"
+            ]
+          },
+          {
+            "text": "Esta estructura está compuesta por numerosos núcleos divididos en subnúcleos más pequeños, siendo la división más frecuente la que incluye los núcleos basolateral, central, cortical y medial, junto con cúmulos de células intercaladas.",
+            "fact_ids": [
+              "f4",
+              "f5"
+            ]
+          },
+          {
+            "text": "Su función principal consiste en procesar la memoria, tomar decisiones y generar reacciones emocionales como el miedo, la ansiedad y la agresión.",
+            "fact_ids": [
+              "f6"
+            ]
+          }
+        ]
+      }
+    },
+    "brainstem": {
+      "revid": 1363586724,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1363586724",
+      "source_es": "https://es.wikipedia.org/w/index.php?oldid=175621867",
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "atlas_facts": "atlas-facts-v1 (adapted from lab-facts-v2 for Neuro Atlas's regions, v212)",
+        "atlas_write_en": "atlas-write-en-v1 (adapted from lab-write-en-v1 for Neuro Atlas's regions, v212)",
+        "adapt_es": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)"
+      },
+      "generated_at": "2026-11-18T19:39:38+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "The brainstem is the stalk-like structure at the back of the brain that links the cerebrum to the spinal cord.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f2",
+          "statement": "The midbrain connects to the thalamus through the tentorial notch, and the diencephalon is sometimes considered part of the brainstem.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f3",
+          "statement": "The brainstem is very small, accounting for only about 2.6 percent of the brain's total weight.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f4",
+          "statement": "It plays a critical role in regulating heart and respiratory functions, including heart rate and breathing rate.",
+          "kind": "function"
+        },
+        {
+          "id": "f5",
+          "statement": "The brainstem supplies the main motor and sensory nerves to the face and neck through the cranial nerves.",
+          "kind": "function"
+        },
+        {
+          "id": "f6",
+          "statement": "Ten pairs of cranial nerves originate from the brainstem.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f7",
+          "statement": "The brainstem carries motor and sensory pathways between the rest of the brain and the body, including the corticospinal tract, dorsal column-medial lemniscus pathway, and spinothalamic tract.",
+          "kind": "function"
+        }
+      ],
+      "rejected": [
+        "statement copies the source wording",
+        "statement copies the source wording"
+      ],
+      "about": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "The brainstem is a small, stalk-like structure at the back of the brain that links the cerebrum to the spinal cord, accounting for about 2.6 percent of the brain's total weight.",
+            "fact_ids": [
+              "f1",
+              "f3"
+            ]
+          },
+          {
+            "text": "It regulates vital functions such as heart rate and breathing, while supplying ten pairs of cranial nerves that provide motor and sensory connections to the face and neck.",
+            "fact_ids": [
+              "f4",
+              "f5",
+              "f6"
+            ]
+          },
+          {
+            "text": "Additionally, the brainstem carries major motor and sensory pathways, including the corticospinal tract, dorsal column-medial lemniscus pathway, and spinothalamic tract, between the rest of the brain and the body.",
+            "fact_ids": [
+              "f7"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "El tronco encefálico es una estructura pequeña y de forma de tallo, situada en la parte posterior del cerebro, que conecta el encéfalo con la médula espinal y representa aproximadamente el 2,6 % del peso total del cerebro.",
+            "fact_ids": [
+              "f1",
+              "f3"
+            ]
+          },
+          {
+            "text": "Regula funciones vitales como la frecuencia cardíaca y la respiración, y da origen a diez pares de nervios craneales que proporcionan conexiones motoras y sensoriales a la cara y el cuello.",
+            "fact_ids": [
+              "f4",
+              "f5",
+              "f6"
+            ]
+          },
+          {
+            "text": "Además, el tronco encefálico transporta las principales vías motoras y sensoriales, como el tracto piramidal, la vía espinotalámica y el lemnisco medial de la columna dorsal, entre el resto del cerebro y el cuerpo.",
+            "fact_ids": [
+              "f7"
+            ]
+          }
+        ]
+      }
+    },
     "ventricles": {
       "revid": 1371408000,
       "source": "https://en.wikipedia.org/w/index.php?oldid=1371408000",
@@ -865,10 +862,7 @@
       ],
       "rejected": [],
       "about": {
-        "status": "failed_es",
-        "problems": [
-          "sentence 2: words not in the Spanish dictionary ['miñojos']"
-        ],
+        "status": "drafted",
         "en": [
           {
             "text": "The optic chiasm, the specific area where the optic nerves intersect, sits at the base of the brain directly beneath the hypothalamus.",
@@ -894,7 +888,7 @@
             ]
           },
           {
-            "text": "Todas las especies de vertebrados poseen esta estructura, aunque en las lampreas y los miñojos se encuentra en el interior del cerebro y no en su base.",
+            "text": "Todas las especies de vertebrados poseen esta estructura, aunque en las lampreas y los mixinos se encuentra dentro del cerebro en lugar de en su base.",
             "fact_ids": [
               "f4",
               "f5"
@@ -903,7 +897,7 @@
         ]
       },
       "es_generator": "groq/qwen/qwen3.8-27b",
-      "es_generated_at": "2026-11-18T22:37:37+00:00"
+      "es_generated_at": "2026-11-25T00:05:36+00:00"
     },
     "hypothalamus": {
       "revid": 1385824732,

@@ -109,5 +109,5 @@ Su reloj de 14 días mide si el pipeline corre solo. Por eso los comandos nuevos
 ## Lo que queda
 - *Pendiente (Sofía):* su revisión de los textos de Lab y de Atlas, del glosario, de las búsquedas por región y por técnica, de los grados de equivalencia y de las enfermedades.
 - Los «Límites» de confocal, electrofisiología, western blot y quimiogenética: Sofía dio una revisión de PMC para cada una (24-11); falta comprobar su licencia y redactarlos (LLM, con OK de Aday). Los de optogenética salieron de su sección (v217).
-- El reintento de los 4 textos que suspendieron (hipocampo, quiasma óptico, «Límites» de fiber photometry y de perfusión) con los prompts de la v232: necesita el OK de Aday.
+- Reintento de los 4 textos (v239): el hipocampo y el quiasma óptico pasan y entran en su cola. Siguen con su hueco los «Límites» de fiber photometry (español: «puede» por «may») y de perfusión (inglés: pierde el «can»); otro intento con el mismo modelo tiene pocas opciones, así que queda para que Aday decida (otro modelo o que los escriba Sofía).
 - La revisión de la introducción humano–rata, *pendiente (Sofía)*.
