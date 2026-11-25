@@ -195,6 +195,198 @@
         ]
       }
     },
+    "zona incerta": {
+      "revid": 1379565464,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1379565464",
+      "source_es": "https://es.wikipedia.org/w/index.php?oldid=120189587",
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "atlas_facts": "atlas-facts-v1 (adapted from lab-facts-v2 for Neuro Atlas's regions, v212)",
+        "atlas_write_en": "atlas-write-en-v1 (adapted from lab-write-en-v1 for Neuro Atlas's regions, v212)",
+        "wiki_adapt_es": "wiki-adapt-es-v2 (from s5-adapt-es-v2 for the fixed texts drafted from Wikipedia, v232); v2: «helping» is «ayudando a», v239"
+      },
+      "generated_at": "2026-11-25T20:31:53+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "This small, horizontally stretched nucleus sits between the thalamus and the subthalamic nucleus.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f2",
+          "statement": "Neural links from this area reach from the cerebral cortex all the way down to the spinal cord.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f3",
+          "statement": "While its exact role remains unclear, it may help integrate limbic and motor systems by regulating visceral responses, pain, sensory filtering, and brain rhythm synchronization.",
+          "kind": "function"
+        },
+        {
+          "id": "f4",
+          "statement": "Problems in this region could contribute to the development of central pain syndrome.",
+          "kind": "clinical"
+        },
+        {
+          "id": "f5",
+          "statement": "Researchers view this nucleus as a potential target for deep brain stimulation in the treatment of Parkinson's disease.",
+          "kind": "clinical"
+        },
+        {
+          "id": "f6",
+          "statement": "Auguste Forel first identified this area in 1877, describing it as a region about which little was known.",
+          "kind": "other"
+        },
+        {
+          "id": "f7",
+          "statement": "In 2007, researchers at Université Laval highlighted that this area remains one of the least investigated parts of the brain, often missing from textbook indexes.",
+          "kind": "other"
+        }
+      ],
+      "rejected": [],
+      "about": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "The zona incerta is a small, horizontally stretched nucleus located between the thalamus and the subthalamic nucleus.",
+            "fact_ids": [
+              "f1"
+            ]
+          },
+          {
+            "text": "Neural connections from this region extend from the cerebral cortex down to the spinal cord.",
+            "fact_ids": [
+              "f2"
+            ]
+          },
+          {
+            "text": "Although its precise function is not fully understood, it may integrate limbic and motor systems by regulating visceral responses, pain, sensory filtering, and brain rhythm synchronization.",
+            "fact_ids": [
+              "f3"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "La zona incierta es un núcleo pequeño y alargado horizontalmente, situado entre el tálamo y el núcleo subtalámico.",
+            "fact_ids": [
+              "f1"
+            ]
+          },
+          {
+            "text": "Las conexiones neuronales de esta región se extienden desde la corteza cerebral hasta la médula espinal.",
+            "fact_ids": [
+              "f2"
+            ]
+          },
+          {
+            "text": "Aunque su función exacta no se comprende del todo, podría integrar los sistemas límbico y motor al regular las respuestas viscerales, el dolor, el filtrado sensorial y la sincronización de los ritmos cerebrales.",
+            "fact_ids": [
+              "f3"
+            ]
+          }
+        ]
+      }
+    },
+    "substantia nigra": {
+      "revid": 1368891149,
+      "source": "https://en.wikipedia.org/w/index.php?oldid=1368891149",
+      "source_es": "https://es.wikipedia.org/w/index.php?oldid=166319917",
+      "generator": "groq/qwen/qwen3.8-27b",
+      "prompts": {
+        "atlas_facts": "atlas-facts-v1 (adapted from lab-facts-v2 for Neuro Atlas's regions, v212)",
+        "atlas_write_en": "atlas-write-en-v1 (adapted from lab-write-en-v1 for Neuro Atlas's regions, v212)",
+        "wiki_adapt_es": "wiki-adapt-es-v2 (from s5-adapt-es-v2 for the fixed texts drafted from Wikipedia, v232); v2: «helping» is «ayudando a», v239"
+      },
+      "generated_at": "2026-11-25T20:31:53+00:00",
+      "facts": [
+        {
+          "id": "f1",
+          "statement": "This structure is situated within the midbrain and is classified as part of the basal ganglia.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f2",
+          "statement": "The region is involved in processing rewards and controlling motor actions.",
+          "kind": "function"
+        },
+        {
+          "id": "f3",
+          "statement": "Certain sections look darker than surrounding tissue because dopamine-producing cells contain high amounts of neuromelanin.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f4",
+          "statement": "A defining feature of Parkinson's disease is the death of dopamine neurons in the compact part of this region.",
+          "kind": "clinical"
+        },
+        {
+          "id": "f5",
+          "statement": "Despite appearing as a single band, the region is composed of two distinct subdivisions called the pars compacta and the pars reticulata.",
+          "kind": "anatomy"
+        },
+        {
+          "id": "f6",
+          "statement": "The pars compacta primarily sends dopamine to the striatum as part of the basal ganglia circuit.",
+          "kind": "function"
+        },
+        {
+          "id": "f7",
+          "statement": "The pars reticulata transmits information from the basal ganglia to many other areas of the brain.",
+          "kind": "function"
+        }
+      ],
+      "rejected": [],
+      "about": {
+        "status": "drafted",
+        "en": [
+          {
+            "text": "Located within the midbrain as part of the basal ganglia, the substantia nigra consists of two distinct subdivisions known as the pars compacta and the pars reticulata.",
+            "fact_ids": [
+              "f1",
+              "f5"
+            ]
+          },
+          {
+            "text": "Certain sections appear darker than surrounding tissue because dopamine-producing cells contain high amounts of neuromelanin.",
+            "fact_ids": [
+              "f3"
+            ]
+          },
+          {
+            "text": "The region processes rewards and controls motor actions, with the pars compacta sending dopamine to the striatum while the pars reticulata transmits information to other brain areas.",
+            "fact_ids": [
+              "f2",
+              "f6",
+              "f7"
+            ]
+          }
+        ],
+        "es": [
+          {
+            "text": "Situada en el mesencéfalo como parte de los ganglios basales, la sustancia negra se compone de dos subdivisiones distintas: la pars compacta y la pars reticulata.",
+            "fact_ids": [
+              "f1",
+              "f5"
+            ]
+          },
+          {
+            "text": "Algunas secciones se ven más oscuras que el tejido circundante porque las células productoras de dopamina contienen grandes cantidades de neuromelanina.",
+            "fact_ids": [
+              "f3"
+            ]
+          },
+          {
+            "text": "Esta región procesa las recompensas y controla las acciones motoras; la pars compacta envía dopamina al estriado, mientras que la pars reticulata transmite información a otras áreas cerebrales.",
+            "fact_ids": [
+              "f2",
+              "f6",
+              "f7"
+            ]
+          }
+        ]
+      }
+    },
     "internal": {
       "revid": 1385842704,
       "source": "https://en.wikipedia.org/w/index.php?oldid=1385842704",
