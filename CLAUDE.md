@@ -106,6 +106,7 @@ uv run syn ingest journals                # RSS de Nature, Science y Cell (Cross
 uv run syn ingest news                    # SINC, The Conversation y ScienceDaily
 uv run syn ingest openalex                # tema y citas por DOI de las revistas generalistas
 uv run syn ingest classics                # los más citados de cada subcampo, una vez por semana (Clásicos)
+uv run syn news classics --titles F --start-week 2026-W48 --chosen-at D --source S [--doi N=DOI] [--lang N=es]   # la lista de Clásicos de Sofía con los metadatos de OpenAlex → src/synaptica/news/classics_sofia.json (a mano; sin LLM): 5 por semana en su orden
 uv run syn news neuro [--provider groq]   # ¿es neurociencia? reglas de OpenAlex; el LLM solo con --provider
 uv run syn news classify --provider groq [--budget 1020]  # tipo de cada pieza de Neuro News (lee el almacén: antes syn build); se corta solo a los 17 min
 uv run syn news group --provider groq [--budget 150]   # misma noticia entre medios e idiomas (pares al LLM); se corta solo a los 150 s

@@ -17,6 +17,10 @@ lags and says nothing of concerns or corrections. Rule (Aday, 2026-11-14): a ret
 partially retracted work is never proposed; a concern or a correction is proposed with
 its signal, and she decides; a work she picked that is retracted later stays on the site
 with its signal. Without a warehouse there is no proposal: none goes out unchecked.
+
+**Her own list (v238).** Since 2026-11-24 the Clásicos come from the list she wrote
+(:mod:`synaptica.news.sofia_classics`): while ``classics_sofia.json`` exists, no proposal
+goes to her queue and the site shows that week's part of her list.
 """
 
 from __future__ import annotations
@@ -60,6 +64,12 @@ def integrity(warehouse: Path, dois: list[str]) -> dict[str, dict[str, Any]]:
         return {r[0]: dict(zip(cols, r, strict=True)) for r in cur.fetchall()}
 
 
+def _signal(n: dict[str, Any]) -> dict[str, Any]:
+    return {"integrity": n.get("integrity", "none"),
+            "integrity_notices": n.get("integrity_notices") or [],
+            "integrity_sources": n.get("integrity_sources") or []}  # fmt: skip
+
+
 def item_id(week: str) -> str:
     return f"classics-{week.lower()}"
 
@@ -95,6 +105,10 @@ def proposal(
 ) -> ReviewItem | None:
     """This week's Clásicos item, or None without a listing of this week (or without a
     warehouse to check their notices in). Retracted works are left out."""
+    from synaptica.news import sofia_classics
+
+    if sofia_classics.load() is not None:
+        return None  # her own list is the choice (v238)
     week = listing.iso_week(today)
     rows = {k: v for k, v in listing.latest(raw_root, today).items() if v.get("week") == week}
     if not rows:
@@ -131,7 +145,14 @@ def approved(
 ) -> list[dict[str, Any]]:
     """The works of her newest pick, most cited first, with their subfield and their
     integrity signal; [] until she has chosen. A DOI whose metadata is no longer in the
-    listings is left out."""
+    listings is left out. With her own list (v238), this week's part of it, in her order."""
+    from synaptica.news import sofia_classics
+
+    if (hers := sofia_classics.load()) is not None:
+        works = [sofia_classics.shown(w) for w in sofia_classics.of_week(hers, today)]
+        notices = integrity(warehouse, [w["doi"] for w in works if w["doi"]])
+        return [{**w, "subfield": NAMES.get(w["subfield_id"] or ""),
+                 **_signal(notices.get(w["doi"] or "", {}))} for w in works]  # fmt: skip
     picks = _picks(review_dir)
     if not picks:
         return []
@@ -139,8 +160,6 @@ def approved(
     meta = listing.works_by_doi(raw_root, today)
     notices = integrity(warehouse, [d for d in chosen if d in meta])
     works = [{**meta[d], "subfield": NAMES.get(meta[d]["subfield_id"]),
-              "integrity": notices.get(d, {}).get("integrity", "none"),
-              "integrity_notices": notices.get(d, {}).get("integrity_notices") or [],
-              "integrity_sources": notices.get(d, {}).get("integrity_sources") or []}
+              "url": f"https://doi.org/{d}", "lang": "en", **_signal(notices.get(d, {}))}
              for d in dict.fromkeys(chosen) if d in meta]  # fmt: skip
     return sorted(works, key=lambda w: (-w["cited_by"], w["doi"]))

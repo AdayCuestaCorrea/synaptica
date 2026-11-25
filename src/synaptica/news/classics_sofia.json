@@ -1,0 +1,727 @@
+{
+ "chosen_by": "sofia",
+ "chosen_at": "2026-11-24",
+ "source": "Hoja «Preguntas para Sofía», fila 3 (pegada por Aday el 2026-11-24)",
+ "start_week": "2026-W48",
+ "per_week": 5,
+ "works": [
+  {
+   "title_hers": "Estructura de los centros nerviosos de las aves",
+   "openalex": "W2607024291",
+   "doi": null,
+   "title": "Estructura de los centros nerviosos de las Aves",
+   "year": 1888,
+   "cited_by": 433,
+   "subfield_id": "2702",
+   "match": "exact",
+   "lang": "es"
+  },
+  {
+   "title_hers": "A quantitative description of membrane current and its application to conduction and excitation in nerve",
+   "openalex": "W1985940938",
+   "doi": "10.1113/jphysiol.1952.sp004764",
+   "title": "A quantitative description of membrane current and its application to conduction and excitation in nerve",
+   "year": 1952,
+   "cited_by": 27055,
+   "subfield_id": "1312",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Spontaneous subthreshold activity at motor nerve endings",
+   "openalex": "W2102492718",
+   "doi": "10.1113/jphysiol.1952.sp004735",
+   "title": "Spontaneous subthreshold activity at motor nerve endings",
+   "year": 1952,
+   "cited_by": 2103,
+   "subfield_id": "2804",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Quantal components of the end-plate potential",
+   "openalex": "W2106081526",
+   "doi": "10.1113/jphysiol.1954.sp005129",
+   "title": "Quantal components of the end‐plate potential",
+   "year": 1954,
+   "cited_by": 2496,
+   "subfield_id": "1312",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Long-lasting potentiation of synaptic transmission in the dentate area of the anaesthetized rabbit following stimulation of the perforant path",
+   "openalex": "W7214220836",
+   "doi": "10.1113/jphysiol.1973.sp010273",
+   "title": "Long‐lasting potentiation of synaptic transmission in the dentate area of the anaesthetized rabbit following stimulation of the perforant path",
+   "year": 1973,
+   "cited_by": 8081,
+   "subfield_id": "2804",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Single-channel currents recorded from membrane of denervated frog muscle fibres",
+   "openalex": "W1971880089",
+   "doi": "10.1038/260799a0",
+   "title": "Single-channel currents recorded from membrane of denervated frog muscle fibres",
+   "year": 1976,
+   "cited_by": 3332,
+   "subfield_id": "1312",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Modality and topographic properties of single neurons of cat's somatic sensory cortex",
+   "openalex": "W2253776861",
+   "doi": "10.1152/jn.1957.20.4.408",
+   "title": "MODALITY AND TOPOGRAPHIC PROPERTIES OF SINGLE NEURONS OF CAT'S SOMATIC SENSORY CORTEX",
+   "year": 1957,
+   "cited_by": 2754,
+   "subfield_id": "2805",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Receptive fields of single neurones in the cat's striate cortex",
+   "openalex": "W2103212315",
+   "doi": "10.1113/jphysiol.1959.sp006308",
+   "title": "Receptive fields of single neurones in the cat's striate cortex",
+   "year": 1959,
+   "cited_by": 5928,
+   "subfield_id": "2805",
+   "match": "exact"
+  },
+  {
+   "title_hers": "The hippocampus as a spatial map. Preliminary evidence from unit activity in the freely-moving rat",
+   "openalex": "W2052515926",
+   "doi": "10.1016/0006-8993(71)90358-1",
+   "title": "The hippocampus as a spatial map. Preliminary evidence from unit activity in the freely-moving rat",
+   "year": 1971,
+   "cited_by": 7498,
+   "subfield_id": "2805",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Neuronal population coding of movement direction",
+   "openalex": "W2040739363",
+   "doi": "10.1126/science.3749885",
+   "title": "Neuronal Population Coding of Movement Direction",
+   "year": 1986,
+   "cited_by": 3588,
+   "subfield_id": "2805",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Action recognition in the premotor cortex",
+   "openalex": "W2120019338",
+   "doi": "10.1093/brain/119.2.593",
+   "title": "Action recognition in the premotor cortex",
+   "year": 1996,
+   "cited_by": 6028,
+   "subfield_id": "3207",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Microstructure of a spatial map in the entorhinal cortex",
+   "openalex": "W1970792572",
+   "doi": "10.1038/nature03721",
+   "title": "Microstructure of a spatial map in the entorhinal cortex",
+   "year": 2005,
+   "cited_by": 4882,
+   "subfield_id": "2805",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Loss of recent memory after bilateral hippocampal lesions",
+   "openalex": "W2410446460",
+   "doi": "10.1136/jnnp.20.1.11",
+   "title": "LOSS OF RECENT MEMORY AFTER BILATERAL HIPPOCAMPAL LESIONS",
+   "year": 1957,
+   "cited_by": 9282,
+   "subfield_id": "2805",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Some general aspects of interhemispheric integration",
+   "match": "none"
+  },
+  {
+   "title_hers": "Encoding specificity and retrieval processes in episodic memory",
+   "openalex": "W2021625970",
+   "doi": "10.1037/h0020071",
+   "title": "Encoding specificity and retrieval processes in episodic memory.",
+   "year": 1973,
+   "cited_by": 5518,
+   "subfield_id": "2805",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Time of conscious intention to act in relation to onset of cerebral activity (readiness-potential)",
+   "openalex": "W2615531356",
+   "doi": "10.1093/brain/106.3.623",
+   "title": "TIME OF CONSCIOUS INTENTION TO ACT IN RELATION TO ONSET OF CEREBRAL ACTIVITY (READINESS-POTENTIAL): THE UNCONSCIOUS INITIATION OF A FREELY VOLUNTARY ACT",
+   "year": 1983,
+   "cited_by": 3250,
+   "subfield_id": "1211",
+   "match": "doi"
+  },
+  {
+   "title_hers": "Insensitivity to future consequences following damage to human prefrontal cortex",
+   "openalex": "W2170256757",
+   "doi": "10.1016/0010-0277(94)90018-3",
+   "title": "Insensitivity to future consequences following damage to human prefrontal cortex",
+   "year": 1994,
+   "cited_by": 7386,
+   "subfield_id": "2805",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Navigation-related structural change in the hippocampi of taxi drivers",
+   "openalex": "W2133188546",
+   "doi": "10.1073/pnas.070039597",
+   "title": "Navigation-related structural change in the hippocampi of taxi drivers",
+   "year": 2000,
+   "cited_by": 3989,
+   "subfield_id": "2805",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Über eine eigenartige Erkrankung der Hirnrinde",
+   "openalex": "W857238335",
+   "doi": null,
+   "title": "Uber eine eigenartige Erkrankung der Hirnrinde",
+   "year": 1907,
+   "cited_by": 3008,
+   "subfield_id": "2808",
+   "match": "exact",
+   "lang": "de"
+  },
+  {
+   "title_hers": "Verteilung von Noradrenalin und Dopamin (3-Hydroxytyramin) im Gehirn des Menschen und ihr Verhalten bei Erkrankungen des extrapyramidalen Systems",
+   "openalex": "W175006040",
+   "doi": "10.1007/bf01485901",
+   "title": "Verteilung Von Noradrenalin Und Dopamin (3-Hydroxytyramin) Im Gehirn Des Menschen Und Ihr Verhalten Bei Erkrankungen Des Extrapyramidalen Systems",
+   "year": 1960,
+   "cited_by": 2241,
+   "subfield_id": "2804",
+   "match": "exact",
+   "lang": "de"
+  },
+  {
+   "title_hers": "Alzheimer's disease: the amyloid cascade hypothesis",
+   "openalex": "W2103440561",
+   "doi": "10.1126/science.1566067",
+   "title": "Alzheimer's Disease: The Amyloid Cascade Hypothesis",
+   "year": 1992,
+   "cited_by": 8957,
+   "subfield_id": "2804",
+   "match": "exact"
+  },
+  {
+   "title_hers": "A novel gene containing a trinucleotide repeat that is expanded and unstable on Huntington's disease chromosomes",
+   "openalex": "W2121642311",
+   "doi": "10.1016/0092-8674(93)90585-e",
+   "title": "A novel gene containing a trinucleotide repeat that is expanded and unstable on Huntington's disease chromosomes",
+   "year": 1993,
+   "cited_by": 9567,
+   "subfield_id": "2804",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Mutation in the alpha-synuclein gene identified in families with Parkinson's disease",
+   "openalex": "W2150656456",
+   "doi": "10.1126/science.276.5321.2045",
+   "title": "Mutation in the α-Synuclein Gene Identified in Families with Parkinson's Disease",
+   "year": 1997,
+   "cited_by": 9555,
+   "subfield_id": "2728",
+   "match": "doi"
+  },
+  {
+   "title_hers": "Alpha-synuclein in Lewy bodies",
+   "openalex": "W1527671059",
+   "doi": "10.1038/42166",
+   "title": "α-Synuclein in Lewy bodies",
+   "year": 1997,
+   "cited_by": 9750,
+   "subfield_id": "2728",
+   "match": "doi"
+  },
+  {
+   "title_hers": "Staging of brain pathology related to sporadic Parkinson's disease",
+   "openalex": "W2073449985",
+   "doi": "10.1016/s0197-4580(02)00065-9",
+   "title": "Staging of brain pathology related to sporadic Parkinson’s disease",
+   "year": 2002,
+   "cited_by": 12490,
+   "subfield_id": "2728",
+   "match": "exact"
+  },
+  {
+   "title_hers": "The catecholamine hypothesis of affective disorders: a review of supporting evidence",
+   "openalex": "W2072219714",
+   "doi": "10.1176/ajp.122.5.509",
+   "title": "THE CATECHOLAMINE HYPOTHESIS OF AFFECTIVE DISORDERS: A REVIEW OF SUPPORTING EVIDENCE",
+   "year": 1965,
+   "cited_by": 4068,
+   "subfield_id": "2736",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Antipsychotic drug doses and neuroleptic/dopamine receptors",
+   "openalex": "W2092416470",
+   "doi": "10.1038/261717a0",
+   "title": "Antipsychotic drug doses and neuroleptic/dopamine receptors",
+   "year": 1976,
+   "cited_by": 1884,
+   "subfield_id": "2738",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Cingulate function in depression: a potential predictor of treatment response",
+   "openalex": "W1972777532",
+   "doi": "10.1097/00001756-199703030-00048",
+   "title": "Cingulate function in depression: a potential predictor of treatment response",
+   "year": 1997,
+   "cited_by": 1133,
+   "subfield_id": "2736",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Antidepressant effects of ketamine in depressed patients",
+   "openalex": "W2023081218",
+   "doi": "10.1016/s0006-3223(99)00230-9",
+   "title": "Antidepressant effects of ketamine in depressed patients",
+   "year": 2000,
+   "cited_by": 4306,
+   "subfield_id": "2736",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Deep brain stimulation for treatment-resistant depression",
+   "openalex": "W2777987555",
+   "doi": "10.1016/j.neuron.2005.02.014",
+   "title": "Deep Brain Stimulation for Treatment-Resistant Depression",
+   "year": 2005,
+   "cited_by": 4474,
+   "subfield_id": "2728",
+   "match": "exact"
+  },
+  {
+   "title_hers": "mTOR-dependent synapse formation underlies the rapid antidepressant effects of NMDA antagonists",
+   "openalex": "W2089351762",
+   "doi": "10.1126/science.1190287",
+   "title": "mTOR-Dependent Synapse Formation Underlies the Rapid Antidepressant Effects of NMDA Antagonists",
+   "year": 2010,
+   "cited_by": 3148,
+   "subfield_id": "2736",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Positive reinforcement produced by electrical stimulation of septal area and other regions of rat brain",
+   "openalex": "W2025440394",
+   "doi": "10.1037/h0058775",
+   "title": "Positive reinforcement produced by electrical stimulation of septal area and other regions of rat brain.",
+   "year": 1954,
+   "cited_by": 4009,
+   "subfield_id": "2804",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Drugs abused by humans preferentially increase synaptic dopamine concentrations in the mesolimbic system of freely moving rats",
+   "openalex": "W2165398609",
+   "doi": "10.1073/pnas.85.14.5274",
+   "title": "Drugs abused by humans preferentially increase synaptic dopamine concentrations in the mesolimbic system of freely moving rats.",
+   "year": 1988,
+   "cited_by": 5397,
+   "subfield_id": "2804",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Structure of a cannabinoid receptor and functional expression of the cloned cDNA",
+   "openalex": "W2075894678",
+   "doi": "10.1038/346561a0",
+   "title": "Structure of a cannabinoid receptor and functional expression of the cloned cDNA",
+   "year": 1990,
+   "cited_by": 5788,
+   "subfield_id": "2736",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Isolation and structure of a brain constituent that binds to the cannabinoid receptor",
+   "openalex": "W1989073099",
+   "doi": "10.1126/science.1470919",
+   "title": "Isolation and Structure of a Brain Constituent That Binds to the Cannabinoid Receptor",
+   "year": 1992,
+   "cited_by": 6505,
+   "subfield_id": "2736",
+   "match": "exact"
+  },
+  {
+   "title_hers": "The neural basis of drug craving: an incentive-sensitization theory of addiction",
+   "openalex": "W2106862702",
+   "doi": "10.1016/0165-0173(93)90013-p",
+   "title": "The neural basis of drug craving: An incentive-sensitization theory of addiction",
+   "year": 1993,
+   "cited_by": 8398,
+   "subfield_id": "2804",
+   "match": "exact"
+  },
+  {
+   "title_hers": "A neural substrate of prediction and reward",
+   "openalex": "W2117726420",
+   "doi": "10.1126/science.275.5306.1593",
+   "title": "A Neural Substrate of Prediction and Reward",
+   "year": 1997,
+   "cited_by": 10976,
+   "subfield_id": "2804",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Addiction and the brain: the neurobiology of compulsion and its persistence",
+   "openalex": "W2011275122",
+   "doi": "10.1038/35094560",
+   "title": "Addiction and the brain: The neurobiology of compulsion and its persistence",
+   "year": 2001,
+   "cited_by": 1524,
+   "subfield_id": "2804",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Receptive fields of cells in striate cortex of very young, visually inexperienced kittens",
+   "openalex": "W1757333299",
+   "doi": "10.1152/jn.1963.26.6.994",
+   "title": "RECEPTIVE FIELDS OF CELLS IN STRIATE CORTEX OF VERY YOUNG, VISUALLY INEXPERIENCED KITTENS",
+   "year": 1963,
+   "cited_by": 1276,
+   "subfield_id": "2805",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Autoradiographic and histological evidence of postnatal hippocampal neurogenesis in rats",
+   "openalex": "W1980499453",
+   "doi": "10.1002/cne.901240303",
+   "title": "Autoradiographic and histological evidence of postnatal hippocampal neurogenesis in rats",
+   "year": 1965,
+   "cited_by": 4300,
+   "subfield_id": "2806",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Regulation of axon number in primate optic nerve by prenatal binocular competition",
+   "openalex": "W2083082790",
+   "doi": "10.1038/305135a0",
+   "title": "Regulation of axon number in primate optic nerve by prenatal binocular competition",
+   "year": 1983,
+   "cited_by": 114,
+   "subfield_id": "2804",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Neurogenesis in the adult human hippocampus",
+   "openalex": "W2067856703",
+   "doi": "10.1038/3305",
+   "title": "Neurogenesis in the adult human hippocampus",
+   "year": 1998,
+   "cited_by": 7518,
+   "subfield_id": "2806",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Dynamic mapping of human cortical development during childhood through early adulthood",
+   "openalex": "W2120731293",
+   "doi": "10.1073/pnas.0402680101",
+   "title": "Dynamic mapping of human cortical development during childhood through early adulthood",
+   "year": 2004,
+   "cited_by": 6625,
+   "subfield_id": "2805",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Cerebral organoids model human brain development and microcephaly",
+   "openalex": "W2018286352",
+   "doi": "10.1038/nature12517",
+   "title": "Cerebral organoids model human brain development and microcephaly",
+   "year": 2013,
+   "cited_by": 5934,
+   "subfield_id": "2806",
+   "match": "exact"
+  },
+  {
+   "title_hers": "El tercer elemento de los centros nerviosos",
+   "openalex": "W3216742182",
+   "doi": null,
+   "title": "El tercer elemento de los centros nerviosos ; I. La microglia en estado normal. II. Intervencion de la microglia en los processos patologic os. III. Naturaleza probable de la microglia",
+   "year": 1919,
+   "cited_by": 220,
+   "subfield_id": "2808",
+   "match": "doi",
+   "lang": "es"
+  },
+  {
+   "title_hers": "Glutamate-mediated astrocyte-neuron signalling",
+   "openalex": "W2017523469",
+   "doi": "10.1038/369744a0",
+   "title": "Glutamate-mediated astrocyte–neuron signalling",
+   "year": 1994,
+   "cited_by": 1987,
+   "subfield_id": "2804",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Synaptic efficacy enhanced by glial cells in vitro",
+   "openalex": "W1996603253",
+   "doi": "10.1126/science.277.5332.1684",
+   "title": "Synaptic Efficacy Enhanced by Glial Cells in Vitro",
+   "year": 1997,
+   "cited_by": 930,
+   "subfield_id": "2804",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Resting microglial cells are highly dynamic surveillants of brain parenchyma in vivo",
+   "openalex": "W2094660330",
+   "doi": "10.1126/science.1110647",
+   "title": "Resting Microglial Cells Are Highly Dynamic Surveillants of Brain Parenchyma in Vivo",
+   "year": 2005,
+   "cited_by": 6941,
+   "subfield_id": "2808",
+   "match": "exact"
+  },
+  {
+   "title_hers": "The classical complement cascade mediates CNS synapse elimination",
+   "openalex": "W2096327192",
+   "doi": "10.1016/j.cell.2007.10.036",
+   "title": "The Classical Complement Cascade Mediates CNS Synapse Elimination",
+   "year": 2007,
+   "cited_by": 3736,
+   "subfield_id": "2403",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Microglia sculpt postnatal neural circuits in an activity and complement-dependent manner",
+   "openalex": "W2033617297",
+   "doi": "10.1016/j.neuron.2012.03.026",
+   "title": "Microglia Sculpt Postnatal Neural Circuits in an Activity and Complement-Dependent Manner",
+   "year": 2012,
+   "cited_by": 4602,
+   "subfield_id": "2808",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Structural and functional features of central nervous system lymphatic vessels",
+   "openalex": "W1588685142",
+   "doi": "10.1038/nature14432",
+   "title": "Structural and functional features of central nervous system lymphatic vessels",
+   "year": 2015,
+   "cited_by": 4970,
+   "subfield_id": "2730",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Neurotoxic reactive astrocytes are induced by activated microglia",
+   "openalex": "W2572710398",
+   "doi": "10.1038/nature21029",
+   "title": "Neurotoxic reactive astrocytes are induced by activated microglia",
+   "year": 2017,
+   "cited_by": 8789,
+   "subfield_id": "2808",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Hypothalamic control of food intake in rats and cats",
+   "openalex": "W1703545573",
+   "doi": null,
+   "title": "Hypothalamic control of food intake in rats and cats.",
+   "year": 1951,
+   "cited_by": 1477,
+   "subfield_id": "2807",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Positional cloning of the mouse obese gene and its human homologue",
+   "openalex": "W1996713062",
+   "doi": "10.1038/372425a0",
+   "title": "Positional cloning of the mouse obese gene and its human homologue",
+   "year": 1994,
+   "cited_by": 15742,
+   "subfield_id": "2807",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Orexins and orexin receptors: a family of hypothalamic neuropeptides and G protein-coupled receptors that regulate feeding behavior",
+   "openalex": "W2027740042",
+   "doi": "10.1016/s0092-8674(00)80949-6",
+   "title": "Orexins and Orexin Receptors: A Family of Hypothalamic Neuropeptides and G Protein-Coupled Receptors that Regulate Feeding Behavior",
+   "year": 1998,
+   "cited_by": 6061,
+   "subfield_id": "2807",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Ghrelin is a growth-hormone-releasing acylated peptide from stomach",
+   "openalex": "W2163865122",
+   "doi": "10.1038/45230",
+   "title": "Ghrelin is a growth-hormone-releasing acylated peptide from stomach",
+   "year": 1999,
+   "cited_by": 9533,
+   "subfield_id": "2807",
+   "match": "exact"
+  },
+  {
+   "title_hers": "AGRP neurons are sufficient to orchestrate feeding behavior rapidly and without training",
+   "openalex": "W2139359479",
+   "doi": "10.1038/nn.2739",
+   "title": "AGRP neurons are sufficient to orchestrate feeding behavior rapidly and without training",
+   "year": 2011,
+   "cited_by": 1322,
+   "subfield_id": "2807",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Sleep drives metabolite clearance from the adult brain",
+   "openalex": "W2163225965",
+   "doi": "10.1126/science.1241224",
+   "title": "Sleep Drives Metabolite Clearance from the Adult Brain",
+   "year": 2013,
+   "cited_by": 6258,
+   "subfield_id": "2805",
+   "match": "exact"
+  },
+  {
+   "title_hers": "A logical calculus of the ideas immanent in nervous activity",
+   "openalex": "W1995341919",
+   "doi": "10.1007/bf02478259",
+   "title": "A logical calculus of the ideas immanent in nervous activity",
+   "year": 1943,
+   "cited_by": 26463,
+   "subfield_id": "1702",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Neural networks and physical systems with emergent collective computational abilities",
+   "openalex": "W2128084896",
+   "doi": "10.1073/pnas.79.8.2554",
+   "title": "Neural networks and physical systems with emergent collective computational abilities.",
+   "year": 1982,
+   "cited_by": 23562,
+   "subfield_id": "1702",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Brain magnetic resonance imaging with contrast dependent on blood oxygenation",
+   "openalex": "W2071714163",
+   "doi": "10.1073/pnas.87.24.9868",
+   "title": "Brain magnetic resonance imaging with contrast dependent on blood oxygenation.",
+   "year": 1990,
+   "cited_by": 8298,
+   "subfield_id": "2741",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Millisecond-timescale, genetically targeted optical control of neural activity",
+   "openalex": "W2167095271",
+   "doi": "10.1038/nn1525",
+   "title": "Millisecond-timescale, genetically targeted optical control of neural activity",
+   "year": 2005,
+   "cited_by": 5599,
+   "subfield_id": "2804",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Neuronal ensemble control of prosthetic devices by a human with tetraplegia",
+   "openalex": "W2114004602",
+   "doi": "10.1038/nature04970",
+   "title": "Neuronal ensemble control of prosthetic devices by a human with tetraplegia",
+   "year": 2006,
+   "cited_by": 3747,
+   "subfield_id": "2805",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Evolving the lock to fit the key to create a family of G protein-coupled receptors potently activated by an inert ligand",
+   "openalex": "W1966403223",
+   "doi": "10.1073/pnas.0700293104",
+   "title": "Evolving the lock to fit the key to create a family of G protein-coupled receptors potently activated by an inert ligand",
+   "year": 2007,
+   "cited_by": 2313,
+   "subfield_id": "1312",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Structural and molecular interrogation of intact biological systems",
+   "openalex": "W2076507262",
+   "doi": "10.1038/nature12107",
+   "title": "Structural and molecular interrogation of intact biological systems",
+   "year": 2013,
+   "cited_by": 2212,
+   "subfield_id": "1304",
+   "match": "exact"
+  },
+  {
+   "title_hers": "DeepLabCut: markerless pose estimation of user-defined body parts with deep learning",
+   "openalex": "W2887114371",
+   "doi": "10.1038/s41593-018-0209-y",
+   "title": "DeepLabCut: markerless pose estimation of user-defined body parts with deep learning",
+   "year": 2018,
+   "cited_by": 5793,
+   "subfield_id": "1707",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Aromatic amino acids and modification of parkinsonism",
+   "openalex": "W2337142316",
+   "doi": "10.1056/nejm196702162760703",
+   "title": "Aromatic Amino Acids and Modification of Parkinsonism",
+   "year": 1967,
+   "cited_by": 1689,
+   "subfield_id": "2728",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Combined (thalamotomy and stimulation) stereotactic surgery of the VIM thalamic nucleus for bilateral Parkinson disease",
+   "openalex": "W2082851956",
+   "doi": "10.1159/000100803",
+   "title": "Combined (Thalamotomy and Stimulation) Stereotactic Surgery of the VIM Thalamic Nucleus for Bilateral Parkinson Disease",
+   "year": 1987,
+   "cited_by": 1739,
+   "subfield_id": "2728",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Tissue plasminogen activator for acute ischemic stroke",
+   "openalex": "W2292308933",
+   "doi": "10.1056/nejm199512143332401",
+   "title": "Tissue Plasminogen Activator for Acute Ischemic Stroke",
+   "year": 1995,
+   "cited_by": 13201,
+   "subfield_id": "2728",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Detecting awareness in the vegetative state",
+   "openalex": "W2127501699",
+   "doi": "10.1126/science.1130197",
+   "title": "Detecting Awareness in the Vegetative State",
+   "year": 2006,
+   "cited_by": 2574,
+   "subfield_id": "2728",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Reach and grasp by people with tetraplegia using a neurally controlled robotic arm",
+   "openalex": "W2087704839",
+   "doi": "10.1038/nature11076",
+   "title": "Reach and grasp by people with tetraplegia using a neurally controlled robotic arm",
+   "year": 2012,
+   "cited_by": 3103,
+   "subfield_id": "2805",
+   "match": "exact"
+  },
+  {
+   "title_hers": "Targeted neurotechnology restores walking in humans with spinal cord injury",
+   "openalex": "W2898429451",
+   "doi": "10.1038/s41586-018-0649-2",
+   "title": "Targeted neurotechnology restores walking in humans with spinal cord injury",
+   "year": 2018,
+   "cited_by": 1185,
+   "subfield_id": "2728",
+   "match": "exact"
+  }
+ ]
+}

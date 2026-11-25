@@ -451,6 +451,40 @@ def news_classify(
     )
 
 
+@news_app.command("classics")
+def news_classics(
+    titles: Annotated[Path, typer.Option(help="Her list: one title per line, in her order.")],
+    start_week: Annotated[str, typer.Option(help="ISO week of the first five, e.g. 2026-W48.")],
+    chosen_at: Annotated[str, typer.Option(help="Date of her answer (YYYY-MM-DD).")],
+    source: Annotated[str, typer.Option(help="Where her answer is recorded.")],
+    doi: Annotated[list[str] | None, typer.Option(help="N=DOI (or N=W… OpenAlex id) checked by hand.")] = None,
+    lang: Annotated[list[str] | None, typer.Option(help="N=es|de: a title not in English.")] = None,
+) -> None:
+    """Sofía's own Clásicos (v238): her titles with OpenAlex's metadata (CC0) →
+    src/synaptica/news/classics_sofia.json. By hand, never in the pipeline; no LLM."""
+    import json
+
+    from synaptica.http import make_client
+    from synaptica.news import sofia_classics
+
+    def pairs(values: list[str] | None) -> dict[int, str]:
+        return {int(k): v for k, v in (x.split("=", 1) for x in values or [])}
+
+    names = [t.strip() for t in titles.read_text("utf-8").splitlines() if t.strip()]
+    with make_client() as client:
+        data = sofia_classics.resolve(client, names, chosen_at=chosen_at, source=source,
+                                      start_week=start_week, dois=pairs(doi))  # fmt: skip
+    for n, code in pairs(lang).items():
+        data["works"][n - 1]["lang"] = code
+    sofia_classics.LIST.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n",
+                                   "utf-8")  # fmt: skip
+    for n, w in enumerate(data["works"], 1):
+        if w["match"] not in ("exact", "doi"):
+            typer.echo(f"  {n} {w['match']}: {w['title_hers']} -> {w.get('title')}", err=True)
+    typer.echo(f"Clásicos de Sofía: {len(names)} titles, "
+               f"{sum(1 for w in data['works'] if w.get('doi') or w.get('openalex'))} found")
+
+
 @news_app.command("group")
 def news_group(
     provider: ProviderOption = None,

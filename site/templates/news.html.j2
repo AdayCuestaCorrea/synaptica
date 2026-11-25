@@ -62,7 +62,7 @@
     <ol class="classics">
       {% for w in classics %}
       <li class="classic">
-        <a class="classic-title" href="https://doi.org/{{ w.doi }}" lang="en" rel="noopener">{{ w.title }}</a>
+        <a class="classic-title" href="{{ w.url }}"{% if w.lang %} lang="{{ w.lang }}"{% endif %} rel="noopener">{{ w.title }}</a>
         <p class="classic-meta">{{ w.year }} · {{ t.classics_cited.format(n=("{:,}".format(w.cited_by).replace(",", " ") if lang == "es" else "{:,}".format(w.cited_by))) }}{% if w.subfield %} · {{ w.subfield[lang] }}{% endif %}</p>
         {% if w.integrity != "none" %}{% set g = signals(w)[2] %}
         <p class="classic-integrity"><span class="chip chip--integrity is-{{ g.state }}" data-signal="integrity"><span class="vh">{{ g.label }}: </span>{{ g.short }}</span>

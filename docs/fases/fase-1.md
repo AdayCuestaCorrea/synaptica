@@ -9,7 +9,7 @@
 | Días seguidos sin intervención | **5 / 14** a 2026-11-24 (19 al 23-11, en verde en GitHub; v231), desde la ejecución programada del 2026-11-19 (reloj reiniciado en la v219 por el rojo del 2026-11-18; antes, en la v144); cierre más temprano, 2026-12-02 |
 | Visto bueno de Sofía | pendiente |
 | 14b · ~100 titulares etiquetados por Sofía: macro F1 del clasificador frente al baseline y validación del juez | pendiente (Sofía): 0 de 100 a 2026-11-24. Hasta la v231 el tope de su cola recortaba las etiquetas (8 en vez de 10, y ninguna el fin de semana) |
-| 24b · Primera elección de Clásicos | pendiente (Sofía) |
+| 24b · Primera elección de Clásicos | hecho: su propia lista de 72 artículos, 5 por semana desde la 2026-W48 (v238) |
 | 15 · Precisión y recall de la agrupación con un LLM real | hecho (v230): hoja ciega de 245 pares; un solo duplicado real, que el LLM acierta |
 | 20 · Juicio de los 101 estudios de la carga que quedaron pendientes | hecho el 2026-11-14 (run 43614465935): 88 aprobados y 13 rechazados en total; ninguno pendiente (v146) |
 | Retractaciones que solo conoce Retraction Watch (casilla de ingesta) | hecho: en `main` y en la rama `data` desde el 2026-11-13 (v140–v141) |

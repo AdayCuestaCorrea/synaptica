@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 
 import httpx
+import pytest
 
 from synaptica.http import Throttle
 from synaptica.ingest import classics as listing
@@ -17,6 +18,14 @@ from synaptica.review.models import Action, Decision, ItemType, Queue
 from test_site_news import AS_OF, build, warehouse
 
 MONDAY = dt.date(2026, 11, 16)  # ISO week 2026-W47
+
+
+@pytest.fixture(autouse=True)
+def without_her_list(tmp_path, monkeypatch):
+    """The weekly proposal, as before her own list (v238): no ``classics_sofia.json``."""
+    from synaptica.news import sofia_classics
+
+    monkeypatch.setattr(sofia_classics, "LIST", tmp_path / "no-list.json")
 
 
 def fake_openalex(calls: list[dict]) -> httpx.Client:
@@ -179,3 +188,51 @@ def test_a_candidate_without_notices_hashes_as_before() -> None:
     flagged = plain.model_copy(update={"integrity": "corrected", "integrity_notices": ["10.1/n"]})
     assert flagged.model_dump()["integrity"] == "corrected"
     assert Candidate.model_validate(flagged.model_dump()) == flagged  # round trip
+
+
+# ---- her own list (sheet row 3, 2026-11-24; v238) ------------------------------------
+
+
+def her_list(path: Path, n: int = 7) -> dict:
+    works = [{"title_hers": f"Classic {i}", "openalex": f"W{i}", "doi": f"10.9/c{i}",
+              "title": f"CLASSIC {i}", "year": 1950 + i, "cited_by": 100 * i,
+              "subfield_id": "2804", "match": "exact"} for i in range(1, n + 1)]  # fmt: skip
+    works[2] |= {"match": "closest"}  # a guess of the search: never shown
+    works[3] |= {"doi": None, "openalex": "W4", "match": "doi", "lang": "de"}  # no DOI
+    data = {"chosen_by": "sofia", "chosen_at": "2026-11-24", "source": "sheet",
+            "start_week": "2026-W48", "per_week": 5, "works": works}
+    path.write_text(json.dumps(data))
+    return data
+
+
+def test_her_list_goes_five_a_week_in_her_order_and_round_again(tmp_path: Path) -> None:
+    from synaptica.news import sofia_classics as sc
+
+    data = her_list(tmp_path / "l.json")
+    title = lambda ws: [w["title_hers"] for w in ws]  # noqa: E731
+    assert sc.of_week(data, dt.date(2026, 11, 22)) == []  # before her start week
+    assert title(sc.of_week(data, dt.date(2026, 11, 23))) == [
+        "Classic 1", "Classic 2", "Classic 4", "Classic 5", "Classic 6"]  # 3: a guess
+    assert title(sc.of_week(data, dt.date(2026, 11, 30))) == [
+        "Classic 7", "Classic 1", "Classic 2", "Classic 4", "Classic 5"]
+    assert sc.normal("Quantal components of the end\u2010plate potential") == (
+        sc.normal("Quantal components of the end-plate potential"))
+    assert sc.normal("astrocyte\u2013neuron") == sc.normal("astrocyte-neuron")
+    assert sc.normal("Über eine eigenartige") == sc.normal("Uber eine eigenartige")
+
+
+def test_with_her_list_no_proposal_and_the_site_shows_her_week(tmp_path, monkeypatch):
+    from synaptica.news import sofia_classics
+
+    data = warehouse(tmp_path / "data")
+    raw, review, wh = data / "raw", data / "review", data / "warehouse.duckdb"
+    ingest(raw, AS_OF)
+    her_list(tmp_path / "hers.json")
+    monkeypatch.setattr(sofia_classics, "LIST", tmp_path / "hers.json")
+    week = dt.date(2026, 11, 30)  # her second week: 7, 1, 2, 4, 5
+    assert classics.proposal(raw, review, week, wh) is None  # her list is the choice
+    shown = classics.approved(raw, review, week, wh)
+    assert [w["title"] for w in shown][:2] == ["Classic 7", "Classic 1"]  # her words
+    assert shown[0]["url"] == "https://doi.org/10.9/c7"
+    assert shown[3]["url"] == "https://openalex.org/W4" and shown[3]["lang"] == "de"
+    assert shown[0]["subfield"]["es"] == "Neurociencia celular y molecular"
