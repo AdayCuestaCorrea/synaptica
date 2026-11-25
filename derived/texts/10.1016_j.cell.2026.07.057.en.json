@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1016/j.cell.2026.07.057",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "e1326e8297981b26",
+ "generated_at": "2026-11-25T17:51:05+00:00",
+ "word_count": 134,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers created a mouse model by replacing a specific segment of a mouse gene with a 78-kilobase fragment from a human patient with X-linked dystonia-parkinsonism.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "In mouse embryonic stem cells, the inserted retrotransposon reduced hybrid messenger RNA levels, which decreased the activity of genes with specific promoter features and triggered cell death.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Chromatin and gene expression analysis indicated that these inserted elements are actively transcribed and likely function as barriers that slow down the process of reading genes.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Male mice carrying this humanized gene in their nerve cells died within two months, exhibiting severe shrinkage of brain tissue centered on the striatum, the same area damaged in human patients.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Using a gene-editing tool to increase hybrid mRNA production restored stem cell survival, suggesting that boosting this gene's activity might be a treatment option.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-25T18:11:26+00:00"
+ }
+}

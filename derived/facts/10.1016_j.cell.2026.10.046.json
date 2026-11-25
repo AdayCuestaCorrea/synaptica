@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.046",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "3644952b12789ed5",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-25T17:37:34+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "X-linked dystonia-parkinsonism is a movement disorder that starts in adulthood and mostly affects men of Filipino heritage.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The disorder is caused by a specific genetic insertion in the TAF1 gene.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The study created a mouse model with a hybrid gene that includes the human genetic mutation responsible for the disease.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Male mice with the activated gene showed severe movement problems and shrinkage of the striatum, similar to human symptoms.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Tests on the mice's brains showed fewer cells that make myelin and damage to the myelin itself.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Brain tissue from people who had the disease also showed similar damage to myelin, including in the medial prefrontal cortex.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The findings suggest that problems with myelin-producing cells and the loss of myelin are major factors in the disease.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

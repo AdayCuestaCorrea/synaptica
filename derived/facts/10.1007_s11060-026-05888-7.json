@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1007/s11060-026-05888-7",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "d8cedd96649a254b",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-25T17:38:37+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study tested a spherical ultrasound device with a 17.5-mm radius using silicone models that mimicked shallow, deep, and irregular brain tumor cavities.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers used phosphate-buffered saline and 1% albumin as the fluids to help the ultrasound waves travel through the models.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "The team measured how clearly they could see small markers placed at depths of about 3 and 5 centimeters inside the models.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "The device stayed firmly in place and allowed the researchers to see the edges of the cavity in all three different model shapes.",
+   "subject": "other"
+  },
+  {
+   "id": "f5",
+   "statement": "The markers were still visible at a depth of 5 centimeters regardless of which fluid was used.",
+   "subject": "other"
+  },
+  {
+   "id": "f6",
+   "statement": "The depth of the target had a bigger effect on image clarity than the type of fluid used.",
+   "subject": "other"
+  },
+  {
+   "id": "f7",
+   "statement": "CT scans were used to check that the models were shaped correctly and that the device fit properly.",
+   "subject": "other"
+  },
+  {
+   "id": "f8",
+   "statement": "This feasibility study using artificial models showed that the spherical device can create a consistent surface for taking ultrasound images of simulated tumor cavities.",
+   "subject": "other"
+  },
+  {
+   "id": "f9",
+   "statement": "The authors state that testing in living subjects is needed to determine if the device is useful in real clinical settings.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

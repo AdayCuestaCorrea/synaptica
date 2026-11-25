@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1044/2026_jslhr-26-00087",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "97d1f96efa315212",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-25T17:50:03+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study measured brain activity in 61 people who speak Mandarin as their first language.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers looked for links between brain signals recorded while participants rested and their ability to tell different voices apart using a specific matching test.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "When participants kept their eyes open, higher levels of a specific type of brain wave (alpha power) were linked to better performance on trials where they had to identify if two voices belonged to the same person.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "During eyes-open recording, the synchronization of another brain wave type (beta coherence) between the right front and left back sides of the brain was connected to overall test scores and performance on fake word tasks.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "When participants closed their eyes, the strength of brain waves had little connection to their test results, but a specific lack of synchronization in beta waves was linked to worse performance.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The link between alpha brain waves and voice test scores weakened when general thinking skills were taken into account, but the link for beta wave synchronization stayed strong.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The results indicate that people's ability to distinguish voices is based on stable brain characteristics that show up differently depending on whether their eyes are open or closed.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

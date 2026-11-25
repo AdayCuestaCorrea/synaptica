@@ -1,0 +1,60 @@
+{
+ "study_id": "10.1017/s1355617726102276",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "87839d2ffb35afb1",
+ "generated_at": "2026-11-25T18:09:20+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "En un proyecto exploratorio, sin objetivos predefinidos ni grupos de comparación, los investigadores desarrollaron un método de cribado para emplear antes de las pruebas clínicas, validándolo con datos históricos de pacientes con síndrome de intestino irritable.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Si bien un modelo de lenguaje de IA asistió en la redacción del código y las reglas de la herramienta, este no analizó los datos de los pacientes; el sistema evaluó los resultados de cinco pruebas específicas que abarcaban el sueño, la atención, el cansancio, el estado de ánimo y la función cerebral general.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "El análisis de 105 adultos, que incluía a 65 personas con SII y 40 participantes de control, reveló que el sistema identificó problemas significativos en el sueño en la mitad del grupo, cansancio en el 40%, ansiedad en el 35% y atención en el 30%, con un 60% que presentaba dificultades en múltiples áreas.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "La herramienta vinculó los síntomas relacionados con posibles explicaciones biológicas basadas en la literatura científica existente, aunque dos casos de ejemplo mostraron que los médicos aportaron sus propias perspectivas que iban más allá de lo que proporcionaban las reglas automatizadas.",
+   "fact_ids": [
+    "f8",
+    "f9"
+   ]
+  },
+  {
+   "text": "Los autores señalan que los resultados solo sirven para generar ideas y requieren más pruebas en futuros estudios con grupos de comparación.",
+   "fact_ids": [
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-25T18:13:28+00:00"
+ }
+}

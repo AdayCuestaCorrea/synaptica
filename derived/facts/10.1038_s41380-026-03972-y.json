@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1038/s41380-026-03972-y",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "5900bdc9ab3b05ff",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-25T17:48:00+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Mice with one copy of the Adnp gene missing showed increased sensitivity to touch and heat, along with stronger defensive reactions to electric shocks.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Removing the Adnp gene only in the lower part of the spinal cord did not cause the same hypersensitivity, suggesting the problem is not mainly in the spine or peripheral nerves.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Brain imaging and activity markers showed that a network of brain regions, including the anterior cingulate cortex, reacted more strongly to sensory stimuli in these mice.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Electrical recordings from brain cells in the anterior cingulate cortex revealed that these neurons were more easily excited and had changed how they communicate with each other.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Turning off all excitatory neurons in the anterior cingulate cortex only partly reduced the hypersensitivity to touch and heat, but it made the mice freeze more in response to shocks.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Silencing only the specific group of neurons in the anterior cingulate cortex that were active during electric shocks normalized the hypersensitivity and reduced freezing behavior.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "Genetic and molecular analyses pointed to changes in the machinery for synaptic connections and ion channels in specific layers of excitatory neurons.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f8",
+   "statement": "The study identifies the anterior cingulate cortex as a key, but not the only, part of the brain network involved in these sensory abnormalities.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1007/s12035-026-06319-4",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "c3038389e99fc9c8",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-25T17:40:41+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a brain-on-chip model with human stem-cell-derived dopamine neurons exposed to a chemical that causes Parkinson's-like symptoms in mice.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "In the experimental setup, dopamine neurons were placed in the middle channel of the chip, while a specific line of microglial cells was placed in the two side channels.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The researchers measured the health and electrical activity of the neurons using microelectrode arrays that track signals like firing rates and synchronization.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "When the dopamine neurons were directly exposed to the toxic chemical, their spontaneous electrical activity dropped significantly.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Exposing only the microglial cells to the chemical did not cause a significant change in the electrical activity of the nearby neurons.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest that this chip system, which allows real-time recording of neurons with or without microglia, is a promising tool for studying Parkinson's disease and other brain conditions.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

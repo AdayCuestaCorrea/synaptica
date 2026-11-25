@@ -1,0 +1,56 @@
+{
+ "study_id": "10.1007/s12035-026-06366-x",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "36923c153d719429",
+ "generated_at": "2026-11-25T18:04:16+00:00",
+ "word_count": 110,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers exposed 10-day-old rats to oxygen deprivation and treated them with a single session of low-intensity focused ultrasound.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "This intervention was linked to smaller areas of brain damage and better performance in movement and thinking tests.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "The treatment was associated with lower levels of two inflammatory proteins, higher levels of two other proteins, and a shift in immune cell types indicated by marker expression.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Fluid from treated immune cells helped reduce stress and cell death in a separate group of injured nerve cells grown in a lab.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors suggest that the ultrasound reduces brain injury and is connected to changes in immune cell activity and better neurological results.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-25T18:12:28+00:00"
+ }
+}

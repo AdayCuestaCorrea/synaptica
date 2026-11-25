@@ -1,0 +1,60 @@
+{
+ "study_id": "10.1017/s1355617726102276",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "87839d2ffb35afb1",
+ "generated_at": "2026-11-25T18:09:20+00:00",
+ "word_count": 169,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "In an exploratory project without pre-set goals or comparison groups, researchers developed a screening method to be used before clinical exams, testing it on historical data from patients with irritable bowel syndrome.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "While an AI language model assisted in writing the code and rules for the tool, it did not analyze patient data, and the system evaluated results from five specific tests covering sleep, attention, fatigue, mood, and general brain function.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The analysis of 105 adults, comprising 65 people with IBS and 40 control participants, revealed that the system identified significant issues in sleep for half the group, fatigue for 40%, anxiety for 35%, and attention for 30%, with 60% having problems in multiple areas.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "The tool connected related symptoms to possible biological explanations based on existing scientific literature, although two example cases showed that doctors added their own insights that went beyond what the automated rules provided.",
+   "fact_ids": [
+    "f8",
+    "f9"
+   ]
+  },
+  {
+   "text": "The authors state that the results are only for generating ideas and need further testing in future studies with comparison groups.",
+   "fact_ids": [
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-25T18:13:28+00:00"
+ }
+}

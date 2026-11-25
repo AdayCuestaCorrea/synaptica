@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1021/acsbiomaterials.6c01428",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "6cc00560565cef7f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-25T17:46:58+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "A transcriptomic screening process found that the gene Lats1 was expressed at higher levels in the studied gene sets.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers created a nanoparticle system made of sodium bicarbonate that is designed to lower the activity of the Lats1 gene.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "In laboratory tests outside of a living body, the nanoparticles raised the pH level, lowered lactate build-up, and stopped the release of inflammatory substances.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "In an animal model of bone cancer pain, the treatment made the animals less sensitive to mechanical pressure and heat.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The treated animals showed better body weight and walking ability, along with less inflammation and lower levels of nerve growth factor in the spinal cord.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The study did not find any obvious signs of toxicity in the subjects under the specific conditions tested.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors suggest that these results support the need for more research into using this combined method to treat bone cancer pain.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

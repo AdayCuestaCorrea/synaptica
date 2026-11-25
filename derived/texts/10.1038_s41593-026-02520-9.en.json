@@ -1,0 +1,43 @@
+{
+ "study_id": "10.1038/s41593-026-02520-9",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "2322ed95c5196dc6",
+ "generated_at": "2026-11-25T17:50:04+00:00",
+ "word_count": 99,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers examined neurons in the frontal cortex of awake mice and found that these cells displayed visual spatial receptive fields, which define the specific area of visual space a neuron responds to, that were highly selective and similar to those in the visual cortex.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "The studied neurons were most responsive to binocular visual space, depended on aligned input from the primary visual cortex, and sent functional feedback signals back to the visual cortex, especially to binocular areas.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "These findings suggest the existence of a circuit spanning the cortex that is capable of providing selective feedback control for spatial vision.",
+   "fact_ids": [
+    "f3"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-25T18:11:25+00:00"
+ }
+}

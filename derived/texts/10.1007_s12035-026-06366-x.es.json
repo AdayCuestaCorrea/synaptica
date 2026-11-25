@@ -1,0 +1,56 @@
+{
+ "study_id": "10.1007/s12035-026-06366-x",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "36923c153d719429",
+ "generated_at": "2026-11-25T18:04:16+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores expusieron a ratas de 10 días a la privación de oxígeno y las trataron con una única sesión de ultrasonido focalizado de baja intensidad.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Esta intervención se asoció con áreas más pequeñas de daño cerebral y con un mejor rendimiento en pruebas de movimiento y cognición.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "El tratamiento se vinculó con niveles más bajos de dos proteínas inflamatorias, niveles más altos de otras dos proteínas y un cambio en los tipos de células inmunitarias, indicado por la expresión de marcadores.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "El líquido procedente de células inmunitarias tratadas ayudó a reducir el estrés y la muerte celular en un grupo separado de células nerviosas lesionadas cultivadas en el laboratorio.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que el ultrasonido reduce la lesión cerebral y está conectado con cambios en la actividad de las células inmunitarias y con mejores resultados neurológicos.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-25T18:12:28+00:00"
+ }
+}

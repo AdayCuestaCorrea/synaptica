@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1007/s12035-026-06319-4",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "babb05df363d0ce5",
+ "generated_at": "2026-11-25T18:02:14+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron un modelo de cerebro en chip que incluye neuronas dopaminérgicas derivadas de células madre humanas en un canal central, flanqueadas por células microgliales específicas en canales laterales, para examinar los efectos de una sustancia química que induce síntomas similares a los del Parkinson en ratones.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "La salud y la actividad eléctrica de estas neuronas se monitorizaron mediante matrices de microelectrodos, que rastrean señales como las tasas de disparo y la sincronización.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Si bien la exposición directa de las neuronas dopaminérgicas a la sustancia tóxica redujo significativamente su actividad eléctrica espontánea, exponer únicamente a las células microgliales no provocó un cambio significativo en la actividad de las neuronas cercanas.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que este sistema de chip, que permite el registro en tiempo real de neuronas con o sin microglía, es una herramienta prometedora para estudiar la enfermedad de Parkinson y otras afecciones cerebrales.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-25T18:12:27+00:00"
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1017/s0140525x26107523",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "2dfd5f1a03f31b32",
+ "generated_at": "2026-11-25T18:06:18+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores propusieron una versión actualizada del marco de memoria de Atkinson-Shiffrin para ayudar a organizar el campo fragmentado de la investigación sobre la memoria de trabajo.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "El modelo describe el almacenamiento a largo plazo como un proceso que implica un indexado con separación de patrones en el hipocampo, mientras que la memoria a corto plazo se basa en códigos corticales superpuestos para una comparación rápida.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Según este marco, la memoria de trabajo depende de la recuperación condicionada por pistas, y sus límites de capacidad surgen de la interferencia entre representaciones corticales superpuestas.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores argumentan que los procesos de modelado de fondo, como los a priori, influyen continuamente en la percepción, y que la distinción entre tipos de almacenamiento refleja diferencias en la codificación neuronal más que el tiempo transcurrido.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-25T18:12:28+00:00"
+ }
+}

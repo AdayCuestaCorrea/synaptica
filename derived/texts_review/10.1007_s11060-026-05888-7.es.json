@@ -1,0 +1,45 @@
+{
+ "study_id": "10.1007/s11060-026-05888-7",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "768a8094f52e2207",
+ "generated_at": "2026-11-25T17:56:10+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 1: words not in the Spanish dictionary ['tamponada']"
+ ],
+ "sentences": [
+  {
+   "text": "En un estudio de viabilidad, los investigadores probaron un dispositivo ultrasónico esférico con un radio de 17,5 mm en modelos de silicona de cavidades de tumores cerebrales rellenos con solución salina tamponada con fosfato o albúmina al 1 %, para medir la visibilidad de marcadores a profundidades de unos 3 y 5 centímetros.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "El dispositivo se mantuvo estable y permitió visualizar los bordes de las cavidades en todas las formas de los modelos, con marcadores visibles a 5 centímetros independientemente del fluido, aunque la profundidad objetivo tuvo un mayor efecto en la nitidez de la imagen que el tipo de fluido.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Las tomografías computarizadas confirmaron la forma correcta de los modelos y el ajuste adecuado del dispositivo, lo que respalda el hallazgo de que el dispositivo esférico crea una superficie consistente para la imagen de cavidades simuladas.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que es necesario realizar pruebas en sujetos vivos para determinar si el dispositivo es útil en entornos clínicos reales.",
+   "fact_ids": [
+    "f9"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-25T18:11:24+00:00"
+}

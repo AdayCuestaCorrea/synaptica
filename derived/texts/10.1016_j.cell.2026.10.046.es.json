@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.046",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "45b815850d137752",
+ "generated_at": "2026-11-25T17:53:08+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "La distonía-parkinsonismo ligada al cromosoma X, un trastorno del movimiento que afecta a hombres de ascendencia filipina, se debe a una inserción genética específica en el gen TAF1.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "En un modelo de ratón que porta esta mutación humana, los machos mostraron graves problemas de movimiento y una atrofia del estriado.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Los análisis cerebrales revelaron una reducción de las células productoras de mielina y daños en la mielina tanto en los ratones como en tejido humano, incluida la corteza prefrontal medial.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que estos problemas relacionados con la mielina son factores determinantes de la enfermedad.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-25T18:11:27+00:00"
+ }
+}

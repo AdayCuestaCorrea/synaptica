@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1017/s0140525x26107523",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "d30a54b66fb443b8",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-25T17:42:47+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study proposes an updated version of the Atkinson-Shiffrin memory framework to help organize the current fragmented field of working memory research.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The authors suggest that long-term memory storage involves pattern-separated indexing in the hippocampus that supports the gradual learning of cortical representations.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "Short-term memory is described as relying on overlapping codes in the cortex that allow for quick comparison and integration without needing the hippocampus.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The framework posits that working memory, similar to long-term memory, depends on cue-dependent retrieval to access stored information.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "The limits of working memory capacity are attributed to interference between overlapping representations in the cortex.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "Background modeling processes, such as priors and schemas, are proposed to continuously influence perception, encoding, and retrieval without the need for goal-directed retrieval.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "The distinction between short-term and long-term storage is argued to reflect differences in neural coding and hippocampal involvement rather than the amount of time elapsed or physically separate stores.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

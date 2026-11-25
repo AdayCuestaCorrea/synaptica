@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1007/s12035-026-06319-4",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "babb05df363d0ce5",
+ "generated_at": "2026-11-25T18:02:14+00:00",
+ "word_count": 119,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed a brain-on-chip model containing human stem-cell-derived dopamine neurons in a central channel, flanked by specific microglial cells in side channels, to examine the effects of a chemical that induces Parkinson's-like symptoms in mice.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The health and electrical activity of these neurons were monitored using microelectrode arrays, which track signals such as firing rates and synchronization.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "While direct exposure of the dopamine neurons to the toxic chemical significantly reduced their spontaneous electrical activity, exposing only the microglial cells did not cause a significant change in the nearby neurons' activity.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors suggest that this chip system, which allows real-time recording of neurons with or without microglia, is a promising tool for studying Parkinson's disease and other brain conditions.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-25T18:12:27+00:00"
+ }
+}

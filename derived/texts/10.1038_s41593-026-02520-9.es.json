@@ -1,0 +1,43 @@
+{
+ "study_id": "10.1038/s41593-026-02520-9",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "2322ed95c5196dc6",
+ "generated_at": "2026-11-25T17:50:04+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores examinaron neuronas de la corteza frontal de ratones despiertos y observaron que estas células presentaban campos receptivos visuales espaciales, que definen la zona concreta del espacio visual a la que responde una neurona, altamente selectivos y similares a los de la corteza visual.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Las neuronas estudiadas respondían con mayor intensidad al espacio visual binocular, dependían de una entrada alineada de la corteza visual primaria y enviaban señales de retroalimentación funcional de vuelta a la corteza visual, especialmente a las áreas binoculares.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Estos hallazgos sugieren la existencia de un circuito que abarca la corteza y es capaz de proporcionar un control de retroalimentación selectivo para la visión espacial.",
+   "fact_ids": [
+    "f3"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-25T18:11:25+00:00"
+ }
+}

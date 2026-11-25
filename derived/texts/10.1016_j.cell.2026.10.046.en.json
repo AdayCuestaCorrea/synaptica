@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1016/j.cell.2026.10.046",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "45b815850d137752",
+ "generated_at": "2026-11-25T17:53:08+00:00",
+ "word_count": 73,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "X-linked dystonia-parkinsonism, a movement disorder affecting men of Filipino heritage, is caused by a specific genetic insertion in the TAF1 gene.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "In a mouse model carrying this human mutation, male subjects displayed severe movement problems and striatal shrinkage.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Brain analyses revealed reduced myelin-producing cells and myelin damage in both the mice and human tissue, including the medial prefrontal cortex.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors suggest that these myelin-related issues are major factors in the disease.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-25T18:11:27+00:00"
+ }
+}

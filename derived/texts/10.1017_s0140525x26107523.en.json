@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1017/s0140525x26107523",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "2dfd5f1a03f31b32",
+ "generated_at": "2026-11-25T18:06:18+00:00",
+ "word_count": 91,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers proposed an updated version of the Atkinson-Shiffrin memory framework to help organize the fragmented field of working memory research.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "The model describes long-term storage as involving pattern-separated indexing in the hippocampus, while short-term memory relies on overlapping cortical codes for rapid comparison.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "According to this framework, working memory depends on cue-dependent retrieval, and its capacity limits arise from interference between overlapping cortical representations.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors argue that background modeling processes like priors continuously influence perception, and that the distinction between storage types reflects neural coding differences rather than elapsed time.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-25T18:12:28+00:00"
+ }
+}

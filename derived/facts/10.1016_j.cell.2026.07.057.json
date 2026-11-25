@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.cell.2026.07.057",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "bf553e2ee6b1c88f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-25T17:36:30+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a mouse model where a specific part of the mouse gene was replaced with a 78-kilobase segment from a human patient with X-linked dystonia-parkinsonism.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "In mouse embryonic stem cells, the presence of the inserted retrotransposon led to lower levels of a specific hybrid messenger RNA compared to the modified gene structure without the insertion.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The reduction in hybrid mRNA caused a decrease in the activity of genes with specific promoter features and triggered cell death.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "Analysis of chromatin and gene expression showed that the inserted elements are actively transcribed and likely act as barriers that slow down the process of reading genes.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Mice with the humanized gene in their nerve cells died within two months if they were male.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The affected male mice developed severe shrinkage of brain tissue centered on the striatum, which is the same area damaged in human patients with this condition.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "Using a gene-editing tool to increase the production of the hybrid mRNA restored the survival of the stem cells, suggesting that boosting this gene's activity might be a treatment option.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

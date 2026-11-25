@@ -1,0 +1,49 @@
+{
+ "study_id": "10.1017/s1368980026103942",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "cf58d36fb0b2a481",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-25T17:45:56+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study aimed to understand what prevents or helps British South Asian adults change their diet to lower dementia risk.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The research used a qualitative design that relied on focus groups to gather information.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Data was collected during five focus group sessions that took place in community and religious locations.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Participants showed a lack of awareness and understanding about the link between diet and dementia.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Main barriers to dietary change included cost, convenience, accessibility, culturally insensitive messaging, language issues, and difficulty breaking old habits.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Factors that encouraged dietary change included recognizing health consequences, receiving culturally sensitive advice, and childhood experiences.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "Wider influences on eating habits included healthcare experiences, religious beliefs, peer influence, and generational differences.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

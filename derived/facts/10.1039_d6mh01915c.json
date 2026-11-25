@@ -1,0 +1,39 @@
+{
+ "study_id": "10.1039/d6mh01915c",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "1c4906e9291fa34d",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-25T17:49:01+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study demonstrates that a specific type of polymer memristor can perform both analogue computing and security functions by adjusting its electrical resistance.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "When the device is in a low-resistance mode, it can create stable changes in conductivity that mimic the strengthening and weakening of neural connections.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "A medium-resistance mode generates a type of electrical noise that can be used to produce constantly changing random numbers for security purposes.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "Computer simulations showed that these different device modes could be combined to verify user identity and protect data during transfer.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "A neural network built with these devices maintained high accuracy, while using more diverse random noise made it nearly impossible for attackers to predict the device's security codes or recover hidden data.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

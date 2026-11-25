@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1017/s1355617726102422",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "c2f68a303f9024b4",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-25T17:44:53+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study investigated how cognitive test score variability differed among three racial and ethnic groups and whether primary language predicted this variability in Mexican Americans.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study included 4,140 older adults from the HABS-HD study, with an average age of 65.08 years, who completed cognitive tests in either English or Spanish.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Cognitive status was associated with test score variability, with cognitively normal participants showing lower variability than those with mild cognitive impairment or dementia, a pattern that held across all three groups.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Primary language was associated with test score variability, and Spanish-speaking Mexican Americans showed higher variability than Non-Hispanic Whites, Non-Hispanic Blacks, and English-speaking Mexican Americans.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The association between primary language and test score variability remained significant even after adjusting for additional factors and became stronger when using residualized measures.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "When comparing only English-speaking Mexican Americans to Non-Hispanic Whites, the former group still showed higher test score variability, and this difference increased when using residualized measures.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

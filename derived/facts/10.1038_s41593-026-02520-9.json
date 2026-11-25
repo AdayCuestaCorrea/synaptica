@@ -1,0 +1,27 @@
+{
+ "study_id": "10.1038/s41593-026-02520-9",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "ab5f4e12630d4d46",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-25T17:35:28+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Neurons in the frontal cortex of awake mice displayed visual spatial receptive fields that were highly selective and similar to those found in the visual cortex.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The studied neurons were most responsive to binocular visual space, depended on aligned input from the primary visual cortex, and sent functional feedback signals back to the visual cortex, especially to binocular areas.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The findings suggest the existence of a circuit spanning the cortex that is capable of providing selective feedback control for spatial vision.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

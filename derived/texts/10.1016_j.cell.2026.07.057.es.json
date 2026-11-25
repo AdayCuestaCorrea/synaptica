@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1016/j.cell.2026.07.057",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "e1326e8297981b26",
+ "generated_at": "2026-11-25T17:51:05+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores crearon un modelo de ratón sustituyendo un segmento específico de un gen murino por un fragmento de 78 kilobases procedente de un paciente humano con distonía-parkinsonismo ligada al cromosoma X.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "En las células madre embrionarias de ratón, el retrotransposón insertado redujo los niveles de ARN mensajero híbrido, lo que disminuyó la actividad de genes con características promotoras específicas y provocó la muerte celular.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "El análisis de la cromatina y la expresión génica indicó que estos elementos insertados se transcriben activamente y probablemente funcionan como barreras que ralentizan el proceso de lectura de los genes.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Los ratones machos que portaban este gen humanizado en sus células nerviosas murieron en un plazo de dos meses, presentando una grave atrofia del tejido cerebral centrada en el estriado, la misma zona dañada en los pacientes humanos.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "El uso de una herramienta de edición génica para aumentar la producción de ARNm híbrido restauró la supervivencia de las células madre, lo que sugiere que potenciar la actividad de este gen podría ser una opción terapéutica.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-25T18:11:26+00:00"
+ }
+}

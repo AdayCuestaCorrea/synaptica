@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1007/s11682-026-01224-9",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "1d01743957f26ab4",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-25T17:39:39+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study investigated how specific cognitive test scores relate to white matter health in people with Huntington's disease.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers used a type of brain scan called Diffusion Tensor Imaging to measure white matter properties in 22 people with early-stage Huntington's disease and 20 healthy controls.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "A statistical method was applied to compare the two groups and link the brain scan measurements to the patients' performance on different parts of the cognitive test.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Of all the cognitive areas tested, only visuospatial ability was linked to the condition of white matter in three specific brain regions.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The results suggest that combining brain scans with a short cognitive screening tool can help identify specific brain areas related to certain cognitive skills in early-stage patients.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1007/s12035-026-06366-x",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "ec57fd7fe60a0fd1",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-25T17:41:43+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used 10-day-old rats that were exposed to oxygen deprivation and treated with a single session of low-intensity focused ultrasound.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The ultrasound treatment was linked to smaller areas of brain damage and better performance in movement and thinking tests.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The treatment was associated with lower levels of two inflammatory proteins and higher levels of two other proteins in the brain.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Microscopy showed a shift in the types of immune cells present, with fewer cells showing one marker and more showing another.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Fluid from treated immune cells helped reduce stress and cell death in a separate group of injured nerve cells grown in a lab.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors suggest that the ultrasound reduces brain injury and is connected to changes in immune cell activity and better neurological results.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

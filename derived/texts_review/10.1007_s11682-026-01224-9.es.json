@@ -1,0 +1,41 @@
+{
+ "study_id": "10.1007/s11682-026-01224-9",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "55b688b7e653ea14",
+ "generated_at": "2026-11-25T17:59:12+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 3: words not in the Spanish dictionary ['visuoespacial']"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores examinaron la relación entre las puntuaciones en pruebas cognitivas y la salud de la sustancia blanca en 22 personas con enfermedad de Huntington en fase temprana y 20 controles sanos, utilizando la imagen por tensor de difusión, una técnica de neuroimagen que mide las propiedades de la sustancia blanca.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Se aplicó un método estadístico para comparar ambos grupos y vincular las mediciones de la neuroimagen con el rendimiento de los pacientes en las distintas partes de la prueba cognitiva.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Entre las áreas cognitivas evaluadas, solo la capacidad visuoespacial se asoció con el estado de la sustancia blanca en tres regiones cerebrales específicas.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que combinar la neuroimagen con una herramienta breve de cribado cognitivo puede ayudar a identificar áreas cerebrales específicas relacionadas con ciertas habilidades cognitivas en pacientes en fase temprana.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-25T18:11:24+00:00"
+}
