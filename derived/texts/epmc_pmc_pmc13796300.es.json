@@ -1,0 +1,53 @@
+{
+ "study_id": "epmc:PMC:PMC13796300",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "ccdd3182c98ccc5c",
+ "generated_at": "2026-11-26T17:46:16+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores examinaron cómo las células madre humanas, diferenciadas en neuronas sensoriales, procesan las sustancias químicas asociadas a la migraña y el dolor crónico, analizando genes y proteínas específicos mediante pruebas moleculares y tinción con anticuerpos.",
+   "fact_ids": [
+    "f1",
+    "f3"
+   ]
+  },
+  {
+   "text": "Estas células cultivadas en laboratorio mostraron altos niveles de marcadores de nervios sensoriales y extensiones largas y ramificadas, al tiempo que presentaban una mayor actividad de los genes del receptor de calcitonina y sus socios en comparación con las células madre originales.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Se detectaron proteínas de CGRP, amilina y receptor de calcitonina, con la amilina ubicada principalmente en el cuerpo celular, y la molécula de calcitonina provocó una fuerte reacción química, mientras que el CGRP, la amilina y la adrenomedulina generaron respuestas mucho más débiles.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  },
+  {
+   "text": "Este patrón de reacciones fuertes y débiles coincidió con una línea celular de control, lo que sugiere que las neuronas utilizan principalmente el receptor de calcitonina para la señalización, en lugar de los receptores de CGRP o amilina, lo cual, según concluyen los autores, convierte a estas células en una herramienta útil para estudiar los mecanismos del dolor y desarrollar nuevos fármacos.",
+   "fact_ids": [
+    "f9",
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-26T17:52:24+00:00"
+ }
+}

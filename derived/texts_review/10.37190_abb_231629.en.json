@@ -1,0 +1,48 @@
+{
+ "study_id": "10.37190/abb/231629",
+ "lang": "en",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "f4233c90c360b2ce",
+ "generated_at": "2026-11-26T17:36:06+00:00",
+ "word_count": 121,
+ "problems": [
+  "sentence 3: says 'causal' but no cited fact does"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers applied a deep learning algorithm to isolate lower back muscles from patient-specific CT scans.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "They then constructed two computer simulations, one including the rib cage and relaxed muscles and a control with only the spine, to test movement during twisting, side bending, and forward bending.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The rib cage and relaxed muscles limited twisting the most, causing the upper back to become stiffer while the lower back and waist area moved more than in the spine-only model.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "For side and forward bending, these structures reduced movement across all parts of the spine.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors suggest that front-to-back spinal balance depends mostly on active muscle contraction, possibly because the rib cage anchors the upper spine and forces the lower spine to compensate.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ]
+}

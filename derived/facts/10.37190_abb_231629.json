@@ -1,0 +1,52 @@
+{
+ "study_id": "10.37190/abb/231629",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "76905c02983bbff5",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-26T17:17:39+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a deep learning algorithm to identify and separate the lower back muscles from patient-specific CT scans.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers built two computer simulations: one that included the rib cage and relaxed back muscles, and a control model with only the spine.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The simulations tested how the spine moves when twisting, bending sideways, and bending forward or backward to compare the two models.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The rib cage and relaxed muscles limited twisting movement the most, with much smaller effects on side bending and forward bending.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "When twisting, the upper back became stiffer, but the lower back and waist area actually moved more than in the spine-only model.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "For side bending and forward bending, the presence of the rib cage and muscles reduced movement across all parts of the spine.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "The findings suggest that keeping the spine balanced in the front-to-back direction depends mostly on active muscle contraction, not just passive structures.",
+   "subject": "computational"
+  },
+  {
+   "id": "f8",
+   "statement": "The study proposes that the rib cage anchors the upper spine, which could force the lower spine to move more to compensate.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

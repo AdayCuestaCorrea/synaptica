@@ -1,0 +1,52 @@
+{
+ "study_id": "10.7554/elife.111762",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "91b9884cb99a87fa",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-26T17:18:40+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study examined brain signals in two groups of rats as they completed a task involving searching for food while facing a fake predator.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers looked at three different ways the animals reacted: stopping partway through, continuing to the food, or running away after being attacked.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Stopping and continuing started from the same pause, but running away was a quick escape that happened after an attack.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "When the rats ran away, their hippocampus kept focusing on the place where the attack happened.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "When the rats stopped partway through, their hippocampus shifted its focus to safe places instead.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Pauses that ended in stopping were linked to brain activity about the attack area, while pauses that ended in continuing were linked to activity about the food goal.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "These brain differences showed up early in the trip, suggesting the animals were making decisions before they reached the decision point.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "The results suggest the hippocampus uses different patterns for quick escape reactions versus careful, anxiety-driven decisions.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

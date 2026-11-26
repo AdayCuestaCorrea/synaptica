@@ -1,0 +1,42 @@
+{
+ "study_id": "epmc:PMC:PMC13796418",
+ "status": "ok",
+ "abstract_from": "europepmc",
+ "abstract_hash": "2c0930c860bf5c25",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-26T17:25:52+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study was a prospective observational study of 68 children and adolescents with acquired brain injury, with an average age of 13.27 years.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Participants completed standardized tests to measure their ability to understand others' mental states and recognize emotions.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The severity of the brain injury was the strongest factor associated with performance on both mental state understanding and emotion recognition tests.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "General intelligence, measured by full-scale IQ, explained additional variation in mental state understanding performance beyond other injury and environmental factors.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "A longer time since the brain injury was associated with lower scores on mental state understanding tests.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The cause of the injury (traumatic versus non-traumatic) and the general location of the brain lesion (frontal versus non-frontal) did not significantly predict social cognition performance.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

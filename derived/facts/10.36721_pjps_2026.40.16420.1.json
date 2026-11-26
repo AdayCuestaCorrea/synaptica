@@ -1,0 +1,47 @@
+{
+ "study_id": "10.36721/pjps/2026.40.16420.1",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "0c1d4683a783c64b",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-26T17:14:31+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used 100 C57BL/6 mice that were randomly divided into five groups of 20 animals each: a sham group, a spinal cord injury group, and three groups receiving low, medium, or high doses of hesperidin.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Hesperidin was given to the mice by mouth once a day for 21 days, starting two hours after the spinal cord injury.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "By day 21, only the group receiving the highest dose of hesperidin showed a statistically significant improvement in motor and sensory function, while the lower doses did not reach statistical significance.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "In spinal cord tissue taken on day 7, the high-dose hesperidin group had lower levels of the pro-inflammatory cytokine TNF-α and higher levels of anti-inflammatory cytokines compared to the injury-only group.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The high-dose hesperidin group showed lower levels of the oxidative stress marker MDA and higher activities of the antioxidant enzymes SOD, GSH-Px, and CAT compared to the spinal cord injury group.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Hesperidin treatment was associated with fewer activated microglia cells and reduced phosphorylation of the signaling proteins ERK1/2 and JNK, while the total amounts of these proteins remained unchanged.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors note that further experiments are needed to prove that hesperidin directly causes the observed improvements, rather than just being associated with them.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

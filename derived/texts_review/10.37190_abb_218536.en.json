@@ -1,0 +1,14 @@
+{
+ "study_id": "10.37190/abb/218536",
+ "lang": "en",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "5da1b1cd93757cd6",
+ "generated_at": "2026-11-26T17:34:04+00:00",
+ "word_count": 171,
+ "problems": [
+  "sentence 2: copies 8+ words from a source"
+ ],
+ "sentences": []
+}

@@ -1,0 +1,51 @@
+{
+ "study_id": "epmc:PMC:PMC13796182",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "cd4cd504e1dc9b67",
+ "generated_at": "2026-11-26T17:40:09+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores exploraron si la administración nasal del quelato de hierro deferiprona podía mejorar el comportamiento en ratones machos con una condición genética que provoca acumulación de hierro en el cerebro, comparando esta vía con la dosificación oral en grupos de seis a diez animales.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Si bien la administración nasal a 20 miligramos por kilogramo mejoró el comportamiento sin alterar los recuentos de glóbulos sanguíneos, la vía oral a 100 miligramos por kilogramo redujo el número de glóbulos blancos y produjo una mejora conductual menor.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "El análisis farmacocinético reveló que la administración nasal resultó en concentraciones más altas del fármaco en el bulbo olfatorio y en una relación cerebro-sangre distinta a la de la dosificación oral.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que esta vía nasal modifica la distribución del fármaco dentro del sistema nervioso central y conduce a un mejor desempeño en las pruebas de campo abierto asociadas a problemas de hierro cerebral.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-26T17:51:24+00:00"
+ }
+}

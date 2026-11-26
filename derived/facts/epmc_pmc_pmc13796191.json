@@ -1,0 +1,49 @@
+{
+ "study_id": "epmc:PMC:PMC13796191",
+ "status": "ok",
+ "abstract_from": "europepmc",
+ "abstract_hash": "ee8b296f1da30645",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-26T17:20:43+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Researchers created a model with four distinct patterns of chloride change over time using one database, then applied those exact patterns to a second database to test if they held up.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The analysis included 1,817 patients from the first database and 1,154 patients from the second database.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The four identified chloride patterns were low and stable, mid and stable, high and rising, and very high with a rise and plateau.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "In the first database, patients with the low-stable, high-rising, or very-high rise/plateau chloride patterns had higher in-hospital mortality compared to those with the mid-stable pattern.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "In the second database, the associations between the chloride patterns and mortality were not statistically significant.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "There was no clear link between the chloride patterns and the development of acute kidney injury in either database.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The findings suggest that the chloride patterns themselves can be identified across different hospitals, but their ability to predict death needs more external testing before being used for prognosis.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

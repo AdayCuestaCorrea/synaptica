@@ -1,0 +1,57 @@
+{
+ "study_id": "epmc:PMC:PMC13796191",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "a49014cad4234bca",
+ "generated_at": "2026-11-26T17:43:13+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron un modelo computacional que identificó cuatro trayectorias de cloro distintas en 1817 pacientes de una base de datos y, a continuación, validaron estos patrones en 1154 pacientes de un segundo conjunto de datos.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Las trayectorias identificadas se clasificaron en baja y estable, media y estable, alta y ascendente, y muy alta con ascenso y meseta.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "En la cohorte inicial, los pacientes que presentaban patrones de baja-estable, alta-ascendente o muy alta con ascenso/meseta mostraron una mayor mortalidad hospitalaria que aquellos con el perfil medio-estable.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Sin embargo, estas asociaciones con la mortalidad no fueron estadísticamente significativas en la segunda base de datos, y no se estableció un vínculo claro entre los patrones de cloro y la lesión renal aguda en ninguno de los grupos.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que, aunque estos patrones parecen identificables en distintos hospitales, su valor predictivo para la muerte requiere más pruebas externas antes de su aplicación clínica.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-26T17:52:23+00:00"
+ }
+}

@@ -1,0 +1,62 @@
+{
+ "study_id": "epmc:PMC:PMC13796300",
+ "status": "ok",
+ "abstract_from": "europepmc",
+ "abstract_hash": "8e6ca6169c4e9bdc",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-26T17:21:46+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used human stem cells turned into sensory neurons to investigate how these cells handle chemicals linked to migraine and chronic pain.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "It was not previously known if these lab-grown neurons show the same chemical signals and receptor activity as the nerve cells found in the head and spine.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "Researchers created sensory neurons from stem cells and checked for specific genes and proteins using molecular testing and antibody staining.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The activity of the receptors was measured by looking at a chemical response triggered by specific molecules, using a standard cell line as a comparison.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "The lab-grown neurons showed high levels of markers typical for sensory nerves and grew long, branching extensions.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "Compared to the original stem cells, the sensory neurons had higher activity of genes for the calcitonin receptor and its partners, while other related genes were lower.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "Proteins for CGRP, amylin, and the calcitonin receptor were found in the cells, with amylin mostly located in the cell body.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f8",
+   "statement": "The calcitonin molecule caused a strong chemical reaction in the neurons, while CGRP, amylin, and adrenomedullin caused much weaker reactions.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f9",
+   "statement": "The pattern of strong and weak reactions matched a control cell line, suggesting the neurons mainly use the calcitonin receptor for signaling rather than the receptors for CGRP or amylin.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f10",
+   "statement": "The results suggest these lab-grown neurons are a useful tool for studying pain mechanisms and developing new drugs that target these receptors.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

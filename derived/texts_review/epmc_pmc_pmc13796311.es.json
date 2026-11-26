@@ -1,0 +1,53 @@
+{
+ "study_id": "epmc:PMC:PMC13796311",
+ "lang": "es",
+ "status": "rejected_by_judge",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "90b4c8c4bb72fc7a",
+ "generated_at": "2026-11-26T17:48:17+00:00",
+ "word_count": null,
+ "problems": [
+  "judge: Summary overstates the authors' claim by saying the grayscale drop can predict benefit, whereas the abstract only suggests it as an indicator."
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores presentaron Fancy GNG, una técnica de aumento de color que emplea el agrupamiento Growing Neural Gas y perturbaciones basadas en PCA para dividir la distribución de color de una imagen en grupos distintos y aplicar cambios específicos a cada uno.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El método se evaluó en tres conjuntos de datos de imágenes, entre ellos Flowers-102, CIFAR-10 e ImageNet-1k, utilizando una red neuronal ResNet-50.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Las mejoras en el rendimiento fueron mayores en Flowers-102, un conjunto que depende en gran medida de los detalles de color, mientras que los avances en CIFAR-10 fueron modestos, lo que sugiere que el color tiene menor relevancia para distinguir las clases en ese conjunto.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores señalaron que la disminución de la precisión al convertir las imágenes a escala de grises podría utilizarse para predecir en qué medida un conjunto de datos se beneficiaría de un aumento basado en el color.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": false,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": false,
+  "reason": "Summary overstates the authors' claim by saying the grayscale drop can predict benefit, whereas the abstract only suggests it as an indicator.",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-26T17:52:25+00:00"
+ }
+}

@@ -1,0 +1,59 @@
+{
+ "study_id": "10.37190/abb/218536",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "a192cc11a1ee2d71",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-26T17:16:37+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The research investigated if existing aircraft seat safety tests give enough data to know if passengers can evacuate safely after an emergency landing.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "The study involved 17 dynamic lab tests on economy-class seats using Hybrid II crash test dummies.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "Two impact scenarios were tested: hitting a bulkhead and hitting the seat in the row in front.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "Researchers measured head injury criteria, head accelerations, and where the head hit to evaluate the risk of brain injury and fainting.",
+   "subject": "other"
+  },
+  {
+   "id": "f5",
+   "statement": "Tests involving bulkhead impacts more often went over the acceptable head injury threshold of 1,000, suggesting a higher risk of severe brain injury.",
+   "subject": "other"
+  },
+  {
+   "id": "f6",
+   "statement": "Impacts against the seat in the row ahead showed lower risk levels than bulkhead impacts.",
+   "subject": "other"
+  },
+  {
+   "id": "f7",
+   "statement": "A larger distance between seat rows (pitch) was a protective factor, with head injury values dropping significantly when the pitch was greater than 35 inches.",
+   "subject": "other"
+  },
+  {
+   "id": "f8",
+   "statement": "The front of the head was the most common impact zone, occurring in 91% of the cases.",
+   "subject": "other"
+  },
+  {
+   "id": "f9",
+   "statement": "The study recommends adding rotational acceleration criteria, testing diverse groups like children and the elderly, and including seat pitch in safety standards.",
+   "subject": "other"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

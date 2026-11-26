@@ -1,0 +1,155 @@
+[
+ {
+  "started_at": "2026-11-26T16:55:26Z",
+  "trigger": "schedule",
+  "changed": true,
+  "status": "ok",
+  "finished_at": "2026-11-26T17:53:24Z",
+  "steps": [
+   {
+    "name": "Set up job",
+    "conclusion": "success",
+    "seconds": 2
+   },
+   {
+    "name": "Run actions/checkout@v7.0.1",
+    "conclusion": "success",
+    "seconds": 2
+   },
+   {
+    "name": "Check out the data branch",
+    "conclusion": "success",
+    "seconds": 2
+   },
+   {
+    "name": "Restore the private cache",
+    "conclusion": "success",
+    "seconds": 2
+   },
+   {
+    "name": "Run astral-sh/setup-uv@v10.3.3",
+    "conclusion": "success",
+    "seconds": 6
+   },
+   {
+    "name": "Install",
+    "conclusion": "success",
+    "seconds": 1
+   },
+   {
+    "name": "Anything new?",
+    "conclusion": "success",
+    "seconds": 91
+   },
+   {
+    "name": "Ingest",
+    "conclusion": "success",
+    "seconds": 81
+   },
+   {
+    "name": "dbt build (for the classifier)",
+    "conclusion": "success",
+    "seconds": 11
+   },
+   {
+    "name": "Groq key accepted",
+    "conclusion": "success",
+    "seconds": 0
+   },
+   {
+    "name": "Judge pending texts (Groq)",
+    "conclusion": "success",
+    "seconds": 1
+   },
+   {
+    "name": "Checkpoint after judging",
+    "conclusion": "success",
+    "seconds": 2
+   },
+   {
+    "name": "Filter and classify (Groq)",
+    "conclusion": "success",
+    "seconds": 1047
+   },
+   {
+    "name": "Checkpoint after classifying",
+    "conclusion": "success",
+    "seconds": 2
+   },
+   {
+    "name": "Summarize (Groq)",
+    "conclusion": "success",
+    "seconds": 2275
+   },
+   {
+    "name": "Checkpoint the private cache",
+    "conclusion": "success",
+    "seconds": 2
+   },
+   {
+    "name": "dbt build",
+    "conclusion": "success",
+    "seconds": 7
+   },
+   {
+    "name": "Mirror due?",
+    "conclusion": "success",
+    "seconds": 0
+   },
+   {
+    "name": "Build the website",
+    "conclusion": "success",
+    "seconds": 27
+   },
+   {
+    "name": "Sofía's review queue",
+    "conclusion": "in_progress",
+    "seconds": 23,
+    "partial": true
+   }
+  ],
+  "sources_changed": {},
+  "summary": null,
+  "changes_since_previous": {},
+  "dbt": {
+   "counts": {
+    "pass": 74,
+    "success": 32
+   },
+   "tests": {
+    "data": {
+     "pass": 67
+    },
+    "unit": {
+     "pass": 7
+    }
+   },
+   "issues": []
+  },
+  "llm_tokens": {
+   "qwen/qwen3.8-27b": {
+    "requests": 57,
+    "tokens": 82382
+   },
+   "openai/gpt-oss-120b": {
+    "requests": 6,
+    "tokens": 11948
+   }
+  },
+  "texts": {
+   "written": {
+    "en_verified": 5,
+    "es_verified": 5,
+    "en_failed": 3,
+    "en_rejected_by_judge": 1,
+    "es_rejected_by_judge": 1
+   },
+   "judge": {
+    "passed": 5,
+    "rejected": 1,
+    "spanish_natural_mean": 4.33
+   }
+  },
+  "titles": {}
+ }
+]

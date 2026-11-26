@@ -1,0 +1,57 @@
+{
+ "study_id": "10.36721/pjps/2026.40.16420.1",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "d0130b86b0d980e4",
+ "generated_at": "2026-11-26T17:29:58+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores administraron oralmente hesperidina, un flavonoide, a 100 ratones C57BL/6 durante 21 días tras una lesión medular, dividiéndolos en grupos de control, solo lesión y tres niveles de dosis.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Para el día 21, solo el grupo con la dosis más alta mostró una mejora estadísticamente significativa en la función motora y sensorial, mientras que las dosis más bajas no alcanzaron significación estadística.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "El análisis de tejidos realizado el día 7 reveló que el grupo de alta dosis presentaba niveles más bajos de la citoquina inflamatoria TNF-α y del marcador de estrés oxidativo MDA, junto con una mayor actividad de las enzimas antioxidantes SOD, GSH-Px y CAT.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Este tratamiento también se asoció con una menor cantidad de células de microglía activadas y una reducción en la fosforilación de las proteínas de señalización ERK1/2 y JNK, mientras que las cantidades totales de proteína permanecieron sin cambios.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que se necesitan más experimentos para demostrar que la hesperidina causa directamente estas mejoras, en lugar de limitarse a estar asociada con ellas.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-26T17:51:23+00:00"
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "study_id": "epmc:PMC:PMC13796345",
+ "status": "ok",
+ "abstract_from": "europepmc",
+ "abstract_hash": "800f437a25d77412",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-26T17:23:49+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study compared 20 patients with left temporal lobe epilepsy, 20 with right temporal lobe epilepsy, and 35 healthy controls while measuring their brain activity with EEG during a visual working memory task.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Both epilepsy groups made more errors and took longer to respond than the healthy control group.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Patients with right temporal lobe epilepsy responded more slowly than those with left temporal lobe epilepsy.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The right epilepsy group showed lower theta brain wave activity in the frontal and occipital areas compared to the left epilepsy group.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Measures of neural outflow were lower in the right epilepsy group than in the left epilepsy group.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Weakened information flow from the front of the brain to the parietal and temporal regions was associated with lower accuracy and slower responses.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The authors suggest that disrupted communication from the prefrontal cortex to the parietal lobe may cause working memory deficits, and that damage to connections with the right temporal gyri worsens these impairments.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

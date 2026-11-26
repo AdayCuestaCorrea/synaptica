@@ -1,0 +1,53 @@
+{
+ "study_id": "epmc:PMC:PMC13796300",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "ccdd3182c98ccc5c",
+ "generated_at": "2026-11-26T17:46:16+00:00",
+ "word_count": 146,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers investigated how human stem cells, differentiated into sensory neurons, process chemicals associated with migraine and chronic pain by examining specific genes and proteins through molecular testing and antibody staining.",
+   "fact_ids": [
+    "f1",
+    "f3"
+   ]
+  },
+  {
+   "text": "These lab-grown cells displayed high levels of sensory nerve markers and long, branching extensions, while exhibiting higher activity of genes for the calcitonin receptor and its partners compared to the original stem cells.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Proteins for CGRP, amylin, and the calcitonin receptor were detected, with amylin primarily located in the cell body, and the calcitonin molecule triggered a strong chemical reaction, whereas CGRP, amylin, and adrenomedullin caused much weaker responses.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  },
+  {
+   "text": "This pattern of strong and weak reactions matched a control cell line, suggesting the neurons mainly use the calcitonin receptor for signaling rather than receptors for CGRP or amylin, which the authors conclude makes these cells a useful tool for studying pain mechanisms and developing new drugs.",
+   "fact_ids": [
+    "f9",
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-26T17:52:24+00:00"
+ }
+}

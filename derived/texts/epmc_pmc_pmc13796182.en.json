@@ -1,0 +1,51 @@
+{
+ "study_id": "epmc:PMC:PMC13796182",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "cd4cd504e1dc9b67",
+ "generated_at": "2026-11-26T17:40:09+00:00",
+ "word_count": 123,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers investigated whether nasal administration of the iron chelator deferiprone could improve behavior in male mice with a genetic condition causing iron buildup in the brain, comparing this route to oral dosing in groups of six to ten animals.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "While nasal delivery at 20 milligrams per kilogram improved behavior without altering blood cell counts, oral administration of 100 milligrams per kilogram lowered white blood cell numbers and produced less behavioral improvement.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Pharmacokinetic analysis revealed that nasal delivery resulted in higher drug concentrations in the olfactory bulb and a different brain-to-blood ratio compared to oral dosing.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors conclude that this nasal route alters drug distribution within the central nervous system and leads to better performance in open-field tests linked to brain iron issues.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-26T17:51:24+00:00"
+ }
+}

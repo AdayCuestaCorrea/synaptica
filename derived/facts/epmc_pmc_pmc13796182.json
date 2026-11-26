@@ -1,0 +1,42 @@
+{
+ "study_id": "epmc:PMC:PMC13796182",
+ "status": "ok",
+ "abstract_from": "europepmc",
+ "abstract_hash": "697e90b45a83ad4a",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-26T17:19:41+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study tested whether giving the iron chelator deferiprone through the nose could improve behavior in mice with a genetic condition causing iron buildup in the brain.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Male mice, including both normal and genetically modified groups of six to ten animals each, were treated daily for one week either by nasal spray or by mouth, then tested for movement and blood health.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Nasal delivery of the drug at a dose of 20 milligrams per kilogram improved the mice's behavior without causing any measurable changes in their blood cell counts.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Oral administration of a much higher dose, 100 milligrams per kilogram, lowered the number of white blood cells in the blood but did not improve behavior to the same degree as the nasal treatment.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Analysis of how the drug moved through the body showed that nasal delivery resulted in higher concentrations of the drug in the olfactory bulb and a different ratio of drug in the brain compared to the blood than oral dosing.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The researchers conclude that giving the drug through the nose changes how much of it reaches specific parts of the central nervous system and leads to better performance in open-field tests linked to brain iron issues.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

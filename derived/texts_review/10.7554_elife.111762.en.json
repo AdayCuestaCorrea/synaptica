@@ -1,0 +1,44 @@
+{
+ "study_id": "10.7554/elife.111762",
+ "lang": "en",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "18bdd3cb77dd7b8a",
+ "generated_at": "2026-11-26T17:38:08+00:00",
+ "word_count": 115,
+ "problems": [
+  "sentence 3: says 'causal' but no cited fact does",
+  "sentence 4: drops the caution of its facts (may, suggests, possibly…)"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers examined brain signals in two groups of rats performing a food-search task that included a fake predator, observing three distinct behavioral responses: stopping, continuing, or fleeing.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "While stopping and continuing emerged from the same initial pause, fleeing occurred as a rapid escape after an attack, during which the hippocampus remained focused on the attack location rather than shifting to safe areas.",
+   "fact_ids": [
+    "f3",
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Pauses that resulted in stopping were associated with neural activity concerning the attack area, whereas those leading to continuation were associated with activity regarding the food goal, with these patterns appearing early in the journey.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "The authors conclude that the hippocampus employs different patterns for quick escape reactions compared to careful, anxiety-driven decisions.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+{
+ "study_id": "epmc:PMC:PMC13796517",
+ "status": "ok",
+ "abstract_from": "europepmc",
+ "abstract_hash": "f3d9f18e614f1c24",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-26T17:27:54+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study developed and standardized a lab test called RT-QuIC to look for signs of a specific type of mad cow disease in the muscles, nose, and brain of naturally infected cattle.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Tissue samples from the brain, spinal cord, muscles, and nose were taken from Italian cattle that had naturally caught the disease.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The test found disease-causing protein activity in the muscles, nose, brain, and spinal cord, which suggests these body parts are involved in the disease.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Finding the disease protein in muscle tissue suggests it might be infectious, but the test used cannot prove that the tissue is actually infectious on its own.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The results show that sensitive testing of cattle before they are slaughtered is important for finding these rare disease cases early to protect food safety.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

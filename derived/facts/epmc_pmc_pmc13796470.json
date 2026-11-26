@@ -1,0 +1,54 @@
+{
+ "study_id": "epmc:PMC:PMC13796470",
+ "status": "ok",
+ "abstract_from": "europepmc",
+ "abstract_hash": "afe223383520d892",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-26T17:26:53+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study analyzed single-cell RNA-sequencing data to look at HAX1 levels in normal lung tissue, primary lung cancer, advanced tumors, and metastases in lymph nodes and the brain.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers examined tissue samples from patients with lung adenocarcinoma to check the amount of HAX1 protein and how it related to patient health details.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Levels of HAX1 and the number of cells showing it were higher in lymph node and brain metastases than in the original primary tumors.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "In a group of 125 patients, high levels of HAX1 were linked to cancer spreading to lymph nodes, more advanced disease, and shorter survival times.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The genetic activity patterns linked to HAX1 focused on processes involving DNA copying and the cell cycle.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "Cancer cells that had spread to the brain also showed increased activity in mitochondrial functions and protein production.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "Higher HAX1 levels were associated with lower estimated numbers of B cells, T cells, and macrophages in the tumor environment.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f8",
+   "statement": "Reducing HAX1 in the lab made cancer cells less viable, slowed their division, and stopped tumors from growing in the mouse model.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

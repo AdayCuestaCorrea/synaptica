@@ -1,0 +1,51 @@
+{
+ "study_id": "10.36721/pjps/2026.40.16902.1",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "d8cbb92f3a706810",
+ "generated_at": "2026-11-26T17:32:03+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un estudio retrospectivo de cohorte realizado en un solo centro en China analizó a 259 pacientes consecutivos con hemorragia subaracnoidea aneurismática que se sometieron a embolización endovascular, señalando que 67 de ellos recibieron noradrenalina durante su hospitalización.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "El resultado primario fue la mortalidad por todas las causas en 28 días, que fue del 47,8 % en el grupo de noradrenalina frente al 15,7 % en el grupo que no recibió el fármaco.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Tras ajustar por valores de laboratorio y otros factores relevantes, el uso de noradrenalina se asoció con un mayor riesgo de fallecimiento en 28 días.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que se necesitan estudios prospectivos con datos detallados sobre dosis y duración para confirmar estos hallazgos.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-26T17:51:23+00:00"
+ }
+}

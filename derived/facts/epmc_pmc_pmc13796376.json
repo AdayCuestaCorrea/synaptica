@@ -1,0 +1,42 @@
+{
+ "study_id": "epmc:PMC:PMC13796376",
+ "status": "ok",
+ "abstract_from": "europepmc",
+ "abstract_hash": "f4f843e1c47c5b69",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-26T17:24:51+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used Xenopus laevis embryos to test how blocking the V-ATPase enzyme with the drug bafilomycin A1 affects the formation of the neural tube.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Genes and proteins involved in packaging ATP and glutamate into vesicles were found in the embryos between developmental stages 12.5 and 20.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Treating the embryos with the drug caused more incomplete neural tube closure at stage 20 and slowed the movement of specific cells in the dorsal neuroepithelial region.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "At stage 18, the drug lowered the levels of ATP and glutamate in the fluid surrounding the embryos while leaving the amounts inside the embryos unchanged.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Adding the NMDA receptor agonist partially fixed the incomplete closure caused by low and medium doses of the drug, but adding ATP did not have the same effect.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The results suggest that V-ATPase-dependent processes help build up extracellular ATP and glutamate for neural tube closure, but the study did not directly measure how vesicles load or release these molecules.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

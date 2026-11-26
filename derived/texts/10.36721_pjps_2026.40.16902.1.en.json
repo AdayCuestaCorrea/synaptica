@@ -1,0 +1,51 @@
+{
+ "study_id": "10.36721/pjps/2026.40.16902.1",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "d8cbb92f3a706810",
+ "generated_at": "2026-11-26T17:32:03+00:00",
+ "word_count": 98,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A single-center retrospective cohort study in China examined 259 consecutive patients with aneurysmal subarachnoid hemorrhage who underwent endovascular embolization, noting that 67 received norepinephrine during their hospital stay.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The primary outcome was all-cause mortality within 28 days, which was 47.8% in the norepinephrine group compared to 15.7% in the group that did not receive the medication.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "After adjusting for laboratory values and other relevant factors, the use of norepinephrine was associated with a higher risk of dying within 28 days.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "The authors conclude that prospective studies with detailed dose and duration data are needed to confirm these findings.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-26T17:51:23+00:00"
+ }
+}

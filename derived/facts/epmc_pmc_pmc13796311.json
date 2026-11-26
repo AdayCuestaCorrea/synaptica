@@ -1,0 +1,42 @@
+{
+ "study_id": "epmc:PMC:PMC13796311",
+ "status": "ok",
+ "abstract_from": "europepmc",
+ "abstract_hash": "ac9f316f4815bf91",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-26T17:22:47+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study presents a new color augmentation technique called Fancy GNG that uses Growing Neural Gas clustering and PCA-based perturbations.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The method splits an image's color distribution into distinct groups and applies separate color changes to each group rather than altering the whole image at once.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "The researchers tested the method on three image datasets (Flowers-102, CIFAR-10, and ImageNet-1k) using a ResNet-50 neural network.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The technique showed its biggest performance gains on the Flowers-102 dataset, which relies heavily on color details for classification.",
+   "subject": "computational"
+  },
+  {
+   "id": "f5",
+   "statement": "Improvements on the CIFAR-10 dataset were small, suggesting that color is less important for distinguishing classes in that specific set.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The drop in accuracy when images are converted to grayscale can be used to predict how much a dataset will benefit from color-based augmentation.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}

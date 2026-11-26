@@ -1,0 +1,57 @@
+{
+ "study_id": "epmc:PMC:PMC13796191",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "a49014cad4234bca",
+ "generated_at": "2026-11-26T17:43:13+00:00",
+ "word_count": 125,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed a computational model identifying four distinct chloride trajectories using 1,817 patients from one database, then validated these patterns against 1,154 patients from a second dataset.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The identified trajectories were categorized as low and stable, mid and stable, high and rising, and very high with a rise and plateau.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "In the initial cohort, patients exhibiting low-stable, high-rising, or very-high rise/plateau patterns showed higher in-hospital mortality than those with the mid-stable profile.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "However, these mortality associations were not statistically significant in the second database, and no clear link emerged between the chloride patterns and acute kidney injury in either group.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors suggest that while these patterns appear identifiable across different hospitals, their predictive value for death requires further external testing before clinical application.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-26T17:52:23+00:00"
+ }
+}
