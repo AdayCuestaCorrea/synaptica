@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1016/j.ymthe.2026.11.042",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "cf40d941f78168b7",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-27T16:59:55+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a viral vector to deliver the Gsx1 gene into the spinal cord of animals with a contusion injury to test if it aids recovery.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Animals treated with Gsx1 showed better movement skills and sensitivity to touch compared to those that did not receive the treatment.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "In the early stage after injury, the treatment caused cells lining the spinal cord to revert to a more primitive, stem-cell-like condition.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The treatment also steered a specific type of precursor cell away from dividing and toward forming nerve insulation and connections.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "In the long term, the treatment changed the mix of nerve cells in the spinal cord to favor a type that sends activating signals.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "There was a notable increase in nerve cells that use the chemical messenger glutamate to communicate.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "Blocking a specific gene in the precursor cells reduced the beneficial effects of the treatment on both cell changes and movement recovery.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

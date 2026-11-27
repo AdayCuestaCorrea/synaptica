@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1017/s0033291726106424",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "bf3dba9da163e72b",
+ "generated_at": "2026-11-27T17:18:44+00:00",
+ "word_count": 145,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "In a study of humans, participants were asked to recall, suppress, or simply look at cues associated with unpleasant memories while their brain activity was measured using electroencephalography (EEG), a technique that records electrical signals from the scalp.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The results indicated that people with insomnia exhibited weaker memory control, as they forgot less of the memories they were instructed to suppress compared to the healthy group.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "During the suppression phase, the insomnia group displayed higher P300 brain signals, a known marker of conscious memory retrieval, suggesting they continued to unconsciously retrieve the memories even when attempting to suppress them.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "In contrast, the healthy group did not show this difference in brain signals, which suggests they successfully blocked the memory traces.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors conclude that future studies are needed to determine if these memory control deficits cause insomnia symptoms or are merely associated with them.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-27T17:37:06+00:00"
+ }
+}

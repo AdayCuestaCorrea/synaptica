@@ -1,0 +1,56 @@
+{
+ "study_id": "10.1017/s003329172610645x",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "fde57d98c8cb8952",
+ "generated_at": "2026-11-27T17:21:48+00:00",
+ "word_count": 122,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers compared 51 people with obsessive-compulsive disorder (39 men) to 59 healthy controls (37 men) to examine how the cerebellum connects with the rest of the brain.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Using computer simulations of brain damage and network grouping techniques, the team investigated which cerebellar parts support goal-directed versus habitual behavior.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "The analysis revealed that the Crus I/II region groups with networks for goal-directed actions, while lobules V/VI group with networks for habitual actions.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "In both groups, removing the Crus I/II area disrupted network coordination, but removing lobules V/VI had this effect only in the healthy controls.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "People with OCD showed stronger connections within the brain's habitual action network, and this strength was linked to how severe their compulsive symptoms were.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-27T17:38:05+00:00"
+ }
+}

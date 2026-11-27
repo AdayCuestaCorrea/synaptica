@@ -1,0 +1,58 @@
+{
+ "study_id": "10.1080/23279095.2026.2769938",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "0943ae028f8b2681",
+ "generated_at": "2026-11-27T17:27:53+00:00",
+ "word_count": 129,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "A cross-sectional observational study examined preoperative language performance in eighteen adults with glioma, selected from forty-five consecutively assessed patients, using a hierarchical clustering method.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The researchers compared these patients against matched neurotypical controls and found that the overall patient group showed large differences in performance across various task families.",
+   "fact_ids": [
+    "f3",
+    "f6"
+   ]
+  },
+  {
+   "text": "The analysis identified four exploratory groups of patients, with sizes of four, two, five, and seven, which displayed different patterns of performance.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Comparing timed and untimed tasks did not show a general effect of timing on performance.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Due to the small sample size, unequal group sizes, and lack of independent validation, the authors conclude that these groups do not establish distinct clinical subtypes and that larger independent studies are needed to check if these patterns are reproducible and clinically useful.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-27T17:38:07+00:00"
+ }
+}

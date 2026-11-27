@@ -1,0 +1,62 @@
+{
+ "study_id": "10.1111/ene.70828",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "3fa2c759aa1f0805",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-27T17:06:05+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used data from a population-based cohort survey conducted in Norway between 2017 and 2019.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Out of 5752 randomly selected adults aged 20 or older, 2039 people with complete data were included in the analysis.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "People who had previously suffered a stroke, heart attack, or heart failure were left out of the study.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Participants' headache types were determined using established questionnaires.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "In the initial comparison, people with migraine and tension-type headache had cardiac volumes that were 4% to 15% and 4% to 8% smaller, respectively, than those without headache.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "After accounting for other factors, only tension-type headache was linked to a significantly lower volume in the left ventricle of the heart.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The speed of blood flow into the heart during relaxation was significantly lower in people with migraine with aura.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The results suggest a possible link between tension-type headache and subtle changes in the size of the heart's left chamber.",
+   "subject": "humans"
+  },
+  {
+   "id": "f9",
+   "statement": "Migraine with aura was associated with small decreases in blood flow speed, but there was no sign of heart failure.",
+   "subject": "humans"
+  },
+  {
+   "id": "f10",
+   "statement": "The authors state that more research is required to verify these findings and understand their medical importance.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

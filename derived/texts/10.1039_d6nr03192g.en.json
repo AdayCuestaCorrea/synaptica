@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1039/d6nr03192g",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "5cdf92054b638f7d",
+ "generated_at": "2026-11-27T17:25:51+00:00",
+ "word_count": 85,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed and tested a memory device constructed from porous silicon, oxide, and silver layers on a specific silicon wafer.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "This device switched its electrical state using a low voltage of plus or minus 1.8 volts, achieving a rapid response time of 30 nanoseconds.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Because the device's electrical conductance changed slowly in response to signals, it suggests a potential ability to mimic the learning process of brain synapses.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "The study indicates that this technology could be useful for future computer memory and brain-like computing systems.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-27T17:38:06+00:00"
+ }
+}

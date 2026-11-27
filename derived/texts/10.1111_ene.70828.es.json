@@ -1,0 +1,60 @@
+{
+ "study_id": "10.1111/ene.70828",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "87c536492ffd5e3c",
+ "generated_at": "2026-11-27T17:29:55+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron los datos de una encuesta de cohorte basada en la población realizada en Noruega entre 2017 y 2019, que incluyó a 2039 adultos con datos completos.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Se excluyeron a los participantes que habían sufrido previamente un accidente cerebrovascular, un infarto de miocardio o insuficiencia cardíaca, y sus tipos de cefalea se determinaron mediante cuestionarios establecidos.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Si bien las comparaciones iniciales mostraron volúmenes cardíacos menores en personas con migraña y cefalea tensional, solo la cefalea tensional permaneció asociada a un volumen significativamente menor del ventrículo izquierdo tras tener en cuenta otros factores.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Además, la velocidad del flujo sanguíneo hacia el corazón durante la relajación fue significativamente más baja en personas con migraña con aura, aunque no hubo signos de insuficiencia cardíaca.",
+   "fact_ids": [
+    "f7",
+    "f9"
+   ]
+  },
+  {
+   "text": "Los autores sugieren un posible vínculo entre la cefalea tensional y cambios sutiles en el tamaño de la cámara izquierda del corazón, señalando que se requiere más investigación para verificar estos hallazgos y comprender su importancia médica.",
+   "fact_ids": [
+    "f8",
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-27T17:39:06+00:00"
+ }
+}

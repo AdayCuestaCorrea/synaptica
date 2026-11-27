@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1111/jne.70332",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "05c209758d2aa5e5",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-27T17:10:14+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used human brain organoids grown from stem cells to investigate how the hormone 17β-estradiol affects synapse formation and gene activity.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f2",
+   "statement": "The organoids were grown for 45 to 60 days before being sliced and further cultured until they reached 80 days in the lab.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f3",
+   "statement": "The brain slices contained genes for estrogen and androgen receptors, but the levels of these receptors did not consistently differ between the male and female cell lines.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The researchers identified many synapses with varied shapes by looking for specific protein markers in the tissue.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "A short 24-hour exposure to the hormone led to small, mostly non-significant increases in the number and size of synapse markers, along with a significant drop in the solidity of one specific protein cluster.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f6",
+   "statement": "These small changes were seen in samples from four different cell lines, including two from female and two from male sources.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f7",
+   "statement": "Exposing the tissue to the hormone repeatedly over seven days did not produce any measurable changes in the shape of the synapses.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f8",
+   "statement": "Both the short-term and long-term hormone treatments were linked to changes in the activity of genes related to estrogen pathways.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

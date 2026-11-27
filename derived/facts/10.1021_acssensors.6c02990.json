@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1021/acssensors.6c02990",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "e78e1b0fbf785faa",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-27T17:02:59+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study presents a single-pot electrochemical device that detects Alzheimer's disease biomarkers in untreated blood or plasma within 20 minutes, without needing sample preparation, washing, or extra reagents.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "The device uses high-affinity antibodies and an electric field-driven mechanism called a molecular pendulum to sense the biomarkers.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "When an electrical potential is applied, a negatively charged DNA scaffold moves toward the electrode, allowing real-time detection and quantification of the biomarkers.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "The platform was tested on 80 clinical plasma samples using the biomarkers Aβ42 and p-tau217.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Analyzing both biomarkers together performed better than analyzing just one, achieving an area under the curve of 0.9475, 82.5% sensitivity, and 92.5% specificity.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The authors state the strategy shows great potential for early Alzheimer's diagnosis in community or home settings.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1177/09226028261505045",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "3333f89366d2661b",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-27T17:13:18+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The research was a longitudinal study designed to check if total time spent being sedentary links to how the brain's default mode network connects with other areas in young adults.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study included 32 healthy young adults who were part of the Healthy Student Brain project.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Researchers used Fitbit devices to measure the total number of minutes participants spent being sedentary over an eight-week span.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Brain scans were taken while participants rested with their eyes open and with their eyes closed.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Spending more time sedentary was linked to stronger connections between the default mode network and sensory parts of the brain.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The link between sedentary time and visual network connectivity was present whether participants had their eyes open or closed during the scan.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "Sedentary time was associated with stronger sensorimotor network connections only when participants rested with their eyes closed, not when their eyes were open.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "No significant links were found between sedentary time and the default mode network's connections to cognitive control, subcortical, cerebellar, or auditory brain regions.",
+   "subject": "humans"
+  },
+  {
+   "id": "f9",
+   "statement": "Because the group of participants was small, the authors say the results should be seen as generating ideas for future research rather than proving a fact.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,55 @@
+{
+ "study_id": "10.1111/ene.70829",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "dcad37715491a200",
+ "generated_at": "2026-11-27T17:32:58+00:00",
+ "word_count": 101,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers conducted a retrospective analysis of patients with AL amyloid neuropathy treated at a university hospital in Paris, France.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Peripheral neuropathy was the initial sign in 77% of these individuals, while 43% presented with no other organ involvement, a condition the authors term pure neuropathic AL amyloidosis.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Within this specific subgroup, 80% exhibited a chronic, length-dependent axonal polyneuropathy, a pattern that is often nonspecific.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "The IgM subtype accounted for 29% of the cases and was particularly associated with pure neuropathic AL amyloidosis.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "For 20% of the patients, abnormalities in serum free light chains were the only hematological clue to the diagnosis.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 5,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-27T17:39:07+00:00"
+ }
+}

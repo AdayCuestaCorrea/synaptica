@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1017/s0033291726106424",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "bf3dba9da163e72b",
+ "generated_at": "2026-11-27T17:18:44+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "En un estudio con humanos, se pidió a los participantes que recordaran, suprimieran o simplemente observaran estímulos asociados a recuerdos desagradables mientras se medía su actividad cerebral mediante electroencefalografía (EEG), una técnica que registra las señales eléctricas desde el cuero cabelludo.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Los resultados indicaron que las personas con insomnio mostraban un menor control de la memoria, ya que olvidaban menos de los recuerdos que se les indicó suprimir en comparación con el grupo sano.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Durante la fase de supresión, el grupo con insomnio presentó señales cerebrales P300 más altas, un marcador conocido de recuperación consciente de la memoria, lo que sugiere que seguían recuperando los recuerdos de forma inconsciente incluso al intentar suprimirlos.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "En cambio, el grupo sano no mostró esta diferencia en las señales cerebrales, lo que sugiere que bloqueó con éxito las huellas de la memoria.",
+   "fact_ids": [
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores concluyen que se necesitan estudios futuros para determinar si estos déficits en el control de la memoria causan los síntomas de insomnio o si simplemente se asocian con ellos.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-27T17:37:06+00:00"
+ }
+}

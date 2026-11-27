@@ -1,0 +1,51 @@
+{
+ "study_id": "10.1039/d6nr03192g",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "5cdf92054b638f7d",
+ "generated_at": "2026-11-27T17:25:51+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron y probaron un dispositivo de memoria construido con capas de silicio poroso, óxido y plata sobre una oblea de silicio específica.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Este dispositivo conmutaba su estado eléctrico mediante un bajo voltaje de más o menos 1,8 voltios, logrando un tiempo de respuesta rápido de 30 nanosegundos.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Dado que la conductancia eléctrica del dispositivo cambiaba lentamente en respuesta a las señales, sugiere una posible capacidad para imitar el proceso de aprendizaje de las sinapsis cerebrales.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "El estudio indica que esta tecnología podría ser útil para la memoria de ordenadores del futuro y para sistemas de computación similares al cerebro.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-27T17:38:06+00:00"
+ }
+}

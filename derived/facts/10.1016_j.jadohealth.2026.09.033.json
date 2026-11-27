@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1016/j.jadohealth.2026.09.033",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "2157a7a48c80a7c1",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-27T16:58:53+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study analyzed data from 4,627 participants aged 11 to 12 years old to see if adverse childhood experiences changed the link between brain measures and body mass index.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers measured brain structure, including cortical thickness and specific microstructural metrics from 22 cortical and 16 subcortical areas, along with various behavioral traits.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The analysis used statistical models that separated results by sex and accounted for age, puberty status, and education level.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "In male participants, the level of adverse childhood experiences significantly changed the relationship between body mass index and brain microstructure.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "Specific interactions involving one type of microstructure were found in several brain regions, including the anterior cingulate, posterior cingulate, insula, accumbens, pallidum, putamen, caudate, and hippocampus.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Interactions involving a different type of microstructure were detected in the putamen, caudate, and pallidum.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The study did not find that adverse experiences changed the links between body mass index and brain size, behavioral measures, or microstructure in female participants.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors suggest that accumulated stress might intensify the connection between brain microstructure and body weight in a way that differs between males and females.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1016/j.ymthe.2026.11.042",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "f2b7eff3c09d0401",
+ "generated_at": "2026-11-27T17:14:40+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores probaron si la administración del gen Gsx1 mediante un vector viral en la médula espinal de animales con lesiones por contusión favorece la recuperación.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Los animales que recibieron este tratamiento mostraron una mejora en las habilidades motrices y en la sensibilidad al tacto en comparación con los no tratados.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Poco después de la lesión, la intervención indujo que las células que revisten la médula espinal regresaran a un estado primitivo, similar al de las células madre, mientras dirigía a las células precursoras hacia la formación de la mielina.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "A largo plazo, la médula espinal mostró un cambio en la composición de las células nerviosas que favorecía a los tipos que envían señales activadoras, incluido un aumento notable de células que utilizan glutamato.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "El bloqueo de un gen específico en las células precursoras redujo el impacto del tratamiento tanto en los cambios celulares como en la recuperación del movimiento.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-27T17:37:06+00:00"
+ }
+}

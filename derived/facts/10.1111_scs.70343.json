@@ -1,0 +1,30 @@
+{
+ "study_id": "10.1111/scs.70343",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "ca3660a29816f603",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-27T17:12:17+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study aimed to describe how family members of people with dementia in Swedish nursing homes experienced the pandemic.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study used qualitative interviews with 14 family members of dementia patients living in nursing homes in Northern Sweden.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The interview data were analyzed using conventional qualitative content analysis.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording",
+  "statement copies the source wording"
+ ]
+}

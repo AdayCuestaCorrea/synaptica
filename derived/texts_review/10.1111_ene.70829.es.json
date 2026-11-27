@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1111/ene.70829",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "dcad37715491a200",
+ "generated_at": "2026-11-27T17:32:58+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 5: words not in the Spanish dictionary ['séricas']"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores realizaron un análisis retrospectivo de pacientes con neuropatía amiloide AL tratados en un hospital universitario de París, Francia.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "La neuropatía periférica fue el signo inicial en el 77% de estos individuos, mientras que el 43% no presentaba afectación de otros órganos, una condición que los autores denominan amiloidosis AL neuropática pura.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Dentro de este subgrupo específico, el 80% mostraba una polineuropatía axonal crónica y dependiente de la longitud, un patrón que a menudo no es específico.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "El subtipo IgM representó el 29% de los casos y estuvo particularmente asociado con la amiloidosis AL neuropática pura.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "En el 20% de los pacientes, las anomalías en las cadenas ligeras libres séricas fueron la única pista hematológica para el diagnóstico.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-27T17:37:03+00:00"
+}

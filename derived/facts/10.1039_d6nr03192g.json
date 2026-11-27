@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1039/d6nr03192g",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "55674be9f36537b1",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-27T17:04:01+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers created and tested a memory device made from porous silicon.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "The device was built on a specific type of silicon wafer using layers of porous silicon, oxide, and silver.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "The device was shown to switch its electrical state using a low voltage of plus or minus 1.8 volts.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "The device switched states very quickly, with a response time of 30 nanoseconds.",
+   "subject": "other"
+  },
+  {
+   "id": "f5",
+   "statement": "The way the device's electrical conductance changed slowly in response to signals suggests it could mimic the learning process of brain synapses.",
+   "subject": "other"
+  },
+  {
+   "id": "f6",
+   "statement": "The study suggests this device could be useful for future computer memory and brain-like computing systems.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

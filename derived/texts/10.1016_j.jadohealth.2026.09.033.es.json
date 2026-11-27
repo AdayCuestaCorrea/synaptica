@@ -1,0 +1,53 @@
+{
+ "study_id": "10.1016/j.jadohealth.2026.09.033",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "4bc3b508179c0aa6",
+ "generated_at": "2026-11-27T17:13:18+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores analizaron los datos de 4627 participantes de entre 11 y 12 años, midiendo la estructura cerebral, incluida el grosor cortical y métricas de microestructura de 22 áreas corticales y 16 subcorticales, junto con rasgos conductuales, mediante modelos estadísticos que separaron los resultados por sexo y tuvieron en cuenta la edad, el estado de la pubertad y el nivel educativo.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "En los participantes masculinos, el nivel de experiencias adversas en la infancia modificó significativamente la relación entre el índice de masa corporal y la microestructura cerebral, con interacciones específicas de un tipo de microestructura en regiones como el cíngulo anterior, el cíngulo posterior, la ínsula, el núcleo accumbens, el globo pálido, el putamen, el caudado y el hipocampo, mientras que las interacciones de otro tipo de microestructura se detectaron en el putamen, el caudado",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "El estudio no encontró que las experiencias adversas alteraran las relaciones entre el índice de masa corporal y el tamaño cerebral, las medidas conductuales o la microestructura en las participantes femeninas.",
+   "fact_ids": [
+    "f7"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que el estrés acumulado podría intensificar la conexión entre la microestructura cerebral y el peso corporal de una manera que difiere entre hombres y mujeres.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-27T17:37:05+00:00"
+ }
+}

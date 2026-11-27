@@ -1,0 +1,58 @@
+{
+ "study_id": "10.1080/23279095.2026.2769938",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "0943ae028f8b2681",
+ "generated_at": "2026-11-27T17:27:53+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Un estudio observacional transversal examinó el rendimiento lingüístico preoperatorio en dieciocho adultos con glioma, seleccionados de cuarenta y cinco pacientes evaluados de forma consecutiva, mediante un método de agrupamiento jerárquico.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Los investigadores compararon a estos pacientes con controles neurotípicos emparejados y observaron que el grupo general de pacientes presentaba grandes diferencias en el rendimiento entre distintas familias de tareas.",
+   "fact_ids": [
+    "f3",
+    "f6"
+   ]
+  },
+  {
+   "text": "El análisis identificó cuatro grupos exploratorios de pacientes, de tamaños cuatro, dos, cinco y siete, que mostraban patrones de rendimiento diferentes.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "La comparación entre tareas con y sin límite de tiempo no reveló un efecto general del tiempo sobre el rendimiento.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Debido al pequeño tamaño de la muestra, los tamaños desiguales de los grupos y la falta de validación independiente, los autores concluyen que estos grupos no establecen subtipos clínicos distintos y que se necesitan estudios independientes más amplios para verificar si estos patrones son reproducibles y clínicamente útiles.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-27T17:38:07+00:00"
+ }
+}

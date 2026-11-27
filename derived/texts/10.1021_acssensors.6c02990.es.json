@@ -1,0 +1,56 @@
+{
+ "study_id": "10.1021/acssensors.6c02990",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "61f093be2af554c8",
+ "generated_at": "2026-11-27T17:23:49+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores desarrollaron un dispositivo electroquímico de un solo recipiente que detecta biomarcadores de la enfermedad de Alzheimer en sangre o plasma sin tratar en menos de 20 minutos, utilizando anticuerpos de alta afinidad y un mecanismo de péndulo molecular.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Al aplicar un potencial eléctrico, un andamiaje de ADN con carga negativa se desplaza hacia el electrodo, lo que permite la detección y cuantificación de los biomarcadores en tiempo real.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "La plataforma se probó en 80 muestras clínicas de plasma utilizando los biomarcadores Aβ42 y p-tau217.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "El análisis conjunto de ambos biomarcadores obtuvo mejores resultados que el de uno solo, alcanzando un área bajo la curva de 0,9475, una sensibilidad del 82,5 % y una especificidad del 92,5 %.",
+   "fact_ids": [
+    "f5"
+   ]
+  },
+  {
+   "text": "Los autores señalan que esta estrategia muestra un gran potencial para el diagnóstico precoz del Alzheimer en entornos comunitarios o domésticos.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-27T17:38:06+00:00"
+ }
+}

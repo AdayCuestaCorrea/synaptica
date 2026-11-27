@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1111/jne.70340",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "7f5d21bdf840a44b",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-27T17:11:16+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used two mouse models of prolactinoma that do not involve the Men1 gene, where only female mice developed the tumors.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The amount of Men1 gene in the pituitary glands did not change between the different mouse groups or sexes.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "In the tumor cells, the menin protein was found mostly in the cell body rather than in the nucleus.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The absence of menin in the nucleus was linked to changes in several other proteins that control cell growth and survival.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Treating the mice with dopamine-agonist drugs kept menin in the nucleus, while blocking dopamine or adding estradiol caused it to leave the nucleus.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "In human samples, menin was present in both the nucleus and cell body of pituitary cells from healthy individuals and from tumor patients who had received dopamine-agonist treatment.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "In one untreated female patient with a prolactinoma, the menin protein was less clearly visible in the nucleus compared to treated cases.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The results suggest that sporadic prolactinomas have a functional lack of menin activity because the protein is kept out of the nucleus, which may be a target for new treatments.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

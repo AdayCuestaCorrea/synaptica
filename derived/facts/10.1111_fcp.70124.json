@@ -1,0 +1,62 @@
+{
+ "study_id": "10.1111/fcp.70124",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "40cb453ba4e17948",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-27T17:08:08+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used a mouse model of single prolonged stress to look at how ganaxolone affects anxiety-like behaviors and stress hormone levels.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "The subjects were male BALB/c mice that were exposed to a single prolonged stress procedure.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "After a two-week waiting period, the mice received daily injections of ganaxolone at three different doses or a placebo for five days.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The researchers measured the mice's behavior using tests for balance, open spaces, elevated mazes, swimming, and social interaction.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "The levels of the chemicals allopregnanolone and corticosterone were measured in the prefrontal cortex and amygdala brain regions.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "The stress procedure caused the mice to show clear signs of anxiety in the open field and elevated plus maze tests.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "Treating the mice with ganaxolone significantly reduced their anxiety-like behaviors.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "The 7.5 mg/kg dose of ganaxolone increased the time mice spent in the center of the open field, and all three doses increased the time spent in the open arms of the maze.",
+   "subject": "animals"
+  },
+  {
+   "id": "f9",
+   "statement": "The treatment did not cause significant changes in the mice's movement, social interaction, swimming behavior, or the measured brain chemical levels.",
+   "subject": "animals"
+  },
+  {
+   "id": "f10",
+   "statement": "The results suggest that ganaxolone could be a potential non-benzodiazepine treatment for anxiety symptoms in post-traumatic stress disorder.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

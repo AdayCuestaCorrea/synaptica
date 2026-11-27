@@ -1,0 +1,53 @@
+{
+ "study_id": "10.1016/j.jadohealth.2026.09.033",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "4bc3b508179c0aa6",
+ "generated_at": "2026-11-27T17:13:18+00:00",
+ "word_count": 159,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers analyzed data from 4,627 participants aged 11 to 12 years old, measuring brain structure, including cortical thickness and microstructural metrics from 22 cortical and 16 subcortical areas, alongside behavioral traits, using statistical models that separated results by sex and accounted for age, puberty status, and education level.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "In male participants, the level of adverse childhood experiences significantly changed the relationship between body mass index and brain microstructure, with specific interactions involving one type of microstructure found in regions such as the anterior cingulate, posterior cingulate, insula, accumbens, pallidum, putamen, caudate, and hippocampus, while interactions involving a different type of microstructure were detected in the putamen, caudate, and pallidum.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The study did not find that adverse experiences changed the links between body mass index and brain size, behavioral measures, or microstructure in female participants.",
+   "fact_ids": [
+    "f7"
+   ]
+  },
+  {
+   "text": "The authors suggest that accumulated stress might intensify the connection between brain microstructure and body weight in a way that differs between males and females.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-27T17:37:05+00:00"
+ }
+}

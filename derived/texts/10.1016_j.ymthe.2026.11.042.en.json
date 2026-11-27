@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1016/j.ymthe.2026.11.042",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "f2b7eff3c09d0401",
+ "generated_at": "2026-11-27T17:14:40+00:00",
+ "word_count": 111,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers tested whether delivering the Gsx1 gene via a viral vector into the spinal cord of animals with contusion injuries aids recovery.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Animals receiving this treatment displayed improved movement skills and sensitivity to touch relative to untreated counterparts.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "Early after injury, the intervention induced cells lining the spinal cord to revert to a primitive, stem-cell-like state while steering precursor cells toward forming nerve insulation.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "Over the long term, the spinal cord exhibited a shift in nerve cell composition favoring types that send activating signals, including a notable increase in cells using glutamate.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Blocking a specific gene in precursor cells diminished the treatment's impact on both cellular changes and movement recovery.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-27T17:37:06+00:00"
+ }
+}

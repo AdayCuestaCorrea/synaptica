@@ -1,0 +1,60 @@
+{
+ "study_id": "10.1111/ene.70828",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "87c536492ffd5e3c",
+ "generated_at": "2026-11-27T17:29:55+00:00",
+ "word_count": 138,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers analyzed data from a population-based cohort survey conducted in Norway between 2017 and 2019, including 2039 adults with complete data.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Participants who had previously suffered a stroke, heart attack, or heart failure were excluded, and their headache types were determined using established questionnaires.",
+   "fact_ids": [
+    "f3",
+    "f4"
+   ]
+  },
+  {
+   "text": "While initial comparisons showed smaller cardiac volumes in people with migraine and tension-type headache, only tension-type headache remained linked to a significantly lower left ventricle volume after accounting for other factors.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Additionally, the speed of blood flow into the heart during relaxation was significantly lower in people with migraine with aura, though there was no sign of heart failure.",
+   "fact_ids": [
+    "f7",
+    "f9"
+   ]
+  },
+  {
+   "text": "The authors suggest a possible link between tension-type headache and subtle changes in the size of the heart's left chamber, noting that more research is required to verify these findings and understand their medical importance.",
+   "fact_ids": [
+    "f8",
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-27T17:39:06+00:00"
+ }
+}

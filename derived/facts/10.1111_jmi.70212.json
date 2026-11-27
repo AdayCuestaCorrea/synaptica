@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1111/jmi.70212",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "e265150d54f45630",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-27T17:09:12+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study addresses the problem that cell counts in whole-brain imaging can vary depending on how brain regions are aligned to a reference map.",
+   "subject": "computational"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers treated the alignment of unclear brain areas as a process of sampling multiple possibilities instead of finding one best fit.",
+   "subject": "computational"
+  },
+  {
+   "id": "f3",
+   "statement": "By running many alignment calculations in parallel on a high-performance computer, the team cut the processing time from about 92 hours to less than 3 hours.",
+   "subject": "computational"
+  },
+  {
+   "id": "f4",
+   "statement": "The method was used to count specific neurons in a brain area linked to Parkinson's disease, which is hard to distinguish from neighboring regions in the images.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Quality control steps reduced the variation in neuron counts from 61% to between 8% and 12% of the final estimate, allowing for a single count without picking one specific alignment.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "When tested against expert-labeled data, the new method matched the reference with a similarity score of 0.80, which was lower than the 0.89 score for expert labels but higher than the 0.79 score for single alignments.",
+   "subject": "computational"
+  },
+  {
+   "id": "f7",
+   "statement": "In a separate dataset lacking certain image types, the method agreed well with existing maps for large brain structures but performed poorly for small nuclei in the midbrain.",
+   "subject": "computational"
+  },
+  {
+   "id": "f8",
+   "statement": "The study notes that the results in the independent dataset measured how well different software pipelines agreed with each other, rather than confirming the true anatomical accuracy.",
+   "subject": "computational"
+  }
+ ],
+ "rejected": []
+}
