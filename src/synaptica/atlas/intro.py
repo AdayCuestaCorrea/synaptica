@@ -15,13 +15,15 @@ queue (``ItemType.ATLAS``, item ``intro``, first among the Atlas texts from 2026
 only her approval puts it on the Neuro Atlas page. By hand, never in the pipeline, and
 the LLM only with Aday's OK.
 
-**More differences** (:data:`MORE`, v248). Sofía asked for a wider comparison that does not
-push the 3D brain off the first screen (sheet rows 11 and 15). A second text, drafted the
-same way from four more pinned sections (one per subject she listed that Wikipedia
-compares: new neurons, rodents as models, the neocortex, the whiskers), shown in a fold
-below the brains; its own card (``intro-more``), so the short introduction already in her
-queue keeps its hash. Each part has its own sections, fact ids, prompts and key in
-``intro.json``.
+**More differences** (:data:`MORE`, v248). Sofía asked for a wider comparison that does
+not push the 3D brain off the first screen (sheet rows 11 and 15). A second text, drafted
+the same way, shown in a fold below the brains; its own card (``intro-more``), so the
+short introduction already in her queue keeps its hash. Each part has its own sections,
+fact ids, prompts and key in ``intro.json``. Its sources (v250, after three drafts from
+four loose Wikipedia sections that hardly compared the brains, v249): three sections of
+two reviews that compare them on purpose, Herculano-Houzel 2009 and DeFelipe 2011, read
+from PMC as Neuro Lab's limits are (:mod:`synaptica.lab.pmc`: the text in the cache, its
+hash here).
 """
 
 from __future__ import annotations
@@ -35,10 +37,11 @@ from typing import Any, Literal
 import httpx
 from pydantic import BaseModel, Field
 
-from synaptica.http import Throttle
+from synaptica.http import HttpError, Throttle
+from synaptica.lab import pmc
 from synaptica.llm import LLM, LLMOutputError
 from synaptica.narrative import wikidraft
-from synaptica.review.models import ItemType, ReviewItem, Sentence, TextContent
+from synaptica.review.models import ItemType, ReviewItem, Sentence, Source, TextContent
 from synaptica.store import utc_today
 from synaptica.wiki import LICENCE, fetch_section, write_json
 
@@ -52,10 +55,14 @@ TITLE_ES = "Humano y rata · Cómo leer las parejas"
 
 @dataclass(frozen=True)
 class Pinned:
+    """A section of a Wikipedia article at its revision, or of a PMC article (``pmcid``,
+    v250: fixed by the SHA-256 of its text, which is kept like Neuro Lab's, lab/pmc.py)."""
+
     id: str
     title: str
     heading: str
-    revid: int
+    revid: int | None = None
+    pmcid: str | None = None
 
 
 # Measured in step 6a (2026-11-18): the three sections that compare the two brains.
@@ -64,13 +71,18 @@ PINNED = (
     Pinned("human-brain", "Human brain", "Comparative anatomy", 1386315509),
     Pinned("brain-size", "Brain size", "Other animals", 1385820400),
 )
-# v248, read on 2026-11-25: one section per subject of hers that compares human and rodent.
+# v250 (Aday, 2026-11-28): two reviews that compare the two brains on purpose, after three
+# drafts from four loose Wikipedia sections that hardly compared them (v249).
+_NUMBERS = "The human brain in numbers: a linearly scaled-up primate brain"
 PINNED_MORE = (
-    Pinned("neurogenesis", "Adult neurogenesis", "Rodents", 1384312363),
-    Pinned("animal-model", "Animal model", "Challenges and criticisms", 1385166639),
-    Pinned("neocortex", "Neocortex", "Evolution", 1381668011),
-    Pinned("whiskers", "Whiskers", "Neuroscience", 1385846757),
-)
+    Pinned("scaling", _NUMBERS, "Cellular scaling rules for rodent, insectivore, and primate "
+           "brains", pmcid="PMC2776484"),
+    Pinned("composition", _NUMBERS, "The cellular composition of the human brain",
+           pmcid="PMC2776484"),
+    Pinned("microstructure", "The evolution of the brain, the human nature of cortical "
+           "circuits, and intellectual creativity",
+           "Species-specific variations in cortical microstructure", pmcid="PMC3098448"),
+)  # fmt: skip
 
 
 class IntroFact(BaseModel):
@@ -111,7 +123,7 @@ class Part:
 
 INTRO = Part(SECTION, ITEM_ID, TITLE_ES, PINNED, SPEC, "abc")
 MORE = Part("more", "intro-more", "Humano y rata · Más diferencias", PINNED_MORE, SPEC_MORE,
-            "defg")  # fmt: skip
+            "def")  # fmt: skip
 PARTS = (INTRO, MORE)
 
 
@@ -122,7 +134,31 @@ def read_json(path: Path, key: str) -> dict[str, Any]:
 
 
 def source_id(p: Pinned) -> str:
+    if p.pmcid:
+        return f"pmc-{p.pmcid.lower()}-atlas-intro-{p.id}"
     return f"wikipedia-en-atlas-intro-{p.id}"
+
+
+def _version(p: Pinned, sections: dict[str, Any]) -> int | str | None:
+    """What fixes the stored section: its revision, or the hash of a PMC one; None when it
+    is not stored as pinned."""
+    entry = sections.get(p.id) or {}
+    if p.pmcid:
+        same = entry.get("pmcid") == p.pmcid and entry.get("heading") == p.heading
+        return entry.get("sha256") if same else None
+    return p.revid if entry.get("revid") == p.revid else None
+
+
+def _text(p: Pinned, sections: dict[str, Any], cache_root: Path | None = None,
+          client: httpx.Client | None = None) -> str | None:  # fmt: skip
+    entry = sections.get(p.id) or {}
+    return pmc.text_of(entry, cache_root, client) if p.pmcid else entry.get("text")
+
+
+def _source(p: Pinned, entry: dict[str, Any]) -> Source:
+    if p.pmcid:
+        return Source(id=source_id(p), url=entry["url"], label=pmc.label(entry))
+    return wikidraft.wiki_source(source_id(p), entry, p.heading)
 
 
 def update(
@@ -131,20 +167,29 @@ def update(
     path: Path | None = None,
     throttle: Throttle | None = None,
     part: Part = INTRO,
+    cache_root: Path | None = None,
 ) -> tuple[int, list[str]]:
-    """Store the text of each pinned section of ``part`` (kept when already stored at its
-    revision; the other part's sections are left as they are). Returns how many were
-    fetched and what failed."""
+    """Store the text of each pinned section of ``part`` (kept when already stored as
+    pinned; the other part's sections are left as they are, and sections no part pins any
+    more are dropped). Returns how many were fetched and what failed."""
     path = path or SOURCES
     stored = read_json(path, "sections")
     throttle = throttle or Throttle(1)
     mine = {p.id for p in part.pinned}
-    out: dict[str, Any] = {k: v for k, v in stored.items() if k not in mine}
+    pinned = {p.id for q in PARTS for p in q.pinned}
+    out: dict[str, Any] = {k: v for k, v in stored.items() if k not in mine and k in pinned}
     fetched, failed = 0, []
     for p in part.pinned:
         old = stored.get(p.id) or {}
-        if old.get("revid") == p.revid and old.get("heading") == p.heading:
+        if _version(p, stored) is not None:
             out[p.id] = old
+            continue
+        if p.pmcid:
+            got = _pmc_section(client, p, throttle, cache_root)
+            if got is None:
+                failed.append(f"{p.id}: no section «{p.heading}» in {p.pmcid}")
+            else:
+                out[p.id], fetched = got, fetched + 1
             continue
         text = fetch_section(client, "en", p.revid, p.heading, throttle)
         if not text:
@@ -155,15 +200,41 @@ def update(
                      "retrieved": utc_today().isoformat(), "text": text}  # fmt: skip
         fetched += 1
     write_json(path, {
-        "note": "Sections of English Wikipedia the Neuro Atlas introduction is drafted from, "
-        "each at a pinned revision. Written by `syn atlas intro-sources`; do not edit by hand.",
-        "licence": LICENCE, "sections": out,
+        "note": "Sections the Neuro Atlas introduction is drafted from: English Wikipedia, "
+        "each at a pinned revision, and PMC articles, each by the hash of its section (its "
+        "text here only under a Creative Commons licence, else in data/cache/lab/pmc/). "
+        "Written by `syn atlas intro-sources`; do not edit by hand.",
+        "licence": LICENCE + "; PMC articles: the licence of each", "sections": out,
     })  # fmt: skip
     return fetched, failed
 
 
+def _pmc_section(client: httpx.Client, p: Pinned, throttle: Throttle,
+                 cache_root: Path | None) -> dict[str, Any] | None:  # fmt: skip
+    """A PMC section stored as Neuro Lab's are (v245): citation, licence and hash; the
+    text only under an open licence, else in the cache."""
+    assert p.pmcid
+    try:
+        text = pmc.section_text(pmc.fetch_xml(client, p.pmcid, throttle), p.heading)
+        cite = pmc.citation(client, p.pmcid, throttle)
+    except HttpError:
+        return None
+    if text is None:
+        return None
+    licence = cite.pop("licence")
+    entry = {"source": "pmc", "pmcid": p.pmcid, "title": p.title, "heading": p.heading,
+             "url": pmc.ARTICLE.format(pmcid=p.pmcid), "citation": cite, "licence": licence,
+             "retrieved": utc_today().isoformat(), "sha256": pmc.sha256(text),
+             "words": len(text.split())}  # fmt: skip
+    if pmc.is_open(licence):
+        entry["text"] = text
+    elif cache_root is not None:
+        pmc.store(cache_root, entry, text)
+    return entry
+
+
 def _ready(sections: dict[str, Any], part: Part = INTRO) -> bool:
-    return all((sections.get(p.id) or {}).get("revid") == p.revid for p in part.pinned)
+    return all(_version(p, sections) is not None for p in part.pinned)
 
 
 def write(
@@ -174,6 +245,8 @@ def write(
     path: Path | None = None,
     now: dt.datetime | None = None,
     part: Part = INTRO,
+    cache_root: Path | None = None,
+    client: httpx.Client | None = None,
 ) -> str:
     """Draft the introduction (or ``part``) and return its status. Not asked again when
     already drafted from the same revisions (``redraft`` to ask anyway); ``missing_sources`` before
@@ -183,21 +256,24 @@ def write(
     sections = read_json(sources_path or SOURCES, "sections")
     if not _ready(sections, part):
         return "missing_sources"
-    revids = {p.id: p.revid for p in part.pinned}
+    revids = {p.id: _version(p, sections) for p in part.pinned}
     old = read_json(path, part.key)
     if old and old.get("revids") == revids and not redraft:
         return "unchanged"
+    texts = {p.id: _text(p, sections, cache_root, client) for p in part.pinned}
+    if any(t is None for t in texts.values()):
+        return "missing_sources"  # a PMC section not in the cache and not to be had
     verified: list[dict[str, str]] = []
     rejected: list[str] = []
     try:
         for prefix, p in zip(part.prefixes, part.pinned, strict=True):
             got, rej = wikidraft.facts(
-                llm, part.spec, NAME, sections[p.id]["text"], prefix=prefix,
+                llm, part.spec, NAME, texts[p.id], prefix=prefix,
                 header=f"SECTION «{p.heading}» OF THE ARTICLE «{p.title}»",
             )  # fmt: skip
             verified += [f | {"source": p.id} for f in got]
             rejected += rej
-        joined = "\n\n".join(wikidraft.plain(sections[p.id]["text"]) for p in part.pinned)
+        joined = "\n\n".join(wikidraft.plain(texts[p.id]) for p in part.pinned)
         sec = wikidraft.section(llm, part.spec, NAME, part.key, verified, joined)
     except LLMOutputError:
         return "model_error"
@@ -230,14 +306,13 @@ def review_items(path: Path | None = None, sources_path: Path | None = None) -> 
 def _item(part: Part, path: Path | None, sources_path: Path | None) -> ReviewItem | None:
     rec = read_json(path or TEXTS, part.key)
     sections = read_json(sources_path or SOURCES, "sections")
-    revids = {p.id: p.revid for p in part.pinned}
+    revids = {p.id: _version(p, sections) for p in part.pinned}
     if not rec or not _ready(sections, part) or rec.get("revids") != revids:
         return None
     sec = rec.get(part.key) or {}
     if sec.get("status") != "drafted":
         return None
-    src = {p.id: wikidraft.wiki_source(source_id(p), sections[p.id], p.heading)
-           for p in part.pinned}  # fmt: skip
+    src = {p.id: _source(p, sections[p.id]) for p in part.pinned}
     of = {f["id"]: f["source"] for f in rec["facts"]}
 
     def cites(s: dict[str, Any]) -> list[str]:
@@ -252,11 +327,12 @@ def _item(part: Part, path: Path | None, sources_path: Path | None) -> ReviewIte
                       content=content)  # fmt: skip
 
 
-def source_texts(items: list[ReviewItem], sources_path: Path | None = None) -> dict[str, str]:
-    """The section each source of her intro item cites, at its pinned revision (to check
-    her edits: numbers, names, 8 copied words)."""
+def source_texts(items: list[ReviewItem], sources_path: Path | None = None,
+                 cache_root: Path | None = None) -> dict[str, str]:  # fmt: skip
+    """The section each source of her intro items cites, as pinned (to check her edits:
+    numbers, names, 8 copied words); a PMC one from the cache, with its hash."""
     sections = read_json(sources_path or SOURCES, "sections")
-    by_id = {source_id(p): sections.get(p.id) or {} for q in PARTS for p in q.pinned}
+    by_id = {source_id(p): p for q in PARTS for p in q.pinned}
     out = {}
     for item in items:
         if item.item_type is not ItemType.ATLAS or item.item_id not in {q.item_id for q in PARTS}:
@@ -264,9 +340,10 @@ def source_texts(items: list[ReviewItem], sources_path: Path | None = None) -> d
         if not isinstance(item.content, TextContent):
             continue
         for s in item.content.sources:
-            entry = by_id.get(s.id) or {}
-            if entry.get("url") == s.url:
-                out[s.id] = wikidraft.plain(entry["text"])
+            p = by_id.get(s.id)
+            entry = sections.get(p.id) or {} if p else {}
+            if p and entry.get("url") == s.url and (text := _text(p, sections, cache_root)):
+                out[s.id] = wikidraft.plain(text)
     return out
 
 
@@ -285,7 +362,14 @@ def published(
     if shown is None:
         return None
     assert isinstance(item.content, TextContent)
-    sources = [{"url": s.url, "title": s.label.split("«")[1].split("»")[0],
-                "heading": s.label.split("«")[2].split("»")[0]}
-               for s in item.content.sources]  # fmt: skip
+    sections = read_json(sources_path or SOURCES, "sections")
+    by_id = {source_id(p): sections.get(p.id) or {} for p in part.pinned}
+    sources = []
+    for s in item.content.sources:
+        src = {"url": s.url, "title": s.label.split("«")[1].split("»")[0],
+               "heading": s.label.split("«")[2].split("»")[0]}  # fmt: skip
+        if s.id.startswith("pmc-"):
+            entry = by_id[s.id]
+            src |= {"kind": "pmc", "citation": entry["citation"], "licence": entry["licence"]}
+        sources.append(src)
     return {**shown, "sources": sources}

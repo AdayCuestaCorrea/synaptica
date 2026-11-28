@@ -202,110 +202,121 @@ def test_the_atlas_page_shows_only_her_approved_intro(
     assert "Both brains share a plan" in (site / "en" / "atlas.html").read_text()
 
 
-# ---- «more differences» (v248): its own sections, fact ids, card and fold ---------------
+# ---- «more differences» (v248; from two PMC reviews since v250): its own sections, fact
+# ids, card and fold; the reviews' text only in the cache --------------------------------
 
 MORE_TEXTS = {
-    "neurogenesis": "Rodents have a very similar architecture to humans, with very little "
-    "regenerative capacity.",
-    "animal-model": "Rats and mice may be selectively sedentary, which may confound their use "
-    "to model human metabolism.",
-    "neocortex": "In humans, 90% of the cerebral cortex is neocortex.",
-    "whiskers": "A large part of the brain of whisker-specialist mammals processes signals "
-    "from the vibrissae.",
+    "scaling": "In rodents, the brain grows faster than its number of neurons. A rodent "
+    "brain with as many neurons as the human brain would weigh 35 kg.",
+    "composition": "The human brain has about 86 billion neurons.",
+    "microstructure": "Pyramidal cells in the human cortex carry more dendritic spines than "
+    "those of the mouse.",
 }
+HEADING = {p.heading: p.id for p in intro.PINNED_MORE}
 MORE_FACTS = {
-    "Rodents": [("The rodent nervous system is built much like the human one.",
-                 "Rodents have a very similar architecture to humans", "comparison")],
-    "Challenges and criticisms": [("Laboratory rats and mice may move little, which may "
-                                   "blur what they say about human metabolism.",
-                                   "Rats and mice may be selectively sedentary",
-                                   "comparison")],
-    "Evolution": [("Nine tenths of the human cerebral cortex is neocortex, 90%.",
-                   "In humans, 90% of the cerebral cortex is neocortex", "comparison")],
-    "Neuroscience": [("Mammals that rely on whiskers devote a large share of the brain to "
-                      "them.", "A large part of the brain of whisker-specialist mammals",
-                      "comparison")],
+    "scaling": [("Rodent brains get bigger faster than they gain neurons.",
+                 "In rodents, the brain grows faster than its number of neurons",
+                 "comparison"),
+                ("A rodent brain with the human number of neurons would weigh 35 kg.",
+                 "A rodent brain with as many neurons as the human brain would weigh 35 kg",
+                 "comparison")],
+    "composition": [("A human brain holds some 86 billion neurons.",
+                     "The human brain has about 86 billion neurons", "comparison")],
+    "microstructure": [("Human cortical pyramidal cells have more spines than mouse ones.",
+                        "Pyramidal cells in the human cortex carry more dendritic spines "
+                        "than those of the mouse", "comparison")],
 }  # fmt: skip
 MORE_EN = [
-    ("The rodent nervous system is organised much like ours, which is why rats are used to "
-     "study it.", ["d1"]),
-    ("Yet laboratory rats and mice may move little, and that may blur what they tell us "
-     "about human metabolism.", ["e1"]),
-    ("In people, 90% of the cerebral cortex is neocortex, the most recent part to evolve.",
-     ["f1"]),
-    ("Rats, in turn, read the world with their whiskers, and a large share of their brain "
-     "handles them.", ["g1"]),
+    ("As rodent brains grow, they gain size faster than neurons, so a rodent brain with the "
+     "human number of neurons would weigh 35 kg.", ["d1", "d2"]),
+    ("The human brain holds some 86 billion neurons.", ["e1"]),
+    ("Its cortical pyramidal cells also carry more spines than those of the mouse.", ["f1"]),
 ]  # fmt: skip
 MORE_ES = [
-    "El sistema nervioso de los roedores está organizado de forma muy parecida al nuestro, "
-    "por eso se usan ratas para estudiarlo.",
-    "Pero las ratas y los ratones de laboratorio podrían moverse poco, y eso podría "
-    "enturbiar lo que nos dicen del metabolismo humano.",
-    "En las personas, el 90% de la corteza cerebral es neocorteza, la parte más reciente.",
-    "Las ratas, a su vez, perciben el mundo con sus bigotes, y una gran parte de su cerebro "
-    "se ocupa de ellos.",
+    "Al crecer, el cerebro de los roedores gana tamaño más deprisa que neuronas, así que un "
+    "cerebro de roedor con las neuronas del humano pesaría 35 kg.",
+    "El cerebro humano reúne unos 86 mil millones de neuronas.",
+    "Sus células piramidales corticales tienen además más espinas que las del ratón.",
 ]
 
 
 class MoreLLM(FakeLLM):
     def complete_json(self, system, user, output, max_tokens):
+        self.calls.append(output.__name__)
         if output.__name__ == "IntroFacts":
-            self.calls.append(output.__name__)
             heading = user.split("SECTION «")[1].split("»")[0]
             data = {"facts": [{"statement": s, "quote": q, "kind": k}
-                              for s, q, k in MORE_FACTS[heading]]}  # fmt: skip
+                              for s, q, k in MORE_FACTS[HEADING[heading]]]}  # fmt: skip
         elif output.__name__ == "Summary":
-            self.calls.append(output.__name__)
             data = {"sentences": [{"text": t, "fact_ids": f} for t, f in MORE_EN]}
         else:
-            self.calls.append(output.__name__)
             data = {"sentences": [{"index": i, "text": t} for i, t in enumerate(MORE_ES, 1)]}
         return output.model_validate(data)
 
 
-def stored_more(tmp_path: Path) -> Path:
-    """Both parts' sections in one file, as `syn atlas intro-sources` leaves it."""
-    path = stored(tmp_path)
-    by_rev = {p.revid: p for p in intro.PINNED_MORE}
+def jats(pmcid: str) -> str:
+    secs = "".join(f"<sec><title>{p.heading}</title><p>{MORE_TEXTS[p.id]}</p></sec>"
+                   for p in intro.PINNED_MORE if p.pmcid == pmcid)  # fmt: skip
+    return f"<pmc-articleset><article><body>{secs}</body></article></pmc-articleset>"
 
+
+def pmc_handler(asked: list[str] | None = None):
     def handler(request: httpx.Request) -> httpx.Response:
-        q = dict(request.url.params)
-        p = by_rev[int(q["oldid"])]
-        if q["prop"] == "sections":
-            return httpx.Response(200, json={"parse": {"sections": [
-                {"index": "2", "line": p.heading}]}})  # fmt: skip
-        return httpx.Response(200, json={"parse": {"text": html(MORE_TEXTS[p.id])}})
+        if asked is not None:
+            asked.append(request.url.host)
+        if "ncbi" in request.url.host:
+            return httpx.Response(200, text=jats(request.url.params["id"]))
+        return httpx.Response(200, json={"resultList": {"result": [{
+            "title": "A review.", "authorString": "Doe J.", "pubYear": "2009",
+            "journalInfo": {"journal": {"medlineAbbreviation": "Front Neurosci"}},
+            "license": None}]}})  # fmt: skip
 
-    with make_client(httpx.MockTransport(handler)) as c:
-        assert intro.update(c, path=path, throttle=NO_WAIT, part=intro.MORE) == (4, [])
-    return path
+    return handler
 
 
-def test_more_differences_is_its_own_card_and_leaves_the_intro_as_it_was(
+def stored_more(tmp_path: Path) -> tuple[Path, Path]:
+    """Both parts' sections, as `syn atlas intro-sources` leaves them; the reviews' text in
+    the cache."""
+    path, cache = stored(tmp_path), tmp_path / "cache"
+    with make_client(httpx.MockTransport(pmc_handler())) as c:
+        got = intro.update(c, path=path, throttle=NO_WAIT, part=intro.MORE, cache_root=cache)
+    assert got == (3, [])
+    return path, cache
+
+
+def test_more_differences_from_the_reviews_keeps_their_text_out_of_the_repo(
     tmp_path: Path,
 ) -> None:
-    src = stored_more(tmp_path)
+    src, cache = stored_more(tmp_path)
     secs = json.loads(src.read_text())["sections"]
     assert set(secs) == {p.id for q in intro.PARTS for p in q.pinned}  # the intro's kept
+    assert "35 kg" not in src.read_text()  # no Creative Commons licence: the cache only
+    assert secs["scaling"]["citation"]["authors"] == "Doe J."
+    asked: list[str] = []
+    with make_client(httpx.MockTransport(pmc_handler(asked))) as c:
+        assert intro.update(c, path=src, throttle=NO_WAIT, part=intro.MORE) == (0, [])
+    assert asked == []  # stored by its hash: not asked again
     out = tmp_path / "intro.json"
     assert intro.write(FakeLLM(), sources_path=src, path=out) == "drafted"
-    before = json.loads(out.read_text())["intro"]
     (card,) = intro.review_items(out, src)
-    assert intro.write(MoreLLM(), sources_path=src, path=out, part=intro.MORE) == "drafted"
+    assert intro.write(MoreLLM(), sources_path=src, path=out, part=intro.MORE,
+                       cache_root=tmp_path / "empty") == "missing_sources"  # fmt: skip
+    assert intro.write(MoreLLM(), sources_path=src, path=out, part=intro.MORE,
+                       cache_root=cache) == "drafted"  # fmt: skip
     body = json.loads(out.read_text())
-    assert body["intro"] == before and body["more"]["more"]["status"] == "drafted"
-    assert [f["id"] for f in body["more"]["facts"]] == ["d1", "e1", "f1", "g1"]
+    assert [f["id"] for f in body["more"]["facts"]] == ["d1", "d2", "e1", "f1"]
     first, more = intro.review_items(out, src)
     assert first.content_sha256 == card.content_sha256  # her intro card: the same hash
-    assert more.item_id == "intro-more" and more.title_es.endswith("Más diferencias")
     assert [s.id for s in more.content.sources] == [
-        f"wikipedia-en-atlas-intro-{k}" for k in MORE_TEXTS
-    ]
-    texts = intro.source_texts([more], src)
-    assert texts["wikipedia-en-atlas-intro-whiskers"] == MORE_TEXTS["whiskers"]
+        "pmc-pmc2776484-atlas-intro-scaling", "pmc-pmc2776484-atlas-intro-composition",
+        "pmc-pmc3098448-atlas-intro-microstructure"]  # fmt: skip
+    assert more.content.sources[0].label.startswith("«A review.» Doe J. Front Neurosci 2009")
+    texts = intro.source_texts([more], src, cache)
+    assert texts["pmc-pmc3098448-atlas-intro-microstructure"] == MORE_TEXTS["microstructure"]
+    assert intro.source_texts([more], src) == {}  # no cache: her edit waits (exit 2)
     again = MoreLLM()
-    assert intro.write(again, sources_path=src, path=out, part=intro.MORE) == "unchanged"
-    assert again.calls == []
+    assert intro.write(again, sources_path=src, path=out, part=intro.MORE,
+                       cache_root=cache) == "unchanged" and again.calls == []  # fmt: skip
 
 
 def test_more_differences_shows_only_once_she_approved_it(
@@ -313,9 +324,9 @@ def test_more_differences_shows_only_once_she_approved_it(
 ) -> None:
     from synaptica.site.build import SiteBuilder
 
-    src = stored_more(tmp_path)
+    src, cache = stored_more(tmp_path)
     out = tmp_path / "intro.json"
-    intro.write(MoreLLM(), sources_path=src, path=out, part=intro.MORE)
+    intro.write(MoreLLM(), sources_path=src, path=out, part=intro.MORE, cache_root=cache)
     monkeypatch.setattr(intro, "TEXTS", out)
     monkeypatch.setattr(intro, "SOURCES", src)
     data, licensed = tmp_path / "data", {"hero": {"files": [], "author": "Sofía",
@@ -328,8 +339,9 @@ def test_more_differences_shows_only_once_she_approved_it(
     (data / "review" / "decisions.jsonl").write_text(json.dumps({
         "item_type": "atlas", "item_id": "intro-more", "content_sha256": more.content_sha256,
         "action": "approve", "payload": {}, "note": None, "reviewed_by": "sofia",
-        "reviewed_at": "2026-11-26T10:00:00Z", "source": "issue#42"}) + "\n")  # fmt: skip
+        "reviewed_at": "2026-11-28T10:00:00Z", "source": "issue#42"}) + "\n")  # fmt: skip
     SiteBuilder(site, images=licensed, data_dir=data).build()
     page = (site / "es" / "atlas.html").read_text()
-    assert "Más diferencias entre los dos cerebros" in page and MORE_ES[3] in page
+    assert "Más diferencias entre los dos cerebros" in page and MORE_ES[2] in page
     assert page.index("atlas-diff") > page.index('class="brains"')  # below the brains
+    assert "sin licencia Creative Commons" in page and "Doe J." in page

@@ -166,12 +166,15 @@ def warm(cache_root: Path, sources_path: Path | None = None,
     """Fetch into the cache the PMC sections kept out of the repository that it lacks
     (``review.intake.run``, only when an edit of hers cites one, so it is checked like any
     other). Returns what could not be had; that Issue then waits (exit 2)."""
+    from synaptica.atlas.intro import SOURCES as INTRO_SOURCES
     from synaptica.http import make_client
     from synaptica.lab.sources import SOURCES
     from synaptica.wiki import read_json
 
-    wanted = [e for t in read_json(sources_path or SOURCES, "techniques").values()
-              if (e := t.get("limits_en")) and e.get("source") == "pmc"
+    entries = [t.get("limits_en") for t in read_json(sources_path or SOURCES,
+                                                      "techniques").values()]  # fmt: skip
+    entries += list(read_json(INTRO_SOURCES, "sections").values())  # v250: the atlas intro's
+    wanted = [e for e in entries if e and e.get("source") == "pmc"
               and e.get("text") is None and text_of(e, cache_root) is None]  # fmt: skip
     if not wanted:
         return []

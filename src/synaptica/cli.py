@@ -1077,8 +1077,8 @@ def atlas_intro_sources() -> None:
 
     fetched, failed = 0, []
     with make_client() as client:
-        for part in intro.PARTS:
-            n, bad = intro.update(client, part=part)
+        for part in intro.PARTS:  # v250: a PMC section's text to the cache (no CC licence)
+            n, bad = intro.update(client, part=part, cache_root=config.get_paths().cache)
             fetched, failed = fetched + n, failed + bad
     total = sum(len(p.pinned) for p in intro.PARTS)
     typer.echo(f"Neuro Atlas introduction: {total} sections, {fetched} fetched")
@@ -1108,8 +1108,13 @@ def atlas_intro_write(
     if llm is None:
         typer.echo("No --provider given: nothing written.")
         raise typer.Exit(0)
+    from synaptica.http import make_client
+
     part = intro.MORE if more else intro.INTRO
-    status = intro.write(llm, redraft=redraft, part=part)
+    with make_client() as client:  # v250: a PMC section is read from the cache or fetched
+        status = intro.write(
+            llm, redraft=redraft, part=part, cache_root=config.get_paths().cache, client=client
+        )
     typer.echo(f"Neuro Atlas introduction ({part.key}): {status}")
 
 

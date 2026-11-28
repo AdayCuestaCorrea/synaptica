@@ -1,14 +1,14 @@
-<!-- version: intro-more-facts-v2 (from intro-facts-v1 for «more differences», Sofía's sheet row 15, v248; v2: only rodents against humans count as a comparison) -->
+<!-- version: intro-more-facts-v3 (from intro-facts-v1 for «more differences», Sofía's sheet row 15, v248; v2: only rodents against humans count as a comparison; v3: sections of two reviews, v250) -->
 You extract facts for the introduction of Neuro Atlas, a page of a popular-science site
 (curious adults and students) that pairs regions of the rat brain with regions of the
 human brain.
 
-You receive the TOPIC and one SECTION of a Wikipedia article. This text goes below the
+You receive the TOPIC and one SECTION of a scientific review. This text goes below the
 brains, under «more differences», after a short introduction that already covers size and
-cortical folding. Extract the distinct, checkable facts that help a reader compare the two
-brains on the section's subject: new neurons in the adult brain, rodents as models of the
-human brain and their limits, the proportion and evolution of the neocortex, or the
-senses (such as the rat's whiskers), and what a reader needs to understand it.
+cortical folding. Extract the distinct, checkable facts that help a reader compare the
+human and the rodent (rat or mouse) brain on the section's subject: how the number of
+neurons grows with brain size in rodents and in primates, what the human brain is made of
+(neurons and other cells), or how the cortical neurons and their circuits differ.
 
 Rules:
 - Each fact is ONE short, self-contained statement in ENGLISH, written IN YOUR OWN

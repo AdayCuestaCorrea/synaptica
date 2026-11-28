@@ -108,7 +108,7 @@
     <summary>{{ t.atlas_more_diff_h }}</summary>
     <p data-atlas-more>{{ more[lang] }}</p>
     <p class="muted lab-review">{{ t["lab_reviewed_" ~ more.mark].format(date=date(more.reviewed_at)) }} ·
-      {{ t.gl_source }} {% for s in more.sources %}<a href="{{ s.url }}" rel="noopener" lang="en">Wikipedia ({{ t.lang_en }}): «{{ s.title }}», «{{ s.heading }}»</a>{% if not loop.last %}; {% endif %}{% endfor %} · CC BY-SA 4.0</p>
+      {{ t.gl_source }} {% for s in more.sources %}{% if s.get("kind") == "pmc" %}{% set c = s.citation %}<span lang="en">{{ c.authors }}</span> ({{ c.year }}). <a href="{{ s.url }}" rel="noopener" lang="en">«{{ c.title }}»</a>, <i lang="en">{{ c.journal }}</i>, {{ t.lab_pmc_section.format(heading=s.heading) }} · {{ s.licence | upper if s.licence else t.atlas_pmc_licence }}{% else %}<a href="{{ s.url }}" rel="noopener" lang="en">Wikipedia ({{ t.lang_en }}): «{{ s.title }}», «{{ s.heading }}»</a> · CC BY-SA 4.0{% endif %}{% if not loop.last %}; {% endif %}{% endfor %}</p>
   </details>
   {% endif %}
 

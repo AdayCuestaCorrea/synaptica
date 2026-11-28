@@ -1,6 +1,6 @@
 {
-  "note": "Sections of English Wikipedia the Neuro Atlas introduction is drafted from, each at a pinned revision. Written by `syn atlas intro-sources`; do not edit by hand.",
-  "licence": "Wikipedia text: CC BY-SA 4.0, its authors (see each article's history)",
+  "note": "Sections the Neuro Atlas introduction is drafted from: English Wikipedia, each at a pinned revision, and PMC articles, each by the hash of its section (its text here only under a Creative Commons licence, else in data/cache/lab/pmc/). Written by `syn atlas intro-sources`; do not edit by hand.",
+  "licence": "Wikipedia text: CC BY-SA 4.0, its authors (see each article's history); PMC articles: the licence of each",
   "sections": {
     "gyrification": {
       "title": "Gyrification",
@@ -26,37 +26,59 @@
       "retrieved": "2026-11-18",
       "text": "The largest brains are those of sperm whales, weighing about 8 kg (18 lb). An elephant's brain weighs just over 5 kg (11 lb), a bottlenose dolphin's 1.5 to 1.7 kg (3.3 to 3.7 lb), whereas a human brain is around 1.3 to 1.5 kg (2.9 to 3.3 lb). Brain size tends to vary according to body size. The relationship is not proportional, though: the brain-to-body mass ratio varies. The largest ratio found is in the shrew. Averaging brain weight across all orders of mammals, it follows a power law, with an exponent of about 0.75. There are good reasons to expect a power law: for example, the body-size to body-length relationship follows a power law with an exponent of 0.33, and the body-size to surface-area relationship follows a power law with an exponent of 0.67. The explanation for an exponent of 0.75 is not obvious; however, it is worth noting that several physiological variables appear to be related to body size by approximately the same exponent—for example, the basal metabolic rate.\n\nThis power law formula applies to the \"average\" brain of mammals taken as a whole, but each family (cats, rodents, primates, etc.) departs from it to some degree, in a way that generally reflects the overall \"sophistication\" of behavior. Primates, for a given body size, have brains 5 to 10 times as large as the formula predicts. Predators tend to have relatively larger brains than the animals they prey on; placental mammals (the great majority) have relatively larger brains than marsupials such as the opossum. A standard measure for assessing an animal's brain size compared to what would be expected from its body size is known as the encephalization quotient. The encephalization quotient for humans is between 7.4-7.8.\n\nWhen the mammalian brain increases in size, not all parts increase at the same rate. In particular, the larger the brain of a species, the greater the fraction taken up by the cortex. Thus, in the species with the largest brains, most of their volume is filled with cortex: this applies not only to humans, but also to animals such as dolphins, whales or elephants. The evolution of Homo sapiens over the past two million years has been marked by a steady increase in brain size, but much of it can be accounted for by corresponding increases in body size. There are, however, many departures from the trend that are difficult to explain in a systematic way: in particular, the appearance of modern man about 100,000 years ago was marked by a decrease in body size at the same time as an increase in brain size. Even so, it is noteworthy that Neanderthals, which became extinct about 40,000 years ago, had larger brains than modern Homo sapiens.\n\nNot all investigators are happy with the amount of attention that has been paid to brain size. Roth and Dicke, for example, have argued that factors other than size are more highly correlated with intelligence, such as the number of cortical neurons and the speed of their connections. Moreover, they point out that intelligence depends not just on the amount of brain tissue, but on the details of how it is structured. It is also well known that crows, ravens, and grey parrots are quite intelligent even though they have small brains.\n\nWhile humans have the largest encephalization quotient of extant animals, it is not out of line for a primate. Some other anatomical trends are correlated in the human evolutionary path with brain size: the basicranium becomes more flexed with increasing brain size relative to basicranial length."
     },
-    "neurogenesis": {
-      "title": "Adult neurogenesis",
-      "heading": "Rodents",
-      "revid": 1384312363,
-      "url": "https://en.wikipedia.org/w/index.php?oldid=1384312363",
-      "retrieved": "2026-11-25",
-      "text": "Rodents, mice and rats, have been the most prominent model organism since the discovery of modern neurons by Santiago Ramon y Cajal. Rodents have a very similar architecture and a complex nervous system with very little regenerative capacity similar to that found in humans. For that reason, rodents have been heavily used in pre-clinical testing. Rodents display a wide range of neural circuits responsible for complex behaviors making them ideal for studies of dendritic pruning and axonal shearing. While the organism makes for a strong human analog, the model has its limitations not found in the previous models: higher cost of maintenance, lower breeding numbers, and the limited neurogenerative abilities.\n\nTo some extent, adult neurogenesis in rodents may be induced by selective disruption of Notch signalling in astrocytes: this produces novel neurons which functionally integrate into the striatal circuit.\n\nAdult neurogenesis in the subventricular zone and dentate gyrus of rodents generates oxidative stress and production of reactive oxygen species that can damage both DNA and lipids. The oxidative stress caused by postnatal neurogenesis may significantly contribute to the reduced learning and memory that occurs with increasing age."
+    "scaling": {
+      "source": "pmc",
+      "pmcid": "PMC2776484",
+      "title": "The human brain in numbers: a linearly scaled-up primate brain",
+      "heading": "Cellular scaling rules for rodent, insectivore, and primate brains",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2776484/",
+      "citation": {
+        "title": "The human brain in numbers: a linearly scaled-up primate brain.",
+        "authors": "Herculano-Houzel S.",
+        "journal": "Front Hum Neurosci",
+        "year": "2009",
+        "doi": "10.3389/neuro.09.031.2009"
+      },
+      "licence": null,
+      "retrieved": "2026-11-28",
+      "sha256": "1b8e87d98cc9a5fc84588fb703faf81b5649c33ec1961830c8bbe7a292972bf4",
+      "words": 719
     },
-    "animal-model": {
-      "title": "Animal model",
-      "heading": "Challenges and criticisms",
-      "revid": 1385166639,
-      "url": "https://en.wikipedia.org/w/index.php?oldid=1385166639",
-      "retrieved": "2026-11-25",
-      "text": "Many animal models serving as test subjects in biomedical research, such as rats and mice, may be selectively sedentary, obese and glucose intolerant. This may confound their use to model human metabolic processes and diseases as these can be affected by dietary energy intake and exercise.\n\nAnimal models of psychiatric illness give rise to other concerns. Qualitative assessments of behavior are too often subjective. This would lead the investigator to observe what they want to observe in subjects, and to render conclusions in line with their expectations. Also, the imprecise diagnostic criteria for psychiatric illnesses inevitably lead to problems modeling the condition; e.g., since a person with major depressive disorder may experience weight loss or weight gain, insomnia or hypersomnia, we cannot with any certainty say that a rat with insomnia and weight loss is depressed. Furthermore, the complex nature of psychiatric conditions makes it difficult/impossible to translate human behaviors and deficits; e.g., language deficit plays a major role in autistic spectrum disorders, but – since rodents do not have language – it is not possible to develop a language-impaired \"autistic\" mouse."
+    "composition": {
+      "source": "pmc",
+      "pmcid": "PMC2776484",
+      "title": "The human brain in numbers: a linearly scaled-up primate brain",
+      "heading": "The cellular composition of the human brain",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2776484/",
+      "citation": {
+        "title": "The human brain in numbers: a linearly scaled-up primate brain.",
+        "authors": "Herculano-Houzel S.",
+        "journal": "Front Hum Neurosci",
+        "year": "2009",
+        "doi": "10.3389/neuro.09.031.2009"
+      },
+      "licence": null,
+      "retrieved": "2026-11-28",
+      "sha256": "4b44ecc22dcd54ab74c18a441e2b86edc0c4155f86426c47622656f5ae93d00b",
+      "words": 491
     },
-    "neocortex": {
-      "title": "Neocortex",
-      "heading": "Evolution",
-      "revid": 1381668011,
-      "url": "https://en.wikipedia.org/w/index.php?oldid=1381668011",
-      "retrieved": "2026-11-25",
-      "text": "The neocortex is the newest part of the cerebral cortex to evolve (hence the prefix neo meaning new); the other part of the cerebral cortex is the allocortex. The cellular organization of the allocortex is different from the six-layered neocortex. In humans, 90% of the cerebral cortex and 76% of the entire brain is neocortex.\n\nFor a species to develop a larger neocortex, the brain must evolve in size so that it is large enough to support the region. Body size, basal metabolic rate and life history are factors affecting brain evolution and the coevolution of neocortex size and group size. The neocortex increased in size in response to pressures for greater cooperation and competition in early ancestors. With the size increase, there was greater voluntary inhibitory control of social behaviors resulting in increased social harmony.\n\nThe six-layer cortex appears to be a distinguishing feature of mammals; it has been found in the brains of all mammals, but not in any other animals. There is some debate, however, as to the cross-species nomenclature for neocortex. In avians, for instance, there are clear examples of cognitive processes that are thought to be neocortical in nature, despite the lack of the distinctive six-layer neocortical structure. Evidence suggest the avian pallium to be broadly equivalent to the mammalian neocortex. In a similar manner, reptiles, such as turtles, have primary sensory cortices. A consistent, alternative name has yet to be agreed upon."
-    },
-    "whiskers": {
-      "title": "Whiskers",
-      "heading": "Neuroscience",
-      "revid": 1385846757,
-      "url": "https://en.wikipedia.org/w/index.php?oldid=1385846757",
-      "retrieved": "2026-11-25",
-      "text": "A large part of the brain of whisker-specialist mammals is involved in the processing of nerve impulses from vibrissae, a fact that presumably corresponds to the important position the sense occupies for the animal. Information from the vibrissae arrives in the brain via the trigeminal nerve and is delivered first into the trigeminal sensory complex of brainstem. From there, the most studied pathways are those leading up through parts of thalamus and into barrel cortex, though other major pathways through the superior colliculus in midbrain (a major visual structure in visual animals) and the cerebellum, to name but a couple, are increasingly coming under scrutiny. Neuroscientists, and other researchers, studying sensory systems favour the whisker system for a number of reasons (see Barrel cortex), not least the simple fact that laboratory rats and mice are whisker, rather than visual, specialists."
+    "microstructure": {
+      "source": "pmc",
+      "pmcid": "PMC3098448",
+      "title": "The evolution of the brain, the human nature of cortical circuits, and intellectual creativity",
+      "heading": "Species-specific variations in cortical microstructure",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3098448/",
+      "citation": {
+        "title": "The evolution of the brain, the human nature of cortical circuits, and intellectual creativity.",
+        "authors": "Defelipe J.",
+        "journal": "Front Neuroanat",
+        "year": "2011",
+        "doi": "10.3389/fnana.2011.00029"
+      },
+      "licence": null,
+      "retrieved": "2026-11-28",
+      "sha256": "b71f455139aceaf07bb35fde5c9fbe65e541c31711d1340106bbcbbce6267486",
+      "words": 2350
     }
   }
 }
