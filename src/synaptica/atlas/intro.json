@@ -184,190 +184,210 @@
   },
   "more": {
     "revids": {
-      "neurogenesis": 1384312363,
-      "animal-model": 1385166639,
-      "neocortex": 1381668011,
-      "whiskers": 1385846757
+      "scaling": "1b8e87d98cc9a5fc84588fb703faf81b5649c33ec1961830c8bbe7a292972bf4",
+      "composition": "4b44ecc22dcd54ab74c18a441e2b86edc0c4155f86426c47622656f5ae93d00b",
+      "microstructure": "b71f455139aceaf07bb35fde5c9fbe65e541c31711d1340106bbcbbce6267486"
     },
-    "generator": "groq/openai/gpt-oss-120b",
+    "generator": "groq/qwen/qwen3.8-27b",
     "prompts": {
-      "intro_more_facts": "intro-more-facts-v2 (from intro-facts-v1 for «more differences», Sofía's sheet row 15, v248; v2: only rodents against humans count as a comparison)",
-      "intro_more_write_en": "intro-more-write-en-v1 (from intro-write-en-v1 for «more differences», Sofía's sheet row 15, v248)",
+      "intro_more_facts": "intro-more-facts-v3 (from intro-facts-v1 for «more differences», Sofía's sheet row 15, v248; v2: only rodents against humans count as a comparison; v3: sections of two reviews, v250)",
+      "intro_more_write_en": "intro-more-write-en-v2 (from intro-write-en-v1 for «more differences», Sofía's sheet row 15, v248; v2: the reviews' subjects, and no comparison the facts do not make, v250)",
       "wiki_adapt_es": "wiki-adapt-es-v2 (from s5-adapt-es-v2 for the fixed texts drafted from Wikipedia, v232); v2: «helping» is «ayudando a», v239"
     },
-    "generated_at": "2026-11-25T22:52:32+00:00",
+    "generated_at": "2026-11-28T13:24:52+00:00",
     "facts": [
       {
         "id": "d1",
-        "statement": "Rodents have brain architecture and a complex nervous system that are very similar to humans, but both have very little regenerative capacity.",
+        "statement": "In rodents, the brain grows in size more quickly than its neuron count, leading to lower neuronal density and larger average neuron size as the brain gets bigger.",
         "kind": "comparison",
-        "source": "neurogenesis"
+        "source": "scaling"
       },
       {
         "id": "d2",
-        "statement": "Rodents are extensively employed in pre‑clinical testing as models for human biology.",
+        "statement": "As rodent brains grow, the number of non-neuronal cells increases more than the number of neurons, causing the ratio of glia to neurons to rise.",
         "kind": "comparison",
-        "source": "neurogenesis"
+        "source": "scaling"
       },
       {
         "id": "d3",
-        "statement": "The wide variety of neural circuits that underlie complex behaviours in rodents makes them useful for studying dendritic pruning and axonal shearing.",
+        "statement": "Unlike rodents, primate brains grow in size proportionally to their neuron count, maintaining stable neuronal density and a constant ratio of non-neuronal to neuronal cells.",
         "kind": "comparison",
-        "source": "neurogenesis"
+        "source": "scaling"
       },
       {
         "id": "d4",
-        "statement": "Using rodents as models is limited by higher maintenance costs, lower breeding yields, and their limited neuro‑generative abilities.",
+        "statement": "A tenfold increase in neuron number leads to a 35-fold increase in rodent brain size, whereas the same increase in primates results in only an 11-fold increase in brain size.",
         "kind": "comparison",
-        "source": "neurogenesis"
-      },
-      {
-        "id": "d5",
-        "statement": "Disrupting Notch signalling in astrocytes can trigger adult neurogenesis in rodents, creating new neurons that integrate into the striatal circuit.",
-        "kind": "general",
-        "source": "neurogenesis"
-      },
-      {
-        "id": "d6",
-        "statement": "Neurogenesis in the rodent subventricular zone and dentate gyrus produces oxidative stress and reactive oxygen species that damage DNA and lipids.",
-        "kind": "general",
-        "source": "neurogenesis"
+        "source": "scaling"
       },
       {
         "id": "e1",
-        "statement": "Rats and mice often exhibit sedentary behavior, obesity, and glucose intolerance, which can interfere with using them to model human metabolic processes.",
+        "statement": "Primate brains pack more neurons into the same volume than rodent brains, resulting in higher neuronal densities.",
         "kind": "comparison",
-        "source": "animal-model"
+        "source": "composition"
       },
       {
         "id": "e2",
-        "statement": "Behavioral assessments in animal models are frequently subjective, risking bias in interpreting results.",
-        "kind": "other",
-        "source": "animal-model"
+        "statement": "In rodents, neuronal density drops as the brain gets bigger, whereas in primates it stays constant, widening the neuron count gap between the two groups as brain size increases.",
+        "kind": "comparison",
+        "source": "composition"
       },
       {
         "id": "e3",
-        "statement": "Because human psychiatric diagnoses are vague, symptoms like weight change or sleep disturbances in rats cannot reliably indicate the same disorder in humans.",
+        "statement": "The human cerebral cortex makes up 82% of the brain's mass but contains just 19% of its neurons, a proportion similar to that seen in rodents and other primates.",
         "kind": "comparison",
-        "source": "animal-model"
+        "source": "composition"
       },
       {
         "id": "e4",
-        "statement": "Rodents lack language, so they cannot model language-related aspects of autism that are central in humans.",
+        "statement": "As brains grow larger in both rodents and primates, the number of neurons in the cerebral cortex and cerebellum increases much faster than the number in the brainstem, diencephalon, and basal ganglia.",
+        "kind": "general",
+        "source": "composition"
+      },
+      {
+        "id": "e5",
+        "statement": "Scaling rules for both rodents and primates predict that the cerebral cortex's mass expands relative to the whole brain, a trend not observed in the small rodent species studied.",
         "kind": "comparison",
-        "source": "animal-model"
+        "source": "composition"
+      },
+      {
+        "id": "e6",
+        "statement": "The human cerebral cortex has 16 billion neurons, slightly fewer than expected for a 1.5 kg primate, while the human cerebellum has 69 billion neurons, matching or slightly exceeding expectations.",
+        "kind": "comparison",
+        "source": "composition"
       },
       {
         "id": "f1",
-        "statement": "In humans, the neocortex accounts for 90% of the cerebral cortex.",
+        "statement": "The number of neurons spanning the depth of the cortex is generally constant across species, but primates have 2.5 times more neurons in visual area 17.",
         "kind": "comparison",
-        "source": "neocortex"
+        "source": "microstructure"
       },
       {
         "id": "f2",
-        "statement": "In humans, the neocortex makes up 76% of the whole brain.",
+        "statement": "GABAergic interneurons make up no more than 15% of cortical neurons in rats, whereas they can reach 34–44% in certain layers of the human brain.",
         "kind": "comparison",
-        "source": "neocortex"
+        "source": "microstructure"
       },
       {
         "id": "f3",
-        "statement": "All mammals, including rats, possess a six‑layered neocortex, a structure absent in non‑mammalian animals.",
+        "statement": "Human dendritic spines have twice the volume of those found in the mouse somatosensory cortex.",
         "kind": "comparison",
-        "source": "neocortex"
+        "source": "microstructure"
       },
       {
         "id": "f4",
-        "statement": "A species must increase overall brain size to support a larger neocortex.",
-        "kind": "general",
-        "source": "neocortex"
-      },
-      {
-        "id": "g1",
-        "statement": "Rats devote a large portion of their brain to processing signals from their whiskers, a specialization that humans do not share.",
+        "statement": "The necks of dendritic spines are approximately 30% longer in humans than in mice.",
         "kind": "comparison",
-        "source": "whiskers"
+        "source": "microstructure"
       },
       {
-        "id": "g2",
-        "statement": "Researchers often use the rat whisker system as a model for sensory studies because rats rely on whiskers rather than vision.",
-        "kind": "general",
-        "source": "whiskers"
+        "id": "f5",
+        "statement": "Double bouquet cells, which are abundant in primates, do not appear to exist in rodents.",
+        "kind": "comparison",
+        "source": "microstructure"
+      },
+      {
+        "id": "f6",
+        "statement": "Tyrosine hydroxylase (TH) interneurons are relatively few in the rat cortex and are most abundant in layers II and III.",
+        "kind": "comparison",
+        "source": "microstructure"
+      },
+      {
+        "id": "f7",
+        "statement": "Most TH interneurons in the rat cortex are GABAergic, while only about half are GABAergic in the human neocortex.",
+        "kind": "comparison",
+        "source": "microstructure"
       }
     ],
-    "rejected": [],
+    "rejected": [
+      "statement copies the source wording",
+      "statement copies the source wording"
+    ],
     "more": {
-      "status": "failed_es",
-      "problems": [
-        "sentence 1: words not in the Spanish dictionary ['mamíferas']",
-        "sentence 4: words not in the Spanish dictionary ['preclínicos']"
-      ],
+      "status": "drafted",
       "en": [
         {
-          "text": "Both humans and rodents possess a six‑layered neocortex, a mammalian cortical structure that is absent in non‑mammalian species, yet each species shows very little capacity for neural regeneration.",
+          "text": "While rodent brains expand in size faster than their neuron count, primate brains grow proportionally to their neuronal numbers, maintaining stable density.",
           "fact_ids": [
             "d1",
-            "f3"
+            "d3"
           ]
         },
         {
-          "text": "In humans the neocortex occupies about 90% of the cerebral cortex and roughly 76% of the entire brain, whereas rodents allocate a comparatively smaller proportion of their brain to this region.",
-          "fact_ids": [
-            "f1",
-            "f2"
-          ]
-        },
-        {
-          "text": "Rats devote a large portion of their brain to processing tactile information from their whiskers, a specialization that humans do not share, highlighting a sensory‑processing difference between the species.",
-          "fact_ids": [
-            "g1"
-          ]
-        },
-        {
-          "text": "Rodents are widely used as pre‑clinical models for human biology because their neural circuits support complex behaviours, yet their lack of language prevents them from modeling language‑related aspects of autism that are central in humans.",
+          "text": "Consequently, the ratio of glia to neurons rises in rodents as they grow, whereas primates keep this ratio constant.",
           "fact_ids": [
             "d2",
-            "e4"
+            "d3"
           ]
         },
         {
-          "text": "The use of rodents as models is constrained by higher maintenance costs, lower breeding yields, and limited neuro‑generative abilities, which together reduce their practicality compared with other model organisms.",
+          "text": "This difference means primates pack more neurons into the same volume, widening the neuron count gap as brain size increases.",
           "fact_ids": [
-            "d4"
+            "e1",
+            "e2"
+          ]
+        },
+        {
+          "text": "In the cortex, GABAergic interneurons make up no more than 15% of neurons in rats, but they can reach 34–44% in certain human layers.",
+          "fact_ids": [
+            "f2",
+            "f7"
+          ]
+        },
+        {
+          "text": "Furthermore, human dendritic spines have twice the volume of those in the mouse somatosensory cortex, with necks approximately 30% longer.",
+          "fact_ids": [
+            "f3",
+            "f4"
+          ]
+        },
+        {
+          "text": "Double bouquet cells, which are abundant in primates, do not appear to exist in rodents.",
+          "fact_ids": [
+            "f5"
           ]
         }
       ],
       "es": [
         {
-          "text": "Tanto los humanos como los roedores poseen una neocorteza de seis capas, una estructura cortical propia de los mamíferos que no se encuentra en especies no mamíferas, aunque cada especie muestra muy poca capacidad de regeneración neuronal.",
+          "text": "Mientras que los cerebros de los roedores aumentan de tamaño más rápido que su número de neuronas, los de los primados crecen en proporción a su cantidad neuronal, manteniendo una densidad estable.",
           "fact_ids": [
             "d1",
-            "f3"
+            "d3"
           ]
         },
         {
-          "text": "En los humanos la neocorteza ocupa alrededor del 90 % de la corteza cerebral y aproximadamente el 76 % del cerebro total, mientras que los roedores destinan una proporción comparativamente menor de su cerebro a esta región.",
-          "fact_ids": [
-            "f1",
-            "f2"
-          ]
-        },
-        {
-          "text": "Los ratones dedican una gran parte de su cerebro al procesamiento táctil de los bigotes, una especialización que los humanos no comparten, lo que subraya una diferencia sensorial entre ambas especies.",
-          "fact_ids": [
-            "g1"
-          ]
-        },
-        {
-          "text": "Los roedores se emplean ampliamente como modelos preclínicos de la biología humana porque sus circuitos neuronales sustentan conductas complejas, aunque su ausencia de lenguaje impide modelar los aspectos relacionados con el lenguaje del autismo, que son centrales en los humanos.",
+          "text": "En consecuencia, la proporción de glía respecto a las neuronas aumenta en los roedores a medida que crecen, mientras que los primados mantienen esta proporción constante.",
           "fact_ids": [
             "d2",
-            "e4"
+            "d3"
           ]
         },
         {
-          "text": "El uso de roedores como modelos está limitado por los mayores costes de mantenimiento, la menor productividad reproductiva y sus escasas capacidades neurogenerativas, lo que reduce su practicidad frente a otros organismos modelo.",
+          "text": "Esta diferencia significa que los primados alojan más neuronas en el mismo volumen, lo que amplía la brecha en el número de neuronas a medida que aumenta el tamaño del cerebro.",
           "fact_ids": [
-            "d4"
+            "e1",
+            "e2"
+          ]
+        },
+        {
+          "text": "En la corteza, las interneuronas GABAérgicas representan como máximo el 15% de las neuronas en la rata, pero pueden alcanzar entre el 34% y el 44% en ciertas capas humanas.",
+          "fact_ids": [
+            "f2",
+            "f7"
+          ]
+        },
+        {
+          "text": "Además, las espinas dendríticas humanas tienen el doble de volumen que las de la corteza somatosensorial del ratón, con cuellos aproximadamente un 30% más largos.",
+          "fact_ids": [
+            "f3",
+            "f4"
+          ]
+        },
+        {
+          "text": "Las células de doble ramillete, abundantes en los primados, no parecen existir en los roedores.",
+          "fact_ids": [
+            "f5"
           ]
         }
       ]
