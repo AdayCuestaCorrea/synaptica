@@ -1,0 +1,60 @@
+{
+  "note": "The illustration of each Neuro Lab protocol: a Wikimedia Commons file under a free licence, as WebP in site/static/img/lab/. Written by `syn lab images`; do not edit by hand.",
+  "techniques": {
+    "perfusion": {
+      "file": "Perfusion_Diagram.jpg",
+      "licence": "CC BY-SA 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "J dotter",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Perfusion_Diagram.jpg",
+      "webp": "perfusion.webp",
+      "width": 760,
+      "height": 567,
+      "retrieved": "2026-11-28"
+    },
+    "western-blot": {
+      "file": "Western_blot_workflow.jpg",
+      "licence": "CC BY-SA 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Biochemlife",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Western_blot_workflow.jpg",
+      "webp": "western-blot.webp",
+      "width": 760,
+      "height": 760,
+      "retrieved": "2026-11-28"
+    },
+    "electrophysiology": {
+      "file": "Patch_clamp.svg",
+      "licence": "CC BY-SA 3.0",
+      "licence_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "author": "Theresa Knott",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Patch_clamp.svg",
+      "webp": "electrophysiology.webp",
+      "width": 760,
+      "height": 538,
+      "retrieved": "2026-11-28"
+    },
+    "fmri": {
+      "file": "XBio_illustration_–_Functional_Magnetic_Resonance_Imaging_(fMRI).png",
+      "licence": "CC BY 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by/4.0",
+      "author": "explorebiology",
+      "source_url": "https://commons.wikimedia.org/wiki/File:XBio_illustration_%E2%80%93_Functional_Magnetic_Resonance_Imaging_(fMRI).png",
+      "webp": "fmri.webp",
+      "width": 760,
+      "height": 506,
+      "retrieved": "2026-11-28"
+    },
+    "optogenetics": {
+      "file": "2026-Nobel-Prize-Channelrhodopsin-Hegasy_Illustration.png",
+      "licence": "CC BY-SA 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Guido4",
+      "source_url": "https://commons.wikimedia.org/wiki/File:2026-Nobel-Prize-Channelrhodopsin-Hegasy_Illustration.png",
+      "webp": "optogenetics.webp",
+      "width": 760,
+      "height": 537,
+      "retrieved": "2026-11-28"
+    }
+  }
+}

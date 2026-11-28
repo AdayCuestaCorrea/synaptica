@@ -593,7 +593,11 @@ class SiteBuilder:
         else:
             gaps["lab_studies"] = ("gap", t["gap_lab_studies"])
         pages = set(self.news_data.by_id) if self.news_data else set()
+        from synaptica.lab.images import load as lab_images  # v252: its protocol's image
+
+        gaps["lab_protocol"] = ("gap", t["gap_lab_protocol"])
         self.render(lang, "technique", "technique.html.j2", key=tech["id"], tech=tech,
+                    image=lab_images().get(tech["id"]),
                     name=tech[f"name_{lang}"], gaps=gaps, groups=groups,
                     study_pages=pages, reviewed_at=reviewed_at,
                     texts=texts)  # fmt: skip

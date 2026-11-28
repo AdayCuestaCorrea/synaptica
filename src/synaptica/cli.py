@@ -905,6 +905,24 @@ def lab_mesh() -> None:
                + ("; changed" if changed else "; no change"))  # fmt: skip
 
 
+@lab_app.command("images")
+def lab_images() -> None:
+    """The illustration of each technique's protocol (v252): the Wikimedia Commons file in
+    its table row, only under a free licence, as WebP -> site/static/img/lab/ and its credit
+    -> src/synaptica/lab/images.json. By hand, never in the pipeline; no LLM."""
+    from synaptica.http import make_client
+    from synaptica.lab import images
+    from synaptica.lab.studies import techniques
+
+    with make_client() as client:
+        stored, failed = images.update(client, techniques())
+    typer.echo(f"Neuro Lab images: {len(stored)} stored ({', '.join(stored) or 'none new'})")
+    for f in failed:
+        typer.echo(f"  failed: {f}", err=True)
+    if failed:
+        raise typer.Exit(1)
+
+
 @lab_app.command("sources")
 def lab_sources(
     refresh: Annotated[

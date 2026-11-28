@@ -1,6 +1,7 @@
 {# A technique of Neuro Lab (SCOPE §4; B2 of v202, option A): what the warehouse already
    holds (recent studies by MeSH or text, marked as a proposal); the texts are gaps until
-   Sofía reviews them. #}
+   Sofía reviews them. Her three parts (sheet row 15, v252): a general description («what it
+   lets us see» and «limits»), the protocol with its illustration, and the recent studies. #}
 {% extends "base.html.j2" %}
 {% import "macros.html.j2" as m with context %}
 {% block title %}{{ name }} · {{ t.lab }}{% endblock %}
@@ -9,8 +10,9 @@
   <p class="crumbs"><a href="{{ url('lab') }}">{{ t.lab }}</a></p>
   <h1>{{ name }}</h1>
 
+  <h2>{{ t.lab_overview_h }}</h2>
   {% for kind, head in (("what", t.lab_what_h), ("limit", t.lab_limits_h)) %}
-  <h2>{{ head }}</h2>
+  <h3>{{ head }}</h3>
   {% if kind in texts %}{% set x = texts[kind] %}
   <p data-lab-text="{{ kind }}">{{ x[lang] }}</p>
   <p class="muted lab-review">{{ t["lab_reviewed_" ~ x.mark].format(date=date(x.reviewed_at)) }} ·
@@ -20,6 +22,15 @@
   <p class="muted">{{ m.gap("lab_texts") }}</p>
   {% endif %}
   {% endfor %}
+
+  <h2>{{ t.lab_protocol_h }}</h2>
+  {% if image %}
+  <figure class="fig fig--full lab-figure" data-figure-credit="{{ image.author }}">
+    <img src="{{ static('img/lab/' ~ image.webp) }}" alt="{{ t.lab_image_alt.format(name=name) }}" width="{{ image.width }}" height="{{ image.height }}" loading="lazy" decoding="async">
+    <figcaption class="credit">{{ image.author }} · {% if image.licence_url %}<a href="{{ image.licence_url }}" rel="license noopener" target="_blank">{{ image.licence }}</a>{% else %}{{ image.licence }}{% endif %} · <a href="{{ image.source_url }}" rel="noopener" target="_blank">Wikimedia Commons</a></figcaption>
+  </figure>
+  {% endif %}
+  <p class="muted">{{ m.gap("lab_protocol") }}</p>
 
   <h2>{{ t.lab_studies_h }}{% if groups is not none %} {{ m.gap_if("lab_match") }}{% endif %}</h2>
   {% if groups is none %}
