@@ -1,0 +1,59 @@
+{
+ "study_id": "10.1007/s10143-026-04631-0",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "65d32ebaa5127a45",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-28T16:03:54+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study is a retrospective case series of 12 consecutive patients with trigeminal neuralgia linked to multiple sclerosis who received Gamma Knife radiosurgery at one center between 2017 and 2025.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Pain and sensory outcomes were measured using the Barrow Neurological Institute scales.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Every patient had severe pain at the start of the study.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "91.7% of patients achieved satisfactory pain relief at their best response during follow-up, but only 41.7% maintained that relief at their final assessment.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The average time to reach the best pain response was 4.7 months, and the median time that best response lasted was 15.5 months.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Mild facial numbness was reported by 25% of patients, and reduced sensation was found on examination in 33.3% of them.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "No patient described their facial numbness as bothersome.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "33.3% of patients needed a repeat Gamma Knife procedure, and one patient had a third procedure on the opposite side.",
+   "subject": "humans"
+  },
+  {
+   "id": "f9",
+   "statement": "Gamma Knife radiosurgery provided satisfactory pain relief for most patients at some point, but fewer than half kept that control at their final check, showing limits in how long the treatment lasts.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

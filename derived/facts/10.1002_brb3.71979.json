@@ -1,0 +1,54 @@
+{
+ "study_id": "10.1002/brb3.71979",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "086ec3f5b65b0763",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-28T15:56:40+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study was a cross-sectional analysis of 135 inpatients diagnosed with cerebral small vessel disease.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers used the Potter scale to grade the size of enlarged perivascular spaces in the basal ganglia and centrum semiovale.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Sleep quality was measured with the Pittsburgh Sleep Quality Index, and cognitive function was evaluated using an education-adjusted version of the Montreal Cognitive Assessment.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "A higher grade of enlarged perivascular spaces in the basal ganglia was correlated with worse sleep quality scores and lower cognitive test scores.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "For every one-grade increase in the severity of basal ganglia perivascular spaces, the adjusted cognitive score was 1.133 points lower.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The statistical analysis found an indirect effect of -0.6208 when sleep quality was considered as the pathway between perivascular spaces and cognition.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "When the statistical order was reversed to treat sleep as the starting factor, the indirect effect through perivascular spaces was -0.0609.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "Subjective sleep quality and the time it takes to fall asleep were associated with cognitive scores in basic models, but this association did not hold in extended models.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "statement copies the source wording"
+ ]
+}

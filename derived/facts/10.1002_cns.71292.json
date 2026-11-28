@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1002/cns.71292",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "c16ad1db47a5f8c2",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-28T15:58:43+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The research was a secondary analysis of data from a large, multi-site, randomized clinical trial.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The study focused on Chinese patients who had recently suffered a mild ischemic stroke or a high-risk transient ischemic attack due to atherosclerosis.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The analysis included 4,515 patients with a median age of 65 years, and 35.9% of the participants were women.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Researchers measured stress hyperglycemia using two specific calculations: the glycemic gap and the ratio of admission blood glucose to HbA1c.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The main outcome tracked by the study was whether patients had another stroke within 90 days.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Patients in the highest group for both hyperglycemia measures had a higher risk of having a recurrent stroke compared to those in lower groups.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "The hyperglycemia measures were not linked to the study's safety outcomes, such as moderate-to-severe bleeding.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "The authors state that more research is required to confirm this link and understand how it works.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

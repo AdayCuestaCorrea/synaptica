@@ -1,0 +1,42 @@
+{
+ "study_id": "10.1126/sciadv.aee7475",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "bd2a1053abe6d964",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-28T15:49:28+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study used male mice to show that a specific group of brain cells called arcuate Kiss1 neurons helps control heat production in brown fat.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "When these neurons were removed, the mice gained weight, but when they were artificially turned on, the mice burned more heat without eating more.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The heat production was driven by signals sent from the arcuate neurons to a specific area in the brain called the dorsomedial hypothalamus.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Using a gene-editing tool to remove a gene that makes a specific chemical messenger in these neurons caused the same weight gain as removing the neurons entirely.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "Removing a specific receptor gene from the Kiss1 neurons led to obesity because it changed how the body balances energy.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Using light to stimulate certain brain fibers showed that the Kiss1 neurons respond to signals through the melanocortin 4 receptor.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

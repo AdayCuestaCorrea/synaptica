@@ -1,0 +1,50 @@
+{
+ "study_id": "10.1126/sciadv.aeg4662",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "31675b86ffb2e265",
+ "generated_at": "2026-11-28T16:09:16+00:00",
+ "word_count": 139,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers combined fossil and modern animal data with computer simulations to examine how synapsid movement changed over more than 100 million years, building detailed muscle and skeleton models to simulate the walking cycles of extinct synapsids and comparing them with living sprawling and upright animals.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "The results indicate that the need for the whole body to work together forced the front and back limbs of synapsids to change their posture at the same time, even when other body parts changed at different speeds.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "This shift toward upright walking was paused during the Mesozoic era by a temporary return to a different posture, which happened because the physical structure of the animals became disconnected from how they actually moved.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Fully upright movement was only achieved later, which set the stage for the spread of therian mammals during the Cenozoic era.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-28T16:24:32+00:00"
+ }
+}

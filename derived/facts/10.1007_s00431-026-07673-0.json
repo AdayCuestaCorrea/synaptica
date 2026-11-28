@@ -1,0 +1,35 @@
+{
+ "study_id": "10.1007/s00431-026-07673-0",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "50b51034acc8e422",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-28T16:02:53+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study was a multicenter retrospective cohort that reviewed the medical records of children and adolescents under 17 years old who had severe traumatic brain injury.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Stress hyperglycemia was found in 29% of the 127 patients in the study.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Blood glucose levels were inversely correlated with Glasgow Coma Scale scores, meaning higher glucose was associated with lower consciousness scores.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Admission blood glucose showed good performance for predicting seven-day mortality, which occurred in 12% of the patients, with an area under the curve of 0.82.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "quote not found verbatim in the source",
+  "statement copies the source wording"
+ ]
+}

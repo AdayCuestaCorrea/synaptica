@@ -1,0 +1,62 @@
+{
+ "study_id": "10.1002/brb3.71952",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "007393433ccde34f",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-28T15:55:37+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study began by giving a traditional Chinese medicine extract to healthy adult mice through their stomachs at different doses.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Rats were subjected to repeated stress to create an animal model of premenstrual dysphoric disorder with late luteal phase symptoms.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "Researchers measured anxiety and depression-like behaviors in the stressed rats using standard behavioral tests such as the open field and forced swimming tests.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "The levels of specific gene messages for GABA receptor subunits in the hippocampus were measured using a molecular biology technique called qRT-PCR.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Computer simulations were used to identify which compounds in the extract might bind to a specific type of GABA receptor.",
+   "subject": "computational"
+  },
+  {
+   "id": "f6",
+   "statement": "The extract showed clear effects that reduced signs of depression and anxiety in the healthy mice.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "In the stressed rats, the extract significantly improved behaviors associated with anxiety and despair.",
+   "subject": "animals"
+  },
+  {
+   "id": "f8",
+   "statement": "The extract restored the reduced levels of two specific GABA receptor subunit genes in the hippocampus but did not significantly affect the other four tested subunits.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f9",
+   "statement": "Among the tested compounds, only paeoniflorin showed specific binding activity at a particular site on the GABA receptors.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f10",
+   "statement": "Electrical recordings from neurons confirmed that paeoniflorin changed the flow of chloride ions triggered by GABA in a way that depended on the concentration of the compound.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

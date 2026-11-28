@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1038/s41593-026-02519-2",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "1a0324780767216b",
+ "generated_at": "2026-11-28T16:13:20+00:00",
+ "word_count": 116,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers tested male mice in a fear conditioning setup that used two different locations.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "In safe areas after avoiding a threat, the animals entered a state of slow breathing and stillness, characterized by a rate of 2 to 4 times per second and hippocampal memory replay during specific brain waves.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Post-task stress levels depended on the mix of time spent freezing versus time in this slow-breathing state, rather than on the number of shocks received.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Blocking the hippocampal brain waves reduced the frequency of the slow-breathing state and increased stress, whereas administering diazepam increased the state while blocking those waves.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The authors suggest that hippocampal memory replay may help the body recover and build emotional resilience.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-28T16:24:33+00:00"
+ }
+}

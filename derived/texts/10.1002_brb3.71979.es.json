@@ -1,0 +1,53 @@
+{
+ "study_id": "10.1002/brb3.71979",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "09668084a87a679d",
+ "generated_at": "2026-11-28T16:22:27+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "En un análisis transversal de 135 pacientes hospitalizados con enfermedad de pequeños vasos cerebrales, los investigadores clasificaron los espacios perivasculares dilatados mediante la escala de Potter y evaluaron la calidad del sueño y la función cognitiva a través del Índice de Calidad del Sueño de Pittsburgh y una Evaluación Cognitiva de Montreal ajustada por nivel educativo.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los grados más altos de espacios perivasculares en los ganglios basales se asociaron con una peor calidad del sueño y puntuaciones cognitivas más bajas, de modo que cada incremento de un grado se vinculó a una reducción de 1,133 puntos en el rendimiento cognitivo ajustado.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "El análisis de mediación estadística indicó un efecto indirecto de -0,6208 cuando la calidad del sueño actuaba como vía entre los espacios perivasculares y la cognición, mientras que invertir el orden producía un efecto indirecto de -0,0609.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "Aunque la calidad subjetiva del sueño y la latencia para iniciar el sueño se asociaron con las puntuaciones cognitivas en los modelos básicos, estas asociaciones no persistieron en los modelos extendidos.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-28T16:25:34+00:00"
+ }
+}

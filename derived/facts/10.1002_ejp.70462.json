@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1002/ejp.70462",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "9fcc8d39c7a18d8c",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-28T15:59:46+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study involved four groups of participants, with group sizes of 22, 10, 15, and 15, in whom itch was triggered using histamine or cowhage.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers applied sinusoidal and half-sine-wave electrical stimulation to both sensitized and control skin areas to measure itch and pain responses.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "The method for selectively activating C-fibres was confirmed by blocking A-fibres.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "Pre-treating the skin with an itch-inducing agent significantly increased the chance that electrical C-fibre stimulation would be felt as itch at the treated site compared to untreated skin.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The intensity of the electrically induced itch did not increase with stronger stimulation, whereas pain ratings did show a clear dependence on stimulus intensity.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Mapping the skin showed a secondary area of itch sensitivity that was similar in size to areas of mechanical itch sensitivity and larger than the typical receptive fields of primary nerve endings.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "Applying local cooling significantly reduced the itch caused by histamine and lowered the likelihood that C-fibre stimulation would be perceived as itchy.",
+   "subject": "humans"
+  },
+  {
+   "id": "f8",
+   "statement": "C-fibre hyperknesis was more common in participants who still had spontaneous itch (61.9%) than in those whose itch had resolved (29.2%).",
+   "subject": "humans"
+  },
+  {
+   "id": "f9",
+   "statement": "The results show that spinal itch sensitization includes C-fibre input and is maintained by ongoing itch activity.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

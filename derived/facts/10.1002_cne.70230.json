@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1002/cne.70230",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "e7c21cea68dda805",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-28T15:57:41+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "In C57BL/6J mice, the protein NeuN forms a stable gradient that separates the four different types of spiral ganglion neurons.",
+   "subject": "animals"
+  },
+  {
+   "id": "f2",
+   "statement": "Quantitative measurements at 14 days, 2 months, and 12 months showed NeuN levels were highest in Type Ic neurons, medium in Type Ib, low in Type Ia, and missing in Type II neurons.",
+   "subject": "animals"
+  },
+  {
+   "id": "f3",
+   "statement": "The amount of NeuN was inversely related to calretinin and positively related to Brn3a, indicating a smooth gradient rather than a simple on/off switch.",
+   "subject": "animals"
+  },
+  {
+   "id": "f4",
+   "statement": "Experiments using four labels at once confirmed that the brightness of NeuN matched the neuron subtype defined by the combination of calretinin and Brn3a.",
+   "subject": "animals"
+  },
+  {
+   "id": "f5",
+   "statement": "In 2-month-old mice, NeuN and calretinin varied significantly across the frequency map of the ear, while Brn3a stayed uniform.",
+   "subject": "animals"
+  },
+  {
+   "id": "f6",
+   "statement": "Over the lifespan, NeuN and calretinin changed depending on their location, but Brn3a remained stable.",
+   "subject": "animals"
+  },
+  {
+   "id": "f7",
+   "statement": "Even though hearing thresholds rose at 12 months, the differences in NeuN and its relationship with other markers were maintained.",
+   "subject": "animals"
+  }
+ ],
+ "rejected": []
+}

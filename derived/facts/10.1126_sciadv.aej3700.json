@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1126/sciadv.aej3700",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "0ed1459f47abdec1",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-28T15:52:32+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The researchers created a new family of zwitterionic solvents intended to replace dimethyl sulfoxide in biological experiments.",
+   "subject": "other"
+  },
+  {
+   "id": "f2",
+   "statement": "The new solvents showed no toxicity when given orally and had much lower toxicity when injected intravenously compared to a previously reported solvent.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "The new solvents allowed the delivery of drugs that could not be dissolved in water or dimethyl sulfoxide.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "Using the new solvents instead of dimethyl sulfoxide reduced the unwanted activation of c-fos genes, which helps in studying the brain.",
+   "subject": "other"
+  },
+  {
+   "id": "f5",
+   "statement": "The authors suggest the solvent family could help develop 1000 to 5000 new drugs by making previously unusable drug candidates soluble.",
+   "subject": "other"
+  }
+ ],
+ "rejected": []
+}

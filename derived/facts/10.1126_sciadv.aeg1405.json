@@ -1,0 +1,37 @@
+{
+ "study_id": "10.1126/sciadv.aeg1405",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "eb4cc4825b779d95",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-28T15:50:29+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study found six new genetic changes in the PRR12 gene in unrelated people with intellectual disability, a pattern that was statistically significant.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Researchers used mice and human stem cells grown into brain-like tissue to investigate how the gene works.",
+   "subject": "other"
+  },
+  {
+   "id": "f3",
+   "statement": "Having only one working copy of the PRR12 gene was found to hinder the development of brain cells and the growth of their connections, which is linked to cognitive problems.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f4",
+   "statement": "The PRR12 protein was shown to be present at the control regions of important genes that manage brain cell growth and communication, such as SNCG.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f5",
+   "statement": "Reducing the activity of the SNCG gene fixed the structural problems in the brain cells, which points to a possible treatment for children with this condition.",
+   "subject": "cells_or_tissue"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,54 @@
+{
+ "study_id": "10.1002/acm2.70925",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "234f253df25564c4",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-28T15:54:34+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The new treatment plans used a technique called intensity-modulated radiotherapy to deliver a total dose of 30 Gy in 10 sessions, aiming to meet specific safety and effectiveness standards.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The researchers measured the radiation dose delivered to the target area and to sensitive structures including the hippocampi, optic nerves, optic chiasm, and lenses.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "To check the accuracy of the treatment, the plans were delivered to a specialized detector array that is compatible with the MRI machine.",
+   "subject": "other"
+  },
+  {
+   "id": "f4",
+   "statement": "Every treatment plan created for the new machine met the required safety limits for both the tumor target and the surrounding healthy organs.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "The average radiation dose to the target volume was 35.49 Gy for the highest dose area and 26.85 Gy for the lowest dose area.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The average maximum dose to the hippocampi was 13.57 Gy, and the average minimum dose was 8.07 Gy.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "When comparing the planned radiation dose with the actual measured dose, the average agreement was 96.43%, and all 15 plans had an agreement rate above 95%.",
+   "subject": "other"
+  },
+  {
+   "id": "f8",
+   "statement": "The study concludes that creating these treatment plans on the specific MRI-linac system is technically feasible and that the delivery accuracy is supported by the quality assurance tests.",
+   "subject": "other"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

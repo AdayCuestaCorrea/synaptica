@@ -1,0 +1,44 @@
+{
+ "study_id": "10.1007/s11357-026-02671-4",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "92a34b8635522aa6",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-28T16:04:56+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "Brain activity was measured using high-density electroencephalography at the start, middle, and end of the study while participants completed a visual reaction task that required them to either respond or withhold a response.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "The training did not change the size of the early P1 or later P3 brain signals.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Participants in the dual-task training group showed growing N1 brain signals, which suggests better attentional selection, and larger prefrontal P2 signals, which indicates improved integration of stimuli and actions.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The control group, which received only motor training, did not show similar changes in these brain signals.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "An exploratory index showed a consistent and progressive pattern of coordinated brain adaptation in the dual-task training group across different stages of processing.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "The results suggest that some of the brain vulnerabilities associated with frailty might be partially reversed by training that combines cognitive and motor tasks.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": [
+  "numbers not in the quote"
+ ]
+}

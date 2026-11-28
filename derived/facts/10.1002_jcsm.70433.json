@@ -1,0 +1,52 @@
+{
+ "study_id": "10.1002/jcsm.70433",
+ "status": "ok",
+ "abstract_from": "pubmed",
+ "abstract_hash": "0c766366ddf8859c",
+ "prompt_version": "s5-extract-facts-v2 (adapted from Paleo Atlas extract-facts-v3; v2 after Sofía's S5 review)",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "generated_at": "2026-11-28T16:00:49+00:00",
+ "facts": [
+  {
+   "id": "f1",
+   "statement": "The study analyzed muscle tissue samples from seven people with spinal muscular atrophy, four with amyotrophic lateral sclerosis, and six healthy controls.",
+   "subject": "humans"
+  },
+  {
+   "id": "f2",
+   "statement": "Analysis found that 449 genes were turned on in both spinal muscular atrophy and amyotrophic lateral sclerosis, indicating shared molecular changes.",
+   "subject": "humans"
+  },
+  {
+   "id": "f3",
+   "statement": "Both diseases showed increased activity in pathways for nerve-muscle junction remodeling, axon guidance, calcium signaling, and stress responses, while genes for energy production and protein building were reduced.",
+   "subject": "humans"
+  },
+  {
+   "id": "f4",
+   "statement": "The genetic differences between the disease and control groups matched the severity of the muscle damage seen under a microscope.",
+   "subject": "humans"
+  },
+  {
+   "id": "f5",
+   "statement": "In the early stages of the disease, stress and calcium-related genes were active, while later stages were marked by the growth of connective tissue and fat cells.",
+   "subject": "humans"
+  },
+  {
+   "id": "f6",
+   "statement": "Researchers found a specific group of muscle cell nuclei in the disease samples that expressed genes for nerve connections and were active in a denervation program.",
+   "subject": "humans"
+  },
+  {
+   "id": "f7",
+   "statement": "Levels of the proteins COL19A1 and netrin-1 were higher in the muscle tissue, and netrin-1 and BDNF helped motor neurons survive and grow in lab tests.",
+   "subject": "cells_or_tissue"
+  },
+  {
+   "id": "f8",
+   "statement": "In spinal muscular atrophy samples, the study found 3,633 areas of DNA that were more open to gene regulation, particularly at sites related to axon guidance.",
+   "subject": "humans"
+  }
+ ],
+ "rejected": []
+}

@@ -1,0 +1,47 @@
+{
+ "study_id": "10.1126/sciadv.aee7475",
+ "lang": "en",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "26607f3a806bf1d9",
+ "generated_at": "2026-11-28T16:04:57+00:00",
+ "word_count": 120,
+ "problems": [
+  "sentence 1: says 'proves' but no cited fact does",
+  "sentence 2: says 'causal' but no cited fact does"
+ ],
+ "sentences": [
+  {
+   "text": "Researchers used male mice to demonstrate that arcuate Kiss1 neurons, a specific group of brain cells, help control heat production in brown fat.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "The study found that removing these neurons was associated with weight gain, while artificially activating them resulted in increased heat burning without higher food intake.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "This heat production was driven by signals sent from the arcuate neurons to the dorsomedial hypothalamus, a specific area in the brain.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Additionally, using a gene-editing tool to remove a gene for a chemical messenger or a specific receptor gene in these neurons led to obesity by altering energy balance.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Finally, stimulating certain brain fibers with light showed that the Kiss1 neurons respond to signals through the melanocortin 4 receptor.",
+   "fact_ids": [
+    "f6"
+   ]
+  }
+ ]
+}

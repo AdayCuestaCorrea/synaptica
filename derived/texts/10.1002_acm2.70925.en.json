@@ -1,0 +1,53 @@
+{
+ "study_id": "10.1002/acm2.70925",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "5be3e491305da2fe",
+ "generated_at": "2026-11-28T16:16:22+00:00",
+ "word_count": 102,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers developed treatment plans using intensity-modulated radiotherapy to deliver a total dose of 30 Gy in 10 sessions, measuring radiation exposure to the target and sensitive structures like the hippocampi.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "To assess the precision of these plans, they were delivered to a specialized detector array that is compatible with the MRI machine.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "All plans met safety limits, with average target doses ranging from 26.85 Gy to 35.49 Gy and hippocampal doses between 8.07 Gy and 13.57 Gy.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "The average agreement between planned and measured doses was 96.43%, supporting the authors' conclusion that creating these plans on the MRI-linac system is technically feasible.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-28T16:25:32+00:00"
+ }
+}

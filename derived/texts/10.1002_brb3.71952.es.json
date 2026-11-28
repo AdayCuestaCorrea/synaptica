@@ -1,0 +1,60 @@
+{
+ "study_id": "10.1002/brb3.71952",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "78711b53377acb85",
+ "generated_at": "2026-11-28T16:19:24+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores administraron un extracto de medicina tradicional china a ratones adultos sanos y crearon un modelo de rata para el trastorno disfórico premenstrual mediante estrés repetido, midiendo posteriormente los comportamientos similares a la ansiedad y la depresión con pruebas estándar.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "El extracto redujo las señales de depresión y ansiedad en los ratones y mejoró significativamente los comportamientos asociados con la ansiedad y la desesperanza en las ratas estresadas.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "Utilizando qRT-PCR, una técnica de biología molecular, el estudio observó que el extracto restauró los niveles reducidos de dos subunidades específicas de genes de receptores de GABA en el hipocampo, mientras que las otras cuatro subunidades analizadas permanecieron sin cambios.",
+   "fact_ids": [
+    "f4",
+    "f8"
+   ]
+  },
+  {
+   "text": "Las simulaciones por ordenador identificaron la paeoniflorina como el compuesto, entre los probados, que mostró actividad de unión específica en un sitio particular de los receptores de GABA.",
+   "fact_ids": [
+    "f5",
+    "f9"
+   ]
+  },
+  {
+   "text": "Las grabaciones eléctricas de neuronas confirmaron que la paeoniflorina modificó el flujo de iones de cloruro desencadenado por la GABA de manera dependiente de la concentración.",
+   "fact_ids": [
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-28T16:25:33+00:00"
+ }
+}

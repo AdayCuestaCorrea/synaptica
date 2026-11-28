@@ -1,0 +1,46 @@
+{
+ "study_id": "10.1126/sciadv.aeg1405",
+ "lang": "es",
+ "status": "failed",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "179bdb1a1506442f",
+ "generated_at": "2026-11-28T16:06:14+00:00",
+ "word_count": null,
+ "problems": [
+  "sentence 4: 'proves' is not in the English sentence"
+ ],
+ "sentences": [
+  {
+   "text": "Los investigadores identificaron seis nuevas mutaciones genéticas en el gen PRR12 en personas no relacionadas con discapacidad intelectual, un patrón estadísticamente significativo.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "Para investigar cómo funciona este gen, el equipo utilizó ratones y células madre humanas cultivadas en tejido cerebral similar al humano.",
+   "fact_ids": [
+    "f2"
+   ]
+  },
+  {
+   "text": "En estos modelos, tener solo una copia funcional del gen PRR12 dificultó el desarrollo de las células cerebrales y el crecimiento de sus conexiones, lo que se asocia con problemas cognitivos.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Se demostró que la proteína PRR12 está presente en las regiones reguladoras de genes importantes que gestionan el crecimiento y la comunicación de las células cerebrales, como SNCG.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Reducir la actividad del gen SNCG corrigió los problemas estructurales en las células cerebrales, lo que apunta a un posible tratamiento para los niños con esta condición.",
+   "fact_ids": [
+    "f5"
+   ]
+  }
+ ],
+ "rechecked_at": "2026-11-28T16:24:30+00:00"
+}

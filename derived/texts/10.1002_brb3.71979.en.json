@@ -1,0 +1,53 @@
+{
+ "study_id": "10.1002/brb3.71979",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "09668084a87a679d",
+ "generated_at": "2026-11-28T16:22:27+00:00",
+ "word_count": 126,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "In a cross-sectional analysis of 135 inpatients with cerebral small vessel disease, researchers graded enlarged perivascular spaces using the Potter scale and assessed sleep quality and cognitive function via the Pittsburgh Sleep Quality Index and an education-adjusted Montreal Cognitive Assessment.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Higher grades of basal ganglia perivascular spaces were associated with worse sleep quality and lower cognitive scores, with each one-grade increase linked to a 1.133-point reduction in adjusted cognitive performance.",
+   "fact_ids": [
+    "f4",
+    "f5"
+   ]
+  },
+  {
+   "text": "Statistical mediation analysis indicated an indirect effect of -0.6208 when sleep quality served as the pathway between perivascular spaces and cognition, whereas reversing the order yielded an indirect effect of -0.0609.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "Although subjective sleep quality and sleep onset latency were associated with cognitive scores in basic models, these associations did not persist in extended models.",
+   "fact_ids": [
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-28T16:25:34+00:00"
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "study_id": "10.1002/acm2.70925",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "5be3e491305da2fe",
+ "generated_at": "2026-11-28T16:16:22+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores diseñaron planes de tratamiento mediante radioterapia de intensidad modulada para administrar una dosis total de 30 Gy en 10 sesiones, midiendo la exposición a la radiación en el objetivo y en estructuras sensibles como los hipocampos.",
+   "fact_ids": [
+    "f1",
+    "f2"
+   ]
+  },
+  {
+   "text": "Para evaluar la precisión de estos planes, se entregaron a un arreglo de detectores especializado compatible con el equipo de resonancia magnética.",
+   "fact_ids": [
+    "f3"
+   ]
+  },
+  {
+   "text": "Todos los planes cumplieron con los límites de seguridad, con dosis medias al objetivo que oscilaron entre 26,85 Gy y 35,49 Gy, y dosis al hipocampo comprendidas entre 8,07 Gy y 13,57 Gy.",
+   "fact_ids": [
+    "f4",
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "La concordancia media entre las dosis planificadas y las medidas fue del 96,43 %, lo que respalda la conclusión de los autores de que la creación de estos planes en el sistema de linac-resonancia magnética es técnicamente viable.",
+   "fact_ids": [
+    "f7",
+    "f8"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-28T16:25:32+00:00"
+ }
+}

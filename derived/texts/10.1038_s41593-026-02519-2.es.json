@@ -1,0 +1,57 @@
+{
+ "study_id": "10.1038/s41593-026-02519-2",
+ "lang": "es",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-adapt-es-v2 (adapted from Paleo Atlas adapt-es-v5; v2 after Sofía's S5 review)",
+ "facts_hash": "1a0324780767216b",
+ "generated_at": "2026-11-28T16:13:20+00:00",
+ "word_count": null,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Los investigadores probaron ratones machos en un montaje de condicionamiento al miedo que utilizaba dos ubicaciones distintas.",
+   "fact_ids": [
+    "f1"
+   ]
+  },
+  {
+   "text": "En las zonas seguras, tras evitar la amenaza, los animales entraban en un estado de respiración lenta e inmovilidad, caracterizado por una frecuencia de 2 a 4 veces por segundo y por la reproducción de la memoria hipocampal durante ondas cerebrales específicas.",
+   "fact_ids": [
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "Los niveles de estrés posteriores a la tarea dependían de la proporción entre el tiempo dedicado a la inmovilidad y el tiempo en este estado de respiración lenta, más que del número de choques recibidos.",
+   "fact_ids": [
+    "f4"
+   ]
+  },
+  {
+   "text": "Bloquear las ondas cerebrales del hipocampo redujo la frecuencia del estado de respiración lenta y aumentó el estrés, mientras que la administración de diazepam incrementó dicho estado al bloquear esas ondas.",
+   "fact_ids": [
+    "f5",
+    "f6"
+   ]
+  },
+  {
+   "text": "Los autores sugieren que la reproducción de la memoria hipocampal podría ayudar al organismo a recuperarse y a construir resiliencia emocional.",
+   "fact_ids": [
+    "f7"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-28T16:24:33+00:00"
+ }
+}

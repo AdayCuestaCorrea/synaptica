@@ -1,0 +1,60 @@
+{
+ "study_id": "10.1002/brb3.71952",
+ "lang": "en",
+ "status": "verified",
+ "generator": "groq/qwen/qwen3.8-27b",
+ "prompt_version": "s5-write-en-v2 (adapted from Paleo Atlas write-en-v8; v2 after Sofía's S5 review)",
+ "facts_hash": "78711b53377acb85",
+ "generated_at": "2026-11-28T16:19:24+00:00",
+ "word_count": 132,
+ "problems": [],
+ "sentences": [
+  {
+   "text": "Researchers administered a traditional Chinese medicine extract to healthy adult mice and created a rat model of premenstrual dysphoric disorder using repeated stress, then measured anxiety and depression-like behaviors with standard tests.",
+   "fact_ids": [
+    "f1",
+    "f2",
+    "f3"
+   ]
+  },
+  {
+   "text": "The extract reduced signs of depression and anxiety in the mice and significantly improved behaviors associated with anxiety and despair in the stressed rats.",
+   "fact_ids": [
+    "f6",
+    "f7"
+   ]
+  },
+  {
+   "text": "Using qRT-PCR, a molecular biology technique, the study found that the extract restored reduced levels of two specific GABA receptor subunit genes in the hippocampus while leaving the other four tested subunits unchanged.",
+   "fact_ids": [
+    "f4",
+    "f8"
+   ]
+  },
+  {
+   "text": "Computer simulations identified paeoniflorin as the compound among those tested that showed specific binding activity at a particular site on the GABA receptors.",
+   "fact_ids": [
+    "f5",
+    "f9"
+   ]
+  },
+  {
+   "text": "Electrical recordings from neurons confirmed that paeoniflorin changed the flow of chloride ions triggered by GABA in a concentration-dependent manner.",
+   "fact_ids": [
+    "f10"
+   ]
+  }
+ ],
+ "judge": {
+  "faithful": true,
+  "no_overclaim": true,
+  "no_medical_advice": true,
+  "spanish_matches": true,
+  "passed": true,
+  "reason": "",
+  "spanish_natural": 4,
+  "generator": "groq/openai/gpt-oss-120b",
+  "prompt_version": "s5-judge-v2 (v2 after Sofía's S5 review)",
+  "judged_at": "2026-11-28T16:25:33+00:00"
+ }
+}
