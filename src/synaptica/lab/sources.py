@@ -8,7 +8,9 @@ technique with ``limits_section_en`` in its table row also keeps that section of
 article, at the same revision as its lead (``limits_en``): its «limits» are then written
 from it. Since v245, ``limits_pmc`` and ``limits_pmc_section`` instead take that section
 from a PMC article (:mod:`synaptica.lab.pmc`): its text is kept here only under an open
-licence, else in the cache, with its hash here.
+licence, else in the cache, with its hash here. Since v253, ``protocol_section_en`` keeps
+another section of the article, at the lead's revision (``protocol_en``), that the
+technique's protocol is written from (Sofía's sheet, row 15).
 
 By hand (``syn lab sources``), never in the daily pipeline. No LLM: this only stores the
 sources a text will be written from.
@@ -67,6 +69,8 @@ def update_sources(
                             result, cache_root)  # fmt: skip
             else:
                 _limits(client, t, sources[k], prev, throttle, result)
+            _limits(client, t, sources[k], (old.get(k) or {}).get("protocol_en"), throttle,
+                    result, field="protocol_section_en", key="protocol_en")  # fmt: skip
     write_json(path, {
         "note": "Source of each Neuro Lab technique: the lead of its Wikipedia article at the "
         "revision given (oldid). Written by `syn lab sources`; do not edit by hand.",
@@ -120,15 +124,18 @@ def _limits(
     old: dict[str, Any] | None,
     throttle: Throttle,
     result: LeadsResult,
+    field: str = "limits_section_en",
+    key: str = "limits_en",
 ) -> None:
-    """Keep ``limits_en`` in step with the English lead: the same revision, or none."""
-    heading, en = tech.get("limits_section_en"), entry.get("en") or {}
-    entry.pop("limits_en", None)
+    """Keep ``key`` (``limits_en``, or ``protocol_en`` from ``protocol_section_en``, v253)
+    in step with the English lead: the same revision, or none."""
+    heading, en = tech.get(field), entry.get("en") or {}
+    entry.pop(key, None)
     if not heading or not en.get("accepted"):
         result.changed += old is not None  # no longer wanted: dropped
         return
     if old and old.get("revid") == en["revid"] and old.get("heading") == heading:
-        entry["limits_en"] = old  # the same revision: not asked again
+        entry[key] = old  # the same revision: not asked again
         return
     try:
         text = fetch_section(client, "en", en["revid"], heading, throttle)
@@ -138,8 +145,8 @@ def _limits(
     if text is None:  # renamed or removed in this revision: no source, the gap stays
         result.failed.append(f"{tech['id']}: no section «{heading}» in revision {en['revid']}")
         return
-    entry["limits_en"] = {"heading": heading, "revid": en["revid"], "url": en["url"],
-                          "retrieved": utc_today().isoformat(), "text": text}  # fmt: skip
+    entry[key] = {"heading": heading, "revid": en["revid"], "url": en["url"],
+                  "retrieved": utc_today().isoformat(), "text": text}  # fmt: skip
     result.sections += 1
     result.changed += 1
 

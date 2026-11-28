@@ -327,3 +327,87 @@ def test_a_failed_english_section_is_asked_again_alone(tmp_path: Path) -> None:
     assert rec["limit"]["en"][0]["fact_ids"] == ["r3"]
     assert rec["limit"]["prompts"]["lab_write_en"].startswith("lab-write-en-v2")
     assert texts.english_again(AgainLLM(), sources_path=src, path=out) == {}  # nothing left
+
+
+# ---- the protocol (v253): from the procedure section, its own card -----------------------
+
+PROTOCOL_SECTION = (
+    "A virus carrying the opsin gene is injected into the brain region. An optical fibre is "
+    "then implanted above it. After some weeks, light pulses are delivered through the fibre "
+    "while behaviour is recorded."
+)
+STEPS = [
+    ("A virus with the gene for the light-sensitive protein is injected into the region.",
+     "A virus carrying the opsin gene is injected into the brain region", "step"),
+    ("A thin optical fibre is placed above that region.",
+     "An optical fibre is then implanted above it", "step"),
+    ("Weeks later, pulses of light go through the fibre while behaviour is recorded.",
+     "light pulses are delivered through the fibre while behaviour is recorded", "step"),
+]  # fmt: skip
+PROTOCOL_EN = [
+    ("First, a virus carrying the gene for a light-sensitive protein is injected into the "
+     "chosen brain region.", ["p1"]),
+    ("Then a thin optical fibre is placed above that region.", ["p2"]),
+    ("Weeks later, light pulses are sent through the fibre while the animal's behaviour is "
+     "recorded.", ["p3"]),
+]  # fmt: skip
+PROTOCOL_ES = [
+    "Primero, se inyecta en la región del cerebro elegida un virus con el gen de una "
+    "proteína sensible a la luz.",
+    "Después se coloca una fibra óptica fina sobre esa región.",
+    "Semanas más tarde, se envían pulsos de luz por la fibra mientras se registra la "
+    "conducta del animal.",
+]
+
+
+class ProtocolLLM(FakeLLM):
+    def complete_json(self, system, user, output, max_tokens):
+        self.calls.append(output.__name__)
+        if output.__name__ == "ProtocolFacts":
+            assert PROTOCOL_SECTION in user
+            data = {"facts": [{"statement": s, "quote": q, "kind": k} for s, q, k in STEPS]}
+        elif output.__name__ == "Summary":
+            data = {"sentences": [{"text": t, "fact_ids": f} for t, f in PROTOCOL_EN]}
+        else:
+            data = {"sentences": [{"index": i, "text": t}
+                                  for i, t in enumerate(PROTOCOL_ES, 1)]}  # fmt: skip
+        return output.model_validate(data)
+
+
+def with_protocol(tmp_path: Path) -> Path:
+    src = sources(tmp_path)
+    body = json.loads(src.read_text())
+    body["techniques"]["optogenetics"]["protocol_en"] = {
+        "heading": "Technique", "revid": 7, "url": "https://en.wikipedia.org/w/index.php?oldid=7",
+        "retrieved": "2026-11-28", "text": PROTOCOL_SECTION}  # fmt: skip
+    src.write_text(json.dumps(body))
+    return src
+
+
+def test_the_protocol_is_drafted_alone_and_gets_its_own_card(tmp_path: Path) -> None:
+    out, src = tmp_path / "texts.json", with_protocol(tmp_path)
+    texts.write(FakeLLM(), sources_path=src, path=out)
+    before = {i.item_id: i.content_sha256 for i in texts.review_items(out, src)}
+    llm = ProtocolLLM()
+    assert texts.protocol(llm, sources_path=src, path=out) == {"optogenetics": "drafted"}
+    assert llm.calls[0] == "ProtocolFacts"
+    items = {i.item_id: i for i in texts.review_items(out, src)}
+    assert {k: items[k].content_sha256 for k in before} == before  # her cards: untouched
+    card = items["optogenetics-protocol"]
+    assert card.title_es.endswith("· Protocolo")
+    (s,) = card.content.sources
+    assert s.id == "wikipedia-en-lab-optogenetics-protocol" and "sección «Technique»" in s.label
+    assert texts.source_texts([card], src)[s.id] == PROTOCOL_SECTION
+    rec = json.loads(out.read_text())["techniques"]["optogenetics"]
+    assert [f["id"] for f in rec["facts"] if f["id"].startswith("p")] == ["p1", "p2", "p3"]
+    again = ProtocolLLM()
+    assert texts.protocol(again, sources_path=src, path=out) == {} and again.calls == []
+
+
+def test_no_protocol_without_its_section_or_its_lead_draft(tmp_path: Path) -> None:
+    out = tmp_path / "texts.json"
+    llm = ProtocolLLM()
+    assert texts.protocol(llm, sources_path=with_protocol(tmp_path), path=out) == {}
+    texts.write(FakeLLM(), sources_path=sources(tmp_path), path=out)  # no procedure section
+    assert texts.protocol(llm, sources_path=sources(tmp_path), path=out) == {}
+    assert llm.calls == []

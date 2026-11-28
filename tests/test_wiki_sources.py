@@ -180,8 +180,10 @@ def test_lab_sources_keep_the_limits_section_at_the_lead_revision(
     from synaptica.lab.studies import techniques
 
     pmc = ("limits_pmc", "limits_pmc_section")  # its PMC source (v245): test_lab_pmc
+    proto = ("protocol_section_en",)  # the protocol sections (v253): their own test
+    base = [{k: v for k, v in t.items() if k not in proto} for t in techniques()]
     rows = [{k: v for k, v in t.items() if k not in pmc} | {"limits_section_en": "Problems"}
-            if t["id"] == "western-blot" else t for t in techniques()]  # fmt: skip
+            if t["id"] == "western-blot" else t for t in base]  # fmt: skip
     monkeypatch.setattr(sources, "techniques", lambda: rows)
 
     pages = {t["source_en"]: f"{t['name_en']} names it: {t['text'][0] if t['text'] else ''}."
@@ -206,7 +208,7 @@ def test_lab_sources_keep_the_limits_section_at_the_lead_revision(
     assert again.sections == 0 and got == json.loads(path.read_text())["techniques"]
     assert len(fake.parsed) - n == 1 and "limits_en" in got["optogenetics"]
     # Taken out of the table: dropped from the sources, and counted as a change.
-    plain = [{k: v for k, v in t.items() if k != "limits_section_en"} for t in techniques()]
+    plain = [{k: v for k, v in t.items() if k != "limits_section_en"} for t in base]
     monkeypatch.setattr(sources, "techniques", lambda: plain)
     with make_client(httpx.MockTransport(fake)) as c:
         dropped = sources.update_sources(c, path=path, throttle=NO_WAIT)

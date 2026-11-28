@@ -939,7 +939,7 @@ def lab_sources(
     with make_client() as client:
         r = sources.update_sources(client, refresh=refresh, cache_root=config.get_paths().cache)
     typer.echo(f"Neuro Lab sources: {r.asked} asked, accepted EN {r.accepted['en']} / "
-               f"ES {r.accepted['es']}, {r.sections} «limits» sections stored, "
+               f"ES {r.accepted['es']}, {r.sections} sections stored («limits», protocol), "
                f"{r.changed} changed")  # fmt: skip
     for f in r.failed:
         typer.echo(f"  failed: {f}", err=True)
@@ -993,6 +993,14 @@ def lab_write(
             "taken again from the same source); the other section is not touched.",
         ),
     ] = False,
+    protocol: Annotated[
+        bool,
+        typer.Option(
+            "--protocol",
+            help="Only the protocol (v253), from the article's procedure section; the "
+            "other sections are not touched.",
+        ),
+    ] = False,
 ) -> None:
     """Draft «what it lets us see» and «limits» of each technique from its Wikipedia lead
     (facts -> EN -> ES, with the summaries' checks) -> src/synaptica/lab/texts.json. Not
@@ -1013,6 +1021,13 @@ def lab_write(
     if llm is None:
         typer.echo("No --provider given: nothing written.")
         raise typer.Exit(0)
+    if protocol:  # v253
+        done = texts.protocol(llm, only=only.split(",") if only else None)
+        for tid, st in done.items():
+            typer.echo(f"{tid}: protocol {st}")
+        typer.echo(f"Protocols: {len(done)} asked, "
+                   f"{sum(v == 'drafted' for v in done.values())} drafted")  # fmt: skip
+        return
     if failed_only:  # v232
         from synaptica.http import make_client
 

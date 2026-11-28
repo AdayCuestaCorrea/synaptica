@@ -55,6 +55,85 @@ SPEC = wikidraft.Spec(
 )  # fmt: skip
 
 
+# ---- the protocol (Sofía's sheet, row 15; v253) ----------------------------------------
+# From the article's procedure section (``protocol_en`` in sources.json, at the lead's
+# revision): its steps as facts (``p1``…), 3 to 6 sentences, the same checks. Its own card
+# (``<id>-protocol``); drafted apart from the other two sections, which keep their hash.
+
+PROTOCOL = "protocol"
+
+
+class ProtocolFact(BaseModel):
+    statement: str = Field(description="one step, self-contained, in English, own words")
+    quote: str = Field(description="exact span copied from the section")
+    kind: Literal["step", "clinical", "other"]
+
+
+class ProtocolFacts(BaseModel):
+    facts: list[ProtocolFact]
+
+
+SPEC_PROTOCOL = wikidraft.Spec(
+    subject="TECHNIQUE", facts_prompt="lab_protocol_facts",
+    write_prompt="lab_protocol_write_en", facts_schema=ProtocolFacts,
+    sections={PROTOCOL: "how it is done, step by step"}, kinds={PROTOCOL: ("step",)},
+    min_facts={PROTOCOL: 3}, max_words=130,
+)  # fmt: skip
+
+
+def _protocol(entry: dict[str, Any]) -> dict[str, Any] | None:
+    """The stored procedure section, only at the revision of the English lead."""
+    p, en = entry.get("protocol_en"), entry.get("en") or {}
+    return p if p and p.get("revid") == en.get("revid") else None
+
+
+def protocol(
+    llm: LLM,
+    *,
+    only: list[str] | None = None,
+    sources_path: Path | None = None,
+    path: Path | None = None,
+    now: dt.datetime | None = None,
+) -> dict[str, str]:
+    """Draft the protocol of the techniques whose lead was drafted and whose procedure
+    section is stored, not tried yet from that section (``only``: these ids). The other
+    sections are not touched. Returns technique -> status."""
+    path = path or TEXTS
+    now = now or dt.datetime.now(dt.UTC)
+    sources = read_json(sources_path or SOURCES, "techniques")
+    texts = read_json(path, "techniques")
+    status: dict[str, str] = {}
+    for tech in techniques():
+        tid, rec = tech["id"], texts.get(tech["id"])
+        en_src = (sources.get(tid) or {}).get("en") or {}
+        proto = _protocol(sources.get(tid) or {})
+        if (only and tid not in only) or not rec or not proto:
+            continue
+        if rec.get("revid") != en_src.get("revid"):
+            continue  # drafted from an older lead: its sections would not match
+        if (rec.get(PROTOCOL) or {}).get("section") == proto["heading"]:
+            continue  # tried from this section already: it would cost quota for the same
+        header = f"SECTION «{proto['heading']}» OF THE ARTICLE"
+        try:
+            verified, rejected = wikidraft.facts(llm, SPEC_PROTOCOL, tech["name_en"],
+                                                 proto["text"], prefix="p",
+                                                 header=header)  # fmt: skip
+            sec = wikidraft.section(llm, SPEC_PROTOCOL, tech["name_en"], PROTOCOL, verified,
+                                    wikidraft.plain(proto["text"]))  # fmt: skip
+        except LLMOutputError:
+            status[tid] = "model_error"
+            continue
+        rec["facts"] = [f for f in rec["facts"] if not f["id"].startswith("p")] + [
+            {k: f[k] for k in ("id", "statement", "kind")} for f in verified]  # fmt: skip
+        rec["rejected_protocol"] = rejected
+        rec[PROTOCOL] = sec | {"section": proto["heading"], "prompts": SPEC_PROTOCOL.prompts(),
+                               "generator": llm.label,
+                               "generated_at": now.isoformat(timespec="seconds")}  # fmt: skip
+        status[tid] = sec["status"]
+    _save(path, texts)
+    return status
+
+
 def write(
     llm: LLM,
     *,
@@ -138,7 +217,7 @@ def spanish_again(
         en_src = (sources.get(tid) or {}).get("en") or {}
         if (only and tid not in only) or not rec or rec.get("revid") != en_src.get("revid"):
             continue
-        for key in SECTIONS:
+        for key in (*SECTIONS, PROTOCOL):  # v253: the protocol too
             sec = rec.get(key) or {}
             if sec.get("status") != "failed_es":
                 continue
@@ -259,7 +338,7 @@ def _draft_limits(llm: LLM, name: str, rec: dict[str, Any], extra: dict[str, Any
 
 # ---- her review and what the site shows (B2-4, v210) ---------------------------------
 
-SECTION_ES = {"what": "Qué permite ver", "limit": "Límites"}
+SECTION_ES = {"what": "Qué permite ver", "limit": "Límites", PROTOCOL: "Protocolo"}
 
 
 def review_items(path: Path | None = None, sources_path: Path | None = None) -> list[ReviewItem]:
@@ -287,6 +366,13 @@ def review_items(path: Path | None = None, sources_path: Path | None = None) -> 
             out.append(wikidraft.section_item(
                 ItemType.LAB, f"{tid}-{kind}", f"{tech['name_es']} · {SECTION_ES[kind]}",
                 sec, src))  # fmt: skip
+        sec, proto = rec.get(PROTOCOL) or {}, _protocol(sources[tid])  # v253, its own card
+        if sec.get("status") == "drafted" and proto and proto["heading"] == sec.get("section"):
+            src = wikidraft.wiki_source(f"wikipedia-en-lab-{tid}-protocol", entry,
+                                        proto["heading"])  # fmt: skip
+            out.append(wikidraft.section_item(
+                ItemType.LAB, f"{tid}-{PROTOCOL}",
+                f"{tech['name_es']} · {SECTION_ES[PROTOCOL]}", sec, src))  # fmt: skip
     return out
 
 
@@ -309,6 +395,10 @@ def source_texts(items: list[ReviewItem], sources_path: Path | None = None,
                     out[s.id] = text
                 continue
             if not entry.get("accepted") or entry.get("url") != s.url:
+                continue
+            if s.id.endswith("-protocol"):
+                if proto := _protocol(sources.get(tid) or {}):
+                    out[s.id] = wikidraft.plain(proto["text"])
                 continue
             if s.id.endswith("-limits"):
                 if extra:

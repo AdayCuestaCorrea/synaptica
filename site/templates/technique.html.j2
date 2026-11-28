@@ -30,7 +30,13 @@
     <figcaption class="credit">{{ image.author }} · {% if image.licence_url %}<a href="{{ image.licence_url }}" rel="license noopener" target="_blank">{{ image.licence }}</a>{% else %}{{ image.licence }}{% endif %} · <a href="{{ image.source_url }}" rel="noopener" target="_blank">Wikimedia Commons</a></figcaption>
   </figure>
   {% endif %}
+  {% if "protocol" in texts %}{% set x = texts["protocol"] %}
+  <p data-lab-text="protocol">{{ x[lang] }}</p>
+  <p class="muted lab-review">{{ t["lab_reviewed_" ~ x.mark].format(date=date(x.reviewed_at)) }} ·
+    {{ t.gl_source }} <a href="{{ x.source.url }}" rel="noopener" lang="en">Wikipedia ({{ t.lang_en }}): «{{ x.source.title }}»</a> · CC BY-SA 4.0</p>
+  {% else %}
   <p class="muted">{{ m.gap("lab_protocol") }}</p>
+  {% endif %}
 
   <h2>{{ t.lab_studies_h }}{% if groups is not none %} {{ m.gap_if("lab_match") }}{% endif %}</h2>
   {% if groups is none %}
